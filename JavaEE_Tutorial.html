@@ -518,78 +518,67 @@ table.CodeRay td.code>pre{padding:0}
 .CodeRay .head .head{color:#f4f}
 </style>
 </head>
-<body class="book toc2 toc-left">
+<body id="JavaEE_Tutorial" class="book toc2 toc-left">
 <div id="header">
 <h1>JavaEE 7 Tutorial</h1>
 <div class="details">
 <span id="author" class="author">WildFly team</span><br>
 <span id="revnumber">version 12.0.0.Alpha1-SNAPSHOT,</span>
-<span id="revdate">2017-11-09T14:29:38Z</span>
+<span id="revdate">2018-02-14T10:04:13Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">JavaEE 7 Tutorial</div>
-<ul class="sectlevel1">
-<li><a href="#java-api-for-restful-web-services-jax-rs">1. Java API for RESTful Web Services (JAX-RS)</a>
+<ul class="sectlevel2">
+<li><a href="#content">1. Content</a></li>
+<li><a href="#tutorial-overview">2. Tutorial Overview</a></li>
+<li><a href="#what-are-restful-web-services">3. What are RESTful Web Services?</a></li>
+<li><a href="#creating-a-restful-endpoint">4. Creating a RESTful endpoint</a></li>
+<li><a href="#package-and-build-the-endpoint">5. Package and build the endpoint</a></li>
+<li><a href="#deploy-the-endpoint-to-openshift">6. Deploy the endpoint to OpenShift</a></li>
+<li><a href="#building-the-mobile-client">7. Building the mobile client</a></li>
+<li><a href="#exploring-the-mobile-client">8. Exploring the mobile client</a></li>
+<li><a href="#Java_Servlet_Technology">1. Java Servlet Technology</a>
 <ul class="sectlevel2">
 <li><a href="#content">1.1. Content</a></li>
-<li><a href="#tutorial-overview">1.2. Tutorial Overview</a></li>
-<li><a href="#what-are-restful-web-services">1.3. What are RESTful Web Services?</a></li>
-<li><a href="#creating-a-restful-endpoint">1.4. Creating a RESTful endpoint</a></li>
-<li><a href="#package-and-build-the-endpoint">1.5. Package and build the endpoint</a></li>
-<li><a href="#deploy-the-endpoint-to-openshift">1.6. Deploy the endpoint to OpenShift</a></li>
-<li><a href="#building-the-mobile-client">1.7. Building the mobile client</a></li>
-<li><a href="#exploring-the-mobile-client">1.8. Exploring the mobile client</a></li>
-<li><a href="#content">1.9. Content</a></li>
-<li><a href="#asynchronous-support">1.10. Asynchronous Support</a></li>
+<li><a href="#asynchronous-support">1.2. Asynchronous Support</a></li>
 </ul>
 </li>
-<li><a href="#java-server-faces-technology-jsf">2. Java Server Faces Technology (JSF)</a></li>
-<li><a href="#java-persistence-api-jpa">3. Java Persistence API (JPA)</a></li>
-<li><a href="#java-transaction-api-jta">4. Java Transaction API (JTA)</a></li>
-<li><a href="#contexts-and-dependency-injection-cdi">5. Contexts and Dependency Injection (CDI)</a></li>
-<li><a href="#bean-validation">6. Bean Validation</a></li>
-<li><a href="#java-message-service-api-jms">7. Java Message Service API (JMS)</a>
+<li><a href="#Managed_Beans">2. Managed Beans</a></li>
+<li><a href="#Bean_Validation">3. Bean Validation</a>
 <ul class="sectlevel2">
-<li><a href="#configure-jbossas-for-messaging">7.1. Configure JBossAS for Messaging</a></li>
-<li><a href="#adding-the-message-destinations">7.2. Adding the message destinations</a></li>
+<li><a href="#configure-jbossas-for-messaging">3.1. Configure JBossAS for Messaging</a></li>
+<li><a href="#adding-the-message-destinations">3.2. Adding the message destinations</a></li>
 </ul>
 </li>
-<li><a href="#javamail-api">8. JavaMail API</a></li>
-<li><a href="#java-authorization-contract-for-containers-jacc">9. Java Authorization Contract for Containers (JACC)</a></li>
-<li><a href="#java-authentication-service-provider-interface-for-containers-jaspic">10. Java Authentication Service Provider Interface for Containers (JASPIC)</a></li>
-<li><a href="#enterprise-javabeans-technology-ejb">11. Enterprise JavaBeans Technology (EJB)</a>
+<li><a href="#JavaMail_API">4. JavaMail API</a>
 <ul class="sectlevel2">
-<li><a href="#session-beans">11.1. Session Beans</a>
+<li><a href="#session-beans">4.1. Session Beans</a>
 <ul class="sectlevel3">
-<li><a href="#stateful-session-beans">11.1.1. Stateful Session Beans</a></li>
-<li><a href="#stateless-session-beans">11.1.2. Stateless Session Beans</a></li>
-<li><a href="#singleton-session-beans">11.1.3. Singleton Session Beans</a></li>
+<li><a href="#stateful-session-beans">4.1.1. Stateful Session Beans</a></li>
+<li><a href="#stateless-session-beans">4.1.2. Stateless Session Beans</a></li>
+<li><a href="#singleton-session-beans">4.1.3. Singleton Session Beans</a></li>
 </ul>
 </li>
-<li><a href="#message-driven-beans">11.2. Message Driven Beans</a></li>
-<li><a href="#how-can-enterprise-javabeans-can-be-accessed">11.3. How can Enterprise JavaBeans can be accessed?</a>
+<li><a href="#message-driven-beans">4.2. Message Driven Beans</a></li>
+<li><a href="#how-can-enterprise-javabeans-can-be-accessed">4.3. How can Enterprise JavaBeans can be accessed?</a>
 <ul class="sectlevel3">
-<li><a href="#remote-call-invocation">11.3.1. Remote call invocation</a></li>
-<li><a href="#local-call-invocation">11.3.2. Local call invocation</a></li>
-<li><a href="#web-services">11.3.3. Web Services</a></li>
+<li><a href="#remote-call-invocation">4.3.1. Remote call invocation</a></li>
+<li><a href="#local-call-invocation">4.3.2. Local call invocation</a></li>
+<li><a href="#web-services">4.3.3. Web Services</a></li>
 </ul>
 </li>
-<li><a href="#packaging">11.4. Packaging</a></li>
+<li><a href="#packaging">4.4. Packaging</a></li>
+<li><a href="#developing-web-service-implementations">4.5. Developing web service implementations</a>
+<ul class="sectlevel3">
+<li><a href="#the-service-implementation-class">4.5.1. The service implementation class</a></li>
+<li><a href="#deploying-service-implementations">4.5.2. Deploying service implementations</a></li>
 </ul>
 </li>
-<li><a href="#java-api-for-xml-web-services-jax-ws">12. Java API for XML Web Services (JAX-WS)</a>
-<ul class="sectlevel2">
-<li><a href="#developing-web-service-implementations">12.1. Developing web service implementations</a>
+<li><a href="#consuming-web-services">4.6. Consuming web services</a>
 <ul class="sectlevel3">
-<li><a href="#the-service-implementation-class">12.1.1. The service implementation class</a></li>
-<li><a href="#deploying-service-implementations">12.1.2. Deploying service implementations</a></li>
-</ul>
-</li>
-<li><a href="#consuming-web-services">12.2. Consuming web services</a>
-<ul class="sectlevel3">
-<li><a href="#creating-the-client-artifacts">12.2.1. Creating the client artifacts</a></li>
-<li><a href="#constructing-a-service-stub">12.2.2. Constructing a service stub</a></li>
-<li><a href="#appendix">12.2.3. Appendix</a></li>
+<li><a href="#creating-the-client-artifacts">4.6.1. Creating the client artifacts</a></li>
+<li><a href="#constructing-a-service-stub">4.6.2. Constructing a service stub</a></li>
+<li><a href="#appendix">4.6.3. Appendix</a></li>
 </ul>
 </li>
 </ul>
@@ -619,17 +608,18 @@ This guide is still under development, check back soon!
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>[[Java_API_for_RESTful_Web_Services_(JAX-RS)]]
+= Java API for RESTful Web Services (JAX-RS)</p>
 </div>
 </div>
-<div class="sect1">
-<h2 id="java-api-for-restful-web-services-jax-rs">1. Java API for RESTful Web Services (JAX-RS)</h2>
-<div class="sectionbody">
+</div>
 <div class="sect2">
-<h3 id="content">1.1. Content</h3>
+<h3 id="content">1. Content</h3>
 
 </div>
 <div class="sect2">
-<h3 id="tutorial-overview">1.2. Tutorial Overview</h3>
+<h3 id="tutorial-overview">2. Tutorial Overview</h3>
 <div class="paragraph">
 <p>This chapter describes the Java API for RESTful web services (JAX-RS,
 defined in <a href="http://jcp.org/en/jsr/detail?id=311">JSR331</a>).
@@ -680,7 +670,7 @@ RESTful service running on a JBossAS 7 instance in the cloud.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="what-are-restful-web-services">1.3. What are RESTful Web Services?</h3>
+<h3 id="what-are-restful-web-services">3. What are RESTful Web Services?</h3>
 <div class="paragraph">
 <p>Coming Soon</p>
 </div>
@@ -753,7 +743,7 @@ embedded in response messages.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-a-restful-endpoint">1.4. Creating a RESTful endpoint</h3>
+<h3 id="creating-a-restful-endpoint">4. Creating a RESTful endpoint</h3>
 <div class="paragraph">
 <p>A RESTful endpoint is deployed as JavaEE web archive (WAR). For this
 tutorial we use a simple library application to manage some books. There
@@ -897,7 +887,7 @@ API</a> documentation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="package-and-build-the-endpoint">1.5. Package and build the endpoint</h3>
+<h3 id="package-and-build-the-endpoint">5. Package and build the endpoint</h3>
 <div class="paragraph">
 <p>To package the endpoint we create a simple web archive and include a
 web.xml with the following content</p>
@@ -978,7 +968,7 @@ Cloning into javaee-tutorial...
 </div>
 </div>
 <div class="sect2">
-<h3 id="deploy-the-endpoint-to-openshift">1.6. Deploy the endpoint to OpenShift</h3>
+<h3 id="deploy-the-endpoint-to-openshift">6. Deploy the endpoint to OpenShift</h3>
 <div class="paragraph">
 <p>First we need to create a free
 <a href="https://openshift.redhat.com/app/express">OpenShift Express</a> account and
@@ -1086,7 +1076,7 @@ in the library.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="building-the-mobile-client">1.7. Building the mobile client</h3>
+<h3 id="building-the-mobile-client">7. Building the mobile client</h3>
 <div class="paragraph">
 <p>The source associated with this tutorial contains a fully working mobile
 client application for the Android framework. If not done so already
@@ -1206,7 +1196,7 @@ as from this client app</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exploring-the-mobile-client">1.8. Exploring the mobile client</h3>
+<h3 id="exploring-the-mobile-client">8. Exploring the mobile client</h3>
 <div class="paragraph">
 <p>There is a lot to writing high quality mobile applications. The goal of
 this little application is to get you started with JBossAS 7 / Android
@@ -1330,82 +1320,11 @@ of the application is considerably bigger in size (i.e. 400k)</p>
 <div class="paragraph">
 <p>Stay tuned for an update on a much more optimized version of the
 RESTEasy mobile client. Feasible is also a RESTEasy JavaScript library
-that would enable the portable PhoneGap approach.
-= Java Servlet Technology</p>
-</div>
-<div class="paragraph">
-<p>Coming Soon</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-This guide is still under development, check back soon!
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="content">1.9. Content</h3>
-
-</div>
-<div class="sect2">
-<h3 id="asynchronous-support">1.10. Asynchronous Support</h3>
-
-</div>
+that would enable the portable PhoneGap approach.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="java-server-faces-technology-jsf">2. Java Server Faces Technology (JSF)</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="java-persistence-api-jpa">3. Java Persistence API (JPA)</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="java-transaction-api-jta">4. Java Transaction API (JTA)</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Coming Soon</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-This guide is still under development, check back soon!
-= Managed Beans
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="contexts-and-dependency-injection-cdi">5. Contexts and Dependency Injection (CDI)</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="bean-validation">6. Bean Validation</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="java-message-service-api-jms">7. Java Message Service API (JMS)</h2>
+<h2 id="Java_Servlet_Technology">1. Java Servlet Technology</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Coming Soon</p>
@@ -1423,7 +1342,74 @@ This guide is still under development, check back soon!
 </table>
 </div>
 <div class="sect2">
-<h3 id="configure-jbossas-for-messaging">7.1. Configure JBossAS for Messaging</h3>
+<h3 id="content">1.1. Content</h3>
+
+</div>
+<div class="sect2">
+<h3 id="asynchronous-support">1.2. Asynchronous Support</h3>
+<div class="paragraph">
+<p>[[Java_Server_Faces_Technology_(JSF)]]
+= Java Server Faces Technology (JSF)</p>
+</div>
+<div class="paragraph">
+<p>[[Java_Persistence_API_(JPA)]]
+= Java Persistence API (JPA)</p>
+</div>
+<div class="paragraph">
+<p>[[Java_Transaction_API_(JTA)]]
+= Java Transaction API (JTA)</p>
+</div>
+<div class="paragraph">
+<p>Coming Soon</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+This guide is still under development, check back soon!
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Managed_Beans">2. Managed Beans</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>[[Contexts_and_Dependency_Injection_(CDI)]]
+= Contexts and Dependency Injection (CDI)</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Bean_Validation">3. Bean Validation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>[[Java_Message_Service_API_(JMS)]]
+= Java Message Service API (JMS)</p>
+</div>
+<div class="paragraph">
+<p>Coming Soon</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+This guide is still under development, check back soon!
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="configure-jbossas-for-messaging">3.1. Configure JBossAS for Messaging</h3>
 <div class="paragraph">
 <p>Currently, the default configuration does not include the JMS subsystem.
 To enable JMS in the standalone server you need to add these
@@ -1539,7 +1525,7 @@ configuration items to standalone.xml or simply use standalone-full.xml.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-the-message-destinations">7.2. Adding the message destinations</h3>
+<h3 id="adding-the-message-destinations">3.2. Adding the message destinations</h3>
 <div class="paragraph">
 <p>For this tutorial we use two message destinations</p>
 </div>
@@ -1569,20 +1555,19 @@ Closed connection to localhost:<span class="integer">9999</span></code></pre>
 </div>
 <div class="paragraph">
 <p>or by adding them to the subsytem configuration as shown above.
+[[JavaEE_Connector_Architecture_(JCA)]]
 = JavaEE Connector Architecture (JCA)</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="javamail-api">8. JavaMail API</h2>
+<h2 id="JavaMail_API">4. JavaMail API</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>[[Java_Authorization_Contract_for_Containers_(JACC)]]
+= Java Authorization Contract for Containers (JACC)</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="java-authorization-contract-for-containers-jacc">9. Java Authorization Contract for Containers (JACC)</h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>In order to register your own JACC Module, you&#8217;ll need to create a
 server module containing the required classes, and then set three system
@@ -1644,11 +1629,10 @@ classes from:</p>
 <pre class="CodeRay highlight"><code data-lang="java">[standalone<span class="annotation">@localhost</span>:<span class="integer">9990</span> /] /system-property=org.jboss.as.security.jacc-module:add(value=com.example.customjacc)</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>[[Java_Authentication_Service_Provider_Interface_for_Containers_(JASPIC)]]
+= Java Authentication Service Provider Interface for Containers (JASPIC)</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="java-authentication-service-provider-interface-for-containers-jaspic">10. Java Authentication Service Provider Interface for Containers (JASPIC)</h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>JASPI is not available by default for deployments, and a specific
 Security Domain must be created to use it. For a simplified developer
@@ -1686,11 +1670,10 @@ instead, placed under the root META-INF directory:</p>
 &lt;/jboss-app&gt;</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>[[Enterprise_JavaBeans_Technology_(EJB)]]
+= Enterprise JavaBeans Technology (EJB)</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="enterprise-javabeans-technology-ejb">11. Enterprise JavaBeans Technology (EJB)</h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>In this section we&#8217;ll look at the two main types of beans (Session Beans
 and Message Driven Beans), the methods to access and the packaging
@@ -1712,57 +1695,55 @@ This guide is still under development, check back soon!
 </table>
 </div>
 <div class="sect2">
-<h3 id="session-beans">11.1. Session Beans</h3>
+<h3 id="session-beans">4.1. Session Beans</h3>
 <div class="sect3">
-<h4 id="stateful-session-beans">11.1.1. Stateful Session Beans</h4>
+<h4 id="stateful-session-beans">4.1.1. Stateful Session Beans</h4>
 
 </div>
 <div class="sect3">
-<h4 id="stateless-session-beans">11.1.2. Stateless Session Beans</h4>
+<h4 id="stateless-session-beans">4.1.2. Stateless Session Beans</h4>
 
 </div>
 <div class="sect3">
-<h4 id="singleton-session-beans">11.1.3. Singleton Session Beans</h4>
+<h4 id="singleton-session-beans">4.1.3. Singleton Session Beans</h4>
 
 </div>
 </div>
 <div class="sect2">
-<h3 id="message-driven-beans">11.2. Message Driven Beans</h3>
+<h3 id="message-driven-beans">4.2. Message Driven Beans</h3>
 
 </div>
 <div class="sect2">
-<h3 id="how-can-enterprise-javabeans-can-be-accessed">11.3. How can Enterprise JavaBeans can be accessed?</h3>
+<h3 id="how-can-enterprise-javabeans-can-be-accessed">4.3. How can Enterprise JavaBeans can be accessed?</h3>
 <div class="sect3">
-<h4 id="remote-call-invocation">11.3.1. Remote call invocation</h4>
+<h4 id="remote-call-invocation">4.3.1. Remote call invocation</h4>
 
 </div>
 <div class="sect3">
-<h4 id="local-call-invocation">11.3.2. Local call invocation</h4>
+<h4 id="local-call-invocation">4.3.2. Local call invocation</h4>
 
 </div>
 <div class="sect3">
-<h4 id="web-services">11.3.3. Web Services</h4>
+<h4 id="web-services">4.3.3. Web Services</h4>
 
 </div>
 </div>
 <div class="sect2">
-<h3 id="packaging">11.4. Packaging</h3>
-
+<h3 id="packaging">4.4. Packaging</h3>
+<div class="paragraph">
+<p>[[Java_API_for_XML_Web_Services_(JAX-WS)]]
+= Java API for XML Web Services (JAX-WS)</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="java-api-for-xml-web-services-jax-ws">12. Java API for XML Web Services (JAX-WS)</h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>JBossWS uses the JBoss Application Server as its target container. The
 following examples focus on web service deployments that leverage EJB3
 service implementations and the JAX-WS programming models. For further
 information on POJO service implementations and advanced topics you need
-consult the <a href="#src-557104">user guide</a>.</p>
+consult the <a href="Developer_Guide.html#JAX-WS_User_Guide">user guide</a>.</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="developing-web-service-implementations">12.1. Developing web service implementations</h3>
+<h3 id="developing-web-service-implementations">4.5. Developing web service implementations</h3>
 <div class="paragraph">
 <p>JAX-WS does leverage annotations in order to express web service meta
 data on Java components and to describe the mapping between Java data
@@ -1809,7 +1790,7 @@ Services</a></p>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="the-service-implementation-class">12.1.1. The service implementation class</h4>
+<h4 id="the-service-implementation-class">4.5.1. The service implementation class</h4>
 <div class="paragraph">
 <p>When starting from Java you must provide the service implementation. A
 valid endpoint implementation class must meet the following
@@ -1940,7 +1921,7 @@ If you have more complex mapping problems you need to consult the
 </div>
 </div>
 <div class="sect3">
-<h4 id="deploying-service-implementations">12.1.2. Deploying service implementations</h4>
+<h4 id="deploying-service-implementations">4.5.2. Deploying service implementations</h4>
 <div class="paragraph">
 <p>Service deployment basically depends on the implementation type. As you
 may already know web services can be implemented as EJB3 components or
@@ -1990,7 +1971,7 @@ in the application server management console.
 </div>
 </div>
 <div class="sect2">
-<h3 id="consuming-web-services">12.2. Consuming web services</h3>
+<h3 id="consuming-web-services">4.6. Consuming web services</h3>
 <div class="paragraph">
 <p>When creating web service clients you would usually start from the WSDL.
 JBossWS ships with a set of tools to generate the required JAX-WS
@@ -1999,7 +1980,7 @@ will look at the most basic usage patterns. For a more detailed
 introduction to web service client please consult the user guide.</p>
 </div>
 <div class="sect3">
-<h4 id="creating-the-client-artifacts">12.2.1. Creating the client artifacts</h4>
+<h4 id="creating-the-client-artifacts">4.6.1. Creating the client artifacts</h4>
 <div class="sect4">
 <h5 id="using-wsconsume">Using wsconsume</h5>
 <div class="paragraph">
@@ -2103,7 +2084,7 @@ client implementations in the next section.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="constructing-a-service-stub">12.2.2. Constructing a service stub</h4>
+<h4 id="constructing-a-service-stub">4.6.2. Constructing a service stub</h4>
 <div class="paragraph">
 <p>Web service clients make use of a service stubs that hide the details of
 a remote web service invocation. To a client application a WS invocation
@@ -2142,7 +2123,7 @@ stub</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="appendix">12.2.3. Appendix</h4>
+<h4 id="appendix">4.6.3. Appendix</h4>
 <div class="sect4">
 <h5 id="sample-wsdl-contract">Sample wsdl contract</h5>
 <div class="listingblock">
@@ -2245,7 +2226,7 @@ stub</p>
 <div id="footer">
 <div id="footer-text">
 Version 12.0.0.Alpha1-SNAPSHOT<br>
-Last updated 2017-11-09 15:11:37 CET
+Last updated 2018-02-14 11:03:45 CET
 </div>
 </div>
 </body>

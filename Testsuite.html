@@ -518,18 +518,18 @@ table.CodeRay td.code>pre{padding:0}
 .CodeRay .head .head{color:#f4f}
 </style>
 </head>
-<body class="book toc2 toc-left">
+<body id="Testsuite" class="book toc2 toc-left">
 <div id="header">
 <h1>WildFly Testsuite</h1>
 <div class="details">
 <span id="author" class="author">WildFly team</span><br>
 <span id="revnumber">version 12.0.0.Alpha1-SNAPSHOT,</span>
-<span id="revdate">2017-11-09T14:29:38Z</span>
+<span id="revdate">2018-02-14T10:04:13Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">WildFly testsuite</div>
 <ul class="sectlevel1">
-<li><a href="#wildfly-testsuite-overview">1. WildFly Testsuite Overview</a>
+<li><a href="#WildFly_Testsuite_Overview">1. WildFly Testsuite Overview</a>
 <ul class="sectlevel2">
 <li><a href="#test-suite-organization">1.1. Test Suite Organization</a></li>
 <li><a href="#profiles">1.2. Profiles</a></li>
@@ -548,7 +548,7 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 </ul>
 </li>
-<li><a href="#wildfly-integration-testsuite-user-guide">2. WildFly Integration Testsuite User Guide</a>
+<li><a href="#WildFly_Integration_Testsuite_User_Guide">2. WildFly Integration Testsuite User Guide</a>
 <ul class="sectlevel2">
 <li><a href="#running-the-testsuite">2.1. Running the testsuite</a>
 <ul class="sectlevel3">
@@ -573,85 +573,89 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#cleaning-the-project">2.2.12. Cleaning the project</a></li>
 </ul>
 </li>
-<li><a href="#testsuite-requirements">2.3. Testsuite requirements</a></li>
-<li><a href="#adding-a-new-maven-plugin">2.4. Adding a new maven plugin</a></li>
-<li><a href="#shortened-maven-run-overview">2.5. Shortened Maven run overview</a></li>
-<li><a href="#how-the-as-instance-is-built">2.6. How the AS instance is built</a></li>
-<li><a href="#properties-and-their-propagation">2.7. Properties and their propagation</a>
+</ul>
+</li>
+<li><a href="#WildFly_Testsuite_Harness_Developer_Guide">3. WildFly Testsuite Harness Developer Guide</a>
+<ul class="sectlevel2">
+<li><a href="#testsuite-requirements">3.1. Testsuite requirements</a></li>
+<li><a href="#adding-a-new-maven-plugin">3.2. Adding a new maven plugin</a></li>
+<li><a href="#shortened-maven-run-overview">3.3. Shortened Maven run overview</a></li>
+<li><a href="#how-the-as-instance-is-built">3.4. How the AS instance is built</a></li>
+<li><a href="#properties-and-their-propagation">3.5. Properties and their propagation</a>
 <ul class="sectlevel3">
-<li><a href="#jboss-as-instance-dir">2.7.1. JBoss AS instance dir</a></li>
-<li><a href="#server-jvm-arguments">2.7.2. Server JVM arguments</a></li>
-<li><a href="#ip-settings">2.7.3. IP settings</a></li>
-<li><a href="#testsuite-directories">2.7.4. Testsuite directories</a></li>
-<li><a href="#clustering-properties">2.7.5. Clustering properties</a></li>
+<li><a href="#jboss-as-instance-dir">3.5.1. JBoss AS instance dir</a></li>
+<li><a href="#server-jvm-arguments">3.5.2. Server JVM arguments</a></li>
+<li><a href="#ip-settings">3.5.3. IP settings</a></li>
+<li><a href="#testsuite-directories">3.5.4. Testsuite directories</a></li>
+<li><a href="#clustering-properties">3.5.5. Clustering properties</a></li>
 </ul>
 </li>
-<li><a href="#debug-parameters-propagation">2.8. Debug parameters propagation</a></li>
+<li><a href="#debug-parameters-propagation">3.6. Debug parameters propagation</a></li>
 </ul>
 </li>
-<li><a href="#how-the-wildfly-is-built-and-configured-for-testsuite-modules">3. How the WildFly is built and configured for testsuite modules.</a>
+<li><a href="#How_the_server_is_built_and_configured_for_testsuite_modules">4. How the WildFly is built and configured for testsuite modules.</a>
 <ul class="sectlevel2">
-<li><a href="#arquillian-config-file-location">3.1. Arquillian config file location</a></li>
+<li><a href="#arquillian-config-file-location">4.1. Arquillian config file location</a></li>
 </ul>
 </li>
-<li><a href="#plugin-executions-matrix">4. Plugin executions matrix</a></li>
-<li><a href="#shortened-maven-run-overview-2">5. Shortened Maven Run Overview</a>
+<li><a href="#Plugin_executions_matrix">5. Plugin executions matrix</a></li>
+<li><a href="#Shortened_Maven_Run_Overview">6. Shortened Maven Run Overview</a>
 <ul class="sectlevel2">
-<li><a href="#how-to-get-it">5.1. How to get it</a></li>
-<li><a href="#how-its-done">5.2. How it&#8217;s done</a></li>
-<li><a href="#example-output-with-comments.">5.3. Example output with comments.</a></li>
-<li><a href="#example-output-unchanged">5.4. Example output, unchanged</a></li>
+<li><a href="#how-to-get-it">6.1. How to get it</a></li>
+<li><a href="#how-its-done">6.2. How it&#8217;s done</a></li>
+<li><a href="#example-output-with-comments.">6.3. Example output with comments.</a></li>
+<li><a href="#example-output-unchanged">6.4. Example output, unchanged</a></li>
 </ul>
 </li>
-<li><a href="#wildfly-testsuite-test-developer-guide">6. WildFly Testsuite Test Developer Guide</a>
+<li><a href="#WildFly_Testsuite_Test_Developer_Guide">7. WildFly Testsuite Test Developer Guide</a>
 <ul class="sectlevel2">
-<li><a href="#pre-requisites">6.1. Pre-requisites</a></li>
-<li><a href="#arquillian-container-configuration">6.2. Arquillian container configuration</a></li>
-<li><a href="#managementclient-and-modelnode-usage-example">6.3. ManagementClient and ModelNode usage example</a></li>
-<li><a href="#arquillian-features-available-in-tests">6.4. Arquillian features available in tests</a></li>
-<li><a href="#properties-available-in-tests">6.5. Properties available in tests</a>
+<li><a href="#pre-requisites">7.1. Pre-requisites</a></li>
+<li><a href="#arquillian-container-configuration">7.2. Arquillian container configuration</a></li>
+<li><a href="#managementclient-and-modelnode-usage-example">7.3. ManagementClient and ModelNode usage example</a></li>
+<li><a href="#arquillian-features-available-in-tests">7.4. Arquillian features available in tests</a></li>
+<li><a href="#properties-available-in-tests">7.5. Properties available in tests</a>
 <ul class="sectlevel3">
-<li><a href="#directories">6.5.1. Directories</a></li>
-<li><a href="#networking">6.5.2. Networking</a></li>
-<li><a href="#time-related-coefficients-ratios">6.5.3. Time-related coefficients (ratios)</a></li>
+<li><a href="#directories">7.5.1. Directories</a></li>
+<li><a href="#networking">7.5.2. Networking</a></li>
+<li><a href="#time-related-coefficients-ratios">7.5.3. Time-related coefficients (ratios)</a></li>
 </ul>
 </li>
-<li><a href="#negative-tests">6.6. Negative tests</a></li>
-<li><a href="#clustering-tests-wfly-616">6.7. Clustering tests (WFLY-616)</a></li>
-<li><a href="#how-to-get-the-tests-to-master">6.8. How to get the tests to master</a></li>
+<li><a href="#negative-tests">7.6. Negative tests</a></li>
+<li><a href="#clustering-tests-wfly-616">7.7. Clustering tests (WFLY-616)</a></li>
+<li><a href="#how-to-get-the-tests-to-master">7.8. How to get the tests to master</a></li>
 </ul>
 </li>
-<li><a href="#how-to-add-a-test-case">7. How to Add a Test Case</a>
+<li><a href="#How_to_Add_a_Test_Case">8. How to Add a Test Case</a>
 <ul class="sectlevel2">
-<li><a href="#create-a-test-case.">7.1. 1) Create a test case.</a></li>
-<li><a href="#push-your-test-case-to-github-and-create-a-pull-request.">7.2. 2) Push your test case to GitHub and create a pull request.</a></li>
-<li><a href="#wait-for-the-outcome.">7.3. 3) Wait for the outcome.</a></li>
+<li><a href="#create-a-test-case.">8.1. 1) Create a test case.</a></li>
+<li><a href="#push-your-test-case-to-github-and-create-a-pull-request.">8.2. 2) Push your test case to GitHub and create a pull request.</a></li>
+<li><a href="#wait-for-the-outcome.">8.3. 3) Wait for the outcome.</a></li>
 </ul>
 </li>
-<li><a href="#before-you-add-a-test">8. Before you add a test</a>
+<li><a href="#Pre-requisites_-_test_quality_standards">9. Before you add a test</a>
 <ul class="sectlevel2">
-<li><a href="#verify-the-test-belongs-in-wildfly">8.1. Verify the test belongs in WildFly</a></li>
-<li><a href="#only-add-correct-and-understandable-tests">8.2. Only add CORRECT and UNDERSTANDABLE tests</a></li>
-<li><a href="#do-not-add-duplicate-tests">8.3. Do not add duplicate tests</a></li>
-<li><a href="#don-t-name-tests-after-jiras">8.4. Don&#8217;t name tests after JIRAs</a></li>
-<li><a href="#tests-should-contain-javadoc-that-explains-what-is-being-tested">8.5. Tests should contain javadoc that explains what is being tested</a></li>
-<li><a href="#prefer-expanding-an-existing-test-over-a-new-test-class">8.6. Prefer expanding an EXISTING test over a new test class</a></li>
-<li><a href="#organize-tests-by-subsystem">8.7. Organize tests by subsystem</a></li>
-<li><a href="#explain-non-obvious-spec-behavior-in-comments">8.8. Explain non-obvious spec behavior in comments</a></li>
-<li><a href="#put-integration-test-resources-in-the-source-directory-of-the-test">8.9. Put integration test resources in the source directory of the test</a></li>
-<li><a href="#do-not-hard-code-values-likely-to-need-configuration-urls-ports">8.10. Do not hard-code values likely to need configuration (URLs, ports, &#8230;&#8203;)</a></li>
-<li><a href="#follow-best-committing-practices">8.11. Follow best committing practices</a></li>
-<li><a href="#do-not-use-blind-timeouts">8.12. Do not use blind timeouts</a></li>
-<li><a href="#provide-messages-in-assert-and-fail-calls">8.13. Provide messages in assert*() and fail() calls</a></li>
-<li><a href="#provide-configuration-properties-hints-in-exceptions">8.14. Provide configuration properties hints in exceptions</a></li>
-<li><a href="#clean-up">8.15. Clean up</a></li>
-<li><a href="#keep-the-tests-configurable">8.16. Keep the tests configurable</a></li>
+<li><a href="#verify-the-test-belongs-in-wildfly">9.1. Verify the test belongs in WildFly</a></li>
+<li><a href="#only-add-correct-and-understandable-tests">9.2. Only add CORRECT and UNDERSTANDABLE tests</a></li>
+<li><a href="#do-not-add-duplicate-tests">9.3. Do not add duplicate tests</a></li>
+<li><a href="#don-t-name-tests-after-jiras">9.4. Don&#8217;t name tests after JIRAs</a></li>
+<li><a href="#tests-should-contain-javadoc-that-explains-what-is-being-tested">9.5. Tests should contain javadoc that explains what is being tested</a></li>
+<li><a href="#prefer-expanding-an-existing-test-over-a-new-test-class">9.6. Prefer expanding an EXISTING test over a new test class</a></li>
+<li><a href="#organize-tests-by-subsystem">9.7. Organize tests by subsystem</a></li>
+<li><a href="#explain-non-obvious-spec-behavior-in-comments">9.8. Explain non-obvious spec behavior in comments</a></li>
+<li><a href="#put-integration-test-resources-in-the-source-directory-of-the-test">9.9. Put integration test resources in the source directory of the test</a></li>
+<li><a href="#do-not-hard-code-values-likely-to-need-configuration-urls-ports">9.10. Do not hard-code values likely to need configuration (URLs, ports, &#8230;&#8203;)</a></li>
+<li><a href="#follow-best-committing-practices">9.11. Follow best committing practices</a></li>
+<li><a href="#do-not-use-blind-timeouts">9.12. Do not use blind timeouts</a></li>
+<li><a href="#provide-messages-in-assert-and-fail-calls">9.13. Provide messages in assert*() and fail() calls</a></li>
+<li><a href="#provide-configuration-properties-hints-in-exceptions">9.14. Provide configuration properties hints in exceptions</a></li>
+<li><a href="#clean-up">9.15. Clean up</a></li>
+<li><a href="#keep-the-tests-configurable">9.16. Keep the tests configurable</a></li>
 </ul>
 </li>
-<li><a href="#shared-test-classes-and-resources">9. Shared Test Classes and Resources</a>
+<li><a href="#Shared_Test_Classes_and_Resources">10. Shared Test Classes and Resources</a>
 <ul class="sectlevel2">
-<li><a href="#among-testsuite-modules">9.1. Among Testsuite Modules</a></li>
-<li><a href="#between-components-and-testsuite-modules">9.2. Between Components and Testsuite Modules</a></li>
+<li><a href="#among-testsuite-modules">10.1. Among Testsuite Modules</a></li>
+<li><a href="#between-components-and-testsuite-modules">10.2. Between Components and Testsuite Modules</a></li>
 </ul>
 </li>
 </ul>
@@ -667,7 +671,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="sect1">
-<h2 id="wildfly-testsuite-overview">1. WildFly Testsuite Overview</h2>
+<h2 id="WildFly_Testsuite_Overview">1. WildFly Testsuite Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This document will detail the implementation of the testsuite
@@ -931,10 +935,10 @@ check whether persistent data are really persisted.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="wildfly-integration-testsuite-user-guide">2. WildFly Integration Testsuite User Guide</h2>
+<h2 id="WildFly_Integration_Testsuite_User_Guide">2. WildFly Integration Testsuite User Guide</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>See also:</strong> <a href="WildFly_Testsuite_Test_Developer_Guide.html">WildFly
+<p><strong>See also:</strong> <a href="#WildFly_Testsuite_Test_Developer_Guide">WildFly
 Testsuite Test Developer Guide</a></p>
 </div>
 <div class="paragraph">
@@ -1742,53 +1746,57 @@ sed <span class="string"><span class="delimiter">&quot;</span><span class="conte
 </div>
 </div>
 <div class="paragraph">
-<p>See also <a href="https://issues.jboss.org/browse/WFLY-628" class="bare">https://issues.jboss.org/browse/WFLY-628</a>.
-= WildFly Testsuite Harness Developer Guide</p>
+<p>See also <a href="https://issues.jboss.org/browse/WFLY-628" class="bare">https://issues.jboss.org/browse/WFLY-628</a>.</p>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="WildFly_Testsuite_Harness_Developer_Guide">3. WildFly Testsuite Harness Developer Guide</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Audience:</strong> Whoever wants to change the testsuite harness</p>
 </div>
 <div class="paragraph">
 <p><strong>JIRA</strong>: <a href="https://issues.jboss.org/browse/WFLY-576">WFLY-576</a></p>
 </div>
-</div>
-</div>
 <div class="sect2">
-<h3 id="testsuite-requirements">2.3. Testsuite requirements</h3>
+<h3 id="testsuite-requirements">3.1. Testsuite requirements</h3>
 <div class="paragraph">
 <p><a href="http://community.jboss.org/wiki/ASTestsuiteRequirements" class="bare">http://community.jboss.org/wiki/ASTestsuiteRequirements</a> will probably be
 merged here later.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-new-maven-plugin">2.4. Adding a new maven plugin</h3>
+<h3 id="adding-a-new-maven-plugin">3.2. Adding a new maven plugin</h3>
 <div class="paragraph">
 <p>The plugin version needs to be specified in jboss-parent. See
 <a href="https://github.com/jboss/jboss-parent-pom/blob/master/pom.xml#L65" class="bare">https://github.com/jboss/jboss-parent-pom/blob/master/pom.xml#L65</a> .</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="shortened-maven-run-overview">2.5. Shortened Maven run overview</h3>
+<h3 id="shortened-maven-run-overview">3.3. Shortened Maven run overview</h3>
 <div class="paragraph">
-<p>See <a href="#src-557176">Shortened Maven Run Overview</a>.</p>
+<p>See <a href="#Shortened_Maven_Run_Overview">Shortened Maven Run Overview</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-the-as-instance-is-built">2.6. How the AS instance is built</h3>
+<h3 id="how-the-as-instance-is-built">3.4. How the AS instance is built</h3>
 <div class="paragraph">
-<p>See <a href="#src-557176">How the JBoss AS instance is built and configured
+<p>See <a href="#How_the_server_is_built_and_configured_for_testsuite_modules">How the JBoss AS instance is built and configured
 for testsuite modules.</a></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="properties-and-their-propagation">2.7. Properties and their propagation</h3>
+<h3 id="properties-and-their-propagation">3.5. Properties and their propagation</h3>
 <div class="paragraph">
 <p>﻿Propagated to tests through arquillian.xml:<br>
 <code>&lt;property name="javaVmArguments"&gt;${server.jvm.args}&lt;/property&gt;</code><br>
 TBD: <a href="https://issues.jboss.org/browse/ARQ-647" class="bare">https://issues.jboss.org/browse/ARQ-647</a></p>
 </div>
 <div class="sect3">
-<h4 id="jboss-as-instance-dir">2.7.1. JBoss AS instance dir</h4>
+<h4 id="jboss-as-instance-dir">3.5.1. JBoss AS instance dir</h4>
 <div class="paragraph">
 <p><strong>integration/pom.xml</strong></p>
 </div>
@@ -1807,7 +1815,7 @@ TBD: <a href="https://issues.jboss.org/browse/ARQ-647" class="bare">https://issu
 </div>
 </div>
 <div class="sect3">
-<h4 id="server-jvm-arguments">2.7.2. Server JVM arguments</h4>
+<h4 id="server-jvm-arguments">3.5.2. Server JVM arguments</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;surefire.memory.args&gt;</span>-Xmx512m -XX:MaxPermSize=256m<span class="tag">&lt;/surefire.memory.args&gt;</span>
@@ -1817,7 +1825,7 @@ TBD: <a href="https://issues.jboss.org/browse/ARQ-647" class="bare">https://issu
 </div>
 </div>
 <div class="sect3">
-<h4 id="ip-settings">2.7.3. IP settings</h4>
+<h4 id="ip-settings">3.5.3. IP settings</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1829,7 +1837,7 @@ TBD: <a href="https://issues.jboss.org/browse/ARQ-647" class="bare">https://issu
 </div>
 </div>
 <div class="sect3">
-<h4 id="testsuite-directories">2.7.4. Testsuite directories</h4>
+<h4 id="testsuite-directories">3.5.4. Testsuite directories</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1845,7 +1853,7 @@ TBD: <a href="https://issues.jboss.org/browse/ARQ-647" class="bare">https://issu
 </div>
 </div>
 <div class="sect3">
-<h4 id="clustering-properties">2.7.5. Clustering properties</h4>
+<h4 id="clustering-properties">3.5.5. Clustering properties</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1859,7 +1867,7 @@ TBD: <a href="https://issues.jboss.org/browse/ARQ-647" class="bare">https://issu
 </div>
 </div>
 <div class="sect2">
-<h3 id="debug-parameters-propagation">2.8. Debug parameters propagation</h3>
+<h3 id="debug-parameters-propagation">3.6. Debug parameters propagation</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;surefire.jpda.args&gt;</span><span class="tag">&lt;/surefire.jpda.args&gt;</span>       - default
@@ -1884,10 +1892,10 @@ arquillian.xml:
 </div>
 </div>
 <div class="sect1">
-<h2 id="how-the-wildfly-is-built-and-configured-for-testsuite-modules">3. How the WildFly is built and configured for testsuite modules.</h2>
+<h2 id="How_the_server_is_built_and_configured_for_testsuite_modules">4. How the WildFly is built and configured for testsuite modules.</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Refer to <a href="#src-557167">Shortened Maven Run Overview</a> to see the
+<p>Refer to <a href="#Shortened_Maven_Run_Overview">Shortened Maven Run Overview</a> to see the
 mentioned build steps.</p>
 </div>
 <div class="paragraph">
@@ -1956,7 +1964,7 @@ phase generate-test-resources: resource-plugin, goal copy-resources</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="arquillian-config-file-location">3.1. Arquillian config file location</h3>
+<h3 id="arquillian-config-file-location">4.1. Arquillian config file location</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">-Darquillian.xml=some-file-or-classpath-resource.xml</code></pre>
@@ -1966,7 +1974,7 @@ phase generate-test-resources: resource-plugin, goal copy-resources</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="plugin-executions-matrix">4. Plugin executions matrix</h2>
+<h2 id="Plugin_executions_matrix">5. Plugin executions matrix</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>x - runs in this module<br>
@@ -2543,10 +2551,10 @@ x! - runs but should not.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="shortened-maven-run-overview-2">5. Shortened Maven Run Overview</h2>
+<h2 id="Shortened_Maven_Run_Overview">6. Shortened Maven Run Overview</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="how-to-get-it">5.1. How to get it</h3>
+<h3 id="how-to-get-it">6.1. How to get it</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">./integration-tests.sh clean install -DallTests | tee TS.txt | testsuite/tools/runSummary.sh</code></pre>
@@ -2554,7 +2562,7 @@ x! - runs but should not.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-its-done">5.2. How it&#8217;s done</h3>
+<h3 id="how-its-done">6.2. How it&#8217;s done</h3>
 <div class="paragraph">
 <p>Run this script on the output of the AS7 testsuite run:</p>
 </div>
@@ -2582,7 +2590,7 @@ cat $1 \
 </div>
 </div>
 <div class="sect2">
-<h3 id="example-output-with-comments.">5.3. Example output with comments.</h3>
+<h3 id="example-output-with-comments.">6.3. Example output with comments.</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">ondra@ondra-redhat: ~/work/AS7/ozizka-as7 $  ./integration-tests.sh clean install -DallTests | tee TS.txt | testsuite/tools/runSummary.sh
@@ -2645,7 +2653,7 @@ cat $1 \
 </div>
 </div>
 <div class="sect2">
-<h3 id="example-output-unchanged">5.4. Example output, unchanged</h3>
+<h3 id="example-output-unchanged">6.4. Example output, unchanged</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">ondra@lenovo:~/work/AS7/ozizka-git$ ./integration-tests.sh clean install -DallTests | tee TS.txt | testsuite/tools/runSummary.sh
@@ -2822,21 +2830,21 @@ SSCmeetingWestfordJan     [copy] Warning: /home/ondra/work/AS7/ozizka-git/testsu
 </div>
 </div>
 <div class="sect1">
-<h2 id="wildfly-testsuite-test-developer-guide">6. WildFly Testsuite Test Developer Guide</h2>
+<h2 id="WildFly_Testsuite_Test_Developer_Guide">7. WildFly Testsuite Test Developer Guide</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>See also:</strong> <a href="WildFly_Integration_Testsuite_User_Guide.html">WildFly
+<p><strong>See also:</strong> <a href="#WildFly_Integration_Testsuite_User_Guide">WildFly
 Integration Testsuite User Guide</a></p>
 </div>
 <div class="sect2">
-<h3 id="pre-requisites">6.1. Pre-requisites</h3>
+<h3 id="pre-requisites">7.1. Pre-requisites</h3>
 <div class="paragraph">
-<p>Please be sure to read <a href="#src-557173">Pre-requisites - test quality
+<p>Please be sure to read <a href="#Pre-requisites_-_test_quality_standards">Pre-requisites - test quality
 standards</a> and follow those guidelines.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="arquillian-container-configuration">6.2. Arquillian container configuration</h3>
+<h3 id="arquillian-container-configuration">7.2. Arquillian container configuration</h3>
 <div class="paragraph">
 <p>See
 <a href="https://docs.jboss.org/author/display/ARQ/JBoss+AS+7.1%2C+JBoss+EAP+6.0+-+Managed">AS
@@ -2844,7 +2852,7 @@ standards</a> and follow those guidelines.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="managementclient-and-modelnode-usage-example">6.3. ManagementClient and ModelNode usage example</h3>
+<h3 id="managementclient-and-modelnode-usage-example">7.3. ManagementClient and ModelNode usage example</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="directive">final</span> ModelNode operation = <span class="keyword">new</span> ModelNode();
@@ -2861,7 +2869,7 @@ Assert.assertEquals(ModelDescriptionConstants.SUCCESS, result.get(ModelDescripti
 </div>
 </div>
 <div class="sect2">
-<h3 id="arquillian-features-available-in-tests">6.4. Arquillian features available in tests</h3>
+<h3 id="arquillian-features-available-in-tests">7.4. Arquillian features available in tests</h3>
 <div class="paragraph">
 <p>@ServerSetup</p>
 </div>
@@ -2948,9 +2956,9 @@ manual mode, but it is still in my github branch :)</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="properties-available-in-tests">6.5. Properties available in tests</h3>
+<h3 id="properties-available-in-tests">7.5. Properties available in tests</h3>
 <div class="sect3">
-<h4 id="directories">6.5.1. Directories</h4>
+<h4 id="directories">7.5.1. Directories</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2978,7 +2986,7 @@ confusing. Use jboss.dist or jboss.inst.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="networking">6.5.2. Networking</h4>
+<h4 id="networking">7.5.2. Networking</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2994,7 +3002,7 @@ confusing. Use jboss.dist or jboss.inst.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="time-related-coefficients-ratios">6.5.3. Time-related coefficients (ratios)</h4>
+<h4 id="time-related-coefficients-ratios">7.5.3. Time-related coefficients (ratios)</h4>
 <div class="paragraph">
 <p>In case some of the following causes timeouts, you may prolong the
 timeouts by setting value &gt;= 100:</p>
@@ -3033,7 +3041,7 @@ timeouts.When this and specific are defined, both apply.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="negative-tests">6.6. Negative tests</h3>
+<h3 id="negative-tests">7.6. Negative tests</h3>
 <div class="paragraph">
 <p>To test invalid deployment handling: @ShouldThrowException</p>
 </div>
@@ -3061,7 +3069,7 @@ timeouts.When this and specific are defined, both apply.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clustering-tests-wfly-616">6.7. Clustering tests (WFLY-616)</h3>
+<h3 id="clustering-tests-wfly-616">7.7. Clustering tests (WFLY-616)</h3>
 <div class="paragraph">
 <p>You need to deploy the same thing twice, so two deployment methods that
 just return the same thing.<br>
@@ -3088,7 +3096,7 @@ And then you have tests that run against each.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-to-get-the-tests-to-master">6.8. How to get the tests to master</h3>
+<h3 id="how-to-get-the-tests-to-master">7.8. How to get the tests to master</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3177,7 +3185,7 @@ your branch.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="how-to-add-a-test-case">7. How to Add a Test Case</h2>
+<h2 id="How_to_Add_a_Test_Case">8. How to Add a Test Case</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><em>(Please don&#8217;t (re)move - this is a landing page from a Jira link.)</em></p>
@@ -3190,7 +3198,7 @@ If you&#8217;re providing a test case to support your bug report, it&#8217;s ver
 likely that your bug will be fixed much sooner.</p>
 </div>
 <div class="sect2">
-<h3 id="create-a-test-case.">7.1. 1) Create a test case.</h3>
+<h3 id="create-a-test-case.">8.1. 1) Create a test case.</h3>
 <div class="paragraph">
 <p>It&#8217;s quite easy - a simple use case may even consist of one short .java
 file.</p>
@@ -3201,7 +3209,7 @@ file.</p>
 suite test cases</a> for examples.</p>
 </div>
 <div class="paragraph">
-<p>For more information, see <a href="#src-557178">WildFly Testsuite Test
+<p>For more information, see <a href="#WildFly_Testsuite_Test_Developer_Guide">WildFly Testsuite Test
 Developer Guide</a>. Check the requirements for a test to be included in
 the testsuite.</p>
 </div>
@@ -3210,7 +3218,7 @@ the testsuite.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="push-your-test-case-to-github-and-create-a-pull-request.">7.2. 2) Push your test case to GitHub and create a pull request.</h3>
+<h3 id="push-your-test-case-to-github-and-create-a-pull-request.">8.2. 2) Push your test case to GitHub and create a pull request.</h3>
 <div class="paragraph">
 <p>For information on how to create a GitHub account and push your code
 therein, see <a href="https://community.jboss.org/wiki/HackingOnWildFly">Hacking
@@ -3222,7 +3230,7 @@ pick it up.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="wait-for-the-outcome.">7.3. 3) Wait for the outcome.</h3>
+<h3 id="wait-for-the-outcome.">8.3. 3) Wait for the outcome.</h3>
 <div class="paragraph">
 <p>Your test case will be reviewed and eventually added. It may take few
 days.</p>
@@ -3234,14 +3242,14 @@ days.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="before-you-add-a-test">8. Before you add a test</h2>
+<h2 id="Pre-requisites_-_test_quality_standards">9. Before you add a test</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Every added test, whether ported or new should follow the same
 guidelines:</p>
 </div>
 <div class="sect2">
-<h3 id="verify-the-test-belongs-in-wildfly">8.1. Verify the test belongs in WildFly</h3>
+<h3 id="verify-the-test-belongs-in-wildfly">9.1. Verify the test belongs in WildFly</h3>
 <div class="paragraph">
 <p>AS6 has a lot of tests for things that are discontinued. For example
 the<br>
@@ -3252,7 +3260,7 @@ migrated.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="only-add-correct-and-understandable-tests">8.2. Only add CORRECT and UNDERSTANDABLE tests</h3>
+<h3 id="only-add-correct-and-understandable-tests">9.2. Only add CORRECT and UNDERSTANDABLE tests</h3>
 <div class="paragraph">
 <p>If you don&#8217;t understand what a test is doing (perhaps too complex), or<br>
 it&#8217;s going about things in a strange way that might not be correct,
@@ -3262,7 +3270,7 @@ correct test. Write a new one, ping the author, or skip it altogether.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="do-not-add-duplicate-tests">8.3. Do not add duplicate tests</h3>
+<h3 id="do-not-add-duplicate-tests">9.3. Do not add duplicate tests</h3>
 <div class="paragraph">
 <p>Always check that the test you are adding doesn&#8217;t have coverage<br>
 elsewhere (try using "git grep"). As mentioned above we have some<br>
@@ -3270,7 +3278,7 @@ overlap between 6 and 7. The 7 test version will likely be better.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="don-t-name-tests-after-jiras">8.4. Don&#8217;t name tests after JIRAs</h3>
+<h3 id="don-t-name-tests-after-jiras">9.4. Don&#8217;t name tests after JIRAs</h3>
 <div class="paragraph">
 <p>A JIRA number is useless without an internet connection, and they are<br>
 hard to read. If I get a test failure thats XDGR-843534578 I have to
@@ -3282,13 +3290,13 @@ available.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="tests-should-contain-javadoc-that-explains-what-is-being-tested">8.5. Tests should contain javadoc that explains what is being tested</h3>
+<h3 id="tests-should-contain-javadoc-that-explains-what-is-being-tested">9.5. Tests should contain javadoc that explains what is being tested</h3>
 <div class="paragraph">
 <p>This is especially critical if the test is non-trivial</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="prefer-expanding-an-existing-test-over-a-new-test-class">8.6. Prefer expanding an EXISTING test over a new test class</h3>
+<h3 id="prefer-expanding-an-existing-test-over-a-new-test-class">9.6. Prefer expanding an EXISTING test over a new test class</h3>
 <div class="paragraph">
 <p>If you are looking at migrating or creating a test with similar<br>
 functionality to an exiting test, it is better to<br>
@@ -3300,7 +3308,7 @@ existing test case.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="organize-tests-by-subsystem">8.7. Organize tests by subsystem</h3>
+<h3 id="organize-tests-by-subsystem">9.7. Organize tests by subsystem</h3>
 <div class="paragraph">
 <p>Integration tests should be packaged in subpackages under the relevant<br>
 subsystem (e.g org.jboss.as.test.integration.ejb.async). When a test<br>
@@ -3312,7 +3320,7 @@ the CDI spec defines this behaviour)</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="explain-non-obvious-spec-behavior-in-comments">8.8. Explain non-obvious spec behavior in comments</h3>
+<h3 id="explain-non-obvious-spec-behavior-in-comments">9.8. Explain non-obvious spec behavior in comments</h3>
 <div class="paragraph">
 <p>The EE spec is full of odd requirements. If the test is covering<br>
 behavior that is not obvious then please add something like "Verifies
@@ -3321,7 +3329,7 @@ X.T.Z - The widget can&#8217;t have a foobar if it is declared like blah"</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="put-integration-test-resources-in-the-source-directory-of-the-test">8.9. Put integration test resources in the source directory of the test</h3>
+<h3 id="put-integration-test-resources-in-the-source-directory-of-the-test">9.9. Put integration test resources in the source directory of the test</h3>
 <div class="paragraph">
 <p>At the moment there is not real organization of these files. It makes<br>
 sense for most apps to have this separation, however the testsuite is<br>
@@ -3338,7 +3346,7 @@ a handful of files).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="do-not-hard-code-values-likely-to-need-configuration-urls-ports">8.10. Do not hard-code values likely to need configuration (URLs, ports, &#8230;&#8203;)</h3>
+<h3 id="do-not-hard-code-values-likely-to-need-configuration-urls-ports">9.10. Do not hard-code values likely to need configuration (URLs, ports, &#8230;&#8203;)</h3>
 <div class="paragraph">
 <p>URLs hardcoded to certain address (localhost) or port (like the default
 8080 for web) prevent running the test against different address or with
@@ -3353,7 +3361,7 @@ usage example</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="follow-best-committing-practices">8.11. Follow best committing practices</h3>
+<h3 id="follow-best-committing-practices">9.11. Follow best committing practices</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3383,7 +3391,7 @@ message(s).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="do-not-use-blind-timeouts">8.12. Do not use blind timeouts</h3>
+<h3 id="do-not-use-blind-timeouts">9.12. Do not use blind timeouts</h3>
 <div class="paragraph">
 <p>Do not use Thread.sleep() without checking for the actual condition you
 need to be fulfilled.<br>
@@ -3396,7 +3404,7 @@ configurable timeout value with a default if not set.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="provide-messages-in-assert-and-fail-calls">8.13. Provide messages in assert*() and fail() calls</h3>
+<h3 id="provide-messages-in-assert-and-fail-calls">9.13. Provide messages in assert*() and fail() calls</h3>
 <div class="paragraph">
 <p>Definitely, it&#8217;s better to see "File x/y/z.xml not found" instead of:</p>
 </div>
@@ -3411,7 +3419,7 @@ configurable timeout value with a default if not set.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="provide-configuration-properties-hints-in-exceptions">8.14. Provide configuration properties hints in exceptions</h3>
+<h3 id="provide-configuration-properties-hints-in-exceptions">9.14. Provide configuration properties hints in exceptions</h3>
 <div class="paragraph">
 <p>If your test uses some configuration property and it fails possibly due
 to misconfiguration, note the property and it&#8217;s value in the exception:</p>
@@ -3426,7 +3434,7 @@ to misconfiguration, note the property and it&#8217;s value in the exception:</p
 </div>
 </div>
 <div class="sect2">
-<h3 id="clean-up">8.15. Clean up</h3>
+<h3 id="clean-up">9.15. Clean up</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3443,7 +3451,7 @@ reload in a final \{&#8230;&#8203;} block or an @After* method)</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="keep-the-tests-configurable">8.16. Keep the tests configurable</h3>
+<h3 id="keep-the-tests-configurable">9.16. Keep the tests configurable</h3>
 <div class="paragraph">
 <p>Keep these things in properties, set them at the beginning of the test:
 * Timeouts
@@ -3459,10 +3467,10 @@ properties, or a simple testsuite until API (soon to come).</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="shared-test-classes-and-resources">9. Shared Test Classes and Resources</h2>
+<h2 id="Shared_Test_Classes_and_Resources">10. Shared Test Classes and Resources</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="among-testsuite-modules">9.1. Among Testsuite Modules</h3>
+<h3 id="among-testsuite-modules">10.1. Among Testsuite Modules</h3>
 <div class="paragraph">
 <p>Use the testsuite/shared module.</p>
 </div>
@@ -3483,7 +3491,7 @@ reused! A generated list will be put here.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="between-components-and-testsuite-modules">9.2. Between Components and Testsuite Modules</h3>
+<h3 id="between-components-and-testsuite-modules">10.2. Between Components and Testsuite Modules</h3>
 <div class="paragraph">
 <p>To share component&#8217;s test classes with some module in testsuite, you
 don&#8217;t need to split to submodules.
@@ -3526,7 +3534,7 @@ dependency to a testsuite module:</p>
 <div id="footer">
 <div id="footer-text">
 Version 12.0.0.Alpha1-SNAPSHOT<br>
-Last updated 2017-11-09 15:11:37 CET
+Last updated 2018-02-14 11:03:45 CET
 </div>
 </div>
 </body>

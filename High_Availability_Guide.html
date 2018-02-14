@@ -518,18 +518,18 @@ table.CodeRay td.code>pre{padding:0}
 .CodeRay .head .head{color:#f4f}
 </style>
 </head>
-<body class="book toc2 toc-left">
+<body id="High_Availability_Guide" class="book toc2 toc-left">
 <div id="header">
 <h1>High Availability Guide</h1>
 <div class="details">
 <span id="author" class="author">WildFly clustering team</span><br>
 <span id="revnumber">version 12.0.0.Alpha1-SNAPSHOT,</span>
-<span id="revdate">2017-11-09T14:29:38Z</span>
+<span id="revdate">2018-02-14T10:04:13Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">High Availability Guide</div>
 <ul class="sectlevel1">
-<li><a href="#introduction-to-high-availability-services">1. Introduction To High Availability Services</a>
+<li><a href="#Introduction_To_High_Availability_Services">1. Introduction To High Availability Services</a>
 <ul class="sectlevel2">
 <li><a href="#what-are-high-availability-services">1.1. What are High Availability services?</a></li>
 <li><a href="#high-availability-through-fail-over">1.2. High Availability through fail-over</a></li>
@@ -538,16 +538,16 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#organization-of-the-guide">1.5. Organization of the guide</a></li>
 </ul>
 </li>
-<li><a href="#http-services">2. HTTP Services</a></li>
-<li><a href="#subsystem-support">3. Subsystem Support</a></li>
-<li><a href="#infinispan-subsystem">4. Infinispan Subsystem</a>
+<li><a href="#HTTP_Services">2. HTTP Services</a></li>
+<li><a href="#Subsystem_Support">3. Subsystem Support</a></li>
+<li><a href="#Infinispan_Subsystem">4. Infinispan Subsystem</a>
 <ul class="sectlevel2">
 <li><a href="#purpose">4.1. Purpose</a></li>
 <li><a href="#configuration-example">4.2. Configuration Example</a></li>
 <li><a href="#use-cases">4.3. Use Cases</a></li>
 </ul>
 </li>
-<li><a href="#jgroups-subsystem">5. JGroups Subsystem</a>
+<li><a href="#JGroups_Subsystem">5. JGroups Subsystem</a>
 <ul class="sectlevel2">
 <li><a href="#purpose">5.1. Purpose</a></li>
 <li><a href="#configuration-example">5.2. Configuration example</a></li>
@@ -558,56 +558,56 @@ table.CodeRay td.code>pre{padding:0}
 <ul class="sectlevel2">
 <li><a href="#configuration">6.1. Configuration</a></li>
 <li><a href="#runtime-operations">6.2. Runtime Operations</a></li>
-<li><a href="#ssl-configuration-using-elytron-subsystem">6.3. SSL Configuration using Elytron Subsystem</a></li>
+<li><a href="#SSL_Configuration_using_Elytron_Subsystem">6.3. SSL Configuration using Elytron Subsystem</a></li>
 </ul>
 </li>
-<li><a href="#clustered-web-sessions">7. Clustered Web Sessions</a></li>
-<li><a href="#clustered-sso">8. Clustered SSO</a></li>
-<li><a href="#load-balancing">9. Load Balancing</a>
+<li><a href="#Clustered_Web_Sessions">7. Clustered Web Sessions</a></li>
+<li><a href="#Clustered_SSO">8. Clustered SSO</a></li>
+<li><a href="#Load_Balancing">9. Load Balancing</a>
 <ul class="sectlevel2">
 <li><a href="#load-balancing-with-apache-mod_jk">9.1. Load balancing with Apache + mod_jk</a></li>
 <li><a href="#load-balancing-with-apache-mod_cluster">9.2. Load balancing with Apache + mod_cluster</a></li>
-<li><a href="#apache-httpd">9.3. Apache httpd</a></li>
+<li><a href="#Apache_httpd">9.3. Apache httpd</a></li>
 </ul>
 </li>
-<li><a href="#ejb-services">10. EJB Services</a>
+<li><a href="#EJB_Services">10. EJB Services</a>
 <ul class="sectlevel2">
 <li><a href="#ejb-subsystem">10.1. EJB Subsystem</a></li>
 <li><a href="#ejb-timer">10.2. EJB Timer</a></li>
 </ul>
 </li>
-<li><a href="#hibernate">11. Hibernate</a></li>
-<li><a href="#ha-singleton-features">12. HA Singleton Features</a></li>
-<li><a href="#singleton-subsystem">13. Singleton subsystem</a>
+<li><a href="#Hibernate">11. Hibernate</a></li>
+<li><a href="#HA_Singleton_Features">12. HA Singleton Features</a></li>
+<li><a href="#Singleton_subsystem">13. Singleton subsystem</a>
 <ul class="sectlevel2">
 <li><a href="#configuration">13.1. Configuration</a></li>
 <li><a href="#non-ha-environments">13.2. Non-HA environments</a></li>
 </ul>
 </li>
-<li><a href="#singleton-deployments">14. Singleton deployments</a>
+<li><a href="#Singleton_deployments">14. Singleton deployments</a>
 <ul class="sectlevel2">
 <li><a href="#usage">14.1. Usage</a></li>
 </ul>
 </li>
-<li><a href="#singleton-msc-services">15. Singleton MSC services</a>
+<li><a href="#Singleton_MSC_services">15. Singleton MSC services</a>
 <ul class="sectlevel2">
 <li><a href="#installing-an-msc-service-using-an-existing-singleton-policy">15.1. Installing an MSC service using an existing singleton policy</a></li>
 <li><a href="#installing-an-msc-service-using-dynamic-singleton-policy">15.2. Installing an MSC service using dynamic singleton policy</a></li>
 </ul>
 </li>
-<li><a href="#related-topics">16. Related Topics</a>
+<li><a href="#Related_Topics">16. Related Topics</a>
 <ul class="sectlevel2">
 <li><a href="#modularity-and-class-loading">16.1. Modularity And Class Loading</a></li>
 <li><a href="#monitoring">16.2. Monitoring</a></li>
 </ul>
 </li>
-<li><a href="#changes-from-previous-versions">17. Changes From Previous Versions</a>
+<li><a href="#Changes_From_Previous_Versions">17. Changes From Previous Versions</a>
 <ul class="sectlevel2">
 <li><a href="#key-changes">17.1. Key changes</a></li>
 <li><a href="#migration-to-wildfly">17.2. Migration to Wildfly</a></li>
 </ul>
 </li>
-<li><a href="#clustering-and-domain-setup-walkthrough">18. Clustering and Domain Setup Walkthrough</a>
+<li><a href="#Clustering_and_Domain_Setup_Walkthrough">18. Clustering and Domain Setup Walkthrough</a>
 <ul class="sectlevel2">
 <li><a href="#preparation-scenario">18.1. Preparation &amp; Scenario</a></li>
 <li><a href="#download-wildfly-9">18.2. Download WildFly 9</a></li>
@@ -631,7 +631,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="sect1">
-<h2 id="introduction-to-high-availability-services">1. Introduction To High Availability Services</h2>
+<h2 id="Introduction_To_High_Availability_Services">1. Introduction To High Availability Services</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="what-are-high-availability-services">1.1. What are High Availability services?</h3>
@@ -797,7 +797,7 @@ which the feature depends.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="http-services">2. HTTP Services</h2>
+<h2 id="HTTP_Services">2. HTTP Services</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section summarizes the HTTP-based clustering features.</p>
@@ -805,13 +805,13 @@ which the feature depends.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="subsystem-support">3. Subsystem Support</h2>
+<h2 id="Subsystem_Support">3. Subsystem Support</h2>
 <div class="sectionbody">
 
 </div>
 </div>
 <div class="sect1">
-<h2 id="infinispan-subsystem">4. Infinispan Subsystem</h2>
+<h2 id="Infinispan_Subsystem">4. Infinispan Subsystem</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="purpose">4.1. Purpose</h3>
@@ -1683,7 +1683,7 @@ in the Infinispan subsystem interface used in these examples.
 </div>
 </div>
 <div class="sect1">
-<h2 id="jgroups-subsystem">5. JGroups Subsystem</h2>
+<h2 id="JGroups_Subsystem">5. JGroups Subsystem</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="purpose">5.1. Purpose</h3>
@@ -2518,11 +2518,11 @@ which can be specified</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="ssl-configuration-using-elytron-subsystem">6.3. SSL Configuration using Elytron Subsystem</h3>
+<h3 id="SSL_Configuration_using_Elytron_Subsystem">6.3. SSL Configuration using Elytron Subsystem</h3>
 <div class="paragraph">
 <p>This document provides information how to configure mod_cluster
 subsystem to protect communication between mod_cluster and load balancer
-using SSL/TLS using <a href="Elytron_Subsystem.html">Elytron Subsystem</a>.</p>
+using SSL/TLS using <a href="WildFly_Elytron_Security.html#Elytron_Subsystem">Elytron Subsystem</a>.</p>
 </div>
 <div class="sect3">
 <h4 id="overview">6.3.1. Overview</h4>
@@ -2658,19 +2658,19 @@ embedded in your certificates. For that, you need to configure a
 </div>
 </div>
 <div class="sect1">
-<h2 id="clustered-web-sessions">7. Clustered Web Sessions</h2>
+<h2 id="Clustered_Web_Sessions">7. Clustered Web Sessions</h2>
 <div class="sectionbody">
 
 </div>
 </div>
 <div class="sect1">
-<h2 id="clustered-sso">8. Clustered SSO</h2>
+<h2 id="Clustered_SSO">8. Clustered SSO</h2>
 <div class="sectionbody">
 
 </div>
 </div>
 <div class="sect1">
-<h2 id="load-balancing">9. Load Balancing</h2>
+<h2 id="Load_Balancing">9. Load Balancing</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section describes load balancing via Apache + mod_jk and Apache<br>
@@ -2695,7 +2695,7 @@ mod_cluster.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="apache-httpd">9.3. Apache httpd</h3>
+<h3 id="Apache_httpd">9.3. Apache httpd</h3>
 <div class="paragraph">
 <p>The recommended front-end module is mod_cluster but mod_jk or mod_proxy
 could be used as in Tomcat or other AS version.</p>
@@ -2727,7 +2727,7 @@ could be used as in Tomcat or other AS version.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="ejb-services">10. EJB Services</h2>
+<h2 id="EJB_Services">10. EJB Services</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This chapter explains how clustering of EJBs works in WildFly 12.</p>
@@ -2804,7 +2804,7 @@ with the standalone-ha.xml (or even standalone-full-ha.xml):</p>
 <div class="paragraph">
 <p>This will start a single instance of the server with HA capabilities.
 Deploying the EJBs to this instance <em>doesn&#8217;t</em> involve anything special
-and is the same as explained in the <a href="#src-557295">application
+and is the same as explained in the <a href="Admin_Guide.html#Application_deployment">application
 deployment chapter</a>.</p>
 </div>
 <div class="paragraph">
@@ -2873,7 +2873,7 @@ which runs in a separate JVM and <em>isn&#8217;t</em> running within another Wil
 8 instance). Let&#8217;s consider that we have 2 servers, server X and server
 Y which we started earlier. Each of these servers has the clustered EJB
 deployment. A standalone remote client can use either the
-<a href="#src-557295">JNDI approach</a> or native JBoss EJB client APIs to
+<a href="Developer_Guide.html#EJB_invocations_from_a_remote_client_using_JNDI">JNDI approach</a> or native JBoss EJB client APIs to
 communicate with the servers. The important thing to note is that when
 you are invoking clustered EJB deployments, you do <strong>not</strong> have to list
 all the servers within the cluster (which obviously wouldn&#8217;t have been
@@ -2980,7 +2980,7 @@ deployed on server X and Y and achieve failover.</p>
 </div>
 <div class="paragraph">
 <p>The configurations required to achieve this are explained in
-<a href="#src-557295">this chapter</a>. As you can see the configurations are
+<a href="Developer_Guide.html#EJB_invocations_from_a_remote_server_instance">this chapter</a>. As you can see the configurations are
 done in a jboss-ejb-client.xml which points to a remote outbound
 connection to the other server. This jboss-ejb-client.xml goes in the
 deployment of server C (since that&#8217;s our client). As explained eariler,
@@ -3024,13 +3024,13 @@ invocation is routed to a different node in the cluster.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="hibernate">11. Hibernate</h2>
+<h2 id="Hibernate">11. Hibernate</h2>
 <div class="sectionbody">
 
 </div>
 </div>
 <div class="sect1">
-<h2 id="ha-singleton-features">12. HA Singleton Features</h2>
+<h2 id="HA_Singleton_Features">12. HA Singleton Features</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In general, an HA or clustered singleton is a service that exists on
@@ -3043,7 +3043,7 @@ service is always running on one node.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="singleton-subsystem">13. Singleton subsystem</h2>
+<h2 id="Singleton_subsystem">13. Singleton subsystem</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>WildFly 10 introduces a "singleton" subsystem, which defines a set of
@@ -3194,7 +3194,7 @@ configuration.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="singleton-deployments">14. Singleton deployments</h2>
+<h2 id="Singleton_deployments">14. Singleton deployments</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>WildFly 10 resurrects the ability to start a given deployment on a
@@ -3225,7 +3225,7 @@ e.g.</p>
 </div>
 <div class="paragraph">
 <p>The singleton deployment descriptor defines which
-<a href="#src-557153">singleton policy</a> should be used to deploy the
+<a href="#Singleton_subsystem">singleton policy</a> should be used to deploy the
 application. If undefined, the default singleton policy is used, as
 defined by the singleton subsystem.</p>
 </div>
@@ -3243,7 +3243,7 @@ e.g.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="singleton-msc-services">15. Singleton MSC services</h2>
+<h2 id="Singleton_MSC_services">15. Singleton MSC services</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>WildFly allows any user MSC service to be installed as a singleton MSC
@@ -3323,7 +3323,7 @@ e.g.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="related-topics">16. Related Topics</h2>
+<h2 id="Related_Topics">16. Related Topics</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section describes additional issues related to the clustering
@@ -3345,7 +3345,7 @@ applications.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="changes-from-previous-versions">17. Changes From Previous Versions</h2>
+<h2 id="Changes_From_Previous_Versions">17. Changes From Previous Versions</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Describe here key changes between releases.</p>
@@ -3361,7 +3361,7 @@ applications.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="clustering-and-domain-setup-walkthrough">18. Clustering and Domain Setup Walkthrough</h2>
+<h2 id="Clustering_and_Domain_Setup_Walkthrough">18. Clustering and Domain Setup Walkthrough</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In this article, I&#8217;d like to show you how to setup WildFly 9 in domain
@@ -4391,7 +4391,7 @@ this document readable.</p>
 <div id="footer">
 <div id="footer-text">
 Version 12.0.0.Alpha1-SNAPSHOT<br>
-Last updated 2017-11-09 15:11:37 CET
+Last updated 2018-02-14 11:03:45 CET
 </div>
 </div>
 </body>

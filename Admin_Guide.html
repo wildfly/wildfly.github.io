@@ -518,40 +518,41 @@ table.CodeRay td.code>pre{padding:0}
 .CodeRay .head .head{color:#f4f}
 </style>
 </head>
-<body class="book toc2 toc-left">
+<body id="Admin_Guide" class="book toc2 toc-left">
 <div id="header">
 <h1>WildFly Admin Guide</h1>
 <div class="details">
 <span id="author" class="author">WildFly developer team</span><br>
 <span id="revnumber">version 12.0.0.Alpha1-SNAPSHOT,</span>
-<span id="revdate">2017-11-09T14:29:38Z</span>
+<span id="revdate">2018-02-14T10:04:13Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">WildFly Admin guide</div>
 <ul class="sectlevel1">
-<li><a href="#target-audience">1. Target Audience</a>
+<li><a href="#Target_Audience">1. Target Audience</a>
 <ul class="sectlevel2">
 <li><a href="#prerequisites">1.1. Prerequisites</a></li>
 <li><a href="#examples-in-this-guide">1.2. Examples in this guide</a></li>
 </ul>
 </li>
-<li><a href="#core-management-concepts">2. Core management concepts</a>
+<li><a href="#Core_management_concepts">2. Core management concepts</a>
 <ul class="sectlevel2">
-<li><a href="#operating-mode">2.1. Operating mode</a></li>
-<li><a href="#general-configuration-concepts">2.2. General configuration concepts</a></li>
-<li><a href="#management-resources">2.3. Management resources</a></li>
+<li><a href="#Operating_modes">2.1. Operating mode</a></li>
+<li><a href="#General_configuration_concepts">2.2. General configuration concepts</a></li>
+<li><a href="#Management_resources">2.3. Management resources</a></li>
 </ul>
 </li>
-<li><a href="#management-clients">3. Management Clients</a>
+<li><a href="#Management_Clients">3. Management Clients</a>
 <ul class="sectlevel2">
 <li><a href="#web-management-interface">3.1. Web Management Interface</a></li>
-<li><a href="#default-http-interface-security">3.2. Default HTTP Interface Security</a></li>
-<li><a href="#default-native-interface-security">3.3. Default Native Interface Security</a></li>
-<li><a href="#command-line-interface">3.4. Command Line Interface</a></li>
-<li><a href="#configuration-files">3.5. Configuration Files</a></li>
+<li><a href="#Command_Line_Interface">3.2. Command Line Interface</a></li>
+<li><a href="#Default_HTTP_Interface_Security">3.3. Default HTTP Interface Security</a></li>
+<li><a href="#Default_Native_Interface_Security">3.4. Default Native Interface Security</a></li>
+<li><a href="#command-line-interface">3.5. Command Line Interface</a></li>
+<li><a href="#configuration-files">3.6. Configuration Files</a></li>
 </ul>
 </li>
-<li><a href="#interfaces-and-ports">4. Interfaces and ports</a>
+<li><a href="#Interfaces_and_ports">4. Interfaces and ports</a>
 <ul class="sectlevel2">
 <li><a href="#interface-declarations">4.1. Interface declarations</a></li>
 <li><a href="#socket-binding-groups">4.2. Socket Binding Groups</a></li>
@@ -559,21 +560,21 @@ table.CodeRay td.code>pre{padding:0}
 </ul>
 </li>
 <li><a href="#administrative-security">5. Administrative security</a></li>
-<li><a href="#security-realms">6. Security Realms</a>
+<li><a href="#Security_Realms">6. Security Realms</a>
 <ul class="sectlevel2">
 <li><a href="#general-structure">6.1. General Structure</a></li>
 <li><a href="#using-a-realm">6.2. Using a Realm</a></li>
 <li><a href="#authentication">6.3. Authentication</a></li>
 <li><a href="#authorization">6.4. Authorization</a></li>
 <li><a href="#out-of-the-box-configuration">6.5. Out Of The Box Configuration</a></li>
-<li><a href="#add-user.sh">6.6. add-user utility</a></li>
+<li><a href="#add-user-utility">6.6. add-user utility</a></li>
 <li><a href="#jmx-security">6.7. JMX Security</a></li>
-<li><a href="#detailed-configuration">6.8. Detailed Configuration</a></li>
-<li><a href="#plug-ins">6.9. Plug Ins</a></li>
-<li><a href="#examples">6.10. Examples</a></li>
+<li><a href="#Security_Realms_Detailed_Configuration">6.8. Detailed Configuration</a></li>
+<li><a href="#Security_Realms_Plugins">6.9. Plug Ins</a></li>
+<li><a href="#Security_Realms_Examples">6.10. Examples</a></li>
 </ul>
 </li>
-<li><a href="#authorizing-management-actions-with-role-based-access-control">7. Authorizing management actions with Role Based Access Control</a>
+<li><a href="#RBAC">7. Authorizing management actions with Role Based Access Control</a>
 <ul class="sectlevel2">
 <li><a href="#access-control-providers">7.1. Access Control Providers</a></li>
 <li><a href="#rbac-provider-overview">7.2. RBAC provider overview</a></li>
@@ -586,35 +587,34 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#run-as-capability-for-superusers">7.9. "Run-as" capability for SuperUsers</a></li>
 </ul>
 </li>
-<li><a href="#application-deployment">8. Application deployment</a>
+<li><a href="#Application_deployment">8. Application deployment</a>
 <ul class="sectlevel2">
 <li><a href="#managed-domain">8.1. Managed Domain</a></li>
 <li><a href="#standalone-server">8.2. Standalone Server</a></li>
 <li><a href="#managed-and-unmanaged-deployments">8.3. Managed and Unmanaged Deployments</a></li>
-<li><a href="#deployment-overlays">8.4. Deployment Overlays</a></li>
+<li><a href="#Deployment_Overlays">8.4. Deployment Overlays</a></li>
 </ul>
 </li>
-<li><a href="#subsystem-configuration">9. Subsystem configuration</a>
+<li><a href="#Subsystem_configuration">9. Subsystem configuration</a>
 <ul class="sectlevel2">
-<li><a href="#ee-subsystem-configuration">9.1. EE Subsystem Configuration</a></li>
-<li><a href="#naming-subsystem-configuration">9.2. Naming Subsystem Configuration</a></li>
-<li><a href="#datasource-configuration">9.3. DataSource configuration</a></li>
-<li><a href="#logging-configuration">9.4. Logging Configuration</a></li>
-<li><a href="#ejb3-subsystem-configuration-guide">9.5. EJB3 subsystem configuration guide</a></li>
-<li><a href="#undertow-subsystem-configuration">9.6. Undertow subsystem configuration</a></li>
-<li><a href="#messaging-configuration">9.7. Messaging configuration</a></li>
-<li><a href="#security-subsystem-configuration">9.8. Security subsystem configuration</a></li>
-<li><a href="#web-services-configuration">9.9. Web services configuration</a></li>
-<li><a href="#resource-adapters">9.10. Resource adapters</a></li>
-<li><a href="#batch-jsr-352-subsystem-configuration">9.11. Batch (JSR-352) Subsystem Configuration</a></li>
-<li><a href="#jsf-configuration">9.12. JSF Configuration</a></li>
-<li><a href="#jmx-subsystem-configuration">9.13. JMX subsystem configuration</a></li>
-<li><a href="#deployment-scanner-configuration">9.14. Deployment Scanner configuration</a></li>
-<li><a href="#core-management-subsystem-configuration">9.15. Core Management Subsystem Configuration</a></li>
-<li><a href="#simple-configuration-subsystems">9.16. Simple configuration subsystems</a></li>
+<li><a href="#EE">9.1. EE Subsystem Configuration</a></li>
+<li><a href="#Naming">9.2. Naming Subsystem Configuration</a></li>
+<li><a href="#DataSource">9.3. DataSource configuration</a></li>
+<li><a href="#Logging">9.4. Logging Configuration</a></li>
+<li><a href="#EJB3">9.5. EJB3 subsystem configuration guide</a></li>
+<li><a href="#Undertow">9.6. Undertow subsystem configuration</a></li>
+<li><a href="#Messaging">9.7. Messaging configuration</a></li>
+<li><a href="#Security">9.8. Security subsystem configuration</a></li>
+<li><a href="#Web_services">9.9. Web services configuration</a></li>
+<li><a href="#Resource_adapters">9.10. Resource adapters</a></li>
+<li><a href="#JSF">9.11. JSF Configuration</a></li>
+<li><a href="#JMX">9.12. JMX subsystem configuration</a></li>
+<li><a href="#Deployment_Scanner">9.13. Deployment Scanner configuration</a></li>
+<li><a href="#Core_Management">9.14. Core Management Subsystem Configuration</a></li>
+<li><a href="#Simple_configuration_subsystems">9.15. Simple configuration subsystems</a></li>
 </ul>
 </li>
-<li><a href="#domain-setup">10. Domain Setup</a>
+<li><a href="#Domain_Setup">10. Domain Setup</a>
 <ul class="sectlevel2">
 <li><a href="#domain-controller-configuration">10.1. Domain Controller Configuration</a></li>
 <li><a href="#host-controller-configuration">10.2. Host Controller Configuration</a></li>
@@ -622,27 +622,26 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#servers">10.4. Servers</a></li>
 </ul>
 </li>
-<li><a href="#management-tasks">11. Management tasks</a>
+<li><a href="#Management_tasks">11. Management tasks</a>
 <ul class="sectlevel2">
-<li><a href="#command-line-parameters">11.1. Command line parameters</a></li>
-<li><a href="#suspend-resume-and-graceful-shutdown">11.2. Suspend, Resume and Graceful shutdown</a></li>
-<li><a href="#starting-stopping-servers-in-a-managed-domain">11.3. Starting &amp; stopping Servers in a Managed Domain</a></li>
-<li><a href="#jvm-settings">11.4. JVM settings</a></li>
-<li><a href="#audit-logging-2">11.5. Audit logging</a></li>
-<li><a href="#canceling-management-operations">11.6. Canceling Management Operations</a></li>
-<li><a href="#configuration-file-history">11.7. Configuration file history</a></li>
+<li><a href="#Command_line_parameters">11.1. Command line parameters</a></li>
+<li><a href="#Suspend">11.2. Suspend, Resume and Graceful shutdown</a></li>
+<li><a href="#JVM_settings">11.3. JVM settings</a></li>
+<li><a href="#Audit_logging">11.4. Audit logging</a></li>
+<li><a href="#Canceling_Management_Operations">11.5. Canceling Management Operations</a></li>
+<li><a href="#Configuration_file_history">11.6. Configuration file history</a></li>
 </ul>
 </li>
-<li><a href="#management-api-reference">12. Management API reference</a>
+<li><a href="#Management_API_reference">12. Management API reference</a>
 <ul class="sectlevel2">
-<li><a href="#global-operations">12.1. Global operations</a></li>
-<li><a href="#detyped-management-and-the-jboss-dmr-library">12.2. Detyped management and the jboss-dmr library</a></li>
-<li><a href="#description-of-the-management-model">12.3. Description of the Management Model</a></li>
-<li><a href="#the-http-management-api">12.4. The HTTP management API</a></li>
-<li><a href="#the-native-management-api">12.5. The native management API</a></li>
+<li><a href="#Global_operations">12.1. Global operations</a></li>
+<li><a href="#Detyped_management_and_the_jboss-dmr_library">12.2. Detyped management and the jboss-dmr library</a></li>
+<li><a href="#Description_of_the_Management_Model">12.3. Description of the Management Model</a></li>
+<li><a href="#The_HTTP_management_API">12.4. The HTTP management API</a></li>
+<li><a href="#The_native_management_API">12.5. The native management API</a></li>
 </ul>
 </li>
-<li><a href="#cli-recipes">13. CLI Recipes</a>
+<li><a href="#CLI_Recipes">13. CLI Recipes</a>
 <ul class="sectlevel2">
 <li><a href="#properties">13.1. Properties</a></li>
 <li><a href="#configuration">13.2. Configuration</a></li>
@@ -651,6 +650,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#statistics">13.5. Statistics</a></li>
 <li><a href="#deployment">13.6. Deployment</a></li>
 <li><a href="#downloading-files-with-the-cli">13.7. Downloading files with the CLI</a></li>
+<li><a href="#iteration-of-collections">13.8. Iteration of Collections</a></li>
 </ul>
 </li>
 </ul>
@@ -666,7 +666,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="sect1">
-<h2 id="target-audience">1. Target Audience</h2>
+<h2 id="Target_Audience">1. Target Audience</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This document is a guide to the setup, administration, and configuration
@@ -691,11 +691,11 @@ model.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="core-management-concepts">2. Core management concepts</h2>
+<h2 id="Core_management_concepts">2. Core management concepts</h2>
 <div class="sectionbody">
 <!-- toc disabled -->
 <div class="sect2">
-<h3 id="operating-mode">2.1. Operating mode</h3>
+<h3 id="Operating_modes">2.1. Operating mode</h3>
 <div class="paragraph">
 <p>WildFly can be booted in two different modes. A <em>managed domain</em> allows
 you to run and manage a multi-server topology. Alternatively, you can
@@ -747,7 +747,7 @@ them.</p>
 or <code>domain.bat</code> launch scripts) your intent is to launch a Host
 Controller and usually at least one WildFly instance. On one of the
 hosts the Host Controller should be configured to act as the Domain
-Controller. See <a href="Domain_Setup.html">Domain Setup</a> for details.</p>
+Controller. See <a href="#Domain_Setup">Domain Setup</a> for details.</p>
 </div>
 <div class="paragraph">
 <p>The following is an example managed domain topology:</p>
@@ -911,7 +911,7 @@ servers in the group</p>
 <p>jvm&#8201;&#8212;&#8201;default jvm settings for all servers in the group. The Host
 Controller will merge these settings with any provided in <code>host.xml</code> to
 derive the settings to use to launch the server&#8217;s JVM. See
-<a href="JVM_settings.html">JVM settings</a> for further details.</p>
+<a href="#JVM_settings">JVM settings</a> for further details.</p>
 </li>
 </ul>
 </div>
@@ -993,7 +993,7 @@ cluster.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="general-configuration-concepts">2.2. General configuration concepts</h3>
+<h3 id="General_configuration_concepts">2.2. General configuration concepts</h3>
 <div class="paragraph">
 <p>For both a managed domain or a standalone server, a number of common
 configuration concepts apply:</p>
@@ -1182,7 +1182,7 @@ by their logical name, rather than having to include the full details of
 the interface (which may vary on different machines). An interface
 configuration includes the logical name of the interface as well as
 information specifying the criteria to use for resolving the actual
-physical address to use. See <a href="Interfaces_and_ports.html">Interfaces
+physical address to use. See <a href="#Interfaces_and_ports">Interfaces
 and ports</a> for further details.</p>
 </div>
 <div class="paragraph">
@@ -1227,7 +1227,7 @@ section where named socket configurations can be declared. Other
 sections of the configuration can then reference those sockets by their
 logical name, rather than having to include the full details of the
 socket configuration (which may vary on different machines). See
-<a href="Interfaces_and_ports.html">Interfaces and ports</a> for full details.</p>
+<a href="#Interfaces_and_ports">Interfaces and ports</a> for full details.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1260,10 +1260,10 @@ element.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="management-resources">2.3. Management resources</h3>
+<h3 id="Management_resources">2.3. Management resources</h3>
 <div class="paragraph">
 <p>When WildFly parses your configuration files at boot, or when you use
-one of the AS&#8217;s <a href="Management_Clients.html">Management Clients</a> you are
+one of the AS&#8217;s <a href="#Management_Clients">Management Clients</a> you are
 adding, removing or modifying <em>management resources</em> in the AS&#8217;s
 internal management model. A WildFly management resource has the
 following characteristics:</p>
@@ -1362,7 +1362,7 @@ resource. The <code>remove</code> operation has no parameters.</p>
 </div>
 <div class="paragraph">
 <p>There are also a number of "global" operations that apply to all
-resources. See <a href="Global_operations.adoc">Global operations</a> for full
+resources. See <a href="#Global_operations">Global operations</a> for full
 details.</p>
 </div>
 <div class="paragraph">
@@ -1606,7 +1606,7 @@ configuration:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>See <a href="#src-557064_Managementresources-Descriptions">#Descriptions</a>
+<p>See <a href="#descriptions">#Descriptions</a>
 below for how to learn more about the attributes a particular resource
 exposes.</p>
 </div>
@@ -1615,10 +1615,10 @@ exposes.</p>
 <h4 id="children">2.3.4. Children</h4>
 <div class="paragraph">
 <p>Management resources may support child resources. The
-<a href="#src-557064_Managementresources-Address"><em>types</em> of children</a> a
+<a href="#children"><em>types</em> of children</a> a
 resource supports (e.g. <code>connector</code> for the web subsystem resource) can
 be obtained by querying the resource&#8217;s description (see
-<a href="#src-557064_Managementresources-Descriptions">#Descriptions</a> below)
+<a href="#descriptions">#Descriptions</a> below)
 or by invoking the <code>read-children-types</code> operation. Once you know the
 legal child types, you can query the names of all children of a given
 type by using the global <code>read-children-types</code> operation. The operation
@@ -1643,7 +1643,6 @@ via the CLI one could:</p>
         <span class="error">&quot;jmx-connector-registry&quot;,</span>
         <span class="error">&quot;jmx-connector-server&quot;,</span>
         <span class="error">&quot;jndi&quot;,</span>
-        <span class="error">&quot;osgi-http&quot;,</span>
         <span class="error">&quot;remoting&quot;,</span>
         <span class="error">&quot;txn-recovery-environment&quot;,</span>
         <span class="error">&quot;txn-status-manager&quot;</span>
@@ -1657,7 +1656,7 @@ via the CLI one could:</p>
 <div class="paragraph">
 <p>All resources expose metadata that describes their attributes,
 operations and child types. This metadata is itself obtained by invoking
-one or more of the <a href="Global_operations.adoc">global operations</a> each
+one or more of the <a href="#Global_operations">global operations</a> each
 resource supports. We showed examples of the <code>read-operation-names</code>,
 <code>read-operation-description</code>, <code>read-children-types</code> and
 <code>read-children-names</code> operations above.</p>
@@ -1724,7 +1723,7 @@ the output would have included the description of each operation
 supported by the resource.</p>
 </div>
 <div class="paragraph">
-<p>See the <a href="Global_operations.adoc">Global operations</a> section for
+<p>See the <a href="#Global_operations">Global operations</a> section for
 details on other parameters supported by the <code>read-resource-description</code>
 operation and all the other globally available operations.</p>
 </div>
@@ -1985,7 +1984,7 @@ socket bindings</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="management-clients">3. Management Clients</h2>
+<h2 id="Management_Clients">3. Management Clients</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>WildFly offers three different approaches to configure and manage
@@ -2076,7 +2075,752 @@ By default the web interface can be accessed here:
 </div>
 </div>
 <div class="sect2">
-<h3 id="default-http-interface-security">3.2. Default HTTP Interface Security</h3>
+<h3 id="Command_Line_Interface">3.2. Command Line Interface</h3>
+<div class="paragraph">
+<p>The Command Line Interface (CLI) is a management tool for a managed
+domain or standalone server. It allows a user to connect to the domain
+controller or a standalone server and execute management operations
+available through the de-typed management model.</p>
+</div>
+<div class="sect3">
+<h4 id="running-the-cli">3.2.1. Running the CLI</h4>
+<div class="paragraph">
+<p>Depending on the operating system, the CLI is launched using
+<code>jboss-cli.sh</code> or <code>jboss-cli.bat</code> located in the WildFly <code>bin</code>
+directory. For further information on the default directory structure,
+please consult the " <a href="Getting_Started_Guide.html">Getting Started
+Guide</a>".</p>
+</div>
+<div class="paragraph">
+<p>The first thing to do after the CLI has started is to connect to a
+managed WildFly instance. This is done using the command <em>connect</em>, e.g.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">./bin/jboss-cli.sh
+You are disconnected at the moment. Type <span class="string"><span class="delimiter">'</span><span class="content">connect</span><span class="delimiter">'</span></span> to connect to the server
+or <span class="string"><span class="delimiter">'</span><span class="content">help</span><span class="delimiter">'</span></span> <span class="keyword">for</span> the list of supported commands.
+[disconnected /]
+<span class="error"> </span>
+[disconnected /] connect
+[domain<span class="annotation">@localhost</span>:<span class="integer">9990</span> /]
+<span class="error"> </span>
+[domain<span class="annotation">@localhost</span>:<span class="integer">9990</span> /] quit
+Closed connection to localhost:<span class="integer">9990</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>localhost:9990</code> is the default host and port combination for the
+WildFly CLI client.</p>
+</div>
+<div class="paragraph">
+<p>The host and the port of the server can be provided as an optional
+parameter, if the server is not listening on localhost:9990.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">./bin/jboss-cli.sh
+You are disconnected at the moment. Type <span class="string"><span class="delimiter">'</span><span class="content">connect</span><span class="delimiter">'</span></span> to connect to the server
+[disconnected /] connect <span class="float">192.168</span><span class="float">.0</span><span class="float">.10</span>:<span class="integer">9990</span>
+Connected to standalone controller at <span class="float">192.168</span><span class="float">.0</span><span class="float">.1</span>:<span class="integer">9990</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The :9990 is not required as the CLI will use port 9990 by default. The
+port needs to be provided if the server is listening on some other port.</p>
+</div>
+<div class="paragraph">
+<p>To terminate the session type <em>quit</em>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The jboss-cli script accepts a --connect parameter: ./jboss-cli.sh
+--connect
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The --controller parameter can be used to specify the host and port of
+the server: ./jboss-cli.sh --connect --controller=192.168.0.1:9990</p>
+</div>
+<div class="paragraph">
+<p>Help is also available:</p>
+</div>
+<div class="paragraph">
+<p>In order to list the set of commands that are currently available in the current context
+use the option <em>--commands</em> (NB: the following examples are not displaying an
+exhaustive set of CLI commands, more and/or different commands could be available
+in your running CLI instance):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">[domain<span class="annotation">@localhost</span>:<span class="integer">9990</span> /] help --commands
+Commands available in the current context:
+batch<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> connection-factory<span class="error"> </span> deployment-overlay<span class="error"> </span> <span class="keyword">if</span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> patch<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> reload<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> <span class="keyword">try</span>
+cd<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> connection-info<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> echo<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> jdbc-driver-info<span class="error"> </span><span class="error"> </span><span class="error"> </span> pwd<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> rollout-plan<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> undeploy
+clear<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> data-source<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> echo-dmr<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> jms-queue<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> quit<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> run-batch<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> unset
+command<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> deploy<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> help<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> jms-topic<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> read-attribute<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> set<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> version
+connect<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> deployment-info<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> history<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> ls<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> read-operation<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> shutdown<span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span><span class="error"> </span> xa-data-source
+To read a description of a specific command execute <span class="string"><span class="delimiter">'</span><span class="content">help &lt;command name&gt;</span><span class="delimiter">'</span></span>.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <em>help</em> command can print help for any command or operation. For operations,
+the operation description is formatted as a command help (synopsis, description and
+options). Some commands (eg: <em>patch</em>) expose two levels of documentation. A high
+level description for the command itself and a dedicated help content for each action (eg: <em>apply</em>).
+The help documentation of each command makes it clear if this two levels are available or not.</p>
+</div>
+<div class="paragraph">
+<p>Use Tab-completion to discover the set of commands and operations:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">help &lt;TAB&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The list of all commands (enabled or not) is displayed.</p>
+</div>
+<div class="paragraph">
+<p>Examples</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Display the help of the <em>patch</em> command:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">help patch</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Display the help of the <em>apply</em> action of the <em>patch</em> command:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">help patch apply</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Display the description of the <em>elytron</em> <em>key-store</em> resource <em>add</em> operation
+formatted as a command help content:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">help /subsystem=elytron/key-store=?:add</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="non-interactive-mode">3.2.2. Non-interactive Mode</h4>
+<div class="paragraph">
+<p>The CLI can also be run in non-interactive mode to support scripts and
+other types of command line or batch processing. The --command and
+--commands arguments can be used to pass a command or a list of commands
+to execute. Additionally a --file argument is supported which enables
+CLI commands to be provided from a text file.</p>
+</div>
+<div class="paragraph">
+<p>For example the following command can be used to list all the current
+deployments</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ ./bin/jboss-cli.sh --connect --commands=ls\ deployment
+sample.war
+business.jar</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The output can be combined with other shell commands for further
+processing, for example to find out what .war files are deployed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ ./bin/jboss-cli.sh --connect --commands=ls\ deployment | grep war
+sample.war</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In order to match a command with its output, you can provide the option
+--echo-command (or add the XML element &lt;echo-command&gt; to the CLI
+configuration file) in order to make the CLI to include the prompt<br>
+command + options in the output. With this option enabled, any executed
+command will be added to the output.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="command-timeout">3.2.3. Command timeout</h4>
+<div class="paragraph">
+<p>By default CLI command and operation executions are not timely bounded.
+It means that a command never ending its execution will make the CLI
+process to be stuck and unresponsive. To protect the CLI from this
+behavior, one can set a command execution timeout.</p>
+</div>
+<div class="sect4">
+<h5 id="command-timeout-behavior">Command Timeout behavior</h5>
+<div class="paragraph">
+<p>In interactive mode, when a timeout occurs, an error message is
+displayed then the console prompt is made available to type new
+commands. In non interactive mode (executing a script or a list of
+commands), when a timeout occurs, an exception is thrown and the CLI
+execution is stopped. In both modes (interactive and non interactive),
+when a timeout occurs, the CLI will make a best effort to cancel the
+associated server side activities.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="configuring-the-command-timeout">Configuring the Command timeout</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Add the XML element <em>&lt;command-timeout&gt;\{num
+seconds}&lt;/command-timeout&gt;</em> to the CLI XML configuration file.</p>
+</li>
+<li>
+<p>Add the option - <em>-command-timeout=\{num seconds}</em> to the CLI command
+line. This will override any value set in the XML configuration file.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="managing-the-command-timeout">Managing the Command Timeout</h5>
+<div class="paragraph">
+<p>Once the CLI is running, the timeout can be adjusted to cope with the
+commands to execute. For example a batch command will need a longer
+timeout than a non batch one. The command <em>command-timeout</em> allows to
+get, set and reset the command timeout.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="retrieving-the-command-timeout">Retrieving the command timeout</h5>
+<div class="paragraph">
+<p>The command <em>command-timeout get</em> displays the current timeout in
+seconds. A timeout of 0 means no timeout.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">[standalone<span class="annotation">@localhost</span>:<span class="integer">9990</span> /] command-timeout get
+<span class="integer">0</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="setting-the-command-timeout">Setting the command timeout</h5>
+<div class="paragraph">
+<p>The command <em>command-timeout set</em> update the timeout value to a number
+of seconds. If a timeout has been set via configuration (XML file or
+option), it is overridden by the <em>set</em> action.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">[standalone<span class="annotation">@localhost</span>:<span class="integer">9990</span> /] command-timeout set <span class="integer">10</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="resetting-the-command-timeout">Resetting the command timeout</h5>
+<div class="paragraph">
+<p>The command <em>command-timeout reset \{config|default}</em> allows to set the
+timeout to its configuration value (XML file or option) or default value
+(0 second). If no configuration value is set, resetting to the
+configuration value sets the timeout to its default value (0 seconds).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">[standalone<span class="annotation">@localhost</span>:<span class="integer">9990</span> /] command-timeout reset config
+[standalone<span class="annotation">@localhost</span>:<span class="integer">9990</span> /] command-timeout reset <span class="keyword">default</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="default-native-management-interface-security">3.2.4. Default Native Management Interface Security</h4>
+<div class="paragraph">
+<p>The native interface shares the same security configuration as the http
+interface, however we also support a local authentication mechanism
+which means that the CLI can authenticate against the local WildFly
+instance without prompting the user for a username and password. This
+mechanism only works if the user running the CLI has read access to the
+standalone/tmp/auth folder or domain/tmp/auth folder under the
+respective WildFly installation - if the local mechanism fails then the
+CLI will fallback to prompting for a username and password for a user
+configured as in <a href="#Default_HTTP_Interface_Security">Default HTTP Interface Security</a>.</p>
+</div>
+<div class="paragraph">
+<p>Establishing a CLI connection to a remote server will require a username
+and password by default.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="operation-requests">3.2.5. Operation Requests</h4>
+<div class="paragraph">
+<p>Operation requests allow for low level interaction with the management
+model. They are different from the high level commands (i.e.
+<em>create-jms-queue</em>) in that they allow you to read and modify the server
+configuration as if you were editing the XML configuration files
+directly. The configuration is represented as a tree of addressable
+resources, where each node in the tree (aka resource) offers a set of
+operations to execute.</p>
+</div>
+<div class="paragraph">
+<p>An operation request basically consists of three parts: The <em>address</em>,
+an <em>operation name</em> and an optional set of <em>parameters</em>.</p>
+</div>
+<div class="paragraph">
+<p>The formal specification for an operation request is:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>[/node-type=node-name (/node-type=node-name)*] : operation-name [( [parameter-name=parameter-value (,parameter-name=parameter-value)*] )]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=logging</span><span class="delimiter">/</span></span>root-logger=<span class="key">ROOT</span>:change-root-log-level(level=<span class="constant">WARN</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Tab Completion</p>
+</div>
+<div class="paragraph">
+<p>Tab-completion is supported for all commands and options, i.e.
+node-types and node-names, operation names and parameter names.</p>
+</div>
+<div class="paragraph">
+<p>In operation Tab-completion, required parameters have a name terminated by the
+'*' character. This helps identify which are the parameters that must be set in order to
+construct a valid operation. Furthermore, Tab-completion does not propose
+parameters that are alternatives of parameters already present in the operation.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">/deployment=myapp:add(&lt;TAB&gt;
+!  content*  enabled  runtime-name</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The parameter <em>content</em> is required and completion advertises it with a '*' character.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">/deployment=myapp:add-content(content=[{&lt;TAB&gt;
+bytes*  hash*  input-stream-index*  target-path*  url*</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>bytes</em>, <em>hash</em>, <em>input-stream-index</em> and <em>url</em> are required but also alternatives
+(only one of them can be set). As soon as one of these parameter has been set, the
+others are no longer proposed by completion.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">/deployment=myapp:add-content(content=[{url=myurl,&lt;TAB&gt;
+/deployment=myapp:add-content(content=[{url=myurl,target-path</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>target-path</em> argument is automatically inlined in the command.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+We are also considering adding aliases that are less verbose for the user, and
+will translate into the corresponding operation requests in the
+background.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Whitespaces between the separators in the operation request strings are
+not significant.</p>
+</div>
+<div class="sect4">
+<h5 id="addressing-resources">Addressing resources</h5>
+<div class="paragraph">
+<p>Operation requests might not always have the address part or the
+parameters. E.g.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="symbol">:read</span>-resource</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>which will list all the node types for the current node.</p>
+</div>
+<div class="paragraph">
+<p>To syntactically disambiguate between the commands and operations,
+operations require one of the following prefixes:</p>
+</div>
+<div class="paragraph">
+<p>To execute an operation against the current node, e.g.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">cd subsystem=logging
+<span class="symbol">:read</span>-resource(recursive=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To execute an operation against a child node of the current node, e.g.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">cd subsystem=logging
+./root-logger=ROOT:change-root-log-level(level=WARN)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To execute an operation against the root node, e.g.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">:read-resource</span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="available-operation-types-and-descriptions">Available Operation Types and Descriptions</h5>
+<div class="paragraph">
+<p>The operation types can be distinguished between common operations that
+exist on any node and specific operations that belong to a particular
+configuration resource (i.e. subsystem). The common operations are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>add</p>
+</li>
+<li>
+<p>read-attribute</p>
+</li>
+<li>
+<p>read-children-names</p>
+</li>
+<li>
+<p>read-children-resources</p>
+</li>
+<li>
+<p>read-children-types</p>
+</li>
+<li>
+<p>read-operation-description</p>
+</li>
+<li>
+<p>read-operation-names</p>
+</li>
+<li>
+<p>read-resource</p>
+</li>
+<li>
+<p>read-resource-description</p>
+</li>
+<li>
+<p>remove</p>
+</li>
+<li>
+<p>validate-address</p>
+</li>
+<li>
+<p>write-attribute</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For a list of specific operations (e.g. operations that relate to the
+logging subsystem) you can always query the model itself. For example,
+to read the operations supported by the logging subsystem resource on a
+standalone server:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">[[standalone<span class="instance-variable">@localhost</span>:<span class="integer">9990</span> /] /subsystem=<span class="key">logging</span>:read-operation-names
+{
+   <span class="string"><span class="delimiter">&quot;</span><span class="content">outcome</span><span class="delimiter">&quot;</span></span> =&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">success</span><span class="delimiter">&quot;</span></span>,
+   <span class="string"><span class="delimiter">&quot;</span><span class="content">result</span><span class="delimiter">&quot;</span></span> =&gt; [
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">add</span><span class="delimiter">&quot;</span></span>,
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">change-root-log-level</span><span class="delimiter">&quot;</span></span>,
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">read-attribute</span><span class="delimiter">&quot;</span></span>,
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">read-children-names</span><span class="delimiter">&quot;</span></span>,
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">read-children-resources</span><span class="delimiter">&quot;</span></span>,
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">read-children-types</span><span class="delimiter">&quot;</span></span>,
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">read-operation-description</span><span class="delimiter">&quot;</span></span>,
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">read-operation-names</span><span class="delimiter">&quot;</span></span>,
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">read-resource</span><span class="delimiter">&quot;</span></span>,
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">read-resource-description</span><span class="delimiter">&quot;</span></span>,
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">remove-root-logger</span><span class="delimiter">&quot;</span></span>,
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">root-logger-assign-handler</span><span class="delimiter">&quot;</span></span>,
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">root-logger-unassign-handler</span><span class="delimiter">&quot;</span></span>,
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">set-root-logger</span><span class="delimiter">&quot;</span></span>,
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">validate-address</span><span class="delimiter">&quot;</span></span>,
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">write-attribute</span><span class="delimiter">&quot;</span></span>
+   ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As you can see, the logging resource offers four additional operations,
+namely <em>root-logger-assign-handler</em>, <em>root-logger-unassign-handler</em>,
+<em>set-root-logger</em> and <em>remove-root-logger</em>.</p>
+</div>
+<div class="paragraph">
+<p>Further documentation about a resource or operation can be retrieved
+through the description:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">[standalone<span class="instance-variable">@localhost</span>:<span class="integer">9990</span> /] /subsystem=<span class="key">logging</span>:read-operation-description(name=change-root-log-level)
+{
+   <span class="string"><span class="delimiter">&quot;</span><span class="content">outcome</span><span class="delimiter">&quot;</span></span> =&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">success</span><span class="delimiter">&quot;</span></span>,
+   <span class="string"><span class="delimiter">&quot;</span><span class="content">result</span><span class="delimiter">&quot;</span></span> =&gt; {
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">operation-name</span><span class="delimiter">&quot;</span></span> =&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">change-root-log-level</span><span class="delimiter">&quot;</span></span>,
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">description</span><span class="delimiter">&quot;</span></span> =&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">Change the root logger level.</span><span class="delimiter">&quot;</span></span>,
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">request-properties</span><span class="delimiter">&quot;</span></span> =&gt; {<span class="string"><span class="delimiter">&quot;</span><span class="content">level</span><span class="delimiter">&quot;</span></span> =&gt; {
+           <span class="string"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span> =&gt; <span class="constant">STRING</span>,
+           <span class="string"><span class="delimiter">&quot;</span><span class="content">description</span><span class="delimiter">&quot;</span></span> =&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">The log level specifying which message levels will be logged by this logger.
+                            Message levels lower than this value will be discarded.</span><span class="delimiter">&quot;</span></span>,
+           <span class="string"><span class="delimiter">&quot;</span><span class="content">required</span><span class="delimiter">&quot;</span></span> =&gt; <span class="predefined-constant">true</span>
+       }}
+   }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Full model</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+To see the full model enter <code>:read-resource(recursive=true)</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="command-history">3.2.6. Command History</h4>
+<div class="paragraph">
+<p>Command (and operation request) history is enabled by default. The
+history is kept both in-memory and in a file on the disk, i.e. it is
+preserved between command line sessions. The history file name is
+.jboss-cli-history and is automatically created in the user&#8217;s home
+directory. When the command line interface is launched this file is read
+and the in-memory history is initialized with its content.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+While in the command line session, you can use the arrow keys to go back
+and forth in the history of commands and operations.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To manipulate the history you can use the <em>history</em> command. If executed
+without any arguments, it will print all the recorded commands and
+operations (up to the configured maximum, which defaults to 500) from
+the in-memory history.</p>
+</div>
+<div class="paragraph">
+<p><em>history</em> supports three optional arguments:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>disable</em> - will disable history expansion (but will not clear the
+previously recorded history);</p>
+</li>
+<li>
+<p><em>enabled</em> - will re-enable history expansion (starting from the last
+recorded command before the history expansion was disabled);</p>
+</li>
+<li>
+<p><em>clear</em> - will clear the in-memory history (but not the file one).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="operation-formatting">3.2.7. JSON and DMR output</h4>
+<div class="paragraph">
+<p>By default the CLI prints operation results using the DMR textual syntax. There are
+two ways to make the CLI to display JSON:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>--output-json</em> option when launching the CLI.</p>
+</li>
+<li>
+<p><em>&lt;output-json&gt;</em> XML element added to <em>jboss-cli.xml</em> configuration file.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="batch-processing">3.2.8. Batch Processing</h4>
+<div class="paragraph">
+<p>The batch mode allows one to group commands and operations and execute
+them together as an atomic unit. If at least one of the commands or
+operations fails, all the other successfully executed commands and
+operations in the batch are rolled back.</p>
+</div>
+<div class="paragraph">
+<p>Not all of the commands are allowed in the batch. For example, commands
+like <em>cd</em>, <em>ls</em>, <em>help</em>, etc. are not allowed in the batch since they
+don&#8217;t translate into operation requests. Only the commands that
+translate into operation requests are allowed in the batch. The batch,
+actually, is executed as a composite operation request.</p>
+</div>
+<div class="paragraph">
+<p>The batch mode is entered by executing command <em>batch</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">[standalone<span class="instance-variable">@localhost</span>:<span class="integer">9990</span> /] batch
+[standalone<span class="instance-variable">@localhost</span>:<span class="integer">9990</span> / <span class="comment">#] /subsystem=datasources/data-source=&quot;java\:\/H2DS&quot;:enable</span>
+[standalone<span class="instance-variable">@localhost</span>:<span class="integer">9990</span> / <span class="comment">#] /subsystem=messaging-activemq/server=default/jms-queue=newQueue:add</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can execute a batch using the <em>run-batch</em> command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">[standalone<span class="instance-variable">@localhost</span>:<span class="integer">9990</span> / <span class="comment">#] run-batch</span>
+<span class="constant">The</span> batch executed successfully.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Exit the batch edit mode without losing your changes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">[standalone<span class="instance-variable">@localhost</span>:<span class="integer">9990</span> / <span class="comment">#] holdback-batch</span>
+[standalone<span class="instance-variable">@localhost</span>:<span class="integer">9990</span> /]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then activate it later on again:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">[standalone<span class="instance-variable">@localhost</span>:<span class="integer">9990</span> /] batch
+<span class="constant">Re</span>-activated batch
+<span class="comment">#1 /subsystem=datasources/data-source=java:/H2DS:\/H2DS:enable</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are several other notable batch commands available as well (tab
+complete to see the list):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>clear-batch</em></p>
+</li>
+<li>
+<p><em>edit-batch-line</em> (e.g. <em>edit-batch line 3 create-jms-topic
+name=mytopic</em>)</p>
+</li>
+<li>
+<p><em>remove-batch-line</em> (e.g. <em>remove-batch-line 3</em>)</p>
+</li>
+<li>
+<p><em>move-batch-line</em> (e.g. <em>move-batch-line 3 1</em>)</p>
+</li>
+<li>
+<p><em>discard-batch</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="operation-formatting">3.2.9. Operators</h4>
+<div class="paragraph">
+<p>CLI has some operators that are similar to shell operators:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>&gt;</em> To redirect the output of a command/operation to a file:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>:read-resource &gt; my-file.txt</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>&gt;&gt;</em> To redirect the output of a command/operation and append it at the end of a file:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>:read-resource &gt;&gt; my-file.txt</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>|</em> To redirect the output of a command/operation to the <em>grep</em> command:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>:read-resource | grep undefined</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Default_HTTP_Interface_Security">3.3. Default HTTP Interface Security</h3>
 <div class="paragraph">
 <p>WildFly is distributed secured by default. The default security
 mechanism is username / password based making use of HTTP Digest for the
@@ -2162,7 +2906,7 @@ the username and password to connect to the server.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="default-native-interface-security">3.3. Default Native Interface Security</h3>
+<h3 id="Default_Native_Interface_Security">3.4. Default Native Interface Security</h3>
 <div class="paragraph">
 <p>The native interface shares the same security configuration as the http
 interface, however we also support a local authentication mechanism
@@ -2180,7 +2924,7 @@ and password by default.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="command-line-interface">3.4. Command Line Interface</h3>
+<h3 id="command-line-interface">3.5. Command Line Interface</h3>
 <div class="paragraph">
 <p>The Command Line Interface (CLI) is a management tool for a managed
 domain or standalone server. It allows a user to connect to the domain
@@ -2189,11 +2933,11 @@ available through the de-typed management model.</p>
 </div>
 <div class="paragraph">
 <p>Details on how to use the CLI can be found in the
-<a href="Command_Line_Interface.adoc">Command Line Interface page</a>.</p>
+<a href="#Command_Line_Interface">Command Line Interface page</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration-files">3.5. Configuration Files</h3>
+<h3 id="configuration-files">3.6. Configuration Files</h3>
 <div class="paragraph">
 <p>WildFly stores its configuration in centralized XML configuration files,
 one per server for standalone servers and, for managed domains, one per
@@ -2222,7 +2966,7 @@ overwritten.
 </table>
 </div>
 <div class="sect3">
-<h4 id="standalone-server-configuration-file">3.5.1. Standalone Server Configuration File</h4>
+<h4 id="standalone-server-configuration-file">3.6.1. Standalone Server Configuration File</h4>
 <div class="paragraph">
 <p>The XML configuration for a standalone server can be found in the
 <code>standalone/configuration</code> directory. The default configuration file is
@@ -2249,13 +2993,13 @@ with the <em>[line-through]*c*</em> or <em>-server-config</em> command line argu
 </div>
 </div>
 <div class="sect3">
-<h4 id="managed-domain-configuration-files">3.5.2. Managed Domain Configuration Files</h4>
+<h4 id="managed-domain-configuration-files">3.6.2. Managed Domain Configuration Files</h4>
 <div class="paragraph">
 <p>In a managed domain, the XML files are found in the
 <code>domain/configuration</code> directory. There are two types of configuration
 files – one per host, and then a single domain-wide file managed by the
 master host, aka the Domain Controller. (For more on the types of
-processes in a managed domain, see <a href="Operating_modes.adoc">Operating
+processes in a managed domain, see <a href="#Operating_modes">Operating
 Modes</a>.)</p>
 </div>
 <div class="sect4">
@@ -2353,7 +3097,7 @@ kept on the filesystem of hosts that will only run as slaves.</p>
 <p>A slave can be configured to keep a locally persisted copy of the domain
 wide configuration and then use it on boot (in case the master is not
 available.) See <em>--backup and --cached-dc</em> under
-<a href="Command_line_parameters.adoc">Command line parameters</a>.</p>
+<a href="#Command_line_parameters">Command line parameters</a>.</p>
 </div>
 </div>
 </div>
@@ -2361,7 +3105,7 @@ available.) See <em>--backup and --cached-dc</em> under
 </div>
 </div>
 <div class="sect1">
-<h2 id="interfaces-and-ports">4. Interfaces and ports</h2>
+<h2 id="Interfaces_and_ports">4. Interfaces and ports</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="interface-declarations">4.1. Interface declarations</h3>
@@ -2619,7 +3363,7 @@ address literals from IPv4 to IPv6 as required.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="security-realms">6. Security Realms</h2>
+<h2 id="Security_Realms">6. Security Realms</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Within WildFly we make use of security realms to secure access to the
@@ -3241,7 +3985,7 @@ delegating to the realm.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-user.sh">6.6. add-user utility</h3>
+<h3 id="add-user-utility">6.6. add-user utility</h3>
 <div class="paragraph">
 <p>For use with the default configuration we supply a utility <code>add-user</code>
 which can be used to manage the properties files for the default realms
@@ -3557,7 +4301,7 @@ a feature you would use please add your vote to the issue.
 </div>
 </div>
 <div class="sect2">
-<h3 id="detailed-configuration">6.8. Detailed Configuration</h3>
+<h3 id="Security_Realms_Detailed_Configuration">6.8. Detailed Configuration</h3>
 <div class="paragraph">
 <p>This section of the documentation describes the various configuration
 options when defining realms, plug-ins are a slightly special case so
@@ -4101,7 +4845,7 @@ context factory, defaults to ' `com.sun.jndi.ldap.LdapCtxFactory&#8217;</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="plug-ins">6.9. Plug Ins</h3>
+<h3 id="Security_Realms_Plugins">6.9. Plug Ins</h3>
 <div class="paragraph">
 <p>Within WildFly 12 for communication with the management interfaces and
 for other services exposed using Remoting where username / password
@@ -4577,7 +5321,7 @@ the plug-in definition within the authentication element i.e.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="examples">6.10. Examples</h3>
+<h3 id="Security_Realms_Examples">6.10. Examples</h3>
 <div class="paragraph">
 <p>This section of the document contains a couple of examples for the most
 common scenarios likely to be used with the security realms, please feel
@@ -4741,7 +5485,7 @@ remove the <code>&lt;local /&gt;</code> and <code>&lt;properties /&gt;</code> el
 </div>
 </div>
 <div class="sect1">
-<h2 id="authorizing-management-actions-with-role-based-access-control">7. Authorizing management actions with Role Based Access Control</h2>
+<h2 id="RBAC">7. Authorizing management actions with Role Based Access Control</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>WildFly introduces a Role Based Access Control scheme that allows
@@ -4974,7 +5718,7 @@ users will have no permissions.
 </table>
 </div>
 <div class="paragraph">
-<p>We recommend <a href="#src-557208_RBAC-role-mapping">mapping at least one
+<p>We recommend <a href="#mapping-users-and-groups-to-roles">mapping at least one
 user</a> besides "$local" before switching the provider to "rbac". You can
 do all of the configuration associated with the "rbac" provider even
 when the provider is set to "simple"</p>
@@ -5383,7 +6127,7 @@ for resources other than those listed above.</p>
 </div>
 <div class="paragraph">
 <p>The easiest way to create a server-group scoped role is to
-<a href="#src-557208_RBAC-admin-console-scoped-roles">use the admin console</a>.
+<a href="#using-the-admin-console-to-create-scoped-roles">use the admin console</a>.
 But you can also use the CLI to create a server-group scoped role.</p>
 </div>
 <div class="listingblock">
@@ -5435,7 +6179,7 @@ user.</p>
 </div>
 <div class="paragraph">
 <p>The easiest way to create a host-scoped role is to
-<a href="#src-557208_RBAC-admin-console-scoped-roles">use the admin console</a>.
+<a href="#using-the-admin-console-to-create-scoped-roles">use the admin console</a>.
 But you can also use the CLI to create a host scoped role.</p>
 </div>
 <div class="listingblock">
@@ -5808,7 +6552,7 @@ expressions to be security sensitive, you can change that setting:</p>
 </td>
 <td class="content">
 This vault-expression constraint overlaps somewhat with the
-<a href="#src-557208_RBAC-common-sensitivity-classifications">core
+<a href="#classifications-with-broad-use">core
 "credential" sensitivity classification</a> in that the most typical uses
 of a vault expression are in attributes that contain a user name or
 password, and those will typically be annotated with the "credential"
@@ -6020,7 +6764,7 @@ in the Monitor role cannot read passwords:</p>
 </div>
 <div class="paragraph">
 <p>If the user isn&#8217;t even allowed to
-<a href="#address-action">address the resource</a> then the
+<a href="#addressing-a-resource">address the resource</a> then the
 response would be as if the resource doesn&#8217;t exist, even though it
 actually does:</p>
 </div>
@@ -6310,14 +7054,14 @@ the planned settings.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="application-deployment">8. Application deployment</h2>
+<h2 id="Application_deployment">8. Application deployment</h2>
 <div class="sectionbody">
 <!-- toc disabled -->
 <div class="sect2">
 <h3 id="managed-domain">8.1. Managed Domain</h3>
 <div class="paragraph">
 <p>In a managed domain, deployments are associated with a <code>server-group</code>
-(see ﻿ <a href="Core_management_concepts.html">Core management concepts</a>).
+(see ﻿ <a href="#Core_management_concepts">Core management concepts</a>).
 Any server within the server group will then be provided with that
 deployment.</p>
 </div>
@@ -7309,7 +8053,7 @@ you can stop the server, replace the deployment and deploy again.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deployment-overlays">8.4. Deployment Overlays</h3>
+<h3 id="Deployment_Overlays">8.4. Deployment Overlays</h3>
 <div class="paragraph">
 <p>Deployment overlays are our way of 'overlaying' content into an existing
 deployment, without physically modifying the contents of the deployment
@@ -7353,7 +8097,7 @@ below for both standalone and domain mode:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="subsystem-configuration">9. Subsystem configuration</h2>
+<h2 id="Subsystem_configuration">9. Subsystem configuration</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Subsystem configuration reference
@@ -7386,7 +8130,7 @@ The configuration schemas can found in <code>$JBOSS_HOME/docs/schema</code>.
 </table>
 </div>
 <div class="sect2">
-<h3 id="ee-subsystem-configuration">9.1. EE Subsystem Configuration</h3>
+<h3 id="EE">9.1. EE Subsystem Configuration</h3>
 <div class="paragraph">
 <p>The EE subsystem provides common functionality in the Java EE platform,
 such as the EE Concurrency Utilities (JSR 236) and <code>@Resource</code>
@@ -7484,7 +8228,7 @@ specified:</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="java-ee-application-deployment">Java EE Application Deployment</h5>
+<h5 id="EE_Application_Deployment_Configuration">Java EE Application Deployment</h5>
 <div class="paragraph">
 <p>The EE subsystem configuration allows the customisation of the
 deployment behaviour for Java EE Applications.</p>
@@ -7646,7 +8390,7 @@ Java annotations. The default value is <code>false</code>.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="ee-concurrency-utilities">EE Concurrency Utilities</h5>
+<h5 id="EE_Concurrency_Utilities_Configuration">EE Concurrency Utilities</h5>
 <div class="paragraph">
 <p>EE Concurrency Utilities (JSR 236) were introduced with Java EE 7, to
 ease the task of writing multithreaded Java EE applications. Instances
@@ -7945,7 +8689,7 @@ configure Managed Scheduled Executor Service instances. An example to
 </div>
 </div>
 <div class="sect4">
-<h5 id="default-ee-bindings">Default EE Bindings</h5>
+<h5 id="EE_Default_Bindings_Configuration">Default EE Bindings</h5>
 <div class="paragraph">
 <p>The Java EE Specification mandates the existence of a default instance
 for each of the following resources:</p>
@@ -8005,7 +8749,7 @@ available to Java EE applications.
 </div>
 </div>
 <div class="sect2">
-<h3 id="naming-subsystem-configuration">9.2. Naming Subsystem Configuration</h3>
+<h3 id="Naming">9.2. Naming Subsystem Configuration</h3>
 <div class="paragraph">
 <p>The Naming subsystem provides the JNDI implementation on WildFly, and
 its configuration allows to:</p>
@@ -8053,7 +8797,7 @@ specified:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="global-bindings-configuration">9.2.1. Global Bindings Configuration</h4>
+<h4 id="Naming_Global_Bindings_Configuration">9.2.1. Global Bindings Configuration</h4>
 <div class="paragraph">
 <p>The Naming subsystem configuration allows binding entries into the
 following global JNDI namespaces:</p>
@@ -8330,7 +9074,7 @@ example above:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="remote-jndi-configuration">9.2.2. Remote JNDI Configuration</h4>
+<h4 id="Naming_Remote_JNDI_Configuration">9.2.2. Remote JNDI Configuration</h4>
 <div class="paragraph">
 <p>The Naming subsystem configuration may be used to (de)activate the
 remote JNDI interface, which allows clients to lookup entries present in
@@ -8372,7 +9116,7 @@ the XML example above:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="datasource-configuration">9.3. DataSource configuration</h3>
+<h3 id="DataSource">9.3. DataSource configuration</h3>
 <div class="paragraph">
 <p>Datasources are configured through the <em>datasource</em> subsystem. Declaring
 a new datasource consists of two separate steps: You would need to
@@ -8623,7 +9367,7 @@ the project documentation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging-configuration">9.4. Logging Configuration</h3>
+<h3 id="Logging">9.4. Logging Configuration</h3>
 <div class="sect3">
 <h4 id="overview">9.4.1. Overview</h4>
 <div class="paragraph">
@@ -8692,9 +9436,9 @@ default, all the implicit logging API dependencies are added. If set to
 <div class="paragraph">
 <p>The <code>use-deployment-logging-config</code> controls whether or not your
 deployment is scanned for
-<a href="#src-557095_LoggingConfiguration-Per-deploymentLogging">per-deployment
+<a href="#per-deployment-logging">per-deployment
 logging</a>. If set to <code>true</code>, the default,
-<a href="#src-557095_LoggingConfiguration-Per-deploymentLogging">per-deployment
+<a href="#per-deployment-logging">per-deployment
 logging</a> is enabled. Set to <code>false</code> to disable this feature.</p>
 </div>
 </div>
@@ -9093,7 +9837,7 @@ on the next boot.
 </div>
 </div>
 <div class="sect3">
-<h4 id="handlers">9.4.9. Handlers</h4>
+<h4 id="Logging_Handlers">9.4.9. Handlers</h4>
 <div class="paragraph">
 <p>WIP</p>
 </div>
@@ -9123,25 +9867,25 @@ message is loggable.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#Handlers-async-handler">async-handler</a></p>
+<p><a href="#async-handler">async-handler</a></p>
 </li>
 <li>
-<p><a href="#Handlers-console-handler">console-handler</a></p>
+<p><a href="#console-handler">console-handler</a></p>
 </li>
 <li>
-<p><a href="#Handlers-file-handler">file-handler</a></p>
+<p><a href="#file-handler">file-handler</a></p>
 </li>
 <li>
-<p><a href="#Handlers-periodic-rotating-file-handler">periodic-rotating-file-handler</a></p>
+<p><a href="#periodic-rotating-file-handler">periodic-rotating-file-handler</a></p>
 </li>
 <li>
-<p><a href="#Handlers-size-rotating-file-handler">size-rotating-file-handler</a></p>
+<p><a href="#size-rotating-file-handler">size-rotating-file-handler</a></p>
 </li>
 <li>
-<p><a href="#Handlers-syslog-handler">syslog-handler</a></p>
+<p><a href="#syslog-handler">syslog-handler</a></p>
 </li>
 <li>
-<p><a href="#Handlers-custom-handler">custom-handler</a></p>
+<p><a href="#enabled">custom-handler</a></p>
 </li>
 </ul>
 </div>
@@ -9157,22 +9901,22 @@ handlers that take a substantial time to write logged messages.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#src-557084_Handlers-enabled">#enabled</a></p>
+<p><a href="#enabled">#enabled</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-filter-spec">#filter-spec</a></p>
+<p><a href="#filter-spec">#filter-spec</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-level">#level</a></p>
+<p><a href="#level">#level</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-overflow-action">#overflow-action</a></p>
+<p><a href="#overflow-action">#overflow-action</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-queue-length">#queue-length</a></p>
+<p><a href="#queue-length">#queue-length</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-subhandlers">#subhandlers</a></p>
+<p><a href="#subhandlers">#subhandlers</a></p>
 </li>
 </ul>
 </div>
@@ -9190,28 +9934,28 @@ console. Generally this writes to <code>stdout</code>, but can be set to write t
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#src-557084_Handlers-autoflush">#autoflush</a></p>
+<p><a href="#autoflush">#autoflush</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-enabled">#enabled</a></p>
+<p><a href="#enabled">#enabled</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-encoding">#encoding</a></p>
+<p><a href="#encoding">#encoding</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-filter-spec">#filter-spec</a></p>
+<p><a href="#filter-spec">#filter-spec</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-formatter">#formatter</a></p>
+<p><a href="#formatter">#formatter</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-level">#level</a></p>
+<p><a href="#level">#level</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-named-formatter">#named-formatter</a></p>
+<p><a href="#named-formatter">#named-formatter</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-target">#target</a></p>
+<p><a href="#target">#target</a></p>
 </li>
 </ul>
 </div>
@@ -9228,28 +9972,28 @@ file.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#src-557084_Handlers-autoflush">#autoflush</a></p>
+<p><a href="#autoflush">#autoflush</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-enabled">#enabled</a></p>
+<p><a href="#enabled">#enabled</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-encoding">#encoding</a></p>
+<p><a href="#encoding">#encoding</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-filter-spec">#filter-spec</a></p>
+<p><a href="#filter-spec">#filter-spec</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-formatter">#formatter</a></p>
+<p><a href="#formatter">#formatter</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-level">#level</a></p>
+<p><a href="#level">#level</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-named-formatter">#named-formatter</a></p>
+<p><a href="#named-formatter">#named-formatter</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-file">#file</a></p>
+<p><a href="#file">#file</a></p>
 </li>
 </ul>
 </div>
@@ -9260,7 +10004,7 @@ file.</p>
 <div class="paragraph">
 <p>A <code>periodic-rotating-file-handler</code> is a handler that writes log messages
 to the specified file. The file rotates on the date pattern specified in
-the <a href="#src-557084_Handlers-suffix">#suffix</a> attribute. The suffix must
+the <a href="#suffix">#suffix</a> attribute. The suffix must
 be a valid pattern recognized by the
 <a href="http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html"><code>java.text.SimpleDateFormat</code></a>
 and must not rotate on seconds or milliseconds.</p>
@@ -9282,31 +10026,31 @@ The rotate happens before the next message is written by the handler.
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#src-557084_Handlers-autoflush">#autoflush</a></p>
+<p><a href="#autoflush">#autoflush</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-enabled">#enabled</a></p>
+<p><a href="#enabled">#enabled</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-encoding">#encoding</a></p>
+<p><a href="#encoding">#encoding</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-filter-spec">#filter-spec</a></p>
+<p><a href="#filter-spec">#filter-spec</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-formatter">#formatter</a></p>
+<p><a href="#formatter">#formatter</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-level">#level</a></p>
+<p><a href="#level">#level</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-named-formatter">#named-formatter</a></p>
+<p><a href="#named-formatter">#named-formatter</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-file">#file</a></p>
+<p><a href="#file">#file</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-suffix">#suffix</a></p>
+<p><a href="#suffix">#suffix</a></p>
 </li>
 </ul>
 </div>
@@ -9317,12 +10061,12 @@ The rotate happens before the next message is written by the handler.
 <div class="paragraph">
 <p>A <code>size-rotating-file-handler</code> is a handler that writes log messages to
 the specified file. The file rotates when the file size is greater than
-the <a href="#src-557084_Handlers-rotate-size">#rotate-size</a> attribute. The
+the <a href="#rotate-size">#rotate-size</a> attribute. The
 rotated file will be kept and the index appended to the name moving
 previously rotated file indexes up by 1 until the
-<a href="#src-557084_Handlers-max-backup-index">#max-backup-index</a> is
+<a href="#max-backup-index">#max-backup-index</a> is
 reached. Once the
-<a href="#src-557084_Handlers-max-backup-index">#max-backup-index</a> is
+<a href="#max-backup-index">#max-backup-index</a> is
 reached, the indexed files will be overwritten.</p>
 </div>
 <div class="admonitionblock note">
@@ -9342,37 +10086,37 @@ The rotate happens before the next message is written by the handler.
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#src-557084_Handlers-autoflush">#autoflush</a></p>
+<p><a href="#autoflush">#autoflush</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-enabled">#enabled</a></p>
+<p><a href="#enabled">#enabled</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-encoding">#encoding</a></p>
+<p><a href="#encoding">#encoding</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-filter-spec">#filter-spec</a></p>
+<p><a href="#filter-spec">#filter-spec</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-formatter">#formatter</a></p>
+<p><a href="#formatter">#formatter</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-level">#level</a></p>
+<p><a href="#level">#level</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-named-formatter">#named-formatter</a></p>
+<p><a href="#named-formatter">#named-formatter</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-file">#file</a></p>
+<p><a href="#file">#file</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-max-backup-index">#max-backup-index</a></p>
+<p><a href="#max-backup-index">#max-backup-index</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-rotate-size">#rotate-size</a></p>
+<p><a href="#rotate-size">#rotate-size</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-rotate-on-boot">#rotate-on-boot</a></p>
+<p><a href="#rotate-on-boot">#rotate-on-boot</a></p>
 </li>
 </ul>
 </div>
@@ -9396,10 +10140,10 @@ handler support <a href="http://www.ietf.org/rfc/rfc3164.txt">RFC3164</a> or
 <p><a href="#src-557084_Handlers-app-name">#app-name</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-enabled">#enabled</a></p>
+<p><a href="#enabled">#enabled</a></p>
 </li>
 <li>
-<p><a href="#src-557084_Handlers-level">#level</a></p>
+<p><a href="#level">#level</a></p>
 </li>
 <li>
 <p><a href="#src-557084_Handlers-facility">#facility</a></p>
@@ -9426,7 +10170,7 @@ The syslog-handler is missing some configuration properties that may be
 useful in some scenarios like setting a formatter. Use the
 <code>org.jboss.logmanager.handlers.SyslogHandler</code> in module
 <code>org.jboss.logmanager</code> as a
-<a href="#src-557084_Handlers-custom-handler">#custom-handler</a> to exploit
+<a href="#custom-handler">#custom-handler</a> to exploit
 these benefits. Additional attributes will be added at some point so
 this will no longer be necessary.
 </td>
@@ -9986,7 +10730,7 @@ rotated.</th>
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-to">9.4.10. How To</h4>
+<h4 id="Logging_How_To">9.4.10. How To</h4>
 <div class="sect4">
 <h5 id="how-do-i-add-a-log-category">How do I add a log category?</h5>
 <div class="listingblock">
@@ -10085,7 +10829,7 @@ continue to use the logging subsystem configuration.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="loggers">9.4.11. Loggers</h4>
+<h4 id="Logging_Loggers">9.4.11. Loggers</h4>
 <div class="paragraph">
 <p>WIP</p>
 </div>
@@ -10129,13 +10873,13 @@ org.wildfly.example would have a resource path of
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#Loggers-filter-spec">filter-spec</a></p>
+<p><a href="#filter-spec">filter-spec</a></p>
 </li>
 <li>
-<p><a href="#Loggers-handlers">#handlers</a></p>
+<p><a href="#level">#handlers</a></p>
 </li>
 <li>
-<p><a href="#Loggers-level">#level</a></p>
+<p><a href="#level">#level</a></p>
 </li>
 <li>
 <p><a href="#Loggers-use-parent-handlers">use-parent-handlers</a></p>
@@ -10180,7 +10924,7 @@ Filters on loggers are not inherited.
 <div class="paragraph">
 <p>The <code>handlers</code> attribute is a list of handler names that should be
 attached to the logger. If the
-<a href="#src-557085_Loggers-use-parent-handlers">use-parent-handlers</a>
+<a href="#use-parent-handlers">use-parent-handlers</a>
 attribute is set to <code>true</code> and the log messages is determined to be
 loggable, parent loggers will continue to be processed.</p>
 </div>
@@ -10204,7 +10948,7 @@ whether or not parent loggers should also process the log message.</p>
 <h6 id="root-logger-resource">Root Logger Resource</h6>
 <div class="paragraph">
 <p>The <code>root-logger</code> is similar to a
-<a href="#src-557085_Loggers-LoggerResource">#Logger Resource</a> only it has no
+<a href="#logger-resource">#Logger Resource</a> only it has no
 category and it&#8217;s name is must be <code>ROOT</code>.</p>
 </div>
 </div>
@@ -10221,7 +10965,7 @@ class name. For example the logger <code>org.wildfly</code> is the parent logger
 </div>
 </div>
 <div class="sect2">
-<h3 id="ejb3-subsystem-configuration-guide">9.5. EJB3 subsystem configuration guide</h3>
+<h3 id="EJB3">9.5. EJB3 subsystem configuration guide</h3>
 <div class="paragraph">
 <p>This page lists the options that are available for configuring the EJB
 subsystem.</p>
@@ -10482,7 +11226,7 @@ top level deployment with a META-INF/jboss-ejb-client.xml containing:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undertow-subsystem-configuration">9.6. Undertow subsystem configuration</h3>
+<h3 id="Undertow">9.6. Undertow subsystem configuration</h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
@@ -11001,7 +11745,7 @@ will only be persistent across redeploys, rather than restarts.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="ajp-listeners">9.6.4. AJP listeners</h4>
+<h4 id="Undertow_AJP_listeners">9.6.4. AJP listeners</h4>
 <div class="paragraph">
 <p>The AJP listeners are child resources of the subsystem undertow. They
 are used with mod_jk, mod_proxy and mod_cluster of the Apache httpd
@@ -11048,7 +11792,7 @@ new connector configuration:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="using-wildfly-as-a-load-balancer">9.6.5. Using Wildfly as a Load Balancer</h4>
+<h4 id="Undertow_using_as_a_Load_Balancer">9.6.5. Using Wildfly as a Load Balancer</h4>
 <div class="paragraph">
 <p>Wildfly 10 adds support for using the Undertow subsystem as a load
 balancer. Wildfly supports two different approaches, you can either
@@ -11207,7 +11951,7 @@ the <a href="https://wildscribe.github.io/WildFly/12/subsystem/undertow/index.ht
 </div>
 </div>
 <div class="sect2">
-<h3 id="messaging-configuration">9.7. Messaging configuration</h3>
+<h3 id="Messaging">9.7. Messaging configuration</h3>
 <div class="paragraph">
 <p>The JMS server configuration is done through the <em>messaging-activemq</em>
 subsystem. In this chapter we are going outline the frequently used
@@ -11906,7 +12650,7 @@ consult the project documentation.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="connect-a-pooled-connection-factory-to-a-remote-artemis-server">9.7.13. Connect a pooled-connection-factory to a Remote Artemis Server</h4>
+<h4 id="Messaging_Connect_a_pooled-connection-factory_to_a_Remote_Artemis_Server">9.7.13. Connect a pooled-connection-factory to a Remote Artemis Server</h4>
 <div class="paragraph">
 <p>The <code>messaging-activemq</code> subsystem allows to configure a
 <code>pooled-connection-factory</code> resource to let a local client deployed in
@@ -11992,7 +12736,7 @@ property that corresponds to a JNDI lookup on the local server.<br>
 When the MDB is consuming from a remote Artemis server, there may not
 have such a JNDI binding in the local WildFly.<br>
 It is possible to use the naming subsystem to configure
-<a href="#src-557098">external context federation</a> to have local JNDI
+<a href="#Naming">external context federation</a> to have local JNDI
 bindings delegating to external bindings.</p>
 </div>
 <div class="paragraph">
@@ -12032,11 +12776,10 @@ documentation</a> or configure external configuration context in the naming
 subsystem (which allows to inject the JMS resources using the
 <code>@Resource</code> annotation).</p>
 </div>
+<div class="paragraph">
+<p>[[Messaging_Backward_&amp;_Forward_Compatibility]]
+= Backward &amp; Forward Compatibility</p>
 </div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="backward-forward-compatibility">9.7.14. Backward &amp; Forward Compatibility</h4>
 <div class="paragraph">
 <p>WildFly 10 supports both backwards and forwards compatibility with
 legacy versions that were using HornetQ as their messaging brokers (such
@@ -12055,6 +12798,8 @@ connect to legacy app server (running HornetQ)</p>
 to WildFly 10 app server (running Artemis).</p>
 </li>
 </ul>
+</div>
+</div>
 </div>
 <div class="sect4">
 <h5 id="forward-compatibility">Forward Compatibility</h5>
@@ -12172,7 +12917,7 @@ the legacy server.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="aio-nio-for-messaging-journal">9.7.15. AIO - NIO for messaging journal</h4>
+<h4 id="Mesaging_AIO_-_NIO_for_messaging_journal">9.7.14. AIO - NIO for messaging journal</h4>
 <div class="paragraph">
 <p>Apache ActiveMQ Artemis (like HornetQ beforehand) ships with a <strong>high
 performance journal</strong>. Since Apache ActiveMQ Artemis handles its own
@@ -12295,7 +13040,7 @@ trace in your server console :</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jdbc-store-for-messaging-journal">9.7.16. JDBC Store for Messaging Journal</h4>
+<h4 id="Messaging_JDBC_Store_for_Messaging_Journal">9.7.15. JDBC Store for Messaging Journal</h4>
 <div class="paragraph">
 <p>The Artemis server that are integrated to WildFly can be configured to
 use a JDBC store for its messaging journal instead of its file-based
@@ -12372,7 +13117,7 @@ yet).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="security-subsystem-configuration">9.8. Security subsystem configuration</h3>
+<h3 id="Security">9.8. Security subsystem configuration</h3>
 <div class="paragraph">
 <p>The security subsystem is the subsystem that brings the security
 services provided by <a href="http://www.jboss.org/picketbox">PicketBox</a> to the
@@ -12381,7 +13126,7 @@ WildFly 12 server instances.</p>
 <div class="paragraph">
 <p>If you are looking to secure the management interfaces for the
 management of the domain then you should read the
-<a href="#src-557233">Securing the Management Interfaces</a> chapter as the
+<a href="#Security_Realms">Securing the Management Interfaces</a> chapter as the
 management interfaces themselves are not run within a WildFly process so
 use a custom configuration.</p>
 </div>
@@ -12395,7 +13140,7 @@ identity, this chapter aims to provide additional detail regarding the
 architecture and capability of the security subsystem however if you are
 just looking to define a security domain and leave the rest to the
 container please jump to the
-<a href="#src-557233_Securitysubsystemconfiguration-security-domains">security-domains</a>
+<a href="#security-domains">security-domains</a>
 section.</p>
 </div>
 <div class="paragraph">
@@ -12733,10 +13478,6 @@ should be one of required, requisite, sufficient, or optional.</p>
 the module options as required for the login module being configured. It
 requires the name and value attributes.</p>
 </div>
-<div class="paragraph">
-<p>See <a href="Authentication_Modules.html">Authentication Modules</a> for further
-details on the various modules listed above.</p>
-</div>
 </div>
 <div class="sect5">
 <h6 id="authentication-jaspi">authentication-jaspi</h6>
@@ -12764,7 +13505,7 @@ module. Here is the structure of the authentication-jaspi element:</p>
 <p>The login-module-stack-ref attribute value must be the name of the
 login-module-stack element to be used. The sub-element login-module is
 configured just like in the
-<a href="#src-557233_Securitysubsystemconfiguration-authentication">authentication</a>
+<a href="#authentication">authentication</a>
 part</p>
 </div>
 </div>
@@ -13101,7 +13842,7 @@ need to be defined.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="authentication-modules">9.8.3. Authentication Modules</h4>
+<h4 id="Security_Authentication_Modules">9.8.3. Authentication Modules</h4>
 <div class="paragraph">
 <p>In this section we will describe each login module&#8217;s options available.</p>
 </div>
@@ -13354,7 +14095,7 @@ select Role, RoleGroup from Roles where PrincipalID=?</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="web-services-configuration">9.9. Web services configuration</h3>
+<h3 id="Web_services">9.9. Web services configuration</h3>
 <div class="paragraph">
 <p>JBossWS components are provided to the application server through the
 webservices subsystem. JBossWS components handle the processing of WS
@@ -13721,7 +14462,7 @@ consult the project documentation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="resource-adapters">9.10. Resource adapters</h3>
+<h3 id="Resource_adapters">9.10. Resource adapters</h3>
 <div class="paragraph">
 <p>Resource adapters are configured through the <em>resource-adapters</em>
 subsystem. Declaring a new resource adapter consists of two separate
@@ -13817,31 +14558,32 @@ the project documentation.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>[[Batch_(JSR-352)]]
+= Batch (JSR-352) Subsystem Configuration</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="batch-jsr-352-subsystem-configuration">9.11. Batch (JSR-352) Subsystem Configuration</h3>
 <div class="sect3">
-<h4 id="overview">9.11.1. Overview</h4>
+<h4 id="overview">9.10.5. Overview</h4>
 <div class="paragraph">
 <p>The batch subsystem is used to configure an environment for running
 batch applications. <a href="http://wildfly.org">WildFly</a> uses
 <a href="https://github.com/jberet/jsr352">JBeret</a> for it&#8217;s batch implementation.
 Specific information about JBeret can be found in the
 <a href="http://jberet.gitbooks.io/jberet-user-guide/content/">user guide</a>. The
-resource path, in <a href="CLI_Recipes.adoc">CLI notation</a>, for the subsystem
+resource path, in <a href="#CLI_Recipes">CLI notation</a>, for the subsystem
 is <code>subsystem=batch-jberet</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="default-subsystem-configuration">9.11.2. Default Subsystem Configuration</h4>
+<h4 id="default-subsystem-configuration">9.10.6. Default Subsystem Configuration</h4>
 <div class="paragraph">
 <p>For up to date information about subsystem configuration options see
 <a href="http://wildscribe.github.io/" class="bare">http://wildscribe.github.io/</a>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="security">9.11.3. Security</h4>
+<h4 id="security">9.10.7. Security</h4>
 <div class="paragraph">
 <p>A new <code>security-domain</code> attribute was added to the <code>batch-jberet</code>
 subsystem to allow batch jobs to be executed under that security domain.
@@ -13881,7 +14623,7 @@ deployment resource, for example
 </div>
 </div>
 <div class="sect3">
-<h4 id="deployment-descriptors">9.11.4. Deployment Descriptors</h4>
+<h4 id="deployment-descriptors">9.10.8. Deployment Descriptors</h4>
 <div class="paragraph">
 <p>There are no deployment descriptors for configuring a batch environment
 defined by the <a href="https://www.jcp.org/en/jsr/detail?id=352">JSR-352
@@ -13923,7 +14665,7 @@ deployment descriptor.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deployment-resources">9.11.5. Deployment Resources</h4>
+<h4 id="deployment-resources">9.10.9. Deployment Resources</h4>
 <div class="paragraph">
 <p>Some subsystems in <a href="http://wildfly.org">WildFly</a> register runtime
 resources for deployments. The batch subsystem registers jobs and
@@ -14113,9 +14855,9 @@ and attributes (arguments) on operations.
 </div>
 </div>
 <div class="sect2">
-<h3 id="jsf-configuration">9.12. JSF Configuration</h3>
+<h3 id="JSF">9.11. JSF Configuration</h3>
 <div class="sect3">
-<h4 id="overview">9.12.1. Overview</h4>
+<h4 id="overview">9.11.1. Overview</h4>
 <div class="paragraph">
 <p>JSF configuration is handled by the JSF subsystem. The JSF subsystem
 allows multiple JSF implementations to be installed on the same WildFly
@@ -14130,7 +14872,7 @@ attribute.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="installing-a-new-jsf-implementation-manually">9.12.2. Installing a new JSF implementation manually</h4>
+<h4 id="installing-a-new-jsf-implementation-manually">9.11.2. Installing a new JSF implementation manually</h4>
 <div class="paragraph">
 <p>A new JSF implementation can be manually installed as follows:</p>
 </div>
@@ -14247,7 +14989,7 @@ The new JSF implementation should appear in the output of this command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="changing-the-default-jsf-implementation">9.12.3. Changing the default JSF implementation</h4>
+<h4 id="changing-the-default-jsf-implementation">9.11.3. Changing the default JSF implementation</h4>
 <div class="paragraph">
 <p>The following CLI command can be used to make a newly installed JSF
 implementation the default JSF implementation used by WildFly:</p>
@@ -14262,7 +15004,7 @@ implementation the default JSF implementation used by WildFly:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="configuring-a-jsf-app-to-use-a-non-default-jsf-implementation">9.12.4. Configuring a JSF app to use a non-default JSF implementation</h4>
+<h4 id="configuring-a-jsf-app-to-use-a-non-default-jsf-implementation">9.11.4. Configuring a JSF app to use a non-default JSF implementation</h4>
 <div class="paragraph">
 <p>A JSF app can be configured to use an installed JSF implementation
 that&#8217;s not the default implementation by adding a
@@ -14284,9 +15026,35 @@ server), the following context parameter would need to be added:</p>
 implementation will be used for that app.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="disallowing-doctype-declarations">9.11.5. Disallowing DOCTYPE declarations</h4>
+<div class="paragraph">
+<p>The following CLI commands can be used to disallow DOCTYPE declarations
+in JSF deployments:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml">/subsystem=jsf:write-attribute(name=disallow-doctype-decl, value=true)
+reload</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This setting can be overridden for a particular JSF deployment by
+adding the <code>com.sun.faces.disallowDoctypeDecl</code> context parameter
+to the deployment&#8217;s <code>web.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;context-param&gt;</span>
+  <span class="tag">&lt;param-name&gt;</span>com.sun.faces.disallowDoctypeDecl<span class="tag">&lt;/param-name&gt;</span>
+  <span class="tag">&lt;param-value&gt;</span>false<span class="tag">&lt;/param-value&gt;</span>
+<span class="tag">&lt;/context-param&gt;</span></code></pre>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="jmx-subsystem-configuration">9.13. JMX subsystem configuration</h3>
+<h3 id="JMX">9.12. JMX subsystem configuration</h3>
 <div class="paragraph">
 <p>The JMX subsystem registers a service with the Remoting endpoint so that
 remote access to JMX can be obtained over the exposed Remoting
@@ -14401,13 +15169,13 @@ dependencies</p></td>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="audit-logging">9.13.1. Audit logging</h4>
+<h4 id="audit-logging">9.12.1. Audit logging</h4>
 <div class="paragraph">
 <p>Audit logging for the JMX MBean server managed by the JMX subsystem. The
 resource is at <code>/subsystem=jmx/configuration=audit-log</code> and its
 attributes are similar to the ones mentioned for
 <code>/core-service=management/access=audit/logger=audit-log</code> in
-<a href="Audit_logging.html">Audit logging</a>.</p>
+<a href="#Audit_logging">Audit logging</a>.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -14442,13 +15210,13 @@ only operations that change the model will be logged</p></td>
 configured as <code>handler=*</code> children of the logger. These handlers and
 their formatters are defined in the global
 <code>/core-service=management/access=audit</code> section mentioned in
-<a href="Audit_logging.html">Audit logging</a>.</p>
+<a href="#Audit_logging">Audit logging</a>.</p>
 </div>
 <div class="sect4">
 <h5 id="json-formatter">JSON Formatter</h5>
 <div class="paragraph">
 <p>The same JSON Formatter is used as described in
-<a href="Audit_logging.html">Audit logging</a>. However the records for MBean
+<a href="#Audit_logging">Audit logging</a>. However the records for MBean
 Server invocations have slightly different fields from those logged for
 the core management layer.</p>
 </div>
@@ -14557,7 +15325,7 @@ field will be populated with Throwable.getMessage()</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deployment-scanner-configuration">9.14. Deployment Scanner configuration</h3>
+<h3 id="Deployment_Scanner">9.13. Deployment Scanner configuration</h3>
 <div class="paragraph">
 <p>The deployment scanner is only used in standalone mode. Its job is to
 monitor a directory for new files and to deploy those files. It can be
@@ -14716,7 +15484,7 @@ off scanning you can do</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="core-management-subsystem-configuration">9.15. Core Management Subsystem Configuration</h3>
+<h3 id="Core_Management">9.14. Core Management Subsystem Configuration</h3>
 <div class="paragraph">
 <p>The core management subsystem is composed services used to manage the
 server or monitor its status.<br>
@@ -14733,7 +15501,7 @@ The core management subsystem configuration may be used to:</p>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="lifecycle-listener">9.15.1. Lifecycle listener</h4>
+<h4 id="lifecycle-listener">9.14.1. Lifecycle listener</h4>
 <div class="paragraph">
 <p>You can create an implementation of
 <em>org.wildfly.extension.core.management.client.ProcessStateListener</em>
@@ -14817,7 +15585,7 @@ let&#8217;s add the module to the wildfly modules :</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="configuration-changes">9.15.2. Configuration changes</h4>
+<h4 id="configuration-changes">9.14.2. Configuration changes</h4>
 <div class="paragraph">
 <p>You can use the core management subsystem to enable and configure an
 <strong>in-memory</strong> history of the last configuration changes.<br>
@@ -14861,7 +15629,7 @@ For example to track the last 5 configuration changes let&#8217;s active this
 </div>
 </div>
 <div class="sect2">
-<h3 id="simple-configuration-subsystems">9.16. Simple configuration subsystems</h3>
+<h3 id="Simple_configuration_subsystems">9.15. Simple configuration subsystems</h3>
 <div class="paragraph">
 <p>The following subsystems currently have no configuration beyond its root
 element in the configuration</p>
@@ -14918,14 +15686,14 @@ as supported by previous versions of JBoss Application Server</p></td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="domain-setup">10. Domain Setup</h2>
+<h2 id="Domain_Setup">10. Domain Setup</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>To run a group of servers as a managed domain you need to configure both
 the domain controller and each host that joins the domain. This sections
 focuses on the network configuration for the domain and host controller
 components. For background information users are encouraged to review
-the <a href="Operating_modes.adoc">Operating modes</a> and
+the <a href="#Operating_modes">Operating modes</a> and
 <a href="Management_Clients.html#src-557081_ManagementClients-ConfigurationFiles">Configuration
 Files</a> sections.</p>
 </div>
@@ -15545,10 +16313,10 @@ takes precedence if the same parameter is given in all places.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="management-tasks">11. Management tasks</h2>
+<h2 id="Management_tasks">11. Management tasks</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="command-line-parameters">11.1. Command line parameters</h3>
+<h3 id="Command_line_parameters">11.1. Command line parameters</h3>
 <div class="paragraph">
 <p>To start up a WildFly managed domain, execute the
 <code>$JBOSS_HOME/bin/domain.sh</code> script. To start up a standalone server,
@@ -16047,7 +16815,7 @@ set. If they are not set, 127.0.0.1 is used for each value.</p>
 </div>
 <div class="paragraph">
 <p>As noted in
-<a href="#src-557062_Commandlineparameters-common-parameters">Common
+<a href="#common-parameters">Common
 Parameters</a>, the AS supports the <code>-b</code> and <code>-b&lt;name&gt;</code> command line
 switches. The only function of these switches is to set system
 properties <code>jboss.bind.address</code> and <code>jboss.bind.address.&lt;name&gt;</code>
@@ -16212,34 +16980,53 @@ by <code>-u</code>, then setting <code>-u</code> in your launch command will hav
 </div>
 </div>
 <div class="sect2">
-<h3 id="suspend-resume-and-graceful-shutdown">11.2. Suspend, Resume and Graceful shutdown</h3>
+<h3 id="Suspend">11.2. Suspend, Resume and Graceful shutdown</h3>
 <div class="sect3">
 <h4 id="core-concepts">11.2.1. Core Concepts</h4>
 <div class="paragraph">
-<p>Wildfly introduces the ability to suspend and resume servers. This can
+<p>WildFly introduces the ability to suspend and resume servers. This can
 be combined with shutdown to enable the server to gracefully finish
 processing all active requests and then shut down. When a server is
 suspended it will immediately stop accepting new requests, but wait for
-existing request to complete. A suspended server can be resumed at any
+existing requests to complete. A suspended server can be resumed at any
 point, and will begin processing requests immediately. Suspending and
 resuming has no effect on deployment state (e.g. if a server is
-suspended singleton EJB&#8217;s will not be destroyed). As of Wildfly 11 it is
+suspended singleton EJB&#8217;s will not be destroyed). As of WildFly 11 it is
 also possible to start a server in suspended mode which means it will
-not accept requests until it has been resumed, servers will also be
+not accept requests until it has been resumed. Servers will also be
 suspended during the boot process, so no requests will be accepted until
 the startup process is 100% complete.</p>
 </div>
 <div class="paragraph">
-<p>Suspend/Resume has no effect on management operations, management
+<p>Suspend/Resume has no effect on management operations; management
 operations can still be performed while a server is suspended. If you
 wish to perform a management operation that will affect the operation of
-the server (e.g. changing a datasource) you can suspend the server,
-perform the operation, then resume the server. This allows all requests
-to finish, and makes sure that no requests are running while the
-management changes are taking place.</p>
+the server you can suspend the server, perform the operation, and then
+resume the server. This allows all requests to finish, and makes sure
+that no requests are running while the management changes are taking
+place.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you perform a management operation while the server is suspended,
+and the response to that operation includes the
+<code>operation-requires-reload</code> or <code>operation-requires-restart</code> response
+headers, then the operation will not take full effect until that
+reload or restart is done. Simply resuming the server will not be
+sufficient to cause the change to take effect.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>When a server is suspending it goes through four different phases:</p>
+<p>When a server is suspending it goes through four different states:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -16283,17 +17070,17 @@ restart or reload (e.g. :start-servers(suspend=true)).</p>
 <div class="sect3">
 <h4 id="the-request-controller-subsystem">11.2.3. The Request Controller Subsystem</h4>
 <div class="paragraph">
-<p>Wildfly introduces a new subsystem called the Request Controller
+<p>WildFly introduces a new subsystem called the Request Controller
 Subsystem. This optional subsystem tracks all requests at their entry
-point, which how the graceful shutdown mechanism know when all requests
-are done (it also allows you to provide a global limit on the total
+point, which is how the graceful shutdown mechanism knows when all requests
+are done. (It also allows you to provide a global limit on the total
 number of running requests).</p>
 </div>
 <div class="paragraph">
-<p>If this subsystem is not present suspend/resume will be limited, in
+<p>If this subsystem is not present suspend/resume will be limited. In
 general things that happen in the PRE_SUSPEND phase will work as normal
-(stopping message delivery, notifying the load balancer), however the
-server will not wait for all requests to complete and instead move
+(stopping message delivery, notifying the load balancer); however the
+server will not wait for all requests to complete and instead will move
 straight to SUSPENDED mode.</p>
 </div>
 <div class="paragraph">
@@ -16306,7 +17093,7 @@ removed to get a small performance boost.</p>
 <div class="sect3">
 <h4 id="subsystem-integrations">11.2.4. Subsystem Integrations</h4>
 <div class="paragraph">
-<p>Suspend/Resume is a service provided by the Wildfly platform that any
+<p>Suspend/Resume is a service provided by the WildFly platform that any
 subsystem may choose to integrate with. Some subsystems integrate
 directly with the suspend controller, while others integrate through the
 request controller subsystem.</p>
@@ -16314,14 +17101,14 @@ request controller subsystem.</p>
 <div class="paragraph">
 <p>The following subsystems support graceful shutdown. Note that only
 subsystems that provide an external entry point to the server need
-graceful shutdown support, for example the JAX-RS subsystem does not
+graceful shutdown support. For example the JAX-RS subsystem does not
 require suspend/resume support as all access to JAX-RS is through the
 web connector.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Undertow</strong> - Undertow will wait for all requests to finish</p>
+<p><strong>Undertow</strong> - Undertow will wait for all requests to finish.</p>
 </li>
 <li>
 <p><strong>mod_cluster</strong> - The mod_cluster subsystem will notify the load
@@ -16343,45 +17130,55 @@ server returns to running mode.</p>
 All jobs that have already been queued will be skipped.</p>
 </li>
 <li>
-<p><strong>Transactions</strong> - transaction subsystem waits for all running
-transactions to finish while server is suspending. During that time
-server refuses to start any new transaction. But any in-flight
-transaction will be serviced - e.g. it means that server accepts any
-incoming remote call which carries context of the transaction already
-started at the suspending server.<br>
-When you work with EJBs you have to enable the graceful shutdown
-functionality by setting attribute <code>enable-graceful-txn-shutdown</code> to
-<code>true</code>.<br>
-(at the <code>ejb3 subsystem</code> xml, for example):<br>
-<code>&lt;enable-graceful-txn-shutdown value="false"/&gt;</code><br>
-By <strong>default</strong> graceful shutdown it&#8217;s <strong>disabled</strong> for ejb subsystem.<br>
-The reason is that the behavior might be unwelcome in cluster
+<p><strong>Transactions</strong> - The transaction subsystem waits for all running
+transactions to finish while the server is suspending. During that time
+the server refuses to start any new transaction. But any in-flight
+transaction will be serviced - e.g. the server will accept any
+incoming remote call which carries the context of a transaction already
+started at the suspending server.</p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="transactions-and-ejbs">Transactions and EJBs</h5>
+<div class="paragraph">
+<p>When you work with EJBs you have to enable the graceful shutdown
+functionality by setting the attribute <code>enable-graceful-txn-shutdown</code> to
+<code>true</code>. For example, in the ejb3 subsystem section of <code>standalone.xml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;enable-graceful-txn-shutdown</span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By <strong>default</strong> graceful shutdown is <strong>disabled</strong> for the ejb subsystem.
+The reason for this is that the behavior might be unwelcome in cluster
 environments, as the server notifies remote clients that the node is no
 longer available for remote calls only after the transactions are
 finished. During that brief window of time, the client of a cluster may
-send a new request to a node that is shutting down and will refuse the
-request because it is not related to an existing transaction.<br>
+send a new request to a node that is shutting down and it will refuse the
+request because it is not related to an existing transaction.
 If this attribute <code>enable-graceful-txn-shutdown</code> is set to <code>false</code>, we
 disable the graceful behavior and EJB clients will not attempt to invoke
 the node when it suspends, regardless of active transactions.</p>
-</li>
-</ul>
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="standalone-mode">11.2.5. Standalone Mode</h4>
 <div class="paragraph">
-<p>Suspend/Resume can be controlled via the following CLI operations in
-standalone mode:</p>
+<p>Suspend/Resume can be controlled via the following CLI operations
+and commands in standalone mode:</p>
 </div>
 <div class="paragraph">
 <p><code>:suspend(timeout=z)</code></p>
 </div>
 <div class="paragraph">
-<p>Suspends the server. If the timeout is specified it will wait up to the
-specified number of seconds for all requests to finish. If there is no
-timeout specified or the value is less than zero it will wait
-indefinitely.</p>
+<p>Suspends the server. If the timeout is specified it will wait in the
+SUSPENDING phase up to the specified number of seconds for all requests
+to finish. If there is no timeout specified or the value is less than
+zero it will wait indefinitely.</p>
 </div>
 <div class="paragraph">
 <p><code>:resume</code></p>
@@ -16397,20 +17194,20 @@ begin serving requests immediately.</p>
 <p>Returns the current suspend state of the server.</p>
 </div>
 <div class="paragraph">
-<p><code>:shutdown(timeout=x)</code></p>
+<p><code>shutdown --timeout=x</code></p>
 </div>
 <div class="paragraph">
 <p>If a timeout parameter is passed to the shutdown command then a graceful
 shutdown will be performed. The server will be suspended, and will wait
-up to the specified number of seconds for all requests to finish before
-shutting down. A timeout value of less than zero means it will wait
-indefinitely.</p>
+in SUSPENDING state up to the specified number of seconds for all requests
+to finish before shutting down. A timeout value of less than zero means
+it will wait indefinitely.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="domain-mode">11.2.6. Domain Mode</h4>
 <div class="paragraph">
-<p>Domain mode has similar commands as standalone mode, however they can be
+<p>Domain mode has similar operations as standalone mode, however they can be
 applied at both the global and server group levels:</p>
 </div>
 <div class="paragraph">
@@ -16420,10 +17217,10 @@ applied at both the global and server group levels:</p>
 <p><code>:suspend-servers(timeout=x)</code></p>
 </div>
 <div class="paragraph">
-<p>:resume-servers</p>
+<p><code>:resume-servers</code></p>
 </div>
 <div class="paragraph">
-<p>:stop-servers(timeout=x)</p>
+<p><code>:stop-servers(timeout=x)</code></p>
 </div>
 <div class="paragraph">
 <p><strong>Server Group</strong></p>
@@ -16444,15 +17241,42 @@ applied at both the global and server group levels:</p>
 <p><code>/host=master/server-config=server-one:suspend(timeout=x)</code></p>
 </div>
 <div class="paragraph">
-<p>/host=master/server-config=server-one:resume</p>
+<p><code>/host=master/server-config=server-one:resume</code></p>
 </div>
 <div class="paragraph">
-<p>/host=master/server-config=server-one:stop(timeout=x)</p>
+<p><code>/host=master/server-config=server-one:stop(timeout=x)</code></p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="graceful-shutdown-from-an-os-signal">11.2.7. Graceful Shutdown via an OS Signal</h4>
+<div class="paragraph">
+<p>If you use an OS signal like <code>TERM</code> to shut down your WildFly standalone server
+process, e.g. via <code>kill -15 &lt;pid&gt;</code>, the WildFly server will shut down gracefully.
+By default, the behavior will be analogous to a CLI <code>shutdown --timeout=0</code> command;
+that is the process will not wait in SUSPENDING state for in-flight requests to
+complete before proceeding to SUSPENDED state and then shutting down. A different
+timeout can be configured by setting the <code>org.wildfly.sigterm.suspend.timeout</code>
+system property. The value of the property should be an integer indicating the maximum
+number of seconds to wait for in-flight requests to complete. A value of <code>-1</code> means
+the server should wait indefinitely.</p>
 </div>
-<div class="sect2">
-<h3 id="starting-stopping-servers-in-a-managed-domain">11.3. Starting &amp; stopping Servers in a Managed Domain</h3>
+<div class="paragraph">
+<p>Graceful shutdown via an OS signal will not work if the server JVM is configured
+to disable signal handling (i.e. with the <code>-Xrs</code> argument to java). It also won&#8217;t
+work if the method used to terminate the process doesn&#8217;t result in a signal the
+JVM can respond to (e.g. <code>kill -9</code>).</p>
+</div>
+<div class="paragraph">
+<p>In a managed domain, Process Controller and Host Controller processes will not attempt
+any sort of graceful shutdown in response to a signal. A domain mode server may, but
+the proper way to control the lifecycle of a domain mode server process is via the
+management API and its managing Host Controller, not via direct signals to the server
+process.</p>
+</div>
+<div class="paragraph">
+<p>[[Starting_&amp;_stopping_Servers_in_a_Managed_Domain]]
+= Starting &amp; stopping Servers in a Managed Domain</p>
+</div>
 <div class="paragraph">
 <p>Starting a standalone server is done through the <code>bin/standalone.sh</code>
 script. However in a managed domain server instances are managed by the
@@ -16533,8 +17357,9 @@ the web interface.
 </table>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="jvm-settings">11.4. JVM settings</h3>
+<h3 id="JVM_settings">11.3. JVM settings</h3>
 <div class="paragraph">
 <p>Configuration of the JVM settings is different for a managed domain and
 a standalone server. In a managed domain, the domain controller
@@ -16544,7 +17369,7 @@ responsibility of the process that started the server (e.g. passing them
 as command line arguments).</p>
 </div>
 <div class="sect3">
-<h4 id="managed-domain">11.4.1. Managed Domain</h4>
+<h4 id="managed-domain">11.3.1. Managed Domain</h4>
 <div class="paragraph">
 <p>In a managed domain the JVM settings can be declared at different
 scopes: For a specific server group, for a host or for a particular
@@ -16622,7 +17447,7 @@ heap size.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="standalone-server">11.4.2. Standalone Server</h4>
+<h4 id="standalone-server">11.3.2. Standalone Server</h4>
 <div class="paragraph">
 <p>For a standalone sever you have to pass in the JVM settings either as
 command line arguments when executing the
@@ -16634,7 +17459,7 @@ be declared in <code>%JBOSS_HOME%/bin/standalone.conf.bat.)</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="audit-logging-2">11.5. Audit logging</h3>
+<h3 id="Audit_logging">11.4. Audit logging</h3>
 <div class="paragraph">
 <p>WildFly comes with audit logging built in for management operations
 affecting the management model. By default it is turned off. The
@@ -16731,7 +17556,7 @@ step. Similarly if you are using a file handler, and want to change its
 </table>
 </div>
 <div class="sect3">
-<h4 id="json-formatter">11.5.1. JSON Formatter</h4>
+<h4 id="json-formatter">11.4.1. JSON Formatter</h4>
 <div class="paragraph">
 <p>The first thing that needs configuring is the formatter, we currently
 support outputting log records as JSON. You can define several
@@ -16886,7 +17711,7 @@ code in octal, e.g. "#012".</p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="handlers">11.5.2. Handlers</h4>
+<h4 id="handlers">11.4.2. Handlers</h4>
 <div class="paragraph">
 <p>A handler is responsible for taking the formatted data and logging it to
 a location. There are currently two types of handlers, File and Syslog.
@@ -17237,7 +18062,7 @@ attribute is treated as relative to the path specified by this attribute</p></td
 </div>
 </div>
 <div class="sect3">
-<h4 id="logger-configuration">11.5.3. Logger configuration</h4>
+<h4 id="logger-configuration">11.4.3. Logger configuration</h4>
 <div class="paragraph">
 <p>The final part that needs configuring is the logger for the management
 operations. This references one or more handlers and is configured at
@@ -17278,7 +18103,7 @@ configured as <code>handler=*</code> children of the logger.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="domain-mode-host-specific-configuration">11.5.4. Domain Mode (host specific configuration)</h4>
+<h4 id="domain-mode-host-specific-configuration">11.4.4. Domain Mode (host specific configuration)</h4>
 <div class="paragraph">
 <p>In domain mode audit logging is configured for each host in its
 <code>host.xml</code> file. This means that when connecting to the DC, the
@@ -17347,13 +18172,13 @@ independently.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="canceling-management-operations">11.6. Canceling Management Operations</h3>
+<h3 id="Canceling_Management_Operations">11.5. Canceling Management Operations</h3>
 <div class="paragraph">
 <p>WildFly includes the ability to use the CLI to cancel management
 requests that are not proceeding normally.</p>
 </div>
 <div class="sect3">
-<h4 id="the-cancel-non-progressing-operation-operation">11.6.1. The cancel-non-progressing-operation operation</h4>
+<h4 id="the-cancel-non-progressing-operation-operation">11.5.1. The cancel-non-progressing-operation operation</h4>
 <div class="paragraph">
 <p>The <code>cancel-non-progressing-operation</code> operation instructs the target
 process to find any operation that isn&#8217;t proceeding normally and cancel
@@ -17425,7 +18250,7 @@ will be a failure response:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="the-find-non-progressing-operation-operation">11.6.2. The find-non-progressing-operation operation</h4>
+<h4 id="the-find-non-progressing-operation-operation">11.5.2. The find-non-progressing-operation operation</h4>
 <div class="paragraph">
 <p>To simply learn the id of an operation that isn&#8217;t proceeding normally,
 but not cancel it, use the <code>find-non-progressing-operation</code> operation:</p>
@@ -17449,7 +18274,7 @@ operation can be examined to learn more about its status.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="examining-the-status-of-an-active-operation">11.6.3. Examining the status of an active operation</h4>
+<h4 id="examining-the-status-of-an-active-operation">11.5.3. Examining the status of an active operation</h4>
 <div class="paragraph">
 <p>There is a management resource for any currently executing operation
 that can be queried:</p>
@@ -17609,7 +18434,7 @@ the <code>read-children-resources</code> operation:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="canceling-a-specific-operation">11.6.4. Canceling a specific operation</h4>
+<h4 id="canceling-a-specific-operation">11.5.4. Canceling a specific operation</h4>
 <div class="paragraph">
 <p>The <code>cancel-non-progressing-operation</code> operation is a convenience
 operation for identifying and canceling an operation. However, an
@@ -17628,7 +18453,7 @@ operation on the resource for the desired operation.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="controlling-operation-blocking-time">11.6.5. Controlling operation blocking time</h4>
+<h4 id="controlling-operation-blocking-time">11.5.5. Controlling operation blocking time</h4>
 <div class="paragraph">
 <p>As an operation executes, the execution thread may block at various
 points, particularly while waiting for the service container to
@@ -17661,7 +18486,7 @@ points during operation execution.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration-file-history">11.7. Configuration file history</h3>
+<h3 id="Configuration_file_history">11.6. Configuration file history</h3>
 <div class="paragraph">
 <p>The management operations may modify the model. When this occurs the xml
 backing the model is written out again reflecting the latest changes. In
@@ -17669,11 +18494,11 @@ addition a full history of the file is maintained. The history of the
 file goes in a separate directory under the configuration directory.</p>
 </div>
 <div class="paragraph">
-<p>As mentioned in <a href="#src-557061">Command line parameters</a> the default
+<p>As mentioned in <a href="#Command_line_parameters">Command line parameters</a> the default
 configuration file can be selected using a command-line parameter. For a
 standalone server instance the history of the active <code>standalone.xml</code> is
 kept in <code>jboss.server.config.dir</code>/standalone_xml_history (See
-<a href="#src-557061">Command line parameters#standalone_system_properties</a>
+<a href="#Command_line_parameters">Command line parameters#standalone_system_properties</a>
 for more details). For a domain the active <code>domain.xml</code> and <code>host.xml</code>
 histories are kept in <code>jboss.domain.config.dir</code>/domain_xml_history and
 <code>jboss.domain.config.dir</code>/host_xml_history.</p>
@@ -17747,7 +18572,7 @@ folder within the <code>standalone_xml_history</code>, and a new <code>current</
 is created. These timestamped folders are kept for 30 days.</p>
 </div>
 <div class="sect3">
-<h4 id="snapshots">11.7.1. Snapshots</h4>
+<h4 id="snapshots">11.6.1. Snapshots</h4>
 <div class="paragraph">
 <p>In addition to the backups taken by the server as described above you
 can manually take take snapshots which will be stored in the <code>snapshot</code>
@@ -17833,7 +18658,7 @@ to navigate to the host in question:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="subsequent-starts">11.7.2. Subsequent Starts</h4>
+<h4 id="subsequent-starts">11.6.2. Subsequent Starts</h4>
 <div class="paragraph">
 <p>For subsequent server starts it may be desirable to take the state of
 the server back to one of the previously known states, for a number of
@@ -17896,21 +18721,21 @@ configuration as an absolute path will be made.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="management-api-reference">12. Management API reference</h2>
+<h2 id="Management_API_reference">12. Management API reference</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section is an in depth reference to the WildFly management API.
 Readers are encouraged to read the
-<a href="Management_Clients.html">Management clients</a> and
-<a href="Core_management_concepts.html">Core management concepts</a> sections
+<a href="#Management_Clients">Management clients</a> and
+<a href="#Core_management_concepts">Core management concepts</a> sections
 for fundamental background information, as well as the
-<a href="Management_tasks.adoc">Management tasks</a> and
-<a href="Domain_Setup.adoc">Domain setup</a> sections for key task oriented
+<a href="#Management_tasks">Management tasks</a> and
+<a href="#Domain_Setup">Domain setup</a> sections for key task oriented
 information. This section is meant as an in depth reference to delve
 into some of the key details.</p>
 </div>
 <div class="sect2">
-<h3 id="global-operations">12.1. Global operations</h3>
+<h3 id="Global_operations">12.1. Global operations</h3>
 <div class="paragraph">
 <p>The WildFly management API includes a number of operations that apply to
 every resource.</p>
@@ -18217,7 +19042,7 @@ global operations from the output.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>See <a href="Description_of_the_Management_Model.html">Description of the
+<p>See <a href="#Description_of_the_Management_Model">Description of the
 Management Model</a> for details on the result of this operation.</p>
 </div>
 </div>
@@ -18243,7 +19068,7 @@ parameter:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>See <a href="Description_of_the_Management_Model.html">Description of the
+<p>See <a href="#Description_of_the_Management_Model">Description of the
 Management Model</a> for details on the result of this operation.</p>
 </div>
 </div>
@@ -18408,7 +19233,7 @@ The operation should take no parameters.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="detyped-management-and-the-jboss-dmr-library">12.2. Detyped management and the jboss-dmr library</h3>
+<h3 id="Detyped_management_and_the_jboss-dmr_library">12.2. Detyped management and the jboss-dmr library</h3>
 <div class="paragraph">
 <p>The management model exposed by WildFly is very large and complex. There
 are dozens, probably hundreds of logical concepts involved – hosts,
@@ -19223,7 +20048,7 @@ UNDEFINED</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="description-of-the-management-model">12.3. Description of the Management Model</h3>
+<h3 id="Description_of_the_Management_Model">12.3. Description of the Management Model</h3>
 <div class="paragraph">
 <p>A detailed description of the resources, attributes and operations that
 make up the management model provided by an individual WildFly instance
@@ -19238,7 +20063,7 @@ section we provide details on what&#8217;s included in those descriptions.</p>
 <div class="paragraph">
 <p>All portions of the management model exposed by WildFly are addressable
 via an ordered list of key/value pairs. For each addressable
-<em><a href="Management_resources.html">Management Resource</a></em> , the following
+<a href="../Management_resources.html">Management Resource</a>, the following
 descriptive information will be available:</p>
 </div>
 <div class="ulist">
@@ -19262,41 +20087,29 @@ value is 1.</p>
 <li>
 <p><code>attributes</code> – Map of String (the attribute name) to complex structure
 – the configuration attributes available in this portion of the model.
-See
-<a href="#DescriptionoftheManagementModel-attribute-description">below</a>
+See the <a href="#description-of-an-attribute">Description of an Attribute</a> section
 for the representation of each attribute.</p>
 </li>
 <li>
 <p><code>operations</code> – Map of String (the operation name) to complex structure
-– the operations that can be targetted at this address. See
-<a href="#DescriptionoftheManagementModel-operation-description">below</a>
+– the operations that can be targeted at this address. See the
+<a href="#description-of-an-operation">Description of an Operation</a> section
 for the representation of each operation.</p>
 </li>
 <li>
 <p><code>children</code> – Map of String (the type of child) to complex structure –
 the relationship of this portion of the model to other addressable
-portions of the model. See
-<a href="#DescriptionoftheManagementModel-children-description">below</a>
-for the representation of each child relationship.</p>
+portions of the model. See the
+<a href="#description-of-parentchild-relationships">Description of Parent/Child Relationships</a>
+section for the representation of each child relationship.</p>
 </li>
 <li>
-<p><code>head-comment-allowed</code> – boolean – indicates whether this portion of
-the model can store an XML comment that would be written in the
-persistent form of the model (e.g. domain.xml) before the start of the
-XML element that represents this portion of the model. This item is
-optional, and if not present defaults to true. (Note: storing XML
-comments in the in-memory model is not currently supported. This
-description key is for future use.)</p>
+<p><code>head-comment-allowed</code> – boolean – This description key is for
+possible future use.</p>
 </li>
 <li>
-<p><code>tail-comment-allowed</code> – boolean – similar to <code>head-comment-allowed</code>,
-but indicates whether a comment just before the close of the XML element
-is supported. A tail comment can only be supported if the element has
-child elements, in which case a comment can be inserted between the
-final child element and the element&#8217;s closing tag. This item is
-optional, and if not present defaults to true. (Note: storing XML
-comments in the in-memory model is not currently supported. This
-description key is for future use.)</p>
+<p><code>tail-comment-allowed</code> – boolean – This description key is for
+possible future use.</p>
 </li>
 </ul>
 </div>
@@ -19331,8 +20144,9 @@ description key is for future use.)</p>
 <div class="paragraph">
 <p>An attribute is a portion of the management model that is not directly
 addressable. Instead, it is conceptually a property of an addressable
-<a href="Management_resources.html">management resource</a>. For each attribute
-in the model, the following descriptive information will be available:</p>
+<a href="../Management_resources.html">management resource</a>. For
+each attribute in the model, the following descriptive information will
+be available:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -19416,9 +20230,9 @@ updating this attribute&#8217;s value.</p>
 access-type is read-write. Indicates whether execution of a
 write-attribute operation whose name parameter specifies this attribute
 requires a restart of services (or an entire JVM) in order for the
-change to take effect in the runtime . See discussion of "
-<a href="#DescriptionoftheManagementModel-applying-runtime-updates">Applying
-Updates to Runtime Services</a>" below. Default value is "no-services".</p>
+change to take effect in the runtime . See the discussion of
+<a href="#applying-updates-to-runtime-services">Applying
+Updates to Runtime Services</a> below. Default value is "no-services".</p>
 </li>
 <li>
 <p><code>default</code> – the default value for the attribute that will be used in
@@ -19455,33 +20269,17 @@ that at present some attributes that reference other areas of the model
 may not provide this information.)</p>
 </li>
 <li>
-<p><code>head-comment-allowed</code> – boolean – indicates whether the model can
-store an XML comment that would be written in the persistent form of the
-model (e.g. domain.xml) before the start of the XML element that
-represents this attribute. This item is optional, and if not present
-defaults to false. (This is a different default from what is used for an
-entire management resource, since model attributes often map to XML
-attributes, which don&#8217;t allow comments.) (Note: storing XML comments in
-the in-memory model is not currently supported. This description key is
-for future use.)</p>
+<p><code>head-comment-allowed</code> – boolean – This description key is for
+possible future use.</p>
 </li>
 <li>
-<p><code>tail-comment-allowed</code> – boolean – similar to head-comment-allowed,
-but indicates whether a comment just before the close of the XML element
-is supported. A tail comment can only be supported if the element has
-child elements, in which case a comment can be inserted between the
-final child element and the element&#8217;s closing tag. This item is
-optional, and if not present defaults to false. (This is a different
-default from what is used for an entire management resource, since model
-attributes often map to XML attributes, which don&#8217;t allow comments.)
-(Note: storing XML comments in the in-memory model is not currently
-supported. This description key is for future use.)</p>
+<p><code>tail-comment-allowed</code> – boolean – This description key is for
+possible future use.</p>
 </li>
 <li>
 <p>arbitrary key/value pairs that further describe the attribute value,
-e.g. "max" &#8658; 2. See "
-<a href="#DescriptionoftheManagementModel-arbitrary-descriptors">Arbitrary
-Descriptors</a>" below.</p>
+e.g. "max" &#8658; 2. See the <a href="#arbitrary-descriptors">Arbitrary
+Descriptors</a> section.</p>
 </li>
 </ul>
 </div>
@@ -19529,13 +20327,13 @@ description of an operation will include the following information:</p>
 description of the parameters of the operation. Keys are the names of
 the parameters, values are descriptions of the parameter value types.
 See
-<a href="#DescriptionoftheManagementModel-param-description">below</a>
+<a href="#description-of-an-operation-parameter-or-return-value">below</a>
 for details on the description of parameter value types.</p>
 </li>
 <li>
 <p><code>reply-properties</code> – complex structure, or empty – description of the
 return value of the operation, with an empty node meaning void. See
-<a href="#DescriptionoftheManagementModel-param-description">below</a>
+<a href="#description-of-an-operation-parameter-or-return-value">below</a>
 for details on the description of operation return value types.</p>
 </li>
 <li>
@@ -19543,9 +20341,8 @@ for details on the description of operation return value types.</p>
 "resource-services" or "jvm". Indicates whether the operation makes a
 configuration change that requires a restart of services (or an entire
 JVM) in order for the change to take effect in the runtime. See
-discussion of "
-<a href="#DescriptionoftheManagementModel-applying-runtime-updates">Applying
-Updates to Runtime Services</a>" below. Default value is "no-services".</p>
+the discussion of <a href="#applying-updates-to-runtime-services">Applying
+Updates to Runtime Services</a> below. Default value is "no-services".</p>
 </li>
 </ul>
 </div>
@@ -19615,9 +20412,9 @@ parameters listed as <code>alternatives</code> are defined.</p>
 access-type is read-write. Indicates whether execution of a
 write-attribute operation whose name parameter specifies this attribute
 requires a restart of services (or an entire JVM) in order for the
-change to take effect in the runtime . See discussion of "
-<a href="#DescriptionoftheManagementModel-applying-runtime-updates">Applying
-Updates to Runtime Services</a>" below. Default value is "no-services".</p>
+change to take effect in the runtime . See the discussion of
+<a href="#applying-updates-to-runtime-services">Applying
+Updates to Runtime Services</a> below. Default value is "no-services".</p>
 </li>
 <li>
 <p><code>alternatives</code> – List of string – Indicates an exclusive relationship
@@ -19642,9 +20439,8 @@ Default is undefined; i.e. this does not apply to most parameters.</p>
 </li>
 <li>
 <p>arbitrary key/value pairs that further describe the attribute value,
-e.g. "max" &#8658;2. See "
-<a href="#DescriptionoftheManagementModel-arbitrary-descriptors">Arbitrary
-Descriptors</a>" below.</p>
+e.g. "max" &#8658;2. See the <a href="#arbitrary-descriptors">Arbitrary Descriptors</a>
+section.</p>
 </li>
 </ul>
 </div>
@@ -19816,8 +20612,8 @@ description did not include the "recursive" param set to true.</p>
 <div class="sect4">
 <h5 id="applying-updates-to-runtime-services">Applying Updates to Runtime Services</h5>
 <div class="paragraph">
-<p>An attribute or operation description may include a "
-`restart-required`" descriptor; this section is an explanation of the
+<p>An attribute or operation description may include a <code>restart-required</code>
+descriptor; this section is an explanation of the
 meaning of that descriptor.</p>
 </div>
 <div class="paragraph">
@@ -19835,7 +20631,7 @@ reflect the new value(s).</p>
 <p>However, in many cases the runtime service&#8217;s state cannot be updated
 without restarting the service. Restarting a service can have broad
 effects. A restart of a service A will trigger a restart of other
-services B, C and D that depend A, triggering a restart of services that
+services B, C and D that depend on A, triggering a restart of services that
 depend on B, C and D, etc. Those service restarts may very well disrupt
 handling of end-user requests.</p>
 </div>
@@ -19849,8 +20645,8 @@ restart (e.g. a <code>/host=master/server-config=server-one:restart</code>
 operation in a managed domain, or a <code>/:reload</code> operation on a standalone
 server.) For all other cases, if an operation (or attribute write)
 cannot be performed without restarting a service, the metadata
-describing the operation or attribute will include a "
-`restart-required`" descriptor whose value indicates what is necessary
+describing the operation or attribute will include a <code>restart-required</code>
+descriptor whose value indicates what is necessary
 for the operation to affect the runtime:</p>
 </div>
 <div class="ulist">
@@ -19864,25 +20660,25 @@ restart-required descriptor is not present.</p>
 <p><code>all-services</code> – The operation can only immediately update the
 persistent configuration; applying the operation to the runtime will
 require a subsequent restart of all services in the affected VM.
-Executing the operation will put the server into a " <code>reload-required`"
+Executing the operation will put the server into a <code>reload-required</code>
 state. Until a restart of all services is performed the response to this
 operation and to any subsequent operation will include a response header
-" `process-state" &#8658; "reload-required`". For a standalone server, a
-restart of all services can be accomplished by executing the `/:reload</code>
+<code>"process-state" &#8658; "reload-required"</code>. For a standalone server, a
+restart of all services can be accomplished by executing the <code>reload</code>
 CLI command. For a server in a managed domain, restarting all services
-currently requires a full restart of the affected server VM (e.g.
-<code>/host=master/server-config=server-one:restart</code>).</p>
+is done via a reload operation targeting the particular server (e.g.
+<code>/host=master/server=server-one:reload</code>).</p>
 </li>
 <li>
 <p><code>jvm</code> --The operation can only immediately update the persistent
 configuration; applying the operation to the runtime will require a full
 process restart (i.e. stop the JVM and launch a new JVM). Executing the
-operation will put the server into a " <code>restart-required`" state. Until
+operation will put the server into a <code>restart-required</code> state. Until
 a restart is performed the response to this operation and to any
-subsequent operation will include a response header "
-`process-state" &#8658; "restart-required`". For a standalone server, a full
+subsequent operation will include a response header
+<code>"process-state" &#8658; "restart-required"</code>. For a standalone server, a full
 process restart requires first stopping the server via OS-level
-operations (Ctrl-C, kill) or via the `/:shutdown</code> CLI command, and then
+operations (Ctrl-C, kill) or via the <code>shutdown</code> CLI command, and then
 starting the server again from the command line. For a server in a
 managed domain, restarting a server requires executing the
 <code>/host=&lt;host&gt;/server-config=&lt;server&gt;:restart</code> operation.</p>
@@ -19894,9 +20690,9 @@ require a subsequent restart of some services associated with the
 resource. If the operation includes the request header
 <code>"allow-resource-service-restart" &#8658; true</code>, the handler for the
 operation will go ahead and restart the runtime service. Otherwise
-executing the operation will put the server into a " `reload-required`"
-state. (See the discussion of " `all-services`" above for more on the "
-`reload-required`" state.)</p>
+executing the operation will put the server into a <code>reload-required</code>
+state. (See the discussion of <code>all-services</code> above for more on the
+<code>reload-required</code> state.)</p>
 </li>
 </ul>
 </div>
@@ -19904,7 +20700,7 @@ state. (See the discussion of " `all-services`" above for more on the "
 </div>
 </div>
 <div class="sect2">
-<h3 id="the-http-management-api">12.4. The HTTP management API</h3>
+<h3 id="The_HTTP_management_API">12.4. The HTTP management API</h3>
 <div class="sect3">
 <h4 id="introduction">12.4.1. Introduction</h4>
 <div class="paragraph">
@@ -19922,8 +20718,7 @@ mechanism is <em>username / password</em> based making use of <strong>HTTP Diges
 the authentication process.</p>
 </div>
 <div class="paragraph">
-<p>Thus <strong>you need to create a user</strong> with the
-<a href="add-user_utility.html">add-user.sh</a> script.</p>
+<p>Thus <strong>you need to create a user</strong> with the add-user.sh script.</p>
 </div>
 </div>
 <div class="sect3">
@@ -20275,7 +21070,7 @@ WebTarget managementResource = client.target(<span class="string"><span class="d
 </div>
 </div>
 <div class="sect2">
-<h3 id="the-native-management-api">12.5. The native management API</h3>
+<h3 id="The_native_management_API">12.5. The native management API</h3>
 <div class="paragraph">
 <p>A standalone WildFly process, or a managed domain Domain Controller or
 slave Host Controller process can be configured to listen for remote
@@ -20451,7 +21246,7 @@ in an implementation of the
 class from the <code>jboss-dmr</code> library. The <code>jboss-dmr</code> library allows the
 complete WildFly management model to be expressed using a very small
 number of Java types. See
-<a href="Detyped_management_and_the_jboss-dmr_library.html">Detyped
+<a href="#Detyped_management_and_the_jboss-dmr_library">Detyped
 management and the jboss-dmr library</a> for full details on using this
 library.</p>
 </div>
@@ -20514,7 +21309,7 @@ exposed by the resource to be included. Default is false.</p>
 parameters at all.</p>
 </div>
 <div class="paragraph">
-<p>See <a href="#src-557212_ThenativemanagementAPI-request-format">Format of a
+<p>See <a href="#format-of-a-detyped-operation-request">Format of a
 Detyped Operation Request</a> for full details on the structure of a
 ModelNode that will represent an operation request.</p>
 </div>
@@ -20543,7 +21338,7 @@ response:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>See <a href="#src-557212_ThenativemanagementAPI-response-format">Format of a
+<p>See <a href="#format-of-a-detyped-operation-response">Format of a
 Detyped Operation Response</a> for general details on the structure of the
 "returnVal" ModelNode.</p>
 </div>
@@ -20598,7 +21393,7 @@ invoked.</p>
 <p>The purpose of this section is to document the structure of <code>operation</code>.</p>
 </div>
 <div class="paragraph">
-<p>See <a href="#src-557212_ThenativemanagementAPI-response-format">Format of a
+<p>See <a href="#format-of-a-detyped-operation-response">Format of a
 Detyped Operation Response</a> for a discussion of the format of the
 response.</p>
 </div>
@@ -20734,7 +21529,7 @@ runtime thread pool.)</p>
 <li>
 <p><code>rollout-plan</code> – only relevant to requests made to a Domain Controller
 or Host Controller. See "
-<a href="#src-557212_ThenativemanagementAPI-rollout-plan">Operations with a
+<a href="#operations-with-a-rollout-plan">Operations with a
 Rollout Plan</a>" for details.</p>
 </li>
 <li>
@@ -20773,7 +21568,7 @@ problematic operations indefinitely tying up resources.</p>
 server will expose an operation named " `composite`". This operation
 executes a list of other operations as an atomic unit (although the
 atomicity requirement can be
-<a href="#src-557212_ThenativemanagementAPI-rollback-on-runtime-failure">relaxed</a>.
+<a href="#composite-operations">relaxed</a>.
 The structure of the request for the " `composite`" operation has the
 same fundamental structure as a simple operation (i.e. operation name,
 address, params as key value pairs).</p>
@@ -21120,7 +21915,7 @@ value.</p>
 </div>
 <div class="paragraph">
 <p>For the format of the request, see
-<a href="#src-557212_ThenativemanagementAPI-request-format">Format of a
+<a href="#format-of-a-detyped-operation-request">Format of a
 Detyped Operation Request</a>.</p>
 </div>
 <div class="sect4">
@@ -21311,7 +22106,7 @@ configuration change to take effect in the runtime.</p>
 <div class="paragraph">
 <p>A composite operation is one that incorporates more than one simple
 operation in a list and executes them atomically. See the
-<a href="#src-557212_ThenativemanagementAPI-composite-operations">"Composite
+<a href="#composite-operations">"Composite
 Operations" section</a> for more information.</p>
 </div>
 <div class="paragraph">
@@ -21686,7 +22481,7 @@ example response would look like this:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="cli-recipes">13. CLI Recipes</h2>
+<h2 id="CLI_Recipes">13. CLI Recipes</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="properties">13.1. Properties</h3>
@@ -22035,18 +22830,85 @@ invoking scripts from WildFly.</p>
 <div class="sect2">
 <h3 id="deployment">13.6. Deployment</h3>
 <div class="sect3">
-<h4 id="undeploying-and-redeploying-multiple-deployments">13.6.1. Undeploying and redeploying multiple deployments</h4>
+<h4 id="cli-deployment-command">13.6.1. CLI <em>deployment</em> command</h4>
 <div class="paragraph">
-<p>CLI offers a way to efficiently undeploy or redeploy deployments in one
-simple command.</p>
+<p>In addition to the legacy <em>deploy</em>, <em>undeploy</em> and <em>deployment-info</em> commands,
+that stay un-changed, the CLI offers a <em>deployment</em> command that properly
+separates the various use cases encountered when managing deployments. This command
+offers a simpler interface and should be the way to go when managing deployments.
+New features will be added thanks to the <em>deployment</em> command, legacy commands will not evolve.
+This document contains a summary of the capabilities of this command, type <em>help deployment</em>
+to display the list of all available actions and <em>help deployment &lt;action&gt;</em> for the detailed
+description of an action.</p>
+</div>
+<div class="paragraph">
+<p>Actions to deploy some content:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>To disable all enabled deployments: <em>undeploy --keep-content *</em></p>
+<p><em>deployment deploy-file</em>: To deploy a file located on the file system.</p>
 </li>
 <li>
-<p>To redeploy all disabled deployments: <em>deploy --name=*</em></p>
+<p><em>deployment deploy-url</em>: To deploy content referenced by an URL.</p>
+</li>
+<li>
+<p><em>deployment deploy-cli-achive</em>: To deploy some content thanks to a CLI archive
+(.cli file) located on the file system.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Actions to enable some deployments:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>deployment enable</em>: To enable a given disabled deployment.</p>
+</li>
+<li>
+<p><em>deployment enable-all</em>: To enable all disabled deployments.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Actions to disable some deployments:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>deployment disable</em>: To disable a given enabled deployment.</p>
+</li>
+<li>
+<p><em>deployment disable-all</em>: To disable all enabled deployments.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Actions to undeploy some deployments:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>deployment undeploy</em>: To undeploy a given deployment and remove its content
+from the repository.</p>
+</li>
+<li>
+<p><em>deployment undeploy-cli-archive</em>: To undeploy some content using a CLI archive
+(.cli file) located on the file system.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Actions to get information on some deployments:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>deployment info</em>: To display information about single or multiple deployments.</p>
+</li>
+<li>
+<p><em>deployment list</em>: To display all the existing deployments.</p>
 </li>
 </ul>
 </div>
@@ -22231,13 +23093,51 @@ allows to display or save the content of the attached streams.</p>
 </ul>
 </div>
 </div>
+<div class="sect2">
+<h3 id="iteration-of-collections">13.8. Iteration of Collections</h3>
+<div class="paragraph">
+<p>The command <em>for</em> allows to iterate the content of an operation result. As an
+example, this command can be used to display the content of the Manifest files
+present in all deployed applications. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">for</span> deployed in :read-children-names(child-type=deployment)
+ echo <span class="error">$</span>deployed <span class="predefined-type">Manifest</span> content
+ attachment display --operation=/deployment=<span class="error">$</span>deployed:read-content(path=META-INF/MANIFEST.MF)
+done</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When this <em>for</em> block is executed, the content of all Manifest files is displayed in the CLI console.</p>
+</div>
+<div class="paragraph">
+<p>Tips</p>
+</div>
+<div class="ulist TIP">
+<ul class="TIP">
+<li>
+<p>The scope of the defined variable is limited to the <em>for</em> block.</p>
+</li>
+<li>
+<p>If a variable with the same name already exists, the <em>for</em> command will print an error.</p>
+</li>
+<li>
+<p>If the operation doesn&#8217;t return a list, the <em>for</em> command will print an error.</p>
+</li>
+<li>
+<p><em>for</em> block can be discarded and not execute by adding the option <em>--discard</em> to <em>done</em>.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 12.0.0.Alpha1-SNAPSHOT<br>
-Last updated 2017-11-09 15:11:37 CET
+Last updated 2018-02-14 11:03:45 CET
 </div>
 </div>
 </body>

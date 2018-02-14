@@ -517,12 +517,12 @@ table.CodeRay td.code>pre{padding:0}
 .CodeRay .head .head{color:#f4f}
 </style>
 </head>
-<body class="book toc2 toc-left">
+<body id="WildFly_Elytron_Security" class="book toc2 toc-left">
 <div id="header">
 <h1>WildFly Elytron Security</h1>
 <div class="details">
 <span id="revnumber">version 12.0.0.Alpha1-SNAPSHOT,</span>
-<span id="revdate">2017-11-09T14:29:38Z</span>
+<span id="revdate">2018-02-14T10:04:13Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">WildFly Elytron Security Guide</div>
@@ -535,80 +535,87 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#secure-credential-storage">1.4. Secure Credential Storage</a></li>
 </ul>
 </li>
-<li><a href="#general-elytron-architecture">2. General Elytron Architecture</a>
+<li><a href="#General_Elytron_Architecture">2. General Elytron Architecture</a>
 <ul class="sectlevel2">
 <li><a href="#security-domains">2.1. Security Domains</a></li>
 <li><a href="#sasl-authentication">2.2. SASL Authentication</a></li>
 <li><a href="#http-authentication">2.3. HTTP Authentication</a></li>
 <li><a href="#ssl-tls">2.4. SSL / TLS</a></li>
-<li><a href="#get-started-using-the-elytron-subsystem">2.5. Get Started using the Elytron Subsystem</a></li>
-<li><a href="#provided-components">2.6. Provided components</a></li>
-<li><a href="#out-of-the-box-configuration">2.7. Out of the Box Configuration</a></li>
-<li><a href="#default-application-authentication-configuration">2.8. Default Application Authentication Configuration</a></li>
-<li><a href="#default-management-authentication-configuration">2.9. Default Management Authentication Configuration</a></li>
-<li><a href="#comparing-legacy-approaches-to-elytron-approaches">2.10. Comparing Legacy Approaches to Elytron Approaches</a></li>
 </ul>
 </li>
-<li><a href="#using-the-elytron-subsystem">3. Using the Elytron Subsystem</a>
+<li><a href="#Elytron_Subsystem">3. Elytron Subsystem</a>
 <ul class="sectlevel2">
-<li><a href="#set-up-and-configure-authentication-for-applications">3.1. Set Up and Configure Authentication for Applications</a></li>
-<li><a href="#set-up-and-configure-authentication-for-the-management-interfaces">3.2. Set up and Configure Authentication for the Management Interfaces</a></li>
-<li><a href="#configure-ssltls">3.3. Configure SSL/TLS</a></li>
-<li><a href="#configuring-the-elytron-and-security-subsystems">3.4. Configuring the Elytron and Security Subsystems</a></li>
-<li><a href="#creating-elytron-subsystem-components">3.5. Creating Elytron Subsystem Components</a></li>
+<li><a href="#get-started-using-the-elytron-subsystem">3.1. Get Started using the Elytron Subsystem</a></li>
+<li><a href="#provided-components">3.2. Provided components</a></li>
+<li><a href="#out-of-the-box-configuration">3.3. Out of the Box Configuration</a></li>
+<li><a href="#default-application-authentication-configuration">3.4. Default Application Authentication Configuration</a></li>
+<li><a href="#default-management-authentication-configuration">3.5. Default Management Authentication Configuration</a></li>
+<li><a href="#comparing-legacy-approaches-to-elytron-approaches">3.6. Comparing Legacy Approaches to Elytron Approaches</a></li>
 </ul>
 </li>
-<li><a href="#using-elytron-within-wildfly">4. Using Elytron within WildFly</a>
+<li><a href="#Using_the_Elytron_Subsystem">4. Using the Elytron Subsystem</a>
 <ul class="sectlevel2">
-<li><a href="#using-the-out-of-the-box-elytron-components">4.1. Using the Out of the Box Elytron Components</a></li>
-<li><a href="#undertow-subsystem">4.2. Undertow Subsystem</a></li>
-<li><a href="#ejb-subsystem">4.3. EJB Subsystem</a></li>
-<li><a href="#webservices-subsystem">4.4. WebServices Subsystem</a></li>
-<li><a href="#legacy-security-subsystem">4.5. Legacy Security Subsystem</a></li>
+<li><a href="#set-up-and-configure-authentication-for-applications">4.1. Set Up and Configure Authentication for Applications</a></li>
+<li><a href="#set-up-and-configure-authentication-for-the-management-interfaces">4.2. Set up and Configure Authentication for the Management Interfaces</a></li>
+<li><a href="#configure-ssltls">4.3. Configure SSL/TLS</a></li>
+<li><a href="#configuring-the-elytron-and-security-subsystems">4.4. Configuring the Elytron and Security Subsystems</a></li>
+<li><a href="#creating-elytron-subsystem-components">4.5. Creating Elytron Subsystem Components</a></li>
 </ul>
 </li>
-<li><a href="#client-authentication-with-elytron-client">5. Client Authentication with Elytron Client</a>
+<li><a href="#Using_WildFly_Elytron_with_WildFly">5. Using Elytron within WildFly</a>
 <ul class="sectlevel2">
-<li><a href="#the-configuration-file-approach">5.1. The Configuration File Approach</a></li>
-<li><a href="#the-programmatic-approach">5.2. The Programmatic Approach</a></li>
-<li><a href="#the-default-configuration-approach">5.3. The Default Configuration Approach</a></li>
-<li><a href="#using-elytron-client-with-clients-deployed-to-wildfly">5.4. Using Elytron Client with Clients Deployed to WildFly</a></li>
-<li><a href="#client-configuration-using-wildfly-config-xml">5.5. Client configuration using wildfly-config.xml</a></li>
+<li><a href="#using-the-out-of-the-box-elytron-components">5.1. Using the Out of the Box Elytron Components</a></li>
+<li><a href="#undertow-subsystem">5.2. Undertow Subsystem</a></li>
+<li><a href="#ejb-subsystem">5.3. EJB Subsystem</a></li>
+<li><a href="#webservices-subsystem">5.4. WebServices Subsystem</a></li>
+<li><a href="#legacy-security-subsystem">5.5. Legacy Security Subsystem</a></li>
 </ul>
 </li>
-<li><a href="#elytron-and-java-authorization-contract-for-containers-jacc">6. Elytron and Java Authorization Contract for Containers (JACC)</a>
+<li><a href="#Client_Authentication_with_Elytron_Client">6. Client Authentication with Elytron Client</a>
 <ul class="sectlevel2">
-<li><a href="#overview">6.1. Overview</a></li>
-<li><a href="#disabling-jacc-in-legacy-security-subsystem-picketbox">6.2. Disabling JACC in Legacy Security Subsystem (PicketBox)</a></li>
-<li><a href="#defining-a-jacc-policy-provider">6.3. Defining a JACC Policy Provider</a></li>
-<li><a href="#enabling-jacc-to-a-web-deployment">6.4. Enabling JACC to a Web Deployment</a></li>
-<li><a href="#enabling-jacc-to-a-ejb-deployment">6.5. Enabling JACC to a EJB Deployment</a></li>
+<li><a href="#the-configuration-file-approach">6.1. The Configuration File Approach</a></li>
+<li><a href="#the-programmatic-approach">6.2. The Programmatic Approach</a></li>
+<li><a href="#the-default-configuration-approach">6.3. The Default Configuration Approach</a></li>
+<li><a href="#using-elytron-client-with-clients-deployed-to-wildfly">6.4. Using Elytron Client with Clients Deployed to WildFly</a></li>
+<li><a href="#Configuring_other_clients_using_wildfly-config">6.5. Client configuration using wildfly-config.xml</a></li>
 </ul>
 </li>
-<li><a href="#using-keycloak-with-wildfly-elytron">7. Using KeyCloak with WildFly Elytron</a></li>
-<li><a href="#web-single-sign-on">8. Web Single Sign-On</a>
+<li><a href="#Elytron_and_Java_Authorization_Contract_for_Containers-JACC">7. Elytron and Java Authorization Contract for Containers (JACC)</a>
 <ul class="sectlevel2">
-<li><a href="#create-a-server-configuration-template">8.1. Create a Server Configuration Template</a></li>
-<li><a href="#create-two-server-instances">8.2. Create Two Server Instances</a></li>
-<li><a href="#deploy-an-application">8.3. Deploy an Application</a></li>
+<li><a href="#overview">7.1. Overview</a></li>
+<li><a href="#disabling-jacc-in-legacy-security-subsystem-picketbox">7.2. Disabling JACC in Legacy Security Subsystem (PicketBox)</a></li>
+<li><a href="#defining-a-jacc-policy-provider">7.3. Defining a JACC Policy Provider</a></li>
+<li><a href="#enabling-jacc-to-a-web-deployment">7.4. Enabling JACC to a Web Deployment</a></li>
+<li><a href="#enabling-jacc-to-a-ejb-deployment">7.5. Enabling JACC to a EJB Deployment</a></li>
 </ul>
 </li>
-<li><a href="#migrate-legacy-security-to-elytron-security">9. Migrate Legacy Security to Elytron Security</a>
+<li><a href="#KeyCloak_Integration">8. Using KeyCloak with WildFly Elytron</a></li>
+<li><a href="#OpenSSL">9. OpenSSL</a></li>
+<li><a href="#Web_Single_Sign_On">10. Web Single Sign-On</a>
 <ul class="sectlevel2">
-<li><a href="#authentication-configuration">9.1. Authentication Configuration</a></li>
-<li><a href="#properties-based-authentication-authorization">9.2. Properties Based Authentication / Authorization</a></li>
-<li><a href="#ldap-authentication-migration">9.3. LDAP Authentication Migration</a></li>
-<li><a href="#composite-stores-migration">9.4. Composite Stores Migration</a></li>
-<li><a href="#kerberos-authentication-migration">9.5. Kerberos Authentication Migration</a></li>
-<li><a href="#clients">9.6. Clients</a></li>
-<li><a href="#application-client-migration">9.7. Application Client Migration</a></li>
-<li><a href="#general-utilities">9.8. General Utilities</a></li>
-<li><a href="#security-vault-migration">9.9. Security Vault Migration</a></li>
-<li><a href="#security-properties">9.10. Security Properties</a></li>
-<li><a href="#ssl-migration">9.11. SSL Migration</a></li>
-<li><a href="#simple-ssl-migration">9.12. Simple SSL Migration</a></li>
-<li><a href="#ssl-with-client-cert-migration">9.13. SSL with Client Cert Migration</a></li>
-<li><a href="#documentation-still-needed">9.14. Documentation Still Needed</a></li>
+<li><a href="#create-a-server-configuration-template">10.1. Create a Server Configuration Template</a></li>
+<li><a href="#create-two-server-instances">10.2. Create Two Server Instances</a></li>
+<li><a href="#deploy-an-application">10.3. Deploy an Application</a></li>
+</ul>
+</li>
+<li><a href="#Migrate_Legacy_Security_to_Elytron_Security">11. Migrate Legacy Security to Elytron Security</a>
+<ul class="sectlevel2">
+<li><a href="#authentication-configuration">11.1. Authentication Configuration</a></li>
+<li><a href="#Properties_File_Based_Authentication_Migration">11.2. Properties Based Authentication / Authorization</a></li>
+<li><a href="#LDAP_Based_Authentication_Migration">11.3. LDAP Authentication Migration</a></li>
+<li><a href="#Composite_Stores_Migration">11.4. Composite Stores Migration</a></li>
+<li><a href="#Database_Authentication_Migration">11.5. Database Authentication</a></li>
+<li><a href="#Kerberos_Based_Authentication_Migration">11.6. Kerberos Authentication Migration</a></li>
+<li><a href="#Caching_Migration">11.7. Caching Migration</a></li>
+<li><a href="#clients">11.8. Clients</a></li>
+<li><a href="#Application_Client_Migration">11.9. Application Client Migration</a></li>
+<li><a href="#general-utilities">11.10. General Utilities</a></li>
+<li><a href="#Security_Vault_Migration">11.11. Security Vault Migration</a></li>
+<li><a href="#Security_Property_Migration">11.12. Security Properties</a></li>
+<li><a href="#ssl-migration">11.13. SSL Migration</a></li>
+<li><a href="#Simple_SSL_Migration">11.14. Simple SSL Migration</a></li>
+<li><a href="#SSL_with_Client_Cert_Migration">11.15. SSL with Client Cert Migration</a></li>
+<li><a href="#documentation-still-needed">11.16. Documentation Still Needed</a></li>
 </ul>
 </li>
 </ul>
@@ -708,7 +715,7 @@ supports storage of clear text credentials.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="general-elytron-architecture">2. General Elytron Architecture</h2>
+<h2 id="General_Elytron_Architecture">2. General Elytron Architecture</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The overall architecture for WildFly Elytron is building up a full
@@ -1007,9 +1014,14 @@ performed as an authentication ensuring the appropriate permissions to
 Logon are assigned before even allowing the connection to be fully
 opened, additionally the SecurityIdentity can be established at the time
 the connection is opened and used for any invocations over the
-connection.
-= Elytron Subsystem</p>
+connection.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Elytron_Subsystem">3. Elytron Subsystem</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>WildFly Elytron is a security framework used to unify security across
 the entire application server. The <em>elytron</em> subsystem enables a single
@@ -1057,9 +1069,8 @@ subsystem and legacy core management authentication. Both the legacy and
 Elytron methods may be used for securing the management interfaces as
 well as providing security for applications.</p>
 </div>
-</div>
 <div class="sect2">
-<h3 id="get-started-using-the-elytron-subsystem">2.5. Get Started using the Elytron Subsystem</h3>
+<h3 id="get-started-using-the-elytron-subsystem">3.1. Get Started using the Elytron Subsystem</h3>
 <div class="paragraph">
 <p>To get started using Elytron, refer to these topics:</p>
 </div>
@@ -1067,7 +1078,7 @@ well as providing security for applications.</p>
 <ul>
 <li>
 <p>Use the default Elytron components for
-<a href="#src-557147_ElytronSubsystem-use-default-elytron-app-auth">application</a>
+<a href="#default-application-authentication-configuration">application</a>
 and
 <a href="#src-557147_ElytronSubsystem-use-default-elytron-mgmt-auth">management</a>
 authentication</p>
@@ -1120,13 +1131,13 @@ interfaces</a> with an LDAP-based identity store.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="provided-components">2.6. Provided components</h3>
+<h3 id="provided-components">3.2. Provided components</h3>
 <div class="paragraph">
 <p>Wildfly Elytron provides a default set of implementations in the
 <em>elytron</em> subsystem.</p>
 </div>
 <div class="sect3">
-<h4 id="factories">2.6.1. Factories</h4>
+<h4 id="factories">3.2.1. Factories</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1217,7 +1228,7 @@ using a ServiceLoader</p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="principal-transformers">2.6.2. Principal Transformers</h4>
+<h4 id="principal-transformers">3.2.2. Principal Transformers</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1266,7 +1277,7 @@ name.</p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="principal-decoders">2.6.3. Principal Decoders</h4>
+<h4 id="principal-decoders">3.2.3. Principal Decoders</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1307,7 +1318,7 @@ principal decoder.</p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="realm-mappers">2.6.4. Realm Mappers</h4>
+<h4 id="realm-mappers">3.2.4. Realm Mappers</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1346,7 +1357,7 @@ realm mapper is used instead.</p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="realms">2.6.5. Realms</h4>
+<h4 id="realms">3.2.5. Realms</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1429,7 +1440,7 @@ TrustManager list as used to create an SSL context.</p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="permission-mappers">2.6.6. Permission Mappers</h4>
+<h4 id="permission-mappers">3.2.6. Permission Mappers</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1464,7 +1475,7 @@ always returns the same constant.</p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="role-decoders">2.6.7. Role Decoders</h4>
+<h4 id="role-decoders">3.2.7. Role Decoders</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1490,7 +1501,7 @@ single attribute and maps it directly to roles.</p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="role-mappers">2.6.8. Role Mappers</h4>
+<h4 id="role-mappers">3.2.8. Role Mappers</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1536,7 +1547,7 @@ performs a logical operation using two referenced role mappers.</p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="ssl-components">2.6.9. SSL Components</h4>
+<h4 id="ssl-components">3.2.9. SSL Components</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1582,7 +1593,7 @@ connection.</p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="other">2.6.10. Other</h4>
+<h4 id="other">3.2.10. Other</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1639,13 +1650,13 @@ information such as passwords for external services.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="out-of-the-box-configuration">2.7. Out of the Box Configuration</h3>
+<h3 id="out-of-the-box-configuration">3.3. Out of the Box Configuration</h3>
 <div class="paragraph">
 <p>WildFly provides a set of components configured by default. While these
 components are ready to use, the legacy <em>security</em> subsystem and legacy
 core management authentication is still used by default. To configure
 WildFly to use the these configured components as well as create new
-ones, see the <a href="Using_the_Elytron_Subsystem.html">Using the Elytron
+ones, see the <a href="#Using_the_Elytron_Subsystem">Using the Elytron
 Subsystem</a> section.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
@@ -2029,7 +2040,7 @@ and openssl provider loaders.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="default-application-authentication-configuration">2.8. Default Application Authentication Configuration</h3>
+<h3 id="default-application-authentication-configuration">3.4. Default Application Authentication Configuration</h3>
 <div class="paragraph">
 <p>By default, applications are secured using legacy security domains.
 Applications must specify a security domain in their <em>web.xml</em> as well
@@ -2038,7 +2049,7 @@ application, WildFly will use the provided <em>other</em> legacy security
 domain.</p>
 </div>
 <div class="sect3">
-<h4 id="update-wildfly-to-use-the-default-elytron-components-for-application-authentication">2.8.1. Update WildFly to Use the Default Elytron Components for Application</h4>
+<h4 id="update-wildfly-to-use-the-default-elytron-components-for-application-authentication">3.4.1. Update WildFly to Use the Default Elytron Components for Application</h4>
 <div class="paragraph">
 <p>Authentication</p>
 </div>
@@ -2049,7 +2060,7 @@ domain.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="default-elytron-application-http-authentication-configuration">2.8.2. Default Elytron Application HTTP Authentication Configuration</h4>
+<h4 id="default-elytron-application-http-authentication-configuration">3.4.2. Default Elytron Application HTTP Authentication Configuration</h4>
 <div class="paragraph">
 <p>By default, the <em>application-http-authentication</em>
 http-authentication-factory is provided for application http
@@ -2128,7 +2139,7 @@ realm.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="default-management-authentication-configuration">2.9. Default Management Authentication Configuration</h3>
+<h3 id="default-management-authentication-configuration">3.5. Default Management Authentication Configuration</h3>
 <div class="paragraph">
 <p>By default, the WildFly management interfaces are secured by the legacy
 core management authentication.</p>
@@ -2162,7 +2173,7 @@ core management authentication.</p>
 the management interfaces as well.</p>
 </div>
 <div class="sect3">
-<h4 id="update-wildfly-to-use-the-default-elytron-components-for-management-authentication">2.9.1. Update WildFly to Use the Default Elytron Components for Management</h4>
+<h4 id="update-wildfly-to-use-the-default-elytron-components-for-management-authentication">3.5.1. Update WildFly to Use the Default Elytron Components for Management</h4>
 <div class="paragraph">
 <p>Authentication</p>
 </div>
@@ -2216,7 +2227,7 @@ provided by the 'elytron' subsystem.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="default-elytron-management-http-authentication-configuration">2.9.2. Default Elytron Management HTTP Authentication Configuration</h4>
+<h4 id="default-elytron-management-http-authentication-configuration">3.5.2. Default Elytron Management HTTP Authentication Configuration</h4>
 <div class="paragraph">
 <p>When you access the management interface over HTTP, for example when
 using the web-based management console, WildFly will use the
@@ -2297,7 +2308,7 @@ realm.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="default-elytron-management-cli-authentication">2.9.3. Default Elytron Management CLI Authentication</h4>
+<h4 id="default-elytron-management-cli-authentication">3.5.3. Default Elytron Management CLI Authentication</h4>
 <div class="paragraph">
 <p>By default, the management CLI ( <em>jboss-cli.sh</em>) is configured to
 connect over <em>remotehttp</em>.</p>
@@ -2409,7 +2420,7 @@ the <em>management-http-authentication</em> http-authentication-factory.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="comparing-legacy-approaches-to-elytron-approaches">2.10. Comparing Legacy Approaches to Elytron Approaches</h3>
+<h3 id="comparing-legacy-approaches-to-elytron-approaches">3.6. Comparing Legacy Approaches to Elytron Approaches</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -2482,12 +2493,12 @@ using the Elytron Subsystem</p></td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="using-the-elytron-subsystem">3. Using the Elytron Subsystem</h2>
+<h2 id="Using_the_Elytron_Subsystem">4. Using the Elytron Subsystem</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="set-up-and-configure-authentication-for-applications">3.1. Set Up and Configure Authentication for Applications</h3>
+<h3 id="set-up-and-configure-authentication-for-applications">4.1. Set Up and Configure Authentication for Applications</h3>
 <div class="sect3">
-<h4 id="configure-authentication-with-a-properties-file-based-identity-store">3.1.1. Configure Authentication with a Properties File-Based Identity Store</h4>
+<h4 id="configure-authentication-with-a-properties-file-based-identity-store">4.1.1. Configure Authentication with a Properties File-Based Identity Store</h4>
 <div class="sect4">
 <h5 id="create-properties-files">Create properties files:</h5>
 <div class="paragraph">
@@ -2569,14 +2580,14 @@ as <em>FORM</em>.</p>
 <p>Your application&#8217;s <em>web.xml</em> and <em>jboss-web.xml</em> must be updated to use
 the <em>application-security-domain</em> you configured in WildFly. An example
 of this is available in the
-<a href="#src-557140_UsingtheElytronSubsystem-config-app-auth">Configure
+<a href="#configure-applications-to-use-elytron-or-legacy-security-for-authentication">Configure
 Applications to Use Elytron or Legacy Security for Authentication</a>
 section.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="configure-authentication-with-a-filesystem-based-identity-store">3.1.2. Configure Authentication with a Filesystem-Based Identity Store</h4>
+<h4 id="configure-authentication-with-a-filesystem-based-identity-store">4.1.2. Configure Authentication with a Filesystem-Based Identity Store</h4>
 <div class="sect4">
 <h5 id="chose-a-directory-for-users">Chose a directory for users:</h5>
 <div class="paragraph">
@@ -2659,7 +2670,7 @@ as <em>FORM</em>.</p>
 <p>Your application&#8217;s <em>web.xml</em> and <em>jboss-web.xml</em> must be updated to use
 the <em>application-security-domain</em> you configured in WildFly. An example
 of this is available in the
-<a href="#src-557140_UsingtheElytronSubsystem-config-app-auth">Configure
+<a href="#configure-applications-to-use-elytron-or-legacy-security-for-authentication">Configure
 Applications to Use Elytron or Legacy Security for Authentication</a>
 section.</p>
 </div>
@@ -2670,7 +2681,7 @@ authentication.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="configure-authentication-with-a-database-identity-store">3.1.3. Configure Authentication with a Database Identity Store</h4>
+<h4 id="configure-authentication-with-a-database-identity-store">4.1.3. Configure Authentication with a Database Identity Store</h4>
 <div class="sect4">
 <h5 id="determine-your-database-format-for-usernames-passwords-and-roles">Determine your database format for usernames, passwords, and roles:</h5>
 <div class="paragraph">
@@ -2772,14 +2783,14 @@ as <em>FORM</em>.</p>
 <p>Your application&#8217;s <em>web.xml</em> and <em>jboss-web.xml</em> must be updated to use
 the <em>application-security-domain</em> you configured in WildFly. An example
 of this is available in the
-<a href="#src-557140_UsingtheElytronSubsystem-config-app-auth">Configure
+<a href="#configure-applications-to-use-elytron-or-legacy-security-for-authentication">Configure
 Applications to Use Elytron or Legacy Security for Authentication</a>
 section.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="configure-authentication-with-an-ldap-based-identity-store">3.1.4. Configure Authentication with an LDAP-Based Identity Store</h4>
+<h4 id="configure-authentication-with-an-ldap-based-identity-store">4.1.4. Configure Authentication with an LDAP-Based Identity Store</h4>
 <div class="sect4">
 <h5 id="determine-your-ldap-format-for-usernames-passwords-and-roles">Determine your LDAP format for usernames, passwords, and roles:</h5>
 <div class="paragraph">
@@ -2885,7 +2896,7 @@ as <em>FORM</em>.</p>
 <p>Your application&#8217;s <em>web.xml</em> and <em>jboss-web.xml</em> must be updated to use
 the <em>application-security-domain</em> you configured in WildFly. An example
 of this is available in the
-<a href="#src-557140_UsingtheElytronSubsystem-config-app-auth">Configure
+<a href="#configure-applications-to-use-elytron-or-legacy-security-for-authentication">Configure
 Applications to Use Elytron or Legacy Security for Authentication</a>
 section.</p>
 </div>
@@ -2901,7 +2912,7 @@ conditions.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="configure-authentication-with-certificates">3.1.5. Configure Authentication with Certificates</h4>
+<h4 id="configure-authentication-with-certificates">4.1.5. Configure Authentication with Certificates</h4>
 <div class="paragraph">
 <p><strong>IMPORTANT:</strong> Before you can set up certificate-based authentication, you
 must have two-way SSL configured.</p>
@@ -2994,7 +3005,7 @@ principal from <em>ksRealm</em> but other approaches may also be used.</p>
 <p>Your application&#8217;s <em>web.xml</em> and <em>jboss-web.xml</em> must be updated to use
 the <em>application-security-domain</em> you configured in WildFly. An example
 of this is available in the
-<a href="#src-557140_UsingtheElytronSubsystem-config-app-auth">Configure
+<a href="#configure-applications-to-use-elytron-or-legacy-security-for-authentication">Configure
 Applications to Use Elytron or Legacy Security for Authentication</a>
 section.</p>
 </div>
@@ -3013,7 +3024,7 @@ its authentication method.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="configure-authentication-with-a-kerberos-based-identity-store">3.1.6. Configure Authentication with a Kerberos-Based Identity Store</h4>
+<h4 id="configure-authentication-with-a-kerberos-based-identity-store">4.1.6. Configure Authentication with a Kerberos-Based Identity Store</h4>
 <div class="paragraph">
 <p><strong>IMPORTANT</strong>: The following steps assume you have a working KDC and
 Kerberos domain as well as your client browsers configured.</p>
@@ -3137,7 +3148,7 @@ attribute.</p>
 <p>Your application&#8217;s <em>web.xml</em> and <em>jboss-web.xml</em> must be updated to use
 the <em>application-security-domain</em> you configured in WildFly. An example
 of this is available in the
-<a href="#src-557140_UsingtheElytronSubsystem-config-app-auth">Configure
+<a href="#configure-applications-to-use-elytron-or-legacy-security-for-authentication">Configure
 Applications to Use Elytron or Legacy Security for Authentication</a>
 section.</p>
 </div>
@@ -3156,7 +3167,7 @@ authentication method.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="configure-authentication-with-a-form-as-a-fallback-for-kerberos">3.1.7. Configure Authentication with a Form as a Fallback for Kerberos</h4>
+<h4 id="configure-authentication-with-a-form-as-a-fallback-for-kerberos">4.1.7. Configure Authentication with a Form as a Fallback for Kerberos</h4>
 <div class="sect4">
 <h5 id="configure-kerberos-based-authentication.">Configure kerberos-based authentication.</h5>
 <div class="paragraph">
@@ -3221,7 +3232,7 @@ and error pages.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="configure-applications-to-use-elytron-or-legacy-security-for-authentication">3.1.8. Configure Applications to Use Elytron or Legacy Security for</h4>
+<h4 id="configure-applications-to-use-elytron-or-legacy-security-for-authentication">4.1.8. Configure Applications to Use Elytron or Legacy Security for</h4>
 <div class="paragraph">
 <p>Authentication</p>
 </div>
@@ -3320,7 +3331,7 @@ security domain is used.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="override-an-applications-authentication-configuration">3.1.9. Override an Application&#8217;s Authentication Configuration</h4>
+<h4 id="override-an-applications-authentication-configuration">4.1.9. Override an Application&#8217;s Authentication Configuration</h4>
 <div class="paragraph">
 <p>You can override the authentication configuration of an application with
 one configured in WildFly. To do this, use the
@@ -3378,7 +3389,7 @@ application&#8217;s <em>jboss-web.xml</em> and attempt to authenticate a user us
 </div>
 </div>
 <div class="sect3">
-<h4 id="create-and-use-a-credential-store">3.1.10. Create and Use a Credential Store</h4>
+<h4 id="create-and-use-a-credential-store">4.1.10. Create and Use a Credential Store</h4>
 <div class="sect4">
 <h5 id="create-credential-store.">Create credential store.</h5>
 <div class="listingblock">
@@ -3426,9 +3437,9 @@ application&#8217;s <em>jboss-web.xml</em> and attempt to authenticate a user us
 </div>
 </div>
 <div class="sect2">
-<h3 id="set-up-and-configure-authentication-for-the-management-interfaces">3.2. Set up and Configure Authentication for the Management Interfaces</h3>
+<h3 id="set-up-and-configure-authentication-for-the-management-interfaces">4.2. Set up and Configure Authentication for the Management Interfaces</h3>
 <div class="sect3">
-<h4 id="secure-the-management-interfaces-with-a-new-identity-store">3.2.1. Secure the Management Interfaces with a New Identity Store</h4>
+<h4 id="secure-the-management-interfaces-with-a-new-identity-store">4.2.1. Secure the Management Interfaces with a New Identity Store</h4>
 <div class="sect4">
 <h5 id="create-a-security-domain-and-any-supporting-security-realms-decoders-or-mappers-for-your-identity-store.">Create a security domain and any supporting security realms,</h5>
 <div class="paragraph">
@@ -3438,7 +3449,7 @@ application&#8217;s <em>jboss-web.xml</em> and attempt to authenticate a user us
 <p>This process is covered in a previous section. For example, if you
 wanted to secure the management interfaces using a filesystem-based
 identity store, you would follow the steps in
-<a href="#src-557140_UsingtheElytronSubsystem-ConfigureAuthenticationwithaFilesystem-BasedIdentityStore">Configure
+<a href="#configure-authentication-with-a-filesystem-based-identity-store">Configure
 Authentication with a Filesystem-Based Identity Store</a>.</p>
 </div>
 </div>
@@ -3506,7 +3517,7 @@ reload</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="silent-authentication">3.2.2. Silent Authentication</h4>
+<h4 id="silent-authentication">4.2.2. Silent Authentication</h4>
 <div class="paragraph">
 <p>By default, WildFly provides an authentication mechanism for local
 users, also know as silent authentication, through the <em>local</em> security
@@ -3575,7 +3586,7 @@ reload</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="using-rbac-with-elytron">3.2.3. Using RBAC with Elytron</h4>
+<h4 id="using-rbac-with-elytron">4.2.3. Using RBAC with Elytron</h4>
 <div class="paragraph">
 <p>RBAC can be configured to automatically assign or exclude roles for
 users that are members of groups. This is configured in the
@@ -3588,9 +3599,9 @@ be assigned to authenticated users in a variety of ways using the
 </div>
 </div>
 <div class="sect2">
-<h3 id="configure-ssltls">3.3. Configure SSL/TLS</h3>
+<h3 id="configure-ssltls">4.3. Configure SSL/TLS</h3>
 <div class="sect3">
-<h4 id="enable-one-way-ssltls-for-applications">3.3.1. Enable One-way SSL/TLS for Applications</h4>
+<h4 id="enable-one-way-ssltls-for-applications">4.3.1. Enable One-way SSL/TLS for Applications</h4>
 <div class="paragraph">
 <p>In WildFly, you can use the Elytron subsystem, along with the Undertow
 subsystem, to enable HTTPS for deployed applications.</p>
@@ -3694,7 +3705,7 @@ run-batch</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="enable-two-way-ssltls-in-wildfly-for-applications">3.3.2. Enable Two-way SSL/TLS in WildFly for Applications</h4>
+<h4 id="enable-two-way-ssltls-in-wildfly-for-applications">4.3.2. Enable Two-way SSL/TLS in WildFly for Applications</h4>
 <div class="paragraph">
 <p>In WildFly, you can use the Elytron subsystem, along with the Undertow
 subsystem, to enable two-way SSL/TLS for deployed applications.</p>
@@ -3852,7 +3863,7 @@ trusted certificate into the browser&#8217;s truststore.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="enable-one-way-ssltls-for-the-management-interfaces-using-the-elytron-subsystem">3.3.3. Enable One-way SSL/TLS for the Management Interfaces Using the</h4>
+<h4 id="enable-one-way-ssltls-for-the-management-interfaces-using-the-elytron-subsystem">4.3.3. Enable One-way SSL/TLS for the Management Interfaces Using the</h4>
 <div class="paragraph">
 <p>Elytron Subsystem</p>
 </div>
@@ -3913,7 +3924,7 @@ the keystore in <em>path</em> and omit <em>relative-to</em>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="enable-two-way-ssltls-for-the-management-interfaces-using-the-elytron-subsystem">3.3.4. Enable Two-way SSL/TLS for the Management Interfaces using the</h4>
+<h4 id="enable-two-way-ssltls-for-the-management-interfaces-using-the-elytron-subsystem">4.3.4. Enable Two-way SSL/TLS for the Management Interfaces using the</h4>
 <div class="paragraph">
 <p>Elytron Subsystem</p>
 </div>
@@ -4016,7 +4027,7 @@ trusted certificate into the browser&#8217;s trust store.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="using-an-ldap-key-store">3.3.5. Using an ldap-key-store</h4>
+<h4 id="using-an-ldap-key-store">4.3.5. Using an ldap-key-store</h4>
 <div class="paragraph">
 <p>An <em>ldap-key-store</em> allows you to use a keystore stored in an LDAP
 server. You can use an <em>ldap-key-store</em> in same way you can use a
@@ -4076,7 +4087,7 @@ applications.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="using-a-filtering-key-store">3.3.6. Using a filtering-key-store</h4>
+<h4 id="using-a-filtering-key-store">4.3.6. Using a filtering-key-store</h4>
 <div class="paragraph">
 <p>A <em>filtering-key-store</em> allows you to expose a subset of aliases from an
 existing <em>key-store</em>, and use it in the same places you could use a
@@ -4148,7 +4159,7 @@ applications.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="reload-a-keystore">3.3.7. Reload a Keystore</h4>
+<h4 id="reload-a-keystore">4.3.7. Reload a Keystore</h4>
 <div class="paragraph">
 <p>You can reload a keystore configured in WildFly from the management CLI.
 This is useful in cases where you have made changes to certificates
@@ -4164,7 +4175,7 @@ referenced by a keystore.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="check-the-content-of-a-keystore-by-alias">3.3.8. Check the Content of a Keystore by Alias</h4>
+<h4 id="check-the-content-of-a-keystore-by-alias">4.3.8. Check the Content of a Keystore by Alias</h4>
 <div class="paragraph">
 <p>If you add a keystore to the <em>elytron</em> subsystem using the <em>key-store</em>
 component, you can check the keystore&#8217;s contents using the <em>alias</em> child
@@ -4224,7 +4235,7 @@ and Other. Unrecognized types will be reported as Other.</p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="custom-components">3.3.9. Custom Components</h4>
+<h4 id="custom-components">4.3.9. Custom Components</h4>
 <div class="paragraph">
 <p>When configuring SSL/TLS in the <em>elytron</em> subsystem, you can provide and
 use custom implementations of the following components:</p>
@@ -4255,9 +4266,9 @@ present the appropriate capabilities and requirements.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuring-the-elytron-and-security-subsystems">3.4. Configuring the Elytron and Security Subsystems</h3>
+<h3 id="configuring-the-elytron-and-security-subsystems">4.4. Configuring the Elytron and Security Subsystems</h3>
 <div class="sect3">
-<h4 id="enable-and-disable-the-elytron-subsystem">3.4.1. Enable and Disable the Elytron Subsystem</h4>
+<h4 id="enable-and-disable-the-elytron-subsystem">4.4.1. Enable and Disable the Elytron Subsystem</h4>
 <div class="sect4">
 <h5 id="to-add-the-elytron-extension-required-for-the-elytron-subsystem">To add the elytron extension required for the elytron subsystem:</h5>
 <div class="listingblock">
@@ -4293,7 +4304,7 @@ disabling it, you will see errors when starting WildFly.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="enable-and-disable-the-security-subsystem">3.4.2. Enable and Disable the Security Subsystem</h4>
+<h4 id="enable-and-disable-the-security-subsystem">4.4.2. Enable and Disable the Security Subsystem</h4>
 <div class="sect4">
 <h5 id="to-disable-the-security-subsystem-in-wildfly">To disable the security subsystem in WildFly:</h5>
 <div class="listingblock">
@@ -4321,7 +4332,7 @@ reload</span></span></code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="use-the-elytron-and-security-subsystems-in-parallel">3.4.3. Use the Elytron and Security Subsystems in Parallel</h4>
+<h4 id="use-the-elytron-and-security-subsystems-in-parallel">4.4.3. Use the Elytron and Security Subsystems in Parallel</h4>
 <div class="paragraph">
 <p>By default the <em>elytron</em> and <em>security</em> subsystems will run in parallel
 if both are enabled. For authentication in applications, you can use the
@@ -4373,9 +4384,9 @@ run-batch</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-elytron-subsystem-components">3.5. Creating Elytron Subsystem Components</h3>
+<h3 id="creating-elytron-subsystem-components">4.5. Creating Elytron Subsystem Components</h3>
 <div class="sect3">
-<h4 id="create-an-elytron-security-realm">3.5.1. Create an Elytron Security Realm</h4>
+<h4 id="create-an-elytron-security-realm">4.5.1. Create an Elytron Security Realm</h4>
 <div class="paragraph">
 <p>Security realms in the Elytron subsystem, when used in conjunction with
 security domains, are use for both core management authentication as
@@ -4398,7 +4409,7 @@ sections.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="create-an-elytron-role-decoder">3.5.2. Create an Elytron Role Decoder</h4>
+<h4 id="create-an-elytron-role-decoder">4.5.2. Create an Elytron Role Decoder</h4>
 <div class="paragraph">
 <p>A role decoder converts attributes from the identity provided by the
 security realm into roles. Role decoders are also specifically typed
@@ -4415,7 +4426,7 @@ based on their functionality, for example <em>empty-role-decoder</em>,
 </div>
 </div>
 <div class="sect3">
-<h4 id="create-an-elytron-permission-mapper">3.5.3. Create an Elytron Permission Mapper</h4>
+<h4 id="create-an-elytron-permission-mapper">4.5.3. Create an Elytron Permission Mapper</h4>
 <div class="paragraph">
 <p>In addition to roles being assigned to a identity, permissions may also
 be assigned. A permission mapper assigns permissions to an identity.
@@ -4433,7 +4444,7 @@ functionality, for example <em>logical-permission-mapper</em>,
 </div>
 </div>
 <div class="sect3">
-<h4 id="create-an-elytron-role-mapper">3.5.4. Create an Elytron Role Mapper</h4>
+<h4 id="create-an-elytron-role-mapper">4.5.4. Create an Elytron Role Mapper</h4>
 <div class="paragraph">
 <p>A role mapper maps roles after they have been decoded to other roles.
 Examples include normalizing role names or adding and removing specific
@@ -4452,7 +4463,7 @@ also specifically typed based on their functionality, for example
 </div>
 </div>
 <div class="sect3">
-<h4 id="create-an-elytron-security-domain">3.5.5. Create an Elytron Security Domain</h4>
+<h4 id="create-an-elytron-security-domain">4.5.5. Create an Elytron Security Domain</h4>
 <div class="paragraph">
 <p>Security domains in the Elytron subsystem, when used in conjunction with
 security realms, are use for both core management authentication as well
@@ -4468,7 +4479,7 @@ as for authentication with applications.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="create-an-elytron-authentication-factory">3.5.6. Create an Elytron Authentication Factory</h4>
+<h4 id="create-an-elytron-authentication-factory">4.5.6. Create an Elytron Authentication Factory</h4>
 <div class="paragraph">
 <p>An authentication factory is an authentication policy used for specific
 authentication mechanisms. Authenticaion factories are specifically
@@ -4486,7 +4497,7 @@ based on the authentication mechanism, for example
 </div>
 </div>
 <div class="sect3">
-<h4 id="create-an-elytron-policy-provider">3.5.7. Create an Elytron Policy Provider</h4>
+<h4 id="create-an-elytron-policy-provider">4.5.7. Create an Elytron Policy Provider</h4>
 <div class="paragraph">
 <p>Elytron subsystem provides a specific resource definition that can be
 used to configure a default ruby Policy provider. The subsystem allows
@@ -4503,12 +4514,12 @@ default:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="using-elytron-within-wildfly">4. Using Elytron within WildFly</h2>
+<h2 id="Using_WildFly_Elytron_with_WildFly">5. Using Elytron within WildFly</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="using-the-out-of-the-box-elytron-components">4.1. Using the Out of the Box Elytron Components</h3>
+<h3 id="using-the-out-of-the-box-elytron-components">5.1. Using the Out of the Box Elytron Components</h3>
 <div class="sect3">
-<h4 id="securing-management-interfaces">4.1.1. Securing Management Interfaces</h4>
+<h4 id="securing-management-interfaces">5.1.1. Securing Management Interfaces</h4>
 <div class="paragraph">
 <p>You can find more details on the enabling WildFly to use the out of the
 box Elytron components for securing the management interfaces in the
@@ -4517,7 +4528,7 @@ Management Authentication Configuration</a> section.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="securing-applications">4.1.2. Securing Applications</h4>
+<h4 id="securing-applications">5.1.2. Securing Applications</h4>
 <div class="paragraph">
 <p>The <em>elytron</em> subsystem provides <em>application-http-authentication</em> by
 default which can be used to secure applications. For more details on
@@ -4536,7 +4547,7 @@ an Application&#8217;s Authentication Configuration</a>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="using-ssltls">4.1.3. Using SSL/TLS</h4>
+<h4 id="using-ssltls">5.1.3. Using SSL/TLS</h4>
 <div class="paragraph">
 <p>WildFly does provide a default one-way SSL/TLS configuration using the
 legacy core management authentication but does not provide one in the
@@ -4548,7 +4559,7 @@ SSL/TLS</a></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="using-elytron-with-other-subsystems">4.1.4. Using Elytron with Other Subsystems</h4>
+<h4 id="using-elytron-with-other-subsystems">5.1.4. Using Elytron with Other Subsystems</h4>
 <div class="paragraph">
 <p>In addition to securing applications and management interfaces, Elytron
 also integrates with other subsystems in WildFly.</p>
@@ -4600,11 +4611,11 @@ and application authentication.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undertow-subsystem">4.2. Undertow Subsystem</h3>
+<h3 id="undertow-subsystem">5.2. Undertow Subsystem</h3>
 
 </div>
 <div class="sect2">
-<h3 id="ejb-subsystem">4.3. EJB Subsystem</h3>
+<h3 id="ejb-subsystem">5.3. EJB Subsystem</h3>
 <div class="paragraph">
 <p>Configuration can be added to the EJB subsystem to map a security domain
 name referenced in a deployment to an Elytron security domain:</p>
@@ -4653,7 +4664,7 @@ a deployment, this indicates that security should be handled by Elytron.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="webservices-subsystem">4.4. WebServices Subsystem</h3>
+<h3 id="webservices-subsystem">5.4. WebServices Subsystem</h3>
 <div class="paragraph">
 <p>There is adapter in webservices subsystem to make authentication works
 for elytron security domain automatically. Like configure with legacy
@@ -4662,7 +4673,7 @@ descriptor or annotation to secure webservice endpoint.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="legacy-security-subsystem">4.5. Legacy Security Subsystem</h3>
+<h3 id="legacy-security-subsystem">5.5. Legacy Security Subsystem</h3>
 <div class="paragraph">
 <p>As previously described, Elytron based security is configured by
 chaining together different capability references to form a complete
@@ -4674,7 +4685,7 @@ mapped to Elytron capabilities and used within an Elytron based set up.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="client-authentication-with-elytron-client">5. Client Authentication with Elytron Client</h2>
+<h2 id="Client_Authentication_with_Elytron_Client">6. Client Authentication with Elytron Client</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>WildFly Elytron uses the Elytron Client project to enable remote clients
@@ -4760,7 +4771,7 @@ programatic authentication information, such as setting
 override the Elytron Client configuration.</p>
 </div>
 <div class="sect2">
-<h3 id="the-configuration-file-approach">5.1. The Configuration File Approach</h3>
+<h3 id="the-configuration-file-approach">6.1. The Configuration File Approach</h3>
 <div class="paragraph">
 <p>The configuration file approach involves creating an XML file with your
 authentication configuration, authentication context, and match rules.</p>
@@ -4816,7 +4827,7 @@ system property when running your client.</p>
 </div>
 <div class="paragraph">
 <p><strong>IMPORTANT</strong>: If you use the
-<a href="#src-557099_ClientAuthenticationwithElytronClient-TheProgrammaticApproach">The
+<a href="#the-programmatic-approach">The
 Programmatic Approach</a>, it will override any provided configuration
 files even if the <em>wildfly.config.url</em> system property is set.</p>
 </div>
@@ -4894,7 +4905,7 @@ to match against.</p></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="the-programmatic-approach">5.2. The Programmatic Approach</h3>
+<h3 id="the-programmatic-approach">6.2. The Programmatic Approach</h3>
 <div class="paragraph">
 <p>The programatic approach configures all the Elytron Client configuration
 in the client&#8217;s code:</p>
@@ -5044,9 +5055,9 @@ authentication context is established once its been activated by calling
 <em>run()</em>. If <em>captureCurrent()</em> is called and no context is currently
 active, it will try and use the default authentication if available. You
 can find more details about this in
-<a href="#src-557099_ClientAuthenticationwithElytronClient-TheConfigurationFileApproach">The
+<a href="#the-configuration-file-approach">The
 Configuration File Approach</a>,
-<a href="#src-557099_ClientAuthenticationwithElytronClient-TheDefaultConfigurationApproach">The
+<a href="#the-default-configuration-approach">The
 Default Configuration Approach</a>, and
 <a href="#src-557099_ClientAuthenticationwithElytronClient-UsingElytronClientwithClientsDeployedtoWildFly">Using
 Elytron Client with Clients Deployed to WildFly</a> sections.</p>
@@ -5072,7 +5083,7 @@ configuration will appear after the ones in the current context.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="the-default-configuration-approach">5.3. The Default Configuration Approach</h3>
+<h3 id="the-default-configuration-approach">6.3. The Default Configuration Approach</h3>
 <div class="paragraph">
 <p>The default configuration approach relies completely on the
 configuration provided by Elytron Client:</p>
@@ -5144,7 +5155,7 @@ outside of the client code.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="using-elytron-client-with-clients-deployed-to-wildfly">5.4. Using Elytron Client with Clients Deployed to WildFly</h3>
+<h3 id="using-elytron-client-with-clients-deployed-to-wildfly">6.4. Using Elytron Client with Clients Deployed to WildFly</h3>
 <div class="paragraph">
 <p>Clients deployed to WildFly can also make use of Elytron Client. In
 cases where you have included a <em>wildfly-config.xml</em> with your
@@ -5157,7 +5168,7 @@ file.</p>
 <em>parseAuthenticationClientConfiguration(URI)</em> method. This method will
 return an <em>AuthentcationContext</em> which you can then use in your client&#8217;s
 code using the
-<a href="#src-557099_ClientAuthenticationwithElytronClient-TheProgrammaticApproach">The
+<a href="#the-programmatic-approach">The
 Programmatic Approach</a>.</p>
 </div>
 <div class="paragraph">
@@ -5171,12 +5182,12 @@ subsystem&#8217;s configuration is used.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="client-configuration-using-wildfly-config-xml">5.5. Client configuration using wildfly-config.xml</h3>
+<h3 id="Configuring_other_clients_using_wildfly-config">6.5. Client configuration using wildfly-config.xml</h3>
 <div class="paragraph">
 <p>Prior to WildFly 11, many WildFly client libraries used different configuration strategies. WildFly 11 introduces a new <code>wildfly-config.xml</code> file which unifies all client configuration in a single place. In addition to being able to configure authentication using Elytron as described in the previous section, a <code>wildfly-config.xml</code> file can also be used to:</p>
 </div>
 <div class="sect3">
-<h4 id="configure-ejb-client-connections-global-interceptors-and-invocation-timeout">5.5.1. Configure EJB client connections, global interceptors, and invocation timeout</h4>
+<h4 id="configure-ejb-client-connections-global-interceptors-and-invocation-timeout">6.5.1. Configure EJB client connections, global interceptors, and invocation timeout</h4>
 <div class="paragraph">
 <p>Schema location: [<a href="https://github.com/wildfly/jboss-ejb-client/blob/4.0.2.Final/src/main/resources/schema/wildfly-client-ejb_3_0.xsd" class="bare">https://github.com/wildfly/jboss-ejb-client/blob/4.0.2.Final/src/main/resources/schema/wildfly-client-ejb_3_0.xsd</a>]</p>
 </div>
@@ -5203,7 +5214,7 @@ subsystem&#8217;s configuration is used.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="configure-http-client">5.5.2. Configure HTTP client</h4>
+<h4 id="configure-http-client">6.5.2. Configure HTTP client</h4>
 <div class="paragraph">
 <p>Schema location:[<a href="https://github.com/wildfly/wildfly-http-client/blob/1.0.2.Final/common/src/main/resources/schema/wildfly-http-client_1_0.xsd" class="bare">https://github.com/wildfly/wildfly-http-client/blob/1.0.2.Final/common/src/main/resources/schema/wildfly-http-client_1_0.xsd</a>]</p>
 </div>
@@ -5227,7 +5238,7 @@ subsystem&#8217;s configuration is used.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="configure-a-remoting-endpoint">5.5.3. Configure a remoting endpoint</h4>
+<h4 id="configure-a-remoting-endpoint">6.5.3. Configure a remoting endpoint</h4>
 <div class="paragraph">
 <p>Schema location:[<a href="https://github.com/jboss-remoting/jboss-remoting/blob/5.0.1.Final/src/main/resources/schema/jboss-remoting_5_0.xsd" class="bare">https://github.com/jboss-remoting/jboss-remoting/blob/5.0.1.Final/src/main/resources/schema/jboss-remoting_5_0.xsd</a>]</p>
 </div>
@@ -5250,7 +5261,7 @@ subsystem&#8217;s configuration is used.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="configure-the-default-xnio-worker">5.5.4. Configure the default XNIO worker</h4>
+<h4 id="configure-the-default-xnio-worker">6.5.4. Configure the default XNIO worker</h4>
 <div class="paragraph">
 <p>Schema location:[<a href="https://github.com/xnio/xnio/blob/3.5.1.Final/api/src/main/resources/schema/xnio_3_5.xsd" class="bare">https://github.com/xnio/xnio/blob/3.5.1.Final/api/src/main/resources/schema/xnio_3_5.xsd</a>]</p>
 </div>
@@ -5290,17 +5301,17 @@ Note that WildFly client libraries do have reasonable default configuration. Thu
 </div>
 </div>
 <div class="sect1">
-<h2 id="elytron-and-java-authorization-contract-for-containers-jacc">6. Elytron and Java Authorization Contract for Containers (JACC)</h2>
+<h2 id="Elytron_and_Java_Authorization_Contract_for_Containers-JACC">7. Elytron and Java Authorization Contract for Containers (JACC)</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="overview">6.1. Overview</h3>
+<h3 id="overview">7.1. Overview</h3>
 <div class="paragraph">
 <p>This document will guide you on how to enable JACC using Elytron
 Subsystem.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="disabling-jacc-in-legacy-security-subsystem-picketbox">6.2. Disabling JACC in Legacy Security Subsystem (PicketBox)</h3>
+<h3 id="disabling-jacc-in-legacy-security-subsystem-picketbox">7.2. Disabling JACC in Legacy Security Subsystem (PicketBox)</h3>
 <div class="paragraph">
 <p>By default, the application server uses the legacy security subsystem
 (PicketBox) to configure the JACC policy provider and factory. The
@@ -5324,7 +5335,7 @@ Elytron subsystem as we&#8217;ll see in the next sections.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="defining-a-jacc-policy-provider">6.3. Defining a JACC Policy Provider</h3>
+<h3 id="defining-a-jacc-policy-provider">7.3. Defining a JACC Policy Provider</h3>
 <div class="paragraph">
 <p>Elytron subsystem provides a built-in policy provider based on JACC
 specification. To create the policy provider you can execute a CLI
@@ -5346,7 +5357,7 @@ configuration as follows:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="enabling-jacc-to-a-web-deployment">6.4. Enabling JACC to a Web Deployment</h3>
+<h3 id="enabling-jacc-to-a-web-deployment">7.4. Enabling JACC to a Web Deployment</h3>
 <div class="paragraph">
 <p>Once JACC Policy Provider is defined you can enable JACC to web
 deployments by executing the following command:</p>
@@ -5369,7 +5380,7 @@ can execute a command as follows:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="enabling-jacc-to-a-ejb-deployment">6.5. Enabling JACC to a EJB Deployment</h3>
+<h3 id="enabling-jacc-to-a-ejb-deployment">7.5. Enabling JACC to a EJB Deployment</h3>
 <div class="paragraph">
 <p>Once JACC Policy Provider is defined you can enable JACC to EJB
 deployments by executing the following command:</p>
@@ -5393,22 +5404,27 @@ to enable JACC you can execute a command as follows:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="using-keycloak-with-wildfly-elytron">7. Using KeyCloak with WildFly Elytron</h2>
+<h2 id="KeyCloak_Integration">8. Using KeyCloak with WildFly Elytron</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>TBD
-= OpenSSL</p>
+<p>TBD</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="web-single-sign-on">8. Web Single Sign-On</h2>
+<h2 id="OpenSSL">9. OpenSSL</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="Web_Single_Sign_On">10. Web Single Sign-On</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This document will guide on how to enable single sign-on across different applications deployed into different servers, where these applications belong to same security domain.</p>
 </div>
 <div class="sect2">
-<h3 id="create-a-server-configuration-template">8.1. Create a Server Configuration Template</h3>
+<h3 id="create-a-server-configuration-template">10.1. Create a Server Configuration Template</h3>
 <div class="paragraph">
 <p>For this document, you&#8217;ll need to run at least two server instances in order to check single sign-on and how it affect usability in your applications. Users should be able to log in once and have access to any application using the same security domain.</p>
 </div>
@@ -5424,7 +5440,7 @@ to enable JACC you can execute a command as follows:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="create-a-http-authentication-factory">8.1.1. Create a HTTP Authentication Factory</h4>
+<h4 id="create-a-http-authentication-factory">10.1.1. Create a HTTP Authentication Factory</h4>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -5463,7 +5479,7 @@ First, you need a <em>security-domain</em> which we&#8217;ll use to authenticate
 </div>
 </div>
 <div class="sect3">
-<h4 id="create-a-application-security-domain-in-undertow">8.1.2. Create a Application Security Domain in Undertow</h4>
+<h4 id="create-a-application-security-domain-in-undertow">10.1.2. Create a Application Security Domain in Undertow</h4>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -5489,7 +5505,7 @@ If you already have a&nbsp;_application-security-domain_&nbsp;defined in Underto
 </div>
 </div>
 <div class="sect3">
-<h4 id="create-a-key-store">8.1.3. Create a Key Store</h4>
+<h4 id="create-a-key-store">10.1.3. Create a Key Store</h4>
 <div class="paragraph">
 <p>In order to create a <em>key-store</em> in Elytron subsystem, first create a Java Key Store as follows:</p>
 </div>
@@ -5508,7 +5524,7 @@ If you already have a&nbsp;_application-security-domain_&nbsp;defined in Underto
 </div>
 </div>
 <div class="sect3">
-<h4 id="enable-single-sign-on">8.1.4. Enable Single Sign-On</h4>
+<h4 id="enable-single-sign-on">10.1.4. Enable Single Sign-On</h4>
 <div class="paragraph">
 <p>Single Sign-On is enabled to a specific <em>application-security-domain</em> definition in Undertow subsystem. It is important that the servers you will be using to deploy applications are using the same configuration.</p>
 </div>
@@ -5526,7 +5542,7 @@ If you already have a&nbsp;_application-security-domain_&nbsp;defined in Underto
 </div>
 </div>
 <div class="sect2">
-<h3 id="create-two-server-instances">8.2. Create Two Server Instances</h3>
+<h3 id="create-two-server-instances">10.2. Create Two Server Instances</h3>
 <div class="paragraph">
 <p>All configuration you did so far should be reflect in <em>$JBOSS_HOME</em>/<em>standalone/standalone-ha.xml.</em> You can now create two distinct server configuration directories_:\_</p>
 </div>
@@ -5547,7 +5563,7 @@ $JBOSS_HOME/bin/standalone.sh -c standalone-ha.xml -Djboss.node.name=node-b -Djb
 </div>
 </div>
 <div class="sect2">
-<h3 id="deploy-an-application">8.3. Deploy an Application</h3>
+<h3 id="deploy-an-application">10.3. Deploy an Application</h3>
 <div class="paragraph">
 <p>For the sake of simplicity, these are the minimum files you need in your application:</p>
 </div>
@@ -5630,16 +5646,16 @@ Make sure you have at least a welcome file (e.g.: index.html\|jsp).
 </div>
 </div>
 <div class="sect1">
-<h2 id="migrate-legacy-security-to-elytron-security">9. Migrate Legacy Security to Elytron Security</h2>
+<h2 id="Migrate_Legacy_Security_to_Elytron_Security">11. Migrate Legacy Security to Elytron Security</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="authentication-configuration">9.1. Authentication Configuration</h3>
+<h3 id="authentication-configuration">11.1. Authentication Configuration</h3>
 
 </div>
 <div class="sect2">
-<h3 id="properties-based-authentication-authorization">9.2. Properties Based Authentication / Authorization</h3>
+<h3 id="Properties_File_Based_Authentication_Migration">11.2. Properties Based Authentication / Authorization</h3>
 <div class="sect3">
-<h4 id="picketbox-based-configuration">9.2.1. PicketBox Based Configuration</h4>
+<h4 id="picketbox-based-configuration">11.2.1. PicketBox Based Configuration</h4>
 <div class="paragraph">
 <p>This migration example assumes a deployed web application is configured
 to require authentication using FORM based authentication and is
@@ -5903,7 +5919,7 @@ configuration however now Elytron components are used exclusively.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="legacy-security-realm">9.2.2. Legacy Security Realm</h4>
+<h4 id="legacy-security-realm">11.2.2. Legacy Security Realm</h4>
 <div class="sect4">
 <h5 id="original-configuration-1">Original Configuration</h5>
 <div class="paragraph">
@@ -6016,7 +6032,7 @@ clear the existing security realm reference.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="ldap-authentication-migration">9.3. LDAP Authentication Migration</h3>
+<h3 id="LDAP_Based_Authentication_Migration">11.3. LDAP Authentication Migration</h3>
 <div class="paragraph">
 <p>The section describing how to migrate from properties based
 authentication using either PicketBox or legacy security realms to
@@ -6066,7 +6082,7 @@ uniqueMember: uid=TestUserOne,ou=users,dc=group-to-principal,dc=wildfly,dc=org</
 'uid' attribute of the group entry.</p>
 </div>
 <div class="sect3">
-<h4 id="legacy-security-realm">9.3.1. Legacy Security Realm</h4>
+<h4 id="legacy-security-realm">11.3.1. Legacy Security Realm</h4>
 <div class="paragraph">
 <p>A connection to the LDAP server and related security realm can be
 created with the following commands: -</p>
@@ -6123,7 +6139,7 @@ run-batch</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="picketbox-ldapextloginmodule">9.3.2. PicketBox LdapExtLoginModule</h4>
+<h4 id="picketbox-ldapextloginmodule">11.3.2. PicketBox LdapExtLoginModule</h4>
 <div class="paragraph">
 <p>The following commands can create a PicketBox security domain configured
 to use the LdapExtLoginModule to verify a username and password.</p>
@@ -6176,7 +6192,7 @@ roleAttributeID=<span class="string"><span class="delimiter">&quot;</span><span 
 </div>
 </div>
 <div class="sect3">
-<h4 id="migrated">9.3.3. Migrated</h4>
+<h4 id="migrated">11.3.3. Migrated</h4>
 <div class="paragraph">
 <p>Within the Elytron subsystem a directory context can be defined for the
 connection to LDAP: -</p>
@@ -6248,7 +6264,7 @@ identity attribute " `Roles`" is mapped to the identity roles.
 </div>
 </div>
 <div class="sect2">
-<h3 id="composite-stores-migration">9.4. Composite Stores Migration</h3>
+<h3 id="Composite_Stores_Migration">11.4. Composite Stores Migration</h3>
 <div class="paragraph">
 <p>When using either PicketBox or the legacy security realms it is possible to define a configuration where authentication is performed against one identity store whilst the information used for authorization is loaded from a different store, when using WildFly Elytron this can be achieved by using an aggregate security realm.</p>
 </div>
@@ -6256,7 +6272,7 @@ identity attribute " `Roles`" is mapped to the identity roles.
 <p>The example here makes use of a properties file for authentication and then searches LDAP to load group / role information. Both of these are based on the previous examples within this document so the environmental information is not repeated here.</p>
 </div>
 <div class="sect3">
-<h4 id="picketbox-based-configuration-2">9.4.1. PicketBox Based Configuration</h4>
+<h4 id="picketbox-based-configuration-2">11.4.1. PicketBox Based Configuration</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby">./subsystem=security/security-domain=application-<span class="key">security</span>:add
@@ -6359,7 +6375,7 @@ run-batch</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="migrated-wildfly-elytron-configuration">9.4.2. Migrated WildFly Elytron Configuration</h4>
+<h4 id="migrated-wildfly-elytron-configuration">11.4.2. Migrated WildFly Elytron Configuration</h4>
 <div class="paragraph">
 <p>The equivalent WildFly Elytron configuration can be defined with the following commands:</p>
 </div>
@@ -6429,9 +6445,12 @@ attribute-mapping=[{filter-base-dn=<span class="string"><span class="delimiter">
 </div>
 </div>
 <div class="paragraph">
-<p>Within the WildFly Elytron example a new security realm 'aggregate-realm' has been defined, this definition specifies which of the defined security realms should be used for the authentication step and which of the security realms should be used for the loading of the identity used for subsequent authorization decisions.
-= Database Authentication</p>
+<p>Within the WildFly Elytron example a new security realm 'aggregate-realm' has been defined, this definition specifies which of the defined security realms should be used for the authentication step and which of the security realms should be used for the loading of the identity used for subsequent authorization decisions.</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Database_Authentication_Migration">11.5. Database Authentication</h3>
 <div class="paragraph">
 <p>The section describing how to migrate from database accessible via JDBC
 datasource based authentication using PicketBox to Elytron. This section
@@ -6462,9 +6481,8 @@ users table like:</p>
 ' `password&#8217; column. User role for authorization purposes will be taken
 from ' `role&#8217; column.</p>
 </div>
-</div>
 <div class="sect3">
-<h4 id="picketbox-database-loginmodule">9.4.3. PicketBox Database LoginModule</h4>
+<h4 id="picketbox-database-loginmodule">11.5.1. PicketBox Database LoginModule</h4>
 <div class="paragraph">
 <p>The following commands can create a PicketBox security domain configured
 to use database accessible via JDBC datasource to verify a username and
@@ -6507,7 +6525,7 @@ password and to assign roles.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="migrated">9.4.4. Migrated</h4>
+<h4 id="migrated">11.5.2. Migrated</h4>
 <div class="paragraph">
 <p>Within the Elytron subsystem to use database accesible via JDBC you need
 to define <code>jdbc-realm</code>:</p>
@@ -6552,7 +6570,7 @@ from SQL result specifies mappers.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="n-m-relation-beetween-user-and-roles">9.4.5. N-M relation beetween user and roles</h4>
+<h4 id="n-m-relation-beetween-user-and-roles">11.5.3. N-M relation beetween user and roles</h4>
 <div class="paragraph">
 <p>When using a n:m-relation beetween user and roles (which means: the user has multiple roles), the previous configuration does not work.</p>
 </div>
@@ -6627,7 +6645,7 @@ roleid <span class="predefined-type">BIGINT</span> <span class="keyword">not</sp
 </div>
 </div>
 <div class="sect2">
-<h3 id="kerberos-authentication-migration">9.5. Kerberos Authentication Migration</h3>
+<h3 id="Kerberos_Based_Authentication_Migration">11.6. Kerberos Authentication Migration</h3>
 <div class="paragraph">
 <p>When working with Kerberos configuration it is possible for the
 application server to rely on configuration from the environment or the
@@ -6657,7 +6675,7 @@ Kerberos realm in use and the address of the KDC.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="http-authentication">9.5.1. HTTP Authentication</h4>
+<h4 id="http-authentication">11.6.1. HTTP Authentication</h4>
 <div class="sect4">
 <h5 id="legacy-security-realm">Legacy Security Realm</h5>
 <div class="paragraph">
@@ -6845,7 +6863,7 @@ authentication section</a>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="remoting-sasl-authentication">9.5.2. Remoting / SASL Authentication</h4>
+<h4 id="remoting-sasl-authentication">11.6.2. Remoting / SASL Authentication</h4>
 <div class="sect4">
 <h5 id="legacy-security-realm-1">Legacy Security Realm</h5>
 <div class="paragraph">
@@ -6959,19 +6977,21 @@ reference the SASL authentication factory.</p>
 <p>The two Elytron examples defined here could also be combined into one to
 use a shared security domain and security realm and just use protocol
 specific authentication factories each referencing their own Kerberos
-security factory.
-= Caching Migration</p>
+security factory.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Caching_Migration">11.7. Caching Migration</h3>
 <div class="paragraph">
 <p>Where a PicketBox based security domain is defined it is possible to enable caching for that security domain, this enables subsequent hits to the identity store to be avoided as an in memory cache can be used instead, this example demonstrates how caching can be used with a WildFly Elytron based configuration.</p>
 </div>
 <div class="paragraph">
 <p>The purpose of this chapter is to highlight the migration of a configuration with caching enabled, this example is based in the previous LDAP example but with caching enabled.</p>
 </div>
-</div>
-</div>
 <div class="sect3">
-<h4 id="picketbox-example">9.5.3. PicketBox Example</h4>
+<h4 id="picketbox-example">11.7.1. PicketBox Example</h4>
 <div class="paragraph">
 <p>A PicketBox based security domain can be defined with the following commands.</p>
 </div>
@@ -7022,7 +7042,7 @@ roleAttributeID=<span class="string"><span class="delimiter">&quot;</span><span 
 </div>
 </div>
 <div class="sect3">
-<h4 id="migrated-example">9.5.4. Migrated Example</h4>
+<h4 id="migrated-example">11.7.2. Migrated Example</h4>
 <div class="paragraph">
 <p>When using WildFly Elytron where caching is required the individual security realm is wrapped using a cache, a migrated configuration can be defined with the following commands:</p>
 </div>
@@ -7095,13 +7115,13 @@ attribute-mapping=[{filter-base-dn=<span class="string"><span class="delimiter">
 </div>
 </div>
 <div class="sect2">
-<h3 id="clients">9.6. Clients</h3>
+<h3 id="clients">11.8. Clients</h3>
 
 </div>
 <div class="sect2">
-<h3 id="application-client-migration">9.7. Application Client Migration</h3>
+<h3 id="Application_Client_Migration">11.9. Application Client Migration</h3>
 <div class="sect3">
-<h4 id="naming-client">9.7.1. Naming Client</h4>
+<h4 id="naming-client">11.9.1. Naming Client</h4>
 <div class="paragraph">
 <p>This migration example assumes a client application performs a remote
 JNDI lookup using an ﻿﻿ <code>InitialContext</code> backed by the
@@ -7215,7 +7235,7 @@ context.runCallable(callable);</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="ejb-client">9.7.2. EJB Client</h4>
+<h4 id="ejb-client">11.9.2. EJB Client</h4>
 <div class="paragraph">
 <p>This migration example assumes a client application is configured to
 invoke an EJB deployed on a remote server using a
@@ -7360,11 +7380,11 @@ context.runCallable(callable);</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="general-utilities">9.8. General Utilities</h3>
+<h3 id="general-utilities">11.10. General Utilities</h3>
 
 </div>
 <div class="sect2">
-<h3 id="security-vault-migration">9.9. Security Vault Migration</h3>
+<h3 id="Security_Vault_Migration">11.11. Security Vault Migration</h3>
 <div class="paragraph">
 <p>Security Vault is primarily used in legacy configurations, a vault is
 used to store sensitive strings outside of the configuration files.
@@ -7387,7 +7407,7 @@ dependent on your platform of choice. One can use also simple form "java
 it better suites ones needs.</p>
 </div>
 <div class="sect3">
-<h4 id="single-security-vault-conversion">9.9.1. Single Security Vault Conversion</h4>
+<h4 id="single-security-vault-conversion">11.11.1. Single Security Vault Conversion</h4>
 <div class="paragraph">
 <p>To convert <strong>single</strong> security vault credential store use following
 example:</p>
@@ -7453,7 +7473,7 @@ store to the configuration.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="bulk-security-vault-conversion">9.9.2. Bulk Security Vault Conversion</h4>
+<h4 id="bulk-security-vault-conversion">11.11.2. Bulk Security Vault Conversion</h4>
 <div class="paragraph">
 <p>There is possibility to convert multiple vaults to credential store
 using --bulk-convert parameter with description file.<br>
@@ -7544,7 +7564,7 @@ mandatory except "salt:", "iteration:" and "properties:"</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="security-properties">9.10. Security Properties</h3>
+<h3 id="Security_Property_Migration">11.12. Security Properties</h3>
 <div class="paragraph">
 <p>Lets suppose security properties "a" and "c" defined in legacy security:</p>
 </div>
@@ -7605,13 +7625,13 @@ created property "e":</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="ssl-migration">9.11. SSL Migration</h3>
+<h3 id="ssl-migration">11.13. SSL Migration</h3>
 
 </div>
 <div class="sect2">
-<h3 id="simple-ssl-migration">9.12. Simple SSL Migration</h3>
+<h3 id="Simple_SSL_Migration">11.14. Simple SSL Migration</h3>
 <div class="sect3">
-<h4 id="simple-ssl-migration">9.12.1. Simple SSL Migration</h4>
+<h4 id="simple-ssl-migration">11.14.1. Simple SSL Migration</h4>
 <div class="paragraph">
 <p>This section describe securing HTTP connections to the server using SSL
 using Elytron.<br>
@@ -7721,7 +7741,7 @@ created Elytron <code>ssl-context</code>:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="client-cert-ssl-authentication-migration">9.12.2. Client-Cert SSL Authentication Migration</h4>
+<h4 id="client-cert-ssl-authentication-migration">11.14.2. Client-Cert SSL Authentication Migration</h4>
 <div class="paragraph">
 <p>This suppose you have already configured Client-Cert SSL authentication
 using <code>truststore</code> in legacy <code>security-realm</code>, for example by
@@ -7847,7 +7867,7 @@ above:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="ssl-with-client-cert-migration">9.13. SSL with Client Cert Migration</h3>
+<h3 id="SSL_with_Client_Cert_Migration">11.15. SSL with Client Cert Migration</h3>
 <div class="paragraph">
 <p>As this documentation is primarily intended for users migrating to WildFly Elytron I am going to jump straight into the configuration required with WildFly Elytron.</p>
 </div>
@@ -7879,7 +7899,7 @@ above:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="keystores-keymanagers-and-trustmanagers">9.13.1. KeyStores, KeyManagers, and TrustManagers.</h4>
+<h4 id="keystores-keymanagers-and-trustmanagers">11.15.1. KeyStores, KeyManagers, and TrustManagers.</h4>
 <div class="paragraph">
 <p>The next step is to define the KeyStore resources, for this example three different keystores are used: -</p>
 </div>
@@ -7970,7 +7990,7 @@ above:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="realms-and-domains">9.13.2. Realms and Domains</h4>
+<h4 id="realms-and-domains">11.15.2. Realms and Domains</h4>
 <div class="paragraph">
 <p>Two security realms are now defined, one of these uses properties files from within the WildFly Elytron project to support username/password authentication and the other using the clients certificates for verification.</p>
 </div>
@@ -8057,7 +8077,7 @@ above:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="http-authentication-factory">9.13.3. HTTP Authentication Factory</h4>
+<h4 id="http-authentication-factory">11.15.3. HTTP Authentication Factory</h4>
 <div class="paragraph">
 <p>For the HTTP connections we now define a HTTP authentication factory using the previously defined resources and it is configured to support CLIENT_CERT and DIGEST authentication.</p>
 </div>
@@ -8103,7 +8123,7 @@ above:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="sasl-authentication-factory">9.13.4. SASL Authentication Factory</h4>
+<h4 id="sasl-authentication-factory">11.15.4. SASL Authentication Factory</h4>
 <div class="paragraph">
 <p>The architecture of the two authentication factories if very similar so a SASL authentication factory can be defined in the same way as the HTTP equivalent.</p>
 </div>
@@ -8145,7 +8165,7 @@ above:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="ssl-context">9.13.5. SSL Context</h4>
+<h4 id="ssl-context">11.15.5. SSL Context</h4>
 <div class="paragraph">
 <p>An SSL context is also defined for use by the server.</p>
 </div>
@@ -8179,7 +8199,7 @@ above:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="using-for-management">9.13.6. Using for Management</h4>
+<h4 id="using-for-management">11.15.6. Using for Management</h4>
 <div class="paragraph">
 <p>At this point the management interfaces can be updated to use the newly defined resources, we need to add references to the two new authentication factories and the SSL context, we can also remove the existing reference to the legacy security realm. As this is modifying existing interfaces a server reload will also be required.</p>
 </div>
@@ -8302,7 +8322,7 @@ above:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="documentation-still-needed">9.14. Documentation Still Needed</h3>
+<h3 id="documentation-still-needed">11.16. Documentation Still Needed</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -8325,7 +8345,7 @@ for example, Infinispan cache cannot be used, any others?</p>
 <div id="footer">
 <div id="footer-text">
 Version 12.0.0.Alpha1-SNAPSHOT<br>
-Last updated 2017-11-09 15:12:51 CET
+Last updated 2018-02-14 11:03:45 CET
 </div>
 </div>
 </body>

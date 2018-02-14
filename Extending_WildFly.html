@@ -518,13 +518,13 @@ table.CodeRay td.code>pre{padding:0}
 .CodeRay .head .head{color:#f4f}
 </style>
 </head>
-<body class="book toc2 toc-left">
+<body id="Extending_WildFly" class="book toc2 toc-left">
 <div id="header">
 <h1>Extending WildFly</h1>
 <div class="details">
 <span id="author" class="author">WildFly code development team</span><br>
 <span id="revnumber">version 12.0.0.Alpha1-SNAPSHOT,</span>
-<span id="revdate">2017-11-09T14:29:38Z</span>
+<span id="revdate">2018-02-14T10:04:13Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Extending WildFly</div>
@@ -535,7 +535,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#examples-in-this">1.2. Examples in this guide</a></li>
 </ul>
 </li>
-<li><a href="#example-subsystem">2. Example subsystem</a>
+<li><a href="#Example_subsystem">2. Example subsystem</a>
 <ul class="sectlevel2">
 <li><a href="#create-the-skeleton-project">2.1. Create the skeleton project</a></li>
 <li><a href="#create-the-schema">2.2. Create the schema</a></li>
@@ -546,7 +546,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#expressions">2.7. Expressions</a></li>
 </ul>
 </li>
-<li><a href="#working-with-wildfly-capabilities">3. Working with WildFly Capabilities</a>
+<li><a href="#Working_with_WildFly_Capabilities">3. Working with WildFly Capabilities</a>
 <ul class="sectlevel2">
 <li><a href="#capabilities">3.1. Capabilities</a></li>
 <li><a href="#capability-contract">3.2. Capability Contract</a></li>
@@ -554,7 +554,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#using-capabilities">3.4. Using Capabilities</a></li>
 </ul>
 </li>
-<li><a href="#domain-mode-subsystem-transformers">4. Domain Mode Subsystem Transformers</a>
+<li><a href="#Domain_Mode_Subsystem_Transformers">4. Domain Mode Subsystem Transformers</a>
 <ul class="sectlevel2">
 <li><a href="#abstract">4.1. Abstract</a></li>
 <li><a href="#background">4.2. Background</a></li>
@@ -567,7 +567,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#common-transformation-use-cases">4.9. Common transformation use-cases</a></li>
 </ul>
 </li>
-<li><a href="#key-interfaces-and-classes-relevant-to-extension-developers">5. Key Interfaces and Classes Relevant to Extension Developers</a>
+<li><a href="#Key_Interfaces_and_Classes_Relevant_to_Extension_Developers">5. Key Interfaces and Classes Relevant to Extension Developers</a>
 <ul class="sectlevel2">
 <li><a href="#extension-interface">5.1. Extension Interface</a></li>
 <li><a href="#wildfly-managed-resources">5.2. WildFly Managed Resources</a></li>
@@ -581,7 +581,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#useful-classes-for-implementing-operationstephandler">5.10. Useful classes for implementing OperationStepHandler</a></li>
 </ul>
 </li>
-<li><a href="#wildfly-9-jndi-implementation">6. WildFly 9 JNDI Implementation</a>
+<li><a href="#WildFly_JNDI_Implementation">6. WildFly 9 JNDI Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#introduction">6.1. Introduction</a></li>
 <li><a href="#architecture">6.2. Architecture</a></li>
@@ -589,7 +589,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#resource-ref-processing">6.4. Resource Ref Processing</a></li>
 </ul>
 </li>
-<li><a href="#cli-extensibility-for-layered-products">7. CLI extensibility for layered products</a></li>
+<li><a href="#CLI_extensibility_for_layered_products">7. CLI extensibility for layered products</a></li>
 </ul>
 </div>
 </div>
@@ -608,11 +608,11 @@ EJB container integration is via a subsystem, etc.</p>
 </div>
 <div class="paragraph">
 <p>This document is divided into two main sections. The
-<a href="Example_subsystem.html">first</a> is focused on learning by doing. This
+<a href="Extending_WildFly.html#Example_subsystem">first</a> is focused on learning by doing. This
 section will walk you through the steps needed to create your own
 subsystem, and will touch on most of the concepts discussed elsewhere in
 this guide. The
-<a href="Key_Interfaces_and_Classes_Relevant_to_Extension_Developers.html">second</a>
+<a href="Extending_WildFly.html#Key_Interfaces_and_Classes_Relevant_to_Extension_Developers">second</a>
 focuses on a conceptual overview of the key interfaces and classes
 described in the example. Readers should feel free to start with the
 second section if that better fits their learning style. Jumping back
@@ -630,8 +630,8 @@ and forth between the sections is also a good strategy.</p>
 <p>You should know how to download, install and run WildFly. If not please
 consult the <a href="Getting_Started_Guide.html">Getting Started Guide</a>. You
 should also be familiar with the management concepts from the
-<a href="Admin_Guide.adoc">Admin Guide</a>, particularly the
-<a href="Core_management_concepts.adoc">Core management concepts</a> section and
+<a href="Admin_Guide.html">Admin Guide</a>, particularly the
+<a href="Admin_Guide.html#Core_management_concepts">Core management concepts</a> section and
 you need Java development experience to follow the example in this
 guide.</p>
 </div>
@@ -647,7 +647,7 @@ management model.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="example-subsystem">2. Example subsystem</h2>
+<h2 id="Example_subsystem">2. Example subsystem</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Our example subsystem will keep track of all deployments of certain
@@ -755,9 +755,7 @@ will generate the project for you.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>You can also do this in Eclipse, see
-<a href="Creating_your_own_application.html">Creating your own application</a>
-for more details. We now have a skeleton project that you can use to
+<p>We now have a skeleton project that you can use to
 implement a subsystem. Import the ﻿ <code>acme-subsystem</code> project into your
 favourite IDE. A nice side-effect of running this in the IDE is that you
 can see the javadoc of WildFly classes and interfaces imported by the
@@ -797,7 +795,7 @@ Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
 </div>
 <div class="paragraph">
 <p>We will talk about these later in the
-<a href="#src-557103_Examplesubsystem-Testingtheparsers">#Testing the
+<a href="#testing-the-parsers">#Testing the
 parsers</a> section.</p>
 </div>
 </div>
@@ -2849,7 +2847,7 @@ unresolved value.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="working-with-wildfly-capabilities">3. Working with WildFly Capabilities</h2>
+<h2 id="Working_with_WildFly_Capabilities">3. Working with WildFly Capabilities</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>An extension to WildFly will likely want to make use of services
@@ -3704,7 +3702,7 @@ these in an extension, please read the javadoc thoroughly.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="domain-mode-subsystem-transformers">4. Domain Mode Subsystem Transformers</h2>
+<h2 id="Domain_Mode_Subsystem_Transformers">4. Domain Mode Subsystem Transformers</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="abstract">4.1. Abstract</h3>
@@ -3721,7 +3719,7 @@ something the slave HCs can understand.</p>
 <div class="sect2">
 <h3 id="background">4.2. Background</h3>
 <div class="paragraph">
-<p>WildFly comes with a <a href="Domain_Setup.html">domain mode</a> which allows
+<p>WildFly comes with a <a href="Admin_Guide.html#Domain_Setup">domain mode</a> which allows
 you to have one Host Controller acting as the Domain Controller. The
 Domain Controller&#8217;s job is to maintain the centralized domain
 configuration. Another term for the DC is 'Master Host Controller'.
@@ -4124,10 +4122,10 @@ subsystem ModelVersions. The DC maintains this information in a registry
 for each slave HC, so that it knows which transformers (if any) to
 invoke for a legacy slave. We will see how to write and register
 transformers later on in
-<a href="#src-557181_DomainModeSubsystemTransformers-HowdoIwriteatransformer">#How
+<a href="#how-do-i-write-a-transformer">#How
 do I write a transformer</a>. Slave HCs from version 7.2.0 onwards will
 also include a list of resources that they ignore (see
-<a href="#src-557181_DomainModeSubsystemTransformers-Ignoringresourcesonlegacyhosts">#Ignoring
+<a href="#ignoring-resources-on-legacy-hosts">#Ignoring
 resources on legacy hosts</a>), and the DC will maintain this information
 in its registry. The DC will not send across any resources that it knows
 a slave ignores during the initial domain model transfer. When
@@ -4154,9 +4152,9 @@ reject things that the legacy slave HC will not understand. Rejection,
 in this context, essentially means, that the resource or operation
 cannot safely be transformed to something valid on the slave, so the
 transformation fails. We will see later how to reject attributes in
-<a href="#src-557181_DomainModeSubsystemTransformers-Rejectingattributes">#Rejecting
+<a href="#rejecting-attributes">#Rejecting
 attributes</a>, and child resources in
-<a href="#src-557181_DomainModeSubsystemTransformers-Rejectchildresource">#Reject
+<a href="#reject-child-resource">#Reject
 child resource</a>.</p>
 </div>
 <div class="paragraph">
@@ -4280,7 +4278,7 @@ operations to legacy slave HCs.
 <h4 id="resource-transformers">4.4.1. Resource transformers</h4>
 <div class="paragraph">
 <p>When copying over the centralized domain configuration as mentioned in
-<a href="#src-557181_DomainModeSubsystemTransformers-Gettingtheinitialdomainmodel">#Getting
+<a href="#getting-the-initial-domain-model">#Getting
 the initial domain model</a>, we need to make sure that the copy of the
 domain model is something that the servers running on the legacy slave
 HC understand. So if the centralized domain configuration had any of the
@@ -4317,7 +4315,7 @@ slave HC&#8217;s servers can understand it.</p>
 <div class="paragraph">
 <p>Only slave HCs from JBoss AS 7.2.0 and newer inform the DC about their
 ignored resources (see
-<a href="#src-557181_DomainModeSubsystemTransformers-Ignoringresourcesonlegacyhosts">#Ignoring
+<a href="#ignoring-resources-on-legacy-hosts">#Ignoring
 resources on legacy hosts</a>). This means that if a transformer on the DC
 rejects transformation for a legacy slave HC, exactly what happens to
 the slave HC depends on the version of the slave HC. If the slave HC is:</p>
@@ -4349,12 +4347,12 @@ HC to fail to start up.</p>
 <h4 id="operation-transformers">4.4.2. Operation transformers</h4>
 <div class="paragraph">
 <p>When
-<a href="#src-557181_DomainModeSubsystemTransformers-Anoperationchangessomethinginthedomainconfiguration">#An
+<a href="#an-operation-changes-something-in-the-domain-configuration">#An
 operation changes something in the domain configuration</a> the operation
 gets sent across to the slave HCs to update their copies of the domain
 model. The slave HCs then forward this operation onto the affected
 servers. The same considerations as in
-<a href="#src-557181_DomainModeSubsystemTransformers-Resourcetransformers">#Resource
+<a href="#resource-transformers">#Resource
 transformers</a> are true, although operation transformers give you quicker
 'feedback' if something is not valid. If you try to execute:</p>
 </div>
@@ -4828,7 +4826,7 @@ this has ModelVersion 2.0.0).</p>
 </div>
 <div class="paragraph">
 <p>Here we register a <code>discard check</code> and a <code>reject check</code>. As mentioned in
-<a href="#src-557181_DomainModeSubsystemTransformers-Attributetransformationlifecycle">#Attribute
+<a href="#attribute-transformation-lifecycle">#Attribute
 transformation lifecycle</a> all attributes are inspected for whether they
 should be discarded first. Then all attributes which were not discarded
 are checked for if they should be rejected. We will dig more into what
@@ -4906,10 +4904,10 @@ the following call:</p>
 for how to handle child resources, which we will look at in this
 section. It is also the entry point to how to handle transformation of
 attributes as we will see in
-<a href="#src-557181_DomainModeSubsystemTransformers-AttributeTransformationDescriptionBuilder">#AttributeTransformationDescriptionBuilder</a>.
+<a href="#attributetransformationdescriptionbuilder">#AttributeTransformationDescriptionBuilder</a>.
 Also, it allows you to further override operation transformation as
 discussed in
-<a href="#src-557181_DomainModeSubsystemTransformers-OperationTransformationOverrideBuilder">#OperationTransformationOverrideBuilder</a>.
+<a href="#operationtransformationoverridebuilder">#OperationTransformationOverrideBuilder</a>.
 When we have finished with our builder, we register it with the
 <code>SubsystemRegistration</code> against the target ModelVersion.</p>
 </div>
@@ -4999,9 +4997,9 @@ operations are invoked on that address. For example the <code>remoting</code>
 subsystem did not have a <code>http-connector=*</code> child until ModelVersion
 2.0.0, so it is set up to reject that child when transforming to legacy
 HCs for all previous ModelVersions (1.1.0, 1.2.0 and 1.3.0). (See
-<a href="#src-557181_DomainModeSubsystemTransformers-Rejectioninresourcetransformers">#Rejection
+<a href="#rejection-in-resource-transformers">#Rejection
 in resource transformers</a> and
-<a href="#src-557181_DomainModeSubsystemTransformers-Rejectioninoperationtransformers">#Rejection
+<a href="#rejection-in-operation-transformers">#Rejection
 in operation transformers</a> for exactly what happens when something is
 rejected).</p>
 </div>
@@ -5148,9 +5146,9 @@ it does not get sent to the legacy slave HC.</p>
 <p><code>reject</code> - All attributes that have been registered for a reject
 check (and which not have been discarded) are checked to see if the
 attribute should be rejected. As explained in
-<a href="#src-557181_DomainModeSubsystemTransformers-Rejectioninresourcetransformers">#Rejection
+<a href="#rejection-in-resource-transformers">#Rejection
 in resource transformers</a> and
-<a href="#src-557181_DomainModeSubsystemTransformers-Rejectioninoperationtransformers">#Rejection
+<a href="#rejection-in-operation-transformers">#Rejection
 in operation transformers</a> exactly what happens when something is
 rejected varies depending on whether we are transforming a resource or
 an operation, and the version of the legacy slave HC we are transforming
@@ -5161,7 +5159,7 @@ happens. Although this might sound cumbersome, in practice it actually
 makes it easier to write transformers since you only need one kind
 regardless of if it is a resource, an operation, and legacy slave HC
 version. However, as we will see in
-<a href="#src-557181_DomainModeSubsystemTransformers-Commontransformationuse-cases">Common
+<a href="#common-transformation-use-cases">Common
 transformation use-cases</a>, it means some extra checks are needed when
 writing reject and convert transformers.</p>
 </li>
@@ -5376,7 +5374,7 @@ from the <code>jpa</code> subsystem:</p>
 </div>
 <div class="paragraph">
 <p>We will come back to the reject checks in the
-<a href="#src-557181_DomainModeSubsystemTransformers-Rejectingattributes">#Rejecting
+<a href="#rejecting-attributes">#Rejecting
 attributes</a> section. We are saying that we should discard the
 <code>JPADefinition.DEFAULT_EXTENDEDPERSISTENCE_INHERITANCE</code> attribute if it
 has the value <code>deep</code>. The reasoning here is that this attribute did not
@@ -5488,7 +5486,7 @@ For attributes with several <code>RejectAttributeChecker</code> registered, they
 get processed in the order that they have been added. So when checking
 <code>attr1</code> for rejection, <code>rejectCheckerA</code> gets run before
 <code>rejectCheckerB</code>. As mentioned in
-<a href="#src-557181_DomainModeSubsystemTransformers-Attributetransformationlifecycle">#Attribute
+<a href="#attribute-transformation-lifecycle">#Attribute
 transformation lifecycle</a>, if an attribute is rejected, we still invoke
 the rest of the reject checkers.</p>
 </div>
@@ -5622,7 +5620,7 @@ transformed operation, in the case of operation transformation.</p>
 has a defined value. Normally this is because the attribute does not
 exist on the target legacy slave HC. A typical use case for these is for
 the <em>implied behavior</em> example we looked at in the <code>jpa</code> subsystem in
-<a href="#src-557181_DomainModeSubsystemTransformers-DiscardAttributeChecker.DiscardAttributeValueChecker">#DiscardAttributeChecker.DiscardAttributeValueChecker</a></p>
+<a href="#discardattributechecker.discardattributevaluechecker">#DiscardAttributeChecker.DiscardAttributeValueChecker</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6024,11 +6022,11 @@ transforming to 1.1.0, we bump the model version to 2.0.0:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#src-557181_DomainModeSubsystemTransformers-Theoldway">#The old
+<p><a href="#the-old-way">#The old
 way</a></p>
 </li>
 <li>
-<p><a href="#src-557181_DomainModeSubsystemTransformers-Chainedtransformers">#Chained
+<p><a href="#chained-transformers">#Chained
 transformers</a></p>
 </li>
 </ul>
@@ -6039,7 +6037,7 @@ transformers</a></p>
 <p>This is the way that has been used up to WildFly 12.x. However, in
 WildFly 9 and later, it is strongly recommended to migrate to what is
 mentioned in
-<a href="#src-557181_DomainModeSubsystemTransformers-Chainedtransformers">#Chained
+<a href="#chained-transformers">#Chained
 transformers</a></p>
 </div>
 <div class="paragraph">
@@ -6839,7 +6837,7 @@ possible:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="key-interfaces-and-classes-relevant-to-extension-developers">5. Key Interfaces and Classes Relevant to Extension Developers</h2>
+<h2 id="Key_Interfaces_and_Classes_Relevant_to_Extension_Developers">5. Key Interfaces and Classes Relevant to Extension Developers</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In the first major section of this guide, we provided an example of how
@@ -6926,7 +6924,7 @@ interface) relate to the notion of managed resources in the AS.</p>
 <div class="paragraph">
 <p>Each subsystem is responsible for managing one or more management
 resources. The conceptual characteristics of a management resource are
-covered in some detail in the <a href="Management_resources.html">Admin
+covered in some detail in the <a href="Admin_Guide.html#Management_resources">Admin
 Guide</a>; here we&#8217;ll just summarize the main points. A management resource
 has</p>
 </div>
@@ -7011,11 +7009,11 @@ type.</p>
 </li>
 <li>
 <p>Definition of
-<a href="Working_with_WildFly_Capabilities.html">capabilities</a> provided by
+<a href="#Working_with_WildFly_Capabilities">capabilities</a> provided by
 resources of this type.</p>
 </li>
 <li>
-<p>Definition of <a href="RBAC.html">RBAC</a> access constraints that should be
+<p>Definition of <a href="Admin_Guide.html#RBAC">RBAC</a> access constraints that should be
 applied by the management kernel when authorizing operations against
 resources of this type.</p>
 </li>
@@ -7181,7 +7179,7 @@ operations.</p>
 attribute/operation parameter/result field, e.g. the DMR <code>ModelType</code> of
 its value, whether its presence is required, whether it supports
 expressions, etc. See
-<a href="Description_of_the_Management_Model.html">Description of the
+<a href="Admin_Guide.html#Description_of_the_Management_Model">Description of the
 Management Model</a> for a description of the metadata available. Almost
 all of this comes from the <code>AttributeDefinition</code>.</p>
 </div>
@@ -8352,7 +8350,7 @@ be poor practice as it&#8217;s just redundant data.)</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="wildfly-9-jndi-implementation">6. WildFly 9 JNDI Implementation</h2>
+<h2 id="WildFly_JNDI_Implementation">6. WildFly 9 JNDI Implementation</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="introduction">6.1. Introduction</h3>
@@ -8744,7 +8742,7 @@ submitted through WFLY-3292&#8217;s PR.
 </div>
 </div>
 <div class="sect1">
-<h2 id="cli-extensibility-for-layered-products">7. CLI extensibility for layered products</h2>
+<h2 id="CLI_extensibility_for_layered_products">7. CLI extensibility for layered products</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In addition to supporting the ServiceLoader extension mechanism to load
@@ -8832,7 +8830,7 @@ the JAR file containing the classes above with value
 <div id="footer">
 <div id="footer-text">
 Version 12.0.0.Alpha1-SNAPSHOT<br>
-Last updated 2017-11-09 15:11:37 CET
+Last updated 2018-02-14 11:03:45 CET
 </div>
 </div>
 </body>

@@ -518,19 +518,19 @@ table.CodeRay td.code>pre{padding:0}
 .CodeRay .head .head{color:#f4f}
 </style>
 </head>
-<body class="book toc2 toc-left">
+<body id="Developer_Guide" class="book toc2 toc-left">
 <div id="header">
 <h1>Developer Guide</h1>
 <div class="details">
 <span id="author" class="author">WildFly developer team</span><br>
 <span id="revnumber">version 12.0.0.Alpha1-SNAPSHOT,</span>
-<span id="revdate">2017-11-09T14:29:38Z</span>
+<span id="revdate">2018-02-14T10:04:13Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">WildFly Developer guide</div>
 <ul class="sectlevel3">
 <li><a href="#target-audience">1. Target Audience</a></li>
-<li><a href="#class-loading-in-wildfly">1. Class Loading in WildFly</a>
+<li><a href="#Class_Loading_in_WildFly">1. Class Loading in WildFly</a>
 <ul class="sectlevel2">
 <li><a href="#deployment-module-names">1.1. Deployment Module Names</a></li>
 <li><a href="#automatic-dependencies">1.2. Automatic Dependencies</a></li>
@@ -543,23 +543,23 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#the-jboss.api-property-and-application-use-of-modules-shipped-with-wildfly">1.9. The "jboss.api" property and application use of modules shipped with</a></li>
 </ul>
 </li>
-<li><a href="#implicit-module-dependencies-for-deployments">2. Implicit module dependencies for deployments</a>
+<li><a href="#Implicit_module_dependencies_for_deployments">2. Implicit module dependencies for deployments</a>
 <ul class="sectlevel2">
 <li><a href="#whats-an-implicit-module-dependency">2.1. What&#8217;s an implicit module dependency?</a></li>
 <li><a href="#how-and-when-is-an-implicit-module-dependency-added">2.2. How and when is an implicit module dependency added?</a></li>
 <li><a href="#which-are-the-implicit-module-dependencies">2.3. Which are the implicit module dependencies?</a></li>
 </ul>
 </li>
-<li><a href="#deployment-descriptors-used-in-wildfly">3. Deployment Descriptors used In WildFly</a></li>
-<li><a href="#development-guidelines-and-recommended-practices">4. Development Guidelines and Recommended Practices</a></li>
-<li><a href="#application-client-reference">5. Application Client Reference</a>
+<li><a href="#Deployment_Descriptors_used_In_WildFly">3. Deployment Descriptors used In WildFly</a></li>
+<li><a href="#Development_Guidelines_and_Recommended_Practices">4. Development Guidelines and Recommended Practices</a></li>
+<li><a href="#Application_Client_Reference">5. Application Client Reference</a>
 <ul class="sectlevel2">
 <li><a href="#getting-started">5.1. Getting Started</a></li>
 <li><a href="#connecting-to-more-than-one-host">5.2. Connecting to more than one host</a></li>
 <li><a href="#example">5.3. Example</a></li>
 </ul>
 </li>
-<li><a href="#cdi-reference">6. CDI Reference</a>
+<li><a href="#CDI_Reference">6. CDI Reference</a>
 <ul class="sectlevel2">
 <li><a href="#using-cdi-beans-from-outside-the-deployment">6.1. Using CDI Beans from outside the deployment</a></li>
 <li><a href="#suppressing-implicit-bean-archives">6.2. Suppressing implicit bean archives</a></li>
@@ -567,7 +567,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#non-portable-mode">6.4. Non-portable mode</a></li>
 </ul>
 </li>
-<li><a href="#ee-concurrency-utilities">7. EE Concurrency Utilities</a>
+<li><a href="#EE_Concurrency_Utilities">7. EE Concurrency Utilities</a>
 <ul class="sectlevel2">
 <li><a href="#overview">7.1. Overview</a></li>
 <li><a href="#context-service">7.2. Context Service</a></li>
@@ -576,24 +576,23 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#managed-scheduled-executor-service">7.5. Managed Scheduled Executor Service</a></li>
 </ul>
 </li>
-<li><a href="#ejb-3-reference-guide">8. EJB 3 Reference Guide</a>
+<li><a href="#EJB3_Reference_Guide">8. EJB 3 Reference Guide</a>
 <ul class="sectlevel2">
 <li><a href="#resource-adapter-for-message-driven-beans">8.1. Resource Adapter for Message Driven Beans</a></li>
 <li><a href="#run-as-principal">8.2. Run-as Principal</a></li>
 <li><a href="#security-domain">8.3. Security Domain</a></li>
 <li><a href="#transaction-timeout">8.4. Transaction Timeout</a></li>
 <li><a href="#timer-service">8.5. Timer service</a></li>
-<li><a href="#container-interceptors">8.6. Container interceptors</a></li>
-<li><a href="#ejb3-clustered-database-timers">8.7. EJB3 Clustered Database Timers</a></li>
-<li><a href="#ejb3-subsystem-configuration-guide">8.8. EJB3 subsystem configuration guide</a></li>
-<li><a href="#ejb-iiop-guide">8.9. EJB IIOP Guide</a></li>
-<li><a href="#ejb-over-http">8.10. EJB over HTTP</a></li>
-<li><a href="#jboss-ejb3-xml-reference">8.11. jboss-ejb3.xml Reference</a></li>
-<li><a href="#message-driven-beans-controlled-delivery">8.12. Message Driven Beans Controlled Delivery</a></li>
-<li><a href="#securing-ejbs">8.13. Securing EJBs</a></li>
+<li><a href="#Container_interceptors">8.6. Container interceptors</a></li>
+<li><a href="#EJB3_Clustered_Database_Timers">8.7. EJB3 Clustered Database Timers</a></li>
+<li><a href="#EJB_IIOP_Guide">8.8. EJB IIOP Guide</a></li>
+<li><a href="#EJB_over_HTTP">8.9. EJB over HTTP</a></li>
+<li><a href="#jboss-ejb3">8.10. jboss-ejb3.xml Reference</a></li>
+<li><a href="#Message_Driven_Beans_Controlled_Delivery">8.11. Message Driven Beans Controlled Delivery</a></li>
+<li><a href="#Securing_EJBs">8.12. Securing EJBs</a></li>
 </ul>
 </li>
-<li><a href="#jpa-reference-guide">9. JPA Reference Guide</a>
+<li><a href="#JPA_Reference_Guide">9. JPA Reference Guide</a>
 <ul class="sectlevel2">
 <li><a href="#introduction">9.1. Introduction</a></li>
 <li><a href="#update-your-persistence.xml-for-hibernate-5.1">9.2. Update your Persistence.xml for Hibernate 5.1</a></li>
@@ -622,99 +621,98 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#community">9.25. Community</a></li>
 </ul>
 </li>
-<li><a href="#jndi-reference">10. JNDI Reference</a>
+<li><a href="#JNDI_Reference">10. JNDI Reference</a>
 <ul class="sectlevel2">
 <li><a href="#overview">10.1. Overview</a></li>
 </ul>
 </li>
-<li><a href="#local-jndi">11. Local JNDI</a>
+<li><a href="#JNDI_Local_Reference">11. Local JNDI</a>
 <ul class="sectlevel2">
 <li><a href="#binding-entries-to-jndi">11.1. Binding entries to JNDI</a></li>
 <li><a href="#retrieving-entries-from-jndi">11.2. Retrieving entries from JNDI</a></li>
 </ul>
 </li>
-<li><a href="#remote-jndi-access">12. Remote JNDI Access</a>
+<li><a href="#JNDI_Remote_Reference">12. Remote JNDI Access</a>
 <ul class="sectlevel2">
 <li><a href="#http-remoting">12.1. http-remoting:</a></li>
 <li><a href="#ejb">12.2. ejb:</a></li>
 </ul>
 </li>
-<li><a href="#jax-rs-reference-guide">13. JAX-RS Reference Guide</a>
+<li><a href="#JAX-RS_Reference_Guide">13. JAX-RS Reference Guide</a>
 <ul class="sectlevel2">
 <li><a href="#subclassing-javax.ws.rs.core.application-and-using-applicationpath">13.1. Subclassing javax.ws.rs.core.Application and using @ApplicationPath</a></li>
 <li><a href="#subclassing-javax.ws.rs.core.application-and-using-web.xml">13.2. Subclassing javax.ws.rs.core.Application and using web.xml</a></li>
 <li><a href="#using-web.xml">13.3. Using web.xml</a></li>
 </ul>
 </li>
-<li><a href="#sharing-sessions-between-wars-in-an-ear">14. Sharing sessions between wars in an ear</a></li>
-<li><a href="#webservices-reference-guide">15. Webservices reference guide</a>
+<li><a href="#JAX-WS_Reference_guide">14. Webservices reference guide</a>
 <ul class="sectlevel2">
-<li><a href="#jax-ws-user-guide">15.1. JAX-WS User Guide</a></li>
-<li><a href="#jax-ws-tools">15.2. JAX-WS Tools</a></li>
-<li><a href="#wsconsume">15.3. wsconsume</a></li>
-<li><a href="#wsprovide">15.4. wsprovide</a></li>
-<li><a href="#advanced-user-guide">15.5. Advanced User Guide</a></li>
-<li><a href="#jboss-modules-and-ws-applications">15.6. JBoss Modules and WS applications</a></li>
+<li><a href="#JAX-WS_User_Guide">14.1. JAX-WS User Guide</a></li>
+<li><a href="#JAX-WS_Tools">14.2. JAX-WS Tools</a></li>
+<li><a href="#wsconsume">14.3. wsconsume</a></li>
+<li><a href="#wsprovide">14.4. wsprovide</a></li>
+<li><a href="#JAX_WS_Advanced_User_Guide">14.5. Advanced User Guide</a></li>
+<li><a href="#JAX_WS_JBoss_Modules_and_WS_applications">14.6. JBoss Modules and WS applications</a></li>
 </ul>
 </li>
-<li><a href="#scoped-ejb-client-contexts">16. Scoped EJB client contexts</a>
+<li><a href="#Scoped_EJB_client_contexts">15. Scoped EJB client contexts</a>
 <ul class="sectlevel2">
-<li><a href="#overview">16.1. Overview</a></li>
-<li><a href="#potential-shortcomings-of-a-single-ejb-client-context">16.2. Potential shortcomings of a single EJB client context</a></li>
-<li><a href="#scoped-ejb-client-contexts">16.3. Scoped EJB client contexts</a></li>
-<li><a href="#lifecycle-management-of-scoped-ejb-client-contexts">16.4. Lifecycle management of scoped EJB client contexts</a></li>
+<li><a href="#overview">15.1. Overview</a></li>
+<li><a href="#potential-shortcomings-of-a-single-ejb-client-context">15.2. Potential shortcomings of a single EJB client context</a></li>
+<li><a href="#scoped-ejb-client-contexts">15.3. Scoped EJB client contexts</a></li>
+<li><a href="#lifecycle-management-of-scoped-ejb-client-contexts">15.4. Lifecycle management of scoped EJB client contexts</a></li>
 </ul>
 </li>
-<li><a href="#ejb-invocations-from-a-remote-client-using-jndi">17. EJB invocations from a remote client using JNDI</a>
+<li><a href="#EJB_invocations_from_a_remote_client_using_JNDI">16. EJB invocations from a remote client using JNDI</a>
 <ul class="sectlevel2">
-<li><a href="#deploying-your-ejbs-on-the-server-side">17.1. Deploying your EJBs on the server side:</a></li>
-<li><a href="#writing-a-remote-client-application-for-accessing-and-invoking-the-ejbs-deployed-on-the-server">17.2. Writing a remote client application for accessing and invoking the</a></li>
-<li><a href="#setting-up-ejb-client-context-properties">17.3. Setting up EJB client context properties</a></li>
+<li><a href="#deploying-your-ejbs-on-the-server-side">16.1. Deploying your EJBs on the server side:</a></li>
+<li><a href="#writing-a-remote-client-application-for-accessing-and-invoking-the-ejbs-deployed-on-the-server">16.2. Writing a remote client application for accessing and invoking the</a></li>
+<li><a href="#setting-up-ejb-client-context-properties">16.3. Setting up EJB client context properties</a></li>
 <li><a href="#summary">Summary</a></li>
 </ul>
 </li>
-<li><a href="#ejb-invocations-from-a-remote-server-instance">18. EJB invocations from a remote server instance</a>
+<li><a href="#EJB_invocations_from_a_remote_server_instance">17. EJB invocations from a remote server instance</a>
 <ul class="sectlevel2">
-<li><a href="#application-packaging">18.1. Application packaging</a></li>
-<li><a href="#beans">18.2. Beans</a></li>
-<li><a href="#security">18.3. Security</a></li>
-<li><a href="#configuring-a-user-on-the-destination-server">18.4. Configuring a user on the "Destination Server"</a></li>
-<li><a href="#start-the-destination-server">18.5. Start the "Destination Server"</a></li>
-<li><a href="#deploying-the-application">18.6. Deploying the application</a></li>
-<li><a href="#configuring-the-client-server-to-point-to-the-ejb-remoting-connector-on-the-destination-server">18.7. Configuring the "Client Server" to point to the EJB remoting connector</a></li>
-<li><a href="#start-the-client-server">18.8. Start the "Client Server"</a></li>
-<li><a href="#create-a-security-realm-on-the-client-server">18.9. Create a security realm on the client server</a></li>
-<li><a href="#create-a-outbound-socket-binding-on-the-client-server">18.10. Create a outbound-socket-binding on the "Client Server"</a></li>
-<li><a href="#create-a-remote-outbound-connection-which-uses-this-newly-created-outbound-socket-binding">18.11. Create a "remote-outbound-connection" which uses this newly created</a></li>
-<li><a href="#packaging-the-client-application-on-the-client-server">18.12. Packaging the client application on the "Client Server"</a></li>
-<li><a href="#contents-on-jboss-ejb-client.xml">18.13. Contents on jboss-ejb-client.xml</a></li>
-<li><a href="#deploy-the-client-application">18.14. Deploy the client application</a></li>
-<li><a href="#client-code-invoking-the-bean">18.15. Client code invoking the bean</a></li>
+<li><a href="#application-packaging">17.1. Application packaging</a></li>
+<li><a href="#beans">17.2. Beans</a></li>
+<li><a href="#security">17.3. Security</a></li>
+<li><a href="#configuring-a-user-on-the-destination-server">17.4. Configuring a user on the "Destination Server"</a></li>
+<li><a href="#start-the-destination-server">17.5. Start the "Destination Server"</a></li>
+<li><a href="#deploying-the-application">17.6. Deploying the application</a></li>
+<li><a href="#configuring-the-client-server-to-point-to-the-ejb-remoting-connector-on-the-destination-server">17.7. Configuring the "Client Server" to point to the EJB remoting connector</a></li>
+<li><a href="#start-the-client-server">17.8. Start the "Client Server"</a></li>
+<li><a href="#create-a-security-realm-on-the-client-server">17.9. Create a security realm on the client server</a></li>
+<li><a href="#create-a-outbound-socket-binding-on-the-client-server">17.10. Create a outbound-socket-binding on the "Client Server"</a></li>
+<li><a href="#create-a-remote-outbound-connection-which-uses-this-newly-created-outbound-socket-binding">17.11. Create a "remote-outbound-connection" which uses this newly created</a></li>
+<li><a href="#packaging-the-client-application-on-the-client-server">17.12. Packaging the client application on the "Client Server"</a></li>
+<li><a href="#contents-on-jboss-ejb-client.xml">17.13. Contents on jboss-ejb-client.xml</a></li>
+<li><a href="#deploy-the-client-application">17.14. Deploy the client application</a></li>
+<li><a href="#client-code-invoking-the-bean">17.15. Client code invoking the bean</a></li>
 </ul>
 </li>
-<li><a href="#remote-ejb-invocations-via-jndi-ejb-client-api-or-remote-naming-project">19. Remote EJB invocations via JNDI - EJB client API or remote-naming project</a>
+<li><a href="#Remote_EJB_invocations_via_JNDI_-_EJB_client_API_or_remote-naming_project">18. Remote EJB invocations via JNDI - EJB client API or remote-naming project</a>
 <ul class="sectlevel2">
-<li><a href="#purpose">19.1. Purpose</a></li>
-<li><a href="#history">19.2. History</a></li>
-<li><a href="#overview">19.3. Overview</a></li>
-<li><a href="#summary">19.4. Summary</a></li>
-<li><a href="#remote-ejb-invocations-backed-by-the-remote-naming-project">19.5. Remote EJB invocations backed by the remote-naming project</a></li>
-<li><a href="#why-use-the-ejb-client-api-approach-then">19.6. Why use the EJB client API approach then?</a></li>
+<li><a href="#purpose">18.1. Purpose</a></li>
+<li><a href="#history">18.2. History</a></li>
+<li><a href="#overview">18.3. Overview</a></li>
+<li><a href="#summary">18.4. Summary</a></li>
+<li><a href="#remote-ejb-invocations-backed-by-the-remote-naming-project">18.5. Remote EJB invocations backed by the remote-naming project</a></li>
+<li><a href="#why-use-the-ejb-client-api-approach-then">18.6. Why use the EJB client API approach then?</a></li>
 </ul>
 </li>
-<li><a href="#example-applications-migrated-to-wildfly">20. Example Applications - Migrated to WildFly</a>
+<li><a href="#Migrated_to_WildFly_Example_Applications">19. Example Applications - Migrated to WildFly</a>
 <ul class="sectlevel2">
-<li><a href="#example-applications-migrated-from-previous-releases">20.1. Example Applications Migrated from Previous Releases</a></li>
-<li><a href="#example-applications-based-on-ee6">20.2. Example Applications Based on EE6</a></li>
+<li><a href="#example-applications-migrated-from-previous-releases">19.1. Example Applications Migrated from Previous Releases</a></li>
+<li><a href="#example-applications-based-on-ee6">19.2. Example Applications Based on EE6</a></li>
 </ul>
 </li>
-<li><a href="#porting-the-order-application-from-eap-5-1-to-wildfly-12">21. Porting the Order Application from EAP 5.1 to WildFly 12</a>
+<li><a href="#Migrate_Order_Application_from_EAP5">20. Porting the Order Application from EAP 5.1 to WildFly 12</a>
 <ul class="sectlevel2">
-<li><a href="#overview-of-the-application">21.1. Overview of the application</a></li>
-<li><a href="#summary-of-changes">21.2. Summary of changes</a></li>
+<li><a href="#overview-of-the-application">20.1. Overview of the application</a></li>
+<li><a href="#summary-of-changes">20.2. Summary of changes</a></li>
 </ul>
 </li>
-<li><a href="#seam-2-booking-application-migration-of-binaries-from-eap5-1-to">22. Seam 2 Booking Application - Migration of Binaries from EAP5.1 to</a></li>
+<li><a href="#Migrate_Seam_2_Booking_EAR_Binaries_-_Step_by_Step">21. Seam 2 Booking Application - Migration of Binaries from EAP5.1 to</a></li>
 </ul>
 </div>
 </div>
@@ -734,12 +732,12 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="sect1">
-<h2 id="class-loading-in-wildfly">1. Class Loading in WildFly</h2>
+<h2 id="Class_Loading_in_WildFly">1. Class Loading in WildFly</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Since JBoss AS 7, Class loading is considerably different to previous
 versions of JBoss AS. Class loading is based on the
-<a href="#src-557206">MODULES</a> project. Instead of the more familiar
+<a href="#Class_Loading_in_WildFly">MODULES</a> project. Instead of the more familiar
 hierarchical class loading environment, WildFly&#8217;s class loading is based
 on modules that have to define explicit dependencies on other modules.
 Deployments in WildFly are also modules, and do not have access to
@@ -773,7 +771,7 @@ with any supporting modules that weld needs to operate.</p>
 </div>
 <div class="paragraph">
 <p>For a complete list of the automatic dependencies that are added, please
-see <a href="#src-557206">Implicit module dependencies for deployments</a>.</p>
+see <a href="#Implicit_module_dependencies_for_deployments">Implicit module dependencies for deployments</a>.</p>
 </div>
 <div class="paragraph">
 <p>Automatic dependencies can be excluded through the use of
@@ -1323,10 +1321,10 @@ deployment.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="implicit-module-dependencies-for-deployments">2. Implicit module dependencies for deployments</h2>
+<h2 id="Implicit_module_dependencies_for_deployments">2. Implicit module dependencies for deployments</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As explained in the <a href="#src-557203">Class Loading in WildFly</a> article,
+<p>As explained in the <a href="#Class_Loading_in_WildFly">Class Loading in WildFly</a> article,
 WildFly 12 is based on module classloading. A class within a module B
 isn&#8217;t visible to a class within a module A, unless module B adds a
 dependency on module A. Module dependencies can be explicitly (as
@@ -1521,7 +1519,7 @@ beans.xml file is detected in the deployment</p></td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="deployment-descriptors-used-in-wildfly">3. Deployment Descriptors used In WildFly</h2>
+<h2 id="Deployment_Descriptors_used_In_WildFly">3. Deployment Descriptors used In WildFly</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This page gives a list and a description of all the valid deployment
@@ -1702,7 +1700,7 @@ webservice endpoints</p></td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="development-guidelines-and-recommended-practices">4. Development Guidelines and Recommended Practices</h2>
+<h2 id="Development_Guidelines_and_Recommended_Practices">4. Development Guidelines and Recommended Practices</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The purpose of this page is to document tips and techniques that will
@@ -1713,7 +1711,7 @@ applications.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="application-client-reference">5. Application Client Reference</h2>
+<h2 id="Application_Client_Reference">5. Application Client Reference</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>As a Java EE6 compliant server, WildFly 12 contains an application
@@ -1801,7 +1799,7 @@ which is located on Github .</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="cdi-reference">6. CDI Reference</h2>
+<h2 id="CDI_Reference">6. CDI Reference</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>WildFly uses <a href="http://weld.cdi-spec.org/">Weld</a>, the CDI reference
@@ -1864,7 +1862,7 @@ entry with <code>meta-inf="import"</code>, e.g.</p>
 </div>
 <div class="paragraph">
 <p>For more information on class loading and adding dependencies to your
-deployment please see the <a href="Class_Loading_in_WildFly.html">Class
+deployment please see the <a href="#Class_Loading_in_WildFly">Class
 Loading Guide</a></p>
 </div>
 </div>
@@ -2036,7 +2034,7 @@ extensions!</strong></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="ee-concurrency-utilities">7. EE Concurrency Utilities</h2>
+<h2 id="EE_Concurrency_Utilities">7. EE Concurrency Utilities</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="overview">7.1. Overview</h3>
@@ -2062,7 +2060,7 @@ type in all configurations within the distribution, as mandated by the
 specification, but additional instances, perhaps customised to better
 serve a specific usage, may be created through WildFly&#8217;s EE Subsystem
 Configuration. To learn how to configure EE Concurrency Utilities please
-refer to <a href="EE_Concurrency_Utilities_Configuration.html">EE Concurrency
+refer to <a href="Admin_Guide.html#EE_Concurrency_Utilities_Configuration">EE Concurrency
 Utilities Configuration</a>. Additionally, the EE subsystem configuration
 also includes the configuration of which instance should be considered
 the default instance mandated by the Java EE specification, and such
@@ -2399,7 +2397,7 @@ Executor Service instance&#8217;s JNDI name is
 </div>
 </div>
 <div class="sect1">
-<h2 id="ejb-3-reference-guide">8. EJB 3 Reference Guide</h2>
+<h2 id="EJB3_Reference_Guide">8. EJB 3 Reference Guide</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This chapter details the extensions that are available when developing
@@ -2708,7 +2706,7 @@ fired only once like a recurring timer!</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="container-interceptors">8.6. Container interceptors</h3>
+<h3 id="Container_interceptors">8.6. Container interceptors</h3>
 <div class="sect3">
 <h4 id="overview">8.6.1. Overview</h4>
 <div class="paragraph">
@@ -2955,7 +2953,7 @@ implementing container interceptors in user applications
 </div>
 </div>
 <div class="sect2">
-<h3 id="ejb3-clustered-database-timers">8.7. EJB3 Clustered Database Timers</h3>
+<h3 id="EJB3_Clustered_Database_Timers">8.7. EJB3 Clustered Database Timers</h3>
 <div class="sect3">
 <h4 id="overview">8.7.1. Overview</h4>
 <div class="paragraph">
@@ -3116,270 +3114,9 @@ is the node that the timer will run on.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="ejb3-subsystem-configuration-guide">8.8. EJB3 subsystem configuration guide</h3>
-<div class="paragraph">
-<p>This page lists the options that are available for configuring the EJB
-subsystem.</p>
-</div>
-<div class="paragraph">
-<p>A complete example of the config is shown below, with a full explanation
-of each</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:ejb3:1.2</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-  <span class="tag">&lt;session-bean&gt;</span>
-    <span class="tag">&lt;stateless&gt;</span>
-      <span class="tag">&lt;bean-instance-pool-ref</span> <span class="attribute-name">pool-name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">slsb-strict-max-pool</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;/stateless&gt;</span>
-    <span class="tag">&lt;stateful</span> <span class="attribute-name">default-access-timeout</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">5000</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">cache-ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">simple</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">clustered-cache-ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">clustered</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;singleton</span> <span class="attribute-name">default-access-timeout</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">5000</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-  <span class="tag">&lt;/session-bean&gt;</span>
-  <span class="tag">&lt;mdb&gt;</span>
-    <span class="tag">&lt;resource-adapter-ref</span> <span class="attribute-name">resource-adapter-name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">hornetq-ra</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;bean-instance-pool-ref</span> <span class="attribute-name">pool-name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">mdb-strict-max-pool</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-  <span class="tag">&lt;/mdb&gt;</span>
-  <span class="tag">&lt;entity-bean&gt;</span>
-    <span class="tag">&lt;bean-instance-pool-ref</span> <span class="attribute-name">pool-name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">entity-strict-max-pool</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-  <span class="tag">&lt;/entity-bean&gt;</span>
-  <span class="tag">&lt;pools&gt;</span>
-    <span class="tag">&lt;bean-instance-pools&gt;</span>
-      <span class="tag">&lt;strict-max-pool</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">slsb-strict-max-pool</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">max-pool-size</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">20</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">instance-acquisition-timeout</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">5</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">instance-acquisition-timeout-unit</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">MINUTES</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-      <span class="tag">&lt;strict-max-pool</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">mdb-strict-max-pool</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">max-pool-size</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">20</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">instance-acquisition-timeout</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">5</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">instance-acquisition-timeout-unit</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">MINUTES</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-      <span class="tag">&lt;strict-max-pool</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">entity-strict-max-pool</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">max-pool-size</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">100</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">instance-acquisition-timeout</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">5</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">instance-acquisition-timeout-unit</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">MINUTES</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-  <span class="tag">&lt;/bean-instance-pools&gt;</span>
-  <span class="tag">&lt;/pools&gt;</span>
-  <span class="tag">&lt;caches&gt;</span>
-    <span class="tag">&lt;cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">simple</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">aliases</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">NoPassivationCache</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">passivating</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">passivation-store-ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">file</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">aliases</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SimpleStatefulCache</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">clustered</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">passivation-store-ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">infinispan</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">aliases</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">StatefulTreeCache</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-  <span class="tag">&lt;/caches&gt;</span>
-  <span class="tag">&lt;passivation-stores&gt;</span>
-    <span class="tag">&lt;file-passivation-store</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">file</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;cluster-passivation-store</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">infinispan</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">cache-container</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ejb</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-  <span class="tag">&lt;/passivation-stores&gt;</span>
-  <span class="tag">&lt;async</span> <span class="attribute-name">thread-pool-name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-  <span class="tag">&lt;timer-service</span> <span class="attribute-name">thread-pool-name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-    <span class="tag">&lt;data-store</span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">timer-service-data</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">relative-to</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">jboss.server.data.dir</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-  <span class="tag">&lt;/timer-service&gt;</span>
-  <span class="tag">&lt;remote</span> <span class="attribute-name">connector-ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">remoting-connector</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">thread-pool-name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-  <span class="tag">&lt;thread-pools&gt;</span>
-    <span class="tag">&lt;thread-pool</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-      <span class="tag">&lt;max-threads</span> <span class="attribute-name">count</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">10</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-      <span class="tag">&lt;keepalive-time</span> <span class="attribute-name">time</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">100</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">unit</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">milliseconds</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-      <span class="tag">&lt;/thread-pool&gt;</span>
-  <span class="tag">&lt;/thread-pools&gt;</span>
-  <span class="tag">&lt;iiop</span> <span class="attribute-name">enable-by-default</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">use-qualified-name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-  <span class="tag">&lt;in-vm-remote-interface-invocation</span> <span class="attribute-name">pass-by-value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span> <span class="comment">&lt;!-- Warning see notes below about possible issues --&gt;</span>
-<span class="tag">&lt;/subsystem&gt;</span></code></pre>
-</div>
-</div>
+<h3 id="EJB_IIOP_Guide">8.8. EJB IIOP Guide</h3>
 <div class="sect3">
-<h4 id="session-bean">8.8.1. &lt;session-bean&gt;</h4>
-<div class="sect4">
-<h5 id="stateless">&lt;stateless&gt;</h5>
-<div class="paragraph">
-<p>This element is used to configure the instance pool that is used by
-default for stateless session beans. If it is not present stateless
-session beans are not pooled, but are instead created on demand for
-every invocation. The instance pool can be overridden on a per
-deployment or per bean level using <code>jboss-ejb3.xml</code> or the
-<code>org.jboss.ejb3.annotation.Pool</code> annotation. The instance pools
-themselves are configured in the <code>&lt;pools&gt;</code> element.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="stateful">&lt;stateful&gt;</h5>
-<div class="paragraph">
-<p>This element is used to configure Stateful Session Beans.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>default-access-timeout</code> This attribute specifies the default time
-concurrent invocations on the same bean instance will wait to acquire
-the instance lock. It can be overridden via the deployment descriptor or
-via the <code>javax.ejb.AccessTimeout</code> annotation.</p>
-</li>
-<li>
-<p><code>cache-ref</code> This attribute is used to set the default cache for
-non-clustered beans. It can be overridden by <code>jboss-ejb3.xml</code>, or via
-the <code>org.jboss.ejb3.annotation.Cache</code> annotation.</p>
-</li>
-<li>
-<p><code>clustered-cache-ref</code> This attribute is used to set the default cache
-for clustered beans.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="singleton">&lt;singleton&gt;</h5>
-<div class="paragraph">
-<p>This element is used to configure Singleton Session Beans.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>default-access-timeout</code> This attribute specifies the default time
-concurrent invocations will wait to acquire the instance lock. It can be
-overridden via the deployment descriptor or via the
-<code>javax.ejb.AccessTimeout</code> annotation.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="mdb">8.8.2. &lt;mdb&gt;</h4>
-<div class="sect4">
-<h5 id="resource-adaptor-ref">&lt;resource-adaptor-ref&gt;</h5>
-<div class="paragraph">
-<p>This element sets the default resource adaptor for Message Driven Beans.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="bean-instance-pool-ref">&lt;bean-instance-pool-ref&gt;</h5>
-<div class="paragraph">
-<p>This element is used to configure the instance pool that is used by
-default for Message Driven Beans. If it is not present they are not
-pooled, but are instead created on demand for every invocation. The
-instance pool can be overridden on a per deployment or per bean level
-using <code>jboss-ejb3.xml</code> or the <code>org.jboss.ejb3.annotation.Pool</code>
-annotation. The instance pools themselves are configured in the
-<code>&lt;pools&gt;</code> element.</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="entity-bean">8.8.3. &lt;entity-bean&gt;</h4>
-<div class="paragraph">
-<p>This element is used to configure the behavior for EJB2 EntityBeans.</p>
-</div>
-<div class="sect4">
-<h5 id="bean-instance-pool-ref-1">&lt;bean-instance-pool-ref&gt;</h5>
-<div class="paragraph">
-<p>This element is used to configure the instance pool that is used by
-default for Entity Beans. If it is not present they are not pooled, but
-are instead created on demand for every invocation. The instance pool
-can be overridden on a per deployment or per bean level using
-<code>jboss-ejb3.xml</code> or the <code>org.jboss.ejb3.annotation.Pool</code> annotation. The
-instance pools themselves are configured in the <code>&lt;pools&gt;</code> element.</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="pools">8.8.4. &lt;pools&gt;</h4>
-
-</div>
-<div class="sect3">
-<h4 id="caches">8.8.5. &lt;caches&gt;</h4>
-
-</div>
-<div class="sect3">
-<h4 id="passivation-stores">8.8.6. &lt;passivation-stores&gt;</h4>
-
-</div>
-<div class="sect3">
-<h4 id="async">8.8.7. &lt;async&gt;</h4>
-<div class="paragraph">
-<p>This element enables async EJB invocations. It is also used to specify
-the thread pool that these invocations will use.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="timer-service">8.8.8. &lt;timer-service&gt;</h4>
-<div class="paragraph">
-<p>This element enables the EJB timer service. It is also used to specify
-the thread pool that these invocations will use.</p>
-</div>
-<div class="sect4">
-<h5 id="data-store">&lt;data-store&gt;</h5>
-<div class="paragraph">
-<p>This is used to configure the directory that persistent timer
-information is saved to.</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="remote">8.8.9. &lt;remote&gt;</h4>
-<div class="paragraph">
-<p>This is used to enable remote EJB invocations. It specifies the remoting
-connector to use (as defined in the remoting subsystem configuration),
-and the thread pool to use for remote invocations.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="thread-pools">8.8.10. &lt;thread-pools&gt;</h4>
-<div class="paragraph">
-<p>This is used to configure the thread pools used by async, timer and
-remote invocations.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="iiop">8.8.11. &lt;iiop&gt;</h4>
-<div class="paragraph">
-<p>This is used to enable IIOP (i.e. CORBA) invocation of EJB&#8217;s. If this
-element is present then the JacORB subsystem must also be installed. It
-supports the following two attributes:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>enable-by-default</code> If this is true then all EJB&#8217;s with EJB2.x home
-interfaces are exposed via IIOP, otherwise they must be explicitly
-enabled via <code>jboss-ejb3.xml</code>.</p>
-</li>
-<li>
-<p><code>use-qualified-name</code> If this is true then EJB&#8217;s are bound to the corba
-naming context with a binding name that contains the application and
-modules name of the deployment (e.g. myear/myejbjar/MyBean), if this is
-false the default binding name is simply the bean name.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="in-vm-remote-interface-invocation">8.8.12. &lt;in-vm-remote-interface-invocation&gt;</h4>
-<div class="paragraph">
-<p>By default remote interface invocations use pass by value, as required
-by the EJB spec. This element can use used to enable pass by reference,
-which can give you a performance boost. Note WildFly will do a shallow
-check to see if the caller and the EJB have access to the same class
-definitions, which means if you are passing something such as a
-List&lt;MyObject&gt;, WildFly only checks the List to see if it is the same
-class definition on the call &amp; EJB side. If the top level class
-definition is the same, JBoss will make the call using pass by
-reference, which means that if MyObject or any objects beneath it are
-loaded from different classloaders, you would get a ClassCastException.
-If the top level class definitions are loaded from different
-classloaders, JBoss will use pass by value. JBoss cannot do a deep check
-of all of the classes to ensure no ClassCastExceptions will occur
-because doing a deep check would eliminate any performance boost you
-would have received by using call by reference. It is recommended that
-you configure pass by reference only on callers that you are sure will
-use the same class definitions and not globally. This can be done via a
-configuration in the jboss-ejb-client.xml as shown below.</p>
-</div>
-<div class="paragraph">
-<p>To configure a caller/client use pass by reference, you configure your
-top level deployment with a META-INF/jboss-ejb-client.xml containing:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;jboss-ejb-client</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:ejb-client:1.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-    <span class="tag">&lt;client-context&gt;</span>
-        <span class="tag">&lt;ejb-receivers</span> <span class="attribute-name">local-receiver-pass-by-value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;/client-context&gt;</span>
-<span class="tag">&lt;/jboss-ejb-client&gt;</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="ejb-iiop-guide">8.9. EJB IIOP Guide</h3>
-<div class="sect3">
-<h4 id="enabling-iiop">8.9.1. Enabling IIOP</h4>
+<h4 id="enabling-iiop">8.8.1. Enabling IIOP</h4>
 <div class="paragraph">
 <p>To enable IIOP you must have the JacORB subsystem installed, and the
 <code>&lt;iiop/&gt;</code> element present in the ejb3 subsystem configuration. The
@@ -3388,12 +3125,12 @@ both of these enabled.</p>
 </div>
 <div class="paragraph">
 <p>The <code>&lt;iiop/&gt;</code> element takes two attributes that control the default
-behaviour of the server, for full details see <a href="#src-557221">EJB3
+behaviour of the server, for full details see <a href="Admin_Guide.html#EJB3">EJB3
 subsystem configuration guide</a>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="enabling-jts">8.9.2. Enabling JTS</h4>
+<h4 id="enabling-jts">8.8.2. Enabling JTS</h4>
 <div class="paragraph">
 <p>To enable JTS simply add a <code>&lt;jts/&gt;</code> element to the transactions
 subsystem configuration.</p>
@@ -3413,7 +3150,7 @@ shown below.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="dynamic-stubs">8.9.3. Dynamic Stub&#8217;s</h4>
+<h4 id="dynamic-stubs">8.8.3. Dynamic Stub&#8217;s</h4>
 <div class="paragraph">
 <p>Downloading stubs directly from the server is no longer supported. If
 you do not wish to pre-generate your stub classes JDK Dynamic stubs can
@@ -3422,14 +3159,14 @@ be used instead. The enable JDK dynamic stubs simply set the
 </div>
 </div>
 <div class="sect3">
-<h4 id="configuring-ejb-iiop-settings-via-jboss-ejb3.xml">8.9.4. Configuring EJB IIOP settings via jboss-ejb3.xml</h4>
+<h4 id="configuring-ejb-iiop-settings-via-jboss-ejb3.xml">8.8.4. Configuring EJB IIOP settings via jboss-ejb3.xml</h4>
 <div class="paragraph">
 <p>TODO</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="ejb-over-http">8.10. EJB over HTTP</h3>
+<h3 id="EJB_over_HTTP">8.9. EJB over HTTP</h3>
 <div class="paragraph">
 <p>Beginning with Wildfly 11 it is now possible to use HTTP as the
 transport (instead of remoting) for remote EJB and JNDI invocations.</p>
@@ -3439,7 +3176,7 @@ transport (instead of remoting) for remote EJB and JNDI invocations.</p>
 functionality.</p>
 </div>
 <div class="sect3">
-<h4 id="server-configuration">8.10.1. Server Configuration</h4>
+<h4 id="server-configuration">8.9.1. Server Configuration</h4>
 <div class="paragraph">
 <p>In order to configure the server the http-invoker needs to be enabled on
 each virtual host you wish to use in the Undertow subsystem. This is
@@ -3463,7 +3200,7 @@ authentication factory.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="performing-invocations">8.10.2. Performing Invocations</h4>
+<h4 id="performing-invocations">8.9.2. Performing Invocations</h4>
 <div class="paragraph">
 <p>The mechanism for performing invocations is exactly the same as for the
 remoting based EJB client, the only difference is that instead of a
@@ -3474,7 +3211,7 @@ to 'http://localhost:8080/wildfly-services'.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-details">8.10.3. Implementation details</h4>
+<h4 id="implementation-details">8.9.3. Implementation details</h4>
 <div class="paragraph">
 <p>The wire protocol is detailed at
 <a href="https://github.com/wildfly/wildfly-http-client/blob/master/docs/src/main/asciidoc/wire-spec-v1.asciidoc" class="bare">https://github.com/wildfly/wildfly-http-client/blob/master/docs/src/main/asciidoc/wire-spec-v1.asciidoc</a></p>
@@ -3482,7 +3219,7 @@ to 'http://localhost:8080/wildfly-services'.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="jboss-ejb3-xml-reference">8.11. jboss-ejb3.xml Reference</h3>
+<h3 id="jboss-ejb3">8.10. jboss-ejb3.xml Reference</h3>
 <div class="paragraph">
 <p><code>jboss-ejb3.xml</code> is a custom deployment descriptor that can be placed in
 either ejb-jar or war archives. If it is placed in an ejb-jar then it
@@ -3494,7 +3231,7 @@ placed in the <code>WEB-INF</code> folder.</p>
 <code>ejb-jar.xml</code>, with the <code>jboss-ejb3.xml</code> items taking precedence.</p>
 </div>
 <div class="sect3">
-<h4 id="example-file">8.11.1. Example File</h4>
+<h4 id="example-file">8.10.1. Example File</h4>
 <div class="paragraph">
 <p>A simple example is shown below:</p>
 </div>
@@ -3597,7 +3334,7 @@ an EJB.</p>
 <div class="paragraph">
 <p>The IIOP namespace is where IIOP settings are configured. As there are
 quite a large number of options these are covered in the
-<a href="#src-557220">IIOP guide</a>.</p>
+<a href="#EJB_IIOP_Guide">IIOP guide</a>.</p>
 </div>
 </div>
 <div class="sect5">
@@ -3644,7 +3381,7 @@ the server.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="message-driven-beans-controlled-delivery">8.12. Message Driven Beans Controlled Delivery</h3>
+<h3 id="Message_Driven_Beans_Controlled_Delivery">8.11. Message Driven Beans Controlled Delivery</h3>
 <div class="paragraph">
 <p>There are three mechanisms in Wildfly that allow controlling if a
 specific MDB is actively receiving or not messages:</p>
@@ -3666,7 +3403,7 @@ specific MDB is actively receiving or not messages:</p>
 <p>We will see each one of them in the following sections.</p>
 </div>
 <div class="sect3">
-<h4 id="delivery-active">8.12.1. Delivery Active</h4>
+<h4 id="delivery-active">8.11.1. Delivery Active</h4>
 <div class="paragraph">
 <p>Delivery active is simply an attribute associated with the MDB that
 indicates if the MDB is receiving messages or not. If an MDB is not
@@ -3763,7 +3500,7 @@ path of the MDB you want to manage delivery for:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delivery-groups">8.12.2. Delivery Groups</h4>
+<h4 id="delivery-groups">8.11.2. Delivery Groups</h4>
 <div class="paragraph">
 <p>Delivery groups provide a straightforward way to manage delivery for a
 group of MDBs. Every MDB belonging to a delivery group has delivery
@@ -3943,7 +3680,7 @@ stating that the delivery-group is missing.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clustered-singleton-delivery">8.12.3. Clustered Singleton Delivery</h4>
+<h4 id="clustered-singleton-delivery">8.11.3. Clustered Singleton Delivery</h4>
 <div class="paragraph">
 <p>Delivery can be marked as singleton in a clustered environment. In this
 case, only one node in the cluster will have delivery active for that
@@ -4021,7 +3758,7 @@ to mark an MDB as clustered singleton:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="using-multiple-mdb-delivery-control-mechanisms">8.12.4. Using Multiple MDB Delivery Control Mechanisms</h4>
+<h4 id="using-multiple-mdb-delivery-control-mechanisms">8.11.4. Using Multiple MDB Delivery Control Mechanisms</h4>
 <div class="paragraph">
 <p>The previous d eliver y control mechanisms can be used together in a
 single MDB. In this case, they work as a set of restrictions for
@@ -4079,7 +3816,7 @@ messages.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="securing-ejbs">8.13. Securing EJBs</h3>
+<h3 id="Securing_EJBs">8.12. Securing EJBs</h3>
 <div class="paragraph">
 <p>The Java EE spec specifies certain annotations (like @RolesAllowed,
 @PermitAll, @DenyAll) which can be used on EJB implementation classes
@@ -4091,7 +3828,7 @@ configurations in this chapter but instead will be looking at the vendor
 specific extensions to the security configurations.</p>
 </div>
 <div class="sect3">
-<h4 id="security-domain">8.13.1. Security Domain</h4>
+<h4 id="security-domain">8.12.1. Security Domain</h4>
 <div class="paragraph">
 <p>The Java EE spec doesn&#8217;t mandate a specific way to configure security
 domain for a bean. It leaves it to the vendor implementations to allow
@@ -4170,7 +3907,7 @@ of a .jar deployment or .war/WEB-INF folder of a .war deployment.
 </div>
 </div>
 <div class="sect3">
-<h4 id="absence-of-security-domain-configuration-but-presence-of-other-security-metadata">8.13.2. Absence of security domain configuration but presence of other</h4>
+<h4 id="absence-of-security-domain-configuration-but-presence-of-other-security-metadata">8.12.2. Absence of security domain configuration but presence of other</h4>
 <div class="paragraph">
 <p>security metadata</p>
 </div>
@@ -4210,7 +3947,7 @@ or deployment descriptor approach explained earlier.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="access-to-methods-without-explicit-security-metadata-on-a-secured-bean">8.13.3. Access to methods without explicit security metadata, on a secured</h4>
+<h4 id="access-to-methods-without-explicit-security-metadata-on-a-secured-bean">8.12.3. Access to methods without explicit security metadata, on a secured</h4>
 <div class="paragraph">
 <p>bean</p>
 </div>
@@ -4302,7 +4039,7 @@ like <code>@PermitAll</code></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="jpa-reference-guide">9. JPA Reference Guide</h2>
+<h2 id="JPA_Reference_Guide">9. JPA Reference Guide</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="introduction">9.1. Introduction</h3>
@@ -5583,7 +5320,7 @@ Ferraro</a> (Infinispan 2lc integration)</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="jndi-reference">10. JNDI Reference</h2>
+<h2 id="JNDI_Reference">10. JNDI Reference</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="overview">10.1. Overview</h3>
@@ -5638,7 +5375,7 @@ such as naming and injection.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="local-jndi">11. Local JNDI</h2>
+<h2 id="JNDI_Local_Reference">11. Local JNDI</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The Java EE platform specification defines the following JNDI contexts:</p>
@@ -5710,7 +5447,7 @@ WildFly.</p>
 <h4 id="using-a-deployment-descriptor">11.1.1. Using a deployment descriptor</h4>
 <div class="paragraph">
 <p>For Java EE applications the recommended way is to use a
-<a href="#src-557268">deployment descriptor</a> to create the binding. For
+<a href="#Deployment_Descriptors_used_In_WildFly">deployment descriptor</a> to create the binding. For
 example the following <code>web.xml</code> binds the string <code>"Hello World"</code> to
 <code>java:global/mystring</code> and the string <code>"Hello Module"</code> to
 <code>java:comp/env/hello</code> (any non absolute JNDI name is relative to
@@ -5964,7 +5701,7 @@ needed, the standard JNDI API to lookup an entry from JNDI:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="remote-jndi-access">12. Remote JNDI Access</h2>
+<h2 id="JNDI_Remote_Reference">12. Remote JNDI Access</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>WildFly supports two different types of remote JNDI.</p>
@@ -6084,7 +5821,7 @@ session.</p>
 <td class="content">
 For more details on how the server connections are configured, including
 the <strong>required</strong> jboss ejb client setup, please see
-<a href="EJB_invocations_from_a_remote_client_using_JNDI.adoc">EJB invocations from a remote client using JNDI</a>.
+<a href="#EJB_invocations_from_a_remote_client_using_JNDI">EJB invocations from a remote client using JNDI</a>.
 </td>
 </tr>
 </table>
@@ -6093,7 +5830,7 @@ the <strong>required</strong> jboss ejb client setup, please see
 </div>
 </div>
 <div class="sect1">
-<h2 id="jax-rs-reference-guide">13. JAX-RS Reference Guide</h2>
+<h2 id="JAX-RS_Reference_Guide">13. JAX-RS Reference Guide</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This page outlines the three options you have for deploying JAX-RS
@@ -6202,12 +5939,10 @@ automatically.
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>[[Web_(Undertow)_Reference_Guide]]
+= Sharing sessions between wars in an ear</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="sharing-sessions-between-wars-in-an-ear">14. Sharing sessions between wars in an ear</h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Undertow allows you to share sessions between wars in an ear, if it is
 explicitly configured to do so. Note that if you use this feature your
@@ -6242,8 +5977,9 @@ jboss-web.xml for configuring the session.</p>
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="webservices-reference-guide">15. Webservices reference guide</h2>
+<h2 id="JAX-WS_Reference_guide">14. Webservices reference guide</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The Web Services functionalities of WildFly are provided by the JBossWS
@@ -6258,7 +5994,7 @@ project integration.</p>
 available on WildFly 12.</p>
 </div>
 <div class="sect2">
-<h3 id="jax-ws-user-guide">15.1. JAX-WS User Guide</h3>
+<h3 id="JAX-WS_User_Guide">14.1. JAX-WS User Guide</h3>
 <div class="paragraph">
 <p>The <a href="http://www.jcp.org/en/jsr/detail?id=224">Java API for XML-Based Web
 Services (JAX-WS / JSR-224)</a> defines the mapping between WSDL and Java
@@ -6268,7 +6004,7 @@ hence users can reference it for any vendor agnostic webservice usage
 need. Below is a brief overview of the most basic functionalities.</p>
 </div>
 <div class="sect3">
-<h4 id="web-service-endpoints">15.1.1. Web Service Endpoints</h4>
+<h4 id="web-service-endpoints">14.1.1. Web Service Endpoints</h4>
 <div class="paragraph">
 <p>JAX-WS simplifies the development model for a web service endpoint a
 great deal. In short, an endpoint implementation bean is annotated with
@@ -6475,7 +6211,7 @@ the <em>wsdlLocation</em> with the <code>@</code> <code>WebServiceProvider</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="web-service-clients">15.1.2. Web Service Clients</h4>
+<h4 id="web-service-clients">14.1.2. Web Service Clients</h4>
 <div class="sect4">
 <h5 id="service">Service</h5>
 <div class="paragraph">
@@ -6834,7 +6570,7 @@ client receive time out:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="common-api">15.1.3. Common API</h4>
+<h4 id="common-api">14.1.3. Common API</h4>
 <div class="paragraph">
 <p>This sections describes concepts that apply equally to Web Service
 Endpoints and Web Service Clients.</p>
@@ -7019,7 +6755,7 @@ beans at runtime if they are not part of the deployment
 </div>
 </div>
 <div class="sect3">
-<h4 id="jax-ws-annotations">15.1.4. JAX-WS Annotations</h4>
+<h4 id="jax-ws-annotations">14.1.4. JAX-WS Annotations</h4>
 <div class="paragraph">
 <p>For details, see <a href="http://www.jcp.org/en/jsr/detail?id=224">JSR-224 - Java
 API for XML-Based Web Services (JAX-WS) 2.2</a></p>
@@ -7162,7 +6898,7 @@ wsdl:operation mapped from the annotated methods.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jsr-181-annotations">15.1.5. JSR-181 Annotations</h4>
+<h4 id="jsr-181-annotations">14.1.5. JSR-181 Annotations</h4>
 <div class="paragraph">
 <p>JSR-181 defines the syntax and semantics of Java Web Service (JWS)
 metadata and default values.</p>
@@ -7246,14 +6982,14 @@ annotation target includes <code>METHOD</code> and <code>FIELD</code> for use by
 </div>
 </div>
 <div class="sect2">
-<h3 id="jax-ws-tools">15.2. JAX-WS Tools</h3>
+<h3 id="JAX-WS_Tools">14.2. JAX-WS Tools</h3>
 <div class="paragraph">
 <p>The JAX-WS tools provided by JBossWS can be used in a variety of ways.
 First we will look at server-side development strategies, and then
 proceed to the client.</p>
 </div>
 <div class="sect3">
-<h4 id="server-side">15.2.1. Server side</h4>
+<h4 id="server-side">14.2.1. Server side</h4>
 <div class="paragraph">
 <p>When developing a Web Service Endpoint (the server-side) you have the
 option of starting from Java ( <em>bottom-up development</em>), or from the
@@ -7599,7 +7335,7 @@ class, which can now be written, using the above interface.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="client-side">15.2.2. Client Side</h4>
+<h4 id="client-side">14.2.2. Client Side</h4>
 <div class="paragraph">
 <p>Before going to detail on the client-side it is important to understand
 the decoupling concept that is central to Web Services. Web Services are
@@ -7780,14 +7516,14 @@ setting the <em>ENDPOINT_ADDRESS_PROPERTY</em> as shown below:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="wsconsume">15.3. wsconsume</h3>
+<h3 id="wsconsume">14.3. wsconsume</h3>
 <div class="paragraph">
 <p><em>wsconsume</em> is a command line tool and ant task that "consumes" the
 abstract contract (WSDL file) and produces portable JAX-WS service and
 client artifacts.</p>
 </div>
 <div class="sect3">
-<h4 id="command-line-tool">15.3.1. Command Line Tool</h4>
+<h4 id="command-line-tool">14.3.1. Command Line Tool</h4>
 <div class="paragraph">
 <p>The command line tool has the following usage:</p>
 </div>
@@ -7875,7 +7611,7 @@ interface.
 </div>
 </div>
 <div class="sect3">
-<h4 id="maven-plugin">15.3.2. Maven Plugin</h4>
+<h4 id="maven-plugin">14.3.2. Maven Plugin</h4>
 <div class="paragraph">
 <p>The wsconsume tools is included in the
 <strong>org.jboss.ws.plugins:jaxws-tools-maven-plugin</strong> plugin. The plugin has
@@ -8132,7 +7868,7 @@ Up to version 1.1.2.Final, the <em>artifactId</em> of the plugin was
 </div>
 </div>
 <div class="sect3">
-<h4 id="ant-task">15.3.3. Ant Task</h4>
+<h4 id="ant-task">14.3.3. Ant Task</h4>
 <div class="paragraph">
 <p>The <em>wsconsume</em> Ant task ( <em>org.jboss.ws.tools.ant.WSConsumeTask</em>) has
 the following attributes:</p>
@@ -8308,7 +8044,7 @@ files from foo.wsdl:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="wsprovide">15.4. wsprovide</h3>
+<h3 id="wsprovide">14.4. wsprovide</h3>
 <div class="paragraph">
 <p><em>wsprovide</em> is a command line tool, Maven plugin and Ant task that
 generates portable JAX-WS artifacts for a service endpoint
@@ -8316,7 +8052,7 @@ implementation. It also has the option to "provide" the abstract
 contract for offline usage.</p>
 </div>
 <div class="sect3">
-<h4 id="command-line-tool">15.4.1. Command Line Tool</h4>
+<h4 id="command-line-tool">14.4.1. Command Line Tool</h4>
 <div class="paragraph">
 <p>The command line tool has the following usage:</p>
 </div>
@@ -8367,7 +8103,7 @@ directory:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="maven-plugin">15.4.2. Maven Plugin</h4>
+<h4 id="maven-plugin">14.4.2. Maven Plugin</h4>
 <div class="paragraph">
 <p>The <em>wsprovide</em> tools is included in the
 <strong>org.jboss.ws.plugins:jaxws-tools-</strong> <strong>maven-</strong> <strong>plugin</strong> plugin. The plugin
@@ -8557,7 +8293,7 @@ Up to version 1.1.2.Final, the <em>artifactId</em> of the plugin was
 </div>
 </div>
 <div class="sect3">
-<h4 id="ant-task">15.4.3. Ant Task</h4>
+<h4 id="ant-task">14.4.3. Ant Task</h4>
 <div class="paragraph">
 <p>The wsprovide ant task ( <em>org.jboss.ws.tools.ant.WSProvideTask</em>) has the
 following attributes:</p>
@@ -8667,9 +8403,9 @@ source, resources, and classes:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="advanced-user-guide">15.5. Advanced User Guide</h3>
+<h3 id="JAX_WS_Advanced_User_Guide">14.5. Advanced User Guide</h3>
 <div class="sect3">
-<h4 id="logging">15.5.1. Logging</h4>
+<h4 id="logging">14.5.1. Logging</h4>
 <div class="paragraph">
 <p>Logging of inbound and outbound messages is a common need. Different
 approaches are available for achieving that:</p>
@@ -8683,7 +8419,7 @@ the desired client/endpoints (programmatically / using <code>@HandlerChain</code
 JAX-WS annotation).</p>
 </div>
 <div class="paragraph">
-<p>The <a href="#src-557254">predefined client and endpoint configuration</a>
+<p>The <a href="#Predefined_client_and_endpoint_configurations">predefined client and endpoint configuration</a>
 mechanism allows user to add the logging handler to any client/endpoint
 or to some of them only (in which case the <code>@EndpointConfig</code> annotation
 / JBossWS API is required though).</p>
@@ -8751,7 +8487,7 @@ CXF documentation</a> for more details.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="ws--support">15.5.2. WS-* support</h4>
+<h4 id="ws--support">14.5.2. WS-* support</h4>
 <div class="paragraph">
 <p>JBossWS includes most of the WS-* specification functionalities through
 the integration with Apache CXF. In particular, the whole WS-Security
@@ -8764,7 +8500,7 @@ book.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="address-rewrite">15.5.3. Address rewrite</h4>
+<h4 id="address-rewrite">14.5.3. Address rewrite</h4>
 <div class="paragraph">
 <p>JBossWS allows users to configure the <em>soap:address</em> attribute in the
 wsdl contract of deployed services.</p>
@@ -8833,7 +8569,7 @@ currently configured for the https/ssl connector.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="configuration-through-deployment-descriptor">15.5.4. Configuration through deployment descriptor</h4>
+<h4 id="configuration-through-deployment-descriptor">14.5.4. Configuration through deployment descriptor</h4>
 <div class="paragraph">
 <p>The <code>jboss-webservices.xml</code> deployment descriptor can be used to provide
 additional configuration for a given deployment. The expected location
@@ -8898,7 +8634,7 @@ webservices deployment.</p>
 <div class="paragraph">
 <p>Elements <code>&lt;config-name&gt;</code> and <code>&lt;config-file&gt;</code> can be used to associate
 any endpoint provided in the deployment with a given
-<a href="#src-557254">endpoint configuration</a>. Endpoint configuration are
+<a href="#Predefined_client_and_endpoint_configurations">endpoint configuration</a>. Endpoint configuration are
 either specified in the referenced config file or in the WildFly domain
 model (webservices subsystem). For further details on the endpoint
 configurations and their management in the domain model, please see the
@@ -8970,7 +8706,7 @@ webservice WSDL publish location.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="schema-validation-of-soap-messages">15.5.5. Schema validation of SOAP messages</h4>
+<h4 id="schema-validation-of-soap-messages">14.5.5. Schema validation of SOAP messages</h4>
 <div class="paragraph">
 <p>Apache CXF has a feature for validating incoming and outgoing SOAP
 messages on both client and server side. The validation is performed
@@ -9004,7 +8740,7 @@ on server side</p>
 </div>
 <div class="paragraph">
 <p>Alternatively, any endpoint and client running in-container can be
-associated to a JBossWS <a href="#src-557254">predefined configuration</a>
+associated to a JBossWS <a href="#Predefined_client_and_endpoint_configurations">predefined configuration</a>
 having the <code>schema-validation-enabled</code> property set to <code>true</code> in the
 referenced config file.</p>
 </div>
@@ -9031,7 +8767,7 @@ them)</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jaxb-introductions">15.5.6. JAXB Introductions</h4>
+<h4 id="jaxb-introductions">14.5.6. JAXB Introductions</h4>
 <div class="paragraph">
 <p>As Kohsuke Kawaguchi wrote on
 <a href="http://weblogs.java.net/blog/kohsuke/archive/2007/07/binding_3rd_par.html">his
@@ -9057,13 +8793,13 @@ Introductions page</a> on the wiki and at the examples in the sources.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="wsdl-system-properties-expansion">15.5.7. WSDL system properties expansion</h4>
+<h4 id="wsdl-system-properties-expansion">14.5.7. WSDL system properties expansion</h4>
 <div class="paragraph">
-<p>See <a href="#src-557254">Published WSDL customization</a></p>
+<p>See <a href="#Published_WSDL_customization">Published WSDL customization</a></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="predefined-client-and-endpoint-configurations">15.5.8. Predefined client and endpoint configurations</h4>
+<h4 id="Predefined_client_and_endpoint_configurations">14.5.8. Predefined client and endpoint configurations</h4>
 <div class="sect4">
 <h5 id="overview">Overview</h5>
 <div class="paragraph">
@@ -9586,7 +9322,7 @@ endpoints respectively</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="authentication">15.5.9. Authentication</h4>
+<h4 id="Authentication">14.5.9. Authentication</h4>
 <div class="sect4">
 <h5 id="authentication">Authentication</h5>
 <div class="paragraph">
@@ -9841,7 +9577,7 @@ annotation, the JASPI security domain specified in
 </div>
 </div>
 <div class="sect3">
-<h4 id="apache-cxf-integration">15.5.10. Apache CXF integration</h4>
+<h4 id="Apache_CXF_integration">14.5.10. Apache CXF integration</h4>
 <div class="sect4">
 <h5 id="jbossws-integration-layer-with-apache-cxf">JBossWS integration layer with Apache CXF</h5>
 <div class="paragraph">
@@ -9923,7 +9659,7 @@ with a JAX-WS compliant implementation, which is basically Apache CXF
 plus the JBossWS-CXF integration layer. So users just need to write
 their JAX-WS application; <em>no need for embedding any Apache CXF or any
 ws related dependency library in user deployments</em>. Please refer to the
-<a href="#src-557252">JAX-WS User Guide</a> section of the documentation for
+<a href="#JAX-WS_User_Guide">JAX-WS User Guide</a> section of the documentation for
 getting started.</p>
 </div>
 <div class="paragraph">
@@ -10248,7 +9984,7 @@ customizations.</p>
 <h6 id="deployment-descriptor-properties">Deployment descriptor properties</h6>
 <div class="paragraph">
 <p>The <code>jboss-webservices.xml</code> descriptor can be used to
-<a href="#src-557252">provide property values</a>.</p>
+<a href="#JAX_WS_Advanced_User_Guide">provide property values</a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -10364,7 +10100,7 @@ desired in some cases. Here is an example:</p>
 <div class="paragraph">
 <p>Schema validation of exchanged messages can also be enabled in
 <code>jboss-webservices.xml</code>. Further details available
-<a href="#src-557252">here</a>.</p>
+<a href="#JAX-WS_User_Guide">here</a>.</p>
 </div>
 </div>
 <div class="sect6">
@@ -10425,7 +10161,7 @@ the deployment.</p>
 <h7 id="ws-discovery-enablement">WS-Discovery enablement</h7>
 <div class="paragraph">
 <p>WS-Discovery support can be turned on in <code>jboss-webservices</code> for the
-current deployment. Further details available <a href="#src-557252">here</a>.</p>
+current deployment. Further details available <a href="#JAX-WS_User_Guide">here</a>.</p>
 </div>
 </div>
 </div>
@@ -10456,7 +10192,7 @@ approaches:</p>
 <p>As the Spring descriptor usage is not supported, the JBossWS integration
 adds an additional descriptor based approach to avoid requiring
 modifications to the actual client/endpoint code. Users can declare
-interceptors within <a href="#src-557252">predefined client and endpoint
+interceptors within <a href="#Predefined_client_and_endpoint_configurations">predefined client and endpoint
 configurations</a> by specifying a list of interceptor class names for the
 <code>cxf.interceptors.in</code> and <code>cxf.interceptors.out</code> properties.</p>
 </div>
@@ -10510,7 +10246,7 @@ approaches:</p>
 <p>As the Spring descriptor usage is not supported, the JBossWS integration
 adds an additional descriptor based approach to avoid requiring
 modifications to the actual client/endpoint code. Users can declare
-features within <a href="#src-557252">predefined client and endpoint
+features within <a href="#Predefined_client_and_endpoint_configurations">predefined client and endpoint
 configurations</a> by specifying a list of feature class names for the
 <code>cxf.features</code> property.</p>
 </div>
@@ -10694,7 +10430,7 @@ are not set.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="ws-addressing">15.5.11. WS-Addressing</h4>
+<h4 id="WS-Addressing">14.5.11. WS-Addressing</h4>
 <div class="paragraph">
 <p>JBoss Web Services inherits full WS-Addressing capabilities from the
 underlying Apache CXF implementation. Apache CXF provides support for
@@ -10890,7 +10626,7 @@ proxy.sayHello(<span class="string"><span class="delimiter">&quot;</span><span c
 </div>
 </div>
 <div class="sect3">
-<h4 id="ws-security">15.5.12. WS-Security</h4>
+<h4 id="WS-Security">14.5.12. WS-Security</h4>
 <div class="sect4">
 <h5 id="ws-security-overview">WS-Security overview</h5>
 <div class="paragraph">
@@ -10961,7 +10697,7 @@ covered by WS-
 specification.</p>
 </div>
 <div class="paragraph">
-<p><a href="#src-557274">As well as for other WS-* features</a>, the core of
+<p><a href="#Apache_CXF_integration">As well as for other WS-* features</a>, the core of
 WS-Security functionalities is provided through the Apache CXF engine.
 On top of that the JBossWS integration adds few configuration
 enhancements to simplify the setup of WS-Security enabled endpoints.</p>
@@ -11106,7 +10842,7 @@ documentation</a> for additional configuration details.</p>
 <p>In order for removing the need of Spring on server side for setting up
 WS-Security configuration properties not covered by policies, the
 JBossWS integration allows for getting those pieces of information from
-a defined <em>endpoint configuration</em>. <a href="#src-557274">Endpoint
+a defined <em>endpoint configuration</em>. <a href="#Predefined_client_and_endpoint_configurations">Endpoint
 configurations</a>can include property declarations and endpoint
 implementations can be associated with a given endpoint configuration
 using the <code>@EndpointConfig</code> annotation.</p>
@@ -12198,7 +11934,7 @@ appended with <code>.sct</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="ws-trust-and-sts">15.5.13. WS-Trust and STS</h4>
+<h4 id="WS-Trust_and_STS">14.5.13. WS-Trust and STS</h4>
 <div class="sect4">
 <h5 id="ws-trust-overview">WS-Trust overview</h5>
 <div class="paragraph">
@@ -13253,7 +12989,7 @@ message exchange via SOAP envelopes.</p>
 <p>As was done in the ServiceImpl class, the WSS4J annotations
 EndpointProperties and EndpointProperty are providing endpoint
 configuration for the CXF runtime. This was previous described
-<a href="#src-557272_WS-TrustandSTS-WebserviceproviderImplementation">here</a>.</p>
+<a href="#web-service-provider-implementation">here</a>.</p>
 </div>
 <div class="paragraph">
 <p>The InInterceptors annotation is used to specify a JBossWS integration
@@ -14030,7 +13766,7 @@ Dependencies: org.apache.ws.security,org.apache.cxf,org.picketlink</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="actas-ws-trust-scenario">ActAs WS-Trust Scenario</h5>
+<h5 id="ActAs_WS-Trust_Scenario">ActAs WS-Trust Scenario</h5>
 <div class="paragraph">
 <p>The ActAs feature is used in scenarios that require composite
 delegation. It is commonly used in multi-tiered systems where an
@@ -14046,7 +13782,7 @@ authorization code, for the client to access the service.</p>
 </div>
 <div class="paragraph">
 <p>The ActAs scenario is an extension of
-<a href="#src-557273_ActAsWS-TrustScenario-ABasicWS-TrustScenario">the basic
+<a href="#ActAs_WS-Trust_Scenario">the basic
 WS-Trust scenario</a>. In this example the ActAs service calls the
 ws-service on behalf of a user. There are only a couple of additions to
 the basic scenario&#8217;s code. An ActAs web service provider and callback
@@ -14544,7 +14280,7 @@ components are.</p>
 <h7 id="sts-implementation-class">STS Implementation class</h7>
 <div class="paragraph">
 <p>The initial description of SampleSTS can be found
-<a href="#src-557273_ActAsWS-TrustScenario-STSImplementation">here</a>.</p>
+<a href="#sts-implementation-class">here</a>.</p>
 </div>
 <div class="paragraph">
 <p>The declaration of the set of allowed token recipients by address has
@@ -14761,7 +14497,7 @@ proxy.sayHello();</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="onbehalfof-ws-trust-scenario">OnBehalfOf WS-Trust Scenario</h5>
+<h5 id="OnBehalfOf_WS-Trust_Scenario">OnBehalfOf WS-Trust Scenario</h5>
 <div class="paragraph">
 <p>The OnBehalfOf feature is used in scenarios that use the proxy pattern.
 In such scenarios, the client cannot access the STS directly, instead it
@@ -14781,7 +14517,7 @@ authorization code, for the client to access the service.</p>
 </div>
 <div class="paragraph">
 <p>The OnBehalfOf scenario is an extension of
-<a href="#src-557281_OnBehalfOfWS-TrustScenario-ABasicWS-TrustScenario">the
+<a href="#OnBehalfOf_WS-Trust_Scenario">the
 basic WS-Trust scenario</a>. In this example the OnBehalfOf service calls
 the ws-service on behalf of a user. There are only a couple of additions
 to the basic scenario&#8217;s code. An OnBehalfOf web service provider and
@@ -15154,7 +14890,7 @@ proxy.sayHello();</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="saml-bearer-assertion-scenario">SAML Bearer Assertion Scenario</h5>
+<h5 id="SAML_Bearer_Assertion_Scenario">SAML Bearer Assertion Scenario</h5>
 <div class="paragraph">
 <p>WS-Trust deals with managing software security tokens. A SAML assertion
 is a type of security token. In the SAML Bearer scenario, the service
@@ -16457,7 +16193,7 @@ org.apache.ws.security.crypto.merlin.keystore.file=META-INF/clientstore.jks</pre
 </div>
 </div>
 <div class="sect4">
-<h5 id="saml-holder-of-key-assertion-scenario">SAML Holder-Of-Key Assertion Scenario</h5>
+<h5 id="SAML_Holder-Of-Key_Assertion_Scenario">SAML Holder-Of-Key Assertion Scenario</h5>
 <div class="paragraph">
 <p>WS-Trust deals with managing software security tokens. A SAML assertion
 is a type of security token. In the Holder-Of-Key method, the STS
@@ -17724,7 +17460,7 @@ org.apache.ws.security.crypto.merlin.keystore.file=META-INF/clientstore.jks</pre
 </div>
 </div>
 <div class="sect3">
-<h4 id="ws-reliable-messaging">15.5.14. WS-Reliable Messaging</h4>
+<h4 id="WS-Reliable_Messaging">14.5.14. WS-Reliable Messaging</h4>
 <div class="paragraph">
 <p>JBoss Web Services inherits full WS-Reliable Messaging capabilities from
 the underlying Apache CXF implementation. At the time of writing, Apache
@@ -18063,7 +17799,7 @@ proxy.echo(<span class="string"><span class="delimiter">&quot;</span><span class
 </div>
 </div>
 <div class="sect3">
-<h4 id="soap-over-jms">15.5.15. SOAP over JMS</h4>
+<h4 id="SOAP_over_JMS">14.5.15. SOAP over JMS</h4>
 <div class="paragraph">
 <p>JBoss Web Services allows communication over the <em>JMS</em> transport. The
 functionality comes from Apache CXF support for the
@@ -18756,7 +18492,7 @@ and <em>stop</em>).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="http-proxy">15.5.16. HTTP Proxy</h4>
+<h4 id="HTTP_Proxy">14.5.16. HTTP Proxy</h4>
 <div class="paragraph">
 <p>The HTTP Proxy related functionalities of JBoss Web Services are
 provided by the Apache CXF http transport layer.</p>
@@ -18864,7 +18600,7 @@ public <span class="type">class</span> <span class="class">ProxyAuthenticator</s
 </div>
 </div>
 <div class="sect3">
-<h4 id="ws-discovery">15.5.17. WS-Discovery</h4>
+<h4 id="WS-Discovery">14.5.17. WS-Discovery</h4>
 <div class="paragraph">
 <p>Apache CXF includes support for <em>Web Services Dynamic Discovery</em> (
 <a href="http://docs.oasis-open.org/ws-dd/discovery/1.1/os/wsdd-discovery-1.1-spec-os.html">WS-Discovery</a>),
@@ -18924,7 +18660,7 @@ messages upon undeployment.</p>
 <div class="paragraph">
 <p>Apache CXF comes with a <em>WS-Discovery</em> API that can be used to probe /
 resolve services. When running in-container, a JBoss module
-<a href="#src-557284">dependency</a> to the <code>org.apache.cxf.impl</code> module is to
+<a href="#JAX_WS_JBoss_Modules_and_WS_applications">dependency</a> to the <code>org.apache.cxf.impl</code> module is to
 be set to have access to <em>WS-Discovery</em> client functionalities.</p>
 </div>
 <div class="paragraph">
@@ -18940,7 +18676,7 @@ on CXF WS-Discovery usage.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="ws-policy">15.5.18. WS-Policy</h4>
+<h4 id="WS-Policy">14.5.18. WS-Policy</h4>
 <div class="sect4">
 <h5 id="apache-cxf-ws-policy-support">Apache CXF WS-Policy support</h5>
 <div class="paragraph">
@@ -19235,7 +18971,7 @@ user forum!
 </div>
 </div>
 <div class="sect3">
-<h4 id="published-wsdl-customization">15.5.19. Published WSDL customization</h4>
+<h4 id="Published_WSDL_customization">14.5.19. Published WSDL customization</h4>
 <div class="sect4">
 <h5 id="endpoint-address-rewrite">Endpoint address rewrite</h5>
 <div class="paragraph">
@@ -19442,7 +19178,7 @@ enabled for the endpoint defined by the contract above.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="jboss-modules-and-ws-applications">15.6. JBoss Modules and WS applications</h3>
+<h3 id="JAX_WS_JBoss_Modules_and_WS_applications">14.6. JBoss Modules and WS applications</h3>
 <div class="paragraph">
 <p>The JBoss Web Services functionalities are provided by a given set of
 modules / libraries installed on WildFly, which are organized into JBoss
@@ -19456,7 +19192,7 @@ custom needs, below is a brief collection of suggestions and hints
 around modules and webservices development on WildFly.</p>
 </div>
 <div class="sect3">
-<h4 id="setting-module-dependencies">15.6.1. Setting module dependencies</h4>
+<h4 id="setting-module-dependencies">14.6.1. Setting module dependencies</h4>
 <div class="paragraph">
 <p>On WildFly the user deployment classloader does not have any visibility
 over JBoss internals; so for instance you can&#8217;t <em>directly</em> use JBossWS
@@ -19628,10 +19364,10 @@ their deployment and set module dependencies in it.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="scoped-ejb-client-contexts">16. Scoped EJB client contexts</h2>
+<h2 id="Scoped_EJB_client_contexts">15. Scoped EJB client contexts</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="overview">16.1. Overview</h3>
+<h3 id="overview">15.1. Overview</h3>
 <div class="paragraph">
 <p>WildFly 12 introduced the EJB client API for managing remote EJB
 invocations. The EJB client API works off EJBClientContext(s). An
@@ -19671,7 +19407,7 @@ letting it handle the invocation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="potential-shortcomings-of-a-single-ejb-client-context">16.2. Potential shortcomings of a single EJB client context</h3>
+<h3 id="potential-shortcomings-of-a-single-ejb-client-context">15.2. Potential shortcomings of a single EJB client context</h3>
 <div class="paragraph">
 <p>In the Overview section we briefly looked at the different types of
 remote clients. Let&#8217;s focus on the standalone remote clients (the ones
@@ -19755,7 +19491,7 @@ are typically used for EJB invocations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="scoped-ejb-client-contexts">16.3. Scoped EJB client contexts</h3>
+<h3 id="scoped-ejb-client-contexts">15.3. Scoped EJB client contexts</h3>
 <div class="paragraph">
 <p>Developers familiar with earlier versions of JBoss AS would remember
 that for invoking an EJB, you would typically create a JNDI context
@@ -19861,7 +19597,7 @@ the lifecycle management of such scoped contexts.</strong></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="lifecycle-management-of-scoped-ejb-client-contexts">16.4. Lifecycle management of scoped EJB client contexts</h3>
+<h3 id="lifecycle-management-of-scoped-ejb-client-contexts">15.4. Lifecycle management of scoped EJB client contexts</h3>
 <div class="paragraph">
 <p>Like you saw in the previous sections, in case of scoped EJB client
 contexts, the EJB client context is tied to the JNDI context. It&#8217;s very
@@ -19903,14 +19639,14 @@ EJB client context is closed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="how-to-close-ejb-client-contexts">16.4.1. How to close EJB client contexts?</h4>
+<h4 id="how-to-close-ejb-client-contexts">15.4.1. How to close EJB client contexts?</h4>
 <div class="paragraph">
 <p>The answer to that is simple. Use the close() method on the appropriate
 EJB client context.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-to-close-scoped-ejb-client-contexts">16.4.2. How to close scoped EJB client contexts?</h4>
+<h4 id="how-to-close-scoped-ejb-client-contexts">15.4.2. How to close scoped EJB client contexts?</h4>
 <div class="paragraph">
 <p>The answer is the same, use the close() method on the EJB client
 context. But the real question is how do you get the relevant scoped EJB
@@ -20094,7 +19830,7 @@ lookups. So it depends on your application and how it&#8217;s coded.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="cant-the-scoped-ejb-client-context-be-automatically-closed-by-the-ejb-client-api-when-the-jndi-context-is-no-longer-in-scope-i.e.-on-gc">16.4.3. Can&#8217;t the scoped EJB client context be automatically closed by the</h4>
+<h4 id="cant-the-scoped-ejb-client-context-be-automatically-closed-by-the-ejb-client-api-when-the-jndi-context-is-no-longer-in-scope-i.e.-on-gc">15.4.3. Can&#8217;t the scoped EJB client context be automatically closed by the</h4>
 <div class="paragraph">
 <p>EJB client API when the JNDI context is no longer in scope (i.e. on GC)?</p>
 </div>
@@ -20149,7 +19885,7 @@ EJB client context.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="ejb-invocations-from-a-remote-client-using-jndi">17. EJB invocations from a remote client using JNDI</h2>
+<h2 id="EJB_invocations_from_a_remote_client_using_JNDI">16. EJB invocations from a remote client using JNDI</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This chapter explains how to invoke EJBs from a remote client by using
@@ -20182,7 +19918,7 @@ just concentrate on the traditional JNDI based invocation on EJBs. So
 let&#8217;s get started:</p>
 </div>
 <div class="sect2">
-<h3 id="deploying-your-ejbs-on-the-server-side">17.1. Deploying your EJBs on the server side:</h3>
+<h3 id="deploying-your-ejbs-on-the-server-side">16.1. Deploying your EJBs on the server side:</h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -20304,7 +20040,7 @@ successfully and there aren&#8217;t any errors.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="writing-a-remote-client-application-for-accessing-and-invoking-the-ejbs-deployed-on-the-server">17.2. Writing a remote client application for accessing and invoking the</h3>
+<h3 id="writing-a-remote-client-application-for-accessing-and-invoking-the-ejbs-deployed-on-the-server">16.2. Writing a remote client application for accessing and invoking the</h3>
 <div class="paragraph">
 <p>EJBs deployed on the server</p>
 </div>
@@ -20676,7 +20412,7 @@ EJB client context properties.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="setting-up-ejb-client-context-properties">17.3. Setting up EJB client context properties</h3>
+<h3 id="setting-up-ejb-client-context-properties">16.3. Setting up EJB client context properties</h3>
 <div class="paragraph">
 <p>A EJB client context is a context which contains contextual information
 for carrying out remote invocations on EJBs. This is a WildFly-specific
@@ -20958,7 +20694,7 @@ the client classpath</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="ejb-invocations-from-a-remote-server-instance">18. EJB invocations from a remote server instance</h2>
+<h2 id="EJB_invocations_from_a_remote_server_instance">17. EJB invocations from a remote server instance</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The purpose of this chapter is to demonstrate how to lookup and invoke
@@ -20986,7 +20722,7 @@ the "Destination Server" but <strong>not</strong> on the "Client Server".
 </table>
 </div>
 <div class="sect2">
-<h3 id="application-packaging">18.1. Application packaging</h3>
+<h3 id="application-packaging">17.1. Application packaging</h3>
 <div class="paragraph">
 <p>In this example, we&#8217;ll consider a EJB which is packaged in a myejb.jar
 which is within a myapp.ear. Here&#8217;s how it would look like:</p>
@@ -21016,7 +20752,7 @@ article. You can deploy the EJBs in any standard way (.ear, .war or
 </div>
 </div>
 <div class="sect2">
-<h3 id="beans">18.2. Beans</h3>
+<h3 id="beans">17.2. Beans</h3>
 <div class="paragraph">
 <p>In our example, we&#8217;ll consider a simple stateless session bean which is
 as follows:</p>
@@ -21051,7 +20787,7 @@ as follows:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="security">18.3. Security</h3>
+<h3 id="security">17.3. Security</h3>
 <div class="paragraph">
 <p>WildFly 12 is secure by default. What this means is that no communication
 can happen with an WildFly instance from a remote client (irrespective
@@ -21065,7 +20801,7 @@ this.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuring-a-user-on-the-destination-server">18.4. Configuring a user on the "Destination Server"</h3>
+<h3 id="configuring-a-user-on-the-destination-server">17.4. Configuring a user on the "Destination Server"</h3>
 <div class="paragraph">
 <p>As a first step we&#8217;ll configure a user on the destination server who
 will be allowed to access the destination server. We create the user
@@ -21133,7 +20869,7 @@ add-user script.
 </div>
 </div>
 <div class="sect2">
-<h3 id="start-the-destination-server">18.5. Start the "Destination Server"</h3>
+<h3 id="start-the-destination-server">17.5. Start the "Destination Server"</h3>
 <div class="paragraph">
 <p>As a next step towards running this example, we&#8217;ll start the
 "Destination Server". In this example, we&#8217;ll use the standalone server
@@ -21171,7 +20907,7 @@ to the startup script:
 </div>
 </div>
 <div class="sect2">
-<h3 id="deploying-the-application">18.6. Deploying the application</h3>
+<h3 id="deploying-the-application">17.6. Deploying the application</h3>
 <div class="paragraph">
 <p>The application ( <em>myapp.ear</em> in our case) will be deployed to
 "Destination Server". The process of deploying the application is out of
@@ -21187,7 +20923,7 @@ as the client for the deployed EJBs on the "Destination Server".</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuring-the-client-server-to-point-to-the-ejb-remoting-connector-on-the-destination-server">18.7. Configuring the "Client Server" to point to the EJB remoting connector</h3>
+<h3 id="configuring-the-client-server-to-point-to-the-ejb-remoting-connector-on-the-destination-server">17.7. Configuring the "Client Server" to point to the EJB remoting connector</h3>
 <div class="paragraph">
 <p>on the "Destination Server"</p>
 </div>
@@ -21205,7 +20941,7 @@ we create these configurations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="start-the-client-server">18.8. Start the "Client Server"</h3>
+<h3 id="start-the-client-server">17.8. Start the "Client Server"</h3>
 <div class="paragraph">
 <p>In this example, we&#8217;ll start the "Client Server" on the same machine as
 the "Destination Server". We have copied the entire server installation
@@ -21219,7 +20955,7 @@ port-offset (of 100 in this example) to avoid port conflicts:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="create-a-security-realm-on-the-client-server">18.9. Create a security realm on the client server</h3>
+<h3 id="create-a-security-realm-on-the-client-server">17.9. Create a security realm on the client server</h3>
 <div class="paragraph">
 <p>Remember that we need to communicate with a secure destination server.
 In order to do that the client server has to pass the user credentials
@@ -21327,7 +21063,7 @@ client server. Now let&#8217;s move on to the next step.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="create-a-outbound-socket-binding-on-the-client-server">18.10. Create a outbound-socket-binding on the "Client Server"</h3>
+<h3 id="create-a-outbound-socket-binding-on-the-client-server">17.10. Create a outbound-socket-binding on the "Client Server"</h3>
 <div class="paragraph">
 <p>Let&#8217;s first create a <em>outbound-socket-binding</em> which points the
 "Destination Server"'s host and port. We&#8217;ll use the CLI to create this
@@ -21362,7 +21098,7 @@ outbound-socket-binding in the socket-binding-group:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="create-a-remote-outbound-connection-which-uses-this-newly-created-outbound-socket-binding">18.11. Create a "remote-outbound-connection" which uses this newly created</h3>
+<h3 id="create-a-remote-outbound-connection-which-uses-this-newly-created-outbound-socket-binding">17.11. Create a "remote-outbound-connection" which uses this newly created</h3>
 <div class="paragraph">
 <p>"outbound-socket-binding"</p>
 </div>
@@ -21440,7 +21176,7 @@ configuration will be created in the remoting subsystem:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="packaging-the-client-application-on-the-client-server">18.12. Packaging the client application on the "Client Server"</h3>
+<h3 id="packaging-the-client-application-on-the-client-server">17.12. Packaging the client application on the "Client Server"</h3>
 <div class="paragraph">
 <p>Like on the "Destination Server", we&#8217;ll use .ear packaging for the
 client application too. But like previously mentioned, that&#8217;s not
@@ -21491,7 +21227,7 @@ jboss-ejb-client.xml is expected to be placed in .war/WEB-INF/ folder
 </div>
 </div>
 <div class="sect2">
-<h3 id="contents-on-jboss-ejb-client.xml">18.13. Contents on jboss-ejb-client.xml</h3>
+<h3 id="contents-on-jboss-ejb-client.xml">17.13. Contents on jboss-ejb-client.xml</h3>
 <div class="paragraph">
 <p>The jboss-ejb-client.xml will look like:</p>
 </div>
@@ -21516,7 +21252,7 @@ connector on the "Destination Server".</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deploy-the-client-application">18.14. Deploy the client application</h3>
+<h3 id="deploy-the-client-application">17.14. Deploy the client application</h3>
 <div class="paragraph">
 <p>Let&#8217;s deploy the client application on the "Client Server". The process
 of deploying the application is out of scope, of this chapter. You can
@@ -21526,7 +21262,7 @@ application is deployed successfully.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="client-code-invoking-the-bean">18.15. Client code invoking the bean</h3>
+<h3 id="client-code-invoking-the-bean">17.15. Client code invoking the bean</h3>
 <div class="paragraph">
 <p>We mentioned that we&#8217;ll be using a servlet to invoke on the bean, but
 the code to invoke the bean isn&#8217;t servlet specific and can be used in
@@ -21569,10 +21305,10 @@ public <span class="type">void</span> invokeOnBean() {
 </div>
 </div>
 <div class="sect1">
-<h2 id="remote-ejb-invocations-via-jndi-ejb-client-api-or-remote-naming-project">19. Remote EJB invocations via JNDI - EJB client API or remote-naming project</h2>
+<h2 id="Remote_EJB_invocations_via_JNDI_-_EJB_client_API_or_remote-naming_project">18. Remote EJB invocations via JNDI - EJB client API or remote-naming project</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="purpose">19.1. Purpose</h3>
+<h3 id="purpose">18.1. Purpose</h3>
 <div class="paragraph">
 <p>WildFly provides EJB client API project as well as remote-naming project
 for invoking on remote objects exposed via JNDI. This article explains
@@ -21581,7 +21317,7 @@ these projects is.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="history">19.2. History</h3>
+<h3 id="history">18.2. History</h3>
 <div class="paragraph">
 <p>Previous versions of JBoss AS (versions &lt; WildFly 12) used JNP project (
 <a href="http://anonsvn.jboss.org/repos/jbossas/projects/naming/" class="bare">http://anonsvn.jboss.org/repos/jbossas/projects/naming/</a>) as the JNDI
@@ -21604,14 +21340,14 @@ and better control over security.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="overview">19.3. Overview</h3>
+<h3 id="overview">18.3. Overview</h3>
 <div class="paragraph">
 <p>Now that we know that for remote client JNDI communication with WildFly
 8 requires jboss-remote-naming project, let&#8217;s quickly see what the code
 looks like.</p>
 </div>
 <div class="sect3">
-<h4 id="client-code-relying-on-jndi.properties-in-classpath">19.3.1. Client code relying on jndi.properties in classpath</h4>
+<h4 id="client-code-relying-on-jndi.properties-in-classpath">18.3.1. Client code relying on jndi.properties in classpath</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="type">void</span> doLookup() {
@@ -21708,7 +21444,7 @@ client application to decide which approach they want to follow.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-does-remoting-naming-work">19.3.2. How does remoting naming work</h4>
+<h4 id="how-does-remoting-naming-work">18.3.2. How does remoting naming work</h4>
 <div class="paragraph">
 <p>We have so far had an overview of how the client code looks like when
 using the jboss-remote-naming (henceforth referred to as remote-naming -
@@ -21797,7 +21533,7 @@ implementation details to see what other ways are allowed.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jndi-operations-allowed-using-remote-naming-project">19.3.3. JNDI operations allowed using remote-naming project</h4>
+<h4 id="jndi-operations-allowed-using-remote-naming-project">18.3.3. JNDI operations allowed using remote-naming project</h4>
 <div class="paragraph">
 <p>So far we have mainly concentrated on how the naming context is created
 and what it internally does when an instance is created. Let&#8217;s now take
@@ -21821,7 +21557,7 @@ application.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="pre-requisites-of-remotely-accessible-jndi-objects">19.3.4. Pre-requisites of remotely accessible JNDI objects</h4>
+<h4 id="pre-requisites-of-remotely-accessible-jndi-objects">18.3.4. Pre-requisites of remotely accessible JNDI objects</h4>
 <div class="paragraph">
 <p>On the server side, the JNDI can contain numerous objects that are bound
 to it. However, <em>not</em> all of those are exposed remotely. The two
@@ -21841,7 +21577,7 @@ be remotely accessible via JNDI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jndi-lookup-strings-for-remote-clients-backed-by-the-remote-naming-project">19.3.5. JNDI lookup strings for remote clients backed by the remote-naming</h4>
+<h4 id="jndi-lookup-strings-for-remote-clients-backed-by-the-remote-naming-project">18.3.5. JNDI lookup strings for remote clients backed by the remote-naming</h4>
 <div class="paragraph">
 <p>project</p>
 </div>
@@ -21895,7 +21631,7 @@ go into that here.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-does-remote-naming-project-implementation-transfer-the-jndi-objects-to-the-clients">19.3.6. How does remote-naming project implementation transfer the JNDI</h4>
+<h4 id="how-does-remote-naming-project-implementation-transfer-the-jndi-objects-to-the-clients">18.3.6. How does remote-naming project implementation transfer the JNDI</h4>
 <div class="paragraph">
 <p>objects to the clients</p>
 </div>
@@ -21919,14 +21655,14 @@ returns it to the client application.</p>
 server side communication/interaction and then marshalling/unmarshalling
 of the object graph. This is very important to remember. We&#8217;ll come back
 to this later, to see why this is important when it comes to using EJB
-client API project for doing EJB lookups ( <a href="#src-557285">EJB
+client API project for doing EJB lookups ( <a href="#EJB_invocations_from_a_remote_client_using_JNDI">EJB
 invocations from a remote client using JNDI</a>) as against using
 remote-naming project for doing the same thing.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="summary">19.4. Summary</h3>
+<h3 id="summary">18.4. Summary</h3>
 <div class="paragraph">
 <p>That pretty much covers whatever is important to know, in the
 remote-naming project, for a typical client application. Don&#8217;t close the
@@ -21943,7 +21679,7 @@ interested in those details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="remote-ejb-invocations-backed-by-the-remote-naming-project">19.5. Remote EJB invocations backed by the remote-naming project</h3>
+<h3 id="remote-ejb-invocations-backed-by-the-remote-naming-project">18.5. Remote EJB invocations backed by the remote-naming project</h3>
 <div class="paragraph">
 <p>In previous sections of this article we saw that whatever is exposed in
 the java:jboss/exported/ namespace is accessible remotely to the client
@@ -22091,7 +21827,7 @@ the server, such a <code>EJBReceiver</code> would have to know the server addres
 port, security credentials and other similar parameters. If you were
 using the core EJB client API, then you would have configured all these
 properties via the jboss-ejb-client.properties or via programatic API
-usage as explained here <a href="#src-557285">EJB invocations from a remote
+usage as explained here <a href="#EJB_invocations_from_a_remote_client_using_JNDI">EJB invocations from a remote
 client using JNDI</a>. But in the example above, we are using remote-naming
 project and are <em>not</em> directly interacting with the EJB client API
 project.</p>
@@ -22148,11 +21884,11 @@ invocations against WildFly is possible!</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="why-use-the-ejb-client-api-approach-then">19.6. Why use the EJB client API approach then?</h3>
+<h3 id="why-use-the-ejb-client-api-approach-then">18.6. Why use the EJB client API approach then?</h3>
 <div class="paragraph">
 <p>I can guess that some of you might already question why/when would one
 use the EJB client API style lookups as explained in the
-<a href="#src-557285">EJB invocations from a remote client using JNDI</a>
+<a href="#EJB_invocations_from_a_remote_client_using_JNDI">EJB invocations from a remote client using JNDI</a>
 article instead of just using (what appears to be a simpler)
 remote-naming style lookups.</p>
 </div>
@@ -22206,7 +21942,7 @@ Foo beanProxy = context.lookup(<span class="string"><span class="delimiter">&quo
 </div>
 </div>
 <div class="paragraph">
-<p>More details about such code can be found here <a href="#src-557285">EJB
+<p>More details about such code can be found here <a href="#EJB_invocations_from_a_remote_client_using_JNDI">EJB
 invocations from a remote client using JNDI</a></p>
 </div>
 <div class="paragraph">
@@ -22228,7 +21964,7 @@ the EJB client API <em>does</em> communicate with the server to carry out the
 invocation.</p>
 </div>
 <div class="sect3">
-<h4 id="is-the-lookup-optimization-applicable-for-all-bean-types">19.6.1. Is the lookup optimization applicable for all bean types?</h4>
+<h4 id="is-the-lookup-optimization-applicable-for-all-bean-types">18.6.1. Is the lookup optimization applicable for all bean types?</h4>
 <div class="paragraph">
 <p>In the previous section we (intentionally) mentioned that the lookup
 optimization by the EJB client API project happens for stateless beans.
@@ -22250,7 +21986,7 @@ the end of the JNDI name:</p>
 </div>
 <div class="paragraph">
 <p>Notice the use of `"?stateful`" in that JNDI name. See
-<a href="#src-557285">EJB invocations from a remote client using JNDI</a> for
+<a href="#EJB_invocations_from_a_remote_client_using_JNDI">EJB invocations from a remote client using JNDI</a> for
 more details about such lookup.</p>
 </div>
 <div class="paragraph">
@@ -22278,7 +22014,7 @@ project.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="restrictions-for-ejbs">19.6.2. Restrictions for EJB&#8217;s</h4>
+<h4 id="restrictions-for-ejbs">18.6.2. Restrictions for EJB&#8217;s</h4>
 <div class="paragraph">
 <p>If the remote-naming is used there are some restrictions as there is no
 full support of the ejb-client features.</p>
@@ -22320,10 +22056,10 @@ application deployed on another JBoss instance</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="example-applications-migrated-to-wildfly">20. Example Applications - Migrated to WildFly</h2>
+<h2 id="Migrated_to_WildFly_Example_Applications">19. Example Applications - Migrated to WildFly</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="example-applications-migrated-from-previous-releases">20.1. Example Applications Migrated from Previous Releases</h3>
+<h3 id="example-applications-migrated-from-previous-releases">19.1. Example Applications Migrated from Previous Releases</h3>
 <div class="paragraph">
 <p>The applications in this section were written for a previous version of
 the server but have been modified to run on WildFly 12. Changes were made
@@ -22333,7 +22069,7 @@ changes that were made to get the application to run successfully on
 WildFly.</p>
 </div>
 <div class="sect3">
-<h4 id="seam-2-dvd-store-example">20.1.1. Seam 2 DVD Store example</h4>
+<h4 id="seam-2-dvd-store-example">19.1.1. Seam 2 DVD Store example</h4>
 <div class="paragraph">
 <p>For details on how to migrate this demo application, see
 <a href="https://community.jboss.org/blogs/marek-novotny/2011/12/16/dvdstore-migration-for-jboss-as-710beta">Seam
@@ -22341,7 +22077,7 @@ WildFly.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="seam-2-booking-example">20.1.2. Seam 2 Booking example</h4>
+<h4 id="seam-2-booking-example">19.1.2. Seam 2 Booking example</h4>
 <div class="paragraph">
 <p>For details on how to migrate this demo application, see
 <a href="http://community.jboss.org/blogs/marek-novotny/2011/07/29/seam-2-booking-example-on-jboss-as-7">Seam
@@ -22349,29 +22085,29 @@ WildFly.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="seam-2-booking---step-by-step-migration-of-binaries">20.1.3. Seam 2 Booking - step-by-step migration of binaries</h4>
+<h4 id="seam-2-booking---step-by-step-migration-of-binaries">19.1.3. Seam 2 Booking - step-by-step migration of binaries</h4>
 <div class="paragraph">
 <p>This document takes a somewhat different "brute force" approach. The
 idea is to deploy the binaries to WildFly, then see what issues you hit
-and learn how debug and resolve them. See <a href="Migrate_Seam_2_Booking_EAR_Binaries_-_Step_by_Step.adoc">Seam 2 Booking EAR Migration of Binaries - Step by Step</a>.</p>
+and learn how debug and resolve them. See <a href="#Migrate_Seam_2_Booking_EAR_Binaries_-_Step_by_Step">Seam 2 Booking EAR Migration of Binaries - Step by Step</a>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jbpm-console-application">20.1.4. jBPM-Console application</h4>
+<h4 id="jbpm-console-application">19.1.4. jBPM-Console application</h4>
 <div class="paragraph">
 <p>Kris Verlaenen migrated this application from AS 5 to WildFly 12. For
 details about this migration, see <a href="http://kverlaen.blogspot.com/2011/07/jbpm5-on-as7-lightning.html">jBPM5 on WildFly</a> on his Kris&#8217;s Blog.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="order-application-used-for-performance-testing">20.1.5. Order application used for performance testing</h4>
+<h4 id="order-application-used-for-performance-testing">19.1.5. Order application used for performance testing</h4>
 <div class="paragraph">
 <p>Andy Miller migrated this application from AS 5 to WildFly. For details
-about this migration, see <a href="Migrate_Order_Application_from_EAP5.1_to_WildFly.adoc">Order Application Migration from EAP5.1 to WildFly</a>.</p>
+about this migration, see <a href="#Migrate_Order_Application_from_EAP5.1_to_WildFly">Order Application Migration from EAP5.1 to WildFly</a>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="migrate-example-application">20.1.6. Migrate example application</h4>
+<h4 id="migrate-example-application">19.1.6. Migrate example application</h4>
 <div class="paragraph">
 <p>A step by step work through of issues, and their solutions, that might
 crop up when migrating applications to WildFly 12. See the following
@@ -22380,7 +22116,7 @@ crop up when migrating applications to WildFly 12. See the following
 </div>
 </div>
 <div class="sect2">
-<h3 id="example-applications-based-on-ee6">20.2. Example Applications Based on EE6</h3>
+<h3 id="example-applications-based-on-ee6">19.2. Example Applications Based on EE6</h3>
 <div class="paragraph">
 <p>Applications in this section were designed and written specifically to
 use the features and functions of EE6.</p>
@@ -22400,7 +22136,7 @@ your own project. For more information about the quickstarts, see
 </div>
 </div>
 <div class="sect1">
-<h2 id="porting-the-order-application-from-eap-5-1-to-wildfly-12">21. Porting the Order Application from EAP 5.1 to WildFly 12</h2>
+<h2 id="Migrate_Order_Application_from_EAP5">20. Porting the Order Application from EAP 5.1 to WildFly 12</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Andy Miller ported an example Order application that was used for
@@ -22408,7 +22144,7 @@ performance testing from EAP 5.1 to WildFly 12. These are the notes he
 made during the migration process.</p>
 </div>
 <div class="sect2">
-<h3 id="overview-of-the-application">21.1. Overview of the application</h3>
+<h3 id="overview-of-the-application">20.1. Overview of the application</h3>
 <div class="paragraph">
 <p>The application is relatively simple. it contains three servlets, some
 stateless session beans, a stateful session bean, and some entities.</p>
@@ -22420,9 +22156,9 @@ some proprietary features that were available in EAP 5.1.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="summary-of-changes">21.2. Summary of changes</h3>
+<h3 id="summary-of-changes">20.2. Summary of changes</h3>
 <div class="sect3">
-<h4 id="code-changes">21.2.1. Code Changes</h4>
+<h4 id="code-changes">20.2.1. Code Changes</h4>
 <div class="sect4">
 <h5 id="modify-jndi-lookup-code">Modify JNDI lookup code</h5>
 <div class="paragraph">
@@ -22500,7 +22236,7 @@ on the portable JNDI names described in EE 6.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="modify-logging-code">21.2.2. Modify logging code</h4>
+<h4 id="modify-logging-code">20.2.2. Modify logging code</h4>
 <div class="paragraph">
 <p>The next major change was to logging within the application. The old
 version was using the commons logging infrastructure and Log4J that is
@@ -22563,7 +22299,7 @@ Dependencies: org.jboss.logmanager</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="modify-the-code-to-use-infinispan-for-2nd-level-cache">21.2.3. Modify the code to use Infinispan for 2nd level cache</h4>
+<h4 id="modify-the-code-to-use-infinispan-for-2nd-level-cache">20.2.3. Modify the code to use Infinispan for 2nd level cache</h4>
 <div class="paragraph">
 <p>Jboss Cache has been replaced by Infinispan for 2nd level cache. This
 requires modification of the <code>persistence.xml</code> file.</p>
@@ -22609,7 +22345,7 @@ application to AS7.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="ear-packaging-changes">21.2.4. EAR Packaging Changes</h4>
+<h4 id="ear-packaging-changes">20.2.4. EAR Packaging Changes</h4>
 <div class="paragraph">
 <p>Due to modular class loading changes, the structure of the existing EAR
 failed to deploy successfully in WildFly.</p>
@@ -22680,7 +22416,7 @@ Dependencies: org.jboss.logmanager
 </div>
 </div>
 <div class="sect3">
-<h4 id="summary">21.2.5. Summary</h4>
+<h4 id="summary">20.2.5. Summary</h4>
 <div class="paragraph">
 <p>Although the existing EAR structure could have worked with additional
 modifications to the <code>MANIFEST.MF</code> file, this approach seemed more
@@ -22696,7 +22432,7 @@ changes that were made to the application.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="seam-2-booking-application-migration-of-binaries-from-eap5-1-to">22. Seam 2 Booking Application - Migration of Binaries from EAP5.1 to</h2>
+<h2 id="Migrate_Seam_2_Booking_EAR_Binaries_-_Step_by_Step">21. Seam 2 Booking Application - Migration of Binaries from EAP5.1 to</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>WildFly</p>
@@ -23871,7 +23607,7 @@ and the EAR as modified to run on AS7
 </li>
 </ol>
 </div>
-<div class="paragraph">
+<div id="Spring_applications_development_and_migration_guide" class="paragraph">
 <p>= Spring applications development and migration guide</p>
 </div>
 <div class="paragraph">
@@ -24091,7 +23827,7 @@ WEB-INF/jboss-deployment-structure.xml with the following content:</p>
 <span class="tag">&lt;/jboss-deployment-structure&gt;</span></code></pre>
 </div>
 </div>
-<div class="paragraph">
+<div id="How_do_I_migrate_my_application_from_AS7_to_WildFly" class="paragraph">
 <p>= How do I migrate my application from AS7 to WildFly</p>
 </div>
 <div id="about-this-document" class="paragraph">
@@ -25249,7 +24985,7 @@ client-side connection property.</p>
 <div class="paragraph">
 <p>External applications using JNDI, to remotely lookup up EJBs in a
 WildFly 10 server, may also need to be migrated, please refer to
-<a href="#src-557205_HowdoImigratemyapplicationfromAS7toWildFly-RemoteJNDIClients">#Remote
+<a href="#remote-jndi-clients">#Remote
 JNDI Clients</a> section for further information.</p>
 </div>
 <div id="jms" class="paragraph">
@@ -25276,7 +25012,7 @@ Their namespace has been changed to
 <p>JMS Resources are remotely looked up using JNDI, and looking up
 resources in a WildFly 10 server may require changes in the application
 code, please refer to
-<a href="#src-557205_HowdoImigratemyapplicationfromAS7toWildFly-RemoteJNDIClients">#Remote
+<a href="#remote-jndi-clients">#Remote
 JNDI Clients</a> section for further information.</p>
 </div>
 <div id="jpa-and-hibernate" class="paragraph">
@@ -25783,7 +25519,7 @@ be referencing missing modules. When migrating an application, relying
 on such functionality, the presence of the referenced modules should be
 validated in advance.</p>
 </div>
-<div class="paragraph">
+<div id="How_do_I_migrate_my_application_from_WebLogic_to_WildFly" class="paragraph">
 <p>= How do I migrate my application from WebLogic to WildFly</p>
 </div>
 <div class="paragraph">
@@ -25815,7 +25551,7 @@ follow the template below. This is a work in progress.
 process and migration of fairly simple and standard Oracle WebLogic
 applications to WildFly. O</p>
 </div>
-<div class="paragraph">
+<div id="How_do_I_migrate_my_application_from_WebSphere_to_WildFly" class="paragraph">
 <p>= How do I migrate my application from WebSphere to WildFly</p>
 </div>
 <div class="paragraph">
@@ -25855,7 +25591,7 @@ applications to WildFly.</p>
 <div id="footer">
 <div id="footer-text">
 Version 12.0.0.Alpha1-SNAPSHOT<br>
-Last updated 2017-11-09 15:11:37 CET
+Last updated 2018-02-14 11:03:45 CET
 </div>
 </div>
 </body>

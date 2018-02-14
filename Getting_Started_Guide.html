@@ -518,23 +518,24 @@ table.CodeRay td.code>pre{padding:0}
 .CodeRay .head .head{color:#f4f}
 </style>
 </head>
-<body class="book toc2 toc-left">
+<body id="Getting_Started_Guide" class="book toc2 toc-left">
 <div id="header">
 <h1>Getting Started Guide</h1>
 <div class="details">
 <span id="author" class="author">WildFly team</span><br>
 <span id="revnumber">version 12.0.0.Alpha1-SNAPSHOT,</span>
-<span id="revdate">2017-11-09T14:29:38Z</span>
+<span id="revdate">2018-02-14T10:04:13Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Getting Started Guide</div>
 <ul class="sectlevel2">
 <li><a href="#getting-started-with-wildfly">1. Getting Started with WildFly 12</a>
 <ul class="sectlevel3">
-<li><a href="#download">1.1. Download</a></li>
-<li><a href="#requirements">1.2. Requirements</a></li>
-<li><a href="#installation">1.3. Installation</a></li>
-<li><a href="#wildfly---a-quick-tour">1.4. WildFly - A Quick Tour</a></li>
+<li><a href="#ee8-preview">1.1. EE8 Preview</a></li>
+<li><a href="#download">1.2. Download</a></li>
+<li><a href="#requirements">1.3. Requirements</a></li>
+<li><a href="#installation">1.4. Installation</a></li>
+<li><a href="#wildfly---a-quick-tour">1.5. WildFly - A Quick Tour</a></li>
 </ul>
 </li>
 </ul>
@@ -831,7 +832,61 @@ started using WildFly 10 for your application development. For in-depth
 content on administrative features, refer to the WildFly 10 Admin Guide.</p>
 </div>
 <div class="sect3">
-<h4 id="download">1.1. Download</h4>
+<h4 id="ee8-preview">1.1. EE8 Preview</h4>
+<div class="paragraph">
+<p>By default, WildFly supports Java EE7. We aim to support Java EE8 in the
+future. As we implement Java EE8, and the technologies become available, we offer a preview of these.
+To turn on the Java EE8 preview for these technologies, start the server with
+<code>-Dee8.preview.mode=true</code> (Note that at this time setting this property via the CLI,
+web console, xml configuration or a property included in a file specified via the -P
+command line switch will not work). This will switch the technologies
+as shown in the table below. Note that Java EE8 technologies not listed in the table below
+will remain at Java EE7 level.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">From Version</th>
+<th class="tableblock halign-left valign-top">From JSR</th>
+<th class="tableblock halign-left valign-top">To Version</th>
+<th class="tableblock halign-left valign-top">To JSR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Java Servlet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSR-340</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSR-369</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CDI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSR-346</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSR-365</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bean Validation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSR-349</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSR-380</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="download">1.2. Download</h4>
 <div class="paragraph">
 <p>WildFly 10 distributions can be obtained from:</p>
 </div>
@@ -854,7 +909,7 @@ formats.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="requirements">1.2. Requirements</h4>
+<h4 id="requirements">1.3. Requirements</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -865,7 +920,7 @@ available)</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="installation">1.3. Installation</h4>
+<h4 id="installation">1.4. Installation</h4>
 <div class="paragraph">
 <p>Simply extract your chosen download to the directory of your choice. You
 can install WildFly 10 on any operating system that supports the zip or
@@ -874,7 +929,7 @@ related to the release.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="wildfly---a-quick-tour">1.4. WildFly - A Quick Tour</h4>
+<h4 id="wildfly---a-quick-tour">1.5. WildFly - A Quick Tour</h4>
 <div class="paragraph">
 <p>Now that you&#8217;ve downloaded WildFly 10, the next thing to discuss is the
 layout of the distribution and explore the server directory structure,
@@ -1492,7 +1547,7 @@ the project documentation.</p>
 <h6 id="configure-logging-in-wildfly">Configure Logging in WildFly</h6>
 <div class="paragraph">
 <p>WildFly logging can be configured with the web console or the command
-line interface. You can get more detail on the <a href="#src-557127">Logging
+line interface. You can get more detail on the <a href="Admin_Guide.html#Logging">Logging
 Configuration</a> page.</p>
 </div>
 <div class="paragraph">
@@ -1516,7 +1571,7 @@ debug messages.</p>
 <div id="footer">
 <div id="footer-text">
 Version 12.0.0.Alpha1-SNAPSHOT<br>
-Last updated 2017-11-09 15:11:37 CET
+Last updated 2018-02-14 11:03:45 CET
 </div>
 </div>
 </body>

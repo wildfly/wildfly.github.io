@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.1">
-<title>WildFly 12 Documentation</title>
+<title>WildFly Documentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -424,16 +424,123 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .hide-for-print{display:none!important}
 .show-for-print{display:inherit!important}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<style>
+/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+/*pre.CodeRay {background-color:#f7f7f8;}*/
+.CodeRay .line-numbers{border-right:1px solid #d8d8d8;padding:0 0.5em 0 .25em}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.5em;color:rgba(0,0,0,.3)}
+.CodeRay .line-numbers strong{color:rgba(0,0,0,.4)}
+table.CodeRay{border-collapse:separate;border-spacing:0;margin-bottom:0;border:0;background:none}
+table.CodeRay td{vertical-align: top;line-height:1.45}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.line-numbers>pre{padding:0;color:rgba(0,0,0,.3)}
+table.CodeRay td.code{padding:0 0 0 .5em}
+table.CodeRay td.code>pre{padding:0}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
+</style>
 </head>
-<body class="article">
+<body id="index" class="article toc2 toc-left">
 <div id="header">
-<h1>WildFly 12 Documentation</h1>
+<h1>WildFly Documentation</h1>
+<div class="details">
+<span id="revnumber">version 12.0.0.Alpha1-SNAPSHOT,</span>
+<span id="revdate">2018-02-14T10:04:13Z</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#administrator-guides">Administrator Guides</a></li>
+<li><a href="#developer-guides">Developer Guides</a></li>
+<li><a href="#security-guide">Security Guide</a></li>
+<li><a href="#client-guide">Client Guide</a></li>
+<li><a href="#quickstarts">Quickstarts</a></li>
+<li><a href="#more-resources">More Resources</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="image"><img src="images/splash_wildflylogo_small.png" alt="WildFly"></span></p>
+<p><span class="image"><img src="images/images/splash_wildflylogo_small.png" alt="WildFly"></span></p>
 </div>
 <div class="paragraph">
 <p>Welcome to the WildFly Documentation. The documentation for WildFly is
@@ -495,8 +602,7 @@ Started Developing Applications Guide</a> shows you how to build Java EE
 applications and deploy them to WildFly. The guide starts by showing you
 the simplest <em>helloworld</em> application using just Servlet and CDI, and
 then adds in JSF, persistence and transactions, EJB, Bean Validation,
-RESTful web services and more. You&#8217;ll also discover how to deploy an
-OSGi bundle to WildFly. Finally, you&#8217;ll get the opportunity to create
+RESTful web services and more. Finally, you&#8217;ll get the opportunity to create
 your own skeleton project. Each tutorial is accompanied by a quickstart,
 which contains the source code, deployment descriptors and a Maven based
 build.</p>
@@ -527,7 +633,7 @@ into WildFly.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_security_guide">Security Guide</h2>
+<h2 id="security-guide">Security Guide</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -539,7 +645,7 @@ into WildFly.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_client_guide">Client Guide</h2>
+<h2 id="client-guide">Client Guide</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -591,7 +697,8 @@ of the documentation details the available quickstarts</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-09 15:36:13 CET
+Version 12.0.0.Alpha1-SNAPSHOT<br>
+Last updated 2018-02-14 11:03:45 CET
 </div>
 </div>
 </body>
