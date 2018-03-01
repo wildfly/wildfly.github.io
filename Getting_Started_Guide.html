@@ -523,8 +523,8 @@ table.CodeRay td.code>pre{padding:0}
 <h1>Getting Started Guide</h1>
 <div class="details">
 <span id="author" class="author">WildFly team</span><br>
-<span id="revnumber">version 12.0.0.Alpha1-SNAPSHOT,</span>
-<span id="revdate">2018-02-14T10:04:13Z</span>
+<span id="revnumber">version 12.0.0.Final,</span>
+<span id="revdate">2018-03-01T06:48:21Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Getting Started Guide</div>
@@ -576,8 +576,8 @@ server configuration profiles.</p>
 <th class="tableblock halign-left valign-top">Java EE 7Full Profile</th>
 <th class="tableblock halign-left valign-top">Java EE 7Web
 Profile</th>
-<th class="tableblock halign-left valign-top">WildFly 10Full Profile</th>
-<th class="tableblock halign-left valign-top">WildFly 10Web Profile</th>
+<th class="tableblock halign-left valign-top">WildFly 12 Full Profile</th>
+<th class="tableblock halign-left valign-top">WildFly 12 Web Profile</th>
 </tr>
 </thead>
 <tbody>
@@ -828,18 +828,17 @@ using the "Full Profile" configuration.
 </div>
 <div class="paragraph">
 <p>This document provides a quick overview on how to download and get
-started using WildFly 10 for your application development. For in-depth
-content on administrative features, refer to the WildFly 10 Admin Guide.</p>
+started using WildFly 12 for your application development. For in-depth
+content on administrative features, refer to the WildFly 12 Admin Guide.</p>
 </div>
 <div class="sect3">
 <h4 id="ee8-preview">1.1. EE8 Preview</h4>
 <div class="paragraph">
 <p>By default, WildFly supports Java EE7. We aim to support Java EE8 in the
 future. As we implement Java EE8, and the technologies become available, we offer a preview of these.
-To turn on the Java EE8 preview for these technologies, start the server with
-<code>-Dee8.preview.mode=true</code> (Note that at this time setting this property via the CLI,
-web console, xml configuration or a property included in a file specified via the -P
-command line switch will not work). This will switch the technologies
+To turn on the Java EE8 preview for these technologies, start the server with <code>-Dee8.preview.mode=true</code>.
+Alternatively you can launch with the <code>standalone-ee8.xml</code> configuration, which has this property already set.
+Once enabled, this setting will switch the technologies
 as shown in the table below. Note that Java EE8 technologies not listed in the table below
 will remain at Java EE7 level.</p>
 </div>
@@ -866,21 +865,63 @@ will remain at Java EE7 level.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">3.1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">JSR-340</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">JSR-369</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jcp.org/en/jsr/detail?id=370">JSR-369</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CDI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Contexts and Dependency Injection for Java</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.2</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">JSR-346</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">JSR-365</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jcp.org/en/jsr/detail?id=365">JSR-365</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Bean Validation</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">JSR-349</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">JSR-380</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jcp.org/en/jsr/detail?id=380">JSR-380</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JavaServer Faces</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSR-344</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jcp.org/en/jsr/detail?id=372">JSR-372</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JavaMail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSR-919</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jcp.org/en/jsr/detail?id=919">JSR-919</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Java API for RESTFul Web Services</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSR-339</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jcp.org/en/jsr/detail?id=370">JSR-370</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Java API for JSON Processing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSR-353</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jcp.org/en/jsr/detail?id=374">JSR-374</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Java API for JSON Binding</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jcp.org/en/jsr/detail?id=367">JSR-367</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Common Annotations for the Java Platform</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSR-250</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://download.oracle.com/otndocs/jcp/common_annotations-1_3-mrel3-spec/">JSR-250</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -888,7 +929,7 @@ will remain at Java EE7 level.</p>
 <div class="sect3">
 <h4 id="download">1.2. Download</h4>
 <div class="paragraph">
-<p>WildFly 10 distributions can be obtained from:</p>
+<p>WildFly 12 distributions can be obtained from:</p>
 </div>
 <div class="paragraph">
 <p><a href="http://www.wildfly.org/downloads/">wildfly.org/downloads</a></p>
@@ -923,7 +964,7 @@ available)</p>
 <h4 id="installation">1.4. Installation</h4>
 <div class="paragraph">
 <p>Simply extract your chosen download to the directory of your choice. You
-can install WildFly 10 on any operating system that supports the zip or
+can install WildFly 12 on any operating system that supports the zip or
 tar formats. Refer to the Release Notes for additional information
 related to the release.</p>
 </div>
@@ -931,7 +972,7 @@ related to the release.</p>
 <div class="sect3">
 <h4 id="wildfly---a-quick-tour">1.5. WildFly - A Quick Tour</h4>
 <div class="paragraph">
-<p>Now that you&#8217;ve downloaded WildFly 10, the next thing to discuss is the
+<p>Now that you&#8217;ve downloaded WildFly 12, the next thing to discuss is the
 layout of the distribution and explore the server directory structure,
 key configuration files, log files, user deployments and so on. It&#8217;s
 worth familiarizing yourself with the layout so that you&#8217;ll be able to
@@ -999,7 +1040,7 @@ used by the single standalone server run from this installation.</p></td>
 <div class="sect5">
 <h6 id="standalone-directory-structure">Standalone Directory Structure</h6>
 <div class="paragraph">
-<p>In " <strong><em>standalone</em></strong> " mode each WildFly 10 server instance is an
+<p>In " <strong><em>standalone</em></strong> " mode each WildFly 12 server instance is an
 independent process (similar to previous JBoss AS versions; e.g., 3, 4,
 5, or 6). The configuration files, deployment content and writable areas
 used by the single standalone server run from a WildFly installation are
@@ -1063,7 +1104,7 @@ process.</p></td>
 <div class="sect5">
 <h6 id="domain-directory-structure">Domain Directory Structure</h6>
 <div class="paragraph">
-<p>A key feature of WildFly 10 is the managing multiple servers from a
+<p>A key feature of WildFly 12 is the managing multiple servers from a
 single control point. A collection of multiple servers are referred to
 as a " <strong><em>domain</em></strong> ". Domains can span multiple physical (or virtual)
 machines with all WildFly instances on a given host under the control of
@@ -1137,18 +1178,29 @@ process.</p></td>
 </div>
 </div>
 <div class="sect4">
-<h5 id="wildfly-10-configurations">WildFly 10 Configurations</h5>
+<h5 id="wildfly-10-configurations">WildFly 12 Configurations</h5>
 <div class="sect5">
 <h6 id="standalone-server-configurations">Standalone Server Configurations</h6>
 <div class="ulist">
 <ul>
 <li>
-<p>standalone.xml ( <em>default</em>)</p>
+<p>standalone.xml (<em>default</em>)</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Java Enterprise Edition 7 web profile certified configuration with
 the required technologies plus those noted in the table above.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>standalone-ee8.xml</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Java EE8 Preview mode. Same as standalone.xml, but with EE8
+technologies enabled.</p>
 </li>
 </ul>
 </div>
@@ -1214,9 +1266,9 @@ provide.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="starting-wildfly-10">Starting WildFly 10</h5>
+<h5 id="starting-wildfly-10">Starting WildFly 12</h5>
 <div class="paragraph">
-<p>To start WildFly 10 using the default web profile configuration in "
+<p>To start WildFly 12 using the default web profile configuration in "
 <em>standalone</em>" mode, change directory to $JBOSS_HOME/bin.</p>
 </div>
 <div class="listingblock">
@@ -1304,14 +1356,14 @@ discussion in the user forum and access the enhanced web-based
 Administration Console. Or, if you uncover a defect while using WildFly,
 report an issue to inform us (attached patches will be reviewed). This
 landing page is recommended for convenient access to information about
-WildFly 10 but can easily be replaced with your own if desired.</p>
+WildFly 12 but can easily be replaced with your own if desired.</p>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="managing-your-wildfly-10">Managing your WildFly 10</h5>
+<h5 id="managing-your-wildfly-10">Managing your WildFly 12</h5>
 <div class="paragraph">
-<p>WildFly 10 offers two administrative mechanisms for managing your
+<p>WildFly 12 offers two administrative mechanisms for managing your
 running instance:</p>
 </div>
 <div class="ulist">
@@ -1327,7 +1379,7 @@ running instance:</p>
 <div class="sect5">
 <h6 id="authentication">Authentication</h6>
 <div class="paragraph">
-<p>By default WildFly 10 is now distributed with security enabled for the
+<p>By default WildFly 12 is now distributed with security enabled for the
 management interfaces, this means that before you connect using the
 administration console or remotely using the CLI you will need to add a
 new user, this can be achieved simply by using the <em>add-user.sh</em> script
@@ -1570,8 +1622,8 @@ debug messages.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 12.0.0.Alpha1-SNAPSHOT<br>
-Last updated 2018-02-14 11:03:45 CET
+Version 12.0.0.Final<br>
+Last updated 2018-03-01 00:17:13 CST
 </div>
 </div>
 </body>

@@ -521,16 +521,16 @@ table.CodeRay td.code>pre{padding:0}
 <div id="header">
 <h1>WildFly Elytron Security</h1>
 <div class="details">
-<span id="revnumber">version 12.0.0.Alpha1-SNAPSHOT,</span>
-<span id="revdate">2018-02-14T10:04:13Z</span>
+<span id="revnumber">version 12.0.0.Final,</span>
+<span id="revdate">2018-03-01T06:48:21Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">WildFly Elytron Security Guide</div>
 <ul class="sectlevel1">
 <li><a href="#about">1. About</a>
 <ul class="sectlevel2">
-<li><a href="#authentication">1.1. Authentication</a></li>
-<li><a href="#authorization">1.2. Authorization</a></li>
+<li><a href="#elytron-authentication">1.1. Authentication</a></li>
+<li><a href="#elytron-authorization">1.2. Authorization</a></li>
 <li><a href="#ssl-tls">1.3. SSL / TLS</a></li>
 <li><a href="#secure-credential-storage">1.4. Secure Credential Storage</a></li>
 </ul>
@@ -582,11 +582,10 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 <li><a href="#Elytron_and_Java_Authorization_Contract_for_Containers-JACC">7. Elytron and Java Authorization Contract for Containers (JACC)</a>
 <ul class="sectlevel2">
-<li><a href="#overview">7.1. Overview</a></li>
-<li><a href="#disabling-jacc-in-legacy-security-subsystem-picketbox">7.2. Disabling JACC in Legacy Security Subsystem (PicketBox)</a></li>
-<li><a href="#defining-a-jacc-policy-provider">7.3. Defining a JACC Policy Provider</a></li>
-<li><a href="#enabling-jacc-to-a-web-deployment">7.4. Enabling JACC to a Web Deployment</a></li>
-<li><a href="#enabling-jacc-to-a-ejb-deployment">7.5. Enabling JACC to a EJB Deployment</a></li>
+<li><a href="#disabling-jacc-in-legacy-security-subsystem-picketbox">7.1. Disabling JACC in Legacy Security Subsystem (PicketBox)</a></li>
+<li><a href="#defining-a-jacc-policy-provider">7.2. Defining a JACC Policy Provider</a></li>
+<li><a href="#enabling-jacc-to-a-web-deployment">7.3. Enabling JACC to a Web Deployment</a></li>
+<li><a href="#enabling-jacc-to-a-ejb-deployment">7.4. Enabling JACC to a EJB Deployment</a></li>
 </ul>
 </li>
 <li><a href="#KeyCloak_Integration">8. Using KeyCloak with WildFly Elytron</a></li>
@@ -660,7 +659,7 @@ server.</p>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="authentication">1.1. Authentication</h3>
+<h3 id="elytron-authentication">1.1. Authentication</h3>
 <div class="paragraph">
 <p>One of the fundamental objectives of the project was to ensure that we
 can use stronger authentication mechanisms for both HTTP and SASL based
@@ -670,7 +669,7 @@ opportunities with external solutions.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="authorization">1.2. Authorization</h3>
+<h3 id="elytron-authorization">1.2. Authorization</h3>
 <div class="paragraph">
 <p>The architecture of the project makes a very clear distinction between
 the raw representation of the identity as returned by a SecurityRealm
@@ -3603,23 +3602,57 @@ be assigned to authenticated users in a variety of ways using the
 <div class="sect3">
 <h4 id="enable-one-way-ssltls-for-applications">4.3.1. Enable One-way SSL/TLS for Applications</h4>
 <div class="paragraph">
-<p>In WildFly, you can use the Elytron subsystem, along with the Undertow
-subsystem, to enable HTTPS for deployed applications.</p>
+<p>There are a couple ways to enable one-way SSL/TLS for deployed applications.</p>
 </div>
 <div class="sect4">
-<h5 id="obtain-or-generate-your-key-store">Obtain or generate your key store:</h5>
+<h5 id="one-way-ssl-applications-using-security-command">Using a security command:</h5>
 <div class="paragraph">
-<p>Before enabling HTTPS in WildFly, you must obtain or generate the
-keystore you plan on using. To generate an example keystore:</p>
+<p>The <em>security enable-ssl-http-server</em> command can be used to enable one-way
+SSL/TLS for deployed applications. Example of wizard usage:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ keytool -genkeypair -alias localhost -keyalg RSA -keysize 1024 -validity 365 -keystore /path/to/keystore.jks -dname &quot;CN=localhost&quot; -keypass secret -storepass secret</code></pre>
+<pre class="CodeRay highlight"><code data-lang="java">security enable-ssl-http-server --interactive
+Please provide required pieces of information to enable SSL:
+<span class="predefined-type">Key</span>-store file name (<span class="keyword">default</span> <span class="keyword">default</span>-server.keystore): keystore.jks
+Password (blank generated): secret
+What is your first and last name? [Unknown]: localhost
+What is the name of your organizational unit? [Unknown]:
+What is the name of your organization? [Unknown]:
+What is the name of your City or Locality? [Unknown]:
+What is the name of your State or Province? [Unknown]:
+What is the two-letter country code <span class="keyword">for</span> <span class="local-variable">this</span> unit? [Unknown]:
+Is CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown correct y/n [y]?
+Validity (in days, blank <span class="keyword">default</span>): <span class="integer">365</span>
+Alias (blank generated): localhost
+Enable SSL Mutual Authentication y/n (blank n): n
+
+SSL options:
+key store file: keystore.jks
+distinguished name: CN=localhost, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown
+password: secret
+validity: <span class="integer">365</span>
+alias: localhost
+Server keystore file keystore.jks, certificate file keystore.pem and keystore.csr file
+will be generated in server configuration directory.
+Do you confirm y/n: y</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>NB: Once the command is executed, the CLI will reload the server.</p>
+</div>
+<div class="paragraph">
+<p>HTTPS is now enabled for applications.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="configure-a-key-store-in-wildfly">Configure a key-store in WildFly:</h5>
+<h5 id="one-way-ssl-applications-using-elytron-subsystem-commands">Using Elytron subsystem commands:</h5>
+<div class="paragraph">
+<p>You can also use the Elytron subsystem, along with the Undertow subsystem, to
+enable HTTPS for deployed applications.</p>
+</div>
+<div class="sect5">
+<h6 id="configure-a-key-store-in-wildfly">Configure a key-store in WildFly:</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">httpsKS</span>:add(path=<span class="regexp"><span class="delimiter">/</span><span class="content">path</span><span class="delimiter">/</span></span>to/keystore.jks,credential-reference={clear-text=secret},type=<span class="constant">JKS</span>)</code></pre>
@@ -3635,17 +3668,27 @@ base directory variable and <em>path</em> specify a relative path.</p>
 <pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">httpsKS</span>:add(path=keystore.jks,relative-to=jboss.server.config.dir,credential-reference={clear-text=secret},type=<span class="constant">JKS</span>)</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>If the keystore file does not exist yet, the following commands can be used to
+generate an example key pair:</p>
 </div>
-<div class="sect4">
-<h5 id="configure-a-key-manager-in-that-references-your-key-store">Configure a key-manager in that references your key-store:</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">httpsKS</span>:generate-key-pair(<span class="keyword">alias</span>=localhost,algorithm=<span class="constant">RSA</span>,key-size=<span class="integer">1024</span>,validity=<span class="integer">365</span>,credential-reference={clear-text=secret},distinguished-name=<span class="string"><span class="delimiter">&quot;</span><span class="content">CN=localhost</span><span class="delimiter">&quot;</span></span>)
+<span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">httpsKS</span>:store()</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="configure-a-key-manager-in-that-references-your-key-store">Configure a key-manager that references your key-store:</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-manager=<span class="key">httpsKM</span>:add(key-store=httpsKS,credential-reference={clear-text=secret})</code></pre>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="configure-a-server-ssl-context-in-that-references-your-key-manager">Configure a server-ssl-context in that references your key-manager:</h5>
+<div class="sect5">
+<h6 id="configure-a-server-ssl-context-in-that-references-your-key-manager">Configure a server-ssl-context that references your key-manager:</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span><span class="modifier">se</span></span>rver-ssl-context=<span class="key">httpsSSC</span>:add(key-manager=httpsKM,protocols=[<span class="string"><span class="delimiter">&quot;</span><span class="content">TLSv1.2</span><span class="delimiter">&quot;</span></span>])</code></pre>
@@ -3656,11 +3699,8 @@ base directory variable and <em>path</em> specify a relative path.</p>
 support. The example commands above uses <em>TLSv1.2</em>.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="check-and-see-if-the-https-listener-is-configured-to-use-a-legacy-security-realm-for-its-ssl-configuration">Check and see if the https-listener is configured to use a legacy</h5>
-<div class="paragraph">
-<p>security realm for its SSL configuration:</p>
-</div>
+<div class="sect5">
+<h6 id="check-and-see-if-the-https-listener-is-configured-to-use-a-legacy-security-realm-for-its-ssl-configuration">Check and see if the https-listener is configured to use a legacy security realm for its SSL configuration:</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=undertow</span><span class="delimiter">/</span><span class="modifier">se</span></span>rver=default-server/https-listener=<span class="key">https</span>:read-attribute(name=security-realm)
@@ -3692,8 +3732,8 @@ run-batch</code></pre>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="reload-the-server">Reload the server:</h5>
+<div class="sect5">
+<h6 id="reload-the-server">Reload the server:</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby">reload</code></pre>
@@ -3704,94 +3744,150 @@ run-batch</code></pre>
 </div>
 </div>
 </div>
+</div>
 <div class="sect3">
 <h4 id="enable-two-way-ssltls-in-wildfly-for-applications">4.3.2. Enable Two-way SSL/TLS in WildFly for Applications</h4>
 <div class="paragraph">
-<p>In WildFly, you can use the Elytron subsystem, along with the Undertow
-subsystem, to enable two-way SSL/TLS for deployed applications.</p>
+<p>First, obtain or generate your client keystore.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ keytool -genkeypair -alias client -keyalg RSA -keysize 1024 -validity 365 -keystore client.keystore.jks -dname &quot;CN=client&quot; -keypass secret -storepass secret</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Export the client certificate:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ keytool -exportcert  -keystore client.keystore.jks -alias client -keypass secret -storepass secret -file /path/to/client.cer</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are a couple ways to enable two-way SSL/TLS for deployed applications.</p>
 </div>
 <div class="sect4">
-<h5 id="obtain-or-generate-your-keystore">Obtain or generate your keystore:</h5>
+<h5 id="two-way-ssl-applications-using-security-command">Using a security command:</h5>
 <div class="paragraph">
-<p>Before enabling HTTPS in WildFly, you must obtain or generate the
-keystores, truststores and certificates you plan on using.</p>
-</div>
-<div class="paragraph">
-<p>Create server and client keystores:</p>
+<p>The <em>security enable-ssl-http-server</em> command can be used to enable two-way
+SSL/TLS for the deployed applications. Example of wizard usage:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ keytool -genkeypair -alias localhost -keyalg RSA -keysize 1024 -validity 365 -keystore server.keystore.jks -dname &quot;CN=localhost&quot; -keypass secret -storepass secret
- 
-$ keytool -genkeypair -alias client -keyalg RSA -keysize 1024 -validity 365 -keystore client.keystore.jks -dname &quot;CN=client&quot; -keypass secret -storepass secret</code></pre>
+<pre class="CodeRay highlight"><code data-lang="java">security enable-ssl-http-server --interactive
+Please provide required pieces of information to enable SSL:
+<span class="predefined-type">Key</span>-store file name (<span class="keyword">default</span> <span class="keyword">default</span>-server.keystore): server.keystore.jks
+Password (blank generated): secret
+What is your first and last name? [Unknown]: localhost
+What is the name of your organizational unit? [Unknown]:
+What is the name of your organization? [Unknown]:
+What is the name of your City or Locality? [Unknown]:
+What is the name of your State or Province? [Unknown]:
+What is the two-letter country code <span class="keyword">for</span> <span class="local-variable">this</span> unit? [Unknown]:
+Is CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown correct y/n [y]?
+Validity (in days, blank <span class="keyword">default</span>): <span class="integer">365</span>
+Alias (blank generated): localhost
+Enable SSL Mutual Authentication y/n (blank n): y
+Client certificate (path to pem file): /path/to/client.cer
+Validate certificate y/n (blank y):
+Trust-store file name (management.truststore): server.truststore.jks
+Password (blank generated): secret
+
+SSL options:
+key store file: server.keystore.jks
+distinguished name: CN=localhost, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown
+password: secret
+validity: <span class="integer">365</span>
+alias: localhost
+client certificate: /path/to/client.cer
+trust store file: server.trustore.jks
+trust store password: secret
+Server keystore file server.keystore.jks, certificate file server.pem and server.csr file will be generated in server configuration directory.
+Server truststore file server.trustore.jks will be generated in server configuration directory.
+Do you confirm y/n: y</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Export the server and client certificates:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ keytool -exportcert  -keystore server.keystore.jks -alias localhost -keypass secret -storepass secret -file server.cer
- 
-$ keytool -exportcert  -keystore client.keystore.jks -alias client -keypass secret -storepass secret -file client.cer</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Import the sever and client certificates into the opposing truststores:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ keytool -importcert -keystore server.truststore.jks -storepass secret -alias client -trustcacerts -file client.cer
- 
-$ keytool -importcert -keystore client.truststore.jks -storepass secret -alias localhost -trustcacerts -file server.cer</code></pre>
-</div>
+<p>NB: Once the command is executed, the CLI will reload the server. To complete
+the two-way SSL/TLS authentication, you need to
+<a href="#import-server-certificate-into-client-truststore-applications">import the server certificate</a>
+into the client truststore and
+<a href="#configure-your-client-to-use-the-client-certificate-applications">configure your client</a>
+to present the client certificate.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="configure-a-key-store-for-server-keystore-and-truststore-in-wildfly">Configure a key-store for server keystore and truststore in WildFly:</h5>
+<h5 id="two-way-ssl-applications-using-elytron-subsystem-commands">Using Elytron subsystem commands:</h5>
+<div class="paragraph">
+<p>You can also use the Elytron subsystem, along with the Undertow subsystem,
+to enable two-way SSL/TLS for deployed applications.</p>
+</div>
+<div class="sect5">
+<h6 id="obtain-or-generate-your-keystores-applications">Obtain or generate your key stores:</h6>
+<div class="paragraph">
+<p>Before enabling HTTPS in WildFly, you must obtain or generate the server key
+store and trust store you plan on using. To generate an example key store and
+trust store, use the following commands.</p>
+</div>
+<div class="paragraph">
+<p>Create a server key-store:</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">twoWayKS</span>:add(path=<span class="regexp"><span class="delimiter">/</span><span class="content">path</span><span class="delimiter">/</span></span>to/server.keystore.jks,credential-reference={clear-text=secret},type=<span class="constant">JKS</span>)
- 
-<span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">twoWayTS</span>:add(path=<span class="regexp"><span class="delimiter">/</span><span class="content">path</span><span class="delimiter">/</span></span>to/server.truststore.jks,credential-reference={clear-text=secret},type=<span class="constant">JKS</span>)</code></pre>
+<span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">twoWayKS</span>:generate-key-pair(<span class="keyword">alias</span>=localhost,algorithm=<span class="constant">RSA</span>,key-size=<span class="integer">1024</span>,validity=<span class="integer">365</span>,credential-reference={clear-text=secret},distinguished-name=<span class="string"><span class="delimiter">&quot;</span><span class="content">CN=localhost</span><span class="delimiter">&quot;</span></span>)
+<span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">twoWayKS</span>:store()</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p><strong>NOTE</strong><br>
-The previous command uses an absolute path to the keystore.
+The first command above uses an absolute path to the keystore.
 Alternatively you can use the <em>relative-to</em> attribute to specify the
 base directory variable and <em>path</em> specify a relative path.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">myKS</span>:add(path=keystore.jks,relative-to=jboss.server.config.dir,credential-reference={clear-text=secret},type=<span class="constant">JKS</span>)</code></pre>
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">twoWayKS</span>:add(path=server.keystore.jks,relative-to=jboss.server.config.dir,credential-reference={clear-text=secret},type=<span class="constant">JKS</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Export the server certificate:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">twoWayKS</span>:export-certificate(<span class="keyword">alias</span>=localhost,path=<span class="regexp"><span class="delimiter">/</span><span class="content">path</span><span class="delimiter">/</span></span>to/server.cer,pem=<span class="predefined-constant">true</span>)</code></pre>
+</div>
+</div>
+<div id="import-client-certificate" class="paragraph">
+<p>Create a key-store for the server truststore and import the client certificate
+into the server truststore:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">twoWayTS</span>:add(path=<span class="regexp"><span class="delimiter">/</span><span class="content">path</span><span class="delimiter">/</span></span>to/server.truststore.jks,credential-reference={clear-text=secret},type=<span class="constant">JKS</span>)
+<span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">twoWayTS</span>:import-certificate(<span class="keyword">alias</span>=client,path=<span class="regexp"><span class="delimiter">/</span><span class="content">path</span><span class="delimiter">/</span></span>to/client.cer,credential-reference={clear-text=secret},trust-cacerts=<span class="predefined-constant">true</span>)
+<span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">twoWayTS</span>:store()</code></pre>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="configure-a-key-manager-in-that-references-your-key-store-key-store">Configure a key-manager in that references your key store key-store:</h5>
+<div class="sect5">
+<h6 id="configure-a-key-manager-in-that-references-your-key-store-key-store">Configure a key-manager that references your key store key-store:</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-manager=<span class="key">twoWayKM</span>:add(key-store=twoWayKS,credential-reference={clear-text=secret})</code></pre>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="configure-a-trust-manager-in-that-references-your-truststore-key-store">Configure a trust-manager in that references your truststore</h5>
-<div class="paragraph">
-<p>key-store:</p>
-</div>
+<div class="sect5">
+<h6 id="configure-a-trust-manager-in-that-references-your-truststore-key-store">Configure a trust-manager that references your truststore key-store:</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>trust-manager=<span class="key">twoWayTM</span>:add(key-store=twoWayTS)</code></pre>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="configure-a-server-ssl-context-in-that-references-your-key-manager-trust-manager-and-enables-client-authentication">Configure a server-ssl-context in that references your key-manager,</h5>
-<div class="paragraph">
-<p>trust-manager, and enables client authentication:</p>
-</div>
+<div class="sect5">
+<h6 id="configure-a-server-ssl-context-in-that-references-your-key-manager-trust-manager-and-enables-client-authentication">Configure a server-ssl-context that references your key-manager, trust-manager, and enables client authentication:</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span><span class="modifier">se</span></span>rver-ssl-context=<span class="key">twoWaySSC</span>:add(key-manager=twoWayKM,protocols=[<span class="string"><span class="delimiter">&quot;</span><span class="content">TLSv1.2</span><span class="delimiter">&quot;</span></span>],trust-manager=twoWayTM,need-client-auth=<span class="predefined-constant">true</span>)</code></pre>
@@ -3803,11 +3899,8 @@ You need to determine what SSL/TLS protocols you want to support. The
 example commands above uses <em>TLSv1.2</em>.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="check-and-see-if-the-https-listener-is-configured-to-use-a-legacy-security-realm-for-its-ssl-configuration-1">Check and see if the https-listener is configured to use a legacy</h5>
-<div class="paragraph">
-<p>security realm for its SSL configuration:</p>
-</div>
+<div class="sect5">
+<h6 id="check-and-see-if-the-https-listener-is-configured-to-use-a-legacy-security-realm-for-its-ssl-configuration-1">Check and see if the https-listener is configured to use a legacy security realm for its SSL configuration:</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=undertow</span><span class="delimiter">/</span><span class="modifier">se</span></span>rver=default-server/https-listener=<span class="key">https</span>:read-attribute(name=security-realm)
@@ -3827,8 +3920,8 @@ configured either <em>ssl-context</em> or <em>security-realm</em>. Thus when cha
 between those, you have to use batch operation:</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="remove-the-reference-to-the-legacy-security-realm-and-update-the-https-listener-to-use-the-ssl-context-from-elytron">Remove the reference to the legacy security realm and update the</h5>
+<div class="sect5">
+<h6 id="remove-the-reference-to-the-legacy-security-realm-and-update-the-https-listener-to-use-the-ssl-context-from-elytron">Remove the reference to the legacy security realm and update the</h6>
 <div class="paragraph">
 <p>https-listener to use the ssl-context from Elytron:</p>
 </div>
@@ -3841,16 +3934,32 @@ run-batch</code></pre>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="reload-the-server-1">Reload the server</h5>
+<div class="sect5">
+<h6 id="reload-the-server-1">Reload the server</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby">reload</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>To complete the two-way SSL/TLS authentication, you need to
+<a href="#import-server-certificate-into-client-truststore-applications">import the server certificate</a>
+into the client truststore and
+<a href="#configure-your-client-to-use-the-client-certificate-applications">configure your client</a>
+to present the client certificate.</p>
+</div>
+</div>
 </div>
 <div class="sect4">
-<h5 id="configure-your-client-to-use-the-client-certificate">Configure your client to use the client certificate</h5>
+<h5 id="import-server-certificate-into-client-truststore-applications">Import the server certificate into the client truststore</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ keytool -importcert -keystore client.truststore.jks -storepass secret -alias localhost -trustcacerts -file /path/to/server.cer</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="configure-your-client-to-use-the-client-certificate-applications">Configure your client to use the client certificate</h5>
 <div class="paragraph">
 <p>You need to configure your client to present the trusted client
 certificate to the server to complete the two-way SSL/TLS
@@ -3863,30 +3972,85 @@ trusted certificate into the browser&#8217;s truststore.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="enable-one-way-ssltls-for-the-management-interfaces-using-the-elytron-subsystem">4.3.3. Enable One-way SSL/TLS for the Management Interfaces Using the</h4>
+<h4 id="enable-one-way-ssltls-for-the-management-interfaces">4.3.3. Enable One-way SSL/TLS for the Management Interfaces</h4>
 <div class="paragraph">
-<p>Elytron Subsystem</p>
+<p>There are a couple ways to enable one-way SSL/TLS for the management interfaces.</p>
 </div>
 <div class="sect4">
-<h5 id="obtain-or-generate-your-key-store-1">Obtain or generate your key store:</h5>
+<h5 id="one-way-ssl-management-interfaces-using-security-command">Using a security command:</h5>
 <div class="paragraph">
-<p>Before enabling HTTPS in WildFly, you must obtain or generate the key
-store you plan on using. To generate an example key store, use the
-following command.</p>
+<p>The <em>security enable-ssl-management</em> command can be used to enable one-way
+SSL/TLS for the management interfaces. Example of wizard usage:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ keytool -genkeypair -alias localhost -keyalg RSA -keysize 1024 -validity 365 -keystore keystore.jks -dname &quot;CN=localhost&quot; -keypass secret -storepass secret</code></pre>
+<pre class="CodeRay highlight"><code data-lang="java">security enable-ssl-management --interactive
+Please provide required pieces of information to enable SSL:
+<span class="predefined-type">Key</span>-store file name (<span class="keyword">default</span> management.keystore): keystore.jks
+Password (blank generated): secret
+What is your first and last name? [Unknown]: localhost
+What is the name of your organizational unit? [Unknown]:
+What is the name of your organization? [Unknown]:
+What is the name of your City or Locality? [Unknown]:
+What is the name of your State or Province? [Unknown]:
+What is the two-letter country code <span class="keyword">for</span> <span class="local-variable">this</span> unit? [Unknown]:
+Is CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown correct y/n [y]?
+Validity (in days, blank <span class="keyword">default</span>): <span class="integer">365</span>
+Alias (blank generated): localhost
+Enable SSL Mutual Authentication y/n (blank n): n
+
+SSL options:
+key store file: keystore.jks
+distinguished name: CN=localhost, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown
+password: secret
+validity: <span class="integer">365</span>
+alias: localhost
+Server keystore file keystore.jks, certificate file keystore.pem and keystore.csr file
+will be generated in server configuration directory.
+Do you confirm y/n :y</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>NB: Once the command is executed, the CLI will reload the server and reconnect to it.</p>
+</div>
+<div class="paragraph">
+<p>HTTPS is now enabled for the management interfaces.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="create-a-key-store-key-manager-and-server-ssl-context.">Create a key-store, key-manager, and server-ssl-context.</h5>
+<h5 id="one-way-ssl-management-interfaces-using-elytron-subsystem-commands">Using Elytron subsystem commands:</h5>
+<div class="paragraph">
+<p>Elytron subsystem commands can also be used to enable one-way SSL/TLS for the
+management interfaces.</p>
+</div>
+<div class="sect5">
+<h6 id="configure-key-store">Configure a key-store:</h6>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">httpsKS</span>:add(path=keystore.jks,relative-to=jboss.server.config.dir,credential-reference={clear-text=secret},type=<span class="constant">JKS</span>)
- 
-<span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-manager=<span class="key">httpsKM</span>:add(key-store=httpsKS,credential-reference={clear-text=secret})
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">httpsKS</span>:add(path=keystore.jks,relative-to=jboss.server.config.dir,credential-reference={clear-text=secret},type=<span class="constant">JKS</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>NOTE:</strong> The above command uses <em>relative-to</em> to reference the location
+of the keystore file. Alternatively, you can specify the full path to
+the keystore in <em>path</em> and omit <em>relative-to</em>.</p>
+</div>
+<div class="paragraph">
+<p>If the keystore file does not exist yet, the following commands can be used to
+generate an example key pair:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">httpsKS</span>:generate-key-pair(<span class="keyword">alias</span>=localhost,algorithm=<span class="constant">RSA</span>,key-size=<span class="integer">1024</span>,validity=<span class="integer">365</span>,credential-reference={clear-text=secret},distinguished-name=<span class="string"><span class="delimiter">&quot;</span><span class="content">CN=localhost</span><span class="delimiter">&quot;</span></span>)
+<span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">httpsKS</span>:store()</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="create-a-key-manager-and-server-ssl-context">Create a key-manager and server-ssl-context.</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-manager=<span class="key">httpsKM</span>:add(key-store=httpsKS,credential-reference={clear-text=secret})
  
 <span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span><span class="modifier">se</span></span>rver-ssl-context=<span class="key">httpsSSC</span>:add(key-manager=httpsKM,protocols=[<span class="string"><span class="delimiter">&quot;</span><span class="content">TLSv1.2</span><span class="delimiter">&quot;</span></span>])</code></pre>
 </div>
@@ -3895,14 +4059,9 @@ following command.</p>
 <p><strong>IMPORTANT:</strong> You need to determine what SSL/TLS protocols you want to
 support. The example commands above uses <em>TLSv1.2</em>.</p>
 </div>
-<div class="paragraph">
-<p><strong>NOTE:</strong> The above command uses <em>relative-to</em> to reference the location
-of the keystore file. Alternatively, you can specify the full path to
-the keystore in <em>path</em> and omit <em>relative-to</em>.</p>
 </div>
-</div>
-<div class="sect4">
-<h5 id="enable-https-on-the-management-interface.">Enable HTTPS on the management interface.</h5>
+<div class="sect5">
+<h6 id="enable-https-on-the-management-interface.">Enable HTTPS on the management interface.</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">core-service=management</span><span class="delimiter">/</span><span class="modifier">m</span></span>anagement-interface=http-<span class="key">interface</span>:write-attribute(name=ssl-context, value=httpsSSC)
@@ -3911,8 +4070,8 @@ the keystore in <em>path</em> and omit <em>relative-to</em>.</p>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="reload-the-wildfly-instance.">Reload the WildFly instance.</h5>
+<div class="sect5">
+<h6 id="reload-the-wildfly-instance.">Reload the WildFly instance.</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby">reload</code></pre>
@@ -3923,62 +4082,135 @@ the keystore in <em>path</em> and omit <em>relative-to</em>.</p>
 </div>
 </div>
 </div>
+</div>
 <div class="sect3">
-<h4 id="enable-two-way-ssltls-for-the-management-interfaces-using-the-elytron-subsystem">4.3.4. Enable Two-way SSL/TLS for the Management Interfaces using the</h4>
+<h4 id="enable-two-way-ssltls-for-the-management-interfaces">4.3.4. Enable Two-way SSL/TLS for the Management Interfaces</h4>
 <div class="paragraph">
-<p>Elytron Subsystem</p>
+<p>First, obtain or generate your client keystore.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ keytool -genkeypair -alias client -keyalg RSA -keysize 1024 -validity 365 -keystore client.keystore.jks -dname &quot;CN=client&quot; -keypass secret -storepass secret</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Export your client certificate.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ keytool -exportcert  -keystore client.keystore.jks -alias client -keypass secret -storepass secret -file /path/to/client.cer</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are a couple ways to enable two-way SSL/TLS for the management interfaces.</p>
 </div>
 <div class="sect4">
-<h5 id="obtain-or-generate-your-key-store.">Obtain or generate your key store.</h5>
+<h5 id="two-way-ssl-management-interfaces-using-security-command">Using a security command:</h5>
 <div class="paragraph">
-<p>Before enabling HTTPS in WildFly, you must obtain or generate the key
-stores, trust stores and certificates you plan on using. To generate an
-example set of key stores, trust stores, and certificates use the
-following commands.</p>
-</div>
-<div class="paragraph">
-<p>Generate your server and client key stores.</p>
+<p>The <em>security enable-ssl-management</em> command can be used to enable two-way
+SSL/TLS for the management interfaces. Example of wizard usage:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ keytool -genkeypair -alias localhost -keyalg RSA -keysize 1024 -validity 365 -keystore server.keystore.jks -dname &quot;CN=localhost&quot; -keypass secret -storepass secret
- 
-$ keytool -genkeypair -alias client -keyalg RSA -keysize 1024 -validity 365 -keystore client.keystore.jks -dname &quot;CN=client&quot; -keypass secret -storepass secret</code></pre>
+<pre class="CodeRay highlight"><code data-lang="java">security enable-ssl-management --interactive
+Please provide required pieces of information to enable SSL:
+<span class="predefined-type">Key</span>-store file name (<span class="keyword">default</span> management.keystore): server.keystore.jks
+Password (blank generated): secret
+What is your first and last name? [Unknown]: localhost
+What is the name of your organizational unit? [Unknown]:
+What is the name of your organization? [Unknown]:
+What is the name of your City or Locality? [Unknown]:
+What is the name of your State or Province? [Unknown]:
+What is the two-letter country code <span class="keyword">for</span> <span class="local-variable">this</span> unit? [Unknown]:
+Is CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown correct y/n [y]?
+Validity (in days, blank <span class="keyword">default</span>): <span class="integer">365</span>
+Alias (blank generated): localhost
+Enable SSL Mutual Authentication y/n (blank n): y
+Client certificate (path to pem file): /path/to/client.cer
+Validate certificate y/n (blank y):
+Trust-store file name (management.truststore): server.truststore.jks
+Password (blank generated): secret
+
+SSL options:
+key store file: server.keystore.jks
+distinguished name: CN=localhost, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown
+password: secret
+validity: <span class="integer">365</span>
+alias: localhost
+client certificate: /path/to/client.cer
+trust store file: server.trustore.jks
+trust store password: secret
+Server keystore file server.keystore.jks, certificate file server.pem and server.csr file will be generated in server configuration directory.
+Server truststore file server.trustore.jks will be generated in server configuration directory.
+Do you confirm y/n: y</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Export your server and client certificates.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ keytool -exportcert  -keystore server.keystore.jks -alias localhost -keypass secret -storepass secret -file server.cer
- 
-$ keytool -exportcert  -keystore client.keystore.jks -alias client -keypass secret -storepass secret -file client.cer</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Import the sever and client certificates into the opposing trust stores.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ keytool -importcert -keystore server.truststore.jks -storepass secret -alias client -trustcacerts -file client.cer
- 
-$ keytool -importcert -keystore client.truststore.jks -storepass secret -alias localhost -trustcacerts -file server.cer</code></pre>
-</div>
+<p>NB: Once the command is executed, the CLI will reload the server and
+attempt to reconnect to it. To complete the two-way SSL/TLS authentication,
+you need to <a href="#import-server-certificate-into-client-truststore-management">import the server certificate</a>
+into the client truststore and
+<a href="#configure-your-client-to-use-the-client-certificate-management">configure your client</a>
+to present the client certificate.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="configure-key-store-a-key-manager-trust-manager-and-server-ssl-context-for-the-server-key-store-and-trust-store.">Configure key-store, a key-manager, trust-manager, and</h5>
+<h5 id="two-way-ssl-management-interfaces-using-elytron-subsystem-commands">Using Elytron subsystem commands:</h5>
 <div class="paragraph">
-<p>server-ssl-context for the server key store and trust store.</p>
+<p>Elytron subsystem commands can also be used to enable two-way SSL/TLS for the
+management interfaces.</p>
+</div>
+<div class="sect5">
+<h6 id="obtain-or-generate-your-key-stores-management">Obtain or generate your key stores.</h6>
+<div class="paragraph">
+<p>Before enabling HTTPS in WildFly, you must obtain or generate the server
+key store and trust store you plan on using. To generate an example key
+store and trust store, use the following commands.</p>
+</div>
+<div class="paragraph">
+<p>Configure a key-store.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">twoWayKS</span>:add(path=server.keystore.jks,relative-to=jboss.server.config.dir,credential-reference={clear-text=secret},type=<span class="constant">JKS</span>)
- 
-<span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">twoWayTS</span>:add(path=server.truststore.jks,relative-to=jboss.server.config.dir,credential-reference={clear-text=secret},type=<span class="constant">JKS</span>)
- 
-<span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-manager=<span class="key">twoWayKM</span>:add(key-store=twoWayKS,credential-reference={clear-text=secret})
+
+<span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">twoWayKS</span>:generate-key-pair(<span class="keyword">alias</span>=localhost,algorithm=<span class="constant">RSA</span>,key-size=<span class="integer">1024</span>,validity=<span class="integer">365</span>,credential-reference={clear-text=secret},distinguished-name=<span class="string"><span class="delimiter">&quot;</span><span class="content">CN=localhost</span><span class="delimiter">&quot;</span></span>)
+
+<span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">twoWayKS</span>:store()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>NOTE:</strong> The above command uses <em>relative-to</em> to reference the location
+of the keystore file. Alternatively, you can specify the full path to
+the keystore in <em>path</em> and omit <em>relative-to</em>.</p>
+</div>
+<div class="paragraph">
+<p>Export your server certificate.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">twoWayKS</span>:export-certificate(<span class="keyword">alias</span>=localhost,path=<span class="regexp"><span class="delimiter">/</span><span class="content">path</span><span class="delimiter">/</span></span>to/server.cer,pem=<span class="predefined-constant">true</span>)</code></pre>
+</div>
+</div>
+<div id="import-client-certificate-into-server-truststore" class="paragraph">
+<p>Create a key-store for the server trust store and import the client certificate
+into the server trust store.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">twoWayTS</span>:add(path=server.truststore.jks,relative-to=jboss.server.config.dir,credential-reference={clear-text=secret},type=<span class="constant">JKS</span>)
+
+<span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">twoWayTS</span>:import-certificate(<span class="keyword">alias</span>=client,path=<span class="regexp"><span class="delimiter">/</span><span class="content">path</span><span class="delimiter">/</span></span>to/client.cer,credential-reference={clear-text=secret},trust-cacerts=<span class="predefined-constant">true</span>)
+
+<span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">twoWayTS</span>:store()</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="configure-a-key-manager-trust-manager-and-server-ssl-context-for-the-server-key-store-and-trust-store">Configure a key-manager, trust-manager, and server-ssl-context for the server key store and trust store.</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-manager=<span class="key">twoWayKM</span>:add(key-store=twoWayKS,credential-reference={clear-text=secret})
  
 <span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>trust-manager=<span class="key">twoWayTM</span>:add(key-store=twoWayTS)
  
@@ -3989,14 +4221,9 @@ $ keytool -importcert -keystore client.truststore.jks -storepass secret -alias l
 <p><strong>IMPORTANT:</strong> You need to determine what SSL/TLS protocols you want to
 support. The example commands above uses <em>TLSv1.2</em>.</p>
 </div>
-<div class="paragraph">
-<p><strong>NOTE:</strong> The above command uses <em>relative-to</em> to reference the location
-of the keystore file. Alternatively, you can specify the full path to
-the keystore in <em>path</em> and omit <em>relative-to</em>.</p>
 </div>
-</div>
-<div class="sect4">
-<h5 id="enable-https-on-the-management-interface.-1">Enable HTTPS on the management interface.</h5>
+<div class="sect5">
+<h6 id="enable-https-on-the-management-interface.-1">Enable HTTPS on the management interface.</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">core-service=management</span><span class="delimiter">/</span><span class="modifier">m</span></span>anagement-interface=http-<span class="key">interface</span>:write-attribute(name=ssl-context, value=twoWaySSC)
@@ -4005,16 +4232,32 @@ the keystore in <em>path</em> and omit <em>relative-to</em>.</p>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="reload-the-wildfly-instance.-1">Reload the WildFly instance.</h5>
+<div class="sect5">
+<h6 id="reload-the-wildfly-instance.-1">Reload the WildFly instance.</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby">reload</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>To complete the two-way SSL/TLS authentication, you need to
+<a href="#import-server-certificate-into-client-truststore-management">import the server certificate</a>
+into the client truststore and
+<a href="#configure-your-client-to-use-the-client-certificate-management">configure your client</a>
+to present the client certificate.</p>
+</div>
+</div>
 </div>
 <div class="sect4">
-<h5 id="configure-your-client-to-use-the-client-certificate.">Configure your client to use the client certificate.</h5>
+<h5 id="import-server-certificate-into-client-truststore-management">Import the server certificate into the client truststore.</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ keytool -importcert -keystore client.truststore.jks -storepass secret -alias localhost -trustcacerts -file /path/to/server.cer</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="configure-your-client-to-use-the-client-certificate-management">Configure your client to use the client certificate.</h5>
 <div class="paragraph">
 <p>You need to configure your client to present the trusted client
 certificate to the server to complete the two-way SSL/TLS
@@ -4027,7 +4270,87 @@ trusted certificate into the browser&#8217;s trust store.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="using-an-ldap-key-store">4.3.5. Using an ldap-key-store</h4>
+<h4 id="keystore-manipulation-operations">4.3.5. KeyStore manipulation operations</h4>
+<div class="paragraph">
+<p>It is possible to perform various KeyStore manipulation operations on an
+Elytron key-store resource using the management CLI.</p>
+</div>
+<div class="sect4">
+<h5 id="generate-key-pair">Generate a key pair</h5>
+<div class="paragraph">
+<p>The <em>generate-key-pair</em> command generates a key pair and wraps the resulting
+public key in a self-signed X.509 certificate. The generated private key and
+self-signed certificate will be added to the KeyStore.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">httpsKS</span>:generate-key-pair(<span class="keyword">alias</span>=example,algorithm=<span class="constant">RSA</span>,key-size=<span class="integer">1024</span>,validity=<span class="integer">365</span>,credential-reference={clear-text=secret},distinguished-name=<span class="string"><span class="delimiter">&quot;</span><span class="content">CN=www.example.com</span><span class="delimiter">&quot;</span></span>)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="generate-certificate-signing-request">Generate a certificate signing request</h5>
+<div class="paragraph">
+<p>The <em>generate-certificate-signing-request</em> command generates a PKCS #10
+certificate signing request using a PrivateKeyEntry from the KeyStore. The
+generated certificate signing request will be output to a file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">httpsKS</span>:generate-certificate-signing-request(<span class="keyword">alias</span>=example,path=server.csr,relative-to=jboss.server.config.dir,distinguished-name=<span class="string"><span class="delimiter">&quot;</span><span class="content">CN=www.example.com</span><span class="delimiter">&quot;</span></span>,extensions=[{critical=<span class="predefined-constant">false</span>,name=<span class="constant">KeyUsage</span>,value=digitalSignature}],credential-reference={clear-text=secret})</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="import-certificate">Import a certificate or certificate chain</h5>
+<div class="paragraph">
+<p>The <em>import-certificate</em> command imports a certificate or certificate chain
+from a file into an entry in the KeyStore.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">httpsKS</span>:import-certificate(<span class="keyword">alias</span>=example,path=<span class="regexp"><span class="delimiter">/</span><span class="content">path</span><span class="delimiter">/</span></span>to/certificate_or_chain/file,relative-to=jboss.server.config.dir,credential-reference={clear-text=secret},trust-cacerts=<span class="predefined-constant">true</span>)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="export-certificate">Export a certificate</h5>
+<div class="paragraph">
+<p>The <em>export-certificate</em> command exports a certificate from an entry in the
+KeyStore to a file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">httpsKS</span>:export-certificate(<span class="keyword">alias</span>=example,path=serverCert.cer,relative-to=jboss.server.config.dir,pem=<span class="predefined-constant">true</span>)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="change-alias">Change an alias</h5>
+<div class="paragraph">
+<p>The <em>change-alias</em> command moves an existing KeyStore entry to a new alias.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">httpsKS</span>:change-<span class="keyword">alias</span>(<span class="keyword">alias</span>=example,new-<span class="keyword">alias</span>=newExample,credential-reference={clear-text=secret})</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="store-changes">Store changes made to key-stores</h5>
+<div class="paragraph">
+<p>The <em>store</em> command persists any changes that have been made to the file that
+backs the KeyStore.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="regexp"><span class="delimiter">/</span><span class="content">subsystem=elytron</span><span class="delimiter">/</span></span>key-store=<span class="key">httpsKS</span>:store()</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="using-an-ldap-key-store">4.3.6. Using an ldap-key-store</h4>
 <div class="paragraph">
 <p>An <em>ldap-key-store</em> allows you to use a keystore stored in an LDAP
 server. You can use an <em>ldap-key-store</em> in same way you can use a
@@ -4087,7 +4410,7 @@ applications.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="using-a-filtering-key-store">4.3.6. Using a filtering-key-store</h4>
+<h4 id="using-a-filtering-key-store">4.3.7. Using a filtering-key-store</h4>
 <div class="paragraph">
 <p>A <em>filtering-key-store</em> allows you to expose a subset of aliases from an
 existing <em>key-store</em>, and use it in the same places you could use a
@@ -4159,7 +4482,7 @@ applications.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="reload-a-keystore">4.3.7. Reload a Keystore</h4>
+<h4 id="reload-a-keystore">4.3.8. Reload a Keystore</h4>
 <div class="paragraph">
 <p>You can reload a keystore configured in WildFly from the management CLI.
 This is useful in cases where you have made changes to certificates
@@ -4175,7 +4498,7 @@ referenced by a keystore.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="check-the-content-of-a-keystore-by-alias">4.3.8. Check the Content of a Keystore by Alias</h4>
+<h4 id="check-the-content-of-a-keystore-by-alias">4.3.9. Check the Content of a Keystore by Alias</h4>
 <div class="paragraph">
 <p>If you add a keystore to the <em>elytron</em> subsystem using the <em>key-store</em>
 component, you can check the keystore&#8217;s contents using the <em>alias</em> child
@@ -4235,7 +4558,7 @@ and Other. Unrecognized types will be reported as Other.</p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="custom-components">4.3.9. Custom Components</h4>
+<h4 id="custom-components">4.3.10. Custom Components</h4>
 <div class="paragraph">
 <p>When configuring SSL/TLS in the <em>elytron</em> subsystem, you can provide and
 use custom implementations of the following components:</p>
@@ -5303,15 +5626,14 @@ Note that WildFly client libraries do have reasonable default configuration. Thu
 <div class="sect1">
 <h2 id="Elytron_and_Java_Authorization_Contract_for_Containers-JACC">7. Elytron and Java Authorization Contract for Containers (JACC)</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="overview">7.1. Overview</h3>
-<div class="paragraph">
-<p>This document will guide you on how to enable JACC using Elytron
-Subsystem.</p>
+<div class="quoteblock abstract">
+<blockquote>
+This document will guide you on how to enable JACC using Elytron
+Subsystem.
+</blockquote>
 </div>
-</div>
 <div class="sect2">
-<h3 id="disabling-jacc-in-legacy-security-subsystem-picketbox">7.2. Disabling JACC in Legacy Security Subsystem (PicketBox)</h3>
+<h3 id="disabling-jacc-in-legacy-security-subsystem-picketbox">7.1. Disabling JACC in Legacy Security Subsystem (PicketBox)</h3>
 <div class="paragraph">
 <p>By default, the application server uses the legacy security subsystem
 (PicketBox) to configure the JACC policy provider and factory. The
@@ -5335,7 +5657,7 @@ Elytron subsystem as we&#8217;ll see in the next sections.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="defining-a-jacc-policy-provider">7.3. Defining a JACC Policy Provider</h3>
+<h3 id="defining-a-jacc-policy-provider">7.2. Defining a JACC Policy Provider</h3>
 <div class="paragraph">
 <p>Elytron subsystem provides a built-in policy provider based on JACC
 specification. To create the policy provider you can execute a CLI
@@ -5357,7 +5679,7 @@ configuration as follows:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="enabling-jacc-to-a-web-deployment">7.4. Enabling JACC to a Web Deployment</h3>
+<h3 id="enabling-jacc-to-a-web-deployment">7.3. Enabling JACC to a Web Deployment</h3>
 <div class="paragraph">
 <p>Once JACC Policy Provider is defined you can enable JACC to web
 deployments by executing the following command:</p>
@@ -5380,7 +5702,7 @@ can execute a command as follows:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="enabling-jacc-to-a-ejb-deployment">7.5. Enabling JACC to a EJB Deployment</h3>
+<h3 id="enabling-jacc-to-a-ejb-deployment">7.4. Enabling JACC to a EJB Deployment</h3>
 <div class="paragraph">
 <p>Once JACC Policy Provider is defined you can enable JACC to EJB
 deployments by executing the following command:</p>
@@ -8344,8 +8666,8 @@ for example, Infinispan cache cannot be used, any others?</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 12.0.0.Alpha1-SNAPSHOT<br>
-Last updated 2018-02-14 11:03:45 CET
+Version 12.0.0.Final<br>
+Last updated 2018-02-28 16:06:06 CST
 </div>
 </div>
 </body>

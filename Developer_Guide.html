@@ -523,13 +523,12 @@ table.CodeRay td.code>pre{padding:0}
 <h1>Developer Guide</h1>
 <div class="details">
 <span id="author" class="author">WildFly developer team</span><br>
-<span id="revnumber">version 12.0.0.Alpha1-SNAPSHOT,</span>
-<span id="revdate">2018-02-14T10:04:13Z</span>
+<span id="revnumber">version 12.0.0.Final,</span>
+<span id="revdate">2018-03-01T06:48:21Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">WildFly Developer guide</div>
-<ul class="sectlevel3">
-<li><a href="#target-audience">1. Target Audience</a></li>
+<ul class="sectlevel1">
 <li><a href="#Class_Loading_in_WildFly">1. Class Loading in WildFly</a>
 <ul class="sectlevel2">
 <li><a href="#deployment-module-names">1.1. Deployment Module Names</a></li>
@@ -569,11 +568,10 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 <li><a href="#EE_Concurrency_Utilities">7. EE Concurrency Utilities</a>
 <ul class="sectlevel2">
-<li><a href="#overview">7.1. Overview</a></li>
-<li><a href="#context-service">7.2. Context Service</a></li>
-<li><a href="#managed-thread-factory">7.3. Managed Thread Factory</a></li>
-<li><a href="#managed-executor-service">7.4. Managed Executor Service</a></li>
-<li><a href="#managed-scheduled-executor-service">7.5. Managed Scheduled Executor Service</a></li>
+<li><a href="#context-service">7.1. Context Service</a></li>
+<li><a href="#managed-thread-factory">7.2. Managed Thread Factory</a></li>
+<li><a href="#managed-executor-service">7.3. Managed Executor Service</a></li>
+<li><a href="#managed-scheduled-executor-service">7.4. Managed Scheduled Executor Service</a></li>
 </ul>
 </li>
 <li><a href="#EJB3_Reference_Guide">8. EJB 3 Reference Guide</a>
@@ -621,11 +619,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#community">9.25. Community</a></li>
 </ul>
 </li>
-<li><a href="#JNDI_Reference">10. JNDI Reference</a>
-<ul class="sectlevel2">
-<li><a href="#overview">10.1. Overview</a></li>
-</ul>
-</li>
+<li><a href="#JNDI_Reference">10. JNDI Reference</a></li>
 <li><a href="#JNDI_Local_Reference">11. Local JNDI</a>
 <ul class="sectlevel2">
 <li><a href="#binding-entries-to-jndi">11.1. Binding entries to JNDI</a></li>
@@ -657,10 +651,9 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 <li><a href="#Scoped_EJB_client_contexts">15. Scoped EJB client contexts</a>
 <ul class="sectlevel2">
-<li><a href="#overview">15.1. Overview</a></li>
-<li><a href="#potential-shortcomings-of-a-single-ejb-client-context">15.2. Potential shortcomings of a single EJB client context</a></li>
-<li><a href="#scoped-ejb-client-contexts">15.3. Scoped EJB client contexts</a></li>
-<li><a href="#lifecycle-management-of-scoped-ejb-client-contexts">15.4. Lifecycle management of scoped EJB client contexts</a></li>
+<li><a href="#potential-shortcomings-of-a-single-ejb-client-context">15.1. Potential shortcomings of a single EJB client context</a></li>
+<li><a href="#scoped-ejb-client-contexts">15.2. Scoped EJB client contexts</a></li>
+<li><a href="#lifecycle-management-of-scoped-ejb-client-contexts">15.3. Lifecycle management of scoped EJB client contexts</a></li>
 </ul>
 </li>
 <li><a href="#EJB_invocations_from_a_remote_client_using_JNDI">16. EJB invocations from a remote client using JNDI</a>
@@ -723,12 +716,10 @@ table.CodeRay td.code>pre{padding:0}
 <p>&#169; 2017 The original authors.</p>
 </div>
 <!-- toc disabled -->
-</div>
-</div>
-<div class="sect3">
-<h4 id="target-audience">1. Target Audience</h4>
 <div class="paragraph">
+<div class="title">Target Audience</div>
 <p>Java Developers</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2036,15 +2027,15 @@ extensions!</strong></p>
 <div class="sect1">
 <h2 id="EE_Concurrency_Utilities">7. EE Concurrency Utilities</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="overview">7.1. Overview</h3>
-<div class="paragraph">
-<p>EE Concurrency Utilities (JSR 236) is a technology introduced with Java
+<div class="quoteblock abstract">
+<blockquote>
+EE Concurrency Utilities (JSR 236) is a technology introduced with Java
 EE 7, which adapts well known Java SE concurrency utilities to the Java
 EE application environment specifics. The Java EE application server is
 responsible for the creation (and shutdown) of every instance of the EE
 Concurrency Utilities, and provide these to the applications, ready to
-use.</p>
+use.
+</blockquote>
 </div>
 <div class="paragraph">
 <p>The EE Concurrency Utilities support the propagation of the invocation
@@ -2068,9 +2059,8 @@ configuration is covered by
 <a href="Default_EE_Bindings_Configuration.html">Default EE Bindings
 Configuration</a>.</p>
 </div>
-</div>
 <div class="sect2">
-<h3 id="context-service">7.2. Context Service</h3>
+<h3 id="context-service">7.1. Context Service</h3>
 <div class="paragraph">
 <p>The Context Service ( <code>javax.enterprise.concurrent.ContextService</code>) is a
 brand new concurrency utility, which applications may use to build
@@ -2142,7 +2132,7 @@ instance&#8217;s JNDI name is <code>java:comp/DefaultContextService</code>.
 </div>
 </div>
 <div class="sect2">
-<h3 id="managed-thread-factory">7.3. Managed Thread Factory</h3>
+<h3 id="managed-thread-factory">7.2. Managed Thread Factory</h3>
 <div class="paragraph">
 <p>The Managed Thread Factory (
 <code>javax.enterprise.concurrent.ManagedThreadFactory</code>) allows Java EE
@@ -2229,7 +2219,7 @@ Factory instance&#8217;s JNDI name is <code>java:comp/DefaultManagedThreadFactor
 </div>
 </div>
 <div class="sect2">
-<h3 id="managed-executor-service">7.4. Managed Executor Service</h3>
+<h3 id="managed-executor-service">7.3. Managed Executor Service</h3>
 <div class="paragraph">
 <p>The Managed Executor Service (
 <code>javax.enterprise.concurrent.ManagedExecutorService</code>) allows Java EE
@@ -2312,7 +2302,7 @@ Service instance&#8217;s JNDI name is
 </div>
 </div>
 <div class="sect2">
-<h3 id="managed-scheduled-executor-service">7.5. Managed Scheduled Executor Service</h3>
+<h3 id="managed-scheduled-executor-service">7.4. Managed Scheduled Executor Service</h3>
 <div class="paragraph">
 <p>The Managed Scheduled Executor Service (
 <code>javax.enterprise.concurrent.ManagedScheduledExecutorService</code>) allows
@@ -2707,10 +2697,9 @@ fired only once like a recurring timer!</p>
 </div>
 <div class="sect2">
 <h3 id="Container_interceptors">8.6. Container interceptors</h3>
-<div class="sect3">
-<h4 id="overview">8.6.1. Overview</h4>
-<div class="paragraph">
-<p>JBoss AS versions prior to WildFly8 allowed a JBoss specific way to
+<div class="quoteblock abstract">
+<blockquote>
+JBoss AS versions prior to WildFly8 allowed a JBoss specific way to
 plug-in user application specific interceptors on the server side so
 that those interceptors get invoked during an EJB invocation. Such
 interceptors differed from the typical (portable) spec provided Java EE
@@ -2719,11 +2708,11 @@ container has done necessary invocation processing which involves
 security context propagation, transaction management and other such
 duties. As a result, these Java EE interceptors come too late into the
 picture, if the user applications have to intercept the call before
-certain container specific interceptor(s) are run.</p>
-</div>
+certain container specific interceptor(s) are run.
+</blockquote>
 </div>
 <div class="sect3">
-<h4 id="typical-ejb-invocation-call-path-on-the-server">8.6.2. Typical EJB invocation call path on the server</h4>
+<h4 id="typical-ejb-invocation-call-path-on-the-server">8.6.1. Typical EJB invocation call path on the server</h4>
 <div class="paragraph">
 <p>A typical EJB invocation looks like this:</p>
 </div>
@@ -2783,7 +2772,7 @@ example, AS5 allowed the use of JBoss AOP interceptors to do this.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="configuring-container-interceptors">8.6.3. Configuring container interceptors</h4>
+<h4 id="configuring-container-interceptors">8.6.2. Configuring container interceptors</h4>
 <div class="paragraph">
 <p>As you can see from the JIRA <a href="https://issues.jboss.org/browse/AS7-5897" class="bare">https://issues.jboss.org/browse/AS7-5897</a>,
 one of the goals of this feature implementation was to make sure that we
@@ -2920,7 +2909,7 @@ the interceptor:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="container-interceptor-positioning-in-the-interceptor-chain">8.6.4. Container interceptor positioning in the interceptor chain</h4>
+<h4 id="container-interceptor-positioning-in-the-interceptor-chain">8.6.3. Container interceptor positioning in the interceptor chain</h4>
 <div class="paragraph">
 <p>The container interceptors configured for a EJB are guaranteed to be run
 before the WildFly provided security interceptors, transaction
@@ -2930,7 +2919,7 @@ context data before the invocation proceeds.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="semantic-difference-between-container-interceptors-and-java-ee-interceptors-api">8.6.5. Semantic difference between container interceptor(s) and Java EE</h4>
+<h4 id="semantic-difference-between-container-interceptors-and-java-ee-interceptors-api">8.6.4. Semantic difference between container interceptor(s) and Java EE</h4>
 <div class="paragraph">
 <p>interceptor(s) API</p>
 </div>
@@ -2944,7 +2933,7 @@ the EJB components are setup or instantiated.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="testcase">8.6.6. Testcase</h4>
+<h4 id="testcase">8.6.5. Testcase</h4>
 <div class="paragraph">
 <p>This testcase in the WildFly codebase can be used for reference for
 implementing container interceptors in user applications
@@ -2954,14 +2943,14 @@ implementing container interceptors in user applications
 </div>
 <div class="sect2">
 <h3 id="EJB3_Clustered_Database_Timers">8.7. EJB3 Clustered Database Timers</h3>
-<div class="sect3">
-<h4 id="overview">8.7.1. Overview</h4>
-<div class="paragraph">
-<p>Wildfly now supports clustered database backed timers. The clustering
+<div class="quoteblock abstract">
+<blockquote>
+Wildfly now supports clustered database backed timers. The clustering
 support is provided through the database, and as a result it is not
 intended to be a super high performance solution that supports thousands
 of timers going off a second, however properly tuned it should provide
-sufficient performance for most use cases.</p>
+sufficient performance for most use cases.
+</blockquote>
 </div>
 <div class="paragraph">
 <p>Note that database timers can also be used in non-clustered mode.</p>
@@ -2980,9 +2969,8 @@ datasource must be configured accordingly
 </tr>
 </table>
 </div>
-</div>
 <div class="sect3">
-<h4 id="setup">8.7.2. Setup</h4>
+<h4 id="setup">8.7.1. Setup</h4>
 <div class="paragraph">
 <p>In order to use clustered timers it is necessary to add a database
 backed timer store. This can be done from the CLI with the following
@@ -3053,7 +3041,7 @@ database).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="using-clustered-timers-in-a-deployment">8.7.3. Using clustered timers in a deployment</h4>
+<h4 id="using-clustered-timers-in-a-deployment">8.7.2. Using clustered timers in a deployment</h4>
 <div class="paragraph">
 <p>It is possible to use the data store as default for all applications by
 changing the default-data-store within the ejb3 subsystem:</p>
@@ -3094,7 +3082,7 @@ in jboss-ejb3.xml:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="technical-details">8.7.4. Technical details</h4>
+<h4 id="technical-details">8.7.3. Technical details</h4>
 <div class="paragraph">
 <p>Internally every node that is allowed to execute timers schedules a
 timeout for every timer is knows about. When this timeout expires then
@@ -3828,7 +3816,7 @@ configurations in this chapter but instead will be looking at the vendor
 specific extensions to the security configurations.</p>
 </div>
 <div class="sect3">
-<h4 id="security-domain">8.12.1. Security Domain</h4>
+<h4 id="security-domain-2">8.12.1. Security Domain</h4>
 <div class="paragraph">
 <p>The Java EE spec doesn&#8217;t mandate a specific way to configure security
 domain for a bean. It leaves it to the vendor implementations to allow
@@ -3844,11 +3832,8 @@ example:</p>
 <span class="keyword">import</span> <span class="include">javax.ejb.Stateless</span>;
 <span class="error"> </span>
 <span class="annotation">@Stateless</span>
-<span class="error"> </span>
 <span class="annotation">@SecurityDomain</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">other</span><span class="delimiter">&quot;</span></span>)
-<span class="error"> </span>
-<span class="error">﻿</span><span class="directive">public</span> <span class="type">class</span> <span class="class">MyBean</span> ...
-<span class="error"> </span>
+<span class="error">﻿</span><span class="directive">public</span> <span class="type">class</span> <span class="class">MyBean</span> ...<span class="error"> </span>
 {
 <span class="error"> </span>
 ...</code></pre>
@@ -5322,15 +5307,15 @@ Ferraro</a> (Infinispan 2lc integration)</p>
 <div class="sect1">
 <h2 id="JNDI_Reference">10. JNDI Reference</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="overview">10.1. Overview</h3>
-<div class="paragraph">
-<p>WildFly offers several mechanisms to retrieve components by name. Every
+<div class="quoteblock abstract">
+<blockquote>
+WildFly offers several mechanisms to retrieve components by name. Every
 WildFly instance has it&#8217;s own local JNDI namespace ( <code>java:</code>) which is
 unique per JVM. The layout of this namespace is primarily governed by
 the Java EE specification. Applications which share the same WildFly
 instance can use this namespace to intercommunicate. In addition to
-local JNDI, a variety of mechanisms exist to access remote components.</p>
+local JNDI, a variety of mechanisms exist to access remote components.
+</blockquote>
 </div>
 <div class="ulist">
 <ul>
@@ -5370,7 +5355,6 @@ application, so that you can take advantage of certain core services
 such as naming and injection.</p>
 </li>
 </ul>
-</div>
 </div>
 </div>
 </div>
@@ -8800,14 +8784,14 @@ Introductions page</a> on the wiki and at the examples in the sources.</p>
 </div>
 <div class="sect3">
 <h4 id="Predefined_client_and_endpoint_configurations">14.5.8. Predefined client and endpoint configurations</h4>
-<div class="sect4">
-<h5 id="overview">Overview</h5>
-<div class="paragraph">
-<p>JBossWS permits extra setup configuration data to be predefined and
+<div class="quoteblock abstract">
+<blockquote>
+JBossWS permits extra setup configuration data to be predefined and
 associated with an endpoint or a client. Configurations can include
 JAX-WS handlers and key/value property declarations that control JBossWS
 and Apache CXF internals. Predefined configurations can be used for
-JAX-WS client and JAX-WS endpoint setup.</p>
+JAX-WS client and JAX-WS endpoint setup.
+</blockquote>
 </div>
 <div class="paragraph">
 <p>Configurations can be defined in the webservice subsystem and in an
@@ -8857,7 +8841,6 @@ Endpoint --&gt; PRE HANDLER --&gt; ENDPOINT HANDLERS --&gt; POST HANDLERS --&gt;
 <p>Key/value properties are used for controlling both some Apache CXF
 internals and some JBossWS options. Specific supported values are
 mentioned where relevant in the rest of the documentation.</p>
-</div>
 </div>
 <div class="sect4">
 <h5 id="assigning-configurations">Assigning configurations</h5>
@@ -9322,9 +9305,9 @@ endpoints respectively</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="Authentication">14.5.9. Authentication</h4>
+<h4 id="jax-ws-Authentication">14.5.9. Authentication</h4>
 <div class="sect4">
-<h5 id="authentication">Authentication</h5>
+<h5 id="jax-ws-authentication">Authentication</h5>
 <div class="paragraph">
 <p>Here the simplest way to authenticate a web service user with JBossWS is
 explained.</p>
@@ -13793,7 +13776,7 @@ And lastly there are a couple of code additions in the STS to support
 the ActAs request.</p>
 </div>
 <div class="sect5">
-<h6 id="web-service-provider">Web service provider</h6>
+<h6 id="web-service-provider-2">Web service provider</h6>
 <div class="paragraph">
 <p>This section examines the web service elements from the basic WS-Trust
 scenario that have been changed to address the needs of the ActAs
@@ -13822,7 +13805,7 @@ example. The components are</p>
 </ul>
 </div>
 <div class="sect6">
-<h7 id="web-service-provider-wsdl">Web service provider WSDL</h7>
+<h7 id="web-service-provider-wsdl-2">Web service provider WSDL</h7>
 <div class="paragraph">
 <p>The ActAs web service provider&#8217;s WSDL is a clone of the ws-provider&#8217;s
 WSDL. The wsp:Policy section is the same. There are changes to the
@@ -14534,7 +14517,7 @@ common.</p>
 Source Security: Apache CXF 2.5.1 STS updates</a> ]</p>
 </div>
 <div class="sect5">
-<h6 id="web-service-provider">Web service provider</h6>
+<h6 id="web-service-provider-3">Web service provider</h6>
 <div class="paragraph">
 <p>This section examines the web service elements from the basic WS-Trust
 scenario that have been changed to address the needs of the OnBehalfOf
@@ -14554,7 +14537,7 @@ example. The components are.</p>
 </ul>
 </div>
 <div class="sect6">
-<h7 id="web-service-provider-wsdl">Web service provider WSDL</h7>
+<h7 id="web-service-provider-wsdl-3">Web service provider WSDL</h7>
 <div class="paragraph">
 <p>The OnBehalfOf web service provider&#8217;s WSDL is a clone of the
 ws-provider&#8217;s WSDL. The wsp:Policy section is the same. There are
@@ -14918,7 +14901,7 @@ sp:SupportingToken or a sp:SignedSupportingTokens.</p>
 </ul>
 </div>
 <div class="sect5">
-<h6 id="web-service-provider">Web service Provider</h6>
+<h6 id="web-service-provider-4">Web service Provider</h6>
 <div class="paragraph">
 <p>This section examines the web service elements for the SAML Bearer
 scenario. The components are</p>
@@ -14943,7 +14926,7 @@ scenario. The components are</p>
 </ul>
 </div>
 <div class="sect6">
-<h7 id="web-service-provider-wsdl">Web service provider WSDL</h7>
+<h7 id="web-service-provider-wsdl-4">Web service provider WSDL</h7>
 <div class="paragraph">
 <p>The web service provider is a contract-first endpoint. All the WS-trust
 and security policies for it are declared in WSDL, BearerService.wsdl.
@@ -16222,7 +16205,7 @@ should be used with a sp:SignedEndorsingSupportingTokens.</p>
 </ul>
 </div>
 <div class="sect5">
-<h6 id="web-service-provider">Web service Provider</h6>
+<h6 id="web-service-provider-5">Web service Provider</h6>
 <div class="paragraph">
 <p>This section examines the web service elements for the SAML
 Holder-Of-Key scenario. The components are</p>
@@ -16247,7 +16230,7 @@ Holder-Of-Key scenario. The components are</p>
 </ul>
 </div>
 <div class="sect6">
-<h7 id="web-service-provider-wsdl">Web service provider WSDL</h7>
+<h7 id="web-service-provider-wsdl-5">Web service provider WSDL</h7>
 <div class="paragraph">
 <p>The web service provider is a contract-first endpoint. All the WS-trust
 and security policies for it are declared in the WSDL,
@@ -19366,15 +19349,15 @@ their deployment and set module dependencies in it.</p>
 <div class="sect1">
 <h2 id="Scoped_EJB_client_contexts">15. Scoped EJB client contexts</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="overview">15.1. Overview</h3>
-<div class="paragraph">
-<p>WildFly 12 introduced the EJB client API for managing remote EJB
+<div class="quoteblock abstract">
+<blockquote>
+WildFly 12 introduced the EJB client API for managing remote EJB
 invocations. The EJB client API works off EJBClientContext(s). An
 EJBClientContext can potentially contain any number of EJB receivers. An
 EJB receiver is a component which knows how to communicate with a server
 which is capable of handling the EJB invocation. Typically EJB remote
-applications can be classified into:</p>
+applications can be classified into:
+</blockquote>
 </div>
 <div class="ulist">
 <ul>
@@ -19405,9 +19388,8 @@ Whenever that application invokes on another EJB, the corresponding EJB
 client context will be used for finding the right EJB receiver and
 letting it handle the invocation.</p>
 </div>
-</div>
 <div class="sect2">
-<h3 id="potential-shortcomings-of-a-single-ejb-client-context">15.2. Potential shortcomings of a single EJB client context</h3>
+<h3 id="potential-shortcomings-of-a-single-ejb-client-context">15.1. Potential shortcomings of a single EJB client context</h3>
 <div class="paragraph">
 <p>In the Overview section we briefly looked at the different types of
 remote clients. Let&#8217;s focus on the standalone remote clients (the ones
@@ -19491,7 +19473,7 @@ are typically used for EJB invocations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="scoped-ejb-client-contexts">15.3. Scoped EJB client contexts</h3>
+<h3 id="scoped-ejb-client-contexts">15.2. Scoped EJB client contexts</h3>
 <div class="paragraph">
 <p>Developers familiar with earlier versions of JBoss AS would remember
 that for invoking an EJB, you would typically create a JNDI context
@@ -19597,7 +19579,7 @@ the lifecycle management of such scoped contexts.</strong></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="lifecycle-management-of-scoped-ejb-client-contexts">15.4. Lifecycle management of scoped EJB client contexts</h3>
+<h3 id="lifecycle-management-of-scoped-ejb-client-contexts">15.3. Lifecycle management of scoped EJB client contexts</h3>
 <div class="paragraph">
 <p>Like you saw in the previous sections, in case of scoped EJB client
 contexts, the EJB client context is tied to the JNDI context. It&#8217;s very
@@ -19639,14 +19621,14 @@ EJB client context is closed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="how-to-close-ejb-client-contexts">15.4.1. How to close EJB client contexts?</h4>
+<h4 id="how-to-close-ejb-client-contexts">15.3.1. How to close EJB client contexts?</h4>
 <div class="paragraph">
 <p>The answer to that is simple. Use the close() method on the appropriate
 EJB client context.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-to-close-scoped-ejb-client-contexts">15.4.2. How to close scoped EJB client contexts?</h4>
+<h4 id="how-to-close-scoped-ejb-client-contexts">15.3.2. How to close scoped EJB client contexts?</h4>
 <div class="paragraph">
 <p>The answer is the same, use the close() method on the EJB client
 context. But the real question is how do you get the relevant scoped EJB
@@ -19830,7 +19812,7 @@ lookups. So it depends on your application and how it&#8217;s coded.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="cant-the-scoped-ejb-client-context-be-automatically-closed-by-the-ejb-client-api-when-the-jndi-context-is-no-longer-in-scope-i.e.-on-gc">15.4.3. Can&#8217;t the scoped EJB client context be automatically closed by the</h4>
+<h4 id="cant-the-scoped-ejb-client-context-be-automatically-closed-by-the-ejb-client-api-when-the-jndi-context-is-no-longer-in-scope-i.e.-on-gc">15.3.3. Can&#8217;t the scoped EJB client context be automatically closed by the</h4>
 <div class="paragraph">
 <p>EJB client API when the JNDI context is no longer in scope (i.e. on GC)?</p>
 </div>
@@ -25590,8 +25572,8 @@ applications to WildFly.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 12.0.0.Alpha1-SNAPSHOT<br>
-Last updated 2018-02-14 11:03:45 CET
+Version 12.0.0.Final<br>
+Last updated 2018-02-28 16:06:06 CST
 </div>
 </div>
 </body>

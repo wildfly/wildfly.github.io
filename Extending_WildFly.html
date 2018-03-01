@@ -523,8 +523,8 @@ table.CodeRay td.code>pre{padding:0}
 <h1>Extending WildFly</h1>
 <div class="details">
 <span id="author" class="author">WildFly code development team</span><br>
-<span id="revnumber">version 12.0.0.Alpha1-SNAPSHOT,</span>
-<span id="revdate">2018-02-14T10:04:13Z</span>
+<span id="revnumber">version 12.0.0.Final,</span>
+<span id="revdate">2018-03-01T06:48:21Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Extending WildFly</div>
@@ -556,15 +556,14 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 <li><a href="#Domain_Mode_Subsystem_Transformers">4. Domain Mode Subsystem Transformers</a>
 <ul class="sectlevel2">
-<li><a href="#abstract">4.1. Abstract</a></li>
-<li><a href="#background">4.2. Background</a></li>
-<li><a href="#versions-and-backward-compatibility">4.3. Versions and backward compatibility</a></li>
-<li><a href="#the-role-of-transformers">4.4. The role of transformers</a></li>
-<li><a href="#how-do-i-know-what-needs-to-be-transformed">4.5. How do I know what needs to be transformed?</a></li>
-<li><a href="#how-do-i-write-a-transformer">4.6. How do I write a transformer?</a></li>
-<li><a href="#evolving-transformers-with-subsystem-modelversions">4.7. Evolving transformers with subsystem ModelVersions</a></li>
-<li><a href="#testing-transformers">4.8. Testing transformers</a></li>
-<li><a href="#common-transformation-use-cases">4.9. Common transformation use-cases</a></li>
+<li><a href="#background">4.1. Background</a></li>
+<li><a href="#versions-and-backward-compatibility">4.2. Versions and backward compatibility</a></li>
+<li><a href="#the-role-of-transformers">4.3. The role of transformers</a></li>
+<li><a href="#how-do-i-know-what-needs-to-be-transformed">4.4. How do I know what needs to be transformed?</a></li>
+<li><a href="#how-do-i-write-a-transformer">4.5. How do I write a transformer?</a></li>
+<li><a href="#evolving-transformers-with-subsystem-modelversions">4.6. Evolving transformers with subsystem ModelVersions</a></li>
+<li><a href="#testing-transformers">4.7. Testing transformers</a></li>
+<li><a href="#common-transformation-use-cases">4.8. Common transformation use-cases</a></li>
 </ul>
 </li>
 <li><a href="#Key_Interfaces_and_Classes_Relevant_to_Extension_Developers">5. Key Interfaces and Classes Relevant to Extension Developers</a>
@@ -581,7 +580,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#useful-classes-for-implementing-operationstephandler">5.10. Useful classes for implementing OperationStepHandler</a></li>
 </ul>
 </li>
-<li><a href="#WildFly_JNDI_Implementation">6. WildFly 9 JNDI Implementation</a>
+<li><a href="#WildFly_JNDI_Implementation">6. WildFly JNDI Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#introduction">6.1. Introduction</a></li>
 <li><a href="#architecture">6.2. Architecture</a></li>
@@ -3704,20 +3703,19 @@ these in an extension, please read the javadoc thoroughly.</p>
 <div class="sect1">
 <h2 id="Domain_Mode_Subsystem_Transformers">4. Domain Mode Subsystem Transformers</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="abstract">4.1. Abstract</h3>
-<div class="paragraph">
-<p>A WildFly domain may consist of a new Domain Controller (DC) controlling
+<div class="quoteblock abstract">
+<blockquote>
+A WildFly domain may consist of a new Domain Controller (DC) controlling
 slave Host Controllers (HC) running older versions. Each slave HC
 maintains a copy of the centralized domain configuration, which they use
 for controlling their own servers. In order for the slave HCs to
 understand the configuration from the DC, transformation is needed,
 whereby the DC translates the configuration and operations into
-something the slave HCs can understand.</p>
-</div>
+something the slave HCs can understand.
+</blockquote>
 </div>
 <div class="sect2">
-<h3 id="background">4.2. Background</h3>
+<h3 id="background">4.1. Background</h3>
 <div class="paragraph">
 <p>WildFly comes with a <a href="Admin_Guide.html#Domain_Setup">domain mode</a> which allows
 you to have one Host Controller acting as the Domain Controller. The
@@ -3835,7 +3833,7 @@ domain configuration in sync with the centralized domain configuration.</p>
 <p>Let&#8217;s look a bit closer at what happens in each of these steps.</p>
 </div>
 <div class="sect3">
-<h4 id="getting-the-initial-domain-model">4.2.1. Getting the initial domain model</h4>
+<h4 id="getting-the-initial-domain-model">4.1.1. Getting the initial domain model</h4>
 <div class="paragraph">
 <p>When a slave HC connects to the DC it obtains a copy of the domain model
 from the DC. This is done in a simpler serialized format, different from
@@ -3907,7 +3905,7 @@ servers.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="an-operation-changes-something-in-the-domain-configuration">4.2.2. An operation changes something in the domain configuration</h4>
+<h4 id="an-operation-changes-something-in-the-domain-configuration">4.1.2. An operation changes something in the domain configuration</h4>
 <div class="paragraph">
 <p>Once a domain is up and running we can still change things in the domain
 configuration. These changes must happen when connected to the DC, and
@@ -3962,7 +3960,7 @@ propagates the change to its <code>server-one</code> which belongs to
 </div>
 </div>
 <div class="sect2">
-<h3 id="versions-and-backward-compatibility">4.3. Versions and backward compatibility</h3>
+<h3 id="versions-and-backward-compatibility">4.2. Versions and backward compatibility</h3>
 <div class="paragraph">
 <p>A HC and its servers will always be the same version of WildFly (they
 use the same module path and jars). However, the DC and the slave HCs do
@@ -3991,7 +3989,7 @@ with slave HCs running WildFly 10. The opposite is not true, the DC must
 be the same or the newest version in the domain.</p>
 </div>
 <div class="sect3">
-<h4 id="versioning-of-subsystems">4.3.1. Versioning of subsystems</h4>
+<h4 id="versioning-of-subsystems">4.2.1. Versioning of subsystems</h4>
 <div class="paragraph">
 <p>To help with being able to know what is compatible we have versions
 within the subsystems, this is stored in the subsystem&#8217;s extension. When
@@ -4113,7 +4111,7 @@ extension:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="the-role-of-transformers">4.4. The role of transformers</h3>
+<h3 id="the-role-of-transformers">4.3. The role of transformers</h3>
 <div class="paragraph">
 <p>Now that we have mentioned the slave HCs registration process with the
 DC, and know about ModelVersions, it is time to mention that when
@@ -4275,7 +4273,7 @@ operations to legacy slave HCs.
 </table>
 </div>
 <div class="sect3">
-<h4 id="resource-transformers">4.4.1. Resource transformers</h4>
+<h4 id="resource-transformers">4.3.1. Resource transformers</h4>
 <div class="paragraph">
 <p>When copying over the centralized domain configuration as mentioned in
 <a href="#getting-the-initial-domain-model">#Getting
@@ -4344,7 +4342,7 @@ HC to fail to start up.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="operation-transformers">4.4.2. Operation transformers</h4>
+<h4 id="operation-transformers">4.3.2. Operation transformers</h4>
 <div class="paragraph">
 <p>When
 <a href="#an-operation-changes-something-in-the-domain-configuration">#An
@@ -4384,7 +4382,7 @@ rollback the operation across the whole domain.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="different-profiles-for-different-versions">4.4.3. Different profiles for different versions</h4>
+<h4 id="different-profiles-for-different-versions">4.3.3. Different profiles for different versions</h4>
 <div class="paragraph">
 <p>Now for the <code>weld</code> example we have been using there is a slight twist.
 We have the new <code>require-bean-descriptor</code> and <code>non-portable-mode</code>
@@ -4526,7 +4524,7 @@ and all its children.
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-do-i-know-what-needs-to-be-transformed">4.5. How do I know what needs to be transformed?</h3>
+<h3 id="how-do-i-know-what-needs-to-be-transformed">4.4. How do I know what needs to be transformed?</h3>
 <div class="paragraph">
 <p>There is a set of related classes in the <code>org.wildfly.legacy.util</code>
 package to help you determine this. These now live at
@@ -4535,7 +4533,7 @@ They are all runnable in your IDE, just start the WildFly or JBoss AS 7
 instances as described below.</p>
 </div>
 <div class="sect3">
-<h4 id="getting-data-for-a-previous-version">4.5.1. Getting data for a previous version</h4>
+<h4 id="getting-data-for-a-previous-version">4.4.1. Getting data for a previous version</h4>
 <div class="paragraph">
 <p><a href="https://github.com/wildfly/wildfly-legacy-test/tree/master/tools/src/main/resources/legacy-models" class="bare">https://github.com/wildfly/wildfly-legacy-test/tree/master/tools/src/main/resources/legacy-models</a>
 contains the output for the previous WildFly/JBoss AS 7 versions, so
@@ -4566,7 +4564,7 @@ which will output the full resource definition to
 </div>
 </div>
 <div class="sect3">
-<h4 id="see-what-changed">4.5.2. See what changed</h4>
+<h4 id="see-what-changed">4.4.2. See what changed</h4>
 <div class="paragraph">
 <p>To do this follow the following steps</p>
 </div>
@@ -4729,7 +4727,7 @@ transformation is needed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-do-i-write-a-transformer">4.6. How do I write a transformer?</h3>
+<h3 id="how-do-i-write-a-transformer">4.5. How do I write a transformer?</h3>
 <div class="paragraph">
 <p>There are two APIs available to write transformers for a resource. There
 is the original low-level API where you register transformers directly,
@@ -4888,7 +4886,7 @@ sent to the legacy HC.</p>
 features/most commonly needed tasks.</p>
 </div>
 <div class="sect3">
-<h4 id="resourcetransformationdescriptionbuilder">4.6.1. ResourceTransformationDescriptionBuilder</h4>
+<h4 id="resourcetransformationdescriptionbuilder">4.5.1. ResourceTransformationDescriptionBuilder</h4>
 <div class="paragraph">
 <p>The <code>ResourceTransformationDescriptionBuilder</code> contains transformations
 for a resource type. The initial one is for the subsystem, obtained by
@@ -5069,7 +5067,7 @@ the child resource.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="attributetransformationdescriptionbuilder">4.6.2. AttributeTransformationDescriptionBuilder</h4>
+<h4 id="attributetransformationdescriptionbuilder">4.5.2. AttributeTransformationDescriptionBuilder</h4>
 <div class="paragraph">
 <p>To transform attributes you call
 <code>ResourceTransformationDescriptionBuilder.getAttributeBuilder()</code> which
@@ -5908,7 +5906,7 @@ the operations involving this attribute are affected, so</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="operationtransformationoverridebuilder">4.6.3. OperationTransformationOverrideBuilder</h4>
+<h4 id="operationtransformationoverridebuilder">4.5.3. OperationTransformationOverrideBuilder</h4>
 <div class="paragraph">
 <p>All operations on a resource automatically get the same transformations
 on their parameters as set up by the
@@ -5950,7 +5948,7 @@ to the legacy slave HC.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="evolving-transformers-with-subsystem-modelversions">4.7. Evolving transformers with subsystem ModelVersions</h3>
+<h3 id="evolving-transformers-with-subsystem-modelversions">4.6. Evolving transformers with subsystem ModelVersions</h3>
 <div class="paragraph">
 <p>Say you have a subsystem with ModelVersions 1.0.0 and 1.1.0. There will
 (hopefully!) already be transformers in place for 1.1.0 to 1.0.0
@@ -6032,7 +6030,7 @@ transformers</a></p>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="the-old-way">4.7.1. The old way</h4>
+<h4 id="the-old-way">4.6.1. The old way</h4>
 <div class="paragraph">
 <p>This is the way that has been used up to WildFly 12.x. However, in
 WildFly 9 and later, it is strongly recommended to migrate to what is
@@ -6091,7 +6089,7 @@ versions.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="chained-transformers">4.7.2. Chained transformers</h4>
+<h4 id="chained-transformers">4.6.2. Chained transformers</h4>
 <div class="paragraph">
 <p>Since 'The old way' had a lot of duplication of code, since WildFly 9 we
 now have chained transformers. You obtain a
@@ -6190,7 +6188,7 @@ model tests.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="testing-transformers">4.8. Testing transformers</h3>
+<h3 id="testing-transformers">4.7. Testing transformers</h3>
 <div class="paragraph">
 <p>To test transformation you need to extend
 <code>org.jboss.as.subsystem.test.AbstractSubsystemTest</code> or
@@ -6224,7 +6222,7 @@ subsystem#Testing the parsers</a>, but we will only talk about the parts
 relevant to transformers here.</p>
 </div>
 <div class="sect3">
-<h4 id="testing-a-configuration-that-works">4.8.1. Testing a configuration that works</h4>
+<h4 id="testing-a-configuration-that-works">4.7.1. Testing a configuration that works</h4>
 <div class="paragraph">
 <p>To test a configuration xxx</p>
 </div>
@@ -6347,7 +6345,7 @@ resources.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="testing-a-configuration-that-does-not-work">4.8.2. Testing a configuration that does not work</h4>
+<h4 id="testing-a-configuration-that-does-not-work">4.7.2. Testing a configuration that does not work</h4>
 <div class="paragraph">
 <p>The <code>threads</code> subsystem (like several others) did not support the use of
 expression values in the version that came with JBoss AS 7.1.2.Final. So
@@ -6431,7 +6429,7 @@ help testing rejection of other scenarios.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="common-transformation-use-cases">4.9. Common transformation use-cases</h3>
+<h3 id="common-transformation-use-cases">4.8. Common transformation use-cases</h3>
 <div class="paragraph">
 <p>Most transformations are quite similar, so this section covers some of
 the actual transformation patterns found in the WildFly codebase. We
@@ -6442,7 +6440,7 @@ being explained in an attempt to keep things as clear/simple as
 possible.</p>
 </div>
 <div class="sect3">
-<h4 id="child-resource-type-does-not-exist-in-legacy-model">4.9.1. Child resource type does not exist in legacy model</h4>
+<h4 id="child-resource-type-does-not-exist-in-legacy-model">4.8.1. Child resource type does not exist in legacy model</h4>
 <div class="paragraph">
 <p>Looking at the model comparison between WildFly and JBoss AS 7.2.0,
 there is a change to the <code>remoting</code> subsystem. The relevant part of the
@@ -6492,7 +6490,7 @@ we need to reject it there as well using a similar mechanism.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="attribute-does-not-exist-in-the-legacy-subsystem">4.9.2. Attribute does not exist in the legacy subsystem</h4>
+<h4 id="attribute-does-not-exist-in-the-legacy-subsystem">4.8.2. Attribute does not exist in the legacy subsystem</h4>
 <div class="sect4">
 <h5 id="default-value-of-the-attribute-is-the-same-as-legacy-implied-behavior">Default value of the attribute is the same as legacy implied</h5>
 <div class="paragraph">
@@ -6677,7 +6675,7 @@ with the names of the attributes having been rejected substituting the
 </div>
 </div>
 <div class="sect3">
-<h4 id="attribute-has-a-different-default-value">4.9.3. Attribute has a different default value</h4>
+<h4 id="attribute-has-a-different-default-value">4.8.3. Attribute has a different default value</h4>
 <div class="paragraph">
 <p>– TODO</p>
 </div>
@@ -6707,7 +6705,7 @@ when they were created. It does not help with CLI scripts though.)</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="attribute-has-a-different-type">4.9.4. Attribute has a different type</h4>
+<h4 id="attribute-has-a-different-type">4.8.4. Attribute has a different type</h4>
 <div class="paragraph">
 <p>Here the example comes from the <code>capacity</code> parameter some way into the
 <code>modcluster</code> subsystem, and the legacy version is AS 7.1.2.Final. There
@@ -8350,7 +8348,7 @@ be poor practice as it&#8217;s just redundant data.)</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="WildFly_JNDI_Implementation">6. WildFly 9 JNDI Implementation</h2>
+<h2 id="WildFly_JNDI_Implementation">6. WildFly JNDI Implementation</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="introduction">6.1. Introduction</h3>
@@ -8829,8 +8827,8 @@ the JAR file containing the classes above with value
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 12.0.0.Alpha1-SNAPSHOT<br>
-Last updated 2018-02-14 11:03:45 CET
+Version 12.0.0.Final<br>
+Last updated 2018-02-28 16:06:06 CST
 </div>
 </div>
 </body>
