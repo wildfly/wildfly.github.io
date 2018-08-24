@@ -432,8 +432,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>WildFly Galleon Plugins Documentation</h1>
 <div class="details">
 <span id="author" class="author">Alexey Loubyansky</span><br>
-<span id="revnumber">version 2.0.0.Alpha7-SNAPSHOT,</span>
-<span id="revdate">2018-07-24T16:23:47Z</span>
+<span id="revnumber">version 2.0.0.Final,</span>
+<span id="revdate">2018-08-24T17:06:59Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -444,6 +444,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_goals_overview">2.1. Goals overview</a></li>
 <li><a href="#_generate_feature_specs">2.2. generate-feature-specs</a></li>
 <li><a href="#_build_feature_pack">2.3. build-feature-pack</a></li>
+<li><a href="#_feature_pack_build_config_file_wildfly_feature_pack_build_xml">2.4. Feature-pack build config file (wildfly-feature-pack-build.xml)</a></li>
 </ul>
 </li>
 </ul>
@@ -461,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>WildFly Galleon Plugins project includes Galleon and Maven plugin implementations that are dedicated to building feature-packs (including generation of feature specs and packages) for WildFly releases and provisioning of WildFly-based distributions. These plugins can also be re-used by projects that integrate into or extend WildFly (Core, Servlet of Full base distributions).</p>
+<p>WildFly Galleon Plugins project includes Galleon and Maven plugin implementations that are dedicated to building feature-packs (including generation of feature specs, packages and other resources) for WildFly releases and provisioning of WildFly-based distributions. These plugins can also be used by projects that integrate into or extend WildFly (Core, Servlet or Full base distributions).</p>
 </div>
 </div>
 </div>
@@ -469,17 +470,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_maven_plugin">2. Maven plugin</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This chapter is dedicated to the Maven plugin that can be used to build and install WildFly-based feature-packs. Maven
+<p>This chapter is dedicated to the Maven plugin that can be used to build WildFly-based feature-packs. Maven
 coordinates of the Maven plugin artifact are</p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-Provisioning of distributions is done using the Maven plugin that belongs to Galleon itself. Please, refer to
+Maven plugin installing feature-packs and provisioning distributions is a part of Galleon project itself. Please, refer to
 Galleon documentation for more information.
 </td>
 </tr>
@@ -490,7 +491,7 @@ Galleon documentation for more information.
 <pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;dependency&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.wildfly.galleon-plugins<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>wildfly-galleon-maven-plugin<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
-    <span style="color:#070;font-weight:bold">&lt;version&gt;</span>2.0.0.Alpha7-SNAPSHOT<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;version&gt;</span>2.0.0.Final<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
 <span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span></code></pre>
 </div>
 </div>
@@ -519,7 +520,7 @@ Galleon documentation for more information.
 <h4 id="_wildfly_galleon_generate_feature_specs">2.2.1. wildfly-galleon:generate-feature-specs</h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:2.0.0.Alpha7-SNAPSHOT:generate-feature-specs</p>
+org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:2.0.1.Alpha1-SNAPSHOT:generate-feature-specs</p>
 </div>
 </div>
 <div class="sect3">
@@ -562,20 +563,16 @@ the server to produce the specifications for Galleon.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#domainExtensions">[domainExtensions]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#moduleTemplatesDir">[moduleTemplatesDir]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Path</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List of WildFly extensions for the embedded domain. Used in the
-domain.xml.<br>
-<strong>Alias is</strong>: <code>domain-extensions</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#hostExtensions">[hostExtensions]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List of WildFly extensions for the embedded host. Used in the
-host.xml.<br>
-<strong>Alias is</strong>: <code>host-extensions</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A directory where the module templates from the dependent feature
+packs are gathered before they are transformed and copied under
+their default destination <code>wildflyHome</code>/modules.
+Intended mainly for debugging.<br>
+<strong>Default value is</strong>: <code>${project.build.directory}/module-templates</code>.<br>
+<strong>User property is</strong>: <code>wfgp.moduleTemplatesDir</code>.<br>
+<strong>Alias is</strong>: <code>module-templates</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#outputDirectory">[outputDirectory]</a></code></p></td>
@@ -585,12 +582,15 @@ host.xml.<br>
 <strong>Alias is</strong>: <code>output-dir</code>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#standaloneExtensions">[standaloneExtensions]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#wildflyHome">[wildflyHome]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Path</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List of WildFly extensions for the embedded standalone. Used in the
-standalone.xml<br>
-<strong>Alias is</strong>: <code>standalone-extensions</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A directory from which the embedded WildFly instance will be
+started that is used for exporting the meta-model. Intended mainly
+for debugging.<br>
+<strong>Default value is</strong>: <code>${project.build.directory}/wildfly</code>.<br>
+<strong>User property is</strong>: <code>wfgp.wildflyHome</code>.<br>
+<strong>Alias is</strong>: <code>wildfly-home</code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -610,19 +610,22 @@ standalone.xml<br>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#externalArtifacts">[externalArtifacts]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#configDir">[configDir]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>File</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List of external artifacts to be added to the embedded server.<br>
-<strong>Alias is</strong>: <code>external-artifacts</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The feature-pack build configuration file directory<br>
+<strong>Default value is</strong>: <code>${basedir}</code>.<br>
+<strong>User property is</strong>: <code>wildfly.feature.pack.configDir</code>.<br>
+<strong>Alias is</strong>: <code>config-dir</code>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#featurePacks">[featurePacks]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#configFile">[configFile]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List of feature-pack artifacts that the new feature-pack will
-depend on.<br>
-<strong>Alias is</strong>: <code>feature-packs</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The feature-pack build configuration file.<br>
+<strong>Default value is</strong>: <code>wildfly-feature-pack-build.xml</code>.<br>
+<strong>User property is</strong>: <code>wildfly.feature.pack.configFile</code>.<br>
+<strong>Alias is</strong>: <code>config-file</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#forkEmbedded">[forkEmbedded]</a></code></p></td>
@@ -638,55 +641,48 @@ in a separate process<br>
 <div class="sect3">
 <h4 id="_parameter_details">2.2.4. Parameter Details</h4>
 <div class="paragraph">
-<p><a id="domainExtensions"></a> <strong>domainExtensions</strong><br>
-List of WildFly extensions for the embedded domain. Used in the
-domain.xml.</p>
+<p><a id="configDir"></a> <strong>configDir</strong><br>
+The feature-pack build configuration file directory</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Type</strong>: <code>java.util.List</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>Yes</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>domain-extensions</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="externalArtifacts"></a> <strong>externalArtifacts</strong><br>
-List of external artifacts to be added to the embedded server.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.util.List</code></p>
+<p><strong>Type</strong>: <code>java.io.File</code></p>
 </li>
 <li>
 <p><strong>Required</strong>: <code>No</code></p>
 </li>
 <li>
-<p><strong>Alias</strong>: <code>external-artifacts</code></p>
+<p><strong>User Property</strong>: <code>wildfly.feature.pack.configDir</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>${basedir}</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>config-dir</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><a id="featurePacks"></a> <strong>featurePacks</strong><br>
-List of feature-pack artifacts that the new feature-pack will
-depend on.</p>
+<p><a id="configFile"></a> <strong>configFile</strong><br>
+The feature-pack build configuration file.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Type</strong>: <code>java.util.List</code></p>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
 </li>
 <li>
 <p><strong>Required</strong>: <code>No</code></p>
 </li>
 <li>
-<p><strong>Alias</strong>: <code>feature-packs</code></p>
+<p><strong>User Property</strong>: <code>wildfly.feature.pack.configFile</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>wildfly-feature-pack-build.xml</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>config-file</code></p>
 </li>
 </ul>
 </div>
@@ -709,20 +705,28 @@ in a separate process</p>
 </ul>
 </div>
 <div class="paragraph">
-<p><a id="hostExtensions"></a> <strong>hostExtensions</strong><br>
-List of WildFly extensions for the embedded host. Used in the
-host.xml.</p>
+<p><a id="moduleTemplatesDir"></a> <strong>moduleTemplatesDir</strong><br>
+A directory where the module templates from the dependent feature
+packs are gathered before they are transformed and copied under
+their default destination <code>wildflyHome</code>/modules.
+Intended mainly for debugging.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Type</strong>: <code>java.util.List</code></p>
+<p><strong>Type</strong>: <code>java.nio.file.Path</code></p>
 </li>
 <li>
 <p><strong>Required</strong>: <code>Yes</code></p>
 </li>
 <li>
-<p><strong>Alias</strong>: <code>host-extensions</code></p>
+<p><strong>User Property</strong>: <code>wfgp.moduleTemplatesDir</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>${project.build.directory}/module-templates</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>module-templates</code></p>
 </li>
 </ul>
 </div>
@@ -744,20 +748,27 @@ The directory where the generated specifications are written.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p><a id="standaloneExtensions"></a> <strong>standaloneExtensions</strong><br>
-List of WildFly extensions for the embedded standalone. Used in the
-standalone.xml</p>
+<p><a id="wildflyHome"></a> <strong>wildflyHome</strong><br>
+A directory from which the embedded WildFly instance will be
+started that is used for exporting the meta-model. Intended mainly
+for debugging.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Type</strong>: <code>java.util.List</code></p>
+<p><strong>Type</strong>: <code>java.nio.file.Path</code></p>
 </li>
 <li>
 <p><strong>Required</strong>: <code>Yes</code></p>
 </li>
 <li>
-<p><strong>Alias</strong>: <code>standalone-extensions</code></p>
+<p><strong>User Property</strong>: <code>wfgp.wildflyHome</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>${project.build.directory}/wildfly</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>wildfly-home</code></p>
 </li>
 </ul>
 </div>
@@ -769,7 +780,7 @@ standalone.xml</p>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;plugin&gt;</span>
   <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.wildfly.galleon-plugins<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
-  <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>wildfly-galleon-maven-plugins<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>wildfly-galleon-maven-plugin<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
   <span style="color:#070;font-weight:bold">&lt;executions&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;execution&gt;</span>
       <span style="color:#070;font-weight:bold">&lt;id&gt;</span>feature-spec-build<span style="color:#070;font-weight:bold">&lt;/id&gt;</span>
@@ -779,55 +790,6 @@ standalone.xml</p>
       <span style="color:#070;font-weight:bold">&lt;phase&gt;</span>prepare-package<span style="color:#070;font-weight:bold">&lt;/phase&gt;</span>
       <span style="color:#070;font-weight:bold">&lt;configuration&gt;</span>
         <span style="color:#070;font-weight:bold">&lt;output-dir&gt;</span>${basedir}/target/resources/features<span style="color:#070;font-weight:bold">&lt;/output-dir&gt;</span> <i class="conum" data-value="1"></i><b>(1)</b>
-        <span style="color:#070;font-weight:bold">&lt;feature-packs&gt;</span> <i class="conum" data-value="2"></i><b>(2)</b>
-          <span style="color:#070;font-weight:bold">&lt;feature-pack&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.wildfly.core<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>wildfly-core-galleon-pack<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;version&gt;</span>${version.org.wildfly.core}<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;type&gt;</span>zip<span style="color:#070;font-weight:bold">&lt;/type&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>zip<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
-          <span style="color:#070;font-weight:bold">&lt;/feature-pack&gt;</span>
-          <span style="color:#070;font-weight:bold">&lt;feature-pack&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.wildfly<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>wildfly-servlet-galleon-pack<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;version&gt;</span>${project.version}<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;type&gt;</span>zip<span style="color:#070;font-weight:bold">&lt;/type&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>zip<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
-          <span style="color:#070;font-weight:bold">&lt;/feature-pack&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;/feature-packs&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;external-artifacts&gt;</span> <i class="conum" data-value="3"></i><b>(3)</b>
-          <span style="color:#070;font-weight:bold">&lt;external-artifact&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;artifactItem&gt;</span>
-              <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.apache.activemq<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
-              <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>artemis-native<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
-              <span style="color:#070;font-weight:bold">&lt;version&gt;</span>${version.org.apache.activemq.artemis}<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;/artifactItem&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;includes&gt;</span>lib/**<span style="color:#070;font-weight:bold">&lt;/includes&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;excludes&gt;</span>*.*<span style="color:#070;font-weight:bold">&lt;/excludes&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;toLocation&gt;</span>system/layers/base/org/apache/activemq/artemis/journal/main<span style="color:#070;font-weight:bold">&lt;/toLocation&gt;</span>
-          <span style="color:#070;font-weight:bold">&lt;/external-artifact&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;/external-artifacts&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;standalone-extensions&gt;</span> <i class="conum" data-value="4"></i><b>(4)</b>
-          <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.wildfly.extension.discovery<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
-          <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.jboss.as.clustering.infinispan<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
-          <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.jboss.as.clustering.jgroups<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
-          <span style="color:#777">&lt;!-- skipped content --&gt;</span>
-          <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.wildfly.extension.undertow<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
-          <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.wildfly.iiop-openjdk<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;/standalone-extensions&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;domain-extensions&gt;</span> <i class="conum" data-value="5"></i><b>(5)</b>
-          <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.wildfly.extension.discovery<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
-          <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.jboss.as.clustering.infinispan<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
-         <span style="color:#777">&lt;!-- skipped content --&gt;</span>
-          <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.wildfly.extension.undertow<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
-          <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.wildfly.iiop-openjdk<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;/domain-extensions&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;host-extensions&gt;</span> <i class="conum" data-value="6"></i><b>(6)</b>
-          <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.jboss.as.jmx<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
-          <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.wildfly.extension.core-management<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
-          <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.wildfly.extension.discovery<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
-          <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.wildfly.extension.elytron<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;/host-extensions&gt;</span>
       <span style="color:#070;font-weight:bold">&lt;/configuration&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;/execution&gt;</span>
   <span style="color:#070;font-weight:bold">&lt;/executions&gt;</span>
@@ -838,56 +800,33 @@ standalone.xml</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>outputDirectory: The directory where the generated specifications are written.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>feature-packs: List of feature-pack artifacts that the new feature-pack will depend on.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>outputDirectory: List of external artifacts to be added to the embedded server.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>standalone-extensions: List of WildFly extensions for the embedded standalone.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>domain-extensions: List of WildFly extensions for the embedded domain.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>host-extensions: List of WildFly extensions for the embedded host.</td>
+<td>output-Dir: The directory where the generated specifications are written.</td>
 </tr>
 </table>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_how_does_it_work">2.2.6. How does it work ?</h4>
+<h4 id="_how_it_works">2.2.6. How it works</h4>
 <div class="paragraph">
 <p>This section explains the basic mechanism of feature spec generation in WildFly.</p>
 </div>
 <div class="paragraph">
-<p>Since the whole mechanism relies on the WildFly metamodel we create a mininal configuration file with all the extensions
-we want to be able to configure in the feature pack. Then we generate the feature specs via a Wildfly
-OperationStepHandler specifically designed for this.</p>
+<p>Since the whole mechanism relies on the WildFly metamodel, we create a mininal configuration file with all the extensions we want to be able to configure in the feature-pack. Then we boot the embedded server and execute <code>read-feature-description(recursive)</code> management operation on the root resource. The operation returns the description of Galleon feature spec for every resource in the model that may appear in server configurations.</p>
 </div>
 <div class="paragraph">
 <p>Each resource registration in the WildFly model is considered to be a feature as long as it is not a <code>proxy</code>, a
 <code>runtime only</code> or an <code>alias</code>. The registration address is used to define the feature-id of the feature and all
-attributes that can be used in the addHandler will become parameters. Capabilities are used to define the links between
-feature specs thus defining how the operations will be grouped, ordered and executed.</p>
+attributes that can be used in the <code>add</code> operation handler will become parameters.</p>
 </div>
 <div class="paragraph">
-<p>Complex attributes cannot be used as simple parameters of a feature and are converted to feature specs too so they can
-be configured in an easier way through a <code>writeAttribute</code> or <code>addList</code> instead of an <code>add</code> operation.</p>
+<p>Capabilities are used to define the links between feature specs thus defining how the operations will be grouped, ordered and executed.</p>
 </div>
 <div class="paragraph">
-<p>Then all the feature specs for <strong>standalone</strong> server, <strong>domain</strong> server and <strong>host</strong> controller are processed and 'merged'
-into a single feature spec if no incompatibility exists between those three modes. We remove also all the feature specs
-that have already been defined in the feature packs that we are depending on (for example core feature specs that would
-have been produced in every Wildfly server are removed).</p>
+<p>Complex attributes are represented as usual feature parameters and also as separate feature specs. Which means complex attribute values can be configured using Galleon features. Dependending on the actual parameter type, features that represent complex attribute values will be added to the configuration using <code>write-attribute</code> or <code>list-add</code> operations instead of <code>add</code>.</p>
+</div>
+<div class="paragraph">
+<p>Certain feature specs for <strong>standalone</strong> server, <strong>domain</strong> and <strong>host</strong> controller are processed and merged
+into a single feature spec (if no incompatibility exists between those three models) to have a single feature spec re-usable in the three configuration models.</p>
 </div>
 </div>
 </div>
@@ -897,7 +836,7 @@ have been produced in every Wildfly server are removed).</p>
 <h4 id="_wildfly_galleon_build_feature_pack">2.3.1. wildfly-galleon:build-feature-pack</h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:2.0.0.Alpha7-SNAPSHOT:build-feature-pack</p>
+org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:2.0.1.Alpha1-SNAPSHOT:build-feature-pack</p>
 </div>
 </div>
 <div class="sect3">
@@ -943,23 +882,13 @@ artifact.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#releaseName">[releaseName]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the release the feature-pack represents which will be
-stored in the feature-pack&#8217;s
-<code>resources/wildfly/wildfly-tasks.properties</code> as
-<code>product.release.name</code> property.<br>
-<strong>Default value is</strong>: <code>${product.release.name}</code>.<br>
-<strong>Alias is</strong>: <code>release-name</code>.</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#resourcesDir">[resourcesDir]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A path relative to <code>configDir</code> that represents the
-directory under which of resources such as <code>packages</code>,
-<code>feature_groups</code>, etc.<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the directory containing child directories
+<code>packages</code>, <code>feature_groups</code>,
+<code>modules</code> etc. Either an absolute path or a path
+relative to <code>configDir</code>.<br>
 <strong>Default value is</strong>: <code>src/main/resources</code>.<br>
 <strong>User property is</strong>: <code>wildfly.feature.pack.resourcesDir</code>.<br>
 <strong>Alias is</strong>: <code>resources-dir</code>.</p></td>
@@ -1014,6 +943,17 @@ directory under which of resources such as <code>packages</code>,
 <td class="tableblock halign-left valign-top"><p class="tableblock">The artifactId for the generated feature-pack.<br>
 <strong>Default value is</strong>: <code>${project.artifactId}</code>.<br>
 <strong>Alias is</strong>: <code>feature-pack-artifact-id</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#releaseName">[releaseName]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the release the feature-pack represents which will be
+stored in the feature-pack&#8217;s
+<code>resources/wildfly/wildfly-tasks.properties</code> as
+<code>product.release.name</code> property.<br>
+<strong>Default value is</strong>: <code>${product.release.name}</code>.<br>
+<strong>Alias is</strong>: <code>release-name</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#taskProps">[taskProps]</a></code></p></td>
@@ -1140,7 +1080,7 @@ stored in the feature-pack&#8217;s
 <p><strong>Type</strong>: <code>java.lang.String</code></p>
 </li>
 <li>
-<p><strong>Required</strong>: <code>Yes</code></p>
+<p><strong>Required</strong>: <code>No</code></p>
 </li>
 <li>
 <p><strong>Default</strong>: <code>${product.release.name}</code></p>
@@ -1152,9 +1092,10 @@ stored in the feature-pack&#8217;s
 </div>
 <div class="paragraph">
 <p><a id="resourcesDir"></a> <strong>resourcesDir</strong><br>
-A path relative to <code>configDir</code> that represents the
-directory under which of resources such as <code>packages</code>,
-<code>feature_groups</code>, etc.</p>
+Represents the directory containing child directories
+<code>packages</code>, <code>feature_groups</code>,
+<code>modules</code> etc. Either an absolute path or a path
+relative to <code>configDir</code>.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1218,66 +1159,7 @@ with property replacement.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_feature_pack_build_config_file_wildfly_feature_pack_build_xml">2.3.5. Feature-pack build config file (wildfly-feature-pack-build.xml)</h4>
-<div class="paragraph">
-<p>Feature-pack building starts with this file. The file describes the feature-pack in terms of its dependencies on other
-feature-packs, default packages, configs and other options such as from which artifact groups to extract schemas into
-the distribution&#8217;s <code>docs/schema</code> directory.</p>
-</div>
-<div class="paragraph">
-<p>If the file includes feature-pack dependencies, those feature-packs must be resolvable as Maven artifacts during the
-build process. They will be explored to collect the provisioning descriptions (such as feature-pack.xml, etc) of the
-dependencies.</p>
-</div>
-<div class="paragraph">
-<p>Most of the content of this file is basically copied directly into the final <code>feature-pack.xml</code> generated by the mojo.
-Here is an excerpt from the WildFly Servlet feature-pack build config file</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;build</span> <span style="color:#b48">xmlns</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">urn:wildfly:feature-pack-build:2.0</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
-    <span style="color:#070;font-weight:bold">&lt;dependencies&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;dependency</span> <span style="color:#b48">group-id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">org.wildfly.core</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">artifact-id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">wildfly-core-galleon-pack</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;name&gt;</span>org.wildfly.core:wildfly-core-galleon-pack<span style="color:#070;font-weight:bold">&lt;/name&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;packages</span> <span style="color:#b48">inherit</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">false</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
-                <span style="color:#070;font-weight:bold">&lt;exclude</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">product.conf</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;/packages&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;default-configs</span> <span style="color:#b48">inherit</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">false</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span>
-    <span style="color:#070;font-weight:bold">&lt;/dependencies&gt;</span>
-    <span style="color:#070;font-weight:bold">&lt;default-packages&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;package</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">modules.all</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;package</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">docs</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
-    <span style="color:#070;font-weight:bold">&lt;/default-packages&gt;</span>
-    <span style="color:#070;font-weight:bold">&lt;package-schemas&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;group</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">org.jboss.as</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;group</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">org.wildfly</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;group</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">org.wildfly.core</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
-    <span style="color:#070;font-weight:bold">&lt;/package-schemas&gt;</span>
-    <span style="color:#070;font-weight:bold">&lt;config</span> <span style="color:#b48">model</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">standalone</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;packages&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;package</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">product.conf</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">optional</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">true</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
-            <span style="color:#070;font-weight:bold">&lt;package</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">misc.standalone</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;/packages&gt;</span>
-    <span style="color:#070;font-weight:bold">&lt;/config&gt;</span>
-    <span style="color:#777">&lt;!-- the rest is skipped --&gt;</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>All the elements in the above excerpt except for package-schemas are actual <code>feature-pack.xml</code> content that will be
-copied to the resulting feature-pack.xml as-is.</p>
-</div>
-<div class="sect4">
-<h5 id="_extracting_schemas">Extracting schemas</h5>
-<div class="paragraph">
-<p>The presence of element <code>package-schemas</code> instructs the mojo to create a package called <code>docs.schema</code>. The package
-includes no content but a file with Maven artifact groupIds from which XSD schemas should be extracted into the
-distribution&#8217;s docs/schema directory, in case <code>docs.schema</code> package was selected to be installed (it is by default).</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_feature_pack_packages">2.3.6. Feature-pack packages</h4>
+<h4 id="_feature_pack_packages">2.3.5. Feature-pack packages</h4>
 <div class="paragraph">
 <p>The Maven project module which creates a feature-pack may describe its packages and/or provide more data for the packages generated from JBoss modules in the Maven module&#8217;s <code>src/main/resources/packages</code>.</p>
 </div>
@@ -1308,7 +1190,7 @@ distribution&#8217;s docs/schema directory, in case <code>docs.schema</code> pac
 </div>
 </div>
 <div class="sect3">
-<h4 id="_generating_jboss_module_packages">2.3.7. Generating JBoss module packages</h4>
+<h4 id="_generating_jboss_module_packages">2.3.6. Generating JBoss module packages</h4>
 <div class="paragraph">
 <p>JBoss modules of the distribution are turned into feature-pack packages. A package is created per JBoss module. JBoss module dependencies are reflected in the corresponding package dependencies.</p>
 </div>
@@ -1437,12 +1319,158 @@ Original WildFly feature-packs include <code>modules.all</code> into the default
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_feature_pack_build_config_file_wildfly_feature_pack_build_xml">2.4. Feature-pack build config file (wildfly-feature-pack-build.xml)</h3>
+<div class="paragraph">
+<p>Feature-pack building starts with this file. The file describes the feature-pack in terms of its dependencies on other
+feature-packs, default packages, configs and other options such as from which artifact groups to extract schemas into
+the distribution&#8217;s <code>docs/schema</code> directory.</p>
+</div>
+<div class="paragraph">
+<p>If the file includes feature-pack dependencies, those feature-packs must be resolvable as Maven artifacts during the
+build process. They will be explored to collect the provisioning descriptions (such as feature-pack.xml, etc) of the
+dependencies.</p>
+</div>
+<div class="paragraph">
+<p>Normally, most of the content of this file will be copied directly into the final <code>feature-pack.xml</code> generated by the mojo.
+Here is an example from WildFly Servlet feature-pack build config file</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;build</span> <span style="color:#b48">xmlns</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">urn:wildfly:feature-pack-build:2.0</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;dependencies&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;dependency</span> <span style="color:#b48">group-id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">org.wildfly.core</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">artifact-id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">wildfly-core-galleon-pack</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;name&gt;</span>org.wildfly.core:wildfly-core-galleon-pack<span style="color:#070;font-weight:bold">&lt;/name&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;packages</span> <span style="color:#b48">inherit</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">false</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+                <span style="color:#070;font-weight:bold">&lt;exclude</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">product.conf</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;/packages&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;default-configs</span> <span style="color:#b48">inherit</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">false</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/dependencies&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;default-packages&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;package</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">modules.all</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;package</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">docs</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/default-packages&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;package-schemas&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;group</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">org.jboss.as</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;group</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">org.wildfly</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;group</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">org.wildfly.core</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/package-schemas&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;config</span> <span style="color:#b48">model</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">standalone</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;packages&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;package</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">product.conf</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">optional</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">true</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;package</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">misc.standalone</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;/packages&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/config&gt;</span>
+
+    <span style="color:#777">&lt;!-- other configs are skipped --&gt;</span>
+
+    <span style="color:#070;font-weight:bold">&lt;generate-feature-specs&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;extensions&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;standalone&gt;</span>
+                <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.jboss.as.ee<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
+                <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.jboss.as.naming<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
+                <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.jboss.as.security<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
+                <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.wildfly.extension.undertow<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;/standalone&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;domain&gt;</span>
+                <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.jboss.as.ee<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
+                <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.jboss.as.naming<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
+                <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.jboss.as.security<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
+                <span style="color:#070;font-weight:bold">&lt;extension&gt;</span>org.wildfly.extension.undertow<span style="color:#070;font-weight:bold">&lt;/extension&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;/domain&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;/extensions&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/generate-feature-specs&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/build&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All the elements in the above example except for package-schemas and <code>generate-feature-specs</code> are actual <code>feature-pack.xml</code> content that will be
+copied to the resulting feature-pack.xml as-is.</p>
+</div>
+<div class="sect4">
+<h5 id="_extracting_schemas">Extracting schemas</h5>
+<div class="paragraph">
+<p>The presence of element <code>package-schemas</code> instructs the mojo to create a package called <code>docs.schema</code>. The package
+includes no content but a file with Maven artifact groupIds from which XSD schemas should be extracted into the
+distribution&#8217;s docs/schema directory, in case <code>docs.schema</code> package was selected to be installed (it is by default).</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_feature_specs_generation">Feature specs generation</h5>
+<div class="paragraph">
+<p>Feature-pack may or may not include feature specs (XML files describing configuration features). Feature specs are included only if the feature-pack includes one or more subsystems that should be added to the confuration when the feature-pack is installed.</p>
+</div>
+<div class="paragraph">
+<p>In WildFly feature-packs, feature specs are generated. <code>generate-feature-specs</code> is an element that lists extensions included in the feature-pack for which feature specs should be generated.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+feature specs are generated using <code>generate-feature-specs</code> goal of the plugin.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_adding_provisioning_plugins">Adding provisioning plugins</h5>
+<div class="paragraph">
+<p>Feature-packs that depend on WildFly (or WildFly Core), normally, don&#8217;t need to add any provisioning plugins to be usable by Galleon. WildFly Core feature-pack includes the plugins that are used during provisioning for all the feature-packs that (directly or indirectly) depend on it. Here is a snipped from WildFly Core <code>wildfly-feature-pack-build.xml</code> that adds WildFly provisioning plugin JARs:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;build</span> <span style="color:#b48">xmlns</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">urn:wildfly:feature-pack-build:3.0</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">producer</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">wildfly-core@maven(org.jboss.universe:community-universe):current</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+    <span style="color:#777">&lt;!-- content skipped --&gt;</span>
+
+    <span style="color:#070;font-weight:bold">&lt;plugins&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;plugin</span> <span style="color:#b48">artifact</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">org.wildfly.galleon-plugins:wildfly-galleon-plugins</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span style="color:#070;font-weight:bold">&lt;/plugins&gt;</span>
+
+    <span style="color:#070;font-weight:bold">&lt;resources&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;copy</span> <span style="color:#b48">artifact</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">org.wildfly.galleon-plugins:wildfly-config-gen</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">to</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">wildfly/wildfly-config-gen.jar</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span> <i class="conum" data-value="2"></i><b>(2)</b>
+    <span style="color:#070;font-weight:bold">&lt;/resources&gt;</span>
+
+    <span style="color:#777">&lt;!-- content skipped --&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/build&gt;</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>plugins</code> element may include multiple <code>plugin</code> elements specifying Maven artifact coordinates of the plugin</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>copy</code> element under <code>resources</code> instructs to copy the specified artifact to the feature-pack <code>resources</code> directory</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Both artifact coordinates above are missing versions. Although the versions could specified, in this case they will be resolved from the Maven project dependencies at the plugin execution time.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 2.0.0.Alpha7-SNAPSHOT<br>
+Version 2.0.0.Final<br>
 Last updated 2018-05-28 10:40:35 CEST
 </div>
 </div>

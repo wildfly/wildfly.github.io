@@ -432,8 +432,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>Galleon Documentation</h1>
 <div class="details">
 <span id="author" class="author">Alexey Loubyansky, Jean-François Denise</span><br>
-<span id="revnumber">version 2.0.0.Beta2-SNAPSHOT,</span>
-<span id="revdate">2018-08-22</span>
+<span id="revnumber">version 2.0.0.Final,</span>
+<span id="revdate">2018-08-24</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -5925,7 +5925,7 @@ Like any other feature-pack, patches may declare dependencies on other patches. 
 <pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.jboss.galleon&lt;/groupId&gt;
     &lt;artifactId&gt;galleon-maven-plugin&lt;/artifactId&gt;
-    &lt;version&gt;2.0.0.Beta2-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.0.0.Final&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -5952,7 +5952,7 @@ Like any other feature-pack, patches may declare dependencies on other patches. 
 <h4 id="_galleon_install_feature_pack"><a class="anchor" href="#_galleon_install_feature_pack"></a><a class="link" href="#_galleon_install_feature_pack">11.1.1. galleon:install-feature-pack</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.jboss.galleon:galleon-maven-plugin:2.0.0.Beta2-SNAPSHOT:install-feature-pack</p>
+org.jboss.galleon:galleon-maven-plugin:2.0.0.Final:install-feature-pack</p>
 </div>
 </div>
 <div class="sect3">
@@ -6278,7 +6278,7 @@ feature-pack being installed.</p>
 <h4 id="_galleon_provision"><a class="anchor" href="#_galleon_provision"></a><a class="link" href="#_galleon_provision">11.2.1. galleon:provision</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.jboss.galleon:galleon-maven-plugin:2.0.0.Beta2-SNAPSHOT:provision</p>
+org.jboss.galleon:galleon-maven-plugin:2.0.0.Final:provision</p>
 </div>
 </div>
 <div class="sect3">
@@ -6767,13 +6767,15 @@ You can then use the listed options (if any) to customize your install command.<
 <div class="sect2">
 <h3 id="_un_installing_a_feature_pack"><a class="anchor" href="#_un_installing_a_feature_pack"></a><a class="link" href="#_un_installing_a_feature_pack">12.5. Un-installing a feature-pack</a></h3>
 <div class="paragraph">
-<p><em>uninstall [FPID] [--dir=&lt;installation dir&gt;]</em></p>
+<p><em>uninstall [FPID] [--dir=&lt;installation dir&gt;] [--verbose] [feature-pack specific options]</em></p>
 </div>
 <div class="paragraph">
-<p>This will remove the content installed by the feature-pack identified by the FPID.</p>
+<p>This will remove the content installed by the feature-pack identified by the FPID. Some feature-pack specific options
+can be provided, they will be used when re-provisioning the remaining (if any) feature-packs.</p>
 </div>
 <div class="paragraph">
-<p>NB: Completer proposes the FPID you can un-install from the installation (products and patches).</p>
+<p>NB: Completer proposes the FPID you can un-install from the installation (products and patches). Completion
+of feature-pack specific options are handled the same way as in the install command.</p>
 </div>
 </div>
 <div class="sect2">
@@ -7224,7 +7226,7 @@ NB: If no local repository is set in settings file, the local repository (defaul
 <div class="sect2">
 <h3 id="_repository_policies_this_could_be_made_configurable"><a class="anchor" href="#_repository_policies_this_could_be_made_configurable"></a><a class="link" href="#_repository_policies_this_could_be_made_configurable">13.3. Repository policies (this could be made configurable)</a></h3>
 <div class="paragraph">
-<p>Never update of local artifacts.<br>
+<p>Daily update.<br>
 Warn if checksum differs.</p>
 </div>
 </div>
@@ -7276,8 +7278,8 @@ applies when fetching explicitly feature-packs.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 2.0.0.Beta2-SNAPSHOT<br>
-Last updated 2018-08-22 16:47:37 CEST
+Version 2.0.0.Final<br>
+Last updated 2018-08-23 13:40:42 CEST
 </div>
 </div>
 </body>
