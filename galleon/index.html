@@ -442,8 +442,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>Galleon Documentation</h1>
 <div class="details">
 <span id="author" class="author">Alexey Loubyansky, Jean-François Denise</span><br>
-<span id="revnumber">version 4.0.0.Final,</span>
-<span id="revdate">2019-05-10</span>
+<span id="revnumber">version 4.0.4.Final,</span>
+<span id="revdate">2019-08-26</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -525,6 +525,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_install_feature_pack">13.1. install-feature-pack</a></li>
 <li><a href="#_provision">13.2. provision</a></li>
+<li><a href="#_provision_file">13.3. provision-file</a></li>
 </ul>
 </li>
 <li><a href="#_galleon_cli_tool">14. Galleon CLI tool</a>
@@ -7117,7 +7118,7 @@ Option values are not necessarily <code>true</code> or <code>false</code>, they 
 <pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.jboss.galleon&lt;/groupId&gt;
     &lt;artifactId&gt;galleon-maven-plugin&lt;/artifactId&gt;
-    &lt;version&gt;4.0.0.Final&lt;/version&gt;
+    &lt;version&gt;4.0.4.Final&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -7144,7 +7145,7 @@ Option values are not necessarily <code>true</code> or <code>false</code>, they 
 <h4 id="_galleoninstall_feature_pack"><a class="anchor" href="#_galleoninstall_feature_pack"></a><a class="link" href="#_galleoninstall_feature_pack">13.1.1. galleon:install-feature-pack</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.jboss.galleon:galleon-maven-plugin:4.0.0.Final:install-feature-pack</p>
+org.jboss.galleon:galleon-maven-plugin:4.0.4.Final:install-feature-pack</p>
 </div>
 </div>
 <div class="sect3">
@@ -7498,7 +7499,7 @@ Whether to record provisioned state in .galleon directory.</p>
 <h4 id="_galleonprovision"><a class="anchor" href="#_galleonprovision"></a><a class="link" href="#_galleonprovision">13.2.1. galleon:provision</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.jboss.galleon:galleon-maven-plugin:4.0.0.Final:provision</p>
+org.jboss.galleon:galleon-maven-plugin:4.0.4.Final:provision</p>
 </div>
 </div>
 <div class="sect3">
@@ -7914,6 +7915,240 @@ universe-based feature-pack resolver at provisioning time.</p>
     &lt;/executions&gt;
 &lt;/plugin&gt;</code></pre>
 </div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_provision_file"><a class="anchor" href="#_provision_file"></a><a class="link" href="#_provision_file">13.3. provision-file</a></h3>
+<div class="sect3">
+<h4 id="_galleonprovision_file"><a class="anchor" href="#_galleonprovision_file"></a><a class="link" href="#_galleonprovision_file">13.3.1. galleon:provision-file</a></h4>
+<div class="paragraph">
+<p><strong>Full name:</strong>
+org.jboss.galleon:galleon-maven-plugin:4.0.4.Final:provision-file</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_3"><a class="anchor" href="#_description_3"></a><a class="link" href="#_description_3">13.3.2. Description</a></h4>
+<div class="paragraph">
+<p>This maven plugin provisions an installation from a
+provisioning.xml file. If the target installation directory already
+contains an installation, the existing installation will be fully
+replaced with the newly provisioned one.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_attributes_3"><a class="anchor" href="#_attributes_3"></a><a class="link" href="#_attributes_3">13.3.3. Attributes</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Requires a Maven project to be executed.</p>
+</li>
+<li>
+<p>Requires dependency resolution of artifacts in scope: <code>compile+runtime</code>.</p>
+</li>
+<li>
+<p>Binds by default to the <a href="http://maven.apache.org/ref/current/maven-core/lifecycles.html">lifecycle phase</a>: <code>process-test-resources</code>.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all fit-content stretch">
+<caption class="title">Table 24. Required Parameters</caption>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Since</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#installDir">[installDir]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>File</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The target installation directory.<br>
+<strong>Alias is</strong>: <code>install-dir</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#provisioningFile">[provisioningFile]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>File</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Path to a provisioning file located inside the current maven
+project used to provision the server.<br>
+<strong>Alias is</strong>: <code>provisioning-file</code>.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all fit-content stretch">
+<caption class="title">Table 25. Optional Parameters</caption>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Since</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#logTime">[logTime]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to log provisioning time at the end<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>Alias is</strong>: <code>log-time</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#offline">[offline]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to use offline mode when the plugin resolves an artifact.
+In offline mode the plugin will only use the local Maven repository
+for an artifact resolution.<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>Alias is</strong>: <code>offline</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#pluginOptions">[pluginOptions]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Map</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Arbitrary plugin options.<br>
+<strong>Alias is</strong>: <code>plugin-options</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#recordState">[recordState]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to record provisioned state in .galleon directory.<br>
+<strong>Default value is</strong>: <code>true</code>.<br>
+<strong>Alias is</strong>: <code>record-state</code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_parameter_details_3"><a class="anchor" href="#_parameter_details_3"></a><a class="link" href="#_parameter_details_3">13.3.4. Parameter Details</a></h4>
+<div class="paragraph">
+<p><a id="installDir"></a> <strong>installDir</strong><br>
+The target installation directory.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.io.File</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>Yes</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>install-dir</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="logTime"></a> <strong>logTime</strong><br>
+Whether to log provisioning time at the end</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>log-time</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="offline"></a> <strong>offline</strong><br>
+Whether to use offline mode when the plugin resolves an artifact.
+In offline mode the plugin will only use the local Maven repository
+for an artifact resolution.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>offline</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="pluginOptions"></a> <strong>pluginOptions</strong><br>
+Arbitrary plugin options.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.util.Map</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>plugin-options</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="provisioningFile"></a> <strong>provisioningFile</strong><br>
+Path to a provisioning file located inside the current maven
+project used to provision the server.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.io.File</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>Yes</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>provisioning-file</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="recordState"></a> <strong>recordState</strong><br>
+Whether to record provisioned state in .galleon directory.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>true</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>record-state</code></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -8838,7 +9073,7 @@ applies when fetching explicitly feature-packs.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 4.0.0.Final<br>
+Version 4.0.4.Final<br>
 Last updated 2018-11-21 18:52:25 +0100
 </div>
 </div>

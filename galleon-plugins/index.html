@@ -442,8 +442,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>WildFly Galleon Plugins Documentation</h1>
 <div class="details">
 <span id="author" class="author">Alexey Loubyansky</span><br>
-<span id="revnumber">version 4.0.0.Final,</span>
-<span id="revdate">2019-05-10T14:22:30Z</span>
+<span id="revnumber">version 4.0.3.Final,</span>
+<span id="revdate">2019-08-26T13:49:08Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -455,7 +455,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_generate_all_artifacts_list">2.2. generate-all-artifacts-list</a></li>
 <li><a href="#_build_user_feature_pack">2.3. build-user-feature-pack</a></li>
 <li><a href="#_build_feature_pack">2.4. build-feature-pack</a></li>
-<li><a href="#_feature_pack_build_config_file_wildfly_feature_pack_build_xml">2.5. Feature-pack build config file (wildfly-feature-pack-build.xml)</a></li>
+<li><a href="#Feature-pack-build-config-file">2.5. Feature-pack build config file (wildfly-feature-pack-build.xml)</a></li>
 </ul>
 </li>
 </ul>
@@ -502,7 +502,7 @@ Galleon documentation for more information.
 <pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;dependency&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.wildfly.galleon-plugins<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>wildfly-galleon-maven-plugin<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
-    <span style="color:#070;font-weight:bold">&lt;version&gt;</span>4.0.0.Final<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;version&gt;</span>4.0.3.Final<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
 <span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span></code></pre>
 </div>
 </div>
@@ -535,7 +535,7 @@ Galleon documentation for more information.
 <h4 id="_wildfly_galleongenerate_all_artifacts_list">2.2.1. wildfly-galleon:generate-all-artifacts-list</h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:4.0.0.Final:generate-all-artifacts-list</p>
+org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:4.0.3.Final:generate-all-artifacts-list</p>
 </div>
 </div>
 <div class="sect3">
@@ -615,6 +615,14 @@ artifact to the current project.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">(no description)<br>
 <strong>Alias is</strong>: <code>feature-pack-version</code>.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#offline">[offline]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(no description)<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>Alias is</strong>: <code>offline</code>.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -671,6 +679,26 @@ artifact to the current project.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><a id="offline"></a> <strong>offline</strong><br>
+(no description)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>offline</code></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -679,7 +707,7 @@ artifact to the current project.</p>
 <h4 id="_wildfly_galleonbuild_user_feature_pack">2.3.1. wildfly-galleon:build-user-feature-pack</h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:4.0.0.Final:build-user-feature-pack</p>
+org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:4.0.3.Final:build-user-feature-pack</p>
 </div>
 </div>
 <div class="sect3">
@@ -693,8 +721,7 @@ it to the current Maven project as an artifact. If no feature-pack
 build configuration is provided, some defaults are applied. The
 content of the future feature-pack archive is first created in the
 directory called <code>feature-pack-layout</code> under the module&#8217;s build
-directory which is then * ZIPped to create the feature-pack
-artifact.</p>
+directory which is then ZIPped to create the feature-pack artifact.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1004,6 +1031,292 @@ with property replacement.</p>
 </ul>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_plugin_configuration">2.3.5. Plugin configuration</h4>
+<div class="sect5">
+<h6 id="_dependency_on_wildfly">Dependency on WildFly</h6>
+<div class="paragraph">
+<p>The pom.xml of the project that makes use of this plugin must express a dependency on the WildFly feature-pack it is depending upon.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_feature_pack_configuration">Feature-pack configuration</h5>
+<div class="paragraph">
+<p>For typical user feature-packs construct (eg: package JBoss modules and define galleon layers),
+there is no need to define a feature-pack build configuration file. Everything can be configured from
+the plugin configuration element inside the pom.xml file.</p>
+</div>
+<div class="paragraph">
+<p>For more advanced configuration, a file named <em>wildfly-user-feature-pack-build.xml</em> can be defined in the project root dir.
+This file complies with the <em>wildfly-feature-pack-build.xml</em> <a href="#Feature-pack-build-config-file">file syntax</a>
+but only supports a subset of it.</p>
+</div>
+<div class="paragraph">
+<p>The following items can be defined:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Feature Pack Location of the feature-pack.</p>
+</li>
+<li>
+<p>Dependencies (transitives or directs) on other feature-packs.</p>
+</li>
+<li>
+<p>Default packages.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;feature-pack</span> <span style="color:#b48">xmlns</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">urn:jboss:galleon:feature-pack:2.0</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">location</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">org.foo:my-galleon-pack:1.0.0.Final</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;transitive&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;dependency</span> <span style="color:#b48">location</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">wildfly-core@maven(org.jboss.universe:community-universe):current#9.0.1.Final</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;origin&gt;</span>org.wildfly.core:wildfly-core-galleon-pack<span style="color:#070;font-weight:bold">&lt;/origin&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;dependency</span> <span style="color:#b48">location</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">wildfly-servlet@maven(org.jboss.universe:community-universe):current#17.0.0.Final</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;origin&gt;</span>org.wildfly:wildfly-servlet-galleon-pack<span style="color:#070;font-weight:bold">&lt;/origin&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/transitive&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;dependencies&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;dependency</span> <span style="color:#b48">location</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">wildfly@maven(org.jboss.universe:community-universe):current#17.0.0.Final</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;origin&gt;</span>org.wildfly:wildfly-galleon-pack<span style="color:#070;font-weight:bold">&lt;/origin&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;default-configs</span> <span style="color:#b48">inherit</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">false</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;packages</span> <span style="color:#b48">inherit</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">false</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/dependencies&gt;</span>
+   <span style="color:#070;font-weight:bold">&lt;default-packages&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;package</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">my.package1</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/default-packages&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/feature-pack&gt;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_galleon_feature_pack_content_that_can_be_defined_with_the_mojo">2.3.6. Galleon feature-pack content that can be defined with the mojo</h4>
+<div class="sect4">
+<h5 id="_jboss_module_packages">JBoss module packages</h5>
+<div class="paragraph">
+<p>The directory <code>src/main/resources/modules</code> contains JBoss modules to be turned into feature-pack packages. A package is created per JBoss module. JBoss module dependencies are reflected in the corresponding package dependencies.</p>
+</div>
+<div class="paragraph">
+<p>A module can contain the binaries it wants to see installed or rely on the 'module.xml template' capability of the mojo.
+For example, here is an excerpt from a <code>module.xml</code> template:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#579">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;module</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">org.postgresql.jdbc</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">xmlns</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">urn:jboss:module:1.8</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;resources&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;artifact</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">${org.postgresql:postgresql}</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/resources&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;dependencies&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;module</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">javax.api</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;module</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">javax.transaction.api</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/dependencies&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/module&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It looks pretty much like the final <code>module.xml</code> except that the artifact name is an expression which should be replaced with either the complete artifact coordinates in case of a thin distribution, e.g.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#579">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;module</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">org.postgresql.jdbc</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">xmlns</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">urn:jboss:module:1.8</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;resources&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;artifact</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">org.postgresql:postgresql:9.4.1211</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/resources&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;dependencies&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;module</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">javax.api</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;module</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">javax.transaction.api</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/dependencies&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/module&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or the <code>resource-root</code> element in case of a fat distribution, e.g.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;module</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">org.postgresql.jdbc</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">xmlns</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">urn:jboss:module:1.8</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+
+    <span style="color:#070;font-weight:bold">&lt;resources&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;resource-root</span> <span style="color:#b48">path</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">postgresql-9.4.1211.jar</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/resources&gt;</span>
+
+    <span style="color:#070;font-weight:bold">&lt;dependencies&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;module</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">javax.api</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;module</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">javax.transaction.api</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/dependencies&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>module.xml</code> template processing is happening at provisioning time and depends on the kind of distribution being provisioned.
+That is controlled by the plugin option <code>jboss-maven-dist=true|false</code>. <code>true</code> to provision a thin installation, <code>false</code> to provision a fat installation.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you are packaging JBoss module using the "module.xml template" you must express the dependencies on the
+actual artifacts you want to see provisioned in the pom.xml file.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is possible that a module depends on another module which is not found in the current feature-pack. In that case, the feature-pack that contains the package representing the module from the dependency must be declared as the dependency of the current feature-pack in the feature-pack build config file. If the dependency could not be resolved locally (among the modules included in the current feature-pack), the module will be looked up in the dependencies of the current feature-pack (in the order the dependencies are specified in the feature-pack build config file).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In case a module dependency could not be resolved neither locally nor in the feature-pack dependencies, an error will be thrown with the corresponding message.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The package generated for a JBoss module can still be customized by, e.g., adding <code>pm/wildfly/tasks.xml</code> to it in <code>src/main/resources/packages</code>. In this case the package dir in <code>src/main/resources/packages</code> has to include only the content that the generated package is missing. It doesn&#8217;t have to include <code>package.xml</code> unless the generated one has to be replaced with a custom one.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_custom_add_ons_and_layers_types_of_jboss_modules">Custom, add-ons and layers types of JBoss modules</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Custom modules are defined directly under <code>modules</code> directory.</p>
+</li>
+<li>
+<p><code>add-ons</code> are defined under <code>modules/system/add-ons/&lt;add-on name&gt;</code> directory.</p>
+</li>
+<li>
+<p><code>layers</code> are defined under <code>modules/system/layers/&lt;layer name&gt;</code> directory. You must also define the file <code>layers.conf</code> under <code>modules</code> directory.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_galleon_packages">Galleon packages</h5>
+<div class="paragraph">
+<p>The directory <code>src/main/resources/packages/</code> contains galleon packages. Packages contain content (other than JBoss modules)
+you want to see provisioned along with a layer and/or configuration.</p>
+</div>
+<div class="paragraph">
+<p>Documentation to help you define packages can be found <a href="https://docs.wildfly.org/galleon/#_feature_pack_packages">here</a>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_galleon_layers">Galleon Layers</h5>
+<div class="paragraph">
+<p>You can define your own layers (eg: drivers, datasources, customized subsystem)
+that can be then assembled with WildFly built-in layers to compose a configuration.</p>
+</div>
+<div class="paragraph">
+<p>The directory <code>src/main/resources/layers</code> contains the layers definitions.</p>
+</div>
+<div class="paragraph">
+<p>Layers are defined for a given model of configuration. Configuration model can be one of <code>standalone</code>, <code>host</code> or <code>domain</code>.
+The layers defined for a given configuration model are located inside a directory named with the configuration model:
+<code>layers/&lt;config model name&gt;/&lt;layer name&gt;/layer-spec.xml</code></p>
+</div>
+<div class="paragraph">
+<p>Example of a layer that defines the configuration for a mysql driver and include the driver package (a JBoss module) named <code>com.mysql.jdbc</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#579">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;layer-spec</span> <span style="color:#b48">xmlns</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">urn:jboss:galleon:layer-spec:1.0</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">mysql-driver</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;feature</span> <span style="color:#b48">spec</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">subsystem.datasources</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;feature</span> <span style="color:#b48">spec</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">subsystem.datasources.jdbc-driver</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;param</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">driver-name</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">value</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">mysql</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;param</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">jdbc-driver</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">value</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">mysql</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;param</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">driver-xa-datasource-class-name</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">value</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;param</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">driver-module-name</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">value</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">com.mysql.jdbc</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;/feature&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/feature&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;packages&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;package</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">com.mysql.jdbc</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/packages&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/layer-spec&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Documentation to help you define layers can be found <a href="https://docs.wildfly.org/galleon/#_layers">here</a>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_galleon_feature_groups">Galleon feature-groups</h5>
+<div class="paragraph">
+<p>You can define your own feature-groups that can then be re-used when defining configurations.</p>
+</div>
+<div class="paragraph">
+<p>The directory <code>src/main/resources/feature_groups</code> contains the feature-groups definitions. A feature-group is defined inside the file <code>&lt;feature-group name&gt;.xml</code></p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#579">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;feature-group-spec</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">my-feature-group</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">xmlns</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">urn:jboss:galleon:feature-group:1.0</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;feature-group</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">another-feature-group</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;feature</span> <span style="color:#b48">spec</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">interface</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;param</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">interface</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">value</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">my-interface</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;param</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">inet-address</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">value</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">192.168.1.1</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/feature&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/feature-group-spec&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Documentation to help you define feature-groups can be found <a href="https://docs.wildfly.org/galleon/#_feature_groups">here</a>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_galleon_default_configurations">Galleon default configurations</h5>
+<div class="paragraph">
+<p>You can define default configurations to be provisioned by galleon. Default configurations are defined in
+ <code>src/main/resources/configs/&lt;config model&gt;/&lt;config name&gt;/config.xml</code> file. Configuration model can be one of <code>standalone</code>, <code>host</code> or <code>domain</code>.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;config</span> <span style="color:#b48">xmlns</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">urn:jboss:galleon:config:1.0</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">standalone.xml</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">model</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">standalone</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;layers&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;include</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">cloud-profile</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;include</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">my-layer</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/layers&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;feature-group</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">my-feature-group</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/config&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Documentation to help you define default configurations can be found <a href="https://docs.wildfly.org/galleon/#_provisioned_installation_configuration">here</a>.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_build_feature_pack">2.4. build-feature-pack</h3>
@@ -1011,7 +1324,7 @@ with property replacement.</p>
 <h4 id="_wildfly_galleonbuild_feature_pack">2.4.1. wildfly-galleon:build-feature-pack</h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:4.0.0.Final:build-feature-pack</p>
+org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:4.0.3.Final:build-feature-pack</p>
 </div>
 </div>
 <div class="sect3">
@@ -1533,7 +1846,7 @@ used for exporting the meta-model. Intended mainly for debugging.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>It looks pretty much like the final <code>module.xml</code> except that the artifact name is an epression which should be replaced with either the complete artifact coordinates in case of a thin distribution, e.g.</p>
+<p>It looks pretty much like the final <code>module.xml</code> except that the artifact name is an expression which should be replaced with either the complete artifact coordinates in case of a thin distribution, e.g.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1627,7 +1940,7 @@ Original WildFly feature-packs include <code>modules.all</code> into the default
 </div>
 </div>
 <div class="sect2">
-<h3 id="_feature_pack_build_config_file_wildfly_feature_pack_build_xml">2.5. Feature-pack build config file (wildfly-feature-pack-build.xml)</h3>
+<h3 id="Feature-pack-build-config-file">2.5. Feature-pack build config file (wildfly-feature-pack-build.xml)</h3>
 <div class="paragraph">
 <p>Feature-pack building starts with this file. The file describes the feature-pack in terms of its dependencies on other
 feature-packs, default packages, configs and other options such as from which artifact groups to extract schemas into
@@ -1777,7 +2090,7 @@ Both artifact coordinates above are missing versions. Although the versions coul
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 4.0.0.Final<br>
+Version 4.0.3.Final<br>
 Last updated 2018-05-28 10:40:35 +0200
 </div>
 </div>
