@@ -1,0 +1,103 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <title>WildFly Full 19 Model Reference</title> <meta name="description" content=""> <link rel="stylesheet" href="../../css/bootstrap.min.css"> <link rel="stylesheet" href="../../css/bootstrap-reboot.min.css"> <link rel="stylesheet" href="../../css/main.css"> </head> <body> <div class="container"> <div class="masthead"> <h3 class="text-muted my-3">WildFly Full 19 Model Reference</h3> </div> <ol class="breadcrumb"> <li class="breadcrumb-item"> <a href="../../index.html">home</a> </li> <li class="breadcrumb-item active">core-service=patching</li> </ol> <div class="well"> <p>patch</p> </div> <div class="alert alert-info" role="alert"> <strong>Runtime only resource</strong> This resource is runtime only and doesn't have any persistent configuration. </div> <div class="page-header"> <h4 class="btn btn-secondary" data-toggle="collapse" data-target="#children">Children (3)</h4> <div class="collapse show" id="children"> <ul> <li> <a href="addon/index.html" class="">addon</a> add-on </li> <li> <a href="layer/index.html" class="">layer</a> layer </li> <li> <a href="patch-stream/index.html" class="">patch-stream</a> patch-stream </li> </ul> </div> </div> <div class="page-header"> <h4 class="btn btn-secondary" data-toggle="collapse" data-target="#attributes">Attributes (3)</h4> <div class="collapse show" id="attributes"> <div class="panel"> <ul> <li> <a id="attr-cumulative-patch-id" href="#attr-cumulative-patch-id" data-toggle="collapse" data-target="#attribute-cumulative-patch-id" class="">cumulative-patch-id</a> Cumulative patch id. </li> <div id="attribute-cumulative-patch-id" class="collapse"> <div class="table-responsive"> <table class="table table-striped table-hover"> <thead> <tr> <th>Attribute</th> <th>Value</th> </tr> </thead> <tr> <td> <b>Type</b> </td> <td> STRING </td> </tr> <tr> <td> <b>Nillable</b> </td> <td> false </td> </tr> <tr> <td> <b>Expressions Allowed</b> </td> <td> false </td> </tr> <tr> <td> <b>Storage</b> </td> <td> runtime </td> </tr> <tr> <td> <b>Access Type</b> </td> <td> read-only </td> </tr> </table> </div> </div> <li> <a id="attr-patches" href="#attr-patches" data-toggle="collapse" data-target="#attribute-patches" class="">patches</a> A list of actively installed patches. </li> <div id="attribute-patches" class="collapse"> <div class="table-responsive"> <table class="table table-striped table-hover"> <thead> <tr> <th>Attribute</th> <th>Value</th> </tr> </thead> <tr> <td> <b>Type</b> </td> <td> LIST </td> </tr> <tr> <td> <b>Nillable</b> </td> <td> false </td> </tr> <tr> <td> <b>Expressions Allowed</b> </td> <td> false </td> </tr> <tr> <td> <b>Storage</b> </td> <td> runtime </td> </tr> <tr> <td> <b>Access Type</b> </td> <td> read-only </td> </tr> </table> </div> </div> <li> <a id="attr-version" href="#attr-version" data-toggle="collapse" data-target="#attribute-version" class="">version</a> Current patch version. </li> <div id="attribute-version" class="collapse"> <div class="table-responsive"> <table class="table table-striped table-hover"> <thead> <tr> <th>Attribute</th> <th>Value</th> </tr> </thead> <tr> <td> <b>Type</b> </td> <td> STRING </td> </tr> <tr> <td> <b>Nillable</b> </td> <td> false </td> </tr> <tr> <td> <b>Expressions Allowed</b> </td> <td> false </td> </tr> <tr> <td> <b>Storage</b> </td> <td> runtime </td> </tr> <tr> <td> <b>Access Type</b> </td> <td> read-only </td> </tr> </table> </div> </div> </ul> </div> </div> </div> <div class="page-header"> <h4 class="btn btn-secondary" data-toggle="collapse" data-target="#operations">Operations (6)</h4> <div class="collapse show" id="operations"> <ul> <li> <a id="op-ageout-history" href="#op-ageout-history" data-toggle="collapse" data-target="#operation-ageout-history" class="">ageout-history</a> Removes a part of the patching history which is considered too old and not useful any more. <div id="operation-ageout-history" class="collapse"> </div> </li> <li> <a id="op-patch" href="#op-patch" data-toggle="collapse" data-target="#operation-patch" class="">patch</a> Apply a patch. <div id="operation-patch" class="collapse"> <table class="table table-striped"> <thead> <tr> <th>Request Parameter</th> <th>Type</th> <th>Required</th> <th>Expressions Allowed</th> <th>Default value</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>input-stream-index</td> <td>INT</td> <td>false</td> <td>false</td> <td>0</td> <td>The index into the operation's attached input streams of the input stream that contains the zipped patch file that should be uploaded to the server to apply the patch.</td> </tr> <tr> <td>override-all</td> <td>BOOLEAN</td> <td>false</td> <td>false</td> <td>false</td> <td>True to bypass any content verification on the miscellaneous items changed by the patch.</td> </tr> <tr> <td>override-modules</td> <td>BOOLEAN</td> <td>false</td> <td>false</td> <td>false</td> <td>True to bypass any content verification on the modules affected by the patch.</td> </tr> <tr> <td>override</td> <td>LIST</td> <td>false</td> <td>false</td> <td></td> <td>List of the miscellaneous items in the patch that can be overridden on the server whether the item reports a conflict or not.</td> </tr> <tr> <td>preserve</td> <td>LIST</td> <td>false</td> <td>false</td> <td></td> <td>List of the miscellaneous items that must be preserved and not modified by applying the patch.</td> </tr> </tbody> </table> </div> </li> <li> <a id="op-patch-info" href="#op-patch-info" data-toggle="collapse" data-target="#operation-patch-info" class="">patch-info</a> Information about specific patch <div id="operation-patch-info" class="collapse"> <table class="table table-striped"> <thead> <tr> <th>Request Parameter</th> <th>Type</th> <th>Required</th> <th>Expressions Allowed</th> <th>Default value</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>patch-id</td> <td>STRING</td> <td>false</td> <td>false</td> <td></td> <td>The identifier of the patch</td> </tr> <tr> <td>verbose</td> <td>BOOLEAN</td> <td>false</td> <td>false</td> <td>false</td> <td>Optional, default is false and results in brief info about the patch, true to include detailed information about the layer and add-on patches included into the patch.</td> </tr> </tbody> </table> <div class="panel panel-primary"> <div class="panel-heading"> <h4 class="panel-title">Reply properties</h4> </div> <div class="panel-body"> <dl> <dt>type</dt> <dd>OBJECT</dd> <dt>Value Type</dt> <dd><div class="highlight"> <pre><code class="language-json" data-lang="json">{
+    "patch-id" => {
+        "type" => STRING,
+        "description" => "The identifier of the patch",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "type" => {
+        "type" => STRING,
+        "description" => "Type of the patch (one-off or cumulative)",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "identity-name" => {
+        "type" => STRING,
+        "description" => "The name of the target identity",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "identity-version" => {
+        "type" => STRING,
+        "description" => "The version of the target identity",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "description" => {
+        "type" => STRING,
+        "description" => "Description of the patch",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "link" => {
+        "type" => STRING,
+        "description" => "An optional link for more information about the patch",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "elements" => {
+        "type" => LIST,
+        "description" => "Patch elements",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 0L,
+        "max-length" => 2147483647L,
+        "value-type" => {
+            "patch-id" => {
+                "type" => STRING,
+                "description" => "The identifier of the patch element",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1L,
+                "max-length" => 2147483647L
+            },
+            "type" => {
+                "type" => STRING,
+                "description" => "The type of the element provider (layer or add-on)",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1L,
+                "max-length" => 2147483647L
+            },
+            "name" => {
+                "type" => STRING,
+                "description" => "The name of the element provider",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1L,
+                "max-length" => 2147483647L
+            },
+            "description" => {
+                "type" => STRING,
+                "description" => "The description of the patch element",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1L,
+                "max-length" => 2147483647L
+            }
+        }
+    }
+}</code></pre> </div> </dd> </dl> </div> </div> </div> </li> <li> <a id="op-rollback" href="#op-rollback" data-toggle="collapse" data-target="#operation-rollback" class="">rollback</a> Rollback a patch. <div id="operation-rollback" class="collapse"> <table class="table table-striped"> <thead> <tr> <th>Request Parameter</th> <th>Type</th> <th>Required</th> <th>Expressions Allowed</th> <th>Default value</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>patch-id</td> <td>STRING</td> <td>true</td> <td>false</td> <td></td> <td>The ID of the patch to rollback.</td> </tr> <tr> <td>rollback-to</td> <td>BOOLEAN</td> <td>false</td> <td>false</td> <td>false</td> <td>If the patch to rollback is a one-off patch, it signifies that the rollback operation will also rollback all the other one-off patches that have been applied on top of the patch to rollback.</td> </tr> <tr> <td>reset-configuration</td> <td>BOOLEAN</td> <td>true</td> <td>false</td> <td></td> <td>The rollback operation will update the installation configurations and reset the snapshots that were taken when the patch was applied.</td> </tr> <tr> <td>override-all</td> <td>BOOLEAN</td> <td>false</td> <td>false</td> <td>false</td> <td>True to bypass any content verification on the miscellaneous items changed by the patch that is rolled back.</td> </tr> <tr> <td>override-modules</td> <td>BOOLEAN</td> <td>false</td> <td>false</td> <td>false</td> <td>True to bypass any content verification on the modules affected by the patch that is rolled back.</td> </tr> <tr> <td>override</td> <td>LIST</td> <td>false</td> <td>false</td> <td></td> <td>List of the miscellaneous items that can be overridden on the server when the patch is rolled back whether the item reports a conflict or not.</td> </tr> <tr> <td>preserve</td> <td>LIST</td> <td>false</td> <td>false</td> <td></td> <td>List of the miscellaneous items that must be preserved and not modified by rolling back the patch.</td> </tr> </tbody> </table> </div> </li> <li> <a id="op-rollback-last" href="#op-rollback-last" data-toggle="collapse" data-target="#operation-rollback-last" class="">rollback-last</a> Rollback the last applied patch. <div id="operation-rollback-last" class="collapse"> <table class="table table-striped"> <thead> <tr> <th>Request Parameter</th> <th>Type</th> <th>Required</th> <th>Expressions Allowed</th> <th>Default value</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>reset-configuration</td> <td>BOOLEAN</td> <td>true</td> <td>false</td> <td></td> <td>The rollback operation will update the installation configurations and reset the snapshots that were taken when the patch was applied.</td> </tr> <tr> <td>override-all</td> <td>BOOLEAN</td> <td>false</td> <td>false</td> <td>false</td> <td>True to bypass any content verification on the miscellaneous items changed by the patch that is rolled back.</td> </tr> <tr> <td>override-modules</td> <td>BOOLEAN</td> <td>false</td> <td>false</td> <td>false</td> <td>True to bypass any content verification on the modules affected by the patch that is rolled back.</td> </tr> <tr> <td>override</td> <td>LIST</td> <td>false</td> <td>false</td> <td></td> <td>List of the miscellaneous items that can be overridden on the server when the patch is rolled back whether the item reports a conflict or not.</td> </tr> <tr> <td>preserve</td> <td>LIST</td> <td>false</td> <td>false</td> <td></td> <td>List of the miscellaneous items that must be preserved and not modified by rolling back the patch.</td> </tr> </tbody> </table> </div> </li> <li> <a id="op-show-history" href="#op-show-history" data-toggle="collapse" data-target="#operation-show-history" class="">show-history</a> Show history of the patches that have been applied. <div id="operation-show-history" class="collapse"> <table class="table table-striped"> <thead> <tr> <th>Request Parameter</th> <th>Type</th> <th>Required</th> <th>Expressions Allowed</th> <th>Default value</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>exclude-aged-out</td> <td>BOOLEAN</td> <td>false</td> <td>false</td> <td>false</td> <td>Whether to filter out patches that have been removed by the ageout-history operation.</td> </tr> </tbody> </table> </div> </li> </ul> </div> </div> <hr> <footer> <p>&copy; Red Hat 2020</p> </footer> </div> <script src="../../js/vendor/jquery-3.4.1.slim.min.js"></script> <script>window.jQuery || document.write('<script src="../../js/vendor/jquery-3.4.1.slim.min.js"><\/script>')</script> <script src="../../js/vendor/bootstrap.bundle.min.js"></script> <script src="../../js/main.js"></script> <script src="../../js/vendor/ie10-viewport-bug-workaround.js"></script> </body> </html>
