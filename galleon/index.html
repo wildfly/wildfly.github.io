@@ -442,8 +442,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>Galleon Documentation</h1>
 <div class="details">
 <span id="author" class="author">Alexey Loubyansky, Jean-François Denise</span><br>
-<span id="revnumber">version 4.2.3.Final,</span>
-<span id="revdate">2020-01-09</span>
+<span id="revnumber">version 4.2.4.Final,</span>
+<span id="revdate">2020-04-09</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -4745,6 +4745,18 @@ The statement above is valid only if the mentioned layers don&#8217;t depend on 
 <div class="paragraph">
 <p>Assuming feature-pack <code>prod1</code> included <code>layer1</code> and <code>layer2</code> into its <code>model1:name1</code> configuration (as in the previous example), the resulting <code>model1:name1</code> configuration will include only <code>layer1</code> and <code>layer3</code> (and their dependencies if any).</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+An attempt to exclude a layer that would not have otherwise been installed will result in a provisioning error. The error, however, can be suppressed by adding <a href="#_provisioning_options">provisioning option</a> <code>ignore-not-excluded-layers</code>.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_disabling_inheritance_of_layers"><a class="anchor" href="#_disabling_inheritance_of_layers"></a><a class="link" href="#_disabling_inheritance_of_layers">8.3.6. Disabling inheritance of layers</a></h4>
@@ -7167,14 +7179,19 @@ Option values are not necessarily <code>true</code> or <code>false</code>, they 
 <td class="tableblock halign-left valign-top"><p class="tableblock">Value set</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ignore-not-excluded-layers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_excluding_layers_from_configuration_models">Suppresses the error when layers configured to be excluded would not have otherwise been installed</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code> <em>(default)</em>, <code>true</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">optional-packages</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_feature_pack_original_effective_package_set">Optional package dependencies inclusion policy</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>all</code>, <code>none</code>, <code>passive</code>, <code>passive+</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>all</code> <em>(default)</em>, <code>none</code>, <code>passive</code>, <code>passive+</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">version-convergence</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dependency_version_convergence">Disables or enables the dependency version convergence</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>first-processed</code> <em>(the default one)</em>, <code>fail</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>first-processed</code> <em>(default)</em>, <code>fail</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -7202,7 +7219,7 @@ Option values are not necessarily <code>true</code> or <code>false</code>, they 
 <pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.jboss.galleon&lt;/groupId&gt;
     &lt;artifactId&gt;galleon-maven-plugin&lt;/artifactId&gt;
-    &lt;version&gt;4.2.3.Final&lt;/version&gt;
+    &lt;version&gt;4.2.4.Final&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -7229,7 +7246,7 @@ Option values are not necessarily <code>true</code> or <code>false</code>, they 
 <h4 id="_galleoninstall_feature_pack"><a class="anchor" href="#_galleoninstall_feature_pack"></a><a class="link" href="#_galleoninstall_feature_pack">13.1.1. galleon:install-feature-pack</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.jboss.galleon:galleon-maven-plugin:4.2.3.Final:install-feature-pack</p>
+org.jboss.galleon:galleon-maven-plugin:4.2.4.Final:install-feature-pack</p>
 </div>
 </div>
 <div class="sect3">
@@ -7583,7 +7600,7 @@ Whether to record provisioned state in .galleon directory.</p>
 <h4 id="_galleonprovision"><a class="anchor" href="#_galleonprovision"></a><a class="link" href="#_galleonprovision">13.2.1. galleon:provision</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.jboss.galleon:galleon-maven-plugin:4.2.3.Final:provision</p>
+org.jboss.galleon:galleon-maven-plugin:4.2.4.Final:provision</p>
 </div>
 </div>
 <div class="sect3">
@@ -8008,7 +8025,7 @@ universe-based feature-pack resolver at provisioning time.</p>
 <h4 id="_galleonprovision_file"><a class="anchor" href="#_galleonprovision_file"></a><a class="link" href="#_galleonprovision_file">13.3.1. galleon:provision-file</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.jboss.galleon:galleon-maven-plugin:4.2.3.Final:provision-file</p>
+org.jboss.galleon:galleon-maven-plugin:4.2.4.Final:provision-file</p>
 </div>
 </div>
 <div class="sect3">
@@ -9188,8 +9205,8 @@ applies when fetching explicitly feature-packs.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 4.2.3.Final<br>
-Last updated 2018-11-21 22:48:08 +0100
+Version 4.2.4.Final<br>
+Last updated 2018-11-21 18:52:25 +0100
 </div>
 </div>
 </body>
