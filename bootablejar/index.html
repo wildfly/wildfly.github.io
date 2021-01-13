@@ -443,8 +443,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>WildFly Bootable JAR Documentation</h1>
 <div class="details">
 <span id="author" class="author">Jean-Francois Denise</span><br>
-<span id="revnumber">version 2.0.0.Final,</span>
-<span id="revdate">2020-10-13T09:13:07Z</span>
+<span id="revnumber">version 3.0.0.Final,</span>
+<span id="revdate">2021-01-13T18:59:58Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -477,7 +477,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#wildfly_jar_configuring_runtime">8. Configuring the server at runtime</a></li>
 <li><a href="#wildfly_jar_other_goals">9. Other Maven plugin goals</a></li>
-<li><a href="#wildfly_jar_dev_mode">10. Development mode (dev mode)</a></li>
+<li><a href="#wildfly_jar_dev_mode">10. Development mode (dev mode)</a>
+<ul class="sectlevel2">
+<li><a href="#_development_mode_with_source_watching">10.1. Development mode with source watching</a></li>
+<li><a href="#_development_mode_with_repackaging">10.2. Development mode with repackaging</a></li>
+</ul>
+</li>
 <li><a href="#wildfly_jar_enabling_debug">11. Enabling debug</a>
 <ul class="sectlevel2">
 <li><a href="#wildfly_jar_enabling_debug_openshift">11.1. Enable Debug for Openshift</a></li>
@@ -497,10 +502,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_goals_overview">14.1. Goals overview</a></li>
 <li><a href="#_dev">14.2. dev</a></li>
-<li><a href="#_package">14.3. package</a></li>
-<li><a href="#_run">14.4. run</a></li>
-<li><a href="#_shutdown">14.5. shutdown</a></li>
-<li><a href="#_start">14.6. start</a></li>
+<li><a href="#_dev_watch">14.3. dev-watch</a></li>
+<li><a href="#_help">14.4. help</a></li>
+<li><a href="#_package">14.5. package</a></li>
+<li><a href="#_run">14.6. run</a></li>
+<li><a href="#_shutdown">14.7. shutdown</a></li>
+<li><a href="#_start">14.8. start</a></li>
 </ul>
 </li>
 </ul>
@@ -574,27 +581,27 @@ The bootable JAR displayed traces contain the actual path to this transient inst
 <h2 id="wildfly_jar_examples"><a class="anchor" href="#wildfly_jar_examples"></a><a class="link" href="#wildfly_jar_examples">2. Examples</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The examples <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/2.0.0.Final/examples">directory</a>
+<p>The examples <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/3.0.0.Final/examples">directory</a>
 contains Maven example projects that highlight various usages of the WildFly bootable JAR. Build and run these projects
 to familiarize yourself with the Maven plugin. A good example to start with is the
-<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/2.0.0.Final/examples/jaxrs">jaxrs</a> example.</p>
+<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/3.0.0.Final/examples/jaxrs">jaxrs</a> example.</p>
 </div>
 <div class="paragraph">
 <p>Some of these examples are targeting deployment of the bootable JAR in OpenShift.
-For example: <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/2.0.0.Final/examples/microprofile-config">microprofile-config</a>,
-<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/2.0.0.Final/examples/postgresql">postgresql</a> and
-<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/2.0.0.Final/examples/jkube">jkube</a>.</p>
+For example: <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/3.0.0.Final/examples/microprofile-config">microprofile-config</a>,
+<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/3.0.0.Final/examples/postgresql">postgresql</a> and
+<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/3.0.0.Final/examples/jkube">jkube</a>.</p>
 </div>
 <div class="paragraph">
 <p>Deployment inside a <a href="https://github.com/GoogleContainerTools/jib">JIB</a> container is
-covered by <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/2.0.0.Final/examples/jib">jib</a> example and <em>examples/jib-*</em> projects.</p>
+covered by <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/3.0.0.Final/examples/jib">jib</a> example and <em>examples/jib-*</em> projects.</p>
 </div>
 <div class="sect2">
 <h3 id="wildfly_jar_examples_download"><a class="anchor" href="#wildfly_jar_examples_download"></a><a class="link" href="#wildfly_jar_examples_download">2.1. Downloading the examples</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Clone the wildfly-jar-maven-plugin repository: <em>git clone -b 2.0.0.Final <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin" class="bare">https://github.com/wildfly-extras/wildfly-jar-maven-plugin</a></em></p>
+<p>Clone the wildfly-jar-maven-plugin repository: <em>git clone -b 3.0.0.Final <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin" class="bare">https://github.com/wildfly-extras/wildfly-jar-maven-plugin</a></em></p>
 </li>
 <li>
 <p><em>cd wildfly-jar-maven-plugin/examples</em></p>
@@ -611,14 +618,14 @@ covered by <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/t
 <h2 id="wildfly_jar_composing_custom_server_galleon"><a class="anchor" href="#wildfly_jar_composing_custom_server_galleon"></a><a class="link" href="#wildfly_jar_composing_custom_server_galleon">3. Composing custom server with Galleon layers</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When building a bootable JAR you have the ability to select the set of <a href="https://docs.wildfly.org/21/Bootable_Guide.html#wildfly_layers">WildFly Galleon layers</a>
+<p>When building a bootable JAR you have the ability to select the set of <a href="https://docs.wildfly.org/22/Bootable_Guide.html#wildfly_layers">WildFly Galleon layers</a>
 you want to see present in the bootable JAR. Selecting a subset of server features has an impact on the server xml configuration
 and the set of installed JBoss modules. By selecting the subset required by your application you will reduce the JAR size, server configuration content and memory footprint.</p>
 </div>
 <div class="paragraph">
-<p>You are not limited to the <a href="https://docs.wildfly.org/21/Bootable_Guide.html#wildfly_layers">WildFly Galleon layers</a>, you can combine other third parties Galleon layers compatible with
+<p>You are not limited to the <a href="https://docs.wildfly.org/22/Bootable_Guide.html#wildfly_layers">WildFly Galleon layers</a>, you can combine other third parties Galleon layers compatible with
 WildFly (eg: <a href="https://github.com/wildfly-extras/wildfly-datasources-galleon-pack">WildFly database drivers and datasources layers</a>).
-The example <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/2.0.0.Final/examples/postgresql">postgresql</a>
+The example <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/3.0.0.Final/examples/postgresql">postgresql</a>
 shows how to create a <em>cloud-server</em> with support for <em>postgresql</em> database.</p>
 </div>
 <div class="sect2">
@@ -638,13 +645,13 @@ The configuration element <a href="#featurePackLocation">feature-pack-location</
 <div class="ulist">
 <ul>
 <li>
-<p>To provision a WildFly 21 server:</p>
+<p>To provision a WildFly 22 server:</p>
 </li>
 </ul>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;feature-pack-location&gt;</span>wildfly@maven(org.jboss.universe:community-universe)#21.0.0.Final<span style="color:#070;font-weight:bold">&lt;/feature-pack-location&gt;</span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;feature-pack-location&gt;</span>wildfly@maven(org.jboss.universe:community-universe)#22.0.0.Final<span style="color:#070;font-weight:bold">&lt;/feature-pack-location&gt;</span></code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -664,13 +671,13 @@ The configuration element <a href="#featurePackLocation">feature-pack-location</
 <h4 id="wildfly_jar_composing_custom_server_galleon_feature_packs"><a class="anchor" href="#wildfly_jar_composing_custom_server_galleon_feature_packs"></a><a class="link" href="#wildfly_jar_composing_custom_server_galleon_feature_packs">3.1.2. Providing a list of Galleon feature-packs</a></h4>
 <div class="paragraph">
 <p>In some cases you will want to combine Galleon layers from multiple sources. In this case you will use the <a href="#featurePacks">feature-packs</a> configuration element that contains a list
-of feature-packs. For example, to provision Galleon layers from WildFly 21 and WildFly extras datasources you would provide:</p>
+of feature-packs. For example, to provision Galleon layers from WildFly 22 and WildFly extras datasources you would provide:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;feature-packs&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;feature-pack&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;location&gt;</span>wildfly@maven(org.jboss.universe:community-universe)#21.0.0.Final<span style="color:#070;font-weight:bold">&lt;/location&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;location&gt;</span>wildfly@maven(org.jboss.universe:community-universe)#22.0.0.Final<span style="color:#070;font-weight:bold">&lt;/location&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;/feature-pack&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;feature-pack&gt;</span>
         <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.wildfly<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
@@ -747,7 +754,7 @@ it can be excluded:</p>
 Use the <a href="#hollowJar">hollow-jar</a> configuration element to create an hollow JAR.</p>
 </div>
 <div class="paragraph">
-<p>The example <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/2.0.0.Final/examples/hollow-jar">hollow-jar</a> shows how to build an hollow JAR.</p>
+<p>The example <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/3.0.0.Final/examples/hollow-jar">hollow-jar</a> shows how to build an hollow JAR.</p>
 </div>
 <div class="paragraph">
 <p>When starting an hollow JAR you can provide the path to a deployment you want to see deployed inside the server. For example:</p>
@@ -774,11 +781,11 @@ Use the <a href="#hollowJar">hollow-jar</a> configuration element to create an h
 <div class="ulist">
 <ul>
 <li>
-<p>Run <a href="https://docs.wildfly.org/21/Admin_Guide.html#Command_Line_Interface">WildFly CLI</a> scripts (see <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/2.0.0.Final/examples/logging">logging</a> example to configure loggers).</p>
+<p>Run <a href="https://docs.wildfly.org/22/Admin_Guide.html#Command_Line_Interface">WildFly CLI</a> scripts (see <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/3.0.0.Final/examples/logging">logging</a> example to configure loggers).</p>
 </li>
 <li>
 <p>Add extra content that you want to see packaged in the server (eg: <em>standalone/configuration/application-users.properties</em>, <em>standalone/configuration/keystore.jks</em>, &#8230;&#8203;).
-The example <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/2.0.0.Final/examples/https">https</a> shows how to package a keystore file in the bootable JAR.</p>
+The example <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/3.0.0.Final/examples/https">https</a> shows how to package a keystore file in the bootable JAR.</p>
 </li>
 </ul>
 </div>
@@ -801,7 +808,7 @@ Using a log4j appender as a <code>custom-handler</code> in the logging subsystem
 </div>
 <div class="paragraph">
 <p>You can workaround this by supplying your own <code>logging.properties</code> and defining the path in the <code>boot-logging-config</code> configuration property.
-An example can be seen in the <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/2.0.0.Final/examples/logging-log4j-appender">logging-log4j-appender</a>
+An example can be seen in the <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/3.0.0.Final/examples/logging-log4j-appender">logging-log4j-appender</a>
 example project.</p>
 </div>
 <div class="sect2">
@@ -812,7 +819,7 @@ example project.</p>
 <div class="paragraph">
 <p>CLI script files are text files that contain a sequence of WildFly CLI commands. Commands can be CLI defined commands
 (some builtin commands allowing to achieve complex sequence of server operations) and generic management operations to be sent to the server. Some examples can
-be found in WildFly administration guide <a href="https://docs.wildfly.org/21/Admin_Guide.html#CLI_Recipes">CLI recipes chapter</a>.</p>
+be found in WildFly administration guide <a href="https://docs.wildfly.org/22/Admin_Guide.html#CLI_Recipes">CLI recipes chapter</a>.</p>
 </div>
 <div class="paragraph">
 <p>In the context of Bootable JAR, the script does not need to contain commands to connect to the server or start an embedded server.
@@ -951,7 +958,7 @@ NB: When authentication is enabled, the environment variable <code><code>JGROUPS
 <h3 id="wildfly_jar_cloud_jkube"><a class="anchor" href="#wildfly_jar_cloud_jkube"></a><a class="link" href="#wildfly_jar_cloud_jkube">7.1. OpenShift Deployment using Eclipse JKube</a></h3>
 <div class="paragraph">
 <p><a href="https://github.com/eclipse/jkube">JKube Maven plugin</a> contains support for WildFly bootable JAR. The
-<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/2.0.0.Final/examples/jkube">jkube</a> example shows how to combine
+<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/3.0.0.Final/examples/jkube">jkube</a> example shows how to combine
 WildFly bootable JAR and JKube Maven plugins in order to deploy an application on OpenShift.</p>
 </div>
 </div>
@@ -1039,8 +1046,110 @@ In order to shutdown a running bootable JAR (started with 'start' or 'dev' goals
 <div class="sectionbody">
 <div class="paragraph">
 <p>When packaging a bootable JAR, a WildFly server is provisioned and customization (if any) is applied. Rebuilding a bootable JAR each time is time consuming
-and slows down the application development process.
-In order to speed-up the development of your application, the Maven plugin offers a <a href="#_dev">dev</a> goal that builds and starts the bootable JAR only once.</p>
+and slows down the application development process.</p>
+</div>
+<div class="paragraph">
+<p>We offer 2 different dev goals:</p>
+</div>
+<div class="sect2">
+<h3 id="_development_mode_with_source_watching"><a class="anchor" href="#_development_mode_with_source_watching"></a><a class="link" href="#_development_mode_with_source_watching">10.1. Development mode with source watching</a></h3>
+<div class="paragraph">
+<p>In order to speed-up the development of your application, the Maven plugin offers a <a href="#_dev_watch">dev-watch</a> goal that builds and starts the bootable JAR only once then
+watch for changes in order to rebuild and redeploy your application.</p>
+</div>
+<div class="paragraph">
+<p>The workflow to follow during development is:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>mvn wildfly-jar:dev-watch</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The plugin builds your application, build an hollow server bootable JAR and starts it,
+then monitors the projects to detect source files changes and rebuild/redeploy the application.</p>
+</li>
+<li>
+<p>The goal <code>dev-watch</code> is blocking. When done, type Ctrl-C in the console to stop the process.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Watch details:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>war</code>, <code>jar</code> and <code>ejb</code> packaging are supported.</p>
+</li>
+<li>
+<p>Applications are deployed as exploded deployments.</p>
+</li>
+<li>
+<p>Any change to the project build sources (default to <code>src/main/java</code>) implies a recompile, repackage and redeploy.</p>
+</li>
+<li>
+<p>Any change to the <code>src/main/webapp</code> implies a copy of the file in the exploded deployment and a redeploy.</p>
+</li>
+<li>
+<p>Any change to the default resources <code>src/main/resources</code> as well as configured resource directories in pom.xml implies a repackage and redeploy.</p>
+</li>
+<li>
+<p>Any change to the pom.xml file outside of the plugin configuration implies a recompile, repackage and redeploy.</p>
+</li>
+<li>
+<p>Any change to the plugin configuration implies rebuild/restart of the bootable JAR, recompile, repackage and redeploy.</p>
+</li>
+<li>
+<p>Any change to CLI scripts or CLI properties files implies rebuild/restart of the bootable JAR, recompile, repackage and redeploy.</p>
+</li>
+<li>
+<p>Any change to extra content directories implies rebuild/restart of the bootable JAR, recompile, repackage and redeploy.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Error handling:</p>
+</div>
+<div class="paragraph">
+<p>The <code>dev-watch</code> goal will not exit on error. Errors are advertised in the console.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Compilation errors are printed in the console. Fix the files, recompilation will occur.</p>
+</li>
+<li>
+<p>Re-build of bootable JAR errors (eg: usage of invalid Galleon layer) are printed in the console. Fix the pom.xml file, rebuild/restart and redeploy will occur.</p>
+</li>
+<li>
+<p>Server startup errors are printed in the console. Fix your application, the application will get redeployed.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Limitations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>No support for multi modules.</p>
+</li>
+<li>
+<p>No support for resources filtering (include/exclude). The resources directory is watched fully, this means that some re-deploy could be started for resources
+excluded from the project.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_development_mode_with_repackaging"><a class="anchor" href="#_development_mode_with_repackaging"></a><a class="link" href="#_development_mode_with_repackaging">10.2. Development mode with repackaging</a></h3>
+<div class="paragraph">
+<p>In order to speed-up the development of your application, the Maven plugin offers a <a href="#_dev">dev</a> goal that builds and starts the bootable JAR only once.</p>
 </div>
 <div class="paragraph">
 <p>The workflow to follow during development is:</p>
@@ -1093,6 +1202,7 @@ The running server detects the application and deploys it.</p>
 <div class="paragraph">
 <p>NB: Although the <em>dev</em> mode relies on the deployment scanner, you can safely exclude it from the set of layers.
 The Maven plugin forces its presence when the server is started in <em>dev</em> mode.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1206,7 +1316,7 @@ run a slim bootable JAR in a context were no local Maven cache is present.</p>
 <p>In this example, the directory <em>&lt;project directory&gt;/target/my-maven-repo</em> is created and contains the set of JBoss modules JAR required to start the server.</p>
 </div>
 <div class="paragraph">
-<p>The <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/2.0.0.Final/examples/slim">slim</a> example shows how to build a slim bootable JAR
+<p>The <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/3.0.0.Final/examples/slim">slim</a> example shows how to build a slim bootable JAR
 and generate a local Maven repository used at startup.</p>
 </div>
 </div>
@@ -1256,7 +1366,7 @@ coordinates of the Maven plugin artifact are</p>
 <pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;dependency&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.wildfly.plugins<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>wildfly-jar-maven-plugin<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
-    <span style="color:#070;font-weight:bold">&lt;version&gt;</span>2.0.0.Final<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;version&gt;</span>3.0.0.Final<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
 <span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span></code></pre>
 </div>
 </div>
@@ -1271,6 +1381,10 @@ coordinates of the Maven plugin artifact are</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dev">dev</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Build and start a WildFly bootable JAR for dev mode.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_help">help</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prints help for the plugin.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_package">package</a></p></td>
@@ -1297,7 +1411,7 @@ coordinates of the Maven plugin artifact are</p>
 <h4 id="_wildfly_jardev"><a class="anchor" href="#_wildfly_jardev"></a><a class="link" href="#_wildfly_jardev">14.2.1. wildfly-jar:dev</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:2.0.0.Final:dev</p>
+org.wildfly.plugins:wildfly-jar-maven-plugin:3.0.0.Final:dev</p>
 </div>
 </div>
 <div class="sect3">
@@ -1344,812 +1458,7 @@ would have to be killed.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Bootable JAR server arguments.<br>
-<strong>Alias is</strong>: <code>arguments</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#bootLoggingConfig">[bootLoggingConfig]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>File</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Overrides the default <code>logging.properties</code> the container
-uses when booting. <br>
-In most cases this should not be required. The use-case is when the
-generated <code>logging.properties</code> causes boot errors or you
-do not use the logging subsystem and would like to use a custom
-logging configuration. <br>
-An example of a boot error would be using a log4j appender as a
-<code>custom-handler</code>. If the file is not absolute, it has to
-be relative to the project base directory.<br>
-<strong>User property is</strong>: <code>wildfly.bootable.logging.config</code>.<br>
-<strong>Alias is</strong>: <code>boot-logging-config</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#bootableJarBuildArtifacts">[bootableJarBuildArtifacts]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">By default, when building a bootable JAR, the plugin extracts build
-artifacts in the directory 'bootable-jar-build-artifacts'. You can
-use this property to change this directory name. In most cases this
-should not be required. The use-case is when building multiple
-bootable JARs in the same project on Windows Platform. In this
-case, each execution should have its own directory, the plugin
-being unable to delete the directory due to some references to
-JBoss module files.<br>
-<strong>Default value is</strong>: <code>bootable-jar-build-artifacts</code>.<br>
-<strong>User property is</strong>: <code>wildfly.bootable.jar.build.artifacts</code>.<br>
-<strong>Alias is</strong>: <code>bootable-jar-build-artifacts</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#cliSessions">[cliSessions]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List of CLI execution sessions. An embedded server is started for
-each CLI session. If a script file is not absolute, it has to be
-relative to the project base directory. CLI session are configured
-in the following way: <br>
-&lt;cli-sessions&gt;<br>
-&lt;cli-session&gt;<br>
-&lt;script-files&gt;<br>
-&lt;script&gt;../scripts/script1.cli&lt;/script&gt;<br>
-&lt;/script-files&gt;<br>
-&lt;!-- Expressions resolved during server execution --&gt;<br>
-&lt;resolve-expressions&gt;false&lt;/resolve-expressions&gt;<br>
-&lt;/cli-session&gt;<br>
-&lt;cli-session&gt;<br>
-&lt;script-files&gt;<br>
-&lt;script&gt;../scripts/script2.cli&lt;/script&gt;<br>
-&lt;/script-files&gt;<br>
-&lt;properties-file&gt;../scripts/cli.properties&lt;/properties-file&gt;<br>
-&lt;/cli-session&gt;<br>
-&lt;/cli-sessions&gt;<br>
-<strong>Alias is</strong>: <code>cli-sessions</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#contextRoot">[contextRoot]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">To make the WAR deployment registered under root resource path
-('/').<br>
-<strong>Default value is</strong>: <code>true</code>.<br>
-<strong>User property is</strong>: <code>wildfly.bootable.context.root</code>.<br>
-<strong>Alias is</strong>: <code>context-root</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#displayCliScriptsOutput">[displayCliScriptsOutput]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">By default executed CLI scripts output is not shown if execution is
-successful. In order to display the CLI output, set this option to
-true.<br>
-<strong>Alias is</strong>: <code>display-cli-scripts-output</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#excludedLayers">[excludedLayers]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A list of Galleon layers to exclude. Can be used when
-feature-pack-location or feature-packs are set.<br>
-<strong>Alias is</strong>: <code>excluded-layers</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#extraServerContent">[extraServerContent]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A list of directories to copy content to the provisioned server. If
-a directory is not absolute, it has to be relative to the project
-base directory.<br>
-<strong>User property is</strong>: <code>wildfly.bootable.package.extra.server.content.dirs</code>.<br>
-<strong>Alias is</strong>: <code>extra-server-content-dirs</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#featurePackLocation">[featurePackLocation]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The WildFly Galleon feature-pack location to use if no
-provisioning.xml file found. Can&#8217;t be used in conjunction with
-feature-packs.<br>
-<strong>User property is</strong>: <code>wildfly.bootable.fpl</code>.<br>
-<strong>Alias is</strong>: <code>feature-pack-location</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#featurePacks">[featurePacks]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A list of feature-pack configurations to install, can be combined
-with layers. Overrides galleon/provisioning.xml file. Can&#8217;t be used
-in conjunction with feature-pack-location.<br>
-<strong>Alias is</strong>: <code>feature-packs</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#hollowJar">[hollowJar]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hollow JAR. Create a bootable JAR that doesn&#8217;t contain application.<br>
-<strong>User property is</strong>: <code>wildfly.bootable.hollow</code>.<br>
-<strong>Alias is</strong>: <code>hollow-jar</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#jvmArguments">[jvmArguments]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Additional JVM options.<br>
-<strong>Alias is</strong>: <code>jvmArguments</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#layers">[layers]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A list of Galleon layers to provision. Can be used when
-feature-pack-location or feature-packs are set.<br>
-<strong>Alias is</strong>: <code>layers</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#legacyPatchCleanUp">[legacyPatchCleanUp]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Set to true to enable patch cleanup. When cleanup is enabled,
-unused added modules, patched modules original directories, unused
-overlay directories and .installation/patches directory are
-deleted.<br>
-<strong>Default value is</strong>: <code>false</code>.<br>
-<strong>Alias is</strong>: <code>legacy-patch-clean-up</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#legacyPatchCliScript">[legacyPatchCliScript]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Path to a CLI script that applies legacy patches. Content of such
-script should be composed of 'patch apply [path to zip file] [patch
-apply options]' commands. Due to the nature of a bootable JAR
-trimmed with Galleon, part of the content of the patch can be
-missing. In order to force the patch to apply use the
-'--override-all' option. The '--distribution' option is not needed,
-System property 'jboss.home.dir' is automatically set to the server
-that will be packaged in the bootable JAR. If the script file is
-not absolute, it has to be relative to the project base directory.
-NB: The server is patched with a legacy patch right after the
-server has been provisioned with Galleon.<br>
-<strong>Alias is</strong>: <code>legacy-patch-cli-script</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#logTime">[logTime]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to log provisioning time at the end<br>
-<strong>Default value is</strong>: <code>false</code>.<br>
-<strong>Alias is</strong>: <code>log-time</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#offline">[offline]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to use offline mode when the plugin resolves an artifact.
-In offline mode the plugin will only use the local Maven repository
-for an artifact resolution.<br>
-<strong>Default value is</strong>: <code>false</code>.<br>
-<strong>Alias is</strong>: <code>offline</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#outputFileName">[outputFileName]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">By default the generated JAR is
-${project.build.finalName}-bootable.jar<br>
-<strong>User property is</strong>: <code>wildfly.bootable.package.output.file.name</code>.<br>
-<strong>Alias is</strong>: <code>output-file-name</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#pluginOptions">[pluginOptions]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Map</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Arbitrary Galleon options used when provisioning the server. In
-case you are building a large amount of bootable JAR in the same
-maven session, it is strongly advised to set 'jboss-fork-embedded'
-option to 'true' in order to fork Galleon provisioning and CLI
-scripts execution in dedicated processes. For example: <br>
-&lt;plugin-options&gt;<br>
-&lt;jboss-fork-embedded&gt;true&lt;/jboss-fork-embedded&gt;<br>
-&lt;/plugin-options&gt;<br>
-<strong>Alias is</strong>: <code>plugin-options</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#projectBuildDir">[projectBuildDir]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Project build dir.<br>
-<strong>Default value is</strong>: <code>${project.build.directory}</code>.<br></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#provisioningFile">[provisioningFile]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>File</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The path to the <code>provisioning.xml</code> file to use. Note
-that this cannot be used with the <code>feature-packs</code> or
-<code>layers</code> configuration parameters. If the provisioning
-file is not absolute, it has to be relative to the project base
-directory.<br>
-<strong>Default value is</strong>: <code>${project.basedir}/galleon/provisioning.xml</code>.<br>
-<strong>User property is</strong>: <code>wildfly.bootable.provisioning.file</code>.<br>
-<strong>Alias is</strong>: <code>provisioning-file</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#recordState">[recordState]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to record provisioned state in .galleon directory.<br>
-<strong>Default value is</strong>: <code>false</code>.<br>
-<strong>Alias is</strong>: <code>record-state</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#skip">[skip]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> if you want the deployment to be skipped,
-otherwise <code>false</code>.<br>
-<strong>Default value is</strong>: <code>false</code>.<br>
-<strong>User property is</strong>: <code>wildfly.bootable.package.skip</code>.<br></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_parameter_details"><a class="anchor" href="#_parameter_details"></a><a class="link" href="#_parameter_details">14.2.4. Parameter Details</a></h4>
-<div class="paragraph">
-<p><a id="arguments"></a> <strong>arguments</strong><br>
-Bootable JAR server arguments.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.util.List</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>arguments</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="bootLoggingConfig"></a> <strong>bootLoggingConfig</strong><br>
-Overrides the default <code>logging.properties</code> the container
-uses when booting. <br>
-In most cases this should not be required. The use-case is when the
-generated <code>logging.properties</code> causes boot errors or you
-do not use the logging subsystem and would like to use a custom
-logging configuration. <br>
-An example of a boot error would be using a log4j appender as a
-<code>custom-handler</code>. If the file is not absolute, it has to
-be relative to the project base directory.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.io.File</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>User Property</strong>: <code>wildfly.bootable.logging.config</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>boot-logging-config</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="bootableJarBuildArtifacts"></a> <strong>bootableJarBuildArtifacts</strong><br>
-By default, when building a bootable JAR, the plugin extracts build
-artifacts in the directory 'bootable-jar-build-artifacts'. You can
-use this property to change this directory name. In most cases this
-should not be required. The use-case is when building multiple
-bootable JARs in the same project on Windows Platform. In this
-case, each execution should have its own directory, the plugin
-being unable to delete the directory due to some references to
-JBoss module files.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.lang.String</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>User Property</strong>: <code>wildfly.bootable.jar.build.artifacts</code></p>
-</li>
-<li>
-<p><strong>Default</strong>: <code>bootable-jar-build-artifacts</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>bootable-jar-build-artifacts</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="cliSessions"></a> <strong>cliSessions</strong><br>
-List of CLI execution sessions. An embedded server is started for
-each CLI session. If a script file is not absolute, it has to be
-relative to the project base directory. CLI session are configured
-in the following way: <br>
-&lt;cli-sessions&gt;<br>
-&lt;cli-session&gt;<br>
-&lt;script-files&gt;<br>
-&lt;script&gt;../scripts/script1.cli&lt;/script&gt;<br>
-&lt;/script-files&gt;<br>
-&lt;!-- Expressions resolved during server execution --&gt;<br>
-&lt;resolve-expressions&gt;false&lt;/resolve-expressions&gt;<br>
-&lt;/cli-session&gt;<br>
-&lt;cli-session&gt;<br>
-&lt;script-files&gt;<br>
-&lt;script&gt;../scripts/script2.cli&lt;/script&gt;<br>
-&lt;/script-files&gt;<br>
-&lt;properties-file&gt;../scripts/cli.properties&lt;/properties-file&gt;<br>
-&lt;/cli-session&gt;<br>
-&lt;/cli-sessions&gt;</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.util.List</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>cli-sessions</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="contextRoot"></a> <strong>contextRoot</strong><br>
-To make the WAR deployment registered under root resource path
-('/').</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>boolean</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>User Property</strong>: <code>wildfly.bootable.context.root</code></p>
-</li>
-<li>
-<p><strong>Default</strong>: <code>true</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>context-root</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="displayCliScriptsOutput"></a> <strong>displayCliScriptsOutput</strong><br>
-By default executed CLI scripts output is not shown if execution is
-successful. In order to display the CLI output, set this option to
-true.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>boolean</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>display-cli-scripts-output</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="excludedLayers"></a> <strong>excludedLayers</strong><br>
-A list of Galleon layers to exclude. Can be used when
-feature-pack-location or feature-packs are set.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.util.List</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>excluded-layers</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="extraServerContent"></a> <strong>extraServerContent</strong><br>
-A list of directories to copy content to the provisioned server. If
-a directory is not absolute, it has to be relative to the project
-base directory.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.util.List</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>User Property</strong>: <code>wildfly.bootable.package.extra.server.content.dirs</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>extra-server-content-dirs</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="featurePackLocation"></a> <strong>featurePackLocation</strong><br>
-The WildFly Galleon feature-pack location to use if no
-provisioning.xml file found. Can&#8217;t be used in conjunction with
-feature-packs.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.lang.String</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>User Property</strong>: <code>wildfly.bootable.fpl</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>feature-pack-location</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="featurePacks"></a> <strong>featurePacks</strong><br>
-A list of feature-pack configurations to install, can be combined
-with layers. Overrides galleon/provisioning.xml file. Can&#8217;t be used
-in conjunction with feature-pack-location.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.util.List</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>feature-packs</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="hollowJar"></a> <strong>hollowJar</strong><br>
-Hollow JAR. Create a bootable JAR that doesn&#8217;t contain application.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>boolean</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>User Property</strong>: <code>wildfly.bootable.hollow</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>hollow-jar</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="jvmArguments"></a> <strong>jvmArguments</strong><br>
-Additional JVM options.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.util.List</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>jvmArguments</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="layers"></a> <strong>layers</strong><br>
-A list of Galleon layers to provision. Can be used when
-feature-pack-location or feature-packs are set.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.util.List</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>layers</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="legacyPatchCleanUp"></a> <strong>legacyPatchCleanUp</strong><br>
-Set to true to enable patch cleanup. When cleanup is enabled,
-unused added modules, patched modules original directories, unused
-overlay directories and .installation/patches directory are
-deleted.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>boolean</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Default</strong>: <code>false</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>legacy-patch-clean-up</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="legacyPatchCliScript"></a> <strong>legacyPatchCliScript</strong><br>
-Path to a CLI script that applies legacy patches. Content of such
-script should be composed of 'patch apply [path to zip file] [patch
-apply options]' commands. Due to the nature of a bootable JAR
-trimmed with Galleon, part of the content of the patch can be
-missing. In order to force the patch to apply use the
-'--override-all' option. The '--distribution' option is not needed,
-System property 'jboss.home.dir' is automatically set to the server
-that will be packaged in the bootable JAR. If the script file is
-not absolute, it has to be relative to the project base directory.
-NB: The server is patched with a legacy patch right after the
-server has been provisioned with Galleon.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.lang.String</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>legacy-patch-cli-script</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="logTime"></a> <strong>logTime</strong><br>
-Whether to log provisioning time at the end</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>boolean</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Default</strong>: <code>false</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>log-time</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="offline"></a> <strong>offline</strong><br>
-Whether to use offline mode when the plugin resolves an artifact.
-In offline mode the plugin will only use the local Maven repository
-for an artifact resolution.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>boolean</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Default</strong>: <code>false</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>offline</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="outputFileName"></a> <strong>outputFileName</strong><br>
-By default the generated JAR is
-${project.build.finalName}-bootable.jar</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.lang.String</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>User Property</strong>: <code>wildfly.bootable.package.output.file.name</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>output-file-name</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="pluginOptions"></a> <strong>pluginOptions</strong><br>
-Arbitrary Galleon options used when provisioning the server. In
-case you are building a large amount of bootable JAR in the same
-maven session, it is strongly advised to set 'jboss-fork-embedded'
-option to 'true' in order to fork Galleon provisioning and CLI
-scripts execution in dedicated processes. For example: <br>
-&lt;plugin-options&gt;<br>
-&lt;jboss-fork-embedded&gt;true&lt;/jboss-fork-embedded&gt;<br>
-&lt;/plugin-options&gt;</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.util.Map</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>plugin-options</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="projectBuildDir"></a> <strong>projectBuildDir</strong><br>
-Project build dir.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.lang.String</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Default</strong>: <code>${project.build.directory}</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="provisioningFile"></a> <strong>provisioningFile</strong><br>
-The path to the <code>provisioning.xml</code> file to use. Note
-that this cannot be used with the <code>feature-packs</code> or
-<code>layers</code> configuration parameters. If the provisioning
-file is not absolute, it has to be relative to the project base
-directory.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.io.File</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>User Property</strong>: <code>wildfly.bootable.provisioning.file</code></p>
-</li>
-<li>
-<p><strong>Default</strong>: <code>${project.basedir}/galleon/provisioning.xml</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>provisioning-file</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="recordState"></a> <strong>recordState</strong><br>
-Whether to record provisioned state in .galleon directory.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>boolean</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Default</strong>: <code>false</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>record-state</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="skip"></a> <strong>skip</strong><br>
-Set to <code>true</code> if you want the deployment to be skipped,
-otherwise <code>false</code>.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>boolean</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>User Property</strong>: <code>wildfly.bootable.package.skip</code></p>
-</li>
-<li>
-<p><strong>Default</strong>: <code>false</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_package"><a class="anchor" href="#_package"></a><a class="link" href="#_package">14.3. package</a></h3>
-<div class="sect3">
-<h4 id="_wildfly_jarpackage"><a class="anchor" href="#_wildfly_jarpackage"></a><a class="link" href="#_wildfly_jarpackage">14.3.1. wildfly-jar:package</a></h4>
-<div class="paragraph">
-<p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:2.0.0.Final:package</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_description_2"><a class="anchor" href="#_description_2"></a><a class="link" href="#_description_2">14.3.2. Description</a></h4>
-<div class="paragraph">
-<p>Build a bootable JAR containing application and provisioned server</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_attributes_2"><a class="anchor" href="#_attributes_2"></a><a class="link" href="#_attributes_2">14.3.3. Attributes</a></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Requires a Maven project to be executed.</p>
-</li>
-<li>
-<p>Requires dependency resolution of artifacts in scope: <code>compile+runtime</code>.</p>
-</li>
-<li>
-<p>Binds by default to the <a href="http://maven.apache.org/ref/current/maven-core/lifecycles.html">lifecycle phase</a>: <code>package</code>.</p>
-</li>
-</ul>
-</div>
-<table class="tableblock frame-all grid-all fit-content stretch">
-<caption class="title">Table 2. Optional Parameters</caption>
-<colgroup>
-<col>
-<col>
-<col>
-<col>
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Type</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Since</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<strong>User property is</strong>: <code>wildfly.bootable.arguments</code>.<br></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#bootLoggingConfig">[bootLoggingConfig]</a></code></p></td>
@@ -2249,7 +1558,7 @@ feature-pack-location or feature-packs are set.<br>
 <strong>Alias is</strong>: <code>excluded-layers</code>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#extraServerContent">[extraServerContent]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#extraServerContentDirs">[extraServerContentDirs]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A list of directories to copy content to the provisioned server. If
@@ -2284,6 +1593,13 @@ in conjunction with feature-pack-location.<br>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Hollow JAR. Create a bootable JAR that doesn&#8217;t contain application.<br>
 <strong>User property is</strong>: <code>wildfly.bootable.hollow</code>.<br>
 <strong>Alias is</strong>: <code>hollow-jar</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#jvmArguments">[jvmArguments]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Additional JVM options.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.jvmArguments</code>.<br></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#layers">[layers]</a></code></p></td>
@@ -2399,11 +1715,41 @@ otherwise <code>false</code>.<br>
 <strong>Default value is</strong>: <code>false</code>.<br>
 <strong>User property is</strong>: <code>wildfly.bootable.package.skip</code>.<br></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#stdout">[stdout]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates how <code>stdout</code> and <code>stderr</code> should be
+handled for the server process. A value of <code>inherit</code>
+means that the standard output streams are inherited from the
+current process. Any other value is assumed to be a path. In this
+case both <code>stdout</code> and <code>stderr</code> will be
+redirected to a file.<br>
+<strong>Default value is</strong>: <code>${project.build.directory}/wildfly-jar-dev-stdout.log</code>.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.stdout</code>.<br></p></td>
+</tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_parameter_details_2"><a class="anchor" href="#_parameter_details_2"></a><a class="link" href="#_parameter_details_2">14.3.4. Parameter Details</a></h4>
+<h4 id="_parameter_details"><a class="anchor" href="#_parameter_details"></a><a class="link" href="#_parameter_details">14.2.4. Parameter Details</a></h4>
+<div class="paragraph">
+<p><a id="arguments"></a> <strong>arguments</strong><br>
+Bootable JAR server arguments.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.util.List</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.arguments</code></p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p><a id="bootLoggingConfig"></a> <strong>bootLoggingConfig</strong><br>
 Overrides the default <code>logging.properties</code> the container
@@ -2582,7 +1928,1969 @@ feature-pack-location or feature-packs are set.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p><a id="extraServerContent"></a> <strong>extraServerContent</strong><br>
+<p><a id="extraServerContentDirs"></a> <strong>extraServerContentDirs</strong><br>
+A list of directories to copy content to the provisioned server. If
+a directory is not absolute, it has to be relative to the project
+base directory.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.util.List</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.package.extra.server.content.dirs</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>extra-server-content-dirs</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="featurePackLocation"></a> <strong>featurePackLocation</strong><br>
+The WildFly Galleon feature-pack location to use if no
+provisioning.xml file found. Can&#8217;t be used in conjunction with
+feature-packs.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.fpl</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>feature-pack-location</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="featurePacks"></a> <strong>featurePacks</strong><br>
+A list of feature-pack configurations to install, can be combined
+with layers. Overrides galleon/provisioning.xml file. Can&#8217;t be used
+in conjunction with feature-pack-location.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.util.List</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>feature-packs</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="hollowJar"></a> <strong>hollowJar</strong><br>
+Hollow JAR. Create a bootable JAR that doesn&#8217;t contain application.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.hollow</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>hollow-jar</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="jvmArguments"></a> <strong>jvmArguments</strong><br>
+Additional JVM options.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.util.List</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.jvmArguments</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="layers"></a> <strong>layers</strong><br>
+A list of Galleon layers to provision. Can be used when
+feature-pack-location or feature-packs are set.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.util.List</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>layers</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="legacyPatchCleanUp"></a> <strong>legacyPatchCleanUp</strong><br>
+Set to true to enable patch cleanup. When cleanup is enabled,
+unused added modules, patched modules original directories, unused
+overlay directories and .installation/patches directory are
+deleted.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>legacy-patch-clean-up</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="legacyPatchCliScript"></a> <strong>legacyPatchCliScript</strong><br>
+Path to a CLI script that applies legacy patches. Content of such
+script should be composed of 'patch apply [path to zip file] [patch
+apply options]' commands. Due to the nature of a bootable JAR
+trimmed with Galleon, part of the content of the patch can be
+missing. In order to force the patch to apply use the
+'--override-all' option. The '--distribution' option is not needed,
+System property 'jboss.home.dir' is automatically set to the server
+that will be packaged in the bootable JAR. If the script file is
+not absolute, it has to be relative to the project base directory.
+NB: The server is patched with a legacy patch right after the
+server has been provisioned with Galleon.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>legacy-patch-cli-script</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="logTime"></a> <strong>logTime</strong><br>
+Whether to log provisioning time at the end</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>log-time</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="offline"></a> <strong>offline</strong><br>
+Whether to use offline mode when the plugin resolves an artifact.
+In offline mode the plugin will only use the local Maven repository
+for an artifact resolution.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>offline</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="outputFileName"></a> <strong>outputFileName</strong><br>
+By default the generated JAR is
+${project.build.finalName}-bootable.jar</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.package.output.file.name</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>output-file-name</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="pluginOptions"></a> <strong>pluginOptions</strong><br>
+Arbitrary Galleon options used when provisioning the server. In
+case you are building a large amount of bootable JAR in the same
+maven session, it is strongly advised to set 'jboss-fork-embedded'
+option to 'true' in order to fork Galleon provisioning and CLI
+scripts execution in dedicated processes. For example: <br>
+&lt;plugin-options&gt;<br>
+&lt;jboss-fork-embedded&gt;true&lt;/jboss-fork-embedded&gt;<br>
+&lt;/plugin-options&gt;</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.util.Map</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>plugin-options</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="projectBuildDir"></a> <strong>projectBuildDir</strong><br>
+Project build dir.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>${project.build.directory}</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="provisioningFile"></a> <strong>provisioningFile</strong><br>
+The path to the <code>provisioning.xml</code> file to use. Note
+that this cannot be used with the <code>feature-packs</code> or
+<code>layers</code> configuration parameters. If the provisioning
+file is not absolute, it has to be relative to the project base
+directory.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.io.File</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.provisioning.file</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>${project.basedir}/galleon/provisioning.xml</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>provisioning-file</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="recordState"></a> <strong>recordState</strong><br>
+Whether to record provisioned state in .galleon directory.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>record-state</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="skip"></a> <strong>skip</strong><br>
+Set to <code>true</code> if you want the deployment to be skipped,
+otherwise <code>false</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.package.skip</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="stdout"></a> <strong>stdout</strong><br>
+Indicates how <code>stdout</code> and <code>stderr</code> should be
+handled for the server process. A value of <code>inherit</code>
+means that the standard output streams are inherited from the
+current process. Any other value is assumed to be a path. In this
+case both <code>stdout</code> and <code>stderr</code> will be
+redirected to a file.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.stdout</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>${project.build.directory}/wildfly-jar-dev-stdout.log</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dev_watch"><a class="anchor" href="#_dev_watch"></a><a class="link" href="#_dev_watch">14.3. dev-watch</a></h3>
+<div class="sect3">
+<h4 id="_wildfly_jardev_watch"><a class="anchor" href="#_wildfly_jardev_watch"></a><a class="link" href="#_wildfly_jardev_watch">14.3.1. wildfly-jar:dev-watch</a></h4>
+<div class="paragraph">
+<p><strong>Full name:</strong>
+org.wildfly.plugins:wildfly-jar-maven-plugin:3.0.0.Final:dev-watch</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_2"><a class="anchor" href="#_description_2"></a><a class="link" href="#_description_2">14.3.2. Description</a></h4>
+<div class="paragraph">
+<p>Build and start a bootable JAR for dev-watch mode. This goal
+monitors the changes in the project and recompile/re-deploy. Type
+Ctrl-C to kill the running server.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_attributes_2"><a class="anchor" href="#_attributes_2"></a><a class="link" href="#_attributes_2">14.3.3. Attributes</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Requires a Maven project to be executed.</p>
+</li>
+<li>
+<p>Requires dependency resolution of artifacts in scope: <code>compile+runtime</code>.</p>
+</li>
+<li>
+<p>Binds by default to the <a href="http://maven.apache.org/ref/current/maven-core/lifecycles.html">lifecycle phase</a>: <code>compile</code>.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all fit-content stretch">
+<caption class="title">Table 2. Optional Parameters</caption>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Since</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#arguments">[arguments]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bootable JAR server arguments.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.arguments</code>.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#bootLoggingConfig">[bootLoggingConfig]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>File</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Overrides the default <code>logging.properties</code> the container
+uses when booting. <br>
+In most cases this should not be required. The use-case is when the
+generated <code>logging.properties</code> causes boot errors or you
+do not use the logging subsystem and would like to use a custom
+logging configuration. <br>
+An example of a boot error would be using a log4j appender as a
+<code>custom-handler</code>. If the file is not absolute, it has to
+be relative to the project base directory.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.logging.config</code>.<br>
+<strong>Alias is</strong>: <code>boot-logging-config</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#bootableJarBuildArtifacts">[bootableJarBuildArtifacts]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">By default, when building a bootable JAR, the plugin extracts build
+artifacts in the directory 'bootable-jar-build-artifacts'. You can
+use this property to change this directory name. In most cases this
+should not be required. The use-case is when building multiple
+bootable JARs in the same project on Windows Platform. In this
+case, each execution should have its own directory, the plugin
+being unable to delete the directory due to some references to
+JBoss module files.<br>
+<strong>Default value is</strong>: <code>bootable-jar-build-artifacts</code>.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.jar.build.artifacts</code>.<br>
+<strong>Alias is</strong>: <code>bootable-jar-build-artifacts</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#cliSessions">[cliSessions]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List of CLI execution sessions. An embedded server is started for
+each CLI session. If a script file is not absolute, it has to be
+relative to the project base directory. CLI session are configured
+in the following way: <br>
+&lt;cli-sessions&gt;<br>
+&lt;cli-session&gt;<br>
+&lt;script-files&gt;<br>
+&lt;script&gt;../scripts/script1.cli&lt;/script&gt;<br>
+&lt;/script-files&gt;<br>
+&lt;!-- Expressions resolved during server execution --&gt;<br>
+&lt;resolve-expressions&gt;false&lt;/resolve-expressions&gt;<br>
+&lt;/cli-session&gt;<br>
+&lt;cli-session&gt;<br>
+&lt;script-files&gt;<br>
+&lt;script&gt;../scripts/script2.cli&lt;/script&gt;<br>
+&lt;/script-files&gt;<br>
+&lt;properties-file&gt;../scripts/cli.properties&lt;/properties-file&gt;<br>
+&lt;/cli-session&gt;<br>
+&lt;/cli-sessions&gt;<br>
+<strong>Alias is</strong>: <code>cli-sessions</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#cloud">[cloud]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CloudConfig</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To enable cloud support. When cloud support is enabled, the created
+bootable JAR will operate properly in context such as openshift.
+<br>
+In order to enable authenticated cluster jgroups protocol, set
+&lt;enable-jgroups-password&gt;true&lt;/enable-jgroups-password&gt;.
+The environment variable JGROUPS_CLUSTER_PASSWORD must then be set
+to the password value.<br>
+<strong>Alias is</strong>: <code>cloud</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#contextRoot">[contextRoot]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To make the WAR deployment registered under root resource path
+('/').<br>
+<strong>Default value is</strong>: <code>true</code>.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.context.root</code>.<br>
+<strong>Alias is</strong>: <code>context-root</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#displayCliScriptsOutput">[displayCliScriptsOutput]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">By default executed CLI scripts output is not shown if execution is
+successful. In order to display the CLI output, set this option to
+true.<br>
+<strong>Alias is</strong>: <code>display-cli-scripts-output</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#excludedLayers">[excludedLayers]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A list of Galleon layers to exclude. Can be used when
+feature-pack-location or feature-packs are set.<br>
+<strong>Alias is</strong>: <code>excluded-layers</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#extraServerContentDirs">[extraServerContentDirs]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A list of directories to copy content to the provisioned server. If
+a directory is not absolute, it has to be relative to the project
+base directory.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.package.extra.server.content.dirs</code>.<br>
+<strong>Alias is</strong>: <code>extra-server-content-dirs</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#featurePackLocation">[featurePackLocation]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The WildFly Galleon feature-pack location to use if no
+provisioning.xml file found. Can&#8217;t be used in conjunction with
+feature-packs.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.fpl</code>.<br>
+<strong>Alias is</strong>: <code>feature-pack-location</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#featurePacks">[featurePacks]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A list of feature-pack configurations to install, can be combined
+with layers. Overrides galleon/provisioning.xml file. Can&#8217;t be used
+in conjunction with feature-pack-location.<br>
+<strong>Alias is</strong>: <code>feature-packs</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#hollowJar">[hollowJar]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hollow JAR. Create a bootable JAR that doesn&#8217;t contain application.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.hollow</code>.<br>
+<strong>Alias is</strong>: <code>hollow-jar</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#hostname">[hostname]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the host name of the server where the deployment plan
+should be executed.<br>
+<strong>Default value is</strong>: <code>localhost</code>.<br>
+<strong>User property is</strong>: <code>wildfly.hostname</code>.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#jvmArguments">[jvmArguments]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Additional JVM options.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.jvmArguments</code>.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#layers">[layers]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A list of Galleon layers to provision. Can be used when
+feature-pack-location or feature-packs are set.<br>
+<strong>Alias is</strong>: <code>layers</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#legacyPatchCleanUp">[legacyPatchCleanUp]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to true to enable patch cleanup. When cleanup is enabled,
+unused added modules, patched modules original directories, unused
+overlay directories and .installation/patches directory are
+deleted.<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>Alias is</strong>: <code>legacy-patch-clean-up</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#legacyPatchCliScript">[legacyPatchCliScript]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Path to a CLI script that applies legacy patches. Content of such
+script should be composed of 'patch apply [path to zip file] [patch
+apply options]' commands. Due to the nature of a bootable JAR
+trimmed with Galleon, part of the content of the patch can be
+missing. In order to force the patch to apply use the
+'--override-all' option. The '--distribution' option is not needed,
+System property 'jboss.home.dir' is automatically set to the server
+that will be packaged in the bootable JAR. If the script file is
+not absolute, it has to be relative to the project base directory.
+NB: The server is patched with a legacy patch right after the
+server has been provisioned with Galleon.<br>
+<strong>Alias is</strong>: <code>legacy-patch-cli-script</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#logTime">[logTime]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to log provisioning time at the end<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>Alias is</strong>: <code>log-time</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#offline">[offline]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to use offline mode when the plugin resolves an artifact.
+In offline mode the plugin will only use the local Maven repository
+for an artifact resolution.<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>Alias is</strong>: <code>offline</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#outputFileName">[outputFileName]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">By default the generated JAR is
+${project.build.finalName}-bootable.jar<br>
+<strong>User property is</strong>: <code>wildfly.bootable.package.output.file.name</code>.<br>
+<strong>Alias is</strong>: <code>output-file-name</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#pluginOptions">[pluginOptions]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Map</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Arbitrary Galleon options used when provisioning the server. In
+case you are building a large amount of bootable JAR in the same
+maven session, it is strongly advised to set 'jboss-fork-embedded'
+option to 'true' in order to fork Galleon provisioning and CLI
+scripts execution in dedicated processes. For example: <br>
+&lt;plugin-options&gt;<br>
+&lt;jboss-fork-embedded&gt;true&lt;/jboss-fork-embedded&gt;<br>
+&lt;/plugin-options&gt;<br>
+<strong>Alias is</strong>: <code>plugin-options</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#port">[port]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the port number the server is listening on.<br>
+<strong>Default value is</strong>: <code>9990</code>.<br>
+<strong>User property is</strong>: <code>wildfly.port</code>.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#projectBuildDir">[projectBuildDir]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Project build dir.<br>
+<strong>Default value is</strong>: <code>${project.build.directory}</code>.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#provisioningFile">[provisioningFile]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>File</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The path to the <code>provisioning.xml</code> file to use. Note
+that this cannot be used with the <code>feature-packs</code> or
+<code>layers</code> configuration parameters. If the provisioning
+file is not absolute, it has to be relative to the project base
+directory.<br>
+<strong>Default value is</strong>: <code>${project.basedir}/galleon/provisioning.xml</code>.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.provisioning.file</code>.<br>
+<strong>Alias is</strong>: <code>provisioning-file</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#recordState">[recordState]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to record provisioned state in .galleon directory.<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>Alias is</strong>: <code>record-state</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#skip">[skip]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> if you want the deployment to be skipped,
+otherwise <code>false</code>.<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.package.skip</code>.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#sourceDir">[sourceDir]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>File</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(no description)<br>
+<strong>Default value is</strong>: <code>${project.build.sourceDirectory}</code>.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#timeout">[timeout]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The timeout, in seconds, to wait for a management connection.<br>
+<strong>Default value is</strong>: <code>60</code>.<br>
+<strong>User property is</strong>: <code>wildfly.timeout</code>.<br></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_parameter_details_2"><a class="anchor" href="#_parameter_details_2"></a><a class="link" href="#_parameter_details_2">14.3.4. Parameter Details</a></h4>
+<div class="paragraph">
+<p><a id="arguments"></a> <strong>arguments</strong><br>
+Bootable JAR server arguments.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.util.List</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.arguments</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="bootLoggingConfig"></a> <strong>bootLoggingConfig</strong><br>
+Overrides the default <code>logging.properties</code> the container
+uses when booting. <br>
+In most cases this should not be required. The use-case is when the
+generated <code>logging.properties</code> causes boot errors or you
+do not use the logging subsystem and would like to use a custom
+logging configuration. <br>
+An example of a boot error would be using a log4j appender as a
+<code>custom-handler</code>. If the file is not absolute, it has to
+be relative to the project base directory.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.io.File</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.logging.config</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>boot-logging-config</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="bootableJarBuildArtifacts"></a> <strong>bootableJarBuildArtifacts</strong><br>
+By default, when building a bootable JAR, the plugin extracts build
+artifacts in the directory 'bootable-jar-build-artifacts'. You can
+use this property to change this directory name. In most cases this
+should not be required. The use-case is when building multiple
+bootable JARs in the same project on Windows Platform. In this
+case, each execution should have its own directory, the plugin
+being unable to delete the directory due to some references to
+JBoss module files.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.jar.build.artifacts</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>bootable-jar-build-artifacts</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>bootable-jar-build-artifacts</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="cliSessions"></a> <strong>cliSessions</strong><br>
+List of CLI execution sessions. An embedded server is started for
+each CLI session. If a script file is not absolute, it has to be
+relative to the project base directory. CLI session are configured
+in the following way: <br>
+&lt;cli-sessions&gt;<br>
+&lt;cli-session&gt;<br>
+&lt;script-files&gt;<br>
+&lt;script&gt;../scripts/script1.cli&lt;/script&gt;<br>
+&lt;/script-files&gt;<br>
+&lt;!-- Expressions resolved during server execution --&gt;<br>
+&lt;resolve-expressions&gt;false&lt;/resolve-expressions&gt;<br>
+&lt;/cli-session&gt;<br>
+&lt;cli-session&gt;<br>
+&lt;script-files&gt;<br>
+&lt;script&gt;../scripts/script2.cli&lt;/script&gt;<br>
+&lt;/script-files&gt;<br>
+&lt;properties-file&gt;../scripts/cli.properties&lt;/properties-file&gt;<br>
+&lt;/cli-session&gt;<br>
+&lt;/cli-sessions&gt;</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.util.List</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>cli-sessions</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="cloud"></a> <strong>cloud</strong><br>
+To enable cloud support. When cloud support is enabled, the created
+bootable JAR will operate properly in context such as openshift.
+<br>
+In order to enable authenticated cluster jgroups protocol, set
+&lt;enable-jgroups-password&gt;true&lt;/enable-jgroups-password&gt;.
+The environment variable JGROUPS_CLUSTER_PASSWORD must then be set
+to the password value.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>org.wildfly.plugins.bootablejar.maven.cloud.CloudConfig</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>cloud</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="contextRoot"></a> <strong>contextRoot</strong><br>
+To make the WAR deployment registered under root resource path
+('/').</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.context.root</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>true</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>context-root</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="displayCliScriptsOutput"></a> <strong>displayCliScriptsOutput</strong><br>
+By default executed CLI scripts output is not shown if execution is
+successful. In order to display the CLI output, set this option to
+true.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>display-cli-scripts-output</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="excludedLayers"></a> <strong>excludedLayers</strong><br>
+A list of Galleon layers to exclude. Can be used when
+feature-pack-location or feature-packs are set.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.util.List</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>excluded-layers</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="extraServerContentDirs"></a> <strong>extraServerContentDirs</strong><br>
+A list of directories to copy content to the provisioned server. If
+a directory is not absolute, it has to be relative to the project
+base directory.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.util.List</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.package.extra.server.content.dirs</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>extra-server-content-dirs</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="featurePackLocation"></a> <strong>featurePackLocation</strong><br>
+The WildFly Galleon feature-pack location to use if no
+provisioning.xml file found. Can&#8217;t be used in conjunction with
+feature-packs.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.fpl</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>feature-pack-location</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="featurePacks"></a> <strong>featurePacks</strong><br>
+A list of feature-pack configurations to install, can be combined
+with layers. Overrides galleon/provisioning.xml file. Can&#8217;t be used
+in conjunction with feature-pack-location.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.util.List</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>feature-packs</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="hollowJar"></a> <strong>hollowJar</strong><br>
+Hollow JAR. Create a bootable JAR that doesn&#8217;t contain application.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.hollow</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>hollow-jar</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="hostname"></a> <strong>hostname</strong><br>
+Specifies the host name of the server where the deployment plan
+should be executed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.hostname</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>localhost</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="jvmArguments"></a> <strong>jvmArguments</strong><br>
+Additional JVM options.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.util.List</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.jvmArguments</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="layers"></a> <strong>layers</strong><br>
+A list of Galleon layers to provision. Can be used when
+feature-pack-location or feature-packs are set.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.util.List</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>layers</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="legacyPatchCleanUp"></a> <strong>legacyPatchCleanUp</strong><br>
+Set to true to enable patch cleanup. When cleanup is enabled,
+unused added modules, patched modules original directories, unused
+overlay directories and .installation/patches directory are
+deleted.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>legacy-patch-clean-up</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="legacyPatchCliScript"></a> <strong>legacyPatchCliScript</strong><br>
+Path to a CLI script that applies legacy patches. Content of such
+script should be composed of 'patch apply [path to zip file] [patch
+apply options]' commands. Due to the nature of a bootable JAR
+trimmed with Galleon, part of the content of the patch can be
+missing. In order to force the patch to apply use the
+'--override-all' option. The '--distribution' option is not needed,
+System property 'jboss.home.dir' is automatically set to the server
+that will be packaged in the bootable JAR. If the script file is
+not absolute, it has to be relative to the project base directory.
+NB: The server is patched with a legacy patch right after the
+server has been provisioned with Galleon.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>legacy-patch-cli-script</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="logTime"></a> <strong>logTime</strong><br>
+Whether to log provisioning time at the end</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>log-time</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="offline"></a> <strong>offline</strong><br>
+Whether to use offline mode when the plugin resolves an artifact.
+In offline mode the plugin will only use the local Maven repository
+for an artifact resolution.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>offline</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="outputFileName"></a> <strong>outputFileName</strong><br>
+By default the generated JAR is
+${project.build.finalName}-bootable.jar</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.package.output.file.name</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>output-file-name</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="pluginOptions"></a> <strong>pluginOptions</strong><br>
+Arbitrary Galleon options used when provisioning the server. In
+case you are building a large amount of bootable JAR in the same
+maven session, it is strongly advised to set 'jboss-fork-embedded'
+option to 'true' in order to fork Galleon provisioning and CLI
+scripts execution in dedicated processes. For example: <br>
+&lt;plugin-options&gt;<br>
+&lt;jboss-fork-embedded&gt;true&lt;/jboss-fork-embedded&gt;<br>
+&lt;/plugin-options&gt;</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.util.Map</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>plugin-options</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="port"></a> <strong>port</strong><br>
+Specifies the port number the server is listening on.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>int</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.port</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>9990</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="projectBuildDir"></a> <strong>projectBuildDir</strong><br>
+Project build dir.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>${project.build.directory}</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="provisioningFile"></a> <strong>provisioningFile</strong><br>
+The path to the <code>provisioning.xml</code> file to use. Note
+that this cannot be used with the <code>feature-packs</code> or
+<code>layers</code> configuration parameters. If the provisioning
+file is not absolute, it has to be relative to the project base
+directory.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.io.File</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.provisioning.file</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>${project.basedir}/galleon/provisioning.xml</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>provisioning-file</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="recordState"></a> <strong>recordState</strong><br>
+Whether to record provisioned state in .galleon directory.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>record-state</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="skip"></a> <strong>skip</strong><br>
+Set to <code>true</code> if you want the deployment to be skipped,
+otherwise <code>false</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.package.skip</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="sourceDir"></a> <strong>sourceDir</strong><br>
+(no description)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.io.File</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>${project.build.sourceDirectory}</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="timeout"></a> <strong>timeout</strong><br>
+The timeout, in seconds, to wait for a management connection.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>int</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.timeout</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>60</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_help"><a class="anchor" href="#_help"></a><a class="link" href="#_help">14.4. help</a></h3>
+<div class="sect3">
+<h4 id="_wildfly_jarhelp"><a class="anchor" href="#_wildfly_jarhelp"></a><a class="link" href="#_wildfly_jarhelp">14.4.1. wildfly-jar:help</a></h4>
+<div class="paragraph">
+<p><strong>Full name:</strong>
+org.wildfly.plugins:wildfly-jar-maven-plugin:3.0.0.Final:help</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_3"><a class="anchor" href="#_description_3"></a><a class="link" href="#_description_3">14.4.2. Description</a></h4>
+<div class="paragraph">
+<p>Display help information on wildfly-jar-maven-plugin.<br>
+Call <code>mvn wildfly-jar:help -Ddetail=true
+-Dgoal=&lt;goal-name&gt;</code> to display parameter details.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_attributes_3"><a class="anchor" href="#_attributes_3"></a><a class="link" href="#_attributes_3">14.4.3. Attributes</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The goal is thread-safe and supports parallel builds.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all fit-content stretch">
+<caption class="title">Table 3. Optional Parameters</caption>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Since</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#detail">[detail]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If <code>true</code>, display all settable properties for each
+goal.<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>User property is</strong>: <code>detail</code>.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#goal">[goal]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the goal for which to show help. If unspecified, all
+goals will be displayed.<br>
+<strong>User property is</strong>: <code>goal</code>.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#indentSize">[indentSize]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of spaces per indentation level, should be positive.<br>
+<strong>Default value is</strong>: <code>2</code>.<br>
+<strong>User property is</strong>: <code>indentSize</code>.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#lineLength">[lineLength]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum length of a display line, should be positive.<br>
+<strong>Default value is</strong>: <code>80</code>.<br>
+<strong>User property is</strong>: <code>lineLength</code>.<br></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_parameter_details_3"><a class="anchor" href="#_parameter_details_3"></a><a class="link" href="#_parameter_details_3">14.4.4. Parameter Details</a></h4>
+<div class="paragraph">
+<p><a id="detail"></a> <strong>detail</strong><br>
+If <code>true</code>, display all settable properties for each
+goal.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>detail</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="goal"></a> <strong>goal</strong><br>
+The name of the goal for which to show help. If unspecified, all
+goals will be displayed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>goal</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="indentSize"></a> <strong>indentSize</strong><br>
+The number of spaces per indentation level, should be positive.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>int</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>indentSize</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>2</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="lineLength"></a> <strong>lineLength</strong><br>
+The maximum length of a display line, should be positive.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>int</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>lineLength</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>80</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_package"><a class="anchor" href="#_package"></a><a class="link" href="#_package">14.5. package</a></h3>
+<div class="sect3">
+<h4 id="_wildfly_jarpackage"><a class="anchor" href="#_wildfly_jarpackage"></a><a class="link" href="#_wildfly_jarpackage">14.5.1. wildfly-jar:package</a></h4>
+<div class="paragraph">
+<p><strong>Full name:</strong>
+org.wildfly.plugins:wildfly-jar-maven-plugin:3.0.0.Final:package</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_description_4"><a class="anchor" href="#_description_4"></a><a class="link" href="#_description_4">14.5.2. Description</a></h4>
+<div class="paragraph">
+<p>Build a bootable JAR containing application and provisioned server</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_attributes_4"><a class="anchor" href="#_attributes_4"></a><a class="link" href="#_attributes_4">14.5.3. Attributes</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Requires a Maven project to be executed.</p>
+</li>
+<li>
+<p>Requires dependency resolution of artifacts in scope: <code>compile+runtime</code>.</p>
+</li>
+<li>
+<p>Binds by default to the <a href="http://maven.apache.org/ref/current/maven-core/lifecycles.html">lifecycle phase</a>: <code>package</code>.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all fit-content stretch">
+<caption class="title">Table 4. Optional Parameters</caption>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Since</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#bootLoggingConfig">[bootLoggingConfig]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>File</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Overrides the default <code>logging.properties</code> the container
+uses when booting. <br>
+In most cases this should not be required. The use-case is when the
+generated <code>logging.properties</code> causes boot errors or you
+do not use the logging subsystem and would like to use a custom
+logging configuration. <br>
+An example of a boot error would be using a log4j appender as a
+<code>custom-handler</code>. If the file is not absolute, it has to
+be relative to the project base directory.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.logging.config</code>.<br>
+<strong>Alias is</strong>: <code>boot-logging-config</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#bootableJarBuildArtifacts">[bootableJarBuildArtifacts]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">By default, when building a bootable JAR, the plugin extracts build
+artifacts in the directory 'bootable-jar-build-artifacts'. You can
+use this property to change this directory name. In most cases this
+should not be required. The use-case is when building multiple
+bootable JARs in the same project on Windows Platform. In this
+case, each execution should have its own directory, the plugin
+being unable to delete the directory due to some references to
+JBoss module files.<br>
+<strong>Default value is</strong>: <code>bootable-jar-build-artifacts</code>.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.jar.build.artifacts</code>.<br>
+<strong>Alias is</strong>: <code>bootable-jar-build-artifacts</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#cliSessions">[cliSessions]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List of CLI execution sessions. An embedded server is started for
+each CLI session. If a script file is not absolute, it has to be
+relative to the project base directory. CLI session are configured
+in the following way: <br>
+&lt;cli-sessions&gt;<br>
+&lt;cli-session&gt;<br>
+&lt;script-files&gt;<br>
+&lt;script&gt;../scripts/script1.cli&lt;/script&gt;<br>
+&lt;/script-files&gt;<br>
+&lt;!-- Expressions resolved during server execution --&gt;<br>
+&lt;resolve-expressions&gt;false&lt;/resolve-expressions&gt;<br>
+&lt;/cli-session&gt;<br>
+&lt;cli-session&gt;<br>
+&lt;script-files&gt;<br>
+&lt;script&gt;../scripts/script2.cli&lt;/script&gt;<br>
+&lt;/script-files&gt;<br>
+&lt;properties-file&gt;../scripts/cli.properties&lt;/properties-file&gt;<br>
+&lt;/cli-session&gt;<br>
+&lt;/cli-sessions&gt;<br>
+<strong>Alias is</strong>: <code>cli-sessions</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#cloud">[cloud]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CloudConfig</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To enable cloud support. When cloud support is enabled, the created
+bootable JAR will operate properly in context such as openshift.
+<br>
+In order to enable authenticated cluster jgroups protocol, set
+&lt;enable-jgroups-password&gt;true&lt;/enable-jgroups-password&gt;.
+The environment variable JGROUPS_CLUSTER_PASSWORD must then be set
+to the password value.<br>
+<strong>Alias is</strong>: <code>cloud</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#contextRoot">[contextRoot]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To make the WAR deployment registered under root resource path
+('/').<br>
+<strong>Default value is</strong>: <code>true</code>.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.context.root</code>.<br>
+<strong>Alias is</strong>: <code>context-root</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#displayCliScriptsOutput">[displayCliScriptsOutput]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">By default executed CLI scripts output is not shown if execution is
+successful. In order to display the CLI output, set this option to
+true.<br>
+<strong>Alias is</strong>: <code>display-cli-scripts-output</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#excludedLayers">[excludedLayers]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A list of Galleon layers to exclude. Can be used when
+feature-pack-location or feature-packs are set.<br>
+<strong>Alias is</strong>: <code>excluded-layers</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#extraServerContentDirs">[extraServerContentDirs]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A list of directories to copy content to the provisioned server. If
+a directory is not absolute, it has to be relative to the project
+base directory.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.package.extra.server.content.dirs</code>.<br>
+<strong>Alias is</strong>: <code>extra-server-content-dirs</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#featurePackLocation">[featurePackLocation]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The WildFly Galleon feature-pack location to use if no
+provisioning.xml file found. Can&#8217;t be used in conjunction with
+feature-packs.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.fpl</code>.<br>
+<strong>Alias is</strong>: <code>feature-pack-location</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#featurePacks">[featurePacks]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A list of feature-pack configurations to install, can be combined
+with layers. Overrides galleon/provisioning.xml file. Can&#8217;t be used
+in conjunction with feature-pack-location.<br>
+<strong>Alias is</strong>: <code>feature-packs</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#hollowJar">[hollowJar]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hollow JAR. Create a bootable JAR that doesn&#8217;t contain application.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.hollow</code>.<br>
+<strong>Alias is</strong>: <code>hollow-jar</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#layers">[layers]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A list of Galleon layers to provision. Can be used when
+feature-pack-location or feature-packs are set.<br>
+<strong>Alias is</strong>: <code>layers</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#legacyPatchCleanUp">[legacyPatchCleanUp]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to true to enable patch cleanup. When cleanup is enabled,
+unused added modules, patched modules original directories, unused
+overlay directories and .installation/patches directory are
+deleted.<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>Alias is</strong>: <code>legacy-patch-clean-up</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#legacyPatchCliScript">[legacyPatchCliScript]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Path to a CLI script that applies legacy patches. Content of such
+script should be composed of 'patch apply [path to zip file] [patch
+apply options]' commands. Due to the nature of a bootable JAR
+trimmed with Galleon, part of the content of the patch can be
+missing. In order to force the patch to apply use the
+'--override-all' option. The '--distribution' option is not needed,
+System property 'jboss.home.dir' is automatically set to the server
+that will be packaged in the bootable JAR. If the script file is
+not absolute, it has to be relative to the project base directory.
+NB: The server is patched with a legacy patch right after the
+server has been provisioned with Galleon.<br>
+<strong>Alias is</strong>: <code>legacy-patch-cli-script</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#logTime">[logTime]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to log provisioning time at the end<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>Alias is</strong>: <code>log-time</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#offline">[offline]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to use offline mode when the plugin resolves an artifact.
+In offline mode the plugin will only use the local Maven repository
+for an artifact resolution.<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>Alias is</strong>: <code>offline</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#outputFileName">[outputFileName]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">By default the generated JAR is
+${project.build.finalName}-bootable.jar<br>
+<strong>User property is</strong>: <code>wildfly.bootable.package.output.file.name</code>.<br>
+<strong>Alias is</strong>: <code>output-file-name</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#pluginOptions">[pluginOptions]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Map</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Arbitrary Galleon options used when provisioning the server. In
+case you are building a large amount of bootable JAR in the same
+maven session, it is strongly advised to set 'jboss-fork-embedded'
+option to 'true' in order to fork Galleon provisioning and CLI
+scripts execution in dedicated processes. For example: <br>
+&lt;plugin-options&gt;<br>
+&lt;jboss-fork-embedded&gt;true&lt;/jboss-fork-embedded&gt;<br>
+&lt;/plugin-options&gt;<br>
+<strong>Alias is</strong>: <code>plugin-options</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#projectBuildDir">[projectBuildDir]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Project build dir.<br>
+<strong>Default value is</strong>: <code>${project.build.directory}</code>.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#provisioningFile">[provisioningFile]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>File</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The path to the <code>provisioning.xml</code> file to use. Note
+that this cannot be used with the <code>feature-packs</code> or
+<code>layers</code> configuration parameters. If the provisioning
+file is not absolute, it has to be relative to the project base
+directory.<br>
+<strong>Default value is</strong>: <code>${project.basedir}/galleon/provisioning.xml</code>.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.provisioning.file</code>.<br>
+<strong>Alias is</strong>: <code>provisioning-file</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#recordState">[recordState]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to record provisioned state in .galleon directory.<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>Alias is</strong>: <code>record-state</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#skip">[skip]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> if you want the deployment to be skipped,
+otherwise <code>false</code>.<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.package.skip</code>.<br></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_parameter_details_4"><a class="anchor" href="#_parameter_details_4"></a><a class="link" href="#_parameter_details_4">14.5.4. Parameter Details</a></h4>
+<div class="paragraph">
+<p><a id="bootLoggingConfig"></a> <strong>bootLoggingConfig</strong><br>
+Overrides the default <code>logging.properties</code> the container
+uses when booting. <br>
+In most cases this should not be required. The use-case is when the
+generated <code>logging.properties</code> causes boot errors or you
+do not use the logging subsystem and would like to use a custom
+logging configuration. <br>
+An example of a boot error would be using a log4j appender as a
+<code>custom-handler</code>. If the file is not absolute, it has to
+be relative to the project base directory.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.io.File</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.logging.config</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>boot-logging-config</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="bootableJarBuildArtifacts"></a> <strong>bootableJarBuildArtifacts</strong><br>
+By default, when building a bootable JAR, the plugin extracts build
+artifacts in the directory 'bootable-jar-build-artifacts'. You can
+use this property to change this directory name. In most cases this
+should not be required. The use-case is when building multiple
+bootable JARs in the same project on Windows Platform. In this
+case, each execution should have its own directory, the plugin
+being unable to delete the directory due to some references to
+JBoss module files.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.jar.build.artifacts</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>bootable-jar-build-artifacts</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>bootable-jar-build-artifacts</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="cliSessions"></a> <strong>cliSessions</strong><br>
+List of CLI execution sessions. An embedded server is started for
+each CLI session. If a script file is not absolute, it has to be
+relative to the project base directory. CLI session are configured
+in the following way: <br>
+&lt;cli-sessions&gt;<br>
+&lt;cli-session&gt;<br>
+&lt;script-files&gt;<br>
+&lt;script&gt;../scripts/script1.cli&lt;/script&gt;<br>
+&lt;/script-files&gt;<br>
+&lt;!-- Expressions resolved during server execution --&gt;<br>
+&lt;resolve-expressions&gt;false&lt;/resolve-expressions&gt;<br>
+&lt;/cli-session&gt;<br>
+&lt;cli-session&gt;<br>
+&lt;script-files&gt;<br>
+&lt;script&gt;../scripts/script2.cli&lt;/script&gt;<br>
+&lt;/script-files&gt;<br>
+&lt;properties-file&gt;../scripts/cli.properties&lt;/properties-file&gt;<br>
+&lt;/cli-session&gt;<br>
+&lt;/cli-sessions&gt;</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.util.List</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>cli-sessions</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="cloud"></a> <strong>cloud</strong><br>
+To enable cloud support. When cloud support is enabled, the created
+bootable JAR will operate properly in context such as openshift.
+<br>
+In order to enable authenticated cluster jgroups protocol, set
+&lt;enable-jgroups-password&gt;true&lt;/enable-jgroups-password&gt;.
+The environment variable JGROUPS_CLUSTER_PASSWORD must then be set
+to the password value.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>org.wildfly.plugins.bootablejar.maven.cloud.CloudConfig</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>cloud</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="contextRoot"></a> <strong>contextRoot</strong><br>
+To make the WAR deployment registered under root resource path
+('/').</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.context.root</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>true</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>context-root</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="displayCliScriptsOutput"></a> <strong>displayCliScriptsOutput</strong><br>
+By default executed CLI scripts output is not shown if execution is
+successful. In order to display the CLI output, set this option to
+true.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>display-cli-scripts-output</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="excludedLayers"></a> <strong>excludedLayers</strong><br>
+A list of Galleon layers to exclude. Can be used when
+feature-pack-location or feature-packs are set.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.util.List</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>excluded-layers</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="extraServerContentDirs"></a> <strong>extraServerContentDirs</strong><br>
 A list of directories to copy content to the provisioned server. If
 a directory is not absolute, it has to be relative to the project
 base directory.</p>
@@ -2907,22 +4215,22 @@ otherwise <code>false</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_run"><a class="anchor" href="#_run"></a><a class="link" href="#_run">14.4. run</a></h3>
+<h3 id="_run"><a class="anchor" href="#_run"></a><a class="link" href="#_run">14.6. run</a></h3>
 <div class="sect3">
-<h4 id="_wildfly_jarrun"><a class="anchor" href="#_wildfly_jarrun"></a><a class="link" href="#_wildfly_jarrun">14.4.1. wildfly-jar:run</a></h4>
+<h4 id="_wildfly_jarrun"><a class="anchor" href="#_wildfly_jarrun"></a><a class="link" href="#_wildfly_jarrun">14.6.1. wildfly-jar:run</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:2.0.0.Final:run</p>
+org.wildfly.plugins:wildfly-jar-maven-plugin:3.0.0.Final:run</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_3"><a class="anchor" href="#_description_3"></a><a class="link" href="#_description_3">14.4.2. Description</a></h4>
+<h4 id="_description_5"><a class="anchor" href="#_description_5"></a><a class="link" href="#_description_5">14.6.2. Description</a></h4>
 <div class="paragraph">
 <p>Run the bootable JAR. This is blocking.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_attributes_3"><a class="anchor" href="#_attributes_3"></a><a class="link" href="#_attributes_3">14.4.3. Attributes</a></h4>
+<h4 id="_attributes_5"><a class="anchor" href="#_attributes_5"></a><a class="link" href="#_attributes_5">14.6.3. Attributes</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2934,7 +4242,7 @@ org.wildfly.plugins:wildfly-jar-maven-plugin:2.0.0.Final:run</p>
 </ul>
 </div>
 <table class="tableblock frame-all grid-all fit-content stretch">
-<caption class="title">Table 3. Optional Parameters</caption>
+<caption class="title">Table 5. Optional Parameters</caption>
 <colgroup>
 <col>
 <col>
@@ -2953,14 +4261,6 @@ org.wildfly.plugins:wildfly-jar-maven-plugin:2.0.0.Final:run</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Bootable JAR server arguments.<br>
-<strong>Alias is</strong>: <code>arguments</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#argumentsProps">[argumentsProps]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bootable JAR server arguments that can be set thanks to system
-property.<br>
 <strong>User property is</strong>: <code>wildfly.bootable.arguments</code>.<br></p></td>
 </tr>
 <tr>
@@ -2978,13 +4278,6 @@ retrieve the JAR file to run.<br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Additional JVM options.<br>
-<strong>Alias is</strong>: <code>jvmArguments</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#jvmArgumentsProps">[jvmArgumentsProps]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Additional JVM options that can be set thanks to system property.<br>
 <strong>User property is</strong>: <code>wildfly.bootable.jvmArguments</code>.<br></p></td>
 </tr>
 <tr>
@@ -3000,7 +4293,7 @@ otherwise <code>false</code>.<br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_parameter_details_3"><a class="anchor" href="#_parameter_details_3"></a><a class="link" href="#_parameter_details_3">14.4.4. Parameter Details</a></h4>
+<h4 id="_parameter_details_5"><a class="anchor" href="#_parameter_details_5"></a><a class="link" href="#_parameter_details_5">14.6.4. Parameter Details</a></h4>
 <div class="paragraph">
 <p><a id="arguments"></a> <strong>arguments</strong><br>
 Bootable JAR server arguments.</p>
@@ -3009,24 +4302,6 @@ Bootable JAR server arguments.</p>
 <ul>
 <li>
 <p><strong>Type</strong>: <code>java.util.List</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>arguments</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="argumentsProps"></a> <strong>argumentsProps</strong><br>
-Bootable JAR server arguments that can be set thanks to system
-property.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.lang.String</code></p>
 </li>
 <li>
 <p><strong>Required</strong>: <code>No</code></p>
@@ -3071,23 +4346,6 @@ Additional JVM options.</p>
 <p><strong>Required</strong>: <code>No</code></p>
 </li>
 <li>
-<p><strong>Alias</strong>: <code>jvmArguments</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="jvmArgumentsProps"></a> <strong>jvmArgumentsProps</strong><br>
-Additional JVM options that can be set thanks to system property.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.lang.String</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
 <p><strong>User Property</strong>: <code>wildfly.bootable.jvmArguments</code></p>
 </li>
 </ul>
@@ -3116,16 +4374,16 @@ otherwise <code>false</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_shutdown"><a class="anchor" href="#_shutdown"></a><a class="link" href="#_shutdown">14.5. shutdown</a></h3>
+<h3 id="_shutdown"><a class="anchor" href="#_shutdown"></a><a class="link" href="#_shutdown">14.7. shutdown</a></h3>
 <div class="sect3">
-<h4 id="_wildfly_jarshutdown"><a class="anchor" href="#_wildfly_jarshutdown"></a><a class="link" href="#_wildfly_jarshutdown">14.5.1. wildfly-jar:shutdown</a></h4>
+<h4 id="_wildfly_jarshutdown"><a class="anchor" href="#_wildfly_jarshutdown"></a><a class="link" href="#_wildfly_jarshutdown">14.7.1. wildfly-jar:shutdown</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:2.0.0.Final:shutdown</p>
+org.wildfly.plugins:wildfly-jar-maven-plugin:3.0.0.Final:shutdown</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_4"><a class="anchor" href="#_description_4"></a><a class="link" href="#_description_4">14.5.2. Description</a></h4>
+<h4 id="_description_6"><a class="anchor" href="#_description_6"></a><a class="link" href="#_description_6">14.7.2. Description</a></h4>
 <div class="paragraph">
 <p>Shutdown the bootable JAR. In order to be able to shutdown a
 running server, the 'management' Galleon layer must have been
@@ -3134,7 +4392,7 @@ killed.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_attributes_4"><a class="anchor" href="#_attributes_4"></a><a class="link" href="#_attributes_4">14.5.3. Attributes</a></h4>
+<h4 id="_attributes_6"><a class="anchor" href="#_attributes_6"></a><a class="link" href="#_attributes_6">14.7.3. Attributes</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3143,7 +4401,7 @@ killed.</p>
 </ul>
 </div>
 <table class="tableblock frame-all grid-all fit-content stretch">
-<caption class="title">Table 4. Optional Parameters</caption>
+<caption class="title">Table 6. Optional Parameters</caption>
 <colgroup>
 <col>
 <col>
@@ -3238,7 +4496,7 @@ authentication the user will be prompted to supply the username,<br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_parameter_details_4"><a class="anchor" href="#_parameter_details_4"></a><a class="link" href="#_parameter_details_4">14.5.4. Parameter Details</a></h4>
+<h4 id="_parameter_details_6"><a class="anchor" href="#_parameter_details_6"></a><a class="link" href="#_parameter_details_6">14.7.4. Parameter Details</a></h4>
 <div class="paragraph">
 <p><a id="authenticationConfig"></a> <strong>authenticationConfig</strong><br>
 A URL which points to the authentication configuration
@@ -3419,23 +4677,23 @@ authentication the user will be prompted to supply the username,</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_start"><a class="anchor" href="#_start"></a><a class="link" href="#_start">14.6. start</a></h3>
+<h3 id="_start"><a class="anchor" href="#_start"></a><a class="link" href="#_start">14.8. start</a></h3>
 <div class="sect3">
-<h4 id="_wildfly_jarstart"><a class="anchor" href="#_wildfly_jarstart"></a><a class="link" href="#_wildfly_jarstart">14.6.1. wildfly-jar:start</a></h4>
+<h4 id="_wildfly_jarstart"><a class="anchor" href="#_wildfly_jarstart"></a><a class="link" href="#_wildfly_jarstart">14.8.1. wildfly-jar:start</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:2.0.0.Final:start</p>
+org.wildfly.plugins:wildfly-jar-maven-plugin:3.0.0.Final:start</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_5"><a class="anchor" href="#_description_5"></a><a class="link" href="#_description_5">14.6.2. Description</a></h4>
+<h4 id="_description_7"><a class="anchor" href="#_description_7"></a><a class="link" href="#_description_7">14.8.2. Description</a></h4>
 <div class="paragraph">
 <p>Start the bootable JAR. The plugin execution keeps the process
 running.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_attributes_5"><a class="anchor" href="#_attributes_5"></a><a class="link" href="#_attributes_5">14.6.3. Attributes</a></h4>
+<h4 id="_attributes_7"><a class="anchor" href="#_attributes_7"></a><a class="link" href="#_attributes_7">14.8.3. Attributes</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3447,7 +4705,7 @@ running.</p>
 </ul>
 </div>
 <table class="tableblock frame-all grid-all fit-content stretch">
-<caption class="title">Table 5. Optional Parameters</caption>
+<caption class="title">Table 7. Optional Parameters</caption>
 <colgroup>
 <col>
 <col>
@@ -3466,14 +4724,6 @@ running.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Bootable JAR server arguments.<br>
-<strong>Alias is</strong>: <code>arguments</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#argumentsProps">[argumentsProps]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bootable jar server arguments that can be set thanks to system
-property.<br>
 <strong>User property is</strong>: <code>wildfly.bootable.arguments</code>.<br></p></td>
 </tr>
 <tr>
@@ -3530,13 +4780,6 @@ retrieve the JAR file to start.<br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Additional JVM options.<br>
-<strong>Alias is</strong>: <code>jvmArguments</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#jvmArgumentsProps">[jvmArgumentsProps]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Additional JVM options that can be set thanks to system property.<br>
 <strong>User property is</strong>: <code>wildfly.bootable.jvmArguments</code>.<br></p></td>
 </tr>
 <tr>
@@ -3583,6 +4826,19 @@ running.<br>
 <strong>Alias is</strong>: <code>startup-timeout</code>.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#stdout">[stdout]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates how <code>stdout</code> and <code>stderr</code> should be
+handled for the server process. A value of <code>inherit</code>
+means that the standard output streams are inherited from the
+current process. Any other value is assumed to be a path. In this
+case both <code>stdout</code> and <code>stderr</code> will be
+redirected to a file.<br>
+<strong>Default value is</strong>: <code>${project.build.directory}/wildfly-jar-start-stdout.log</code>.<br>
+<strong>User property is</strong>: <code>wildfly.bootable.stdout</code>.<br></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#timeout">[timeout]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>int</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
@@ -3603,7 +4859,7 @@ authentication the user will be prompted to supply the username,<br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_parameter_details_5"><a class="anchor" href="#_parameter_details_5"></a><a class="link" href="#_parameter_details_5">14.6.4. Parameter Details</a></h4>
+<h4 id="_parameter_details_7"><a class="anchor" href="#_parameter_details_7"></a><a class="link" href="#_parameter_details_7">14.8.4. Parameter Details</a></h4>
 <div class="paragraph">
 <p><a id="arguments"></a> <strong>arguments</strong><br>
 Bootable JAR server arguments.</p>
@@ -3612,24 +4868,6 @@ Bootable JAR server arguments.</p>
 <ul>
 <li>
 <p><strong>Type</strong>: <code>java.util.List</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>arguments</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="argumentsProps"></a> <strong>argumentsProps</strong><br>
-Bootable jar server arguments that can be set thanks to system
-property.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.lang.String</code></p>
 </li>
 <li>
 <p><strong>Required</strong>: <code>No</code></p>
@@ -3765,23 +5003,6 @@ Additional JVM options.</p>
 <p><strong>Required</strong>: <code>No</code></p>
 </li>
 <li>
-<p><strong>Alias</strong>: <code>jvmArguments</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="jvmArgumentsProps"></a> <strong>jvmArgumentsProps</strong><br>
-Additional JVM options that can be set thanks to system property.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.lang.String</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
 <p><strong>User Property</strong>: <code>wildfly.bootable.jvmArguments</code></p>
 </li>
 </ul>
@@ -3888,6 +5109,31 @@ running.</p>
 </ul>
 </div>
 <div class="paragraph">
+<p><a id="stdout"></a> <strong>stdout</strong><br>
+Indicates how <code>stdout</code> and <code>stderr</code> should be
+handled for the server process. A value of <code>inherit</code>
+means that the standard output streams are inherited from the
+current process. Any other value is assumed to be a path. In this
+case both <code>stdout</code> and <code>stderr</code> will be
+redirected to a file.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.bootable.stdout</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>${project.build.directory}/wildfly-jar-start-stdout.log</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p><a id="timeout"></a> <strong>timeout</strong><br>
 The timeout, in seconds, to wait for a management connection.</p>
 </div>
@@ -3933,7 +5179,7 @@ authentication the user will be prompted to supply the username,</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 2.0.0.Final<br>
+Version 3.0.0.Final<br>
 Last updated 2020-10-12 17:15:47 +0200
 </div>
 </div>
