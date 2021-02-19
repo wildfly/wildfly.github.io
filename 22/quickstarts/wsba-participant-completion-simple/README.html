@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.12">
-<title>WildFly Documentation</title>
+<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="author" content="Paul Robinson">
+<title>wsba-participant-completion-simple: Deployment of a WS-BA enabled JAX-WS Web Service</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -47,7 +48,7 @@ textarea{overflow:auto;vertical-align:top}
 table{border-collapse:collapse;border-spacing:0}
 *,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
 a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
@@ -62,8 +63,10 @@ img{-ms-interpolation-mode:bicubic}
 img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
 .subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
-div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
 a{color:#2156a5;text-decoration:underline;line-height:inherit}
 a:hover,a:focus{color:#1d4b8f}
 a img{border:0}
@@ -103,22 +106,19 @@ h1{font-size:2.75em}
 h2{font-size:2.3125em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
 h4{font-size:1.4375em}}
-table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede;word-wrap:normal}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
 table thead,table tfoot{background:#f7f8f7}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt{background:#f8f8f7}
-table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
-.center{margin-left:auto;margin-right:auto}
-.stretch{width:100%}
 .clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
 .clearfix::after,.float-group::after{clear:both}
-:not(pre).nobreak{word-wrap:normal}
-:not(pre).nowrap{white-space:nowrap}
-:not(pre).pre-wrap{white-space:pre-wrap}
-:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+:not(pre)>code.nobreak{word-wrap:normal}
+:not(pre)>code.nowrap{white-space:nowrap}
 pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
 pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
 pre>code{display:block}
@@ -183,7 +183,7 @@ body.toc2.toc-right{padding-left:0;padding-right:20em}}
 #content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
 #content #toc>:first-child{margin-top:0}
 #content #toc>:last-child{margin-bottom:0}
-#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
 #footer-text{color:rgba(255,255,255,.8);line-height:1.44}
 #content{margin-bottom:.625em}
 .sect1{padding-bottom:.625em}
@@ -206,7 +206,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .admonitionblock>table td.icon{text-align:center;width:80px}
 .admonitionblock>table td.icon img{max-width:none}
 .admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
-.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
 .exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
 .exampleblock>.content>:first-child{margin-top:0}
@@ -216,7 +216,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .sidebarblock>:last-child{margin-bottom:0}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
 .exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
-.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
 .literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
@@ -262,20 +262,21 @@ pre.pygments .lineno::before{content:"";margin-right:-.125em}
 .quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
 .quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
 .quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
 p.tableblock:last-child{margin-bottom:0}
-td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
 td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
-table.grid-all>*>tr>*{border-width:1px}
-table.grid-cols>*>tr>*{border-width:0 1px}
-table.grid-rows>*>tr>*{border-width:1px 0}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
 table.frame-all{border-width:1px}
-table.frame-ends{border-width:1px 0}
 table.frame-sides{border-width:0 1px}
-table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
-table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
-table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
-table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
 table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
 th.halign-left,td.halign-left{text-align:left}
 th.halign-right,td.halign-right{text-align:right}
@@ -284,7 +285,7 @@ th.valign-top,td.valign-top{vertical-align:top}
 th.valign-bottom,td.valign-bottom{vertical-align:bottom}
 th.valign-middle,td.valign-middle{vertical-align:middle}
 table thead th,table tfoot th{font-weight:bold}
-tbody tr th{background:#f7f8f7}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
 tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
 p.tableblock>code:only-child{background:none;padding:0}
 p.tableblock{font-size:1em}
@@ -313,7 +314,6 @@ ol.lowergreek{list-style-type:lower-greek}
 .hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
 td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
 td.hdlist1{font-weight:bold;padding-bottom:1.25em}
-td.hdlist2{word-wrap:anywhere}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
 .colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
 .colist td:not([class]):first-child img{max-width:none}
@@ -386,7 +386,7 @@ a span.icon>.fa{cursor:inherit}
 .admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
 .admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
 .admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
-.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:50%;border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
 .conum[data-value] *{color:#fff!important}
 .conum[data-value]+b{display:none}
 .conum[data-value]::after{content:attr(data-value)}
@@ -413,7 +413,6 @@ thead{display:table-header-group}
 svg{max-width:100%}
 p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
 h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
-#header,#content,#footnotes,#footer{max-width:none}
 #toc,.sidebarblock,.exampleblock>.content{background:none!important}
 #toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
 body.book #header{text-align:center}
@@ -440,159 +439,381 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>WildFly Documentation</h1>
+<h1>wsba-participant-completion-simple: Deployment of a WS-BA enabled JAX-WS Web Service</h1>
+<div class="details">
+<span id="author" class="author">Paul Robinson</span><br>
+</div>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="_releases">Releases</h2>
+<div id="preamble">
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
+<div class="quoteblock abstract">
+<blockquote>
+The <code>wsba-participant-completion-simple</code> quickstart deploys a WS-BA (WS Business Activity) enabled JAX-WS Web service WAR (ParticipantCompletion Protocol).
+</blockquote>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_it">What is it?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>wsba-participant-completion-simple</code> quickstart demonstrates the deployment of a WS-BA (WS Business Activity) enabled JAX-WS Web service bundled in a WAR archive (ParticipantCompletion Protocol) for deployment to WildFly Application Server.</p>
+</div>
+<div class="paragraph">
+<p>The Web service exposes a simple 'set' collection as a service. The Service allows items to be added to the set within a Business Activity.</p>
+</div>
+<div class="paragraph">
+<p>The example demonstrates the basics of implementing a WS-BA enabled Web service. It is beyond the scope of this quickstart to demonstrate more advanced features. In particular</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Service does not implement the required hooks to support recovery in the presence of failures.</p>
+</li>
+<li>
+<p>It also does not utilize a transactional back-end resource.</p>
+</li>
+<li>
+<p>Only one web service participates in the protocol. As WS-BA is a coordination protocol, it is best suited to multi-participant scenarios.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For a more complete example, please see the XTS demonstrator application that ships with the Narayana project: <a href="http://narayana.io" class="bare">http://narayana.io</a>.</p>
+</div>
+<div class="paragraph">
+<p>It is also assumed tht you have an understanding of WS-BusinessActivity. For more details, read the XTS documentation
+that ships with the Narayana project: <a href="http://narayana.io/docs/product" class="bare">http://narayana.io/docs/product</a></p>
+</div>
+<div class="paragraph">
+<p>The application consists of a single JAX-WS web service that is deployed within a WAR archive. It is tested with a JBoss
+Arquillian enabled JUnit test.</p>
+</div>
+<div class="paragraph">
+<p>When running the org.jboss.as.quickstarts.wsba.participantcompletion.simple.ClientTest#testSuccess() method, the
+following steps occur:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A new Business Activity is created by the client.</p>
+</li>
+<li>
+<p>An operation on a WS-BA enabled Web service is invoked by the client.</p>
+</li>
+<li>
+<p>The <code>JaxWSHeaderContextProcessor</code> in the WS Client handler chain inserts the BA context into the outgoing SOAP message.</p>
+</li>
+<li>
+<p>When the service receives the SOAP request, the <code>JaxWSHeaderContextProcessor</code> in its handler chain inspects the BA context and associates the request with this BA.</p>
+</li>
+<li>
+<p>The Web service operation is invoked.</p>
+</li>
+<li>
+<p>A participant is enlisted in this BA. This allows the Web Service logic to respond to protocol events, such as compensate and close.</p>
+</li>
+<li>
+<p>The service invokes the business logic. In this case, a String value is added to the set.</p>
+</li>
+<li>
+<p>The backend resource is prepared. This ensures that the Backend resource can undo or make permanent the change when told to do so by the coordinator.</p>
+</li>
+<li>
+<p>Providing the above steps where successful, the service notifies the coordinator that it has completed. The service has now made its changes visible and is not holding any locks. Allowing the service to notify completion is an optimisation that prevents the holding of locks, whilst waiting for other participants to complete. This notification is required as the Service participates in the <code>ParticipantCompletion</code> protocol.</p>
+</li>
+<li>
+<p>The client can then decide to complete or cancel the BA. If the client decides to complete, all participants will be told to close. If the participant decides to cancel, all participants will be told to compensate.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>There are additional tests that show:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>What happens when an application exception is thrown by the service.</p>
+</li>
+<li>
+<p>How the client can cancel a BA.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="system_requirements">System Requirements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The application this project produces is designed to be run on WildFly Application Server 22 or later.</p>
+</div>
+<div class="paragraph">
+<p>All you need to build this project is Java 8.0 (Java SDK 1.8) or later and Maven 3.3.1 or later. See <a href="https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN_JBOSS_EAP.adoc#configure_maven_to_build_and_deploy_the_quickstarts">Configure Maven to Build and Deploy the Quickstarts</a> to make sure you are configured correctly for testing the quickstarts.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="use_of_jboss_home_name">Use of the WILDFLY_HOME and QUICKSTART_HOME Variables</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the following instructions, replace <code><em>WILDFLY_HOME</em></code> with the actual path to your WildFly installation. The installation path is described in detail here: <a href="https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_WILDFLY_HOME.adoc#use_of_product_home_and_jboss_home_variables">Use of <em>WILDFLY_HOME</em> and <em>JBOSS_HOME</em> Variables</a>.</p>
+</div>
+<div class="paragraph">
+<p>When you see the replaceable variable <em>QUICKSTART_HOME</em>, replace it with the path to the root directory of all of the quickstarts.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="start_the_eap_standalone_server">Start the WildFly Standalone Server</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You must start WildFly with the XTS subsystem enabled.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open a terminal and navigate to the root of the WildFly directory.</p>
+</li>
+<li>
+<p>Start the WildFly server with XTS subsystem enabled by typing the following command.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>$ <em>WILDFLY_HOME</em>/bin/standalone.sh --server-config=../../docs/examples/configs/standalone-xts.xml | egrep "started|stdout"</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
 <tr>
-<th class="tableblock halign-left valign-top">WildFly Release</th>
-<th class="tableblock halign-left valign-top">Java EE Version</th>
-<th class="tableblock halign-left valign-top">Jakarta EE Version</th>
-<th class="tableblock halign-left valign-top">Quickstarts</th>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+For Windows, use the <code><em>WILDFLY_HOME</em>\bin\standalone.bat</code> script.
+</td>
 </tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="22">22.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="22/quickstarts/README.html">22.0.1.Final</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="21">21.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="20">20.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="19.1">19.1.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="19">19.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="18">18.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="17">17.0.1.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="17">17.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="16">16.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="15">15.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="14">14.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="13">13.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.oracle.com/javaee/7/api/toc.htm">Java EE 7 (and full EE8 Preview)</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="12">12.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.oracle.com/javaee/7/api/toc.htm">Java EE 7 (and partial EE8 Preview)</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
 </table>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<thead>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The pipe to egrep, <code>| egrep "started|stdout"</code>, is useful to show when the server has started and the output from these tests. For normal operation, this pipe can be removed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="run_the_arquillian_tests">Run the Arquillian Tests</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This quickstart provides Arquillian tests. By default, these tests are configured to be skipped since Arquillian tests require the use of a container.</p>
+</div>
+<div class="admonitionblock note">
+<table>
 <tr>
-<th class="tableblock halign-left valign-top">Bootable JAR</th>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The Arquillian tests deploy the application, so make sure you undeploy the quickstart before you begin.
+</td>
 </tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="bootablejar">3.0.0.Final</a></p></td>
-</tr>
-</tbody>
 </table>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<thead>
+</div>
+<div class="paragraph">
+<p>Follow these steps to run the tests.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="#start_the_eap_standalone_server">Start the WildFly server</a> as described above.</p>
+</li>
+<li>
+<p>Open a terminal and navigate to the root directory of this quickstart.</p>
+</li>
+<li>
+<p>Type the following command to run the <code>verify</code> goal with the <code>arq-remote</code> profile activated.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>$ mvn clean verify -Parq-remote</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
 <tr>
-<th class="tableblock halign-left valign-top">Galleon</th>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can also let Arquillian manage the WildFly server by using the <code>arq-managed</code> profile, meaning the tests will start the server for you. This profile requires that you provide Arquillian with the location of the WildFly server, either by setting the <code>JBOSS_HOME</code> environment variable, or by setting the <code>jbossHome</code> property in the <code>arquillian.xml</code> file. For more information, see <a href="https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/RUN_ARQUILLIAN_TESTS.adoc#run_the_arquillian_tests">Run the Arquillian Tests</a>.</p>
+</div>
+</td>
 </tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="galleon">4.2.4.Final</a></p></td>
-</tr>
-</tbody>
 </table>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<thead>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="investigate_the_console_output">Investigate the Console Output</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you run the Arquillian tests, Maven prints summary of the performed tests to the console. You should see the following results.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>Results :
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
 <tr>
-<th class="tableblock halign-left valign-top">WildFly Galleon Plug-ins</th>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You see the following warning when you run the Arquillian tests in remote mode.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>WARNING: Configuration contain properties not supported by the backing object org.jboss.as.arquillian.container.remote.RemoteContainerConfiguration
+Unused property entries: {serverConfig=../../docs/examples/configs/standalone-xts.xml}
+Supported property names: [managementAddress, password, managementPort, managementProtocol, username]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is because, in remote mode, you are responsible for starting the server with the XTS subsystem enabled. When you run the Arquillian tests in managed mode, the container uses the <code>serverConfig</code> property defined in the <code>arquillian.xml</code> file to start the server with the XTS subsystem enabled.</p>
+</div>
+</td>
 </tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="galleon-plugins">4.0.3.Final</a></p></td>
-</tr>
-</tbody>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_investigate_the_server_log">Investigate the Server Log</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following messages should appear in the server log. Note there may be other log messages interlaced between these. The messages trace the steps taken by the tests.</p>
+</div>
+<div class="paragraph">
+<p>Test success:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>INFO  [stdout] (management-handler-threads - 6) Starting 'testSuccess'. This test invokes a WS within a BA. The BA is later closed, which causes the WS call to complete successfully.
+INFO  [stdout] (management-handler-threads - 6) [CLIENT] Creating a new Business Activity
+INFO  [stdout] (management-handler-threads - 6) [CLIENT] Beginning Business Activity (All calls to Web services that support WS-BA wil be included in this activity)
+INFO  [stdout] (management-handler-threads - 6) [CLIENT] invoking addValueToSet(1) on WS
+INFO  [stdout] (http-localhost-127.0.0.1-8080-1) [SERVICE] invoked addValueToSet('1')
+INFO  [stdout] (http-localhost-127.0.0.1-8080-1) [SERVICE] Enlisting a participant into the BA
+INFO  [stdout] (http-localhost-127.0.0.1-8080-1) [SERVICE] Invoking the back-end business logic
+INFO  [stdout] (http-localhost-127.0.0.1-8080-1) [SERVICE] Prepare the backend resource and if successful notify the coordinator that we have completed our work
+INFO  [stdout] (http-localhost-127.0.0.1-8080-1) [SERVICE] Prepare successful, notifying coordinator of completion
+INFO  [stdout] (http-localhost-127.0.0.1-8080-1) [SERVICE] Participant.confirmCompleted('true') (This tells the participant that compensation information has been logged and that it is safe to commit any changes.)
+INFO  [stdout] (http-localhost-127.0.0.1-8080-1) [SERVICE] Commit the backend resource (e.g. commit any changes to databases so that they are visible to others)
+INFO  [stdout] (management-handler-threads - 6) [CLIENT] Closing Business Activity (This will cause the BA to complete successfully)
+INFO  [stdout] (TaskWorker-2) [SERVICE] Participant.close (The participant knows that this BA is now finished and can throw away any temporary state)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Test cancel:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>INFO  [stdout] (management-handler-threads - 5) Starting 'testCancel'. This test invokes a WS within a BA. The BA is later cancelled, which causes these WS call to be compensated.
+INFO  [stdout] (management-handler-threads - 5) [CLIENT] Creating a new Business Activity
+INFO  [stdout] (management-handler-threads - 5) [CLIENT] Beginning Business Activity (All calls to Web services that support WS-BA will be included in this activity)
+INFO  [stdout] (management-handler-threads - 5) [CLIENT] invoking addValueToSet(1) on WS
+INFO  [stdout] (http-localhost-127.0.0.1-8080-1) [SERVICE] invoked addValueToSet('1')
+INFO  [stdout] (http-localhost-127.0.0.1-8080-1) [SERVICE] Enlisting a participant into the BA
+INFO  [stdout] (http-localhost-127.0.0.1-8080-1) [SERVICE] Invoking the back-end business logic
+INFO  [stdout] (http-localhost-127.0.0.1-8080-1) [SERVICE] Prepare the backend resource and if successful notify the coordinator that we have completed our work
+INFO  [stdout] (http-localhost-127.0.0.1-8080-1) [SERVICE] Prepare successful, notifying coordinator of completion
+INFO  [stdout] (http-localhost-127.0.0.1-8080-1) [SERVICE] Participant.confirmCompleted('true') (This tells the participant that compensation information has been logged and that it is safe to commit any changes.)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="run_the_quickstart_in_redhat_codeready_studio_or_eclipse">Run the Quickstart in Red Hat CodeReady Studio or Eclipse</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can also start the server and deploy the quickstarts or run the Arquillian tests in Red Hat CodeReady Studio or from Eclipse using JBoss tools. For general information about how to import a quickstart, add a WildFly server, and build and deploy a quickstart, see <a href="https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_JBDS.adoc#use_red_hat_jboss_developer_studio_or_eclipse_to_run_the_quickstarts">Use Red Hat CodeReady Studio or Eclipse to Run the Quickstarts</a>.</p>
+</div>
+<div class="paragraph">
+<p>This quickstart is more complex than the others. It requires that you configure the WildFly server to use the <em>standalone-xts.xml</em> configuration file, which is located in an external configuration directory.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Import the quickstart into Red Hat CodeReady Studio.</p>
+</li>
+<li>
+<p>If you have not already done so, you must configure a new WildFly server to use the XTS configuration.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>In the <strong>Servers</strong> tab, right-click and choose <strong>New</strong> &#8594; <strong>Server</strong>.</p>
+</li>
+<li>
+<p>Under <strong>Select the server type:</strong>, expand <strong>Red Hat JBoss Middleware</strong> and choose <strong>Red Hat JBoss Enterprise Application Platform 7.3</strong>.</p>
+</li>
+<li>
+<p>For the <strong>Server name</strong>, enter <code>WildFly XTS Configuration</code> and click <code>Next</code>.</p>
+</li>
+<li>
+<p>In the <strong>Create a new Server Adapter</strong> dialog, choose <strong>Create a new runtime (next page)</strong> from the drop-down menu and click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>In the <strong>JBoss Runtime</strong> dialog, enter the following information and then click <strong>Finish</strong>.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code><strong>Name</strong>: <code>WildFly XTS Runtime</code>
+<strong>Home Directory</strong>: <em>Browse to the </em>WILDFLY_HOME<em> directory and select it.</em>
+<strong>Runtime JRE</strong>: <em>Choose an alternate JRE if not correct.</em>
+<strong>Server base directory</strong>: <em>This should already point to your standalone server configuration directory,</em>
+<strong>Configuration file</strong>: <code>../../docs/examples/configs/standalone-xts.xml</code></code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Start the new <strong>WildFly XTS Configuration</strong> server.</p>
+</li>
+<li>
+<p>Right-click on the <strong>wsba-participant-completion-simple</strong> project, choose <strong>Run As</strong> &#8594; <strong>Maven build</strong>, enter <code>clean verify -Parq-remote</code> for the <strong>Goals</strong>, and click <strong>Run</strong> to run the Arquillian tests. The test results appear in the console.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="debug_the_application">Debug the Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you want to debug the source code of any library in the project, run the following command to pull the source into your local repository. The IDE should then detect it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ mvn dependency:sources</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-02-19 17:22:03 +0100
+Last updated 2021-02-19 15:55:30 +0100
 </div>
 </div>
 </body>

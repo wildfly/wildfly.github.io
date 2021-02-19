@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.12">
-<title>WildFly Documentation</title>
+<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="author" content="Wolf-Dieter Fink">
+<title>ejb-multi-server: EJB Communication Across Servers</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -47,7 +48,7 @@ textarea{overflow:auto;vertical-align:top}
 table{border-collapse:collapse;border-spacing:0}
 *,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
 a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
@@ -62,8 +63,10 @@ img{-ms-interpolation-mode:bicubic}
 img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
 .subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
-div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
 a{color:#2156a5;text-decoration:underline;line-height:inherit}
 a:hover,a:focus{color:#1d4b8f}
 a img{border:0}
@@ -103,22 +106,19 @@ h1{font-size:2.75em}
 h2{font-size:2.3125em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
 h4{font-size:1.4375em}}
-table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede;word-wrap:normal}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
 table thead,table tfoot{background:#f7f8f7}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt{background:#f8f8f7}
-table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
-.center{margin-left:auto;margin-right:auto}
-.stretch{width:100%}
 .clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
 .clearfix::after,.float-group::after{clear:both}
-:not(pre).nobreak{word-wrap:normal}
-:not(pre).nowrap{white-space:nowrap}
-:not(pre).pre-wrap{white-space:pre-wrap}
-:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+:not(pre)>code.nobreak{word-wrap:normal}
+:not(pre)>code.nowrap{white-space:nowrap}
 pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
 pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
 pre>code{display:block}
@@ -183,7 +183,7 @@ body.toc2.toc-right{padding-left:0;padding-right:20em}}
 #content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
 #content #toc>:first-child{margin-top:0}
 #content #toc>:last-child{margin-bottom:0}
-#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
 #footer-text{color:rgba(255,255,255,.8);line-height:1.44}
 #content{margin-bottom:.625em}
 .sect1{padding-bottom:.625em}
@@ -206,7 +206,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .admonitionblock>table td.icon{text-align:center;width:80px}
 .admonitionblock>table td.icon img{max-width:none}
 .admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
-.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
 .exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
 .exampleblock>.content>:first-child{margin-top:0}
@@ -216,7 +216,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .sidebarblock>:last-child{margin-bottom:0}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
 .exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
-.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
 .literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
@@ -262,20 +262,21 @@ pre.pygments .lineno::before{content:"";margin-right:-.125em}
 .quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
 .quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
 .quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
 p.tableblock:last-child{margin-bottom:0}
-td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
 td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
-table.grid-all>*>tr>*{border-width:1px}
-table.grid-cols>*>tr>*{border-width:0 1px}
-table.grid-rows>*>tr>*{border-width:1px 0}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
 table.frame-all{border-width:1px}
-table.frame-ends{border-width:1px 0}
 table.frame-sides{border-width:0 1px}
-table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
-table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
-table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
-table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
 table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
 th.halign-left,td.halign-left{text-align:left}
 th.halign-right,td.halign-right{text-align:right}
@@ -284,7 +285,7 @@ th.valign-top,td.valign-top{vertical-align:top}
 th.valign-bottom,td.valign-bottom{vertical-align:bottom}
 th.valign-middle,td.valign-middle{vertical-align:middle}
 table thead th,table tfoot th{font-weight:bold}
-tbody tr th{background:#f7f8f7}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
 tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
 p.tableblock>code:only-child{background:none;padding:0}
 p.tableblock{font-size:1em}
@@ -313,7 +314,6 @@ ol.lowergreek{list-style-type:lower-greek}
 .hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
 td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
 td.hdlist1{font-weight:bold;padding-bottom:1.25em}
-td.hdlist2{word-wrap:anywhere}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
 .colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
 .colist td:not([class]):first-child img{max-width:none}
@@ -386,7 +386,7 @@ a span.icon>.fa{cursor:inherit}
 .admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
 .admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
 .admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
-.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:50%;border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
 .conum[data-value] *{color:#fff!important}
 .conum[data-value]+b{display:none}
 .conum[data-value]::after{content:attr(data-value)}
@@ -413,7 +413,6 @@ thead{display:table-header-group}
 svg{max-width:100%}
 p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
 h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
-#header,#content,#footnotes,#footer{max-width:none}
 #toc,.sidebarblock,.exampleblock>.content{background:none!important}
 #toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
 body.book #header{text-align:center}
@@ -440,159 +439,620 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>WildFly Documentation</h1>
+<h1>ejb-multi-server: EJB Communication Across Servers</h1>
+<div class="details">
+<span id="author" class="author">Wolf-Dieter Fink</span><br>
+</div>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="_releases">Releases</h2>
+<div id="preamble">
 <div class="sectionbody">
+<div class="quoteblock abstract">
+<blockquote>
+The <code>ejb-multi-server</code> quickstart shows how to communicate between multiple applications deployed to different servers using an EJB to log the invocation.
+</blockquote>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_it">What is it?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>ejb-multi-server</code> quickstart demonstrates communication between applications deployed to different WildFly Application Server servers. Each application is deployed as an EAR and contains a simple EJB bean. The only function of each bean is to log the invocation.</p>
+</div>
+<div class="paragraph">
+<p>This example consists of the following Maven projects, each with a shared parent:</p>
+</div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
+<col style="width: 40%;">
+<col style="width: 60%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">WildFly Release</th>
-<th class="tableblock halign-left valign-top">Java EE Version</th>
-<th class="tableblock halign-left valign-top">Jakarta EE Version</th>
-<th class="tableblock halign-left valign-top">Quickstarts</th>
+<th class="tableblock halign-left valign-top">Project</th>
+<th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="22">22.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="22/quickstarts/README.html">22.0.1.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>app-main</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An application that can be called by the client. It can also call the different sub-applications.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="21">21.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>app-one</code></p>
+</div>
+<div class="paragraph">
+<p><code>app-two</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">These simple applications contain an EJB subproject that builds the <code>ejb.jar</code> file and an EAR subproject that builds the <code>app.ear</code> file. Each application contains only one EJB that logs a statement on a method call and returns the <code>jboss.node.name</code> and credentials.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="20">20.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>app-web</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A simple WAR application. It consists of one servlet that demonstrates how to invoke EJBs on a different server.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="19.1">19.1.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="19">19.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="18">18.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="17">17.0.1.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="17">17.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="16">16.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="15">15.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="14">14.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="13">13.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.oracle.com/javaee/7/api/toc.htm">Java EE 7 (and full EE8 Preview)</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="12">12.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.oracle.com/javaee/7/api/toc.htm">Java EE 7 (and partial EE8 Preview)</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>client</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This project builds the standalone client and executes it.</p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>The root <code>pom.xml</code> builds each of the subprojects in an appropriate order.</p>
+</div>
+<div class="paragraph">
+<p>The server configuration is done using CLI batch scripts located in the root of the quickstart folder.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="system_requirements">System Requirements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The application this project produces is designed to be run on WildFly Application Server 22 or later.</p>
+</div>
+<div class="paragraph">
+<p>All you need to build this project is Java 8.0 (Java SDK 1.8) or later and Maven 3.3.1 or later. See <a href="https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN_JBOSS_EAP.adoc#configure_maven_to_build_and_deploy_the_quickstarts">Configure Maven to Build and Deploy the Quickstarts</a> to make sure you are configured correctly for testing the quickstarts.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="use_of_jboss_home_name">Use of the WILDFLY_HOME and QUICKSTART_HOME Variables</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the following instructions, replace <code><em>WILDFLY_HOME</em></code> with the actual path to your WildFly installation. The installation path is described in detail here: <a href="https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_WILDFLY_HOME.adoc#use_of_product_home_and_jboss_home_variables">Use of <em>WILDFLY_HOME</em> and <em>JBOSS_HOME</em> Variables</a>.</p>
+</div>
+<div class="paragraph">
+<p>When you see the replaceable variable <em>QUICKSTART_HOME</em>, replace it with the path to the root directory of all of the quickstarts.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="start_with_a_clean_server_install">Start with a Clean Server Install</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is important to start with a clean version of WildFly before testing this quickstart. Make sure you unzip or install a fresh WildFly instance.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="add_the_application_users">Add the Application Users</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following users must be added to the <code>ApplicationRealm</code> to run this quickstart. Make sure you use the names and passwords specified in the table as they are required to run this example.</p>
+</div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 100%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 40%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Bootable JAR</th>
+<th class="tableblock halign-left valign-top">UserName</th>
+<th class="tableblock halign-left valign-top">Realm</th>
+<th class="tableblock halign-left valign-top">Password</th>
+<th class="tableblock halign-left valign-top">Roles</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="bootablejar">3.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">quickuser</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ApplicationRealm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">quick-123</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">quickuser1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ApplicationRealm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">quick123+</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">quickuser2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ApplicationRealm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">quick+123</p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
 </table>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<thead>
+<div class="paragraph">
+<p>To add the users, open a terminal and type the following commands.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>$ <em>WILDFLY_HOME</em>/bin/add-user.sh -a -u quickuser -p quick-123
+$ <em>WILDFLY_HOME</em>/bin/add-user.sh -a -u quickuser1 -p quick123+
+$ <em>WILDFLY_HOME</em>/bin/add-user.sh -a -u quickuser2 -p quick+123</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
 <tr>
-<th class="tableblock halign-left valign-top">Galleon</th>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+For Windows, use the <code><em>WILDFLY_HOME</em>\bin\add-user.bat</code> script.
+</td>
 </tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="galleon">4.2.4.Final</a></p></td>
-</tr>
-</tbody>
 </table>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<thead>
+</div>
+<div class="paragraph">
+<p>If you prefer, you can use the <code>add-user</code> utility interactively. For an example of how to use the add-user utility, see the instructions located here: <a href="https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CREATE_USERS.adoc#add_an_application_user">Add an Application User</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="back_up_managed_domain_configuration">Back Up the WildFly Managed Domain Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before you begin, back up your server configuration files.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If it is running, stop the WildFly server.</p>
+</li>
+<li>
+<p>Back up the following files:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code><em>WILDFLY_HOME</em>/domain/configuration/domain.xml
+<em>WILDFLY_HOME</em>/domain/configuration/host.xml</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>After you have completed testing this quickstart, you can replace these file to restore the server to its original configuration.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="start_the_eap_managed_domain">Start the WildFly Managed Domain</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open a terminal and navigate to the root of the WildFly directory.</p>
+</li>
+<li>
+<p>Start the WildFly managed domain by typing the following command.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>$ <em>WILDFLY_HOME</em>/bin/domain.sh</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
 <tr>
-<th class="tableblock halign-left valign-top">WildFly Galleon Plug-ins</th>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+For Windows, use the <code><em>WILDFLY_HOME</em>\bin\domain.bat</code> script.
+</td>
 </tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="galleon-plugins">4.0.3.Final</a></p></td>
-</tr>
-</tbody>
 </table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configure_the_server">Configure the Server</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You configure the domain server by running JBoss CLI commands. For your convenience, this quickstart batches the commands into a <code>install-domain.cli</code> script provided in the root directory of this quickstart.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Before you begin, make sure you do the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#start_with_a_clean_server_install">Start with clean WildFly installation</a>.</p>
+</li>
+<li>
+<p><a href="#back_up_managed_domain_configuration">Back up the WildFly managed domain configuration</a>.</p>
+</li>
+<li>
+<p><a href="#add_the_application_users">Add the application users</a>.</p>
+</li>
+<li>
+<p><a href="#start_eap_managed_domain">Start the WildFly managed domain</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Review the <code>install-domain.cli</code> file in the root of this quickstart directory. This script configures and starts multiple servers needed to run this quickstart.</p>
+</li>
+<li>
+<p>Open a new terminal, navigate to the root directory of this quickstart, and run the following command, replacing <em>WILDFLY_HOME</em> with the path to your server:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>$ <em>WILDFLY_HOME</em>/bin/jboss-cli.sh -c --file=install-domain.cli</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+For Windows, use the <code><em>WILDFLY_HOME</em>\bin\jboss-cli.bat</code> script.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You should see a result of <code>"outcome" &#8658; "success"</code> for every step in the execution.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+Depending on your machine configuration, you might see "Exception in thread "main" java.lang.OutOfMemoryError: unable to create new native thread" exceptions in the server log when you run this script. If you do, you must increase the ulimit open files and max user processes settings. Instructions to do this are located here: <a href="http://ithubinfo.blogspot.com/2013/07/how-to-increase-ulimit-open-file-and.html" class="bare">http://ithubinfo.blogspot.com/2013/07/how-to-increase-ulimit-open-file-and.html</a>. After you update the ulimit settings, you must reboot and start with a fresh instance of the server.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="review_the_modified_server_configuration">Review the Modified Server Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are too many additions to the configuration files to list here. Feel free to compare the <code>domain.xml</code> and <code>host.xml</code> to the backup copies to see the changes made to configure the server to run this quickstart.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="install_the_quickstart_parent_artifact_in_maven">Install the Quickstart Parent Artifact in Maven</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+You can skip this step if you are using a <a href="https://github.com/wildfly/quickstart/tags">tagged</a> or <a href="https://github.com/wildfly/quickstart/releases">released</a> version of the quickstarts as the <code>quickstart-parent</code> artifact is already installed to Maven.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If you are using the latest <a href="https://github.com/wildfly/quickstart/">development version</a> of the quickstarts, this quickstart requires the <code>quickstart-parent</code> artifact to be installed in your local Maven repository. To install it, navigate to your <em>QUICKSTART_HOME</em> directory and run the following command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>$ cd <em>QUICKSTART_HOME</em>
+$ mvn clean install</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="build_and_deploy_the_quickstart">Build and Deploy the Quickstart</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure you have <a href="#install_the_quickstart_parent_artifact_in_maven">installed the quickstart parent artifact</a> in your Maven repository.</p>
+</li>
+<li>
+<p>Make sure you have started and configured the WildFly server successfully as described above.</p>
+</li>
+<li>
+<p>Open a terminal and navigate to the root directory of this quickstart.</p>
+</li>
+<li>
+<p>Type this command to build the artifacts.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>$ mvn clean install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see <code>BUILD SUCCESS</code> at the end of the build <code>SUCCESS</code> messages for each component.</p>
+</div>
+</li>
+<li>
+<p>In the same terminal, deploy the applications using the provided CLI batch script by typing the following command.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>$ <em>WILDFLY_HOME</em>/bin/jboss-cli.sh -c --file=deploy-domain.cli</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+For Windows, use the <code><em>WILDFLY_HOME</em>\bin\jboss-cli.bat</code> script.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This deploys the <code>app-*.ear</code> files to different server groups of the running domain. You should see the following result when you run the script.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>The batch executed successfully
+process-state: reload-required</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>You might see the following warnings in the server log. You can ignore these warnings.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>[Server:app-oneB] 13:00:13,346 WARN  [org.jboss.as.clustering.jgroups.protocol.UDP] (ServerService Thread Pool -- 13) JGRP000015: the send buffer of socket MulticastSocket was set to 1MB, but the OS only allocated 212.99KB. This might lead to performance problems. Please set your max send buffer in the OS correctly (e.g. net.core.wmem_max on Linux)
+[Server:app-oneB] 13:00:13,346 WARN  [org.jboss.as.clustering.jgroups.protocol.UDP] (ServerService Thread Pool -- 13) JGRP000015: the receive buffer of socket MulticastSocket was set to 20MB, but the OS only allocated 212.99KB. This might lead to performance problems. Please set your max receive buffer in the OS correctly (e.g. net.core.rmem_max on Linux)
+[Server:app-oneB] 13:00:13,347 WARN  [org.jboss.as.clustering.jgroups.protocol.UDP] (ServerService Thread Pool -- 13) JGRP000015: the send buffer of socket MulticastSocket was set to 1MB, but the OS only allocated 212.99KB. This might lead to performance problems. Please set your max send buffer in the OS correctly (e.g. net.core.wmem_max on Linux)
+[Server:app-oneB] 13:00:13,347 WARN  [org.jboss.as.clustering.jgroups.protocol.UDP] (ServerService Thread Pool -- 13) JGRP000015: the receive buffer of socket MulticastSocket was set to 25MB, but the OS only allocated 212.99KB. This might lead to performance problems. Please set your max receive buffer in the OS correctly (e.g. net.core.rmem_max on Linux)
+[Server:app-oneA] 13:00:13,407 WARN  [org.jboss.as.clustering.jgroups.protocol.UDP] (ServerService Thread Pool -- 11) JGRP000015: the send buffer of socket MulticastSocket was set to 1MB, but the OS only allocated 212.99KB. This might lead to performance problems. Please set your max send buffer in the OS correctly (e.g. net.core.wmem_max on Linux)
+[Server:app-oneA] 13:00:13,408 WARN  [org.jboss.as.clustering.jgroups.protocol.UDP] (ServerService Thread Pool -- 11) JGRP000015: the receive buffer of socket MulticastSocket was set to 20MB, but the OS only allocated 212.99KB. This might lead to performance problems. Please set your max receive buffer in the OS correctly (e.g. net.core.rmem_max on Linux)
+[Server:app-oneA] 13:00:13,408 WARN  [org.jboss.as.clustering.jgroups.protocol.UDP] (ServerService Thread Pool -- 11) JGRP000015: the send buffer of socket MulticastSocket was set to 1MB, but the OS only allocated 212.99KB. This might lead to performance problems. Please set your max send buffer in the OS correctly (e.g. net.core.wmem_max on Linux)
+[Server:app-oneA] 13:00:13,408 WARN  [org.jboss.as.clustering.jgroups.protocol.UDP] (ServerService Thread Pool -- 11) JGRP000015: the receive buffer of socket MulticastSocket was set to 25MB, but the OS only allocated 212.99KB. This might lead to performance problems. Please set your max receive buffer in the OS correctly (e.g. net.core.rmem_max on Linux)</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+If errors appear in the <code>server.log</code> when installing or deploying the quickstart, stop the domain and restart it. This should ensure further steps run correctly.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="access_the_remote_client_application">Access the Remote Client Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This example shows how to invoke an EJB from a remote standalone application.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that the deployments are successful as described above.</p>
+</li>
+<li>
+<p>Navigate to the quickstart <code>client/</code> subdirectory.</p>
+</li>
+<li>
+<p>Type this command to run the application:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>$ mvn exec:java</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The client will output the following information provided by the applications:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>InvokeAll succeed: MainApp[anonymous]@master:app-main  &gt;  [ app1[quickuser1]@master:app-oneB &gt; app2[quickuser2]@master:app-twoA ; app2[quickuser2]@master:app-twoA ]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This output shows that the <code>MainApp</code> is called with the user <code>anonymous</code> at node <code>master:app-main</code> and the sub-call is proceeded by the <code>master:app-oneA</code> node and <code>master:app-twoA</code> node as <code>quickuser2</code>.</p>
+</div>
+</li>
+<li>
+<p>Review the server log files to see the bean invocations on the servers.</p>
+</li>
+<li>
+<p>If it is necessary to invoke the client with a different WildFly version the main class can be invoked by using the following command from the root directory of this quickstart. Replace <em>WILDFLY_HOME</em> with your current installation path. The output should be similar to the previous mvn executions.</p>
+<div class="listingblock">
+<div class="content">
+<pre>java -cp $ <em>WILDFLY_HOME</em>/bin/client/jboss-client.jar:app-main/ejb/target/ejb-multi-server-app-main-ejb-client.jar:app-two/ejb/target/ejb-multi-server-app-two-ejb-client.jar:client/target/ejb-multi-server-client.jar org.jboss.as.quickstarts.ejb.multi.server.Client</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If <code>exec</code> is called multiple times, the invocation for <code>app1</code> might use <code>app-oneA</code> and <code>app-oneB</code> node due to cluster loadbalancing.</p>
+</li>
+<li>
+<p>A WildFly will deny the invocation of unsecured methods of <code>appOne</code>/<code>appTwo</code> since security is enabled but the method does not include <code>@Roles</code>. You need to set <code>default-missing-method-permissions-deny-access = false</code> for the <code>ejb3</code> subsystem within the domain profile <code>ha</code> and <code>default</code> to allow the method invocation. See the <code>install-domain.cli</code> script.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="access_the_jsf_application_inside_the_main_application">Access the JSF Application Inside the Main Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The JSF example shows different annotations to inject the EJB. Also how to handle the annotation if different beans implement the same interface and therefore the container is not able to decide which bean needs to be injected without additional informations.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that the deployments are successful as described above.</p>
+</li>
+<li>
+<p>Use a browser to access the JSF application at the following URL: <a href="http://localhost:8080/ejb-multi-server-app-main-web/" class="bare">http://localhost:8080/ejb-multi-server-app-main-web/</a></p>
+</li>
+<li>
+<p>Insert a message in the Text input and invoke the different methods. The result is shown in the browser.</p>
+</li>
+<li>
+<p>See server logfiles and find your given message logged as INFO.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="access_the_servlet_application_deployed_as_a_war_inside_a_minimal_server">Access the Servlet Application Deployed as a WAR Inside a Minimal Server</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An example how to access EJBs from a separate instance which only contains a web application.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that the deployments are successful as described above.</p>
+</li>
+<li>
+<p>Use a browser to access the Servlet at the following URL: <a href="http://localhost:8380/ejb-multi-server-app-web/" class="bare">http://localhost:8380/ejb-multi-server-app-web/</a></p>
+</li>
+<li>
+<p>The Servlet will invoke the remote EJBs directly and show the results, compare that the invocation is successful</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="undeploy_the_quickstart">Undeploy the Quickstart</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="#start_eap_managed_domain">Start the WildFly managed domain</a> as described above.</p>
+</li>
+<li>
+<p>Open a terminal and navigate to the root directory of this quickstart.</p>
+</li>
+<li>
+<p>When you are finished testing, type this command to undeploy the archive:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>$ <em>WILDFLY_HOME</em>/bin/jboss-cli.sh --connect --file=undeploy-domain.cli</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+For Windows, use the <code><em>WILDFLY_HOME</em>\bin\jboss-cli.bat</code>.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="restore_managed_domain_configuration_manually">Restore the WildFly Managed Domain Configuration Manually</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you have completed testing the quickstart, you can restore the original server configuration by manually restoring the backup copies the configuration files.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If it is running, stop the WildFly server.</p>
+</li>
+<li>
+<p>Replace the following files with the backup copies of the files.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code><em>WILDFLY_HOME</em>/domain/configuration/domain.xml
+<em>WILDFLY_HOME</em>/domain/configuration/host.xml</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="run_the_quickstart_in_redhat_codeready_studio_or_eclipse">Run the Quickstart in Red Hat CodeReady Studio or Eclipse</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This quickstart is not supported in Red Hat CodeReady Studio.</p>
+</div>
+<div class="paragraph">
+<p>EJB Client (ejb-client) currently has limited support in the Eclipse Web Tools Platform (WTP).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="debug_the_application">Debug the Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you want to debug the source code of any library in the project, run the following command to pull the source into your local repository. The IDE should then detect it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ mvn dependency:sources</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-02-19 17:22:03 +0100
+Last updated 2021-02-19 15:55:30 +0100
 </div>
 </div>
 </body>

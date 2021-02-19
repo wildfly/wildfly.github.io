@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.12">
-<title>WildFly Documentation</title>
+<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="author" content="Radoslav Husar">
+<title>ha-singleton-deployment: Deploying Cluster-wide Singleton Services Using Singleton Deployments</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -47,7 +48,7 @@ textarea{overflow:auto;vertical-align:top}
 table{border-collapse:collapse;border-spacing:0}
 *,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
 a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
@@ -62,8 +63,10 @@ img{-ms-interpolation-mode:bicubic}
 img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
 .subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
-div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
 a{color:#2156a5;text-decoration:underline;line-height:inherit}
 a:hover,a:focus{color:#1d4b8f}
 a img{border:0}
@@ -103,22 +106,19 @@ h1{font-size:2.75em}
 h2{font-size:2.3125em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
 h4{font-size:1.4375em}}
-table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede;word-wrap:normal}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
 table thead,table tfoot{background:#f7f8f7}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt{background:#f8f8f7}
-table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
-.center{margin-left:auto;margin-right:auto}
-.stretch{width:100%}
 .clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
 .clearfix::after,.float-group::after{clear:both}
-:not(pre).nobreak{word-wrap:normal}
-:not(pre).nowrap{white-space:nowrap}
-:not(pre).pre-wrap{white-space:pre-wrap}
-:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+:not(pre)>code.nobreak{word-wrap:normal}
+:not(pre)>code.nowrap{white-space:nowrap}
 pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
 pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
 pre>code{display:block}
@@ -183,7 +183,7 @@ body.toc2.toc-right{padding-left:0;padding-right:20em}}
 #content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
 #content #toc>:first-child{margin-top:0}
 #content #toc>:last-child{margin-bottom:0}
-#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
 #footer-text{color:rgba(255,255,255,.8);line-height:1.44}
 #content{margin-bottom:.625em}
 .sect1{padding-bottom:.625em}
@@ -206,7 +206,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .admonitionblock>table td.icon{text-align:center;width:80px}
 .admonitionblock>table td.icon img{max-width:none}
 .admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
-.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
 .exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
 .exampleblock>.content>:first-child{margin-top:0}
@@ -216,7 +216,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .sidebarblock>:last-child{margin-bottom:0}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
 .exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
-.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
 .literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
@@ -262,20 +262,21 @@ pre.pygments .lineno::before{content:"";margin-right:-.125em}
 .quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
 .quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
 .quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
 p.tableblock:last-child{margin-bottom:0}
-td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
 td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
-table.grid-all>*>tr>*{border-width:1px}
-table.grid-cols>*>tr>*{border-width:0 1px}
-table.grid-rows>*>tr>*{border-width:1px 0}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
 table.frame-all{border-width:1px}
-table.frame-ends{border-width:1px 0}
 table.frame-sides{border-width:0 1px}
-table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
-table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
-table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
-table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
 table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
 th.halign-left,td.halign-left{text-align:left}
 th.halign-right,td.halign-right{text-align:right}
@@ -284,7 +285,7 @@ th.valign-top,td.valign-top{vertical-align:top}
 th.valign-bottom,td.valign-bottom{vertical-align:bottom}
 th.valign-middle,td.valign-middle{vertical-align:middle}
 table thead th,table tfoot th{font-weight:bold}
-tbody tr th{background:#f7f8f7}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
 tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
 p.tableblock>code:only-child{background:none;padding:0}
 p.tableblock{font-size:1em}
@@ -313,7 +314,6 @@ ol.lowergreek{list-style-type:lower-greek}
 .hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
 td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
 td.hdlist1{font-weight:bold;padding-bottom:1.25em}
-td.hdlist2{word-wrap:anywhere}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
 .colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
 .colist td:not([class]):first-child img{max-width:none}
@@ -386,7 +386,7 @@ a span.icon>.fa{cursor:inherit}
 .admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
 .admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
 .admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
-.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:50%;border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
 .conum[data-value] *{color:#fff!important}
 .conum[data-value]+b{display:none}
 .conum[data-value]::after{content:attr(data-value)}
@@ -413,7 +413,6 @@ thead{display:table-header-group}
 svg{max-width:100%}
 p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
 h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
-#header,#content,#footnotes,#footer{max-width:none}
 #toc,.sidebarblock,.exampleblock>.content{background:none!important}
 #toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
 body.book #header{text-align:center}
@@ -440,159 +439,405 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>WildFly Documentation</h1>
+<h1>ha-singleton-deployment: Deploying Cluster-wide Singleton Services Using Singleton Deployments</h1>
+<div class="details">
+<span id="author" class="author">Radoslav Husar</span><br>
+</div>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="_releases">Releases</h2>
+<div id="preamble">
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
+<div class="quoteblock abstract">
+<blockquote>
+The <code>ha-singleton-deployment</code> quickstart demonstrates the recommended way to deploy any service packaged in an application archive as a cluster-wide singleton.
+</blockquote>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_it">What is it?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>ha-singleton-deployment</code> quickstart demonstrates the deployment of a service packaged in an application as a cluster-wide singleton using singleton deployments.
+In this example, the service is a timer that is initialized by a <code>@Startup @Singleton</code> bean.
+The example is built and packaged as a single EJB archive.</p>
+</div>
+<div class="paragraph">
+<p>For more information about singleton deployments, see <em>HA Singleton Deployments</em> in the <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/development_guide/"><em>Development Guide</em></a> for Red Hat JBoss Enterprise Application Platform located on the Red Hat Customer Portal.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="system_requirements">System Requirements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The application this project produces is designed to be run on WildFly Application Server 22 or later.</p>
+</div>
+<div class="paragraph">
+<p>All you need to build this project is Java 8.0 (Java SDK 1.8) or later and Maven 3.3.1 or later. See <a href="https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN_JBOSS_EAP.adoc#configure_maven_to_build_and_deploy_the_quickstarts">Configure Maven to Build and Deploy the Quickstarts</a> to make sure you are configured correctly for testing the quickstarts.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="use_of_jboss_home_name">Use of the WILDFLY_HOME_1, WILDFLY_HOME_2, and QUICKSTART_HOME Variables</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This quickstart requires that you clone your <code><em>WILDFLY_HOME</em></code> installation directory and run two servers. The installation path is described in detail here: <a href="https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_WILDFLY_HOME.adoc#use_of_product_home_and_jboss_home_variables">Use of <em>WILDFLY_HOME</em> and <em>JBOSS_HOME</em> Variables</a>.</p>
+</div>
+<div class="paragraph">
+<p>In the following instructions, replace <code><em>WILDFLY_HOME_1</em></code> with the path to your first WildFly server and replace <code><em>WILDFLY_HOME_2</em></code> with the path to your second cloned WildFly server.</p>
+</div>
+<div class="paragraph">
+<p>When you see the replaceable variable <em>QUICKSTART_HOME</em>, replace it with the path to the root directory of all of the quickstarts.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setting_up_the_test_environment">Setting Up the Test Environment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To demonstrate the singleton behavior, at least two application server instances must be started.
+Begin by making a copy of the entire WildFly directory to be used as second cluster member.
+Note that the example can be run on a single node as well, but without observation of the singleton properties.</p>
+</div>
+<div class="paragraph">
+<p>Start the two WildFly servers with the same HA profile using the following commands.
+Note that a socket binding port offset and a unique node name must be passed to the second server if the servers are binding to the same host.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>$ <em>WILDFLY_HOME_1</em>/bin/standalone.sh -c standalone-ha.xml -Djboss.node.name=node1
+$ <em>WILDFLY_HOME_2</em>/bin/standalone.sh -c standalone-ha.xml -Djboss.node.name=node2 -Djboss.socket.binding.port-offset=100</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
 <tr>
-<th class="tableblock halign-left valign-top">WildFly Release</th>
-<th class="tableblock halign-left valign-top">Java EE Version</th>
-<th class="tableblock halign-left valign-top">Jakarta EE Version</th>
-<th class="tableblock halign-left valign-top">Quickstarts</th>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+For Windows, use the <code><em>WILDFLY_HOME_1</em>\bin\standalone.bat</code> and <code><em>WILDFLY_HOME_2</em>\bin\standalone.bat</code> scripts.
+</td>
 </tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="22">22.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="22/quickstarts/README.html">22.0.1.Final</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="21">21.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="20">20.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="19.1">19.1.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="19">19.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="18">18.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="17">17.0.1.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="17">17.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="16">16.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="15">15.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="14">14.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="13">13.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.oracle.com/javaee/7/api/toc.htm">Java EE 7 (and full EE8 Preview)</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="12">12.0.0.Final</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.oracle.com/javaee/7/api/toc.htm">Java EE 7 (and partial EE8 Preview)</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
 </table>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<thead>
+</div>
+<div class="paragraph">
+<p>This example is not limited to two servers. Additional servers can be started by specifying a unique port offset for each one.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_running_the_quickstart">Running the Quickstart</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Start the WildFly servers as described in the above section.</p>
+</li>
+<li>
+<p>Navigate to the root directory of this quickstart in the terminal.</p>
+</li>
+<li>
+<p>Use the following command to clean up previously built artifacts, and build and deploy the EJB archive:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>$ mvn clean install wildfly:deploy</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Ensure the <code>target/ha-singleton-deployment.jar</code> archive is deployed to <code>node1</code> (the one without port offset) by observing the log.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>INFO [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0027: Starting deployment of "ha-singleton-deployment.jar" (runtime-name: "ha-singleton-deployment.jar")
+...
+INFO [org.wildfly.clustering.server] (DistributedSingletonService - 1) WFLYCLSV0003: node1 elected as the singleton provider of the jboss.deployment.unit."ha-singleton-deployment.jar".FIRST_MODULE_USE service
+INFO [org.wildfly.clustering.server] (DistributedSingletonService - 1) WFLYCLSV0001: This node will now operate as the singleton provider of the jboss.deployment.unit."ha-singleton-deployment.jar".FIRST_MODULE_USE service
+INFO [org.jboss.as.server] (management-handler-thread - 4) WFLYSRV0010: Deployed "ha-singleton-deployment.jar" (runtime-name : "ha-singleton-deployment.jar")
+...
+WARNING [class org.jboss.as.quickstarts.ha.singleton.SingletonTimer] (ServerService Thread Pool -- 68) SingletonTimer is initializing.
+INFO  [class org.jboss.as.quickstarts.ha.singleton.SingletonTimer] (EJB default - 1) SingletonTimer: Hello World!</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following warnings might appear in the server output after the applications are deployed. These warnings can be safely ignored in a development environment.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>WARN  [org.jboss.as.clustering.jgroups.protocol.UDP] (ServerService Thread Pool -- 68) JGRP000015: the receive buffer of socket MulticastSocket was set to 20MB, but the OS only allocated 6.71MB. This might lead to performance problems. Please set your max receive buffer in the OS correctly (e.g. net.core.rmem_max on Linux)
+WARN  [org.jboss.as.clustering.jgroups.protocol.UDP] (ServerService Thread Pool -- 68) JGRP000015: the receive buffer of socket MulticastSocket was set to 25MB, but the OS only allocated 6.71MB. This might lead to performance problems. Please set your max receive buffer in the OS correctly (e.g. net.core.rmem_max on Linux)</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Use the following command to deploy the already built archive to the second server. Note that since the default socket binding port is <code>9990</code> and the second server has ports offsetted by <code>100</code>, the sum, <code>10090</code> must be passed as an argument to the deploy maven goal.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>mvn wildfly:deploy -Dwildfly.port=10090</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Ensure the <code>service/target/ha-singleton-deployment.jar</code> archive is deployed to <code>node2</code> by observing the log. Note that even though the logs indicate "Deployed", the deployment does not actually deploy completely and the timer is not operating on this node.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "ha-singleton-deployment.jar" (runtime-name: "ha-singleton-deployment.jar")
+INFO  [org.infinispan.remoting.transport.jgroups.JGroupsTransport] (MSC service thread 1-3) ISPN000078: Starting JGroups channel server
+...
+INFO  [org.infinispan.remoting.transport.jgroups.JGroupsTransport] (MSC service thread 1-3) ISPN000094: Received new cluster view for channel server: [node1|1] (2) [node1, node2]
+...
+INFO  [org.infinispan.remoting.transport.jgroups.JGroupsTransport] (MSC service thread 1-3) ISPN000079: Channel server local address is node2, physical addresses are [127.0.0.1:55300]
+INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-6) ISPN000128: Infinispan version: Infinispan 'Chakra' 8.2.7.Final
+INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 68) WFLYCLINF0002: Started default cache from server container
+INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0010: Deployed "ha-singleton-deployment.jar" (runtime-name : "ha-singleton-deployment.jar")</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Verify the timer is running only on one instance by observing the logs. The node running the timer will output the following every 5 seconds:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>INFO  [class org.jboss.as.quickstarts.ha.singleton.SingletonTimer] (EJB default - 1) SingletonTimer: Hello World!</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>While the instance not running, the timer will display the following as the last log line:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0010: Deployed "ha-singleton-deployment.jar" (runtime-name : "ha-singleton-deployment.jar")</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Verify failover of the singleton deployment. Shutdown the server operating as the singleton master, for instance by using the <code>Ctrl</code> + <code>C</code> key combination in the terminal. Observe the following messages on the node being shutdown:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>INFO  [class org.jboss.as.quickstarts.ha.singleton.SingletonTimer] (EJB default - 3) SingletonTimer: Hello World!
+INFO  [class org.jboss.as.quickstarts.ha.singleton.SingletonTimer] (EJB default - 4) SingletonTimer: Hello World!
+INFO  [org.jboss.as.server] (Thread-2) WFLYSRV0220: Server shutdown has been requested via an OS signal
+WARNING [class org.jboss.as.quickstarts.ha.singleton.SingletonTimer] (ServerService Thread Pool -- 31) SingletonTimer is stopping: the server is either being shutdown or another node has become elected to be the singleton master.
+...
+INFO  [org.jboss.as] (MSC service thread 1-6) WFLYSRV0050: WildFly Core 3.0.0.Final stopped in 88ms</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You might also see the following error in the singleton master log. This is due to the shutdown not finishing cleanly and is documented in <a href="https://issues.jboss.org/browse/JBEAP-9408">JBEAP-9408</a>. You can ignore this error.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>ERROR [org.jboss.as.clustering.jgroups.protocol.NAKACK2] (thread-20) JGRP000039: node1: failed to deliver OOB message [dst: &lt;null&gt;, src: node2 (3 headers), size=73 bytes, flags=OOB|DONT_BUNDLE]: java.lang.IllegalStateException: channel is not connected</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now observe the log messages on the second server. The node will now be elected as the singleton master, deployment will complete, and the timer will start operating:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>INFO  [org.wildfly.clustering.server] (DistributedSingletonService - 1) WFLYCLSV0003: node2 elected as the singleton provider of the jboss.deployment.unit."ha-singleton-deployment.jar".FIRST_MODULE_USE service
+INFO  [org.wildfly.clustering.server] (DistributedSingletonService - 1) WFLYCLSV0001: This node will now operate as the singleton provider of the jboss.deployment.unit."ha-singleton-deployment.jar".FIRST_MODULE_USE service
+INFO  [org.infinispan.remoting.transport.jgroups.JGroupsTransport] (thread-4) ISPN000094: Received new cluster view for channel server: [node2|2] (1) [node2]
+...
+WARNING [class org.jboss.as.quickstarts.ha.singleton.SingletonTimer] (ServerService Thread Pool -- 68) SingletonTimer is initializing.
+INFO  [class org.jboss.as.quickstarts.ha.singleton.SingletonTimer] (EJB default - 1) SingletonTimer: Hello World!
+INFO  [class org.jboss.as.quickstarts.ha.singleton.SingletonTimer] (EJB default - 2) SingletonTimer: Hello World!</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="determining_the_primary_provider_using_cli">Determining the primary provider of Singleton deployment using CLI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The JBoss CLI tool can be used to determine the primary provider and the complete list of providers of any singleton service. This is generally useful for operations team or tooling.</p>
+</div>
+<div class="paragraph">
+<p>Once the server is running and the application is deployed, the server exposes runtime resources corresponding to the deployment.
+Note the <code>include-runtime</code> flag on the <code>read-resource</code> operation.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>[standalone@localhost:9990 /] /subsystem=singleton/singleton-policy=default/deployment=ha-singleton-deployment.jar:read-resource(include-runtime=true)
+{
+    "outcome" =&gt; "success",
+    "result" =&gt; {
+        "is-primary" =&gt; true,
+        "primary-provider" =&gt; "node1",
+        "providers" =&gt; [
+            "node1",
+            "node2"
+        ]
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The typical use case for scripting to determine the primary provider of a service and potentially act upon it, is to run the <code>jboss-cli</code> with a given operation and receive a JSON formatted output as shown here:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>[rhusar@ribera bin]$ ./jboss-cli.sh --output-json --connect "/subsystem=singleton/singleton-policy=default/deployment=ha-singleton-deployment.jar:read-attribute(name=primary-provider)"
+{
+    "outcome" : "success",
+    "result" : "node1"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that the <code>include-runtime</code> flag is not required when a specific attribute is queried. Please refer to the documentation for more information on using the CLI.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_troubleshooting">Troubleshooting</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Should the singleton be running on multiple nodes, the most common causes are accidentally starting with the <code>standalone.xml</code> or <code>standalone-full.xml</code> profile instead of with the <code>standalone-ha.xml</code> or <code>standalone-full-ha.xml</code> profile.
+Make sure to start the server with an HA profile using <code>-c standalone-ha.xml</code>.</p>
+</div>
+<div class="paragraph">
+<p>Another common cause is that the server instances did not discover each other and each server is operating as a singleton cluster. Ensure that multicast is enabled or change the <code>jgroups</code> subsystem configuration to use a different discovery mechanism.
+Observe the following log line to ensure that the discovery was successful:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>INFO  [org.infinispan.remoting.transport.jgroups.JGroupsTransport] (MSC service thread 1-3) ISPN000094: Received new cluster view for channel server: [node1|1] (2) [node1, node2]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_making_existing_deployments_singleton">Making Existing Deployments Singleton</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this quickstart, the deployment is made singleton by a configuration file bundled in the archive.
+Inspect the content in <code>src/main/resources/META-INF/singleton-deployment.xml</code>.
+Any existing deployment can be made singleton by using <em>deployment overlays</em> mechanism.
+To demonstrate how to use deployment overlays, follow these steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Move the <code>src/main/resources/META-INF/singleton-deployment.xml</code> file into root directory of this quickstart.</p>
+</li>
+<li>
+<p>Rebuild the project. Ensure that the servers are started, and redeploy the application, which will no longer be configured by singleton deployment by the archive:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>$ mvn clean install
+$ mvn wildfly:deploy
+$ mvn wildfly:deploy -Dwildfly.port=10090</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Start the management CLI and set up a deployment overlay on both servers. Make sure you use the port offset for the second server.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>$ <em>WILDFLY_HOME_1</em>/bin/jboss-cli.sh --connect
+deployment-overlay add --name=singleton-deployment --deployments=ha-singleton-deployment.jar --content=META-INF/singleton-deployment.xml=singleton-deployment.xml
+deployment-overlay redeploy-affected --name=singleton-deployment
+$ <em>WILDFLY_HOME_2</em>/bin/jboss-cli.sh --connect --controller=localhost:10090 deployment-overlay add --name=singleton-deployment --deployments=ha-singleton-deployment.jar --content=META-INF/singleton-deployment.xml=singleton-deployment.xml deployment-overlay redeploy-affected --name=singleton-deployment</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
 <tr>
-<th class="tableblock halign-left valign-top">Bootable JAR</th>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+For Windows, use the ` <em>WILDFLY_HOME_1</em>\bin\jboss-cli.bat` and ` <em>WILDFLY_HOME_2</em>\bin\jboss-cli.bat` scripts.
+</td>
 </tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="bootablejar">3.0.0.Final</a></p></td>
-</tr>
-</tbody>
 </table>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Galleon</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="galleon">4.2.4.Final</a></p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">WildFly Galleon Plug-ins</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="galleon-plugins">4.0.3.Final</a></p></td>
-</tr>
-</tbody>
-</table>
+</div>
+</li>
+<li>
+<p>Review the deployment overlay changes in the <code>standalone-ha.xml</code> server profile:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-xml" data-lang="xml">&lt;deployment-overlays&gt;
+    &lt;deployment-overlay name="singleton-deployment"&gt;
+        &lt;content path="META-INF/singleton-deployment.xml" content="60a35e2bb6a1886f0a4abe499c7af16833d2a533"/&gt;
+        &lt;deployment name="ha-singleton-deployment.jar"/&gt;
+    &lt;/deployment-overlay&gt;
+&lt;/deployment-overlays&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Observe the server output. The deployments are now set up as singleton deployments.</p>
+</li>
+<li>
+<p>To remove the deployment overlay run the following CLI command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>deployment-overlay remove --name=singleton-deployment
+deployment-overlay redeploy-affected --name=singleton-deployment</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For convenience, the management CLI scripts to add the deployment overlay, <code>singleton-deployment-overlay-add.cli</code>, and to remove the deployment overlay, <code>singleton-deployment-overlay-remove.cli</code>, are located in the root directory of this quickstart.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_undeploy_the_archives">Undeploy the Archives</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure all WildFly servers are started.</p>
+</li>
+<li>
+<p>Navigate to the root directory of this quickstart in the terminal.</p>
+</li>
+<li>
+<p>Use the following commands to undeploy the artifacts:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>$ mvn wildfly:undeploy
+$ mvn wildfly:undeploy -Dwildfly.port=10090</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="run_the_quickstart_in_redhat_codeready_studio_or_eclipse">Run the Quickstart in Red Hat CodeReady Studio or Eclipse</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This quickstart is not supported in Red Hat CodeReady Studio.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="debug_the_application">Debug the Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you want to debug the source code of any library in the project, run the following command to pull the source into your local repository. The IDE should then detect it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ mvn dependency:sources</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-02-19 17:22:03 +0100
+Last updated 2021-02-19 15:55:30 +0100
 </div>
 </div>
 </body>
