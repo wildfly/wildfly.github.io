@@ -5,7 +5,8 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.1">
-<title>WildFly Documentation</title>
+<meta name="author" content="WildFly team">
+<title>WildFly and WildFly Preview</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -517,24 +518,30 @@ table.CodeRay td.code>pre{padding:0}
 .CodeRay .head .head{color:#f4f}
 </style>
 </head>
-<body id="index" class="article toc2 toc-left">
+<body id="WildFly_and_WildFly_Preview" class="book toc2 toc-left">
 <div id="header">
-<h1>WildFly Documentation</h1>
+<h1>WildFly and WildFly Preview</h1>
 <div class="details">
+<span id="author" class="author">WildFly team</span><br>
 <span id="revnumber">version 23.0.0.Final,</span>
 <span id="revdate">2021-04-13T00:41:16Z</span>
 </div>
 <div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
+<div id="toctitle">WildFly and WildFly Preview</div>
+<ul class="sectlevel0">
+<li><a href="#different-flavors-of-wildfly">Different flavors of WildFly</a>
 <ul class="sectlevel1">
-<li><a href="#installation-guides">Installation Guides</a></li>
-<li><a href="#administrator-guides">Administrator Guides</a></li>
-<li><a href="#developer-guides">Developer Guides</a></li>
-<li><a href="#model-reference">Model Reference</a></li>
-<li><a href="#security-guide">Security Guide</a></li>
-<li><a href="#client-guide">Client Guide</a></li>
-<li><a href="#quickstarts">Quickstarts</a></li>
-<li><a href="#more-resources">More Resources</a></li>
+<li><a href="#getting-wildfly-preview">1. Getting WildFly Preview</a></li>
+<li><a href="#wildfly-preview-and-jakarta-ee-9">2. WildFly Preview and Jakarta EE 9</a>
+<ul class="sectlevel2">
+<li><a href="#ee-9-via-bytecode-transformation-and-the-wildfly-preview-galleon-feature-pack">2.1. EE 9 Via Bytecode Transformation and the 'wildfly-preview' Galleon Feature Pack</a></li>
+<li><a href="#wildfly-preview-support-for-ee-8-deployments">2.2. WildFly Preview Support for EE 8 Deployments</a></li>
+</ul>
+</li>
+<li><a href="#other-differences-in-wildfly-preview">3. Other Differences in WildFly Preview</a></li>
+<li><a href="#wildfly-preview-known-issues">4. WildFly Preview Known Issues</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -542,207 +549,247 @@ table.CodeRay td.code>pre{padding:0}
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="image"><img src="images/splash_wildflylogo_small.png" alt="WildFly"></span></p>
+<p>&#169; 2021 The original authors.</p>
+</div>
+<!-- toc disabled -->
+</div>
+</div>
+<h1 id="different-flavors-of-wildfly" class="sect0">Different flavors of WildFly</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="paragraph">
+<p>Beginning with the WildFly 22 release, the WildFly project began producing two variants of
+its landmark application server&#8201;&#8212;&#8201;the standard "WildFly" variant and the new "WildFly Preview".</p>
 </div>
 <div class="paragraph">
-<p>Welcome to the WildFly documentation. The documentation for WildFly is
-split into multiple categories:</p>
+<p>The standard "WildFly" variant is the classic server that users have been familiar with for many
+years now. It&#8217;s a very mature server, with a lot of care taken to ensure new features are fully
+realized and to limit the number of incompatible changes between releases.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Installation Guides</em> for those wanting to understand the flexibility
-that WildFly offers when it comes to server installation and application deployment.</p>
-</li>
-<li>
-<p><em>Administrator Guides</em> for those wanting to understand how to install
-and configure the server.</p>
-</li>
-<li>
-<p><em>Developer Guides</em> for those wanting to understand how to develop
-applications for the server.</p>
-</li>
-<li>
-<p><em>Model Reference</em> for those wanting information about all
-of configuration options available via the WildFly management model.</p>
-</li>
-<li>
-<p><em>Security Guide</em> for those wanting to understand how to secure the WildFly server and applications.</p>
-</li>
-<li>
-<p><em>Client Guide</em> for those wanting to understand configuration of WildFly clients.</p>
-</li>
-<li>
-<p><em>Quickstarts</em> for those wanting to jump into code and start using WildFly.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>WildFly Preview is a tech preview variant of the server. The goal of WildFly Preview is to give
+the WildFly community a look at changes that are likely to appear in future releases of the standard
+WildFly server. The aim is to get feedback on in-progress work, so it is more likely that features
+will not be fully realized, and a greater number of incompatible changes may appear from release
+to release. The amount of testing WildFly Preview undergoes will generally not be as high as the
+standard WildFly variant.</p>
 </div>
+<div class="paragraph">
+<p>The expectation is on any given release date, both standard WildFly and WildFly Preview will be released.</p>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>A WildFly Preview release will have the same version number and suffix (Beta, Final, etc) as the
+main WildFly release, but regardless of the suffix, a WildFly Preview release should be treated
+as a Technical Preview release.</p>
 </div>
-<div class="sect1">
-<h2 id="installation-guides">Installation Guides</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>The <a href="WildFly_and_WildFly_Preview.html">WildFly and WildFly Preview</a> document introduces the different
-appserver variants produced by the WildFly project: the standard WildFly variant and the early-look tech preview
-WildFly Preview variant.</p>
-</li>
-<li>
-<p>The <a href="Installation_Guide.html">Installation Guide</a> helps you identify
-the kind of WildFly installation that best fits your application&#8217;s deployment needs:
-a WildFly zip installation, a WildFly server provisioned with Galleon or a WildFly bootable JAR.</p>
-</li>
-<li>
-<p>The <a href="Bootable_Guide.html">Bootable JAR Guide</a> shows you how to package your application and the WildFly server
-into a bootable JAR.</p>
-</li>
-<li>
-<p>The <a href="Galleon_Guide.html">Galleon Provisioning Guide</a> shows you how to
-provision a customized WildFly server using Galleon.</p>
-</li>
-</ul>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="administrator-guides">Administrator Guides</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>The <a href="Getting_Started_Guide.html">Getting Started Guide</a> shows you
-how to install and start the server, how to configure logging, how to
-deploy an application, how to deploy a datasource, and how to get
-started using the command line interface and web management interface.</p>
-</li>
-<li>
-<p>The <a href="Admin_Guide.html">Admin Guide</a> provides detailed information
-on using the CLI and web management interface, shows you how to administer a WildFly managed
-domain, and shows you how to configure key subsystems.</p>
-</li>
-<li>
-<p>The <a href="High_Availability_Guide.html">High Availability Guide</a> shows
-you how to create a cluster, how to configure the web container and Jakarta Enterprise Beans
-container for clustering and how to configure load balancing
-and failover.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="developer-guides">Developer Guides</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>The <a href="Getting_Started_Developing_Applications_Guide.html">Getting
-Started Developing Applications Guide</a> shows you how to build Jakarta EE
-applications and deploy them to WildFly. The guide starts by showing you
-the simplest <em>helloworld</em> application using just Servlet and Jakarta Contexts and Dependency Injection, and
-then adds in Jakarta Server Faces, persistence and transactions, Jakarta Enterprise Beans, Bean Validation,
-RESTful web services and more. Finally, you&#8217;ll get the opportunity to create
-your own skeleton project. Each tutorial is accompanied by a quickstart,
-which contains the source code, deployment descriptors and a Maven based
-build.</p>
-</li>
-<li>
-<p>The <a href="Developer_Guide.html">Developer Guide</a> ( <em>in progress</em>) takes
-you through every deployment descriptor and every annotation offered by
-WildFly.</p>
-</li>
-<li>
-<p>The <a href="JavaEE_Tutorial.html">JavaEE Tutorial</a> ( <em>in progress</em>)
-builds on what you learnt in the
-<a href="Getting_Started_Developing_Applications_Guide.html">Getting Started
-Developing Applications Guide</a>, and shows you how to build a complex
-application using Jakarta EE and portable extensions.</p>
-</li>
-<li>
-<p>The <a href="Extending_WildFly.html">Extending WildFly</a> guide walks you
-through creating a new WildFly subsystem extension, in order to add more
-functionality to WildFly, and shows how to test it before plugging it
-into WildFly.</p>
-</li>
-<li>
-<p>The <a href="Testsuite.html">WildFly Testsuite</a> guide walks you through testing WildFly</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="model-reference">Model Reference</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>The <a href="wildscribe" target="_blank" rel="noopener">WildFly model reference</a> provides information about all standalone server and managed domain
-configuration options, using information generated directly from the WildFly management model.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="security-guide">Security Guide</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>The <a href="WildFly_Elytron_Security.html">WildFly Elytron Security</a> guide walks you through WildFly&#8217;s new security layer.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="client-guide">Client Guide</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>The <a href="Client_Guide.html">WildFly Client Configuration</a> guide walks you through the new Wildfly client and how to use it.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="quickstarts">Quickstarts</h2>
+<h2 id="getting-wildfly-preview">1. Getting WildFly Preview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>WildFly comes with a number of quickstarts, examples which introduce to
-a particular technology or feature of the application server. The
-<a href="https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONTRIBUTING.md#contribute-a-quickstart">Contributing a Quickstart</a> section
-of the documentation details the available quickstarts.</p>
+<p>The zip or tar.gz file for WildFly Preview is available at <a href="https://wildfly.org/downloads">https://wildfly.org/downloads</a>
+right next to the main WildFly release files for the same version.</p>
+</div>
+<div class="paragraph">
+<p>For bootable jar users and Galleon CLI users, we provide a Galleon feature pack for WildFly Preview. The
+Galleon feature pack location for the feature pack is <code>wildfly-preview@maven(org.jboss.universe:community-universe)</code>.
+This feature pack is the WildFly Preview analogue to main WildFly&#8217;s <code>wildfly@maven(org.jboss.universe:community-universe)</code>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="more-resources">More Resources</h2>
+<h2 id="wildfly-preview-and-jakarta-ee-9">2. WildFly Preview and Jakarta EE 9</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The primary thing currently being showcased in WildFly Preview is support for Jakarta EE 9. Jakarta EE 9 is
+<a href="https://eclipse-ee4j.github.io/jakartaee-platform/jakartaee9/JakartaEE9ReleasePlan">primarily aimed</a> at
+transitioning the EE APIs from the javax.* package namespace to the jakarta.* namespace. Some techologies were made
+optional in EE 9 and others were pruned from the platform, but for all the technologies retained from EE 8, the APIs
+and expected behaviors are unchanged from EE 8, except for the very significant change in the package names.</p>
+</div>
+<div class="paragraph">
+<p>This package rename is a big change that is going to take a while to percolate through the EE ecosystem, e.g. for the
+many projects that compile against the EE APIs to provide versions that use jakarta.*. While this happens the WildFly
+project wants to continue to deliver new features and fixes to our community, so the standard WildFly distribution
+continues to provide the EE 8 APIs. But WildFly Preview&#8217;s remit of providing a look at coming technologies makes it a
+good fit for letting our users experiment with EE 9.</p>
+</div>
+<div class="paragraph">
+<p>WildFly Preview is a compatible implementation of the Jakarta EE 9.0 Web Profile. Certification of the full platform
+is in progress.</p>
+</div>
+<div class="sect2">
+<h3 id="ee-9-via-bytecode-transformation-and-the-wildfly-preview-galleon-feature-pack">2.1. EE 9 Via Bytecode Transformation and the 'wildfly-preview' Galleon Feature Pack</h3>
+<div class="paragraph">
+<p>The large majority of the libraries included in WildFly Preview that were compiled against EE APIs were based on the
+EE 8 APIs in the javax.* packages. This includes the libraries produced from WildFly&#8217;s own code base.  But the EE API
+libraries available in the WildFly Preview runtime all use the jakarta.* packages. How can this work?</p>
+</div>
+<div class="paragraph">
+<p>The solution we&#8217;ve come up with for this is to use the new <code>wildfly-preview</code> Galleon feature pack to convert any
+code using the EE 8 javax.* APIs to jakarta.* <em>at the time that it provisions a server installation</em>. (Recall that any
+WildFly server installation&#8201;&#8212;&#8201;including the ones we zip up and make available on <a href="https://wildfly.org/downloads">https://wildfly.org/downloads</a>&#8201;&#8212;&#8201;is produced by telling Galleon tooling to provision from a feature pack.)</p>
+</div>
+<div class="paragraph">
+<p>The <code>wildfly-preview</code> feature pack differs from the standard <code>wildfly</code> one in a number of ways, with the key ones
+relevant to EE 9 being:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="Glossary.html">Glossary</a></p>
+<p>Where suitable EE 9 spec API jars are available from Eclipse, those are used instead of the EE 8 spec jars used in standard WildFly.</p>
 </li>
 <li>
-<p><a href="http://www.wildfly.org">WildFly project page</a></p>
+<p>Where suitable 'native' EE 9 implementation libraries (i.e. ones compiled against jakarta.*) are available, those are used.
+This includes Weld, Hibernate Validator, Mojarra, Yasson, Jakarta EL and Jakarta JSON.</p>
 </li>
 <li>
-<p><a href="https://issues.redhat.com/browse/WFLY">WildFly issue tracker</a></p>
+<p>When the feature pack is built any libraries that are using EE 8 APIs are detected and instructions are incorporated
+in the feature pack telling Galleon to do <em>byte code transformation of that library whenever it provisions a server using the feature pack</em>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The last item is the key point. When Galleon provisions a <code>wildfly-preview</code> server by pulling jars down from maven,
+it knows that some artifacts were compiled against EE 8 javax.* packages. So it bytecode transforms those jars to alter
+references to EE 8 packages in the class file constant tables to change from javax.* to jakarta.*. The transformation
+goes beyond simple package renames; a number of other known differences between EE 8 and EE 9 are handled. We owe a
+great deal of thanks to the community behind the <a href="https://projects.eclipse.org/projects/technology.transformer">Eclipse Transformer</a>
+project for their work on the underlying transformation tool.</p>
+</div>
+<div class="paragraph">
+<p>You can use the Galleon CLI tool to provision a server from the wildfly-preview feature pack yourself:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">galleon.sh install wildfly-preview:current --dir=my-wildfly-server</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note the use of 'wildfly-preview' instead of 'wildfly'.</p>
+</div>
+<div class="paragraph">
+<p>As Galleon provisions the server it will log quite a bit of information about the transformation work it is doing.</p>
+</div>
+<div class="paragraph">
+<p>Please note that the transformation adds a fair bit to the amount of time it takes to provision the server.</p>
+</div>
+<div class="paragraph">
+<p>Of course, you&#8217;re not required to provision the server yourself; you can also download the WildFly Preview release
+zip or tarball and unpack it.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="wildfly-preview-support-for-ee-8-deployments">2.2. WildFly Preview Support for EE 8 Deployments</h3>
+<div class="paragraph">
+<p>The APIs that WildFly Preview exposes to deployments are the EE 9 APIs, so all the classes and interfaces are in the
+jakarta.* packages. But what if you want to run an existing EE 8 application on WildFly Preview? We expect that to be a
+very important use case in the long run. Eventually the jakarta.* APIs will be what&#8217;s provided by the standard WildFly
+distribution, but many WildFly users will have existing applications that they&#8217;ll want to continue to run unchanged.
+So we wanted to make sure from the very beginning that that works.</p>
+</div>
+<div class="paragraph">
+<p>What we&#8217;ve done is we&#8217;ve added to the server&#8217;s handling of <em>managed</em> deployments the same basic transformation that&#8217;s
+applied to the server artifacts when provisioning. A managed deployment is one where a management client (the CLI,
+HAL console or the deployment scanner) presents deployment content to the server and the server makes a copy of it in
+its internal deployment content repository. The content that gets installed into the runtime is that internal copy.</p>
+</div>
+<div class="paragraph">
+<p>A WildFly Preview server, when it reads in deployment content to store in the content repository, will transform any
+EE 8 content into EE 9.</p>
+</div>
+<div class="paragraph">
+<p>In the long run it&#8217;s better for users if they either convert their application source to EE 9 APIs, or use build-time
+tooling that we expect the Jakarta ecosystem to provide over time to do transformation at build time.  But some
+applications just can&#8217;t be changed, so the server-side solution WildFly Preview provides can handle those cases.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="other-differences-in-wildfly-preview">3. Other Differences in WildFly Preview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Besides exposing EE 9 APIs, WildFly Preview is intended to help get community exposure for other changes we plan to
+make in the server. Here are the key ones:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>WildFly Preview is not a Jakarta EE 8 compatible implementation. It also is not a MicroProfile platform compatible
+implementation. Most EE 8 and MicroProfile applications are expected to run well on WildFly Preview, but it is not
+certified compatible.</p>
 </li>
 <li>
-<p><a href="https://community.jboss.org/en/wildfly">WildFly user forum</a></p>
+<p>The legacy security subsytem is not supported. The standard configurations are all based on Elytron security.
+Our goal is to remove the underlying Picketbox libraries altogether. When this is done, security vault support will be
+removed as well. Elytron credential stores should be used.</p>
 </li>
 <li>
-<p><a href="https://community.jboss.org/en/wildfly/dev">WildFly wiki</a></p>
+<p>The security vault tool (used to manipulate vault contents) is not provided.</p>
 </li>
 <li>
-<p><a href="https://github.com/wildfly/wildfly/">WildFly source</a></p>
+<p>The standard configuration files do not configure an embedded messaging broker. Instead they configure the
+'messaging-activemq' subsystem to provide connections to a remote ActiveMQ Artemis broker. (It&#8217;s a task for the user to
+run such a broker or to update the config to integrate with a different broker.) We want WildFly out-of-the-box to be
+more of a cloud native appserver and having an embedded messaging broker in the default configuration is not cloud native.
+A WildFly container in the cloud running an embedded broker is not scalable, as multiple broker instances need separate
+configuration to act as a primary or backup. An embedded messaging broker also has more advanced persistent storage
+requirements than a server primarily dedicated to handling HTTP requests would have. Note however that running an
+embedded broker is still supported. We&#8217;ve added to the $WILDFLY_HOME/docs/examples/configs folder an example
+<code>standalone-activemq-embedded.xml</code> configuration showing its use.</p>
+</li>
+<li>
+<p>The Picketlink extension is removed.</p>
+</li>
+<li>
+<p>The JSR-77 extension is removed.</p>
+</li>
+<li>
+<p>The extensions providing the legacy subsystems 'cmp', 'config-admin', 'jacorb', 'jaxr', 'messaging' (HornetQ based),
+and 'web' (not 'undertow') are removed. These were only used for domain mode to allow a Domain Controller to control
+hosts running much earlier WildFly versions where servers using these subsystems were supported.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="wildfly-preview-known-issues">4. WildFly Preview Known Issues</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>WildFly Preview has a number of known issues:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>JBoss Modules modules installed by the user are not transformed. If such a module uses EE 8 APIs it will not work.</p>
+</li>
+<li>
+<p>Deployment overlays are not transformed. So any overlay artifact that uses EE 8 APIs will not work.</p>
+</li>
+<li>
+<p>Unmanaged deployments that use EE 8 APIs will not work. We transform managed deployments when we copy the deployment
+content into the internal content repo. For unmanaged deployments we use the original content file(s) the user provides,
+and WildFly Preview won&#8217;t modify those files as we don&#8217;t regard them as being 'owned' by the server.</p>
+</li>
+<li>
+<p>Managed exploded deployments likely won&#8217;t work.</p>
+</li>
+<li>
+<p>Alternate JPA and JSF providers that you can install with standard WildFly are not supported.</p>
 </li>
 </ul>
 </div>
