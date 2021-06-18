@@ -443,8 +443,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>WildFly Bootable JAR Documentation</h1>
 <div class="details">
 <span id="author" class="author">Jean-Francois Denise</span><br>
-<span id="revnumber">version 5.0.0.Final,</span>
-<span id="revdate">2021-06-17T11:17:28Z</span>
+<span id="revnumber">version 5.0.1.Final,</span>
+<span id="revdate">2021-06-18T11:14:23Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -582,27 +582,27 @@ The bootable JAR displayed traces contain the actual path to this transient inst
 <h2 id="wildfly_jar_examples"><a class="anchor" href="#wildfly_jar_examples"></a><a class="link" href="#wildfly_jar_examples">2. Examples</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The examples <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.0.Final/examples">directory</a>
+<p>The examples <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.1.Final/examples">directory</a>
 contains Maven example projects that highlight various usages of the WildFly bootable JAR. Build and run these projects
 to familiarize yourself with the Maven plugin. A good example to start with is the
-<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.0.Final/examples/jaxrs">jaxrs</a> example.</p>
+<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.1.Final/examples/jaxrs">jaxrs</a> example.</p>
 </div>
 <div class="paragraph">
 <p>Some of these examples are targeting deployment of the bootable JAR in OpenShift.
-For example: <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.0.Final/examples/microprofile-config">microprofile-config</a>,
-<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.0.Final/examples/postgresql">postgresql</a> and
-<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.0.Final/examples/jkube">jkube</a>.</p>
+For example: <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.1.Final/examples/microprofile-config">microprofile-config</a>,
+<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.1.Final/examples/postgresql">postgresql</a> and
+<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.1.Final/examples/jkube">jkube</a>.</p>
 </div>
 <div class="paragraph">
 <p>Deployment inside a <a href="https://github.com/GoogleContainerTools/jib">JIB</a> container is
-covered by <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.0.Final/examples/jib">jib</a> example and <em>examples/jib-*</em> projects.</p>
+covered by <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.1.Final/examples/jib">jib</a> example and <em>examples/jib-*</em> projects.</p>
 </div>
 <div class="sect2">
 <h3 id="wildfly_jar_examples_download"><a class="anchor" href="#wildfly_jar_examples_download"></a><a class="link" href="#wildfly_jar_examples_download">2.1. Downloading the examples</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Clone the wildfly-jar-maven-plugin repository: <em>git clone -b 5.0.0.Final <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin" class="bare">https://github.com/wildfly-extras/wildfly-jar-maven-plugin</a></em></p>
+<p>Clone the wildfly-jar-maven-plugin repository: <em>git clone -b 5.0.1.Final <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin" class="bare">https://github.com/wildfly-extras/wildfly-jar-maven-plugin</a></em></p>
 </li>
 <li>
 <p><em>cd wildfly-jar-maven-plugin/examples</em></p>
@@ -626,7 +626,7 @@ and the set of installed JBoss modules. By selecting the subset required by your
 <div class="paragraph">
 <p>You are not limited to the <a href="https://docs.wildfly.org/24/Bootable_Guide.html#wildfly_layers">WildFly Galleon layers</a>, you can combine other third parties Galleon layers compatible with
 WildFly (eg: <a href="https://github.com/wildfly-extras/wildfly-datasources-galleon-pack">WildFly database drivers and datasources layers</a>).
-The example <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.0.Final/examples/postgresql">postgresql</a>
+The example <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.1.Final/examples/postgresql">postgresql</a>
 shows how to create a <em>cloud-server</em> with support for <em>postgresql</em> database.</p>
 </div>
 <div class="sect2">
@@ -755,7 +755,7 @@ it can be excluded:</p>
 Use the <a href="#hollowJar">hollow-jar</a> configuration element to create an hollow JAR.</p>
 </div>
 <div class="paragraph">
-<p>The example <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.0.Final/examples/hollow-jar">hollow-jar</a> shows how to build an hollow JAR.</p>
+<p>The example <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.1.Final/examples/hollow-jar">hollow-jar</a> shows how to build an hollow JAR.</p>
 </div>
 <div class="paragraph">
 <p>When starting an hollow JAR you can provide the path to a deployment you want to see deployed inside the server. For example:</p>
@@ -782,11 +782,11 @@ Use the <a href="#hollowJar">hollow-jar</a> configuration element to create an h
 <div class="ulist">
 <ul>
 <li>
-<p>Run <a href="https://docs.wildfly.org/24/Admin_Guide.html#Command_Line_Interface">WildFly CLI</a> scripts (see <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.0.Final/examples/logging">logging</a> example to configure loggers).</p>
+<p>Run <a href="https://docs.wildfly.org/24/Admin_Guide.html#Command_Line_Interface">WildFly CLI</a> scripts (see <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.1.Final/examples/logging">logging</a> example to configure loggers).</p>
 </li>
 <li>
 <p>Add extra content that you want to see packaged in the server (eg: <em>standalone/configuration/application-users.properties</em>, <em>standalone/configuration/keystore.jks</em>, &#8230;&#8203;).
-The example <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.0.Final/examples/https">https</a> shows how to package a keystore file in the bootable JAR.</p>
+The example <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.1.Final/examples/https">https</a> shows how to package a keystore file in the bootable JAR.</p>
 </li>
 </ul>
 </div>
@@ -809,7 +809,7 @@ Using a log4j appender as a <code>custom-handler</code> in the logging subsystem
 </div>
 <div class="paragraph">
 <p>You can workaround this by supplying your own <code>logging.properties</code> and defining the path in the <code>boot-logging-config</code> configuration property.
-An example can be seen in the <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.0.Final/examples/logging-log4j-appender">logging-log4j-appender</a>
+An example can be seen in the <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.1.Final/examples/logging-log4j-appender">logging-log4j-appender</a>
 example project.</p>
 </div>
 <div class="sect2">
@@ -959,7 +959,7 @@ NB: When authentication is enabled, the environment variable <code><code>JGROUPS
 <h3 id="wildfly_jar_cloud_jkube"><a class="anchor" href="#wildfly_jar_cloud_jkube"></a><a class="link" href="#wildfly_jar_cloud_jkube">7.1. OpenShift Deployment using Eclipse JKube</a></h3>
 <div class="paragraph">
 <p><a href="https://github.com/eclipse/jkube">JKube Maven plugin</a> contains support for WildFly bootable JAR. The
-<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.0.Final/examples/jkube">jkube</a> example shows how to combine
+<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.1.Final/examples/jkube">jkube</a> example shows how to combine
 WildFly bootable JAR and JKube Maven plugins in order to deploy an application on OpenShift.</p>
 </div>
 </div>
@@ -1317,7 +1317,7 @@ run a slim bootable JAR in a context were no local Maven cache is present.</p>
 <p>In this example, the directory <em>&lt;project directory&gt;/target/my-maven-repo</em> is created and contains the set of JBoss modules JAR required to start the server.</p>
 </div>
 <div class="paragraph">
-<p>The <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.0.Final/examples/slim">slim</a> example shows how to build a slim bootable JAR
+<p>The <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/5.0.1.Final/examples/slim">slim</a> example shows how to build a slim bootable JAR
 and generate a local Maven repository used at startup.</p>
 </div>
 </div>
@@ -1462,7 +1462,7 @@ coordinates of the Maven plugin artifact are</p>
 <pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;dependency&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.wildfly.plugins<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>wildfly-jar-maven-plugin<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
-    <span style="color:#070;font-weight:bold">&lt;version&gt;</span>5.0.0.Final<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;version&gt;</span>5.0.1.Final<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
 <span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span></code></pre>
 </div>
 </div>
@@ -1507,7 +1507,7 @@ coordinates of the Maven plugin artifact are</p>
 <h4 id="_wildfly_jardev"><a class="anchor" href="#_wildfly_jardev"></a><a class="link" href="#_wildfly_jardev">14.2.1. wildfly-jar:dev</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:5.0.0.Final:dev</p>
+org.wildfly.plugins:wildfly-jar-maven-plugin:5.0.1.Final:dev</p>
 </div>
 </div>
 <div class="sect3">
@@ -2536,7 +2536,7 @@ redirected to a file.</p>
 <h4 id="_wildfly_jardev_watch"><a class="anchor" href="#_wildfly_jardev_watch"></a><a class="link" href="#_wildfly_jardev_watch">14.3.1. wildfly-jar:dev-watch</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:5.0.0.Final:dev-watch</p>
+org.wildfly.plugins:wildfly-jar-maven-plugin:5.0.1.Final:dev-watch</p>
 </div>
 </div>
 <div class="sect3">
@@ -3636,7 +3636,7 @@ The timeout, in seconds, to wait for a management connection.</p>
 <h4 id="_wildfly_jarhelp"><a class="anchor" href="#_wildfly_jarhelp"></a><a class="link" href="#_wildfly_jarhelp">14.4.1. wildfly-jar:help</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:5.0.0.Final:help</p>
+org.wildfly.plugins:wildfly-jar-maven-plugin:5.0.1.Final:help</p>
 </div>
 </div>
 <div class="sect3">
@@ -3796,7 +3796,7 @@ The maximum length of a display line, should be positive.</p>
 <h4 id="_wildfly_jarpackage"><a class="anchor" href="#_wildfly_jarpackage"></a><a class="link" href="#_wildfly_jarpackage">14.5.1. wildfly-jar:package</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:5.0.0.Final:package</p>
+org.wildfly.plugins:wildfly-jar-maven-plugin:5.0.1.Final:package</p>
 </div>
 </div>
 <div class="sect3">
@@ -4736,7 +4736,7 @@ otherwise <code>false</code>.</p>
 <h4 id="_wildfly_jarrun"><a class="anchor" href="#_wildfly_jarrun"></a><a class="link" href="#_wildfly_jarrun">14.6.1. wildfly-jar:run</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:5.0.0.Final:run</p>
+org.wildfly.plugins:wildfly-jar-maven-plugin:5.0.1.Final:run</p>
 </div>
 </div>
 <div class="sect3">
@@ -4895,7 +4895,7 @@ otherwise <code>false</code>.</p>
 <h4 id="_wildfly_jarshutdown"><a class="anchor" href="#_wildfly_jarshutdown"></a><a class="link" href="#_wildfly_jarshutdown">14.7.1. wildfly-jar:shutdown</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:5.0.0.Final:shutdown</p>
+org.wildfly.plugins:wildfly-jar-maven-plugin:5.0.1.Final:shutdown</p>
 </div>
 </div>
 <div class="sect3">
@@ -5198,7 +5198,7 @@ authentication the user will be prompted to supply the username,</p>
 <h4 id="_wildfly_jarstart"><a class="anchor" href="#_wildfly_jarstart"></a><a class="link" href="#_wildfly_jarstart">14.8.1. wildfly-jar:start</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:5.0.0.Final:start</p>
+org.wildfly.plugins:wildfly-jar-maven-plugin:5.0.1.Final:start</p>
 </div>
 </div>
 <div class="sect3">
@@ -5695,7 +5695,7 @@ authentication the user will be prompted to supply the username,</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 5.0.0.Final<br>
+Version 5.0.1.Final<br>
 Last updated 2021-06-17 09:56:35 +0200
 </div>
 </div>
