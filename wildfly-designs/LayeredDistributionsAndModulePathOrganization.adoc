@@ -1,0 +1,297 @@
+= Layered Distributions and Module Path Organization
+
+Created by brian.stansberry on Nov 21, 2012 12:41 PM. Last modified by brian.stansberry on Feb 23, 2016 1:40 PM.
+
+*NOTE: Most of the content herein related to installing and patching have been superceded by the adoption of Galleon technology by WildFly. There is still much of value here, but quite a lot of it is outdated.*
+
+== Overview
+ 
+
+This document describes notions for how different software distributions based on the WildFly project can integrate with the base AS and with each other in a controlled manner.
+
+== Fundamental Concepts
+
+=== Distribution
+
+A coherent set of software produced by a "project" or a "product". WildFly is a project. JBoss EAP is such a product. Both play similar technical roles in the JBoss ecosystem, but there are significant differences in how the two are made available to end users.
+
+This article uses "distribution" as a replacement for constantly saying "project/product" everywhere. It's not a great term; if someone has a better one, please suggest it.
+
+=== Distribution Base
+
+The "distribution base" is the core set of modules and miscellaneous files that is common to all layered distributions. It may itself be usable standalone project or product.
+
+Currently the software produced by the WildFly project and the JBoss EAP product are the distribution bases relevant to this discussion. In the future a more limited subset of functionality may become the distribution base, with the full set of functionality currently provided in community WildFly and EAP coming as layered distributions or add-ons.
+
+=== Layered Distribution
+
+A distribution that builds on top of the distribution base, potentially superseding some of the distribution base's functionality. A layered distribution is allowed to supersede any aspect of the distribution base's functionality. The less the layered distribution does this, the easier it will be for the layered distribution to manage things like patching, but, if necessary, a layered distribution can supersede anything in the distribution base.
+
+A layered distribution may build on top of another layered distribution, provided it has worked out the necessary procedures to ensure compatibility.
+
+=== Identity
+
+An identity is a named set of distribution base + layered distribution(s) that is certified as a valid combination. The distribution base by itself may or may not be a valid identity. Currently it is; in the future it may not be.
+
+The software produced by a given layered distribution may be associated with more than one identity.
+
+=== Patching and Identities
+
+Patches are applicable to an identity. A given patch can apply to more than one identity, if there are no conflicts between the identities in terms of how they use the items modified by a patch. The metadata associated with a patch will indicate the identities to which it is applicable.
+
+Patches are comprised of one or more discrete patch elements each of which is produced by the distribution base or by one of the layered distributions associated with the identity. A patch element includes metadata describing the element along with any added or modified files. The patch element metadata will identify the provider of the patch component. A given patch element can be used in multiple different patches. For example, a patch element upgrading the distribution base can be included in several patches produced by different identities, with each patch also including a patch element upgrading a layered distribution used in that identity.
+
+For example, let's say an identity named I consists of the distribution base and a layered distribution named A. Version 1.0 of identity I is based on version 2.0 of the distribution base and version 1.0 of layered distribution A. The distribution base produces a patch element that will move it to version 2.1. The producers of the I identity could then produce a patch that will result in version 1.1 of identity A. This would include a patch element upgrading layered distribution A to its version 1.1, as well as the separate element that provides the distribution base upgrade to its 2.1. There are two main benefits of this sharing approach:
+
+* The modules provided by the distribution base upgrade are associated with the original 2.1 patch provided by the distribution base, not just with the enclosing patch provided by A. This will make possible the sharing of modules provided by patches across installations.
+* Incorporating one patch within another as a simple discrete unit helps avoid errors during patch production.
+
+For modules within a patch, once the patch is applied the association of the module with the distribution base or layer that provided it is retained within the installation. The association is encoded within the filesystem path that points to the patch version of the module.
+
+Miscellaneous files within a patch are not associated with the distribution base or any particular layered distribution once they are installed. For example `bin/standalone.sh` is `bin/standalone.sh` no matter what patch component added or modified it.
+
+Each identity produces a patch stream. Because a given patch can apply to more than one identity, the same patch can appear in multiple patch streams.
+
+The distribution base and layered distributions can produces patch elements but they cannot themselves produce patches or a patch stream. Since a patch must be associated with an an identity, only an identity (or a group of cooperating identities) can produce a patch.
+
+If there is an identity that consists of nothing but the distribution base, that identity can produce a patch. But this is logically not the same thing as saying the distribution base itself produced the patch, even though the practical effect is similar.
+
+== Installation
+
+An installation is a single filesystem location containing the distribution base plus zero or more layered distributions. It includes the `bin/` dir from which processes are launched. The root of the installation is the path indicated by the $JBOSS_HOME environment variable referred to in the scripts and indicated by the jboss.home.dir system property used in the java code.
+
+=== Installation Identity
+
+Each installation has a _single identity_. Because an installation only has a single identity, there is no confusion as to which layered distribution "owns" a particular filesystem location in that installation. Further, because the identity of an installation can be easily determined (see "Establishing Identity" below), external tools can quickly understand the functionality provided by a given installation, even if no process is currently running from the installation.
+
+_TODO further spell out the importance of single identity._
+
+==== Sharing Files Across Installations
+
+The files that comprise modules are potentially sharable across installations. Making it easy for users to do this should be a key goal.
+
+Miscellaneous files are not sharable across installations. An end user could potentially share them using symlinks, but doing so is not a supported feature nor is it a recommended practice.
+
+Patches are not sharable across installations. The _modules that the patch provides_ are potentially sharable, but the miscellaneous files provided by a patch are not sharable. The patching history metadata that the patching tool records in the installation is also not sharable -- the metadata is associated with the given installation. However, making it easy to share the the modules provide by a patch across installations should be a key goal.
+
+== Add-On Distribution
+
+An add-on distribution is a set of software that extends the capabilities of a given "identity". An add-on can only extend capabilities. It is not allowed to supersede capabilities of the identity it extends. For modules , the module loading logic provided by the distribution base will enforce this behavior. For miscellaneous files, it is up to the people providing an add-on to ensure that the add-on does not overwrite any file provided by the distribution base, any layered distribution associated with the identity or any other add-ons associated with the identity. Conversely, once the providers of an identity have accepted an add-on into their ecosystem, it is their responsibility to ensure that they do not add any files to their distributions that will conflict with files already provided by the add-on.
+
+In practice, the most likely sources of conflict will be the xml files in the configuration directories and the `.conf` files in the `bin` directory. Conflicts over xml files are solvable by having add-on providers ship their own xml file variants rather than attempting to modify the standard ones that ship with the identity.
+
+A given add-on is allowed to extend the capabilities of more than one identity.
+
+An add-on may require the presence of other add-ons.
+
+=== Patching and Add-ons
+
+Add-on distributions produce their own patch stream. The patches produced by an add-on indicate the versions of the identity that must be present for the patch to apply. More than one identity can be listed, since add-ons may be applicable to multiple identities. The patches produced by an add-on also indicate the existing version of the add-on that must be present, as well as the version of any other required add-ons.
+
+Add-ons cannot use patches in their own stream to fix problems in the identity on which they depend. Add-ons depend on the patch stream provided by their dependent identity to provide such fixes. Modules provided by an add-on or its patches will have lower precedence in the module loading order than those that come from the distribution base or layered distributions, so any fix to such a module provided by an add-on patch will have no effect.
+
+== Installers
+
+_TODO discussion of RPM_
+
+=== Distribution Base Installers
+
+The distribution base can be installed via a simple unzip. If the distribution base is itself an identity, see also "Identity Installers"
+
+=== Identity Installers
+
+An identity can be installed via:
+ 
+* An unzip onto an empty filesystem location of a zip file that includes the distribution base and all layered distributions.
+* An unzip onto a filesystem location that already contains a depended upon identity or the installation base of a zip that only includes the layered distribution(s) to be added.
+* An installer program that does one or the other or both of the above and also provides a user interface that allows the user to customize the installation.
+
+It is a goal but not an initial requirement to allow installation to be performed via the patching tool. The benefit of this is the patching tool incorporates a number of compatibility checks that can help a user avoid invalid combinations.
+
+A further goal is to make the logic contained in the patching tool available to installer programs via a library.
+
+_Once an identity is installed into a given filesystem location, the identity of that installation is irrevocably changed._ When an identity is installed it has the right to modify any miscellaneous files in the installation filesystem, so once an identity is installed, the identity of the installation is changed. In many (hopefully nearly all) cases it may be possible for a user to remove files added by an identity install and get the installation back to its previous identity, but doing this is not a supported feature of the software and is not a recommended practice.
+
+_However, once support for installing patches via the patching tool is available, reverting an identity installation will be possible._ The patching tool maintains backup copies of any miscellaneous files modified by a patch, making it possible to restore those files.
+
+=== Add-on Installer
+
+An add-on can be installed via:
+
+* An unzip onto an empty filesystem location of a zip file that includes the distribution base and all layered distributions along with the add-on itself.
+* An unzip onto a filesystem location that contains the depended upon identity of a zip that only includes the add-on.
+* An installer program that does one or the other or both of the above and also provides a user interface that allows the user to customize the installation.
+
+It is a goal but not an initial requirement to allow installation to be performed via the patching tool. The benefit of this is the patching tool incorporates a number of compatibility checks that can help a user avoid invalid combinations.
+
+A further goal is to make the logic contained in the patching tool available to installer programs via a library.
+
+_Once an add-on is installed into a given filesystem location, the identity of that installation is not changed, and it must be possible to reverse the installation._ An add-on is merely additive, so removing it is a matter of deleting what was added. This could be done via a script provided by the add-on, via an installer program, or manually by a user following a set of instructions.
+
+== Establishing Identity
+
+It must be possible for external tools to determine the identity of a given installation without requiring the software based on that installation to be running. It's also necessary for the software based on an installation to determine its own identity.
+
+The identity of an installation is provided via the `bin/product.conf` file located in the distribution. The product.conf file is a simple properties file that contains the following property:
+
+....
+slot=<simple string name for identity>  
+....
+
+For example:
+
+....
+slot=eap  
+.... 
+
+The value of "slot" is used by the running software to identify the "slot" portion of the identifier of a JBoss Modules module. The software uses the slot to load a module named org.jboss.as.product:<value of slot property>, e.g. org.jboss.as.product:eap. The software will then read manifest properties included in the META-INF/MANIFEST.MF file located in that module to find out other identifying information for the identity. Currently supported manfiest properties include:
+
+* `JBoss-Product-Release-Name` -- Provides the name of the identity for use in the management API and in places like the startup and shutdown log messages.
+* `JBoss-Product-Release-Version` -- Provides the version of the identity for use in the management API and in places like the startup and shutdown log messages.
+* `JBoss-Product-Console-Slot` -- Used to drive what variant of the management console should be loaded. The notion here is there are different streams of consoles being produced, one for community AS releases and one for product releases, differentiated primarily by cosmetic differences. This property drives which of the two streams of console releases should be used when the console module is loaded. _The use of "Slot" in this property name is a bit unfortunate since it implies an implementation detail that may very well change. The name of the property may change in a future minor release of the AS or EAP and will very likely change in the next major release. The values we used for this attribute in AS 7 and EAP 6.0 and 6.1 are "main" to indicate the community console stream and "eap" to indicate the product console stream. These values are also unfortunate in that "main" implies an implementation detail and "eap" implies the console is not appropriate for other products based on EAP. Better values would be "community" and "product" or something like that. These values may also change in a future minor release of the AS or EAP and will very likely change in the next major release._
+
+If no `bin/product.conf` file exists, the installation is assumed to be the community version of the distribution base.
+
+If the `bin/product.conf` file contains other properties besides `slot`, the software will use those properties to set system properties in the runtime. However, the properties in the file will not take precedence over other mechanisms for setting system properties (i.e. the command line, the standard scripts or the xml configuration files.) Note also that the reading of `product.conf` occurs after primordial boot, so this mechanism should not be used for setting properties needed immediately on launch. The values are unknown to the JVM launcher, will be unknown to JBoss Modules when it sets up the modular classloading environment, and will be unknown to the logging system until any logging subsystem in the xml configuration file is processed.
+
+The software based on the installation will also need to know the name of any layered distributions used by the identity, in order of the precedence to be used when loading their modules. This information will be done via a `modules/layers.conf` file located in the distribution. This file will be a simple properties file that includes a single property:
+
+....
+layers=<comma delimited list of layered distribution names with earlier names taking precedence> 
+....
+
+For example, assuming we have layered distribution named "soa" and "brms" with "brms" taking precedence over "soa":
+
+....
+layers=brms,soa  
+....
+
+There is no need to include "base" in the list of layers; if not present "base" will be appended to the list of layers as the lowest precedence layer. It is legal to include "base" in the list, though.
+
+If the `modules/layers.conf` file does not exist or no layered distributions are named in it, only the base and any add-ons will be used.
+
+== Module Loading
+
+JBoss AS currently loads modules based on a "module path" which is a list of filesystem locations which JBoss Modules searches for modules. In our standard launch scripts, users are able to manipulate this module path by setting the `$JBOSS_MODULEPATH` environment variable. If not set, `$JBOSS_MODULEPATH` is set to `$JBOSS_HOME/modules`. The module path is provided to the running process via the `-mp` command line argument that is set in our standard scripts.
+
+This mechanism creates a single default location under which modules can be located. This is problematic when layered distributions and add-ons wish to install their own modules, since there are no clear rules as to how those modules should be installed or how they relate to one another.
+
+=== Goals
+ 
+
+* To make it easy for layered distributions or add-ons to add their modules to the set of available modules or remove their modules from the set of available modules, without fear of physically overwriting modules provided by others.
+* To establish clear rights and responsibilities for providers of the distribution base, layered distributions and add-ons with respect to how their modules should be managed.
+* To establish clear rules for how distributions that add modules that must take precedence over other modules provided by other distributions with the same name and slot should:
+locate those modules
+indicate at launch time to the modular classloading system the precedence order
+* To make it easy for end users to alter the module path for their own purposes by setting $JBOSS_MODULEPATH without needing to concern themselves with details of how the modules provided by the distribtuion base, layered distributions, or add-ons relate to one another. Reserve the use of $JBOSS_MODULEPATH and the value of the -mp command line argument passed to jboss-modules for end use uses.
+
+=== Rights and Responsibilities of Module Providers
+
+All modules provided as part of the distribution base can be depended upon by any add-on associated with an identity.
+
+If the distribution base by itself is an identity (i.e. with no additional layered distribution required), the providers of the distribution base accept the following with respect to that identity:
+
+* The version of the module the distribution base provides will take precedence over a module with the same name and slot provided by any add-on.
+* As a consequence of this, any modification of that module in a patch will need to be tested for compatibility with add-ons based on the version of the identity being patched.
+* As a subset of the previous point, within a major version family the distribution base cannot remove a module that is depended upon by an add-on, even if the distribution base itself no longer needs that module.
+
+If the distribution base is part of an identity along with one or more layered distributions, the providers of the distribution base accept the following with respect to that identity:
+
+* The distribution base has the same responsibilities with respect to add-ons that it has in the case of add-ons without any layered distribution.
+* However, if a layered distribution in an identity provides a module with the same name and slot as the one provided by the distribution base, the distribution base no longer has responsibility to provide the module. The layered distribution's version of the module takes precedence.
+* The distribution base can modify a module that is depended upon by a layered distribution in a way that breaks functionality of the layered distribution. Providers of identities that include layered distributions are responsible for testing patch elements produced by the distribution base before making them available for use with the identity. If the distribution base patch element in some way breaks the functionality of an identity, either the patch element should not be provided for the identity, or the patch that incorporates the distribution base patch element should also include a layered distribution patch element that fixes the problem.
+** However, the distribution base should take great care not to break layered distributions with which it is associated when it produces patch elements. Distribution base patch element production should involve reasonable testing of all relevant identities such that problems can be found and resolved before the distribution base patch element ships.
+* The distribution base can remove a module that is not depended upon by any add-on but which is depended upon by a layered distribution. Providers of identities that include layered distributions are responsible for testing patch elements produced by the distribution base before making them available for use with the identity. If the distribution base removes a module depended upon by a layered distribution, the patch that incorporates the distribution base patch element should also include a layered distribution patch element that adds the module as part of the layered distribution.
+* If an identity add-on depends on a module provided by the distribution base and the distribution base wishes to remove the module, that is allowed provided some layered distribution is willing to begin providing the same module in an overall patch.
+
+All modules provided as part of a layered distribution can be depended upon by any add-on associated with an identity. They cannot be depended upon by the distribution base. When a layered distribution includes a module it accepts the following:
+
+* The version of the module it provides will take precedence over a module with the same name and slot provided by the distribution base or by any add-on.
+* As a consequence of this, any modification of that module in a patch element will need to be tested for compatibility with add-ons based on that version of the identity. Any functionality provided by the distribution base and supported by the identity will also have to be tested.
+* As a subset of the previous point, within a major version family the layered distribution cannot remove a module that is depended upon by an add-on, even if the layered distribution itself no longer needs that module.
+* A layered distribution can remove a module that is not depended upon by any add-on.
+
+If a layered distribution participates in an identity with another layered distribution that depends on it, the depended-on layer accepts the following:
+
+* If the dependent layered distribution provides a module with the same name and slot as the one provided by the depended-on layer, the depended-on layer no longer has responsibility to provide the module to the dependent or to any add-ons. The dependent layered distribution's version of the module takes precedence.
+* The depended-on layer can modify a module that is depended upon by another layer in a way that breaks functionality of the dependent. Providers of identities that include layered distributions are responsible for testing patch elements produced by the component layers before making them available for use with the identity. If the depended-on layer's patch element in some way breaks the functionality of an identity, either the patch should not be provided for the identity, or the patch element that incorporates the depended-on layer's patch component should also include a patch element to a dependent layer that fixes the problem.
+** However, a depended-on layer should take great care not to break dependent layers when it produces patch elements. Layered distribution patch production should involve reasonable testing of all relevant identities such that problems can be found and resolved before the depended-on layer's patch ships.
+* A depended-on layer can remove a module that is not depended upon by any add-on but which is depended upon by another layer. Providers of identities that include layered distributions are responsible for testing patch elements produced by a depended-upon layered distribution before making them available for use with the identity. If the depended-upon layer removes a module that is depended upon by another layer, the patch that incorporates the depended-upon layer's patch element should also include a patch element from the dependent layer distribution that adds the module as part of that layered distribution.
+* If an add-on depends on a module provided by the layered distribution and the layered distribution wishes to remove the module, that is allowed provided some other layered distribution in the identity is willing to begin providing the same module in an overall patch.
+
+When an add-on includes a module, it accepts the following with respect to any identity with which the add-on is associated:
+
+* The distribution base or a layered distribution may ship a module with the same name and slot, and that module will take precedence over the module provided by the add-on.
+* Another add-on may ship a module with the same name and slot, and that module may take precedence over the module provided by this layered distribution or add-on.
+* Another add-on may ship a module with the same name and slot, and the version provided by this layered distribution or add-on may take precedence over the module provided by the other add-on.
+* As a consequence of this, any modification of the depended-upon module in a patch element will need to be tested for compatibility with any add-on based on the same major version of the identity.
+** The providers of the add-on are responsible for providing an adequate set of tests to the providers of the identity.
+* The distribution base or a layered distribution cannot depend upon a module provided by an add-on.
+* As a consequence of the previous point, an add-on can remove a module in a patch, without fear of breaking the core functionality of an identity.
+* An add-on can depend up a shareable module provided by another add-on upon which it depends, but _only with the express consent of the providers of that add-on._ Such dependencies are *strongly discouraged*.
+* If an add-on allows another add-on to depend upon its modules, it takes on the following responsibilities:
+** Any modification of that module in a patch or version upgrade will need to be tested for compatibility with any dependent add-ons. Testing procedures must be created to ensure that any patches produced by the depended-upon add-on do not break the dependent add-on.
+** As a subset of the previous point, within a major version family the add-on cannot remove a module that is depended upon by another add-on, even if the add-on itself no longer needs that module.
+
+=== Module Organization on the Filesystem
+
+This section will describe how the above points are reflected in the actual organization of modules on the filesystem.
+
+==== Requirement for Standardized Module Loading
+
+JBoss Modules can support other mechanisms for finding module content and loading it besides the filesystem-based module path mechanism. Theoretically a custom boot module loader implementation could be specified at process launch, with that module loader using some other means for locating module content. This article proposes that this capability be declared as unsupported for JBoss AS and products based upon it. Rather, the AS will have a specified boot module loader implementation.
+
+Users of the AS community project are free to use a non-standard boot module loader implementation, but if they do so and certain features provided by the AS don't work, that is their problem.
+
+==== Filesystem Layout
+
+Modules would be organized on the filesystem as follows:
+
+....
+modules  
++ system  
+++ add-ons  
++++ abc  
++++ def  
+++ layers  
++++ base  
++++ vuw  
++++ xyz  
+....
+
+The `system` level exists to separate modules associated with the distribution base, layered distribution or add-ons from those the end user may store in the `modules` directory.
+
+==== Translation of Filesystem Layout into Module Loading Precedence
+
+For any location provided by the user via the `-mp` switch, the module loader will look for the `system` structure. The module loader will understand the structure above and will apply module loading precedence rules as follows.
+
+Assume the above structure exists under `$JBOSS_HOME` and that the user sets `$JBOSS_MODULEPATH` as follows
+
+....
+JBOSS_MODULESPATH=/user/me/my-modules;$JBOSS_HOME/modules  
+....
+
+In addition, the `bin/product.conf` file declares that the identity of the install is xyz, the xyz layered distribution should be loaded and the xyz layered distribution depends on the vuw layered distribution.
+
+Assume also that patches named patch-base-1, patch-abc-1, patch-def-1, patch-vuw-1, patch-xyz-1 and patch-xyz-2 have been applied.
+
+The module loader would look for modules on the filesystem in following locations, starting with the first and terminating as soon as the module is found:
+
+. `/user/me/my-modules`
+. `/modules` (in case the user placed modules directly in under this directory)
+. `/modules/system/layers/xyz/patches/patch-xyz-2`
+. `/modules/system/layers/xyz/patches/patch-xyz-1`
+. `/modules/system/layers/xyz`
+. `/modules/system/layers/vuw/patches/patch-vuw-1`
+. `/modules/system/layers/vuw`
+. `/modules/system/layers/base/patches/patch-base-1`
+. `/modules/system/layers/base`
+. `/modules/system/add-ons/abc/patches/patch-abc-1`
+. `/modules/system/add-ons/abc`
+. `/modules/system/add-ons/def/patches/patch-def-1`
+. `/modules/system/add-ons/def`
+
+The precedence order between `/modules/system/add-ons/abc` and `/modules/system/add-ons/def` is arbitrary. An add-on should never assume its modules will take precedence over those of any other add-on's modules.
+
+The fact that the various patches locations are included in the path is entirely due to _metadata_ that the patching tool will store in the `$JBOSS_HOME/.installation` directory. The mere presence of a directory like `/modules/system/layers/xyz/patches/patch-xyz-2` is insufficient to trigger inclusion of that directory in the module search path. However, when the patching tool installs the patch, the actual location of the _module contents_ will be in `/modules/system/layers/xyz/patches/patch-xyz-2` -- only patching related metadata will be stored in `$JBOSS_HOME/.installation`. This behavior is important for allowing sharing of modules across installations.
