@@ -1,0 +1,1 @@
+Central storage location for image content referenced from document text files.
