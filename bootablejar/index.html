@@ -443,8 +443,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>WildFly Bootable JAR Documentation</h1>
 <div class="details">
 <span id="author" class="author">Jean-Francois Denise</span><br>
-<span id="revnumber">version 8.1.0.Final,</span>
-<span id="revdate">2022-11-10T09:15:32Z</span>
+<span id="revnumber">version 10.0.0.Final,</span>
+<span id="revdate">2023-07-20T17:19:32Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -584,27 +584,27 @@ The bootable JAR displayed traces contain the actual path to this transient inst
 <h2 id="wildfly_jar_examples"><a class="anchor" href="#wildfly_jar_examples"></a><a class="link" href="#wildfly_jar_examples">2. Examples</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The examples <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/8.1.0.Final/examples">directory</a>
+<p>The examples <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/10.0.0.Final/examples">directory</a>
 contains Maven example projects that highlight various usages of the WildFly bootable JAR. Build and run these projects
 to familiarize yourself with the Maven plugin. A good example to start with is the
-<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/8.1.0.Final/examples/jaxrs">jaxrs</a> example.</p>
+<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/10.0.0.Final/examples/jaxrs">jaxrs</a> example.</p>
 </div>
 <div class="paragraph">
 <p>Some of these examples are targeting deployment of the bootable JAR in OpenShift.
-For example: <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/8.1.0.Final/examples/microprofile-config">microprofile-config</a>,
-<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/8.1.0.Final/examples/postgresql">postgresql</a> and
-<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/8.1.0.Final/examples/jkube">jkube</a>.</p>
+For example: <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/10.0.0.Final/examples/microprofile-config">microprofile-config</a>,
+<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/10.0.0.Final/examples/postgresql">postgresql</a> and
+<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/10.0.0.Final/examples/jkube">jkube</a>.</p>
 </div>
 <div class="paragraph">
 <p>Deployment inside a <a href="https://github.com/GoogleContainerTools/jib">JIB</a> container is
-covered by <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/8.1.0.Final/examples/jib">jib</a> example and <em>examples/jib-*</em> projects.</p>
+covered by <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/10.0.0.Final/examples/jib">jib</a> example and <em>examples/jib-*</em> projects.</p>
 </div>
 <div class="sect2">
 <h3 id="wildfly_jar_examples_download"><a class="anchor" href="#wildfly_jar_examples_download"></a><a class="link" href="#wildfly_jar_examples_download">2.1. Downloading the examples</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Clone the wildfly-jar-maven-plugin repository: <em>git clone -b 8.1.0.Final <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin" class="bare">https://github.com/wildfly-extras/wildfly-jar-maven-plugin</a></em></p>
+<p>Clone the wildfly-jar-maven-plugin repository: <em>git clone -b 10.0.0.Final <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin" class="bare">https://github.com/wildfly-extras/wildfly-jar-maven-plugin</a></em></p>
 </li>
 <li>
 <p><em>cd wildfly-jar-maven-plugin/examples</em></p>
@@ -621,14 +621,14 @@ covered by <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/t
 <h2 id="wildfly_jar_composing_custom_server_galleon"><a class="anchor" href="#wildfly_jar_composing_custom_server_galleon"></a><a class="link" href="#wildfly_jar_composing_custom_server_galleon">3. Composing custom server with Galleon layers</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When building a bootable JAR you have the ability to select the set of <a href="https://docs.wildfly.org/27.0/Bootable_Guide.html#wildfly_layers">WildFly Galleon layers</a>
+<p>When building a bootable JAR you have the ability to select the set of <a href="https://docs.wildfly.org/29.0/Bootable_Guide.html#wildfly_layers">WildFly Galleon layers</a>
 you want to see present in the bootable JAR. Selecting a subset of server features has an impact on the server xml configuration
 and the set of installed JBoss modules. By selecting the subset required by your application you will reduce the JAR size, server configuration content and memory footprint.</p>
 </div>
 <div class="paragraph">
-<p>You are not limited to the <a href="https://docs.wildfly.org/27.0/Bootable_Guide.html#wildfly_layers">WildFly Galleon layers</a>, you can combine other third parties Galleon layers compatible with
+<p>You are not limited to the <a href="https://docs.wildfly.org/29.0/Bootable_Guide.html#wildfly_layers">WildFly Galleon layers</a>, you can combine other third parties Galleon layers compatible with
 WildFly (eg: <a href="https://github.com/wildfly-extras/wildfly-datasources-galleon-pack">WildFly database drivers and datasources layers</a>).
-The example <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/8.1.0.Final/examples/postgresql">postgresql</a>
+The example <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/10.0.0.Final/examples/postgresql">postgresql</a>
 shows how to create a <em>cloud-server</em> with support for <em>postgresql</em> database.</p>
 </div>
 <div class="sect2">
@@ -648,13 +648,13 @@ The configuration element <a href="#featurePackLocation">feature-pack-location</
 <div class="ulist">
 <ul>
 <li>
-<p>To provision a WildFly 27.0 server:</p>
+<p>To provision a WildFly 29.0 server:</p>
 </li>
 </ul>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;feature-pack-location&gt;</span>wildfly@maven(org.jboss.universe:community-universe)#27.0.0.0.Final<span style="color:#070;font-weight:bold">&lt;/feature-pack-location&gt;</span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;feature-pack-location&gt;</span>wildfly@maven(org.jboss.universe:community-universe)#29.0.0.0.Final<span style="color:#070;font-weight:bold">&lt;/feature-pack-location&gt;</span></code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -674,13 +674,13 @@ The configuration element <a href="#featurePackLocation">feature-pack-location</
 <h4 id="wildfly_jar_composing_custom_server_galleon_feature_packs"><a class="anchor" href="#wildfly_jar_composing_custom_server_galleon_feature_packs"></a><a class="link" href="#wildfly_jar_composing_custom_server_galleon_feature_packs">3.1.2. Providing a list of Galleon feature-packs</a></h4>
 <div class="paragraph">
 <p>In some cases you will want to combine Galleon layers from multiple sources. In this case you will use the <a href="#featurePacks">feature-packs</a> configuration element that contains a list
-of feature-packs. For example, to provision Galleon layers from WildFly 27.0 and WildFly extras datasources you would provide:</p>
+of feature-packs. For example, to provision Galleon layers from WildFly 29.0 and WildFly extras datasources you would provide:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;feature-packs&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;feature-pack&gt;</span>
-        <span style="color:#070;font-weight:bold">&lt;location&gt;</span>wildfly@maven(org.jboss.universe:community-universe)#27.0.0.0.Final<span style="color:#070;font-weight:bold">&lt;/location&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;location&gt;</span>wildfly@maven(org.jboss.universe:community-universe)#29.0.0.0.Final<span style="color:#070;font-weight:bold">&lt;/location&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;/feature-pack&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;feature-pack&gt;</span>
         <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.wildfly<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
@@ -757,7 +757,7 @@ it can be excluded:</p>
 Use the <a href="#hollowJar">hollow-jar</a> configuration element to create an hollow JAR.</p>
 </div>
 <div class="paragraph">
-<p>The example <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/8.1.0.Final/examples/hollow-jar">hollow-jar</a> shows how to build an hollow JAR.</p>
+<p>The example <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/10.0.0.Final/examples/hollow-jar">hollow-jar</a> shows how to build an hollow JAR.</p>
 </div>
 <div class="paragraph">
 <p>When starting an hollow JAR you can provide the path to a deployment you want to see deployed inside the server. For example:</p>
@@ -784,11 +784,11 @@ Use the <a href="#hollowJar">hollow-jar</a> configuration element to create an h
 <div class="ulist">
 <ul>
 <li>
-<p>Run <a href="https://docs.wildfly.org/27.0/Admin_Guide.html#Command_Line_Interface">WildFly CLI</a> scripts (see <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/8.1.0.Final/examples/logging">logging</a> example to configure loggers).</p>
+<p>Run <a href="https://docs.wildfly.org/29.0/Admin_Guide.html#Command_Line_Interface">WildFly CLI</a> scripts (see <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/10.0.0.Final/examples/logging">logging</a> example to configure loggers).</p>
 </li>
 <li>
 <p>Add extra content that you want to see packaged in the server (eg: <em>standalone/configuration/application-users.properties</em>, <em>standalone/configuration/keystore.jks</em>, &#8230;&#8203;).
-The example <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/8.1.0.Final/examples/https">https</a> shows how to package a keystore file in the bootable JAR.</p>
+The example <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/10.0.0.Final/examples/https">https</a> shows how to package a keystore file in the bootable JAR.</p>
 </li>
 </ul>
 </div>
@@ -810,7 +810,7 @@ Using a custom appender as a <code>custom-handler</code> in the logging subsyste
 </div>
 <div class="paragraph">
 <p>You can workaround this by supplying your own <code>logging.properties</code> and defining the path in the <code>boot-logging-config</code> configuration property.
-An example can be seen in the <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/8.1.0.Final/examples/logging-json">logging-json</a>
+An example can be seen in the <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/10.0.0.Final/examples/logging-json">logging-json</a>
 example project.</p>
 </div>
 <div class="sect2">
@@ -821,7 +821,7 @@ example project.</p>
 <div class="paragraph">
 <p>CLI script files are text files that contain a sequence of WildFly CLI commands. Commands can be CLI defined commands
 (some builtin commands allowing to achieve complex sequence of server operations) and generic management operations to be sent to the server. Some examples can
-be found in WildFly administration guide <a href="https://docs.wildfly.org/27.0/Admin_Guide.html#CLI_Recipes">CLI recipes chapter</a>.</p>
+be found in WildFly administration guide <a href="https://docs.wildfly.org/29.0/Admin_Guide.html#CLI_Recipes">CLI recipes chapter</a>.</p>
 </div>
 <div class="paragraph">
 <p>In the context of Bootable JAR, the script does not need to contain commands to connect to the server or start an embedded server.
@@ -960,7 +960,7 @@ NB: When authentication is enabled, the environment variable <code><code>JGROUPS
 <h3 id="wildfly_jar_cloud_jkube"><a class="anchor" href="#wildfly_jar_cloud_jkube"></a><a class="link" href="#wildfly_jar_cloud_jkube">7.1. OpenShift Deployment using Eclipse JKube</a></h3>
 <div class="paragraph">
 <p><a href="https://github.com/eclipse/jkube">JKube Maven plugin</a> contains support for WildFly bootable JAR. The
-<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/8.1.0.Final/examples/jkube">jkube</a> example shows how to combine
+<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/10.0.0.Final/examples/jkube">jkube</a> example shows how to combine
 WildFly bootable JAR and JKube Maven plugins in order to deploy an application on OpenShift.</p>
 </div>
 </div>
@@ -1163,7 +1163,7 @@ For example such a script would create an account <strong>admin/passW0rd!</stron
 /subsystem=elytron/security-domain=ManagementDomain:list-remove(name=realms, index=0)
 /subsystem=elytron/properties-realm=ManagementRealm:remove
 /subsystem=elytron/filesystem-realm=ManagementRealm:add(path=management-realm, relative-to=jboss.server.config.dir)
-reload
+reload --start-mode=admin-only
 /subsystem=elytron/filesystem-realm=ManagementRealm:add-identity(identity=admin)
 /subsystem=elytron/filesystem-realm=ManagementRealm:add-identity-attribute(identity=admin, name=groups, value=[admin])
 /subsystem=elytron/filesystem-realm=ManagementRealm:set-password(identity=admin, clear={password=passW0rd!})
@@ -1389,7 +1389,7 @@ run a slim bootable JAR in a context were no local Maven cache is present.</p>
 <p>In this example, the directory <em>&lt;project directory&gt;/target/my-maven-repo</em> is created and contains the set of JBoss modules JAR required to start the server.</p>
 </div>
 <div class="paragraph">
-<p>The <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/8.1.0.Final/examples/slim">slim</a> example shows how to build a slim bootable JAR
+<p>The <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/10.0.0.Final/examples/slim">slim</a> example shows how to build a slim bootable JAR
 and generate a local Maven repository used at startup.</p>
 </div>
 </div>
@@ -1404,14 +1404,18 @@ and generate a local Maven repository used at startup.</p>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;channels&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;channel&gt;</span>
-      <span style="color:#070;font-weight:bold">&lt;url&gt;</span>file://${project.basedir}/my-channel.yaml<span style="color:#070;font-weight:bold">&lt;/url&gt;</span>
+      <span style="color:#070;font-weight:bold">&lt;manifest&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;url&gt;</span>file://${project.basedir}/my-channel.yaml<span style="color:#070;font-weight:bold">&lt;/url&gt;</span>
+      <span style="color:#070;font-weight:bold">&lt;/manifest&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;/channel&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;channel&gt;</span>
-      <span style="color:#777">&lt;!-- Use latest channel version --&gt;</span>
-      <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.foo.bar<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
-      <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>my-channel<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
-      <span style="color:#777">&lt;!-- Uncomment to use a specific channel version --&gt;</span>
-      <span style="color:#777">&lt;!--&lt;version&gt;2.0.0.Final&lt;/version&gt;--&gt;</span>
+      <span style="color:#070;font-weight:bold">&lt;manifest&gt;</span>
+        <span style="color:#777">&lt;!-- Use latest channel version --&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.foo.bar<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>my-channel<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
+        <span style="color:#777">&lt;!-- Uncomment to use a specific channel version --&gt;</span>
+        <span style="color:#777">&lt;!--&lt;version&gt;2.0.0.Final&lt;/version&gt;--&gt;</span>
+      <span style="color:#070;font-weight:bold">&lt;/manifest&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;/channel&gt;</span>
 <span style="color:#070;font-weight:bold">&lt;/channels&gt;</span></code></pre>
 </div>
@@ -1419,6 +1423,9 @@ and generate a local Maven repository used at startup.</p>
 </div>
 <div class="sect2">
 <h3 id="wildfly_jar_advanced_upgrade"><a class="anchor" href="#wildfly_jar_advanced_upgrade"></a><a class="link" href="#wildfly_jar_advanced_upgrade">12.3. Upgrading a bootable JAR</a></h3>
+<div class="paragraph">
+<p>This Feature is deprecated. It is going to be replaced by the usage of WildFly Channels.</p>
+</div>
 <div class="paragraph">
 <p>NB: This feature can&#8217;t be used when WildFly Channels are configured.</p>
 </div>
@@ -1560,7 +1567,7 @@ coordinates of the Maven plugin artifact are</p>
 <pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;dependency&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.wildfly.plugins<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>wildfly-jar-maven-plugin<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
-    <span style="color:#070;font-weight:bold">&lt;version&gt;</span>8.1.0.Final<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;version&gt;</span>10.0.0.Final<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
 <span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span></code></pre>
 </div>
 </div>
@@ -1605,7 +1612,7 @@ coordinates of the Maven plugin artifact are</p>
 <h4 id="_wildfly_jardev"><a class="anchor" href="#_wildfly_jardev"></a><a class="link" href="#_wildfly_jardev">14.2.1. wildfly-jar:dev</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:8.1.0.Final:dev</p>
+org.wildfly.plugins:wildfly-jar-maven-plugin:10.0.0.Final:dev</p>
 </div>
 </div>
 <div class="sect3">
@@ -1746,9 +1753,9 @@ to the password value.<br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#disableWarnForArtifactDowngrade">[disableWarnForArtifactDowngrade]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The plugin prints a warning when an overridden artifact is
-downgraded (updated to an older version). The version comparison is
-done based on Maven versioning. This warning can be disabled by
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deprecated. The plugin prints a warning when an overridden artifact
+is downgraded (updated to an older version). The version comparison
+is done based on Maven versioning. This warning can be disabled by
 setting this parameter to true.<br>
 <strong>Default value is</strong>: <code>false</code>.<br>
 <strong>User property is</strong>: <code>bootable.jar.disable.warn.for.artifact.downgrade</code>.<br>
@@ -1767,8 +1774,8 @@ true.<br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#dumpOriginalArtifacts">[dumpOriginalArtifacts]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Set this parameter to true in order to retrieve the set of
-artifacts that can be upgraded. The file
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deprecated. Set this parameter to true in order to retrieve the set
+of artifacts that can be upgraded. The file
 <code>target/bootable-jar-build-artifacts/bootable-jar-server-original-artifacts.xml</code>
 is generated. It contains XML elements for the Galleon
 feature-packs dependencies, JBoss Modules runtime and artifacts.
@@ -1910,16 +1917,16 @@ ${project.build.finalName}-bootable.jar<br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#overriddenServerArtifacts">[overriddenServerArtifacts]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A list of artifacts that override the one referenced in the WildFly
-Galleon feature-pack used to build the Bootable JAR. The artifacts
-present in this list must exist in the project dependencies (with a
-<code>provided</code> scope). GroupId and ArtifactId are mandatory.
-Classifier is required if non null. Version and Type are optional
-and are retrieved from the project dependencies. Dependencies on
-Galleon feature-pack can also be referenced from this list.
-<code>zip</code> type must be used for Galleon feature-packs. NB:
-This configuration item can&#8217;t be used when Channels are in
-use.<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deprecated. A list of artifacts that override the one referenced in
+the WildFly Galleon feature-pack used to build the Bootable JAR.
+The artifacts present in this list must exist in the project
+dependencies (with a <code>provided</code> scope). GroupId and
+ArtifactId are mandatory. Classifier is required if non null.
+Version and Type are optional and are retrieved from the project
+dependencies. Dependencies on Galleon feature-pack can also be
+referenced from this list. <code>zip</code> type must be used for
+Galleon feature-packs. NB: This configuration item can&#8217;t be used
+when Channels are in use.<br>
  Example of an override of the
 <code>io.undertow:undertow-core</code> artifact:<br>
 &lt;overridden-server-artifacts&gt;<br>
@@ -2176,9 +2183,9 @@ To make the WAR deployment registered under root resource path
 </div>
 <div class="paragraph">
 <p><a id="disableWarnForArtifactDowngrade"></a> <strong>disableWarnForArtifactDowngrade</strong><br>
-The plugin prints a warning when an overridden artifact is
-downgraded (updated to an older version). The version comparison is
-done based on Maven versioning. This warning can be disabled by
+Deprecated. The plugin prints a warning when an overridden artifact
+is downgraded (updated to an older version). The version comparison
+is done based on Maven versioning. This warning can be disabled by
 setting this parameter to true.</p>
 </div>
 <div class="ulist">
@@ -2221,8 +2228,8 @@ true.</p>
 </div>
 <div class="paragraph">
 <p><a id="dumpOriginalArtifacts"></a> <strong>dumpOriginalArtifacts</strong><br>
-Set this parameter to true in order to retrieve the set of
-artifacts that can be upgraded. The file
+Deprecated. Set this parameter to true in order to retrieve the set
+of artifacts that can be upgraded. The file
 <code>target/bootable-jar-build-artifacts/bootable-jar-server-original-artifacts.xml</code>
 is generated. It contains XML elements for the Galleon
 feature-packs dependencies, JBoss Modules runtime and artifacts.
@@ -2526,16 +2533,16 @@ ${project.build.finalName}-bootable.jar</p>
 </div>
 <div class="paragraph">
 <p><a id="overriddenServerArtifacts"></a> <strong>overriddenServerArtifacts</strong><br>
-A list of artifacts that override the one referenced in the WildFly
-Galleon feature-pack used to build the Bootable JAR. The artifacts
-present in this list must exist in the project dependencies (with a
-<code>provided</code> scope). GroupId and ArtifactId are mandatory.
-Classifier is required if non null. Version and Type are optional
-and are retrieved from the project dependencies. Dependencies on
-Galleon feature-pack can also be referenced from this list.
-<code>zip</code> type must be used for Galleon feature-packs. NB:
-This configuration item can&#8217;t be used when Channels are in
-use.<br>
+Deprecated. A list of artifacts that override the one referenced in
+the WildFly Galleon feature-pack used to build the Bootable JAR.
+The artifacts present in this list must exist in the project
+dependencies (with a <code>provided</code> scope). GroupId and
+ArtifactId are mandatory. Classifier is required if non null.
+Version and Type are optional and are retrieved from the project
+dependencies. Dependencies on Galleon feature-pack can also be
+referenced from this list. <code>zip</code> type must be used for
+Galleon feature-packs. NB: This configuration item can&#8217;t be used
+when Channels are in use.<br>
  Example of an override of the
 <code>io.undertow:undertow-core</code> artifact:<br>
 &lt;overridden-server-artifacts&gt;<br>
@@ -2700,7 +2707,7 @@ redirected to a file.</p>
 <h4 id="_wildfly_jardev_watch"><a class="anchor" href="#_wildfly_jardev_watch"></a><a class="link" href="#_wildfly_jardev_watch">14.3.1. wildfly-jar:dev-watch</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:8.1.0.Final:dev-watch</p>
+org.wildfly.plugins:wildfly-jar-maven-plugin:10.0.0.Final:dev-watch</p>
 </div>
 </div>
 <div class="sect3">
@@ -2867,9 +2874,9 @@ arguments, this option has no effect,<br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#disableWarnForArtifactDowngrade">[disableWarnForArtifactDowngrade]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The plugin prints a warning when an overridden artifact is
-downgraded (updated to an older version). The version comparison is
-done based on Maven versioning. This warning can be disabled by
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deprecated. The plugin prints a warning when an overridden artifact
+is downgraded (updated to an older version). The version comparison
+is done based on Maven versioning. This warning can be disabled by
 setting this parameter to true.<br>
 <strong>Default value is</strong>: <code>false</code>.<br>
 <strong>User property is</strong>: <code>bootable.jar.disable.warn.for.artifact.downgrade</code>.<br>
@@ -2888,8 +2895,8 @@ true.<br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#dumpOriginalArtifacts">[dumpOriginalArtifacts]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Set this parameter to true in order to retrieve the set of
-artifacts that can be upgraded. The file
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deprecated. Set this parameter to true in order to retrieve the set
+of artifacts that can be upgraded. The file
 <code>target/bootable-jar-build-artifacts/bootable-jar-server-original-artifacts.xml</code>
 is generated. It contains XML elements for the Galleon
 feature-packs dependencies, JBoss Modules runtime and artifacts.
@@ -3051,16 +3058,16 @@ ${project.build.finalName}-bootable.jar<br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#overriddenServerArtifacts">[overriddenServerArtifacts]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A list of artifacts that override the one referenced in the WildFly
-Galleon feature-pack used to build the Bootable JAR. The artifacts
-present in this list must exist in the project dependencies (with a
-<code>provided</code> scope). GroupId and ArtifactId are mandatory.
-Classifier is required if non null. Version and Type are optional
-and are retrieved from the project dependencies. Dependencies on
-Galleon feature-pack can also be referenced from this list.
-<code>zip</code> type must be used for Galleon feature-packs. NB:
-This configuration item can&#8217;t be used when Channels are in
-use.<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deprecated. A list of artifacts that override the one referenced in
+the WildFly Galleon feature-pack used to build the Bootable JAR.
+The artifacts present in this list must exist in the project
+dependencies (with a <code>provided</code> scope). GroupId and
+ArtifactId are mandatory. Classifier is required if non null.
+Version and Type are optional and are retrieved from the project
+dependencies. Dependencies on Galleon feature-pack can also be
+referenced from this list. <code>zip</code> type must be used for
+Galleon feature-packs. NB: This configuration item can&#8217;t be used
+when Channels are in use.<br>
  Example of an override of the
 <code>io.undertow:undertow-core</code> artifact:<br>
 &lt;overridden-server-artifacts&gt;<br>
@@ -3437,9 +3444,9 @@ Debug suspend.</p>
 </div>
 <div class="paragraph">
 <p><a id="disableWarnForArtifactDowngrade"></a> <strong>disableWarnForArtifactDowngrade</strong><br>
-The plugin prints a warning when an overridden artifact is
-downgraded (updated to an older version). The version comparison is
-done based on Maven versioning. This warning can be disabled by
+Deprecated. The plugin prints a warning when an overridden artifact
+is downgraded (updated to an older version). The version comparison
+is done based on Maven versioning. This warning can be disabled by
 setting this parameter to true.</p>
 </div>
 <div class="ulist">
@@ -3482,8 +3489,8 @@ true.</p>
 </div>
 <div class="paragraph">
 <p><a id="dumpOriginalArtifacts"></a> <strong>dumpOriginalArtifacts</strong><br>
-Set this parameter to true in order to retrieve the set of
-artifacts that can be upgraded. The file
+Deprecated. Set this parameter to true in order to retrieve the set
+of artifacts that can be upgraded. The file
 <code>target/bootable-jar-build-artifacts/bootable-jar-server-original-artifacts.xml</code>
 is generated. It contains XML elements for the Galleon
 feature-packs dependencies, JBoss Modules runtime and artifacts.
@@ -3831,16 +3838,16 @@ ${project.build.finalName}-bootable.jar</p>
 </div>
 <div class="paragraph">
 <p><a id="overriddenServerArtifacts"></a> <strong>overriddenServerArtifacts</strong><br>
-A list of artifacts that override the one referenced in the WildFly
-Galleon feature-pack used to build the Bootable JAR. The artifacts
-present in this list must exist in the project dependencies (with a
-<code>provided</code> scope). GroupId and ArtifactId are mandatory.
-Classifier is required if non null. Version and Type are optional
-and are retrieved from the project dependencies. Dependencies on
-Galleon feature-pack can also be referenced from this list.
-<code>zip</code> type must be used for Galleon feature-packs. NB:
-This configuration item can&#8217;t be used when Channels are in
-use.<br>
+Deprecated. A list of artifacts that override the one referenced in
+the WildFly Galleon feature-pack used to build the Bootable JAR.
+The artifacts present in this list must exist in the project
+dependencies (with a <code>provided</code> scope). GroupId and
+ArtifactId are mandatory. Classifier is required if non null.
+Version and Type are optional and are retrieved from the project
+dependencies. Dependencies on Galleon feature-pack can also be
+referenced from this list. <code>zip</code> type must be used for
+Galleon feature-packs. NB: This configuration item can&#8217;t be used
+when Channels are in use.<br>
  Example of an override of the
 <code>io.undertow:undertow-core</code> artifact:<br>
 &lt;overridden-server-artifacts&gt;<br>
@@ -4136,7 +4143,7 @@ separated list of file extensions.</p>
 <h4 id="_wildfly_jarhelp"><a class="anchor" href="#_wildfly_jarhelp"></a><a class="link" href="#_wildfly_jarhelp">14.4.1. wildfly-jar:help</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:8.1.0.Final:help</p>
+org.wildfly.plugins:wildfly-jar-maven-plugin:10.0.0.Final:help</p>
 </div>
 </div>
 <div class="sect3">
@@ -4296,7 +4303,7 @@ The maximum length of a display line, should be positive.</p>
 <h4 id="_wildfly_jarpackage"><a class="anchor" href="#_wildfly_jarpackage"></a><a class="link" href="#_wildfly_jarpackage">14.5.1. wildfly-jar:package</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:8.1.0.Final:package</p>
+org.wildfly.plugins:wildfly-jar-maven-plugin:10.0.0.Final:package</p>
 </div>
 </div>
 <div class="sect3">
@@ -4427,9 +4434,9 @@ to the password value.<br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#disableWarnForArtifactDowngrade">[disableWarnForArtifactDowngrade]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The plugin prints a warning when an overridden artifact is
-downgraded (updated to an older version). The version comparison is
-done based on Maven versioning. This warning can be disabled by
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deprecated. The plugin prints a warning when an overridden artifact
+is downgraded (updated to an older version). The version comparison
+is done based on Maven versioning. This warning can be disabled by
 setting this parameter to true.<br>
 <strong>Default value is</strong>: <code>false</code>.<br>
 <strong>User property is</strong>: <code>bootable.jar.disable.warn.for.artifact.downgrade</code>.<br>
@@ -4448,8 +4455,8 @@ true.<br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#dumpOriginalArtifacts">[dumpOriginalArtifacts]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Set this parameter to true in order to retrieve the set of
-artifacts that can be upgraded. The file
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deprecated. Set this parameter to true in order to retrieve the set
+of artifacts that can be upgraded. The file
 <code>target/bootable-jar-build-artifacts/bootable-jar-server-original-artifacts.xml</code>
 is generated. It contains XML elements for the Galleon
 feature-packs dependencies, JBoss Modules runtime and artifacts.
@@ -4584,16 +4591,16 @@ ${project.build.finalName}-bootable.jar<br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#overriddenServerArtifacts">[overriddenServerArtifacts]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A list of artifacts that override the one referenced in the WildFly
-Galleon feature-pack used to build the Bootable JAR. The artifacts
-present in this list must exist in the project dependencies (with a
-<code>provided</code> scope). GroupId and ArtifactId are mandatory.
-Classifier is required if non null. Version and Type are optional
-and are retrieved from the project dependencies. Dependencies on
-Galleon feature-pack can also be referenced from this list.
-<code>zip</code> type must be used for Galleon feature-packs. NB:
-This configuration item can&#8217;t be used when Channels are in
-use.<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deprecated. A list of artifacts that override the one referenced in
+the WildFly Galleon feature-pack used to build the Bootable JAR.
+The artifacts present in this list must exist in the project
+dependencies (with a <code>provided</code> scope). GroupId and
+ArtifactId are mandatory. Classifier is required if non null.
+Version and Type are optional and are retrieved from the project
+dependencies. Dependencies on Galleon feature-pack can also be
+referenced from this list. <code>zip</code> type must be used for
+Galleon feature-packs. NB: This configuration item can&#8217;t be used
+when Channels are in use.<br>
  Example of an override of the
 <code>io.undertow:undertow-core</code> artifact:<br>
 &lt;overridden-server-artifacts&gt;<br>
@@ -4820,9 +4827,9 @@ To make the WAR deployment registered under root resource path
 </div>
 <div class="paragraph">
 <p><a id="disableWarnForArtifactDowngrade"></a> <strong>disableWarnForArtifactDowngrade</strong><br>
-The plugin prints a warning when an overridden artifact is
-downgraded (updated to an older version). The version comparison is
-done based on Maven versioning. This warning can be disabled by
+Deprecated. The plugin prints a warning when an overridden artifact
+is downgraded (updated to an older version). The version comparison
+is done based on Maven versioning. This warning can be disabled by
 setting this parameter to true.</p>
 </div>
 <div class="ulist">
@@ -4865,8 +4872,8 @@ true.</p>
 </div>
 <div class="paragraph">
 <p><a id="dumpOriginalArtifacts"></a> <strong>dumpOriginalArtifacts</strong><br>
-Set this parameter to true in order to retrieve the set of
-artifacts that can be upgraded. The file
+Deprecated. Set this parameter to true in order to retrieve the set
+of artifacts that can be upgraded. The file
 <code>target/bootable-jar-build-artifacts/bootable-jar-server-original-artifacts.xml</code>
 is generated. It contains XML elements for the Galleon
 feature-packs dependencies, JBoss Modules runtime and artifacts.
@@ -5153,16 +5160,16 @@ ${project.build.finalName}-bootable.jar</p>
 </div>
 <div class="paragraph">
 <p><a id="overriddenServerArtifacts"></a> <strong>overriddenServerArtifacts</strong><br>
-A list of artifacts that override the one referenced in the WildFly
-Galleon feature-pack used to build the Bootable JAR. The artifacts
-present in this list must exist in the project dependencies (with a
-<code>provided</code> scope). GroupId and ArtifactId are mandatory.
-Classifier is required if non null. Version and Type are optional
-and are retrieved from the project dependencies. Dependencies on
-Galleon feature-pack can also be referenced from this list.
-<code>zip</code> type must be used for Galleon feature-packs. NB:
-This configuration item can&#8217;t be used when Channels are in
-use.<br>
+Deprecated. A list of artifacts that override the one referenced in
+the WildFly Galleon feature-pack used to build the Bootable JAR.
+The artifacts present in this list must exist in the project
+dependencies (with a <code>provided</code> scope). GroupId and
+ArtifactId are mandatory. Classifier is required if non null.
+Version and Type are optional and are retrieved from the project
+dependencies. Dependencies on Galleon feature-pack can also be
+referenced from this list. <code>zip</code> type must be used for
+Galleon feature-packs. NB: This configuration item can&#8217;t be used
+when Channels are in use.<br>
  Example of an override of the
 <code>io.undertow:undertow-core</code> artifact:<br>
 &lt;overridden-server-artifacts&gt;<br>
@@ -5302,7 +5309,7 @@ otherwise <code>false</code>.</p>
 <h4 id="_wildfly_jarrun"><a class="anchor" href="#_wildfly_jarrun"></a><a class="link" href="#_wildfly_jarrun">14.6.1. wildfly-jar:run</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:8.1.0.Final:run</p>
+org.wildfly.plugins:wildfly-jar-maven-plugin:10.0.0.Final:run</p>
 </div>
 </div>
 <div class="sect3">
@@ -5461,7 +5468,7 @@ otherwise <code>false</code>.</p>
 <h4 id="_wildfly_jarshutdown"><a class="anchor" href="#_wildfly_jarshutdown"></a><a class="link" href="#_wildfly_jarshutdown">14.7.1. wildfly-jar:shutdown</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:8.1.0.Final:shutdown</p>
+org.wildfly.plugins:wildfly-jar-maven-plugin:10.0.0.Final:shutdown</p>
 </div>
 </div>
 <div class="sect3">
@@ -5764,7 +5771,7 @@ authentication the user will be prompted to supply the username,</p>
 <h4 id="_wildfly_jarstart"><a class="anchor" href="#_wildfly_jarstart"></a><a class="link" href="#_wildfly_jarstart">14.8.1. wildfly-jar:start</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.plugins:wildfly-jar-maven-plugin:8.1.0.Final:start</p>
+org.wildfly.plugins:wildfly-jar-maven-plugin:10.0.0.Final:start</p>
 </div>
 </div>
 <div class="sect3">
@@ -6261,8 +6268,8 @@ authentication the user will be prompted to supply the username,</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 8.1.0.Final<br>
-Last updated 2021-06-17 09:56:35 +0200
+Version 10.0.0.Final<br>
+Last updated 2023-02-21 14:23:26 +0100
 </div>
 </div>
 </body>
