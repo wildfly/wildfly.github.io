@@ -1,0 +1,377 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <title>WildFly Full 29 Model Reference</title> <meta name="description" content=""> <link rel="stylesheet" href="../../../../css/bootstrap.min.css"> <link rel="stylesheet" href="../../../../css/bootstrap-reboot.min.css"> <link rel="stylesheet" href="../../../../css/main.css"> </head> <body> <div class="container"> <div class="masthead"> <h3 class="text-muted my-3">WildFly Full 29 Model Reference</h3> </div> <ol class="breadcrumb"> <li class="breadcrumb-item"> <a href="../../../../index.html">home</a> </li> <li class="breadcrumb-item"> <a href="../../../../subsystem/messaging-activemq/index.html">subsystem=messaging-activemq</a> </li> <li class="breadcrumb-item"> <a href="../../../../subsystem/messaging-activemq/server/index.html">server</a> </li> <li class="breadcrumb-item active">jms-topic</li> </ol> <div class="well"> <p>Defines a Jakarta Messaging topic.</p> </div> <div class="page-header"> <h4 class="btn btn-secondary" data-toggle="collapse" data-target="#attributes">Attributes (13)</h4> <div class="collapse show" id="attributes"> <div class="panel"> <ul> <li> <a id="attr-delivering-count" href="#attr-delivering-count" data-toggle="collapse" data-target="#attribute-delivering-count" class="">delivering-count</a> The number of messages that this queue is currently delivering to its consumers. </li> <div id="attribute-delivering-count" class="collapse"> <div class="table-responsive"> <table class="table table-striped table-hover"> <thead> <tr> <th>Attribute</th> <th>Value</th> </tr> </thead> <tr> <td> <b>Type</b> </td> <td> INT </td> </tr> <tr> <td> <b>Nillable</b> </td> <td> false </td> </tr> <tr> <td> <b>Expressions Allowed</b> </td> <td> false </td> </tr> <tr> <td> <b>Storage</b> </td> <td> runtime </td> </tr> <tr> <td> <b>Access Type</b> </td> <td> metric </td> </tr> </table> </div> </div> <li> <a id="attr-durable-message-count" href="#attr-durable-message-count" data-toggle="collapse" data-target="#attribute-durable-message-count" class="">durable-message-count</a> The number of messages for all durable subscribers for this topic. </li> <div id="attribute-durable-message-count" class="collapse"> <div class="table-responsive"> <table class="table table-striped table-hover"> <thead> <tr> <th>Attribute</th> <th>Value</th> </tr> </thead> <tr> <td> <b>Type</b> </td> <td> INT </td> </tr> <tr> <td> <b>Nillable</b> </td> <td> false </td> </tr> <tr> <td> <b>Expressions Allowed</b> </td> <td> false </td> </tr> <tr> <td> <b>Storage</b> </td> <td> runtime </td> </tr> <tr> <td> <b>Access Type</b> </td> <td> metric </td> </tr> </table> </div> </div> <li> <a id="attr-durable-subscription-count" href="#attr-durable-subscription-count" data-toggle="collapse" data-target="#attribute-durable-subscription-count" class="">durable-subscription-count</a> The number of durable subscribers for this topic. </li> <div id="attribute-durable-subscription-count" class="collapse"> <div class="table-responsive"> <table class="table table-striped table-hover"> <thead> <tr> <th>Attribute</th> <th>Value</th> </tr> </thead> <tr> <td> <b>Type</b> </td> <td> INT </td> </tr> <tr> <td> <b>Nillable</b> </td> <td> false </td> </tr> <tr> <td> <b>Expressions Allowed</b> </td> <td> false </td> </tr> <tr> <td> <b>Storage</b> </td> <td> runtime </td> </tr> <tr> <td> <b>Access Type</b> </td> <td> metric </td> </tr> </table> </div> </div> <li> <a id="attr-entries" href="#attr-entries" data-toggle="collapse" data-target="#attribute-entries" class="">entries</a> The jndi names the topic will be bound to. </li> <div id="attribute-entries" class="collapse"> <div class="table-responsive"> <table class="table table-striped table-hover"> <thead> <tr> <th>Attribute</th> <th>Value</th> </tr> </thead> <tr> <td> <b>Type</b> </td> <td> LIST </td> </tr> <tr> <td> <b>Nillable</b> </td> <td> false </td> </tr> <tr> <td> <b>Expressions Allowed</b> </td> <td> true </td> </tr> <tr> <td> <b>Storage</b> </td> <td> configuration </td> </tr> <tr> <td> <b>Access Type</b> </td> <td> read-write </td> </tr> <tr> <td> <b>Restart Required</b> </td> <td> all-services </td> </tr> </table> </div> </div> <li> <a id="attr-legacy-entries" href="#attr-legacy-entries" data-toggle="collapse" data-target="#attribute-legacy-entries" class="">legacy-entries</a> The legacy jndi names the topic will be bound to. </li> <div id="attribute-legacy-entries" class="collapse"> <div class="table-responsive"> <table class="table table-striped table-hover"> <thead> <tr> <th>Attribute</th> <th>Value</th> </tr> </thead> <tr> <td> <b>Type</b> </td> <td> LIST </td> </tr> <tr> <td> <b>Nillable</b> </td> <td> true </td> </tr> <tr> <td> <b>Expressions Allowed</b> </td> <td> true </td> </tr> <tr> <td> <b>Storage</b> </td> <td> configuration </td> </tr> <tr> <td> <b>Access Type</b> </td> <td> read-write </td> </tr> <tr> <td> <b>Restart Required</b> </td> <td> all-services </td> </tr> </table> </div> </div> <li> <a id="attr-message-count" href="#attr-message-count" data-toggle="collapse" data-target="#attribute-message-count" class="">message-count</a> The number of messages currently in this queue. </li> <div id="attribute-message-count" class="collapse"> <div class="table-responsive"> <table class="table table-striped table-hover"> <thead> <tr> <th>Attribute</th> <th>Value</th> </tr> </thead> <tr> <td> <b>Type</b> </td> <td> LONG </td> </tr> <tr> <td> <b>Nillable</b> </td> <td> false </td> </tr> <tr> <td> <b>Expressions Allowed</b> </td> <td> false </td> </tr> <tr> <td> <b>Storage</b> </td> <td> runtime </td> </tr> <tr> <td> <b>Access Type</b> </td> <td> metric </td> </tr> </table> </div> </div> <li> <a id="attr-messages-added" href="#attr-messages-added" data-toggle="collapse" data-target="#attribute-messages-added" class="">messages-added</a> The number of messages added to this queue since it was created. </li> <div id="attribute-messages-added" class="collapse"> <div class="table-responsive"> <table class="table table-striped table-hover"> <thead> <tr> <th>Attribute</th> <th>Value</th> </tr> </thead> <tr> <td> <b>Type</b> </td> <td> LONG </td> </tr> <tr> <td> <b>Nillable</b> </td> <td> false </td> </tr> <tr> <td> <b>Expressions Allowed</b> </td> <td> false </td> </tr> <tr> <td> <b>Storage</b> </td> <td> runtime </td> </tr> <tr> <td> <b>Access Type</b> </td> <td> metric </td> </tr> </table> </div> </div> <li> <a id="attr-non-durable-message-count" href="#attr-non-durable-message-count" data-toggle="collapse" data-target="#attribute-non-durable-message-count" class="">non-durable-message-count</a> The number of messages for all non-durable subscribers for this topic. </li> <div id="attribute-non-durable-message-count" class="collapse"> <div class="table-responsive"> <table class="table table-striped table-hover"> <thead> <tr> <th>Attribute</th> <th>Value</th> </tr> </thead> <tr> <td> <b>Type</b> </td> <td> INT </td> </tr> <tr> <td> <b>Nillable</b> </td> <td> false </td> </tr> <tr> <td> <b>Expressions Allowed</b> </td> <td> false </td> </tr> <tr> <td> <b>Storage</b> </td> <td> runtime </td> </tr> <tr> <td> <b>Access Type</b> </td> <td> metric </td> </tr> </table> </div> </div> <li> <a id="attr-non-durable-subscription-count" href="#attr-non-durable-subscription-count" data-toggle="collapse" data-target="#attribute-non-durable-subscription-count" class="">non-durable-subscription-count</a> The number of non-durable subscribers for this topic. </li> <div id="attribute-non-durable-subscription-count" class="collapse"> <div class="table-responsive"> <table class="table table-striped table-hover"> <thead> <tr> <th>Attribute</th> <th>Value</th> </tr> </thead> <tr> <td> <b>Type</b> </td> <td> INT </td> </tr> <tr> <td> <b>Nillable</b> </td> <td> false </td> </tr> <tr> <td> <b>Expressions Allowed</b> </td> <td> false </td> </tr> <tr> <td> <b>Storage</b> </td> <td> runtime </td> </tr> <tr> <td> <b>Access Type</b> </td> <td> metric </td> </tr> </table> </div> </div> <li> <a id="attr-paused" href="#attr-paused" data-toggle="collapse" data-target="#attribute-paused" class="">paused</a> The current status of the Topic. A paused Topic won't send messages to its consumers. </li> <div id="attribute-paused" class="collapse"> <div class="table-responsive"> <table class="table table-striped table-hover"> <thead> <tr> <th>Attribute</th> <th>Value</th> </tr> </thead> <tr> <td> <b>Type</b> </td> <td> BOOLEAN </td> </tr> <tr> <td> <b>Nillable</b> </td> <td> false </td> </tr> <tr> <td> <b>Expressions Allowed</b> </td> <td> false </td> </tr> <tr> <td> <b>Storage</b> </td> <td> runtime </td> </tr> <tr> <td> <b>Access Type</b> </td> <td> read-only </td> </tr> </table> </div> </div> <li> <a id="attr-subscription-count" href="#attr-subscription-count" data-toggle="collapse" data-target="#attribute-subscription-count" class="">subscription-count</a> The number of (durable and non-durable) subscribers for this topic. </li> <div id="attribute-subscription-count" class="collapse"> <div class="table-responsive"> <table class="table table-striped table-hover"> <thead> <tr> <th>Attribute</th> <th>Value</th> </tr> </thead> <tr> <td> <b>Type</b> </td> <td> INT </td> </tr> <tr> <td> <b>Nillable</b> </td> <td> false </td> </tr> <tr> <td> <b>Expressions Allowed</b> </td> <td> false </td> </tr> <tr> <td> <b>Storage</b> </td> <td> runtime </td> </tr> <tr> <td> <b>Access Type</b> </td> <td> metric </td> </tr> </table> </div> </div> <li> <a id="attr-temporary" href="#attr-temporary" data-toggle="collapse" data-target="#attribute-temporary" class="">temporary</a> Whether the topic is temporary. </li> <div id="attribute-temporary" class="collapse"> <div class="table-responsive"> <table class="table table-striped table-hover"> <thead> <tr> <th>Attribute</th> <th>Value</th> </tr> </thead> <tr> <td> <b>Type</b> </td> <td> BOOLEAN </td> </tr> <tr> <td> <b>Nillable</b> </td> <td> false </td> </tr> <tr> <td> <b>Expressions Allowed</b> </td> <td> false </td> </tr> <tr> <td> <b>Storage</b> </td> <td> runtime </td> </tr> <tr> <td> <b>Access Type</b> </td> <td> read-only </td> </tr> </table> </div> </div> <li> <a id="attr-topic-address" href="#attr-topic-address" data-toggle="collapse" data-target="#attribute-topic-address" class="">topic-address</a> The address the topic points to. </li> <div id="attribute-topic-address" class="collapse"> <div class="table-responsive"> <table class="table table-striped table-hover"> <thead> <tr> <th>Attribute</th> <th>Value</th> </tr> </thead> <tr> <td> <b>Type</b> </td> <td> STRING </td> </tr> <tr> <td> <b>Nillable</b> </td> <td> false </td> </tr> <tr> <td> <b>Expressions Allowed</b> </td> <td> false </td> </tr> <tr> <td> <b>Storage</b> </td> <td> runtime </td> </tr> <tr> <td> <b>Access Type</b> </td> <td> read-only </td> </tr> </table> </div> </div> </ul> </div> </div> </div> <div class="page-header"> <h4 class="btn btn-secondary" data-toggle="collapse" data-target="#operations">Operations (18)</h4> <div class="collapse show" id="operations"> <ul> <li> <a id="op-add" href="#op-add" data-toggle="collapse" data-target="#operation-add" class="">add</a> Add a Jakarta Messaging topic. <div id="operation-add" class="collapse"> <table class="table table-striped"> <thead> <tr> <th>Request Parameter</th> <th>Type</th> <th>Required</th> <th>Expressions Allowed</th> <th>Default value</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>entries</td> <td>LIST</td> <td>true</td> <td>true</td> <td></td> <td>The jndi names the topic will be bound to.</td> </tr> <tr> <td>legacy-entries</td> <td>LIST</td> <td>false</td> <td>true</td> <td></td> <td>The legacy jndi names the topic will be bound to.</td> </tr> </tbody> </table> </div> </li> <li> <a id="op-add-jndi" href="#op-add-jndi" data-toggle="collapse" data-target="#operation-add-jndi" class="">add-jndi</a> Adds the queue to another JNDI binding <div id="operation-add-jndi" class="collapse"> <table class="table table-striped"> <thead> <tr> <th>Request Parameter</th> <th>Type</th> <th>Required</th> <th>Expressions Allowed</th> <th>Default value</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>jndi-binding</td> <td>STRING</td> <td>true</td> <td>false</td> <td></td> <td>Jndi binding</td> </tr> </tbody> </table> </div> </li> <li> <a id="op-count-messages-for-subscription" href="#op-count-messages-for-subscription" data-toggle="collapse" data-target="#operation-count-messages-for-subscription" class="">count-messages-for-subscription</a> Count the number of messages matching the filter for the given subscription. <div id="operation-count-messages-for-subscription" class="collapse"> <table class="table table-striped"> <thead> <tr> <th>Request Parameter</th> <th>Type</th> <th>Required</th> <th>Expressions Allowed</th> <th>Default value</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>client-id</td> <td>STRING</td> <td>true</td> <td>true</td> <td></td> <td>The client ID.</td> </tr> <tr> <td>subscription-name</td> <td>STRING</td> <td>true</td> <td>false</td> <td></td> <td>The name of the durable subscription.</td> </tr> <tr> <td>filter</td> <td>STRING</td> <td>false</td> <td>true</td> <td></td> <td>=A message filter. An undefined or empty filter will match all messages.</td> </tr> </tbody> </table> <div class="panel panel-primary"> <div class="panel-heading"> <h4 class="panel-title">Reply properties</h4> </div> <div class="panel-body"> <dl> <dt>type</dt> <dd>INT</dd> </dl> </div> </div> </div> </li> <li> <a id="op-drop-all-subscriptions" href="#op-drop-all-subscriptions" data-toggle="collapse" data-target="#operation-drop-all-subscriptions" class="">drop-all-subscriptions</a> Drop all subscriptions from this topic. <div id="operation-drop-all-subscriptions" class="collapse"> </div> </li> <li> <a id="op-drop-durable-subscription" href="#op-drop-durable-subscription" data-toggle="collapse" data-target="#operation-drop-durable-subscription" class="">drop-durable-subscription</a> Drop a durable subscription <div id="operation-drop-durable-subscription" class="collapse"> <table class="table table-striped"> <thead> <tr> <th>Request Parameter</th> <th>Type</th> <th>Required</th> <th>Expressions Allowed</th> <th>Default value</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>client-id</td> <td>STRING</td> <td>true</td> <td>true</td> <td></td> <td>The client ID.</td> </tr> <tr> <td>subscription-name</td> <td>STRING</td> <td>true</td> <td>false</td> <td></td> <td>The name of the durable subscription.</td> </tr> </tbody> </table> </div> </li> <li> <a id="op-list-all-subscriptions" href="#op-list-all-subscriptions" data-toggle="collapse" data-target="#operation-list-all-subscriptions" class="">list-all-subscriptions</a> List all subscriptions. <div id="operation-list-all-subscriptions" class="collapse"> <div class="panel panel-primary"> <div class="panel-heading"> <h4 class="panel-title">Reply properties</h4> </div> <div class="panel-body"> A list, each of whose elements describes a single subscription. <dl> <dt>type</dt> <dd>LIST</dd> <dt>Value Type</dt> <dd><div class="highlight"> <pre><code class="language-json" data-lang="json">{
+    "queueName" => {
+        "type" => STRING,
+        "description" => "The full name of the queue.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "clientID" => {
+        "type" => STRING,
+        "description" => "The client id.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "selector" => {
+        "type" => STRING,
+        "description" => "The queue selector.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "name" => {
+        "type" => STRING,
+        "description" => "The name of the queue.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "durable" => {
+        "type" => BOOLEAN,
+        "description" => "Whether the queue is durable or not.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false
+    },
+    "messageCount" => {
+        "type" => LONG,
+        "description" => "The number of messages currently in this queue.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false
+    },
+    "deliveringCount" => {
+        "type" => INT,
+        "description" => "The number of messages that this queue is currently delivering to its consumers.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false
+    },
+    "consumers" => {
+        "type" => LIST,
+        "description" => "The queue consumers.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 0L,
+        "max-length" => 2147483647L,
+        "value-type" => {
+            "consumerID" => {
+                "type" => STRING,
+                "description" => "The consumer ID.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1L,
+                "max-length" => 2147483647L
+            },
+            "connectionID" => {
+                "type" => STRING,
+                "description" => "The connection id.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1L,
+                "max-length" => 2147483647L
+            },
+            "sessionID" => {
+                "type" => STRING,
+                "description" => "The consumer's session id.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1L,
+                "max-length" => 2147483647L
+            },
+            "browseOnly" => {
+                "type" => BOOLEAN,
+                "description" => "Whether the consumer is only browsing the queue.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false
+            },
+            "creationTime" => {
+                "type" => BOOLEAN,
+                "description" => "Time when the consumer was created, in ms since the epoch.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false
+            }
+        }
+    }
+}</code></pre> </div> </dd> </dl> </div> </div> </div> </li> <li> <a id="op-list-all-subscriptions-as-json" href="#op-list-all-subscriptions-as-json" data-toggle="collapse" data-target="#operation-list-all-subscriptions-as-json" class="">list-all-subscriptions-as-json</a> List all subscriptions as a string in JSON format. <div id="operation-list-all-subscriptions-as-json" class="collapse"> <div class="panel panel-primary"> <div class="panel-heading"> <h4 class="panel-title">Reply properties</h4> </div> <div class="panel-body"> A JSON formatted string. <dl> <dt>type</dt> <dd>STRING</dd> </dl> </div> </div> </div> </li> <li> <a id="op-list-durable-subscriptions" href="#op-list-durable-subscriptions" data-toggle="collapse" data-target="#operation-list-durable-subscriptions" class="">list-durable-subscriptions</a> List only the durable subscriptions. <div id="operation-list-durable-subscriptions" class="collapse"> <div class="panel panel-primary"> <div class="panel-heading"> <h4 class="panel-title">Reply properties</h4> </div> <div class="panel-body"> A list, each of whose elements describes a single subscription. <dl> <dt>type</dt> <dd>LIST</dd> <dt>Value Type</dt> <dd><div class="highlight"> <pre><code class="language-json" data-lang="json">{
+    "queueName" => {
+        "type" => STRING,
+        "description" => "The full name of the queue.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "clientID" => {
+        "type" => STRING,
+        "description" => "The client id.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "selector" => {
+        "type" => STRING,
+        "description" => "The queue selector.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "name" => {
+        "type" => STRING,
+        "description" => "The name of the queue.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "durable" => {
+        "type" => BOOLEAN,
+        "description" => "Whether the queue is durable or not.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false
+    },
+    "messageCount" => {
+        "type" => LONG,
+        "description" => "The number of messages currently in this queue.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false
+    },
+    "deliveringCount" => {
+        "type" => INT,
+        "description" => "The number of messages that this queue is currently delivering to its consumers.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false
+    },
+    "consumers" => {
+        "type" => LIST,
+        "description" => "The queue consumers.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 0L,
+        "max-length" => 2147483647L,
+        "value-type" => {
+            "consumerID" => {
+                "type" => STRING,
+                "description" => "The consumer ID.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1L,
+                "max-length" => 2147483647L
+            },
+            "connectionID" => {
+                "type" => STRING,
+                "description" => "The connection id.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1L,
+                "max-length" => 2147483647L
+            },
+            "sessionID" => {
+                "type" => STRING,
+                "description" => "The consumer's session id.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1L,
+                "max-length" => 2147483647L
+            },
+            "browseOnly" => {
+                "type" => BOOLEAN,
+                "description" => "Whether the consumer is only browsing the queue.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false
+            },
+            "creationTime" => {
+                "type" => BOOLEAN,
+                "description" => "Time when the consumer was created, in ms since the epoch.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false
+            }
+        }
+    }
+}</code></pre> </div> </dd> </dl> </div> </div> </div> </li> <li> <a id="op-list-durable-subscriptions-as-json" href="#op-list-durable-subscriptions-as-json" data-toggle="collapse" data-target="#operation-list-durable-subscriptions-as-json" class="">list-durable-subscriptions-as-json</a> List only the durable subscriptions, as a string in JSON format. <div id="operation-list-durable-subscriptions-as-json" class="collapse"> <div class="panel panel-primary"> <div class="panel-heading"> <h4 class="panel-title">Reply properties</h4> </div> <div class="panel-body"> <dl> <dt>type</dt> <dd>STRING</dd> </dl> </div> </div> </div> </li> <li> <a id="op-list-messages-for-subscription" href="#op-list-messages-for-subscription" data-toggle="collapse" data-target="#operation-list-messages-for-subscription" class="">list-messages-for-subscription</a> List all the messages for the given subscription. <div id="operation-list-messages-for-subscription" class="collapse"> <table class="table table-striped"> <thead> <tr> <th>Request Parameter</th> <th>Type</th> <th>Required</th> <th>Expressions Allowed</th> <th>Default value</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>queue-name</td> <td>STRING</td> <td>true</td> <td>false</td> <td></td> <td>The name of the queue representing a subscription</td> </tr> </tbody> </table> <div class="panel panel-primary"> <div class="panel-heading"> <h4 class="panel-title">Reply properties</h4> </div> <div class="panel-body"> A list where each element is a map of message properties to their value. <dl> <dt>type</dt> <dd>LIST</dd> <dt>Value Type</dt> <dd><div class="highlight"> <pre><code class="language-json" data-lang="json">{
+    "JMSMessageID" => {
+        "type" => STRING,
+        "description" => "The message ID.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "JMSPriority" => {
+        "type" => INT,
+        "description" => "The message's priority.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min" => 0L,
+        "max" => 9L
+    },
+    "JMSTimestamp" => {
+        "type" => LONG,
+        "description" => "The message's timestamp, in ms since the epoch.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false
+    },
+    "JMSExpiration" => {
+        "type" => LONG,
+        "description" => "The message's expiration time.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false
+    },
+    "JMSDeliveryMode" => {
+        "type" => STRING,
+        "description" => "The delivery mode for the message, PERSISTENT or NON_PERSISTENT.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L,
+        "allowed" => [
+            "PERSISTENT",
+            "NON_PERSISTENT"
+        ]
+    }
+}</code></pre> </div> </dd> </dl> </div> </div> </div> </li> <li> <a id="op-list-messages-for-subscription-as-json" href="#op-list-messages-for-subscription-as-json" data-toggle="collapse" data-target="#operation-list-messages-for-subscription-as-json" class="">list-messages-for-subscription-as-json</a> List all the messages for the given subscription as a string in JSON format. <div id="operation-list-messages-for-subscription-as-json" class="collapse"> <table class="table table-striped"> <thead> <tr> <th>Request Parameter</th> <th>Type</th> <th>Required</th> <th>Expressions Allowed</th> <th>Default value</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>queue-name</td> <td>STRING</td> <td>true</td> <td>false</td> <td></td> <td>The name of the queue representing a subscription</td> </tr> </tbody> </table> <div class="panel panel-primary"> <div class="panel-heading"> <h4 class="panel-title">Reply properties</h4> </div> <div class="panel-body"> <dl> <dt>type</dt> <dd>STRING</dd> </dl> </div> </div> </div> </li> <li> <a id="op-list-non-durable-subscriptions" href="#op-list-non-durable-subscriptions" data-toggle="collapse" data-target="#operation-list-non-durable-subscriptions" class="">list-non-durable-subscriptions</a> List only the non-durable subscriptions. <div id="operation-list-non-durable-subscriptions" class="collapse"> <div class="panel panel-primary"> <div class="panel-heading"> <h4 class="panel-title">Reply properties</h4> </div> <div class="panel-body"> A list, each of whose elements describes a single subscription. <dl> <dt>type</dt> <dd>LIST</dd> <dt>Value Type</dt> <dd><div class="highlight"> <pre><code class="language-json" data-lang="json">{
+    "queueName" => {
+        "type" => STRING,
+        "description" => "The full name of the queue.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "clientID" => {
+        "type" => STRING,
+        "description" => "The client id.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "selector" => {
+        "type" => STRING,
+        "description" => "The queue selector.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "name" => {
+        "type" => STRING,
+        "description" => "The name of the queue.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "durable" => {
+        "type" => BOOLEAN,
+        "description" => "Whether the queue is durable or not.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false
+    },
+    "messageCount" => {
+        "type" => LONG,
+        "description" => "The number of messages currently in this queue.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false
+    },
+    "deliveringCount" => {
+        "type" => INT,
+        "description" => "The number of messages that this queue is currently delivering to its consumers.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false
+    },
+    "consumers" => {
+        "type" => LIST,
+        "description" => "The queue consumers.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 0L,
+        "max-length" => 2147483647L,
+        "value-type" => {
+            "consumerID" => {
+                "type" => STRING,
+                "description" => "The consumer ID.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1L,
+                "max-length" => 2147483647L
+            },
+            "connectionID" => {
+                "type" => STRING,
+                "description" => "The connection id.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1L,
+                "max-length" => 2147483647L
+            },
+            "sessionID" => {
+                "type" => STRING,
+                "description" => "The consumer's session id.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1L,
+                "max-length" => 2147483647L
+            },
+            "browseOnly" => {
+                "type" => BOOLEAN,
+                "description" => "Whether the consumer is only browsing the queue.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false
+            },
+            "creationTime" => {
+                "type" => BOOLEAN,
+                "description" => "Time when the consumer was created, in ms since the epoch.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false
+            }
+        }
+    }
+}</code></pre> </div> </dd> </dl> </div> </div> </div> </li> <li> <a id="op-list-non-durable-subscriptions-as-json" href="#op-list-non-durable-subscriptions-as-json" data-toggle="collapse" data-target="#operation-list-non-durable-subscriptions-as-json" class="">list-non-durable-subscriptions-as-json</a> List only the non-durable subscriptions, as a string in JSON format. <div id="operation-list-non-durable-subscriptions-as-json" class="collapse"> <div class="panel panel-primary"> <div class="panel-heading"> <h4 class="panel-title">Reply properties</h4> </div> <div class="panel-body"> <dl> <dt>type</dt> <dd>STRING</dd> </dl> </div> </div> </div> </li> <li> <a id="op-pause" href="#op-pause" data-toggle="collapse" data-target="#operation-pause" class="">pause</a> Pause the current Topic. <div id="operation-pause" class="collapse"> <table class="table table-striped"> <thead> <tr> <th>Request Parameter</th> <th>Type</th> <th>Required</th> <th>Expressions Allowed</th> <th>Default value</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>persist</td> <td>BOOLEAN</td> <td>false</td> <td>false</td> <td>false</td> <td>Persist the paused status of this Topic.</td> </tr> </tbody> </table> </div> </li> <li> <a id="op-remove" href="#op-remove" data-toggle="collapse" data-target="#operation-remove" class="">remove</a> Remove a Jakarta Messaging topic. <div id="operation-remove" class="collapse"> </div> </li> <li> <a id="op-remove-jndi" href="#op-remove-jndi" data-toggle="collapse" data-target="#operation-remove-jndi" class="">remove-jndi</a> Removes the JNDI binding <div id="operation-remove-jndi" class="collapse"> <table class="table table-striped"> <thead> <tr> <th>Request Parameter</th> <th>Type</th> <th>Required</th> <th>Expressions Allowed</th> <th>Default value</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>jndi-binding</td> <td>STRING</td> <td>true</td> <td>false</td> <td></td> <td>Jndi binding</td> </tr> </tbody> </table> </div> </li> <li> <a id="op-remove-messages" href="#op-remove-messages" data-toggle="collapse" data-target="#operation-remove-messages" class="">remove-messages</a> Remove messages matching the given filter from the topic. <div id="operation-remove-messages" class="collapse"> <table class="table table-striped"> <thead> <tr> <th>Request Parameter</th> <th>Type</th> <th>Required</th> <th>Expressions Allowed</th> <th>Default value</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>filter</td> <td>STRING</td> <td>false</td> <td>true</td> <td></td> <td>A message filter. An undefined or empty filter will match all messages.</td> </tr> </tbody> </table> <div class="panel panel-primary"> <div class="panel-heading"> <h4 class="panel-title">Reply properties</h4> </div> <div class="panel-body"> The number of removed messages. <dl> <dt>type</dt> <dd>INT</dd> </dl> </div> </div> </div> </li> <li> <a id="op-resume" href="#op-resume" data-toggle="collapse" data-target="#operation-resume" class="">resume</a> Resume the current Topic if it is paused. <div id="operation-resume" class="collapse"> </div> </li> </ul> </div> </div> <hr> <footer> <p>&copy; Red Hat 2023</p> </footer> </div> <script src="../../../../js/vendor/jquery-3.4.1.slim.min.js"></script> <script>window.jQuery || document.write('<script src="../../../../js/vendor/jquery-3.4.1.slim.min.js"><\/script>')</script> <script src="../../../../js/vendor/bootstrap.bundle.min.js"></script> <script src="../../../../js/main.js"></script> <script src="../../../../js/vendor/ie10-viewport-bug-workaround.js"></script> </body> </html>

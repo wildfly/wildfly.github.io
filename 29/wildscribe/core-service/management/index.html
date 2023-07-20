@@ -1,0 +1,88 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <title>WildFly Full 29 Model Reference</title> <meta name="description" content=""> <link rel="stylesheet" href="../../css/bootstrap.min.css"> <link rel="stylesheet" href="../../css/bootstrap-reboot.min.css"> <link rel="stylesheet" href="../../css/main.css"> </head> <body> <div class="container"> <div class="masthead"> <h3 class="text-muted my-3">WildFly Full 29 Model Reference</h3> </div> <ol class="breadcrumb"> <li class="breadcrumb-item"> <a href="../../index.html">home</a> </li> <li class="breadcrumb-item active">core-service=management</li> </ol> <div class="well"> <p>The management services used to control a server or a host's host controller.</p> </div> <div class="page-header"> <h4 class="btn btn-secondary" data-toggle="collapse" data-target="#children">Children (3)</h4> <div class="collapse show" id="children"> <ul> <li> <b>access</b> Model representation for configuration affecting access control and auditing of access. </li> <ul> <li> <a href="access/audit/index.html" class="deprecated">audit</a> The management audit logging top-level resource. </li> <li> <a href="access/authorization/index.html" class="">authorization</a> The access control definitions defining the access management restrictions. </li> <li> <a href="access/identity/index.html" class="">identity</a> Identity definition for management actions. </li> </ul> <li> <b>management-interface</b> Interfaces exposed by the management services to allow external callers to perform management tasks. </li> <ul> <li> <a href="management-interface/http-interface/index.html" class="deprecated">http-interface</a> Configuration of the server's HTTP management interface </li> <li> <a href="management-interface/native-interface/index.html" class="deprecated">native-interface</a> Configuration of the server's native management interface </li> <li> <a href="management-interface/native-remoting-interface/index.html" class="deprecated">native-remoting-interface</a> Configuration of the server's native management interface using a connector from the remoting subsystem. </li> </ul> <li> <b>service</b> Management services. </li> <ul> <li> <a href="service/configuration-changes/index.html" class="">configuration-changes</a> Service to store and list configuration changes. </li> <li> <a href="service/management-operations/index.html" class="">management-operations</a> Execution of management operations. </li> </ul> </ul> </div> </div> <div class="page-header"> <h4 class="btn btn-secondary" data-toggle="collapse" data-target="#operations">Operations (1)</h4> <div class="collapse show" id="operations"> <ul> <li> <a id="op-read-boot-errors" href="#op-read-boot-errors" data-toggle="collapse" data-target="#operation-read-boot-errors" class="">read-boot-errors</a> List all errors that occurred during boot. <div id="operation-read-boot-errors" class="collapse"> <div class="panel panel-primary"> <div class="panel-heading"> <h4 class="panel-title">Reply properties</h4> </div> <div class="panel-body"> <dl> <dt>type</dt> <dd>LIST</dd> <dt>Value Type</dt> <dd><div class="highlight"> <pre><code class="language-json" data-lang="json">{
+    "failed-operation" => {
+        "type" => OBJECT,
+        "description" => "Operation that caused the failure.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "value-type" => {
+            "operation" => {
+                "type" => STRING,
+                "description" => "Name of the failing operation.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1L,
+                "max-length" => 2147483647L
+            },
+            "address" => {
+                "type" => LIST,
+                "description" => "Address of the failing operation.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 0L,
+                "max-length" => 2147483647L,
+                "value-type" => PROPERTY
+            }
+        }
+    },
+    "failure-description" => {
+        "type" => STRING,
+        "description" => "String representation of the failure description associated with the operation.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "failed-services" => {
+        "type" => LIST,
+        "description" => "Services that failed during execution of the operation.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 0L,
+        "max-length" => 2147483647L,
+        "value-type" => STRING
+    },
+    "services-missing-dependencies" => {
+        "type" => LIST,
+        "description" => "Services that could not be started during execution of the operation due to missing dependencies.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 0L,
+        "max-length" => 2147483647L,
+        "value-type" => STRING
+    },
+    "missing-transitive-dependency-problems" => {
+        "type" => OBJECT,
+        "description" => "Missing transitive dependency issues found during execution of the operation.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "value-type" => {
+            "services-missing-transitive-dependencies" => {
+                "type" => LIST,
+                "description" => "Services that had a missing transitive dependency.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 0L,
+                "max-length" => 2147483647L,
+                "value-type" => STRING
+            },
+            "possible-causes" => {
+                "type" => LIST,
+                "description" => "Services that are missing and may be the cause of the missing transitive dependency.",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 0L,
+                "max-length" => 2147483647L,
+                "value-type" => STRING
+            }
+        }
+    }
+}</code></pre> </div> </dd> </dl> </div> </div> </div> </li> </ul> </div> </div> <hr> <footer> <p>&copy; Red Hat 2023</p> </footer> </div> <script src="../../js/vendor/jquery-3.4.1.slim.min.js"></script> <script>window.jQuery || document.write('<script src="../../js/vendor/jquery-3.4.1.slim.min.js"><\/script>')</script> <script src="../../js/vendor/bootstrap.bundle.min.js"></script> <script src="../../js/main.js"></script> <script src="../../js/vendor/ie10-viewport-bug-workaround.js"></script> </body> </html>
