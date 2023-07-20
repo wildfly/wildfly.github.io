@@ -443,8 +443,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>Galleon Documentation</h1>
 <div class="details">
 <span id="author" class="author">Alexey Loubyansky, Jean-François Denise</span><br>
-<span id="revnumber">version 5.0.8.Final,</span>
-<span id="revdate">2023-02-27</span>
+<span id="revnumber">version 5.2.0.Final,</span>
+<span id="revdate">2023-07-05</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -7391,7 +7391,7 @@ Option values are not necessarily <code>true</code> or <code>false</code>, they 
 <pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.jboss.galleon&lt;/groupId&gt;
     &lt;artifactId&gt;galleon-maven-plugin&lt;/artifactId&gt;
-    &lt;version&gt;5.0.8.Final&lt;/version&gt;
+    &lt;version&gt;5.2.0.Final&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -7418,7 +7418,7 @@ Option values are not necessarily <code>true</code> or <code>false</code>, they 
 <h4 id="_galleoninstall_feature_pack"><a class="anchor" href="#_galleoninstall_feature_pack"></a><a class="link" href="#_galleoninstall_feature_pack">13.1.1. galleon:install-feature-pack</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.jboss.galleon:galleon-maven-plugin:5.0.8.Final:install-feature-pack</p>
+org.jboss.galleon:galleon-maven-plugin:5.2.0.Final:install-feature-pack</p>
 </div>
 </div>
 <div class="sect3">
@@ -7803,7 +7803,7 @@ Specifies whether installing the feature pack should be skipped.</p>
 <h4 id="_galleonprovision"><a class="anchor" href="#_galleonprovision"></a><a class="link" href="#_galleonprovision">13.2.1. galleon:provision</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.jboss.galleon:galleon-maven-plugin:5.0.8.Final:provision</p>
+org.jboss.galleon:galleon-maven-plugin:5.2.0.Final:provision</p>
 </div>
 </div>
 <div class="sect3">
@@ -8259,7 +8259,7 @@ Specifies whether the provisioning should be skipped.</p>
 <h4 id="_galleonprovision_file"><a class="anchor" href="#_galleonprovision_file"></a><a class="link" href="#_galleonprovision_file">13.3.1. galleon:provision-file</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.jboss.galleon:galleon-maven-plugin:5.0.8.Final:provision-file</p>
+org.jboss.galleon:galleon-maven-plugin:5.2.0.Final:provision-file</p>
 </div>
 </div>
 <div class="sect3">
@@ -9379,6 +9379,25 @@ In order to remove the reference to the settings file call: <em>maven reset-sett
 NB: Any other cli maven configuration items will be overridden when a settings xml file is set.<br>
 NB: If no local repository is set in settings file, the local repository (default or configured) is used.</p>
 </div>
+<div class="paragraph">
+<p>The following default repositories are enabled if not already present in the enabled profiles:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>maven-central</code>: <code><a href="https://repo1.maven.org/maven2/" class="bare">https://repo1.maven.org/maven2/</a></code></p>
+</li>
+<li>
+<p><code>jboss-public-repository-group</code>: <code><a href="https://repository.jboss.org/nexus/content/groups/public/" class="bare">https://repository.jboss.org/nexus/content/groups/public/</a></code></p>
+</li>
+<li>
+<p><code>jboss-ga</code>: <code><a href="https://maven.repository.redhat.com/ga/" class="bare">https://maven.repository.redhat.com/ga/</a></code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>NB: These default repositories can be mirrored by using their ids.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_adding_new_remote_repositories"><a class="anchor" href="#_adding_new_remote_repositories"></a><a class="link" href="#_adding_new_remote_repositories">15.2. Adding new remote repositories</a></h3>
@@ -9470,7 +9489,7 @@ applies when fetching explicitly feature-packs.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 5.0.8.Final<br>
+Version 5.2.0.Final<br>
 Last updated 2023-02-20 15:18:16 +0100
 </div>
 </div>
