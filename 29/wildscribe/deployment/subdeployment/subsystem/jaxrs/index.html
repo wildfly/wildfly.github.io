@@ -1,0 +1,37 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <title>WildFly Full 29 Model Reference</title> <meta name="description" content=""> <link rel="stylesheet" href="../../../../css/bootstrap.min.css"> <link rel="stylesheet" href="../../../../css/bootstrap-reboot.min.css"> <link rel="stylesheet" href="../../../../css/main.css"> </head> <body> <div class="container"> <div class="masthead"> <h3 class="text-muted my-3">WildFly Full 29 Model Reference</h3> </div> <ol class="breadcrumb"> <li class="breadcrumb-item"> <a href="../../../../index.html">home</a> </li> <li class="breadcrumb-item"> <a href="../../../../deployment/index.html">deployment</a> </li> <li class="breadcrumb-item"> <a href="../../../../deployment/subdeployment/index.html">subdeployment</a> </li> <li class="breadcrumb-item active">subsystem=jaxrs</li> </ol> <div class="well"> <p>The configuration of the Jakarta RESTful Web Services subsystem.</p> </div> <div class="alert alert-info" role="alert"> <strong>Runtime only resource</strong> This resource is runtime only and doesn't have any persistent configuration. </div> <div class="page-header"> <h4 class="btn btn-secondary" data-toggle="collapse" data-target="#children">Children (1)</h4> <div class="collapse show" id="children"> <ul> <li> <a href="rest-resource/index.html" class="">rest-resource</a> REST Resources of the deployment. </li> </ul> </div> </div> <div class="page-header"> <h4 class="btn btn-secondary" data-toggle="collapse" data-target="#operations">Operations (1)</h4> <div class="collapse show" id="operations"> <ul> <li> <a id="op-show-resources" href="#op-show-resources" data-toggle="collapse" data-target="#operation-show-resources" class="deprecated">show-resources</a> List all JAXRS resources of deployment. <div id="operation-show-resources" class="collapse"> <div class="alert alert-danger"> <strong>Deprecated</strong> Since 2.0.0 <div>The show-resources() operation is deprecated, use read-resource() instead.</div> </div> <div class="panel panel-primary"> <div class="panel-heading"> <h4 class="panel-title">Reply properties</h4> </div> <div class="panel-body"> <dl> <dt>type</dt> <dd>LIST</dd> <dt>Value Type</dt> <dd><div class="highlight"> <pre><code class="language-json" data-lang="json">{"jaxrs-resource" => {
+    "type" => OBJECT,
+    "description" => "Jakarta RESTful Web Services Resource for the current deployment.",
+    "expressions-allowed" => false,
+    "required" => false,
+    "nillable" => true,
+    "value-type" => {
+        "resource-class" => {
+            "type" => STRING,
+            "description" => "Class for the Jakarta RESTful Web Services resource.",
+            "expressions-allowed" => false,
+            "required" => false,
+            "nillable" => true,
+            "min-length" => 1L,
+            "max-length" => 2147483647L
+        },
+        "resource-path" => {
+            "type" => STRING,
+            "description" => "Path of the Jakarta RESTful Web Services resource.",
+            "expressions-allowed" => false,
+            "required" => false,
+            "nillable" => true,
+            "min-length" => 1L,
+            "max-length" => 2147483647L
+        },
+        "resource-methods" => {
+            "type" => LIST,
+            "description" => "Annotated methods for the Jakarta RESTful Web Services resource.",
+            "expressions-allowed" => false,
+            "required" => true,
+            "nillable" => false,
+            "min-length" => 0L,
+            "max-length" => 2147483647L,
+            "value-type" => STRING
+        }
+    }
+}}</code></pre> </div> </dd> </dl> </div> </div> </div> </li> </ul> </div> </div> <hr> <footer> <p>&copy; Red Hat 2023</p> </footer> </div> <script src="../../../../js/vendor/jquery-3.4.1.slim.min.js"></script> <script>window.jQuery || document.write('<script src="../../../../js/vendor/jquery-3.4.1.slim.min.js"><\/script>')</script> <script src="../../../../js/vendor/bootstrap.bundle.min.js"></script> <script src="../../../../js/main.js"></script> <script src="../../../../js/vendor/ie10-viewport-bug-workaround.js"></script> </body> </html>
