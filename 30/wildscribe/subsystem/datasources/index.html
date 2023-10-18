@@ -1,0 +1,233 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <title>WildFly Full 30 Model Reference</title> <meta name="description" content=""> <link rel="stylesheet" href="../../css/bootstrap.min.css"> <link rel="stylesheet" href="../../css/bootstrap-reboot.min.css"> <link rel="stylesheet" href="../../css/main.css"> </head> <body> <div class="container"> <div class="masthead"> <h3 class="text-muted my-3">WildFly Full 30 Model Reference</h3> </div> <ol class="breadcrumb"> <li class="breadcrumb-item"> <a href="../../index.html">home</a> </li> <li class="breadcrumb-item active">subsystem=datasources</li> </ol> <div class="well"> <p>The data-sources subsystem, used to declare JDBC data-sources</p> </div> <div class="page-header"> <h4 class="btn btn-secondary" data-toggle="collapse" data-target="#children">Children (3)</h4> <div class="collapse show" id="children"> <ul> <li> <b>data-source</b> A JDBC data-source configuration </li> <ul> <li> <a href="data-source/ExampleDS/index.html" class="">ExampleDS</a> A JDBC data-source configuration </li> </ul> <li> <a href="jdbc-driver/index.html" class="">jdbc-driver</a> Service that make a JDBC driver available for use in the runtime </li> <li> <a href="xa-data-source/index.html" class="">xa-data-source</a> A JDBC XA data-source configuration </li> </ul> </div> </div> <div class="page-header"> <h4 class="btn btn-secondary" data-toggle="collapse" data-target="#attributes">Attributes (1)</h4> <div class="collapse show" id="attributes"> <div class="panel"> <ul> <li> <a id="attr-installed-drivers" href="#attr-installed-drivers" data-toggle="collapse" data-target="#attribute-installed-drivers" class="">installed-drivers</a> List of JDBC drivers that have been installed in the runtime </li> <div id="attribute-installed-drivers" class="collapse"> <div class="table-responsive"> <table class="table table-striped table-hover"> <thead> <tr> <th>Attribute</th> <th>Value</th> </tr> </thead> <tr> <td> <b>Type</b> </td> <td> LIST </td> </tr> <tr> <td> <b>Nillable</b> </td> <td> false </td> </tr> <tr> <td> <b>Expressions Allowed</b> </td> <td> false </td> </tr> <tr> <td> <b>Storage</b> </td> <td> runtime </td> </tr> <tr> <td> <b>Access Type</b> </td> <td> read-only </td> </tr> </table> </div> </div> </ul> </div> </div> </div> <div class="page-header"> <h4 class="btn btn-secondary" data-toggle="collapse" data-target="#operations">Operations (4)</h4> <div class="collapse show" id="operations"> <ul> <li> <a id="op-add" href="#op-add" data-toggle="collapse" data-target="#operation-add" class="">add</a> Adds the data-sources subsystem <div id="operation-add" class="collapse"> </div> </li> <li> <a id="op-get-installed-driver" href="#op-get-installed-driver" data-toggle="collapse" data-target="#operation-get-installed-driver" class="">get-installed-driver</a> Get a description of an installed driver <div id="operation-get-installed-driver" class="collapse"> <table class="table table-striped"> <thead> <tr> <th>Request Parameter</th> <th>Type</th> <th>Required</th> <th>Expressions Allowed</th> <th>Default value</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>driver-name</td> <td>STRING</td> <td>true</td> <td>false</td> <td></td> <td>Defines the JDBC driver the datasource should use. It is a symbolic name matching the the name of installed driver. In case the driver is deployed as jar, the name is the name of deployment unit</td> </tr> </tbody> </table> <div class="panel panel-primary"> <div class="panel-heading"> <h4 class="panel-title">Reply properties</h4> </div> <div class="panel-body"> <dl> <dt>type</dt> <dd>OBJECT</dd> <dt>Value Type</dt> <dd><div class="highlight"> <pre><code class="language-json" data-lang="json">{
+    "deployment-name" => {
+        "type" => STRING,
+        "description" => "The name of the deployment unit from which the driver was loaded",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1L,
+        "max-length" => 2147483647L,
+        "deprecated" => {
+            "since" => "6.0.0",
+            "reason" => "This attribute is no longer used"
+        }
+    },
+    "driver-module-name" => {
+        "type" => STRING,
+        "description" => "The name of the module from which the driver was loaded, if it was loaded from the module path",
+        "expressions-allowed" => true,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "module-slot" => {
+        "type" => STRING,
+        "description" => "The slot of the module from which the driver was loaded, if it was loaded from the module path",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "driver-class-name" => {
+        "type" => STRING,
+        "description" => "The fully qualified class name of the java.sql.Driver implementation",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "driver-datasource-class-name" => {
+        "type" => STRING,
+        "description" => "The fully qualified class name of the javax.sql.DataSource implementation",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "driver-xa-datasource-class-name" => {
+        "type" => STRING,
+        "description" => "The fully qualified class name of the javax.sql.XADataSource implementation",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "driver-major-version" => {
+        "type" => INT,
+        "description" => "The driver's major version number",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true
+    },
+    "driver-minor-version" => {
+        "type" => INT,
+        "description" => "The driver's minor version number",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true
+    },
+    "jdbc-compliant" => {
+        "type" => BOOLEAN,
+        "description" => "Whether or not the driver is JDBC compliant",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "deprecated" => {
+            "since" => "6.0.0",
+            "reason" => "This attribute is no longer used"
+        }
+    },
+    "profile" => {
+        "type" => STRING,
+        "description" => "Domain Profile in which driver is defined. Null in case of standalone server",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1L,
+        "max-length" => 2147483647L,
+        "deprecated" => {
+            "since" => "4.0.0",
+            "reason" => "The server's profile can be determined by the profile-name attribute on the server's root resource."
+        }
+    },
+    "driver-name" => {
+        "type" => STRING,
+        "description" => "Defines the JDBC driver the datasource should use. It is a symbolic name matching the the name of installed driver. In case the driver is deployed as jar, the name is the name of deployment unit",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "datasource-class-info" => {
+        "type" => LIST,
+        "description" => "The available properties for the datasource-class, and xa-datasource-class for the jdbc-driver",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 0L,
+        "max-length" => 2147483647L,
+        "value-type" => OBJECT
+    }
+}</code></pre> </div> </dd> </dl> </div> </div> </div> </li> <li> <a id="op-installed-drivers-list" href="#op-installed-drivers-list" data-toggle="collapse" data-target="#operation-installed-drivers-list" class="">installed-drivers-list</a> installed-drivers-list <div id="operation-installed-drivers-list" class="collapse"> <div class="panel panel-primary"> <div class="panel-heading"> <h4 class="panel-title">Reply properties</h4> </div> <div class="panel-body"> <dl> <dt>type</dt> <dd>LIST</dd> <dt>Value Type</dt> <dd><div class="highlight"> <pre><code class="language-json" data-lang="json">{
+    "deployment-name" => {
+        "type" => STRING,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1L,
+        "max-length" => 2147483647L,
+        "deprecated" => {
+            "since" => "6.0.0",
+            "reason" => "installed-drivers-list"
+        }
+    },
+    "driver-module-name" => {
+        "type" => STRING,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => true,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "module-slot" => {
+        "type" => STRING,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "driver-class-name" => {
+        "type" => STRING,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "driver-datasource-class-name" => {
+        "type" => STRING,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "driver-xa-datasource-class-name" => {
+        "type" => STRING,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "driver-major-version" => {
+        "type" => INT,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true
+    },
+    "driver-minor-version" => {
+        "type" => INT,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true
+    },
+    "jdbc-compliant" => {
+        "type" => BOOLEAN,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "deprecated" => {
+            "since" => "6.0.0",
+            "reason" => "installed-drivers-list"
+        }
+    },
+    "profile" => {
+        "type" => STRING,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1L,
+        "max-length" => 2147483647L,
+        "deprecated" => {
+            "since" => "4.0.0",
+            "reason" => "installed-drivers-list"
+        }
+    },
+    "driver-name" => {
+        "type" => STRING,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1L,
+        "max-length" => 2147483647L
+    },
+    "datasource-class-info" => {
+        "type" => LIST,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 0L,
+        "max-length" => 2147483647L,
+        "value-type" => OBJECT
+    }
+}</code></pre> </div> </dd> </dl> </div> </div> </div> </li> <li> <a id="op-remove" href="#op-remove" data-toggle="collapse" data-target="#operation-remove" class="">remove</a> Removes the data-sources subsystem <div id="operation-remove" class="collapse"> </div> </li> </ul> </div> </div> <hr> <footer> <p>&copy; Red Hat 2023</p> </footer> </div> <script src="../../js/vendor/jquery-3.4.1.slim.min.js"></script> <script>window.jQuery || document.write('<script src="../../js/vendor/jquery-3.4.1.slim.min.js"><\/script>')</script> <script src="../../js/vendor/bootstrap.bundle.min.js"></script> <script src="../../js/main.js"></script> <script src="../../js/vendor/ie10-viewport-bug-workaround.js"></script> </body> </html>
