@@ -444,7 +444,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="details">
 <span id="author" class="author">WildFly team</span><br>
 <span id="revnumber">version 30.0.0.Final,</span>
-<span id="revdate">2023-10-18T14:38:35Z</span>
+<span id="revdate">2023-11-06T22:35:21Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">WildFly and WildFly Preview</div>
@@ -594,7 +594,7 @@ implementation. Most EE 10 and MicroProfile applications are expected to run wel
 certified compatible.</p>
 </li>
 <li>
-<p>The standard configuration files do not configure an embedded messaging broker. Instead they configure the
+<p>The standard configuration files do not configure an embedded messaging broker. Instead, they configure the
 <a href="Admin_Guide.html#Messaging"><code>messaging-activemq</code> subsystem</a> to provide connections to a remote ActiveMQ Artemis broker. (It&#8217;s a task for the user to
 run such a broker or to update the config to integrate with a different broker.) We want WildFly out-of-the-box to be
 more of a cloud native appserver and having an embedded messaging broker in the default configuration is not cloud native.
@@ -605,26 +605,12 @@ embedded broker is still supported. We&#8217;ve added to the $WILDFLY_HOME/docs/
 <code>standalone-activemq-embedded.xml</code> configuration showing its use.</p>
 </li>
 <li>
-<p>WildFly Preview includes a tech preview version of a new <a href="Admin_Guide.html#Micrometer_Metrics">Micrometer subsystem</a>.</p>
-</li>
-<li>
 <p>The Hibernate ORM integration used by the <a href="Developer_Guide.html#JPA_Reference_Guide">JPA subsystem&#8217;s</a> Hibernate Search feature supports using outbox polling as coordination strategy for automatic indexing.</p>
-</li>
-<li>
-<p>The <code>jaxrs</code> Galleon layer depends on (and thus brings in) the <code>microprofile-rest-client</code> layer. This dependency is optional, so it can be excluded when provisioning a custom WildFly Preview installation.</p>
-</li>
-<li>
-<p>RESTEasy Spring support only comes with WildFly Preview. Typically standard WildFly provides RESTEasy Spring support, but at the time of the WildFly 27 release the Spring libraries it integrates with had not yet
-produced final releases. So to avoid possible incompatible changes in a future standard WildFly release, support
-for RESTEasy Spring was moved to WildFly Preview only.</p>
 </li>
 <li>
 <p>The extensions providing the legacy subsystems 'cmp', 'config-admin', 'jacorb', 'jaxr', 'jsr-77', 'messaging' (HornetQ based),
 'security' (not 'elytron'), and 'web' (not 'undertow') are removed. These were only used for domain mode to allow a Domain Controller to control
 hosts running much earlier WildFly versions where servers using these subsystems were supported.</p>
-</li>
-<li>
-<p>Alternate JPA and JSF providers that you can install with standard WildFly are not supported.</p>
 </li>
 </ul>
 </div>
@@ -634,7 +620,7 @@ hosts running much earlier WildFly versions where servers using these subsystems
 <div id="footer">
 <div id="footer-text">
 Version 30.0.0.Final<br>
-Last updated 2023-07-18 16:49:40 -0500
+Last updated 2023-11-06 16:34:42 -0600
 </div>
 </div>
 </body>
