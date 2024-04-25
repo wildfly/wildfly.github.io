@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="generator" content="Asciidoctor 2.0.20">
 <meta name="author" content="Alexey Loubyansky, Jean-François Denise">
 <title>Galleon Documentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
@@ -85,10 +85,10 @@ code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;
 ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
 ul,ol{margin-left:1.5em}
 ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
-ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
-ul.square{list-style-type:square}
 ul.circle{list-style-type:circle}
 ul.disc{list-style-type:disc}
+ul.square{list-style-type:square}
+ul.circle ul:not([class]),ul.disc ul:not([class]),ul.square ul:not([class]){list-style:inherit}
 ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
 dl dt{margin-bottom:.3125em;font-weight:bold}
 dl dd{margin-bottom:1.25em}
@@ -209,13 +209,10 @@ table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
 .admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
 .exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
-.exampleblock>.content>:first-child{margin-top:0}
-.exampleblock>.content>:last-child{margin-bottom:0}
 .sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
-.sidebarblock>:first-child{margin-top:0}
-.sidebarblock>:last-child{margin-bottom:0}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
-.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content>:first-child,.sidebarblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child,.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
 .literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
@@ -394,7 +391,7 @@ b.conum *{color:inherit!important}
 dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
 h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
 p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
-p,blockquote,dt,td.content,span.alt,summary{font-size:1.0625rem}
+p,blockquote,dt,td.content,td.hdlist1,span.alt,summary{font-size:1.0625rem}
 p{margin-bottom:1.25rem}
 .sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
 .exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
@@ -443,8 +440,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>Galleon Documentation</h1>
 <div class="details">
 <span id="author" class="author">Alexey Loubyansky, Jean-François Denise</span><br>
-<span id="revnumber">version 5.2.0.Final,</span>
-<span id="revdate">2023-07-05</span>
+<span id="revnumber">version 6.0.0.Final,</span>
+<span id="revdate">2024-04-09</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -524,76 +521,81 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_built_in_and_product_specific_options">12.2. Built-in and product-specific options</a></li>
 </ul>
 </li>
-<li><a href="#_maven_plugin">13. Maven plugin</a>
+<li><a href="#_stability_level">13. Stability Level</a>
 <ul class="sectlevel2">
-<li><a href="#_install_feature_pack">13.1. install-feature-pack</a></li>
-<li><a href="#_provision">13.2. provision</a></li>
-<li><a href="#_provision_file">13.3. provision-file</a></li>
+<li><a href="#_default_stability_levels">13.1. Default stability levels</a></li>
+<li><a href="#_stability_levels_can_be_overridden_at_provisioning_time">13.2. Stability levels can be overridden at provisioning time</a></li>
 </ul>
 </li>
-<li><a href="#_galleon_cli_tool">14. Galleon CLI tool</a>
+<li><a href="#_maven_plugin">14. Maven plugin</a>
 <ul class="sectlevel2">
-<li><a href="#_feature_pack">14.1. Feature-pack</a></li>
-<li><a href="#_universe_feature_pack_location_fpl">14.2. Universe feature-pack location (FPL)</a></li>
-<li><a href="#_universe_feature_pack_id_fpid">14.3. Universe feature-pack id (FPID)</a></li>
-<li><a href="#_listing_latest_available_feature_packs">14.4. Listing latest available feature-packs</a></li>
-<li><a href="#_searching_for_feature_packs">14.5. Searching for feature-packs</a></li>
-<li><a href="#_installing_a_feature_pack">14.6. Installing a feature-pack</a></li>
-<li><a href="#_installing_a_subset_of_feature_pack_configurations">14.7. Installing a subset of feature-pack configurations</a></li>
-<li><a href="#_installing_feature_pack_layers">14.8. Installing feature-pack layers</a></li>
-<li><a href="#_un_installing_a_feature_pack">14.9. Un-installing a feature-pack</a></li>
-<li><a href="#_un_doing_the_last_provisioning_command">14.10. Un-doing the last provisioning command</a></li>
-<li><a href="#_patching_an_installation">14.11. Patching an installation</a></li>
-<li><a href="#_un_installing_a_patch">14.12. Un-installing a patch</a></li>
-<li><a href="#_checking_for_updates">14.13. Checking for updates</a></li>
-<li><a href="#_updating_an_installation">14.14. Updating an installation</a></li>
-<li><a href="#_retrieving_changes_applied_to_an_installation">14.15. Retrieving changes applied to an installation</a></li>
-<li><a href="#_persisting_changes_applied_to_an_installation">14.16. Persisting changes applied to an installation</a></li>
-<li><a href="#_observing_an_installation">14.17. Observing an installation</a></li>
-<li><a href="#_observing_a_feature_pack">14.18. Observing a feature-pack</a></li>
-<li><a href="#_optional_packages">14.19. Optional packages</a></li>
-<li><a href="#_managing_the_local_cache_of_feature_packs">14.20. Managing the local cache of feature-packs</a></li>
-<li><a href="#_exporting_an_installation_to_xml">14.21. Exporting an installation to xml</a></li>
-<li><a href="#_provisioning_an_installation_from_xml">14.22. Provisioning an installation from xml</a></li>
-<li><a href="#_managing_the_history_of_an_installation">14.23. Managing the history of an installation</a></li>
-<li><a href="#_managing_installation_universes">14.24. Managing installation universes</a></li>
-<li><a href="#_directory_option">14.25. Directory option</a></li>
-<li><a href="#_exploring_an_installation_or_a_feature_pack">14.26. Exploring an installation or a feature-pack.</a></li>
-<li><a href="#_searching_the_current_state">14.27. Searching the current state</a></li>
-<li><a href="#_creating_a_new_state_or_editing_an_existing_state_from_an_installation_or_provisioning_xml_file">14.28. Creating a new state (or editing an existing state from an installation or provisioning XML file)</a></li>
-<li><a href="#_exporting_or_provisioning_the_current_state">14.29. Exporting or provisioning the current state</a></li>
-<li><a href="#_adding_a_feature_pack">14.30. Adding a feature-pack</a></li>
-<li><a href="#_removing_a_feature_pack">14.31. Removing a feature-pack</a></li>
-<li><a href="#_including_a_default_configuration">14.32. Including a default configuration</a></li>
-<li><a href="#_removing_an_included_default_configuration">14.33. Removing an included default configuration</a></li>
-<li><a href="#_excluding_a_default_configuration">14.34. Excluding a default configuration</a></li>
-<li><a href="#_removing_an_excluded_default_configuration">14.35. Removing an excluded default configuration</a></li>
-<li><a href="#_including_layers_into_a_configuration">14.36. Including layers into a configuration</a></li>
-<li><a href="#_removing_included_layers_from_a_configuration">14.37. Removing included layers from a configuration</a></li>
-<li><a href="#_excluding_layers_from_a_configuration">14.38. Excluding layers from a configuration</a></li>
-<li><a href="#_removing_excluded_layers_from_a_configuration">14.39. Removing excluded layers from a configuration</a></li>
-<li><a href="#_reseting_a_configuration">14.40. Reseting a configuration</a></li>
-<li><a href="#_including_a_default_package">14.41. Including a default package</a></li>
-<li><a href="#_removing_an_included_default_package">14.42. Removing an included default package</a></li>
-<li><a href="#_excluding_a_default_package">14.43. Excluding a default package</a></li>
-<li><a href="#_removing_an_excluded_default_package">14.44. Removing an excluded default package</a></li>
-<li><a href="#_adding_a_new_feature">14.45. Adding a new feature</a></li>
-<li><a href="#_removing_a_feature">14.46. Removing a feature</a></li>
-<li><a href="#_managing_universes">14.47. Managing universes</a></li>
+<li><a href="#_provision">14.1. provision</a></li>
+<li><a href="#_provision_file">14.2. provision-file</a></li>
 </ul>
 </li>
-<li><a href="#_cli_tool_maven_configuration">15. CLI tool Maven configuration</a>
+<li><a href="#_galleon_cli_tool">15. Galleon CLI tool</a>
 <ul class="sectlevel2">
-<li><a href="#_relying_on_maven_settings">15.1. Relying on maven settings</a></li>
-<li><a href="#_adding_new_remote_repositories">15.2. Adding new remote repositories</a></li>
-<li><a href="#_default_repository_policies">15.3. Default Repository policies</a></li>
-<li><a href="#_advanced_maven_configuration">15.4. Advanced maven configuration</a></li>
-<li><a href="#_local_repository">15.5. Local repository</a></li>
-<li><a href="#_offline_mode">15.6. Offline mode</a></li>
-<li><a href="#_display_maven_configuration">15.7. Display maven configuration</a></li>
-<li><a href="#_impact_on_universe">15.8. Impact on Universe</a></li>
-<li><a href="#_resolving_feature_packs">15.9. Resolving feature-packs</a></li>
-<li><a href="#_maven_tracing">15.10. Maven tracing</a></li>
+<li><a href="#_feature_pack">15.1. Feature-pack</a></li>
+<li><a href="#_universe_feature_pack_location_fpl">15.2. Universe feature-pack location (FPL)</a></li>
+<li><a href="#_universe_feature_pack_id_fpid">15.3. Universe feature-pack id (FPID)</a></li>
+<li><a href="#_listing_latest_available_feature_packs">15.4. Listing latest available feature-packs</a></li>
+<li><a href="#_searching_for_feature_packs">15.5. Searching for feature-packs</a></li>
+<li><a href="#_installing_a_feature_pack">15.6. Installing a feature-pack</a></li>
+<li><a href="#_installing_a_subset_of_feature_pack_configurations">15.7. Installing a subset of feature-pack configurations</a></li>
+<li><a href="#_installing_feature_pack_layers">15.8. Installing feature-pack layers</a></li>
+<li><a href="#_un_installing_a_feature_pack">15.9. Un-installing a feature-pack</a></li>
+<li><a href="#_un_doing_the_last_provisioning_command">15.10. Un-doing the last provisioning command</a></li>
+<li><a href="#_patching_an_installation">15.11. Patching an installation</a></li>
+<li><a href="#_un_installing_a_patch">15.12. Un-installing a patch</a></li>
+<li><a href="#_checking_for_updates">15.13. Checking for updates</a></li>
+<li><a href="#_updating_an_installation">15.14. Updating an installation</a></li>
+<li><a href="#_retrieving_changes_applied_to_an_installation">15.15. Retrieving changes applied to an installation</a></li>
+<li><a href="#_persisting_changes_applied_to_an_installation">15.16. Persisting changes applied to an installation</a></li>
+<li><a href="#_observing_an_installation">15.17. Observing an installation</a></li>
+<li><a href="#_observing_a_feature_pack">15.18. Observing a feature-pack</a></li>
+<li><a href="#_optional_packages">15.19. Optional packages</a></li>
+<li><a href="#_managing_the_local_cache_of_feature_packs">15.20. Managing the local cache of feature-packs</a></li>
+<li><a href="#_exporting_an_installation_to_xml">15.21. Exporting an installation to xml</a></li>
+<li><a href="#_provisioning_an_installation_from_xml">15.22. Provisioning an installation from xml</a></li>
+<li><a href="#_managing_the_history_of_an_installation">15.23. Managing the history of an installation</a></li>
+<li><a href="#_managing_installation_universes">15.24. Managing installation universes</a></li>
+<li><a href="#_directory_option">15.25. Directory option</a></li>
+<li><a href="#_exploring_an_installation_or_a_feature_pack">15.26. Exploring an installation or a feature-pack.</a></li>
+<li><a href="#_searching_the_current_state">15.27. Searching the current state</a></li>
+<li><a href="#_creating_a_new_state_or_editing_an_existing_state_from_an_installation_or_provisioning_xml_file">15.28. Creating a new state (or editing an existing state from an installation or provisioning XML file)</a></li>
+<li><a href="#_exporting_or_provisioning_the_current_state">15.29. Exporting or provisioning the current state</a></li>
+<li><a href="#_adding_a_feature_pack">15.30. Adding a feature-pack</a></li>
+<li><a href="#_removing_a_feature_pack">15.31. Removing a feature-pack</a></li>
+<li><a href="#_including_a_default_configuration">15.32. Including a default configuration</a></li>
+<li><a href="#_removing_an_included_default_configuration">15.33. Removing an included default configuration</a></li>
+<li><a href="#_excluding_a_default_configuration">15.34. Excluding a default configuration</a></li>
+<li><a href="#_removing_an_excluded_default_configuration">15.35. Removing an excluded default configuration</a></li>
+<li><a href="#_including_layers_into_a_configuration">15.36. Including layers into a configuration</a></li>
+<li><a href="#_removing_included_layers_from_a_configuration">15.37. Removing included layers from a configuration</a></li>
+<li><a href="#_excluding_layers_from_a_configuration">15.38. Excluding layers from a configuration</a></li>
+<li><a href="#_removing_excluded_layers_from_a_configuration">15.39. Removing excluded layers from a configuration</a></li>
+<li><a href="#_reseting_a_configuration">15.40. Reseting a configuration</a></li>
+<li><a href="#_including_a_default_package">15.41. Including a default package</a></li>
+<li><a href="#_removing_an_included_default_package">15.42. Removing an included default package</a></li>
+<li><a href="#_excluding_a_default_package">15.43. Excluding a default package</a></li>
+<li><a href="#_removing_an_excluded_default_package">15.44. Removing an excluded default package</a></li>
+<li><a href="#_adding_a_new_feature">15.45. Adding a new feature</a></li>
+<li><a href="#_removing_a_feature">15.46. Removing a feature</a></li>
+<li><a href="#_managing_universes">15.47. Managing universes</a></li>
+</ul>
+</li>
+<li><a href="#_cli_tool_maven_configuration">16. CLI tool Maven configuration</a>
+<ul class="sectlevel2">
+<li><a href="#_relying_on_maven_settings">16.1. Relying on maven settings</a></li>
+<li><a href="#_adding_new_remote_repositories">16.2. Adding new remote repositories</a></li>
+<li><a href="#_default_repository_policies">16.3. Default Repository policies</a></li>
+<li><a href="#_advanced_maven_configuration">16.4. Advanced maven configuration</a></li>
+<li><a href="#_local_repository">16.5. Local repository</a></li>
+<li><a href="#_offline_mode">16.6. Offline mode</a></li>
+<li><a href="#_display_maven_configuration">16.7. Display maven configuration</a></li>
+<li><a href="#_impact_on_universe">16.8. Impact on Universe</a></li>
+<li><a href="#_resolving_feature_packs">16.9. Resolving feature-packs</a></li>
+<li><a href="#_maven_tracing">16.10. Maven tracing</a></li>
 </ul>
 </li>
 </ul>
@@ -7341,6 +7343,18 @@ Option values are not necessarily <code>true</code> or <code>false</code>, they 
 <td class="tableblock halign-left valign-top"><p class="tableblock">Value set</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">config-stability-level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_stability_level">Stability level for configs</a>.
+This stability level is used to enable the stability level of all features present in the generated configurations.
+By default the configs stability level set in the feature-pack is used.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>default</code>, <code>community</code>, <code>preview</code>, <code>experimental</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">export-system-paths</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_protected_system_files">Store the system paths declared by Feature Packs in .galleon/systempaths.txt</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code> <em>(default)</em>, <code>true</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ignore-not-excluded-layers</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_excluding_layers_from_configuration_models">Suppresses the error when layers configured to be excluded would not have otherwise been installed</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code> <em>(default)</em>, <code>true</code></p></td>
@@ -7351,6 +7365,18 @@ Option values are not necessarily <code>true</code> or <code>false</code>, they 
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>all</code> <em>(default)</em>, <code>none</code>, <code>passive</code>, <code>passive+</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">package-stability-level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_stability_level">Stability level for packages</a>. This stability level is used to set the stability level of all provisioned packages.
+By default the packages stability level set in the feature-pack is used.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>default</code>, <code>community</code>, <code>preview</code>, <code>experimental</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">stability-level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_stability_level">Stability level for both configs and packages</a>. This option is a convenience
+allowing to set both the config and package stability level using a single option. It can&#8217;t be set when <code>config-stability-level</code> or <code>package-stability-level</code> are set</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>default</code>, <code>community</code>, <code>preview</code>, <code>experimental</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">store-input-provisioning-config</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_storing_input_provisioning_config">Store the provisioning config received as input in the generated .galleon/provisioning.xml file</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code> <em>(default)</em>, <code>true</code></p></td>
@@ -7359,11 +7385,6 @@ Option values are not necessarily <code>true</code> or <code>false</code>, they 
 <td class="tableblock halign-left valign-top"><p class="tableblock">version-convergence</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dependency_version_convergence">Disables or enables the dependency version convergence</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>first-processed</code> <em>(default)</em>, <code>fail</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">export-system-paths</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_protected_system_files">Store the system paths declared by Feature Packs in .galleon/systempaths.txt</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code> <em>(default)</em>, <code>true</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -7378,7 +7399,64 @@ Option values are not necessarily <code>true</code> or <code>false</code>, they 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_maven_plugin"><a class="anchor" href="#_maven_plugin"></a><a class="link" href="#_maven_plugin">13. Maven plugin</a></h2>
+<h2 id="_stability_level"><a class="anchor" href="#_stability_level"></a><a class="link" href="#_stability_level">13. Stability Level</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A level of stability can be associated to features and packages.</p>
+</div>
+<div class="paragraph">
+<p>Stability levels are ordered in the following way:</p>
+</div>
+<div class="paragraph">
+<p><code>default</code> (the higher level of stability) &gt; <code>community</code> &gt; <code>preview</code> &gt; <code>experimental</code> (the lower stability level)</p>
+</div>
+<div class="paragraph">
+<p>A feature-pack can contain features and packages at different level of stability, allowing to provision installations at different stability levels.</p>
+</div>
+<div class="sect2">
+<h3 id="_default_stability_levels"><a class="anchor" href="#_default_stability_levels"></a><a class="link" href="#_default_stability_levels">13.1. Default stability levels</a></h3>
+<div class="paragraph">
+<p>When building a feature-pack, the <code>&lt;feature-pack&gt;</code> XML element contained in the <code>feature-pack.xml</code> descriptor can include attributes to specify
+the default stability levels that will be enabled when using the feature-pack during provisioning.
+If no such stability levels exist, <code>default</code> level is assumed.</p>
+</div>
+<div class="paragraph">
+<p>The stability attributes are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>config-stability-level="&lt;default|community|preview|experimental&gt;"</code> attribute is used to declare the default stability level of the features present in the provisioned configurations.</p>
+</li>
+<li>
+<p><code>package-stability-level="&lt;default|community|preview|experimental&gt;"</code> attribute is used to declare the default stability level of the provisioned packages.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stability_levels_can_be_overridden_at_provisioning_time"><a class="anchor" href="#_stability_levels_can_be_overridden_at_provisioning_time"></a><a class="link" href="#_stability_levels_can_be_overridden_at_provisioning_time">13.2. Stability levels can be overridden at provisioning time</a></h3>
+<div class="paragraph">
+<p>It is possible to control the expected level of stability at provisioning time by means of the following Galleon options:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>config-stability-level=&lt;default|community|preview|experimental&gt;</code>: To enable a given stability level for the provisioned configurations.</p>
+</li>
+<li>
+<p><code>package-stability-level=&lt;default|community|preview|experimental&gt;</code>: To enable a given stability level for the provisioned packages.</p>
+</li>
+<li>
+<p><code>stability-level=&lt;default|community|preview|experimental&gt;</code>: An option to enable both configs and packages stability levels. It can&#8217;t be set when <code>config-stability-level</code> or <code>package-stability-level</code> are set.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_maven_plugin"><a class="anchor" href="#_maven_plugin"></a><a class="link" href="#_maven_plugin">14. Maven plugin</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The Maven plugin allows to install a specific feature-pack into a new location or an existing installation or provision an installation the consists of multiple feature-packs.</p>
@@ -7391,7 +7469,7 @@ Option values are not necessarily <code>true</code> or <code>false</code>, they 
 <pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.jboss.galleon&lt;/groupId&gt;
     &lt;artifactId&gt;galleon-maven-plugin&lt;/artifactId&gt;
-    &lt;version&gt;5.2.0.Final&lt;/version&gt;
+    &lt;version&gt;6.0.0.Final&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -7412,26 +7490,31 @@ Option values are not necessarily <code>true</code> or <code>false</code>, they 
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Unresolved directive in maven-plugin/index.adoc - include::../../../maven-plugin/target/generated-sources/plugin/install-feature-pack-mojo.adoc[]</p>
+</div>
 <div class="sect2">
-<h3 id="_install_feature_pack"><a class="anchor" href="#_install_feature_pack"></a><a class="link" href="#_install_feature_pack">13.1. install-feature-pack</a></h3>
+<h3 id="_provision"><a class="anchor" href="#_provision"></a><a class="link" href="#_provision">14.1. provision</a></h3>
 <div class="sect3">
-<h4 id="_galleoninstall_feature_pack"><a class="anchor" href="#_galleoninstall_feature_pack"></a><a class="link" href="#_galleoninstall_feature_pack">13.1.1. galleon:install-feature-pack</a></h4>
+<h4 id="_galleonprovision"><a class="anchor" href="#_galleonprovision"></a><a class="link" href="#_galleonprovision">14.1.1. galleon:provision</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.jboss.galleon:galleon-maven-plugin:5.2.0.Final:install-feature-pack</p>
+org.jboss.galleon:galleon-maven-plugin:6.0.0.Final:provision</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description"><a class="anchor" href="#_description"></a><a class="link" href="#_description">13.1.2. Description</a></h4>
+<h4 id="_description"><a class="anchor" href="#_description"></a><a class="link" href="#_description">14.1.2. Description</a></h4>
 <div class="paragraph">
-<p>This maven plugin installs a feature-pack into an empty directory
-or a directory that already contains an installation, in which case
-the product the feature-pack represents will be integrated into an
-existing installation.</p>
+<p>This maven plugin provisions an installation that consists of one
+or more feature-packs. If the target installation directory already
+contains an installation, the existing installation will be fully
+replaced with the newly provisioned one.
+&lt;p&gt;In other words, the configuration provided for this goal fully
+describes the state of the final installation.&lt;/p&gt;</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_attributes"><a class="anchor" href="#_attributes"></a><a class="link" href="#_attributes">13.1.3. Attributes</a></h4>
+<h4 id="_attributes"><a class="anchor" href="#_attributes"></a><a class="link" href="#_attributes">14.1.3. Attributes</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -7447,393 +7530,6 @@ existing installation.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content stretch">
 <caption class="title">Table 23. Required Parameters</caption>
-<colgroup>
-<col>
-<col>
-<col>
-<col>
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Type</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Since</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#installDir">[installDir]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>File</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The target installation directory.<br>
-<strong>Alias is</strong>: <code>install-dir</code>.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all fit-content stretch">
-<caption class="title">Table 24. Optional Parameters</caption>
-<colgroup>
-<col>
-<col>
-<col>
-<col>
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Type</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Since</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#customConfig">[customConfig]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>File</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Path to a file containing <code>config</code> that should be installed.<br>
-<strong>Alias is</strong>: <code>custom-config</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#excludedPackages">[excludedPackages]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Explicitly excluded packages from the installation.<br>
-<strong>Alias is</strong>: <code>excluded-packages</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#featurePack">[featurePack]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ArtifactItem</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Legacy Galleon 1.x feature-pack artifact coordinates as (groupId -
-artifactId - version) if not specified the feature-pack must be a
-transitive dependency of a feature-pack with the version specified.
-NOTE: either this parameter or 'location' must be configured.<br>
-<strong>Alias is</strong>: <code>feature-pack</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#includedConfigs">[includedConfigs]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Default feature-pack configs that should be included.<br>
-<strong>Alias is</strong>: <code>included-configs</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#includedPackages">[includedPackages]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Explicitly included packages to install.<br>
-<strong>Alias is</strong>: <code>included-packages</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#inheritConfigs">[inheritConfigs]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to inherit the default feature-pack configs.<br>
-<strong>Default value is</strong>: <code>true</code>.<br>
-<strong>Alias is</strong>: <code>inherit-configs</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#inheritPackages">[inheritPackages]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to install the default package set.<br>
-<strong>Default value is</strong>: <code>true</code>.<br>
-<strong>Alias is</strong>: <code>inherit-packages</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#location">[location]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Galleon2 feature-pack location NOTE: either this parameter or
-'feature-pack' must be configured.<br></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#pluginOptions">[pluginOptions]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Map</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Arbitrary plugin options recognized by the plugins attached to the
-feature-pack being installed.<br>
-<strong>Alias is</strong>: <code>plugin-options</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#recordState">[recordState]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to record provisioned state in .galleon directory.<br>
-<strong>Default value is</strong>: <code>true</code>.<br>
-<strong>Alias is</strong>: <code>record-state</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#skip">[skip]</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>4.2.6</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies whether installing the feature pack should be skipped.<br>
-<strong>Default value is</strong>: <code>false</code>.<br>
-<strong>User property is</strong>: <code>galleon.skip</code>.<br></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_parameter_details"><a class="anchor" href="#_parameter_details"></a><a class="link" href="#_parameter_details">13.1.4. Parameter Details</a></h4>
-<div class="paragraph">
-<p><a id="customConfig"></a> <strong>customConfig</strong><br>
-Path to a file containing <code>config</code> that should be installed.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.io.File</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>custom-config</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="excludedPackages"></a> <strong>excludedPackages</strong><br>
-Explicitly excluded packages from the installation.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.util.List</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>excluded-packages</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="featurePack"></a> <strong>featurePack</strong><br>
-Legacy Galleon 1.x feature-pack artifact coordinates as (groupId -
-artifactId - version) if not specified the feature-pack must be a
-transitive dependency of a feature-pack with the version specified.
-NOTE: either this parameter or 'location' must be configured.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>org.jboss.galleon.maven.plugin.util.ArtifactItem</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>feature-pack</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="includedConfigs"></a> <strong>includedConfigs</strong><br>
-Default feature-pack configs that should be included.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.util.List</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>included-configs</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="includedPackages"></a> <strong>includedPackages</strong><br>
-Explicitly included packages to install.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.util.List</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>included-packages</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="inheritConfigs"></a> <strong>inheritConfigs</strong><br>
-Whether to inherit the default feature-pack configs.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>boolean</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Default</strong>: <code>true</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>inherit-configs</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="inheritPackages"></a> <strong>inheritPackages</strong><br>
-Whether to install the default package set.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>boolean</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Default</strong>: <code>true</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>inherit-packages</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="installDir"></a> <strong>installDir</strong><br>
-The target installation directory.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.io.File</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>Yes</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>install-dir</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="location"></a> <strong>location</strong><br>
-Galleon2 feature-pack location NOTE: either this parameter or
-'feature-pack' must be configured.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.lang.String</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="pluginOptions"></a> <strong>pluginOptions</strong><br>
-Arbitrary plugin options recognized by the plugins attached to the
-feature-pack being installed.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>java.util.Map</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>plugin-options</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="recordState"></a> <strong>recordState</strong><br>
-Whether to record provisioned state in .galleon directory.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>boolean</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>Default</strong>: <code>true</code></p>
-</li>
-<li>
-<p><strong>Alias</strong>: <code>record-state</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a id="skip"></a> <strong>skip</strong><br>
-Specifies whether installing the feature pack should be skipped.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Type</strong>: <code>boolean</code></p>
-</li>
-<li>
-<p><strong>Since</strong>: <code>4.2.6</code></p>
-</li>
-<li>
-<p><strong>Required</strong>: <code>No</code></p>
-</li>
-<li>
-<p><strong>User Property</strong>: <code>galleon.skip</code></p>
-</li>
-<li>
-<p><strong>Default</strong>: <code>false</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_provision"><a class="anchor" href="#_provision"></a><a class="link" href="#_provision">13.2. provision</a></h3>
-<div class="sect3">
-<h4 id="_galleonprovision"><a class="anchor" href="#_galleonprovision"></a><a class="link" href="#_galleonprovision">13.2.1. galleon:provision</a></h4>
-<div class="paragraph">
-<p><strong>Full name:</strong>
-org.jboss.galleon:galleon-maven-plugin:5.2.0.Final:provision</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_description_2"><a class="anchor" href="#_description_2"></a><a class="link" href="#_description_2">13.2.2. Description</a></h4>
-<div class="paragraph">
-<p>This maven plugin provisions an installation that consists of one
-or more feature-packs. If the target installation directory already
-contains an installation, the existing installation will be fully
-replaced with the newly provisioned one.
-&lt;p&gt;In other words, the configuration provided for this goal fully
-describes the state of the final installation.&lt;/p&gt;</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_attributes_2"><a class="anchor" href="#_attributes_2"></a><a class="link" href="#_attributes_2">13.2.3. Attributes</a></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Requires a Maven project to be executed.</p>
-</li>
-<li>
-<p>Requires dependency resolution of artifacts in scope: <code>compile+runtime</code>.</p>
-</li>
-<li>
-<p>Binds by default to the <a href="http://maven.apache.org/ref/current/maven-core/lifecycles.html">lifecycle phase</a>: <code>process-test-resources</code>.</p>
-</li>
-</ul>
-</div>
-<table class="tableblock frame-all grid-all fit-content stretch">
-<caption class="title">Table 25. Required Parameters</caption>
 <colgroup>
 <col>
 <col>
@@ -7864,7 +7560,7 @@ describes the state of the final installation.&lt;/p&gt;</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all fit-content stretch">
-<caption class="title">Table 26. Optional Parameters</caption>
+<caption class="title">Table 24. Optional Parameters</caption>
 <colgroup>
 <col>
 <col>
@@ -7946,7 +7642,7 @@ universe-based feature-pack resolver at provisioning time.<br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_parameter_details_2"><a class="anchor" href="#_parameter_details_2"></a><a class="link" href="#_parameter_details_2">13.2.4. Parameter Details</a></h4>
+<h4 id="_parameter_details"><a class="anchor" href="#_parameter_details"></a><a class="link" href="#_parameter_details">14.1.4. Parameter Details</a></h4>
 <div class="paragraph">
 <p><a id="configs"></a> <strong>configs</strong><br>
 A list of custom configurations to install.</p>
@@ -8137,7 +7833,7 @@ Specifies whether the provisioning should be skipped.</p>
 </ul>
 </div>
 <table class="tableblock frame-all grid-all fit-content stretch">
-<caption class="title">Table 27. Feature-pack parameters</caption>
+<caption class="title">Table 25. Feature-pack parameters</caption>
 <colgroup>
 <col>
 <col>
@@ -8254,16 +7950,16 @@ Specifies whether the provisioning should be skipped.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_provision_file"><a class="anchor" href="#_provision_file"></a><a class="link" href="#_provision_file">13.3. provision-file</a></h3>
+<h3 id="_provision_file"><a class="anchor" href="#_provision_file"></a><a class="link" href="#_provision_file">14.2. provision-file</a></h3>
 <div class="sect3">
-<h4 id="_galleonprovision_file"><a class="anchor" href="#_galleonprovision_file"></a><a class="link" href="#_galleonprovision_file">13.3.1. galleon:provision-file</a></h4>
+<h4 id="_galleonprovision_file"><a class="anchor" href="#_galleonprovision_file"></a><a class="link" href="#_galleonprovision_file">14.2.1. galleon:provision-file</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.jboss.galleon:galleon-maven-plugin:5.2.0.Final:provision-file</p>
+org.jboss.galleon:galleon-maven-plugin:6.0.0.Final:provision-file</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_description_3"><a class="anchor" href="#_description_3"></a><a class="link" href="#_description_3">13.3.2. Description</a></h4>
+<h4 id="_description_2"><a class="anchor" href="#_description_2"></a><a class="link" href="#_description_2">14.2.2. Description</a></h4>
 <div class="paragraph">
 <p>This maven plugin provisions an installation from a
 provisioning.xml file. If the target installation directory already
@@ -8272,7 +7968,7 @@ replaced with the newly provisioned one.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_attributes_3"><a class="anchor" href="#_attributes_3"></a><a class="link" href="#_attributes_3">13.3.3. Attributes</a></h4>
+<h4 id="_attributes_2"><a class="anchor" href="#_attributes_2"></a><a class="link" href="#_attributes_2">14.2.3. Attributes</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -8287,7 +7983,7 @@ replaced with the newly provisioned one.</p>
 </ul>
 </div>
 <table class="tableblock frame-all grid-all fit-content stretch">
-<caption class="title">Table 28. Required Parameters</caption>
+<caption class="title">Table 26. Required Parameters</caption>
 <colgroup>
 <col>
 <col>
@@ -8319,7 +8015,7 @@ project used to provision the server.<br>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all fit-content stretch">
-<caption class="title">Table 29. Optional Parameters</caption>
+<caption class="title">Table 27. Optional Parameters</caption>
 <colgroup>
 <col>
 <col>
@@ -8378,7 +8074,7 @@ for an artifact resolution.<br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_parameter_details_3"><a class="anchor" href="#_parameter_details_3"></a><a class="link" href="#_parameter_details_3">13.3.4. Parameter Details</a></h4>
+<h4 id="_parameter_details_2"><a class="anchor" href="#_parameter_details_2"></a><a class="link" href="#_parameter_details_2">14.2.4. Parameter Details</a></h4>
 <div class="paragraph">
 <p><a id="installDir"></a> <strong>installDir</strong><br>
 The target installation directory.</p>
@@ -8521,7 +8217,7 @@ Specifies whether the provisioning should be skipped.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_galleon_cli_tool"><a class="anchor" href="#_galleon_cli_tool"></a><a class="link" href="#_galleon_cli_tool">14. Galleon CLI tool</a></h2>
+<h2 id="_galleon_cli_tool"><a class="anchor" href="#_galleon_cli_tool"></a><a class="link" href="#_galleon_cli_tool">15. Galleon CLI tool</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This command line tool (<em>bin/galleon.[sh|bat]</em>) allows you to provision/manage any products/installations that comply with galleon feature-packs.
@@ -8535,7 +8231,7 @@ Launching the tool with <em>--file=&lt;path to script file&gt;</em> will execute
 Launching the tool with <em>--help</em> will display the descriptions of all available options and commands.</p>
 </div>
 <div class="sect2">
-<h3 id="_feature_pack"><a class="anchor" href="#_feature_pack"></a><a class="link" href="#_feature_pack">14.1. Feature-pack</a></h3>
+<h3 id="_feature_pack"><a class="anchor" href="#_feature_pack"></a><a class="link" href="#_feature_pack">15.1. Feature-pack</a></h3>
 <div class="paragraph">
 <p>A key concept in galleon system is the notion of feature-pack. A feature-pack is a content container. It can be a full product (eg: wildfly)
 or part of a product (eg: a wildfly subsystem packaged as a feature-pack). With the tool you are going to install/uninstall/update/&#8230;&#8203; feature-packs.<br>
@@ -8550,7 +8246,7 @@ offered by the tool, one needs to understand how products are identified inside 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_universe_feature_pack_location_fpl"><a class="anchor" href="#_universe_feature_pack_location_fpl"></a><a class="link" href="#_universe_feature_pack_location_fpl">14.2. Universe feature-pack location (FPL)</a></h3>
+<h3 id="_universe_feature_pack_location_fpl"><a class="anchor" href="#_universe_feature_pack_location_fpl"></a><a class="link" href="#_universe_feature_pack_location_fpl">15.2. Universe feature-pack location (FPL)</a></h3>
 <div class="paragraph">
 <p>A feature-pack location (FPL) is the way to identify a product inside a universe without actually expressing any build numbers.
 A lot to commands require that you provide FPL.</p>
@@ -8609,7 +8305,7 @@ only require the product part (<em>&lt;product&gt;[@universe]</em>) of an FPL. F
 </div>
 </div>
 <div class="sect2">
-<h3 id="_universe_feature_pack_id_fpid"><a class="anchor" href="#_universe_feature_pack_id_fpid"></a><a class="link" href="#_universe_feature_pack_id_fpid">14.3. Universe feature-pack id (FPID)</a></h3>
+<h3 id="_universe_feature_pack_id_fpid"><a class="anchor" href="#_universe_feature_pack_id_fpid"></a><a class="link" href="#_universe_feature_pack_id_fpid">15.3. Universe feature-pack id (FPID)</a></h3>
 <div class="paragraph">
 <p>A feature-pack id (FPID) is the way to identify a product inside a universe by expressing a build number.
 This is the syntax to use when you want to deal with specific builds of a product.</p>
@@ -8652,7 +8348,7 @@ Some examples of FPID to identify wildfly products:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listing_latest_available_feature_packs"><a class="anchor" href="#_listing_latest_available_feature_packs"></a><a class="link" href="#_listing_latest_available_feature_packs">14.4. Listing latest available feature-packs</a></h3>
+<h3 id="_listing_latest_available_feature_packs"><a class="anchor" href="#_listing_latest_available_feature_packs"></a><a class="link" href="#_listing_latest_available_feature_packs">15.4. Listing latest available feature-packs</a></h3>
 <div class="paragraph">
 <p><em>[/]$ list-feature-packs [--all-frequencies] [--universe=&lt;universe id&gt;]</em><br></p>
 </div>
@@ -8677,7 +8373,7 @@ The information displayed by this command can be re-used when installing, updati
 </div>
 </div>
 <div class="sect2">
-<h3 id="_searching_for_feature_packs"><a class="anchor" href="#_searching_for_feature_packs"></a><a class="link" href="#_searching_for_feature_packs">14.5. Searching for feature-packs</a></h3>
+<h3 id="_searching_for_feature_packs"><a class="anchor" href="#_searching_for_feature_packs"></a><a class="link" href="#_searching_for_feature_packs">15.5. Searching for feature-packs</a></h3>
 <div class="paragraph">
 <p><em>[/]$ find &lt;pattern&gt; [--universe=&lt;universe id&gt;] [--resolved-only]</em><br></p>
 </div>
@@ -8703,7 +8399,7 @@ The information displayed by this command can be re-used when installing, updati
 </div>
 </div>
 <div class="sect2">
-<h3 id="_installing_a_feature_pack"><a class="anchor" href="#_installing_a_feature_pack"></a><a class="link" href="#_installing_a_feature_pack">14.6. Installing a feature-pack</a></h3>
+<h3 id="_installing_a_feature_pack"><a class="anchor" href="#_installing_a_feature_pack"></a><a class="link" href="#_installing_a_feature_pack">15.6. Installing a feature-pack</a></h3>
 <div class="paragraph">
 <p><em>install &lt;[FPL|FPID] | [--file=&lt;path to fp zip file&gt;]&gt; [--dir=&lt;installation dir&gt;] [--verbose] [feature-pack specific options]</em></p>
 </div>
@@ -8723,7 +8419,7 @@ You can then use the listed options (if any) to customize your install command.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="_installing_a_subset_of_feature_pack_configurations"><a class="anchor" href="#_installing_a_subset_of_feature_pack_configurations"></a><a class="link" href="#_installing_a_subset_of_feature_pack_configurations">14.7. Installing a subset of feature-pack configurations</a></h3>
+<h3 id="_installing_a_subset_of_feature_pack_configurations"><a class="anchor" href="#_installing_a_subset_of_feature_pack_configurations"></a><a class="link" href="#_installing_a_subset_of_feature_pack_configurations">15.7. Installing a subset of feature-pack configurations</a></h3>
 <div class="paragraph">
 <p>When installing a feature-pack, all its default configurations are installed.
 Use the <em>--default-configs=&lt;comma separated list of config_model/config_name&gt;</em> option
@@ -8731,7 +8427,7 @@ to specify the subset of configurations to install.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_installing_feature_pack_layers"><a class="anchor" href="#_installing_feature_pack_layers"></a><a class="link" href="#_installing_feature_pack_layers">14.8. Installing feature-pack layers</a></h3>
+<h3 id="_installing_feature_pack_layers"><a class="anchor" href="#_installing_feature_pack_layers"></a><a class="link" href="#_installing_feature_pack_layers">15.8. Installing feature-pack layers</a></h3>
 <div class="paragraph">
 <p>The <em>install</em> command can be used to install a subset of feature-pack features. Such subset are called layers.
 When installing layers, a custom configuration is generated.</p>
@@ -8782,7 +8478,7 @@ You can then use the listed layers (if any) to customize your install command.</
 </div>
 </div>
 <div class="sect2">
-<h3 id="_un_installing_a_feature_pack"><a class="anchor" href="#_un_installing_a_feature_pack"></a><a class="link" href="#_un_installing_a_feature_pack">14.9. Un-installing a feature-pack</a></h3>
+<h3 id="_un_installing_a_feature_pack"><a class="anchor" href="#_un_installing_a_feature_pack"></a><a class="link" href="#_un_installing_a_feature_pack">15.9. Un-installing a feature-pack</a></h3>
 <div class="paragraph">
 <p><em>uninstall [FPID] [--dir=&lt;installation dir&gt;] [--verbose] [feature-pack specific options]</em></p>
 </div>
@@ -8796,7 +8492,7 @@ of feature-pack specific options are handled the same way as in the install comm
 </div>
 </div>
 <div class="sect2">
-<h3 id="_un_doing_the_last_provisioning_command"><a class="anchor" href="#_un_doing_the_last_provisioning_command"></a><a class="link" href="#_un_doing_the_last_provisioning_command">14.10. Un-doing the last provisioning command</a></h3>
+<h3 id="_un_doing_the_last_provisioning_command"><a class="anchor" href="#_un_doing_the_last_provisioning_command"></a><a class="link" href="#_un_doing_the_last_provisioning_command">15.10. Un-doing the last provisioning command</a></h3>
 <div class="paragraph">
 <p><em>undo [--dir=&lt;installation dir&gt;] [--verbose]</em></p>
 </div>
@@ -8805,7 +8501,7 @@ of feature-pack specific options are handled the same way as in the install comm
 </div>
 </div>
 <div class="sect2">
-<h3 id="_patching_an_installation"><a class="anchor" href="#_patching_an_installation"></a><a class="link" href="#_patching_an_installation">14.11. Patching an installation</a></h3>
+<h3 id="_patching_an_installation"><a class="anchor" href="#_patching_an_installation"></a><a class="link" href="#_patching_an_installation">15.11. Patching an installation</a></h3>
 <div class="paragraph">
 <p>Use the <em>install</em> command to patch an existing installation.</p>
 </div>
@@ -8814,13 +8510,13 @@ of feature-pack specific options are handled the same way as in the install comm
 </div>
 </div>
 <div class="sect2">
-<h3 id="_un_installing_a_patch"><a class="anchor" href="#_un_installing_a_patch"></a><a class="link" href="#_un_installing_a_patch">14.12. Un-installing a patch</a></h3>
+<h3 id="_un_installing_a_patch"><a class="anchor" href="#_un_installing_a_patch"></a><a class="link" href="#_un_installing_a_patch">15.12. Un-installing a patch</a></h3>
 <div class="paragraph">
 <p>Use the <em>uninstall</em> command to remove a given patch or use <em>state undo</em> if the last provisioning command has been a patch installation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_checking_for_updates"><a class="anchor" href="#_checking_for_updates"></a><a class="link" href="#_checking_for_updates">14.13. Checking for updates</a></h3>
+<h3 id="_checking_for_updates"><a class="anchor" href="#_checking_for_updates"></a><a class="link" href="#_checking_for_updates">15.13. Checking for updates</a></h3>
 <div class="paragraph">
 <p><em>check-updates [--dir=&lt;installation dir&gt;] [--include-all-dependencies] [--feature-packs=&lt;list of feature-pack producers&gt;]</em></p>
 </div>
@@ -8829,7 +8525,7 @@ of feature-pack specific options are handled the same way as in the install comm
 </div>
 </div>
 <div class="sect2">
-<h3 id="_updating_an_installation"><a class="anchor" href="#_updating_an_installation"></a><a class="link" href="#_updating_an_installation">14.14. Updating an installation</a></h3>
+<h3 id="_updating_an_installation"><a class="anchor" href="#_updating_an_installation"></a><a class="link" href="#_updating_an_installation">15.14. Updating an installation</a></h3>
 <div class="paragraph">
 <p>The <em>update</em> command allows to update an installation to the latest available versions of installed feature-packs.</p>
 </div>
@@ -8856,14 +8552,14 @@ You can then use the listed options (if any) to customize your update command.</
 </div>
 </div>
 <div class="sect2">
-<h3 id="_retrieving_changes_applied_to_an_installation"><a class="anchor" href="#_retrieving_changes_applied_to_an_installation"></a><a class="link" href="#_retrieving_changes_applied_to_an_installation">14.15. Retrieving changes applied to an installation</a></h3>
+<h3 id="_retrieving_changes_applied_to_an_installation"><a class="anchor" href="#_retrieving_changes_applied_to_an_installation"></a><a class="link" href="#_retrieving_changes_applied_to_an_installation">15.15. Retrieving changes applied to an installation</a></h3>
 <div class="paragraph">
 <p>In order to visualize files you have added, removed or modified, use the command <em>get-changes [--dir=&lt;installation&gt;]</em>.<br>
 In the CLI output added files are prefixed by '+', removed ones by '-' and modified ones by 'M'.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_persisting_changes_applied_to_an_installation"><a class="anchor" href="#_persisting_changes_applied_to_an_installation"></a><a class="link" href="#_persisting_changes_applied_to_an_installation">14.16. Persisting changes applied to an installation</a></h3>
+<h3 id="_persisting_changes_applied_to_an_installation"><a class="anchor" href="#_persisting_changes_applied_to_an_installation"></a><a class="link" href="#_persisting_changes_applied_to_an_installation">15.16. Persisting changes applied to an installation</a></h3>
 <div class="paragraph">
 <p>Installed feature-packs optionally support persistence of changes into the provisioning configuration. As an example,
 wildfly feature-packs persist configuration changes into the provisioning config.</p>
@@ -8877,7 +8573,7 @@ into the provisioning configuration, this operation has no side effect.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_observing_an_installation"><a class="anchor" href="#_observing_an_installation"></a><a class="link" href="#_observing_an_installation">14.17. Observing an installation</a></h3>
+<h3 id="_observing_an_installation"><a class="anchor" href="#_observing_an_installation"></a><a class="link" href="#_observing_an_installation">15.17. Observing an installation</a></h3>
 <div class="paragraph">
 <p><em>[my-dir]$ installation get-info [--dir=installation] --type=[all|configs|dependencies|layers|optional-packages|options|patches|universes]</em></p>
 </div>
@@ -8887,7 +8583,7 @@ NB: If some patches are applied, the applied patches information is displayed.</
 </div>
 </div>
 <div class="sect2">
-<h3 id="_observing_a_feature_pack"><a class="anchor" href="#_observing_a_feature_pack"></a><a class="link" href="#_observing_a_feature_pack">14.18. Observing a feature-pack</a></h3>
+<h3 id="_observing_a_feature_pack"><a class="anchor" href="#_observing_a_feature_pack"></a><a class="link" href="#_observing_a_feature_pack">15.18. Observing a feature-pack</a></h3>
 <div class="paragraph">
 <p><em>[my-dir]$ feature-pack get-info &lt;[FPL|FPID] | [--file=&lt;path to fp zip file&gt;]&gt; --type=[all|configs|dependencies|layers|optional-packages|options]</em></p>
 </div>
@@ -8897,7 +8593,7 @@ layers and options usable when installing/provisioning/upgrading.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_optional_packages"><a class="anchor" href="#_optional_packages"></a><a class="link" href="#_optional_packages">14.19. Optional packages</a></h3>
+<h3 id="_optional_packages"><a class="anchor" href="#_optional_packages"></a><a class="link" href="#_optional_packages">15.19. Optional packages</a></h3>
 <div class="paragraph">
 <p>When getting information on an installation or a feature-pack, using <em>--type=optional-packages</em> option, you can retrieve the list of
 optional packages. At installation time the set of optional packages installed is controlled by the option <em>--optional-packages=&lt;all|none|passive|passive+&gt;</em>.</p>
@@ -8922,7 +8618,7 @@ Use <em>none</em> value to not install any optional nor passive packages, <em>pa
 </div>
 </div>
 <div class="sect2">
-<h3 id="_managing_the_local_cache_of_feature_packs"><a class="anchor" href="#_managing_the_local_cache_of_feature_packs"></a><a class="link" href="#_managing_the_local_cache_of_feature_packs">14.20. Managing the local cache of feature-packs</a></h3>
+<h3 id="_managing_the_local_cache_of_feature_packs"><a class="anchor" href="#_managing_the_local_cache_of_feature_packs"></a><a class="link" href="#_managing_the_local_cache_of_feature_packs">15.20. Managing the local cache of feature-packs</a></h3>
 <div class="paragraph">
 <p>When a feature-pack is internally resolved (at install time, to expose information,
 to retrieve plugin options, &#8230;&#8203;). The feature-pack is added to a local cache.
@@ -8943,13 +8639,13 @@ that are older than one month.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_exporting_an_installation_to_xml"><a class="anchor" href="#_exporting_an_installation_to_xml"></a><a class="link" href="#_exporting_an_installation_to_xml">14.21. Exporting an installation to xml</a></h3>
+<h3 id="_exporting_an_installation_to_xml"><a class="anchor" href="#_exporting_an_installation_to_xml"></a><a class="link" href="#_exporting_an_installation_to_xml">15.21. Exporting an installation to xml</a></h3>
 <div class="paragraph">
 <p><em>[my-dir]$ installation export &lt;new generated xml file&gt; --dir=&lt;installation&gt;</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_provisioning_an_installation_from_xml"><a class="anchor" href="#_provisioning_an_installation_from_xml"></a><a class="link" href="#_provisioning_an_installation_from_xml">14.22. Provisioning an installation from xml</a></h3>
+<h3 id="_provisioning_an_installation_from_xml"><a class="anchor" href="#_provisioning_an_installation_from_xml"></a><a class="link" href="#_provisioning_an_installation_from_xml">15.22. Provisioning an installation from xml</a></h3>
 <div class="paragraph">
 <p><em>[my-dir]$ provision &lt;xml file&gt; --dir=&lt;target installation directory&gt; [feature-pack specific options]</em></p>
 </div>
@@ -8961,7 +8657,7 @@ When provisioning an installation for the first time this can take some time
 </div>
 </div>
 <div class="sect2">
-<h3 id="_managing_the_history_of_an_installation"><a class="anchor" href="#_managing_the_history_of_an_installation"></a><a class="link" href="#_managing_the_history_of_an_installation">14.23. Managing the history of an installation</a></h3>
+<h3 id="_managing_the_history_of_an_installation"><a class="anchor" href="#_managing_the_history_of_an_installation"></a><a class="link" href="#_managing_the_history_of_an_installation">15.23. Managing the history of an installation</a></h3>
 <div class="paragraph">
 <p>By default the history keeps the state of the last 100 provisioning operations. This should be enough to cover
 simple undo of provisioned state. Nevertheless you can increase/decrease this
@@ -8978,7 +8674,7 @@ value by using the following command:<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_managing_installation_universes"><a class="anchor" href="#_managing_installation_universes"></a><a class="link" href="#_managing_installation_universes">14.24. Managing installation universes</a></h3>
+<h3 id="_managing_installation_universes"><a class="anchor" href="#_managing_installation_universes"></a><a class="link" href="#_managing_installation_universes">15.24. Managing installation universes</a></h3>
 <div class="paragraph">
 <p>A universe can be added/removed to/from an existing installation.<br></p>
 </div>
@@ -8992,7 +8688,7 @@ value by using the following command:<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_directory_option"><a class="anchor" href="#_directory_option"></a><a class="link" href="#_directory_option">14.25. Directory option</a></h3>
+<h3 id="_directory_option"><a class="anchor" href="#_directory_option"></a><a class="link" href="#_directory_option">15.25. Directory option</a></h3>
 <div class="paragraph">
 <p>Some commands (eg: install, get-info, check-updates, &#8230;&#8203;) allow you to optionally provide a target directory thanks to the <em>--dir=&lt;path&gt;</em> option.
 If no directory is provided, the command will lookup for an existing installation in the
@@ -9006,7 +8702,7 @@ the current directory to be the root of an installation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_exploring_an_installation_or_a_feature_pack"><a class="anchor" href="#_exploring_an_installation_or_a_feature_pack"></a><a class="link" href="#_exploring_an_installation_or_a_feature_pack">14.26. Exploring an installation or a feature-pack.</a></h3>
+<h3 id="_exploring_an_installation_or_a_feature_pack"><a class="anchor" href="#_exploring_an_installation_or_a_feature_pack"></a><a class="link" href="#_exploring_an_installation_or_a_feature_pack">15.26. Exploring an installation or a feature-pack.</a></h3>
 <div class="paragraph">
 <p>The tool allows you to switch to a state edit mode in which you can observe and
 edit a provisioning state in memory (without actually impacting the installation files).</p>
@@ -9068,7 +8764,7 @@ Use ‘ls’ to visualize any item. Use ‘cd’ to navigate to a given node.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_searching_the_current_state"><a class="anchor" href="#_searching_the_current_state"></a><a class="link" href="#_searching_the_current_state">14.27. Searching the current state</a></h3>
+<h3 id="_searching_the_current_state"><a class="anchor" href="#_searching_the_current_state"></a><a class="link" href="#_searching_the_current_state">15.27. Searching the current state</a></h3>
 <div class="paragraph">
 <p>When in edit mode, one can search for packages and features.</p>
 </div>
@@ -9085,7 +8781,7 @@ indirectly on this package will be shown in the result.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_creating_a_new_state_or_editing_an_existing_state_from_an_installation_or_provisioning_xml_file"><a class="anchor" href="#_creating_a_new_state_or_editing_an_existing_state_from_an_installation_or_provisioning_xml_file"></a><a class="link" href="#_creating_a_new_state_or_editing_an_existing_state_from_an_installation_or_provisioning_xml_file">14.28. Creating a new state (or editing an existing state from an installation or provisioning XML file)</a></h3>
+<h3 id="_creating_a_new_state_or_editing_an_existing_state_from_an_installation_or_provisioning_xml_file"><a class="anchor" href="#_creating_a_new_state_or_editing_an_existing_state_from_an_installation_or_provisioning_xml_file"></a><a class="link" href="#_creating_a_new_state_or_editing_an_existing_state_from_an_installation_or_provisioning_xml_file">15.28. Creating a new state (or editing an existing state from an installation or provisioning XML file)</a></h3>
 <div class="paragraph">
 <p>This allow to start from an empty installation or re-use an installation and iteratively add/suppress content.<br></p>
 </div>
@@ -9111,7 +8807,7 @@ packages</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_exporting_or_provisioning_the_current_state"><a class="anchor" href="#_exporting_or_provisioning_the_current_state"></a><a class="link" href="#_exporting_or_provisioning_the_current_state">14.29. Exporting or provisioning the current state</a></h3>
+<h3 id="_exporting_or_provisioning_the_current_state"><a class="anchor" href="#_exporting_or_provisioning_the_current_state"></a><a class="link" href="#_exporting_or_provisioning_the_current_state">15.29. Exporting or provisioning the current state</a></h3>
 <div class="paragraph">
 <p>In edit mode, one can export the provisioning XML file or directly provision from the current state:</p>
 </div>
@@ -9157,7 +8853,7 @@ The command 'get-info' can be used to get high level information.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_adding_a_feature_pack"><a class="anchor" href="#_adding_a_feature_pack"></a><a class="link" href="#_adding_a_feature_pack">14.30. Adding a feature-pack</a></h3>
+<h3 id="_adding_a_feature_pack"><a class="anchor" href="#_adding_a_feature_pack"></a><a class="link" href="#_adding_a_feature_pack">15.30. Adding a feature-pack</a></h3>
 <div class="paragraph">
 <p><em>[!edit!/]$ add-dependency &lt;FPL|FPID&gt; [--default-configs-inherit] [--packages-inherit]</em><br></p>
 </div>
@@ -9166,13 +8862,13 @@ The command 'get-info' can be used to get high level information.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_removing_a_feature_pack"><a class="anchor" href="#_removing_a_feature_pack"></a><a class="link" href="#_removing_a_feature_pack">14.31. Removing a feature-pack</a></h3>
+<h3 id="_removing_a_feature_pack"><a class="anchor" href="#_removing_a_feature_pack"></a><a class="link" href="#_removing_a_feature_pack">15.31. Removing a feature-pack</a></h3>
 <div class="paragraph">
 <p><em>[!edit!/]$ remove-dependency &lt;FPL|FPID&gt;</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_including_a_default_configuration"><a class="anchor" href="#_including_a_default_configuration"></a><a class="link" href="#_including_a_default_configuration">14.32. Including a default configuration</a></h3>
+<h3 id="_including_a_default_configuration"><a class="anchor" href="#_including_a_default_configuration"></a><a class="link" href="#_including_a_default_configuration">15.32. Including a default configuration</a></h3>
 <div class="paragraph">
 <p><em>[!edit!/]$ include-config &lt;model&gt;/&lt;name&gt; [--origin=&lt;fp origin&gt;]</em></p>
 </div>
@@ -9181,7 +8877,7 @@ The command 'get-info' can be used to get high level information.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_removing_an_included_default_configuration"><a class="anchor" href="#_removing_an_included_default_configuration"></a><a class="link" href="#_removing_an_included_default_configuration">14.33. Removing an included default configuration</a></h3>
+<h3 id="_removing_an_included_default_configuration"><a class="anchor" href="#_removing_an_included_default_configuration"></a><a class="link" href="#_removing_an_included_default_configuration">15.33. Removing an included default configuration</a></h3>
 <div class="paragraph">
 <p><em>[!edit!/]$ remove-included-config &lt;model&gt;/&lt;name&gt; [--origin=&lt;fp origin&gt;]</em></p>
 </div>
@@ -9191,7 +8887,7 @@ Origin is optional, by default will be remove from all fp that include it.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_excluding_a_default_configuration"><a class="anchor" href="#_excluding_a_default_configuration"></a><a class="link" href="#_excluding_a_default_configuration">14.34. Excluding a default configuration</a></h3>
+<h3 id="_excluding_a_default_configuration"><a class="anchor" href="#_excluding_a_default_configuration"></a><a class="link" href="#_excluding_a_default_configuration">15.34. Excluding a default configuration</a></h3>
 <div class="paragraph">
 <p><em>[!edit!/]$ exclude-config &lt;model&gt;/&lt;name&gt; [--origin=&lt;fp origin&gt;]</em></p>
 </div>
@@ -9200,7 +8896,7 @@ Origin is optional, by default will be remove from all fp that include it.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_removing_an_excluded_default_configuration"><a class="anchor" href="#_removing_an_excluded_default_configuration"></a><a class="link" href="#_removing_an_excluded_default_configuration">14.35. Removing an excluded default configuration</a></h3>
+<h3 id="_removing_an_excluded_default_configuration"><a class="anchor" href="#_removing_an_excluded_default_configuration"></a><a class="link" href="#_removing_an_excluded_default_configuration">15.35. Removing an excluded default configuration</a></h3>
 <div class="paragraph">
 <p><em>[!edit!/]$ remove-excluded-config &lt;model&gt;/&lt;name&gt; [--origin=&lt;fp origin&gt;]</em></p>
 </div>
@@ -9210,7 +8906,7 @@ Origin is optional, by default will be removed from all feature-packs that exclu
 </div>
 </div>
 <div class="sect2">
-<h3 id="_including_layers_into_a_configuration"><a class="anchor" href="#_including_layers_into_a_configuration"></a><a class="link" href="#_including_layers_into_a_configuration">14.36. Including layers into a configuration</a></h3>
+<h3 id="_including_layers_into_a_configuration"><a class="anchor" href="#_including_layers_into_a_configuration"></a><a class="link" href="#_including_layers_into_a_configuration">15.36. Including layers into a configuration</a></h3>
 <div class="paragraph">
 <p>NB: Prior to be able to include layers into a configuration you need an included default or locally defined configuration.
 To define a new configuration call <em>define-config --model=&lt;config model&gt; --name=&lt;config name&gt;</em></p>
@@ -9223,7 +8919,7 @@ To define a new configuration call <em>define-config --model=&lt;config model&gt
 </div>
 </div>
 <div class="sect2">
-<h3 id="_removing_included_layers_from_a_configuration"><a class="anchor" href="#_removing_included_layers_from_a_configuration"></a><a class="link" href="#_removing_included_layers_from_a_configuration">14.37. Removing included layers from a configuration</a></h3>
+<h3 id="_removing_included_layers_from_a_configuration"><a class="anchor" href="#_removing_included_layers_from_a_configuration"></a><a class="link" href="#_removing_included_layers_from_a_configuration">15.37. Removing included layers from a configuration</a></h3>
 <div class="paragraph">
 <p><em>[!edit!/]$ remove-included-layers &lt;config model/config name&gt; --layers=&lt;comma separated list of included layers&gt;</em></p>
 </div>
@@ -9233,7 +8929,7 @@ can be excluded but their inclusion can&#8217;t be removed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_excluding_layers_from_a_configuration"><a class="anchor" href="#_excluding_layers_from_a_configuration"></a><a class="link" href="#_excluding_layers_from_a_configuration">14.38. Excluding layers from a configuration</a></h3>
+<h3 id="_excluding_layers_from_a_configuration"><a class="anchor" href="#_excluding_layers_from_a_configuration"></a><a class="link" href="#_excluding_layers_from_a_configuration">15.38. Excluding layers from a configuration</a></h3>
 <div class="paragraph">
 <p>NB: Prior to be able to exclude layers from a configuration you need an included default or locally defined configuration that contain layers.</p>
 </div>
@@ -9245,7 +8941,7 @@ can be excluded but their inclusion can&#8217;t be removed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_removing_excluded_layers_from_a_configuration"><a class="anchor" href="#_removing_excluded_layers_from_a_configuration"></a><a class="link" href="#_removing_excluded_layers_from_a_configuration">14.39. Removing excluded layers from a configuration</a></h3>
+<h3 id="_removing_excluded_layers_from_a_configuration"><a class="anchor" href="#_removing_excluded_layers_from_a_configuration"></a><a class="link" href="#_removing_excluded_layers_from_a_configuration">15.39. Removing excluded layers from a configuration</a></h3>
 <div class="paragraph">
 <p><em>[!edit!/]$ remove-excluded-layers &lt;config model/config name&gt; --layers=&lt;comma separated list of excluded layers&gt;</em></p>
 </div>
@@ -9254,7 +8950,7 @@ can be excluded but their inclusion can&#8217;t be removed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_reseting_a_configuration"><a class="anchor" href="#_reseting_a_configuration"></a><a class="link" href="#_reseting_a_configuration">14.40. Reseting a configuration</a></h3>
+<h3 id="_reseting_a_configuration"><a class="anchor" href="#_reseting_a_configuration"></a><a class="link" href="#_reseting_a_configuration">15.40. Reseting a configuration</a></h3>
 <div class="paragraph">
 <p><em>[!edit!/]$ reset-config &lt;model&gt;/&lt;name&gt;</em></p>
 </div>
@@ -9266,13 +8962,13 @@ can be excluded but their inclusion can&#8217;t be removed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_including_a_default_package"><a class="anchor" href="#_including_a_default_package"></a><a class="link" href="#_including_a_default_package">14.41. Including a default package</a></h3>
+<h3 id="_including_a_default_package"><a class="anchor" href="#_including_a_default_package"></a><a class="link" href="#_including_a_default_package">15.41. Including a default package</a></h3>
 <div class="paragraph">
 <p><em>[!edit!/]$ include-package &lt;fp origin&gt;/&lt;package name&gt;</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_removing_an_included_default_package"><a class="anchor" href="#_removing_an_included_default_package"></a><a class="link" href="#_removing_an_included_default_package">14.42. Removing an included default package</a></h3>
+<h3 id="_removing_an_included_default_package"><a class="anchor" href="#_removing_an_included_default_package"></a><a class="link" href="#_removing_an_included_default_package">15.42. Removing an included default package</a></h3>
 <div class="paragraph">
 <p><em>[!edit!/]$ remove-included-package &lt;package name&gt; [--origin=&lt;fp origin&gt;]</em></p>
 </div>
@@ -9282,13 +8978,13 @@ The origin is optional, the package will be removed from all feature-packs that 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_excluding_a_default_package"><a class="anchor" href="#_excluding_a_default_package"></a><a class="link" href="#_excluding_a_default_package">14.43. Excluding a default package</a></h3>
+<h3 id="_excluding_a_default_package"><a class="anchor" href="#_excluding_a_default_package"></a><a class="link" href="#_excluding_a_default_package">15.43. Excluding a default package</a></h3>
 <div class="paragraph">
 <p><em>[!edit!/]$ exclude-package &lt;fp origin&gt;/&lt;package name&gt;</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_removing_an_excluded_default_package"><a class="anchor" href="#_removing_an_excluded_default_package"></a><a class="link" href="#_removing_an_excluded_default_package">14.44. Removing an excluded default package</a></h3>
+<h3 id="_removing_an_excluded_default_package"><a class="anchor" href="#_removing_an_excluded_default_package"></a><a class="link" href="#_removing_an_excluded_default_package">15.44. Removing an excluded default package</a></h3>
 <div class="paragraph">
 <p><em>[!edit!/]$ remove-excluded-package &lt;package name&gt; [--origin=&lt;fp origin&gt;]</em></p>
 </div>
@@ -9298,7 +8994,7 @@ The origin is optional, the package will be removed from all feature-packs that 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_adding_a_new_feature"><a class="anchor" href="#_adding_a_new_feature"></a><a class="link" href="#_adding_a_new_feature">14.45. Adding a new feature</a></h3>
+<h3 id="_adding_a_new_feature"><a class="anchor" href="#_adding_a_new_feature"></a><a class="link" href="#_adding_a_new_feature">15.45. Adding a new feature</a></h3>
 <div class="paragraph">
 <p><em>[!edit!/]$ add-feature &lt;config model/name&gt; &lt;path to feature-spec&gt;  &lt;dynamic set of feature param=&lt;value&gt;&gt;</em></p>
 </div>
@@ -9323,7 +9019,7 @@ The origin is optional, the package will be removed from all feature-packs that 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_removing_a_feature"><a class="anchor" href="#_removing_a_feature"></a><a class="link" href="#_removing_a_feature">14.46. Removing a feature</a></h3>
+<h3 id="_removing_a_feature"><a class="anchor" href="#_removing_a_feature"></a><a class="link" href="#_removing_a_feature">15.46. Removing a feature</a></h3>
 <div class="paragraph">
 <p><em>[!edit!/]$ remove-feature &lt;full path to feature inside a configuration&gt;</em></p>
 </div>
@@ -9333,7 +9029,7 @@ The origin is optional, the package will be removed from all feature-packs that 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_managing_universes"><a class="anchor" href="#_managing_universes"></a><a class="link" href="#_managing_universes">14.47. Managing universes</a></h3>
+<h3 id="_managing_universes"><a class="anchor" href="#_managing_universes"></a><a class="link" href="#_managing_universes">15.47. Managing universes</a></h3>
 <div class="paragraph">
 <p>A universe can be added/removed to/from a state.<br></p>
 </div>
@@ -9349,7 +9045,7 @@ The origin is optional, the package will be removed from all feature-packs that 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_cli_tool_maven_configuration"><a class="anchor" href="#_cli_tool_maven_configuration"></a><a class="link" href="#_cli_tool_maven_configuration">15. CLI tool Maven configuration</a></h2>
+<h2 id="_cli_tool_maven_configuration"><a class="anchor" href="#_cli_tool_maven_configuration"></a><a class="link" href="#_cli_tool_maven_configuration">16. CLI tool Maven configuration</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>By default the following maven repositories are used to retrieve FP.</p>
@@ -9369,7 +9065,7 @@ The origin is optional, the package will be removed from all feature-packs that 
 change the path to the local repository and add/remove remote maven repositories.</p>
 </div>
 <div class="sect2">
-<h3 id="_relying_on_maven_settings"><a class="anchor" href="#_relying_on_maven_settings"></a><a class="link" href="#_relying_on_maven_settings">15.1. Relying on maven settings</a></h3>
+<h3 id="_relying_on_maven_settings"><a class="anchor" href="#_relying_on_maven_settings"></a><a class="link" href="#_relying_on_maven_settings">16.1. Relying on maven settings</a></h3>
 <div class="paragraph">
 <p>In order to makes the cli to use a maven settings file call: <em>maven set-settings-file &lt;path to settings xml file&gt;</em>
 In order to remove the reference to the settings file call: <em>maven reset-settings-file</em><br></p>
@@ -9400,7 +9096,7 @@ NB: If no local repository is set in settings file, the local repository (defaul
 </div>
 </div>
 <div class="sect2">
-<h3 id="_adding_new_remote_repositories"><a class="anchor" href="#_adding_new_remote_repositories"></a><a class="link" href="#_adding_new_remote_repositories">15.2. Adding new remote repositories</a></h3>
+<h3 id="_adding_new_remote_repositories"><a class="anchor" href="#_adding_new_remote_repositories"></a><a class="link" href="#_adding_new_remote_repositories">16.2. Adding new remote repositories</a></h3>
 <div class="paragraph">
 <p>Use the following command to add new remote repositories:<br>
 <em>maven add-repository --name=myrepo --url=http://foorepo [--release-update-policy=&lt;policy&gt;]
@@ -9411,7 +9107,7 @@ NB: If no local repository is set in settings file, the local repository (defaul
 </div>
 </div>
 <div class="sect2">
-<h3 id="_default_repository_policies"><a class="anchor" href="#_default_repository_policies"></a><a class="link" href="#_default_repository_policies">15.3. Default Repository policies</a></h3>
+<h3 id="_default_repository_policies"><a class="anchor" href="#_default_repository_policies"></a><a class="link" href="#_default_repository_policies">16.3. Default Repository policies</a></h3>
 <div class="paragraph">
 <p>Daily update for releases, never update for snapshots.<br>
 Warn if checksum differs.</p>
@@ -9435,13 +9131,13 @@ Releases are resolved from remote repositories.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_advanced_maven_configuration"><a class="anchor" href="#_advanced_maven_configuration"></a><a class="link" href="#_advanced_maven_configuration">15.4. Advanced maven configuration</a></h3>
+<h3 id="_advanced_maven_configuration"><a class="anchor" href="#_advanced_maven_configuration"></a><a class="link" href="#_advanced_maven_configuration">16.4. Advanced maven configuration</a></h3>
 <div class="paragraph">
 <p>Proxy, authentication and mirroring are only supported when setting a maven xml settings file.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_local_repository"><a class="anchor" href="#_local_repository"></a><a class="link" href="#_local_repository">15.5. Local repository</a></h3>
+<h3 id="_local_repository"><a class="anchor" href="#_local_repository"></a><a class="link" href="#_local_repository">16.5. Local repository</a></h3>
 <div class="paragraph">
 <p>By default the local maven repository is located in <em>&lt;user.home&gt;/.m2/repository</em>.
 You can change this directory by using the command: <em>maven set-local-repository &lt;path to your local repository directory&gt;</em><br>
@@ -9449,27 +9145,27 @@ In order to reset to the default local maven repository call: <em>maven reset-lo
 </div>
 </div>
 <div class="sect2">
-<h3 id="_offline_mode"><a class="anchor" href="#_offline_mode"></a><a class="link" href="#_offline_mode">15.6. Offline mode</a></h3>
+<h3 id="_offline_mode"><a class="anchor" href="#_offline_mode"></a><a class="link" href="#_offline_mode">16.6. Offline mode</a></h3>
 <div class="paragraph">
 <p>By default maven is in online mode. In order to switch to offline use the command <em>maven enable-offline &lt;true|false&gt;</em><br>
 In order to reset to the default mode call: <em>maven reset-offline</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_display_maven_configuration"><a class="anchor" href="#_display_maven_configuration"></a><a class="link" href="#_display_maven_configuration">15.7. Display maven configuration</a></h3>
+<h3 id="_display_maven_configuration"><a class="anchor" href="#_display_maven_configuration"></a><a class="link" href="#_display_maven_configuration">16.7. Display maven configuration</a></h3>
 <div class="paragraph">
 <p>Call command: <em>maven get-info</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_impact_on_universe"><a class="anchor" href="#_impact_on_universe"></a><a class="link" href="#_impact_on_universe">15.8. Impact on Universe</a></h3>
+<h3 id="_impact_on_universe"><a class="anchor" href="#_impact_on_universe"></a><a class="link" href="#_impact_on_universe">16.8. Impact on Universe</a></h3>
 <div class="paragraph">
 <p>Any change made to the maven configuration makes the CLI to re-resolve universe(s).
 This means that stream resolution stays in sync with maven configuration.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_resolving_feature_packs"><a class="anchor" href="#_resolving_feature_packs"></a><a class="link" href="#_resolving_feature_packs">15.9. Resolving feature-packs</a></h3>
+<h3 id="_resolving_feature_packs"><a class="anchor" href="#_resolving_feature_packs"></a><a class="link" href="#_resolving_feature_packs">16.9. Resolving feature-packs</a></h3>
 <div class="paragraph">
 <p>When remote repositories are set, feature-packs are automatically downloaded at install time.
 You can download feature-pack explicitly to the local repository by using the
@@ -9477,7 +9173,7 @@ command: <em>maven resolve-feature-pack &lt;feature-pack location&gt; [--verbose
 </div>
 </div>
 <div class="sect2">
-<h3 id="_maven_tracing"><a class="anchor" href="#_maven_tracing"></a><a class="link" href="#_maven_tracing">15.10. Maven tracing</a></h3>
+<h3 id="_maven_tracing"><a class="anchor" href="#_maven_tracing"></a><a class="link" href="#_maven_tracing">16.10. Maven tracing</a></h3>
 <div class="paragraph">
 <p>When enabling "verbose" at installation and provisioning time, any artifact retrieved
 from a remote repository is advertised in the console. This also
@@ -9489,8 +9185,8 @@ applies when fetching explicitly feature-packs.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 5.2.0.Final<br>
-Last updated 2023-02-20 15:18:16 +0100
+Version 6.0.0.Final<br>
+Last updated 2024-04-05 14:49:56 +0200
 </div>
 </div>
 </body>
