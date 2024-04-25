@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="generator" content="Asciidoctor 2.0.20">
 <meta name="author" content="Alexey Loubyansky, Jean-Francois Denise">
 <title>WildFly Galleon Plugins Documentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
@@ -85,10 +85,10 @@ code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;
 ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
 ul,ol{margin-left:1.5em}
 ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
-ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
-ul.square{list-style-type:square}
 ul.circle{list-style-type:circle}
 ul.disc{list-style-type:disc}
+ul.square{list-style-type:square}
+ul.circle ul:not([class]),ul.disc ul:not([class]),ul.square ul:not([class]){list-style:inherit}
 ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
 dl dt{margin-bottom:.3125em;font-weight:bold}
 dl dd{margin-bottom:1.25em}
@@ -209,13 +209,10 @@ table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
 .admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
 .exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
-.exampleblock>.content>:first-child{margin-top:0}
-.exampleblock>.content>:last-child{margin-bottom:0}
 .sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
-.sidebarblock>:first-child{margin-top:0}
-.sidebarblock>:last-child{margin-bottom:0}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
-.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content>:first-child,.sidebarblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child,.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
 .literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
@@ -394,7 +391,7 @@ b.conum *{color:inherit!important}
 dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
 h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
 p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
-p,blockquote,dt,td.content,span.alt,summary{font-size:1.0625rem}
+p,blockquote,dt,td.content,td.hdlist1,span.alt,summary{font-size:1.0625rem}
 p{margin-bottom:1.25rem}
 .sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
 .exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
@@ -443,8 +440,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>WildFly Galleon Plugins Documentation</h1>
 <div class="details">
 <span id="author" class="author">Alexey Loubyansky, Jean-Francois Denise</span><br>
-<span id="revnumber">version 6.3.2.Final,</span>
-<span id="revdate">2023-02-27T16:34:40Z</span>
+<span id="revnumber">version 7.0.0.Final,</span>
+<span id="revdate">2024-04-11T08:43:23Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -733,7 +730,7 @@ to create a Galleon feature-pack that contains Galleon layers to install static 
   <span style="color:#070;font-weight:bold">&lt;dependency&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.wildfly.galleon-plugins<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>wildfly-galleon-maven-plugin<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
-    <span style="color:#070;font-weight:bold">&lt;version&gt;</span>6.3.2.Final<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;version&gt;</span>7.0.0.Final<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
   <span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span>
 <span style="color:#070;font-weight:bold">&lt;/dependencies&gt;</span></code></pre>
 </div>
@@ -1306,7 +1303,7 @@ Galleon documentation for more information.
 <pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;dependency&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.wildfly.galleon-plugins<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>wildfly-galleon-maven-plugin<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
-    <span style="color:#070;font-weight:bold">&lt;version&gt;</span>6.3.2.Final<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;version&gt;</span>7.0.0.Final<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
 <span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span></code></pre>
 </div>
 </div>
@@ -1339,7 +1336,7 @@ Galleon documentation for more information.
 <h4 id="_wildfly_galleongenerate_all_artifacts_list">3.2.1. wildfly-galleon:generate-all-artifacts-list</h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:6.3.2.Final:generate-all-artifacts-list</p>
+org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:7.0.0.Final:generate-all-artifacts-list</p>
 </div>
 </div>
 <div class="sect3">
@@ -1584,7 +1581,7 @@ license file for the contained artifacts is generated.</p>
 <h4 id="_wildfly_galleonbuild_user_feature_pack">3.3.1. wildfly-galleon:build-user-feature-pack</h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:6.3.2.Final:build-user-feature-pack</p>
+org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:7.0.0.Final:build-user-feature-pack</p>
 </div>
 </div>
 <div class="sect3">
@@ -1697,6 +1694,24 @@ manifest YAML definition. This parameter has no effect if
 <strong>Alias is</strong>: <code>config-file</code>.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#configStatibilityLevel">[configStatibilityLevel]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The default stability level used at provisioning time to generate
+configuration. Can&#8217;t be used when <code>stability-level</code> is
+set.<br>
+<strong>Alias is</strong>: <code>config-stability-level</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#deployChannelManifest">[deployChannelManifest]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(no description)<br>
+<strong>Default value is</strong>: <code>true</code>.<br>
+<strong>User property is</strong>: <code>wildfly.feature.pack.deploy-channel-manifest</code>.<br>
+<strong>Alias is</strong>: <code>deploy-channel-manifest</code>.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#fpLocation">[fpLocation]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
@@ -1716,6 +1731,26 @@ stream in the channel manifest.<br>
 <strong>Alias is</strong>: <code>generate-channel-manifest</code>.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#minimumStabilityLevel">[minimumStabilityLevel]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The minimum stability level of the WildFly processes used to
+generate feature specs and include packages. Set this if you need
+to generate feature specs for features with a lower stability level
+than the default level of the WildFly process being used for
+feature-spec generation.<br>
+<strong>Alias is</strong>: <code>minimum-stability-level</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#packageStatibilityLevel">[packageStatibilityLevel]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The default stability level used at provisioning time when
+installing packages/JBoss Modules modules. Can&#8217;t be used when
+<code>stability-level</code> is set.<br>
+<strong>Alias is</strong>: <code>package-stability-level</code>.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#releaseName">[releaseName]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
@@ -1725,6 +1760,16 @@ stored in the feature-pack&#8217;s
 <code>product.release.name</code> property.<br>
 <strong>Default value is</strong>: <code>${product.release.name}</code>.<br>
 <strong>Alias is</strong>: <code>release-name</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#stabilityLevel">[stabilityLevel]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The default stability level used at provisioning time to generate
+configuration and provision packages. Can&#8217;t be used when
+<code>config-stability-level</code> or
+<code>package-stability-level</code> is set.<br>
+<strong>Alias is</strong>: <code>stability-level</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#taskProps">[taskProps]</a></code></p></td>
@@ -1755,6 +1800,23 @@ with property replacement.<br>
 GAV, set this parameter to true to generate FPL.<br>
 <strong>Default value is</strong>: <code>false</code>.<br>
 <strong>Alias is</strong>: <code>translate-to-fpl</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#wildflyChannelResolutionMode">[wildflyChannelResolutionMode]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WildFlyChannelResolutionMode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feature-pack WildFly channel resolution mode when WildFly channels
+are configured in the provisioning tooling used to provision this
+feature-pack. "NOT_REQUIRED" means that the feature-pack and
+artifacts can be resolved without WildFly channels. "REQUIRED"
+means that the feature-pack and all its artifacts must be only
+resolved from WildFly channels. "REQUIRED_FP_ONLY" means that only
+the feature-pack must be only resolved from WildFly channels.
+Referenced artifacts can be resolved outside of configured WildFly
+channels.<br>
+<strong>Default value is</strong>: <code>NOT_REQUIRED</code>.<br>
+<strong>User property is</strong>: <code>wildfly.feature.pack.require.channel.resolution</code>.<br>
+<strong>Alias is</strong>: <code>wildfly-channel-resolution-mode</code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1850,6 +1912,48 @@ The feature-pack build configuration file.</p>
 </ul>
 </div>
 <div class="paragraph">
+<p><a id="configStatibilityLevel"></a> <strong>configStatibilityLevel</strong><br>
+The default stability level used at provisioning time to generate
+configuration. Can&#8217;t be used when <code>stability-level</code> is
+set.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>config-stability-level</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="deployChannelManifest"></a> <strong>deployChannelManifest</strong><br>
+(no description)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.feature.pack.deploy-channel-manifest</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>true</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>deploy-channel-manifest</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p><a id="fpLocation"></a> <strong>fpLocation</strong><br>
 The FPL for the generated feature-pack.</p>
 </div>
@@ -1891,6 +1995,46 @@ stream in the channel manifest.</p>
 </li>
 <li>
 <p><strong>Alias</strong>: <code>generate-channel-manifest</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="minimumStabilityLevel"></a> <strong>minimumStabilityLevel</strong><br>
+The minimum stability level of the WildFly processes used to
+generate feature specs and include packages. Set this if you need
+to generate feature specs for features with a lower stability level
+than the default level of the WildFly process being used for
+feature-spec generation.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>minimum-stability-level</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="packageStatibilityLevel"></a> <strong>packageStatibilityLevel</strong><br>
+The default stability level used at provisioning time when
+installing packages/JBoss Modules modules. Can&#8217;t be used when
+<code>stability-level</code> is set.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>package-stability-level</code></p>
 </li>
 </ul>
 </div>
@@ -1940,6 +2084,26 @@ relative to <code>configDir</code>.</p>
 </li>
 <li>
 <p><strong>Alias</strong>: <code>resources-dir</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="stabilityLevel"></a> <strong>stabilityLevel</strong><br>
+The default stability level used at provisioning time to generate
+configuration and provision packages. Can&#8217;t be used when
+<code>config-stability-level</code> or
+<code>package-stability-level</code> is set.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>stability-level</code></p>
 </li>
 </ul>
 </div>
@@ -2002,6 +2166,37 @@ GAV, set this parameter to true to generate FPL.</p>
 </li>
 <li>
 <p><strong>Alias</strong>: <code>translate-to-fpl</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="wildflyChannelResolutionMode"></a> <strong>wildflyChannelResolutionMode</strong><br>
+Feature-pack WildFly channel resolution mode when WildFly channels
+are configured in the provisioning tooling used to provision this
+feature-pack. "NOT_REQUIRED" means that the feature-pack and
+artifacts can be resolved without WildFly channels. "REQUIRED"
+means that the feature-pack and all its artifacts must be only
+resolved from WildFly channels. "REQUIRED_FP_ONLY" means that only
+the feature-pack must be only resolved from WildFly channels.
+Referenced artifacts can be resolved outside of configured WildFly
+channels.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>org.wildfly.galleon.plugin.WildFlyChannelResolutionMode</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.feature.pack.require.channel.resolution</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>NOT_REQUIRED</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>wildfly-channel-resolution-mode</code></p>
 </li>
 </ul>
 </div>
@@ -2290,7 +2485,7 @@ The layers defined for a given configuration model are located inside a director
 <h4 id="_wildfly_galleonbuild_feature_pack">3.4.1. wildfly-galleon:build-feature-pack</h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:6.3.2.Final:build-feature-pack</p>
+org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:7.0.0.Final:build-feature-pack</p>
 </div>
 </div>
 <div class="sect3">
@@ -2433,6 +2628,24 @@ manifest YAML definition. This parameter has no effect if
 <strong>Alias is</strong>: <code>config-file</code>.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#configStatibilityLevel">[configStatibilityLevel]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The default stability level used at provisioning time to generate
+configuration. Can&#8217;t be used when <code>stability-level</code> is
+set.<br>
+<strong>Alias is</strong>: <code>config-stability-level</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#deployChannelManifest">[deployChannelManifest]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(no description)<br>
+<strong>Default value is</strong>: <code>true</code>.<br>
+<strong>User property is</strong>: <code>wildfly.feature.pack.deploy-channel-manifest</code>.<br>
+<strong>Alias is</strong>: <code>deploy-channel-manifest</code>.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#forkEmbedded">[forkEmbedded]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
@@ -2461,6 +2674,26 @@ stream in the channel manifest.<br>
 <strong>Alias is</strong>: <code>generate-channel-manifest</code>.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#minimumStabilityLevel">[minimumStabilityLevel]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The minimum stability level of the WildFly processes used to
+generate feature specs and include packages. Set this if you need
+to generate feature specs for features with a lower stability level
+than the default level of the WildFly process being used for
+feature-spec generation.<br>
+<strong>Alias is</strong>: <code>minimum-stability-level</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#packageStatibilityLevel">[packageStatibilityLevel]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The default stability level used at provisioning time when
+installing packages/JBoss Modules modules. Can&#8217;t be used when
+<code>stability-level</code> is set.<br>
+<strong>Alias is</strong>: <code>package-stability-level</code>.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#releaseName">[releaseName]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
@@ -2470,6 +2703,16 @@ stored in the feature-pack&#8217;s
 <code>product.release.name</code> property.<br>
 <strong>Default value is</strong>: <code>${product.release.name}</code>.<br>
 <strong>Alias is</strong>: <code>release-name</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#stabilityLevel">[stabilityLevel]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The default stability level used at provisioning time to generate
+configuration and provision packages. Can&#8217;t be used when
+<code>config-stability-level</code> or
+<code>package-stability-level</code> is set.<br>
+<strong>Alias is</strong>: <code>stability-level</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#taskProps">[taskProps]</a></code></p></td>
@@ -2491,6 +2734,23 @@ feature-pack&#8217;s <code>resources/wildfly/wildfly-tasks.properties</code> fil
 that is used as the source of properties during file copying tasks
 with property replacement.<br>
 <strong>Alias is</strong>: <code>task-properties-file</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#wildflyChannelResolutionMode">[wildflyChannelResolutionMode]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WildFlyChannelResolutionMode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feature-pack WildFly channel resolution mode when WildFly channels
+are configured in the provisioning tooling used to provision this
+feature-pack. "NOT_REQUIRED" means that the feature-pack and
+artifacts can be resolved without WildFly channels. "REQUIRED"
+means that the feature-pack and all its artifacts must be only
+resolved from WildFly channels. "REQUIRED_FP_ONLY" means that only
+the feature-pack must be only resolved from WildFly channels.
+Referenced artifacts can be resolved outside of configured WildFly
+channels.<br>
+<strong>Default value is</strong>: <code>NOT_REQUIRED</code>.<br>
+<strong>User property is</strong>: <code>wildfly.feature.pack.require.channel.resolution</code>.<br>
+<strong>Alias is</strong>: <code>wildfly-channel-resolution-mode</code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2586,6 +2846,48 @@ The feature-pack build configuration file.</p>
 </ul>
 </div>
 <div class="paragraph">
+<p><a id="configStatibilityLevel"></a> <strong>configStatibilityLevel</strong><br>
+The default stability level used at provisioning time to generate
+configuration. Can&#8217;t be used when <code>stability-level</code> is
+set.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>config-stability-level</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="deployChannelManifest"></a> <strong>deployChannelManifest</strong><br>
+(no description)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.feature.pack.deploy-channel-manifest</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>true</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>deploy-channel-manifest</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p><a id="featureSpecsOutput"></a> <strong>featureSpecsOutput</strong><br>
 The directory where the generated feature specs are written.</p>
 </div>
@@ -2670,6 +2972,27 @@ stream in the channel manifest.</p>
 </ul>
 </div>
 <div class="paragraph">
+<p><a id="minimumStabilityLevel"></a> <strong>minimumStabilityLevel</strong><br>
+The minimum stability level of the WildFly processes used to
+generate feature specs and include packages. Set this if you need
+to generate feature specs for features with a lower stability level
+than the default level of the WildFly process being used for
+feature-spec generation.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>minimum-stability-level</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p><a id="moduleTemplatesDir"></a> <strong>moduleTemplatesDir</strong><br>
 Used only for feature spec generation and points to a directory
 where the module templates from the dependent feature packs are
@@ -2693,6 +3016,25 @@ debugging.</p>
 </li>
 <li>
 <p><strong>Alias</strong>: <code>module-templates</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="packageStatibilityLevel"></a> <strong>packageStatibilityLevel</strong><br>
+The default stability level used at provisioning time when
+installing packages/JBoss Modules modules. Can&#8217;t be used when
+<code>stability-level</code> is set.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>package-stability-level</code></p>
 </li>
 </ul>
 </div>
@@ -2746,6 +3088,26 @@ relative to <code>configDir</code>.</p>
 </ul>
 </div>
 <div class="paragraph">
+<p><a id="stabilityLevel"></a> <strong>stabilityLevel</strong><br>
+The default stability level used at provisioning time to generate
+configuration and provision packages. Can&#8217;t be used when
+<code>config-stability-level</code> or
+<code>package-stability-level</code> is set.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>stability-level</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p><a id="taskProps"></a> <strong>taskProps</strong><br>
 Various properties that will be added to feature-pack&#8217;s
 <code>resources/wildfly/wildfly-tasks.properties</code>.<br>
@@ -2783,6 +3145,37 @@ with property replacement.</p>
 </li>
 <li>
 <p><strong>Alias</strong>: <code>task-properties-file</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="wildflyChannelResolutionMode"></a> <strong>wildflyChannelResolutionMode</strong><br>
+Feature-pack WildFly channel resolution mode when WildFly channels
+are configured in the provisioning tooling used to provision this
+feature-pack. "NOT_REQUIRED" means that the feature-pack and
+artifacts can be resolved without WildFly channels. "REQUIRED"
+means that the feature-pack and all its artifacts must be only
+resolved from WildFly channels. "REQUIRED_FP_ONLY" means that only
+the feature-pack must be only resolved from WildFly channels.
+Referenced artifacts can be resolved outside of configured WildFly
+channels.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>org.wildfly.galleon.plugin.WildFlyChannelResolutionMode</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.feature.pack.require.channel.resolution</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>NOT_REQUIRED</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>wildfly-channel-resolution-mode</code></p>
 </li>
 </ul>
 </div>
@@ -3128,8 +3521,8 @@ Both artifact coordinates above are missing versions. Although the versions coul
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 6.3.2.Final<br>
-Last updated 2023-02-20 14:53:49 +0100
+Version 7.0.0.Final<br>
+Last updated 2024-02-16 12:17:43 +0100
 </div>
 </div>
 </body>
