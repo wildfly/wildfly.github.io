@@ -530,12 +530,12 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 <div class="details">
 <span id="author" class="author">WildFly team</span><br>
 <span id="revnumber">version 32.0.0.Final,</span>
-<span id="revdate">2024-04-24T21:31:14Z</span>
+<span id="revdate">2024-05-14T15:04:38Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Getting Started Guide</div>
 <ul class="sectlevel1">
-<li><a href="#getting-started-with-wildfly">1. Getting Started with WildFly 31</a></li>
+<li><a href="#getting-started-with-wildfly">1. Getting Started with WildFly 32</a></li>
 <li><a href="#requirements">2. Requirements</a></li>
 <li><a href="#installation-options">3. Installation Options</a>
 <ul class="sectlevel2">
@@ -551,7 +551,7 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 <li><a href="#domain-directory-structure">4.1.2. Domain Directory Structure</a></li>
 </ul>
 </li>
-<li><a href="#wildfly-configurations">4.2. WildFly 31 Configurations</a>
+<li><a href="#wildfly-configurations">4.2. WildFly 32 Configurations</a>
 <ul class="sectlevel3">
 <li><a href="#standalone-server-configurations">4.2.1. Standalone Server Configurations</a></li>
 <li><a href="#domain-server-configurations">4.2.2. Domain Server Configurations</a></li>
@@ -559,13 +559,13 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 </li>
 </ul>
 </li>
-<li><a href="#starting-wildfly-10">5. Starting WildFly 31</a>
+<li><a href="#starting-wildfly-10">5. Starting WildFly 32</a>
 <ul class="sectlevel2">
 <li><a href="#starting-wildfly-with-an-alternate-configuration">5.1. Starting WildFly with an Alternate Configuration</a></li>
 <li><a href="#test-your-installation">5.2. Test Your Installation</a></li>
 </ul>
 </li>
-<li><a href="#managing-your-wildfly-10">6. Managing your WildFly 31</a>
+<li><a href="#managing-your-wildfly-10">6. Managing your WildFly 32</a>
 <ul class="sectlevel2">
 <li><a href="#authentication">6.1. Authentication</a></li>
 <li><a href="#administration-console">6.2. Administration Console</a></li>
@@ -588,15 +588,15 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 </div>
 </div>
 <div class="sect1">
-<h2 id="getting-started-with-wildfly"><a class="anchor" href="#getting-started-with-wildfly"></a>1. Getting Started with WildFly 31</h2>
+<h2 id="getting-started-with-wildfly"><a class="anchor" href="#getting-started-with-wildfly"></a>1. Getting Started with WildFly 32</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>WildFly 31 is the latest release in a series of JBoss open-source
-application server offerings. WildFly 31 is an exceptionally fast,
+<p>WildFly 32 is the latest release in a series of JBoss open-source
+application server offerings. WildFly 32 is an exceptionally fast,
 lightweight and powerful implementation of the Jakarta
 Enterprise Edition 10 specifications. WildFly&#8217;s modular architecture built on the
 JBoss Modules and JBoss Modular Service Container projects enables services on-demand when your
-application requires them. The table below lists the Jakarta technologies available in WildFly 31
+application requires them. The table below lists the Jakarta technologies available in WildFly 32
 server configuration profiles.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
@@ -613,8 +613,8 @@ server configuration profiles.</p>
 <th class="tableblock halign-left valign-top">Jakarta EE Full Platform</th>
 <th class="tableblock halign-left valign-top">Jakarta EE Web
 Profile</th>
-<th class="tableblock halign-left valign-top">WildFly 31 Full Configuration</th>
-<th class="tableblock halign-left valign-top">WildFly 31 Default Configuration</th>
+<th class="tableblock halign-left valign-top">WildFly 32 Full Configuration</th>
+<th class="tableblock halign-left valign-top">WildFly 32 Default Configuration</th>
 </tr>
 </thead>
 <tbody>
@@ -853,14 +853,14 @@ Profile</th>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>WildFly Preview 31 is currently aiming at providing an early look at Jakarta EE 11, and therefore provides different versions of a number of the Jakarta specifications listed above. See <a href="WildFly_and_WildFly_Preview.html#wildfly-preview-ee11">EE 11 Support in WildFly Preview</a> for details.</p>
+<p>WildFly Preview 32 is currently aiming at providing an early look at Jakarta EE 11, and therefore provides different versions of a number of the Jakarta specifications listed above. See <a href="WildFly_and_WildFly_Preview.html#wildfly-preview-ee11">EE 11 Support in WildFly Preview</a> for details.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>WildFly 31 also provides support for a number of MicroProfile technologies:</p>
+<p>WildFly 32 also provides support for a number of MicroProfile technologies:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -871,8 +871,8 @@ Profile</th>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">MicroProfile Technology</th>
-<th class="tableblock halign-left valign-top">WildFly 31 Default Configuration</th>
-<th class="tableblock halign-left valign-top">WildFly 31 MicroProfile Configuration</th>
+<th class="tableblock halign-left valign-top">WildFly 32 Default Configuration</th>
+<th class="tableblock halign-left valign-top">WildFly 32 MicroProfile Configuration</th>
 </tr>
 </thead>
 <tbody>
@@ -951,8 +951,8 @@ that provides the Jakarta EE Full Platform.
 </div>
 <div class="paragraph">
 <p>This document provides a quick overview on how to download and get
-started using WildFly 31 for your application development. For in-depth
-content on administrative features, refer to the WildFly 31 <a href="Admin_Guide.html">Admin Guide</a>.</p>
+started using WildFly 32 for your application development. For in-depth
+content on administrative features, refer to the WildFly 32 <a href="Admin_Guide.html">Admin Guide</a>.</p>
 </div>
 </div>
 </div>
@@ -984,36 +984,36 @@ we&#8217;ll focus on the common approach of installing the download zip of stand
 <div class="sect2">
 <h3 id="download"><a class="anchor" href="#download"></a>3.1. Download</h3>
 <div class="paragraph">
-<p>WildFly 31 distributions can be obtained from:</p>
+<p>WildFly 32 distributions can be obtained from:</p>
 </div>
 <div class="paragraph">
 <p><a href="http://www.wildfly.org/downloads/">wildfly.org/downloads</a></p>
 </div>
 <div class="paragraph">
-<p>Standard WildFly 31 provides a single distribution available in zip or tar file
+<p>Standard WildFly 32 provides a single distribution available in zip or tar file
 formats.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>wildfly-31.0.0.Final.zip</strong></p>
+<p><strong>wildfly-32.0.0.Final.zip</strong></p>
 </li>
 <li>
-<p><strong>wildfly-31.0.0.Final.tar.gz</strong></p>
+<p><strong>wildfly-32.0.0.Final.tar.gz</strong></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>WildFly Preview 31 also provides a single distribution available in zip or tar file
+<p>WildFly Preview 32 also provides a single distribution available in zip or tar file
 formats.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>wildfly-preview-31.0.0.Final.zip</strong></p>
+<p><strong>wildfly-preview-32.0.0.Final.zip</strong></p>
 </li>
 <li>
-<p><strong>wildfly-preview-31.0.0.Final.tar.gz</strong></p>
+<p><strong>wildfly-preview-32.0.0.Final.tar.gz</strong></p>
 </li>
 </ul>
 </div>
@@ -1022,7 +1022,7 @@ formats.</p>
 <h3 id="installation"><a class="anchor" href="#installation"></a>3.2. Installation</h3>
 <div class="paragraph">
 <p>Simply extract your chosen download to the directory of your choice. You
-can install WildFly 31 on any operating system that supports the zip or
+can install WildFly 32 on any operating system that supports the zip or
 tar formats. Refer to the Release Notes for additional information
 related to the release.</p>
 </div>
@@ -1033,7 +1033,7 @@ related to the release.</p>
 <h2 id="wildfly---a-quick-tour"><a class="anchor" href="#wildfly---a-quick-tour"></a>4. WildFly - A Quick Tour</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now that you&#8217;ve downloaded WildFly 31, the next thing to discuss is the
+<p>Now that you&#8217;ve downloaded WildFly 32, the next thing to discuss is the
 layout of the distribution and explore the server directory structure,
 key configuration files, log files, user deployments and so on. It&#8217;s
 worth familiarizing yourself with the layout so that you&#8217;ll be able to
@@ -1101,7 +1101,7 @@ used by the single standalone server run from this installation.</p></td>
 <div class="sect3">
 <h4 id="standalone-directory-structure"><a class="anchor" href="#standalone-directory-structure"></a>4.1.1. Standalone Directory Structure</h4>
 <div class="paragraph">
-<p>In " <strong><em>standalone</em></strong> " mode each WildFly 31 server instance is an
+<p>In " <strong><em>standalone</em></strong> " mode each WildFly 32 server instance is an
 independent process (similar to previous JBoss AS versions; e.g., 3, 4,
 5, or 6). The configuration files, deployment content and writable areas
 used by the single standalone server run from a WildFly installation are
@@ -1165,7 +1165,7 @@ process.</p></td>
 <div class="sect3">
 <h4 id="domain-directory-structure"><a class="anchor" href="#domain-directory-structure"></a>4.1.2. Domain Directory Structure</h4>
 <div class="paragraph">
-<p>A key feature of WildFly 31 is the managing multiple servers from a
+<p>A key feature of WildFly 32 is the managing multiple servers from a
 single control point. A collection of multiple servers are referred to
 as a " <strong><em>domain</em></strong> ". Domains can span multiple physical (or virtual)
 machines with all WildFly instances on a given host under the control of
@@ -1239,7 +1239,7 @@ process.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="wildfly-configurations"><a class="anchor" href="#wildfly-configurations"></a>4.2. WildFly 31 Configurations</h3>
+<h3 id="wildfly-configurations"><a class="anchor" href="#wildfly-configurations"></a>4.2. WildFly 32 Configurations</h3>
 <div class="sect3">
 <h4 id="standalone-server-configurations"><a class="anchor" href="#standalone-server-configurations"></a>4.2.1. Standalone Server Configurations</h4>
 <div class="ulist">
@@ -1343,10 +1343,10 @@ provide.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="starting-wildfly-10"><a class="anchor" href="#starting-wildfly-10"></a>5. Starting WildFly 31</h2>
+<h2 id="starting-wildfly-10"><a class="anchor" href="#starting-wildfly-10"></a>5. Starting WildFly 32</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To start WildFly 31 using the default web profile configuration in "
+<p>To start WildFly 32 using the default web profile configuration in "
 <em>standalone</em>" mode, change directory to $JBOSS_HOME/bin.</p>
 </div>
 <div class="listingblock">
@@ -1437,16 +1437,16 @@ discussion in the user forum and access the enhanced web-based
 Administration Console. Or, if you uncover a defect while using WildFly,
 report an issue to inform us (attached patches will be reviewed). This
 landing page is recommended for convenient access to information about
-WildFly 31 but can easily be replaced with your own if desired.</p>
+WildFly 32 but can easily be replaced with your own if desired.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="managing-your-wildfly-10"><a class="anchor" href="#managing-your-wildfly-10"></a>6. Managing your WildFly 31</h2>
+<h2 id="managing-your-wildfly-10"><a class="anchor" href="#managing-your-wildfly-10"></a>6. Managing your WildFly 32</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>WildFly 31 offers two administrative mechanisms for managing your
+<p>WildFly 32 offers two administrative mechanisms for managing your
 running instance:</p>
 </div>
 <div class="ulist">
@@ -1466,7 +1466,7 @@ installation. Here we&#8217;ll just touch on some of the basics.</p>
 <div class="sect2">
 <h3 id="authentication"><a class="anchor" href="#authentication"></a>6.1. Authentication</h3>
 <div class="paragraph">
-<p>By default WildFly 31 is distributed with security enabled for the
+<p>By default WildFly 32 is distributed with security enabled for the
 management interfaces. This means that before you connect using the
 administration console or remotely using the CLI you will need to add a
 new user. This can be achieved simply by using the <em>add-user.sh</em> script
@@ -1759,7 +1759,7 @@ debug messages.</p>
 <div id="footer">
 <div id="footer-text">
 Version 32.0.0.Final<br>
-Last updated 2024-04-23 13:25:33 -0500
+Last updated 2024-05-14 10:01:32 -0500
 </div>
 </div>
 </body>
