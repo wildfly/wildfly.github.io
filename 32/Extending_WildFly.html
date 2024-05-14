@@ -530,7 +530,7 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 <div class="details">
 <span id="author" class="author">WildFly code development team</span><br>
 <span id="revnumber">version 32.0.0.Final,</span>
-<span id="revdate">2024-04-24T21:31:14Z</span>
+<span id="revdate">2024-05-14T15:04:38Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Extending WildFly</div>
@@ -4093,7 +4093,7 @@ of 1.0.0, and its resource description was as follows:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>In WildFly 31, it has a ModelVersion of 2.0.0 and has added two
+<p>In WildFly 32, it has a ModelVersion of 2.0.0 and has added two
 attributes, <code>require-bean-descriptor</code> and <code>non-portable</code> mode:</p>
 </div>
 <div class="listingblock">
@@ -4159,7 +4159,7 @@ attributes, <code>require-bean-descriptor</code> and <code>non-portable</code> m
 </div>
 <div class="paragraph">
 <p>In the rest of this section we will assume that we are running a DC
-running WildFly 31 so it will have ModelVersion 2.0.0 of the weld
+running WildFly 32 so it will have ModelVersion 2.0.0 of the weld
 subsystem, and that we are running a secondary HC using ModelVersion 1.0.0 of
 the weld subsystem.</p>
 </div>
@@ -4294,7 +4294,7 @@ rollback the operation across the whole domain.</p>
 <div class="paragraph">
 <p>Now for the <code>weld</code> example we have been using there is a slight twist.
 We have the new <code>require-bean-descriptor</code> and <code>non-portable-mode</code>
-attributes. These have been added in WildFly 31 which supports Jakarta EE,
+attributes. These have been added in WildFly 32 which supports Jakarta EE,
 and thus CDI.
 In CDI 1.1 the values of these attributes are tweakable, so they can be set
 to either <code>true</code> or <code>false</code>. The default behaviour for these in CDI 1.1,
@@ -4325,7 +4325,7 @@ the behavior assumed on the legacy secondary HC.</p>
 </div>
 <div class="paragraph">
 <p>That way the older secondary HCs will work fine. However, we might also have
-WildFly 31 secondary HCs in our domain, and they are missing out on the new
+WildFly 32 secondary HCs in our domain, and they are missing out on the new
 features introduced by the attributes introduced in ModelVersion 2.0.0.
 If we do</p>
 </div>
@@ -4371,9 +4371,9 @@ The solution is to put these in two different profiles in <code>domain.xml</code
 </div>
 </div>
 <div class="paragraph">
-<p>Then have the HCs using WildFly 31 make their servers reference the
+<p>Then have the HCs using WildFly 32 make their servers reference the
 <code>main-server-group</code> server group, and the HCs using older versions of
-WildFly 31 make their servers reference the <code>main-server-group-legacy</code>
+WildFly 32 make their servers reference the <code>main-server-group-legacy</code>
 server group.</p>
 </div>
 <div class="sect4">
@@ -5940,7 +5940,7 @@ transformers</a></p>
 <div class="sect3">
 <h4 id="the-old-way"><a class="anchor" href="#the-old-way"></a>4.6.1. The old way</h4>
 <div class="paragraph">
-<p>This is the way that has been used up to WildFly 31.x. However, in
+<p>This is the way that has been used up to WildFly 32.x. However, in
 WildFly 9 and later, it is strongly recommended to migrate to what is
 mentioned in
 <a href="#chained-transformers">#Chained
@@ -6425,7 +6425,7 @@ Missing parameters <span class="keyword">for</span> operation <span class="strin
 <p>This difference also affects the <code>add</code> operation. Looking at the current
 model the valid values for the <code>protocol</code> attribute are <code>remote</code>,
 <code>http-remoting</code> and <code>https-remoting</code>. The last two are new protocols
-introduced in WildFly 31, meaning that the <em>implied behaviour</em> in JBoss
+introduced in WildFly 32, meaning that the <em>implied behaviour</em> in JBoss
 7.2.0 and earlier is the <code>remote</code> protocol. Since this attribute does
 not exist in the legacy model we want to discard this attribute if it is
 <code>undefined</code> or if it has the value <code>remote</code>, both of which are in line
@@ -8279,7 +8279,7 @@ developers to bind new resources easier.</p>
 </div>
 <div class="paragraph">
 <p>To support discussion in the community, the content includes a big focus
-on comparing WildFly 31 JNDI implementation with the new proposal, and
+on comparing WildFly 32 JNDI implementation with the new proposal, and
 should later evolve to the prime guide for WildFly developers needing to
 interact with JNDI at subsystem level.</p>
 </div>
