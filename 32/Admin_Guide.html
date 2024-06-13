@@ -8889,6 +8889,17 @@ it is possible to disable the <code>typ</code> claim validation by setting the <
 system property to <code>true</code>.</p>
 </div>
 </div>
+<div class="sect4">
+<h5 id="query-parameters"><a class="anchor" href="#query-parameters"></a><a class="link" href="#query-parameters">Query Parameters</a></h5>
+<div class="paragraph">
+<p>In general, having dynamic query strings in redirect URIs isn't recommended because of the potential for things
+like HTTP parameter pollution attacks. For this reason, by default, the <em>elytron-oidc-client</em> subsystem doesn't
+include any query params that were previously present when redirecting back to an application after authentication
+with an OpenID provider. However, it's possible to explicitly allow query params if desired with WildFly versions 
+<code>32.0.1.Final</code> and later. To specify that any query params that were present prior to being redirected 
+to the OpenID provider be included upon being redirected back to the application after authentication, 
+the <code>wildfly.elytron.oidc.allow.query.params</code> system property can be set to <code>true</code>.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="multi-tenancy-support"><a class="anchor" href="#multi-tenancy-support"></a><a class="link" href="#multi-tenancy-support">7.6.5. Multi-Tenancy Support</a></h4>
