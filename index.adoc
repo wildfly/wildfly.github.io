@@ -1,178 +1,98 @@
 = WildFly Documentation
+:toc: left
+:wildfly-latest-major: 35
 
-== Releases
+== WildFly Application Server
 
-|===
-|WildFly Release | Jakarta EE Version
+WildFly is a powerful, modular, & lightweight application server that helps you build amazing enterprise Java applications.
 
-|link:35[35.0.0.Final]
-|https://jakarta.ee/specifications/platform/10/apidocs/[Jakarta EE 10]
+Learn more about *link:{wildfly-latest-major}[WildFly {wildfly-latest-major}]* (or link:./archives[previous releases]) and read the link:https://www.wildfly.org/guides/[Guides].
+
+WildFly provides https://jakarta.ee/specifications/platform/10/apidocs/[Jakarta EE 10 Plaform API].
 
 
-|===
+== Build Applications With WildFly
 
-|===
-|Bootable JAR
+=== WildFly Maven Plugin
 
-|link:bootablejar[Bootable JAR]
+The WildFly Maven plugin allows you to manipulate a WildFly server directly from a Java Maven project.
+Its features include:
 
-|===
+* Deploy, redeploy or undeploy your application
+* Add resources
+* Execute CLI commands
+* Run a standalone server within Maven
+* Provision & package a WildFly server fit for your application
+* Build a container image with WildFly and your application
+* Build a Bootable Jar application
 
-|===
-|Galleon
+Learn more about the link:wildfly-maven-plugin[WildFly Maven Plugin].
 
-|link:galleon[Galleon]
+=== WildFly Glow
 
-|===
+WildFly Glow is a tool to automatically discover an application's requirements and provision WildFly with the right set of capabilities.
+WildFly Glow is integrated in the WildFly Maven Plugin to streamline application development and deployment. It can also be used with Arquillian for integration testing.
 
-|===
-|WildFly Galleon Plug-ins
+Learn more about link:wildfly-glow[WildFly Glow].
 
-|link:galleon-plugins[WildFly Galleon Plug-ins]
+=== Bootable JAR
 
-|===
+[NOTE]
+The WildFly Maven Plugin now incorporates the ability to produce Bootable JAR applications and is the recommended way to do it.
 
-|===
-|WildFly Maven Plugin
+Bootable JAR is a Maven plugin to build bootable JAR applications.
 
-|link:wildfly-maven-plugin[wildfly-maven-plugin]
-
-|===
-
-|===
-|WildFly Glow
-
-|link:wildfly-glow[wildfly-glow]
-
-|===
-
-|===
-|Prospero
-
-|link:prospero[Prospero]
-
-|===
+Learn more about link:bootablejar[Bootable Jar].
 
 [[wildfly-on-kubernetes]]
-== Build and Deploy WildFly on Kubernetes & OpenShift
+== Build & Deploy WildFly on the Cloud
 
-|===
-|Tools to build and deploy WildFly on Kubernetes & OpenShift
+There are different tools to build and deploy WildFly on the Cloud, 
 
-|link:wildfly-charts[Helm Chart for WildFly]
-|link:wildfly-operator[Kubernetes Operator for WildFly]
-|link:wildfly-s2i[WildFly S2I (Source to Image) builder and runtime images]
-|link:wildfly-container[WildFly container images]
+=== WildFly Container
 
-|===
+Our original container image that provides a standalone WildFly server. 
+Use this image to add your deployments and build your application image.
 
-== Previous WildFly Releases
+Learn more about link:wildfly-container[WildFly Container].
 
-|===
-|WildFly Release | Jakarta EE Version | Java EE Version
+=== Helm Chart
 
-|link:34[34.0.0.Final]
-|https://jakarta.ee/specifications/platform/10/apidocs/[Jakarta EE 10]
-|
+Build & Deploy your Java applications with WildFly on Kubernetes and OpenShift with a Helm Chart.
 
-|link:33[33.0.0.Final]
-|https://jakarta.ee/specifications/platform/10/apidocs/[Jakarta EE 10]
-|
+Learn more about the link:wildfly-charts[Helm Chart for WildFly].
 
-|link:32[32.0.0.Final]
-|https://jakarta.ee/specifications/platform/10/apidocs/[Jakarta EE 10]
-|
+=== Operator for Kubernetes & OpenShift
 
-|link:31[31.0.0.Final]
-|https://jakarta.ee/specifications/platform/10/apidocs/[Jakarta EE 10]
-|
+The WildFly Operator simplifies deployment and maintenance of stateful containerized applications
+for Kubernetes and OpenShift.
 
-|link:30[30.0.0.Final]
-|https://jakarta.ee/specifications/platform/10/apidocs/[Jakarta EE 10]
-|
+Learn more about the link:wildfly-operator[WildFly Operator].
 
-|link:29[29.0.0.Final]
-|https://jakarta.ee/specifications/platform/10/apidocs/[Jakarta EE 10]
-|
+===  Source-to-Image (S2I) Builder & Runtime Images
 
-|link:28[28.0.0.Final]
-|https://jakarta.ee/specifications/platform/10/apidocs/[Jakarta EE 10]
-|
+Use the Source-to-Image (S2I) Builder image to build a container image on OpenShift directly from your Git repository.
+Use the Runtime image to trim the container so it contains the minimal dependencies required to run WildFly.
 
-|link:27[27.0.0.Final]
-|https://jakarta.ee/specifications/platform/10/apidocs/[Jakarta EE 10]
-|
+Learn more about the link:wildfly-s2i[S2I Builder & Runtime Images].
 
-|link:26.1[26.1.0.Final]
-|https://jakarta.ee/specifications/platform/8/apidocs/[Jakarta EE 8] (and https://jakarta.ee/specifications/platform/9.1/apidocs/[EE 9.1] Preview)
-|
 
-|link:26[26.0.0.Final]
-|https://jakarta.ee/specifications/platform/8/apidocs/[Jakarta EE 8] (and https://jakarta.ee/specifications/platform/9.1/apidocs/[EE 9.1] Preview)
-|
+== Provision WildFly & Build Feature Packs
 
-|link:25[25.0.0.Final]
-|https://jakarta.ee/specifications/platform/8/apidocs/[Jakarta EE 8] (and https://jakarta.ee/specifications/platform/9.1/apidocs/[EE 9.1] Preview)
-|
+=== Galleon
 
-|link:24[24.0.0.Final]
-|https://jakarta.ee/specifications/platform/8/apidocs/[Jakarta EE 8] (and https://jakarta.ee/specifications/platform/9.1/apidocs/[EE 9.1] Preview)
-|
+Galleon is a Provisioning tool to create and maintain software distributions such as WildFly.
+It also provides a Maven plugin to build feature-packs for WildFly & provision WildFly-based distributions
 
-|link:23[23.0.0.Final]
-|https://jakarta.ee/specifications/platform/8/apidocs/[Jakarta EE 8] (and https://jakarta.ee/specifications/platform/9/apidocs/[EE 9] Preview)
-|
+Learn more about link:galleon[Galleon] and its link:galleon-plugins[Plug-ins documentation].
 
-|link:22[22.0.0.Final]
-|https://jakarta.ee/specifications/platform/8/apidocs/[Jakarta EE 8] (and https://jakarta.ee/specifications/platform/9/apidocs/[EE 9] Preview)
-|https://javaee.github.io/javaee-spec/javadocs[Java EE 8]
+=== Prospero
 
-|link:21[21.0.0.Final]
-|https://jakarta.ee/specifications/platform/8/apidocs/[Jakarta EE 8]
-|https://javaee.github.io/javaee-spec/javadocs[Java EE 8]
+Prospero is a high-level tool designed to install and manage updates of WildFly servers.
+Its features include:
 
-|link:20[20.0.0.Final]
-|https://jakarta.ee/specifications/platform/8/apidocs/[Jakarta EE 8]
-|https://javaee.github.io/javaee-spec/javadocs[Java EE 8]
+* Provision WildFly servers
+* Update or revert updates to WildFly servers
+* Track updates history
 
-|link:19.1[19.1.0.Final]
-|https://jakarta.ee/specifications/platform/8/apidocs/[Jakarta EE 8]
-|https://javaee.github.io/javaee-spec/javadocs[Java EE 8]
-
-|link:19[19.0.0.Final]
-|https://jakarta.ee/specifications/platform/8/apidocs/[Jakarta EE 8]
-|https://javaee.github.io/javaee-spec/javadocs[Java EE 8]
-
-|link:18[18.0.0.Final]
-|https://jakarta.ee/specifications/platform/8/apidocs/[Jakarta EE 8]
-|https://javaee.github.io/javaee-spec/javadocs[Java EE 8]
-
-|link:17[17.0.1.Final]
-|https://jakarta.ee/specifications/platform/8/apidocs/[Jakarta EE 8]
-|https://javaee.github.io/javaee-spec/javadocs[Java EE 8]
-
-|link:17[17.0.0.Final]
-|
-|https://javaee.github.io/javaee-spec/javadocs[Java EE 8]
-
-|link:16[16.0.0.Final]
-|
-|https://javaee.github.io/javaee-spec/javadocs[Java EE 8]
-
-|link:15[15.0.0.Final]
-|
-|https://javaee.github.io/javaee-spec/javadocs[Java EE 8]
-
-|link:14[14.0.0.Final]
-|
-|https://javaee.github.io/javaee-spec/javadocs[Java EE 8]
-
-|link:13[13.0.0.Final]
-|
-|https://docs.oracle.com/javaee/7/api/toc.htm[Java EE 7 (and full EE8 Preview)]
-
-|link:12[12.0.0.Final]
-|
-|https://docs.oracle.com/javaee/7/api/toc.htm[Java EE 7 (and partial EE8 Preview)]
-
-|===
+Learn more about link:prospero[Prospero].

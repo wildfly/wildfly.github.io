@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>WildFly Documentation</title>
+<title>WildFly Archived Documentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -434,212 +434,166 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article toc2 toc-left">
+<body class="article">
 <div id="header">
-<h1>WildFly Documentation</h1>
-<div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#_wildfly_application_server">WildFly Application Server</a></li>
-<li><a href="#_build_applications_with_wildfly">Build Applications With WildFly</a>
-<ul class="sectlevel2">
-<li><a href="#_wildfly_maven_plugin">WildFly Maven Plugin</a></li>
-<li><a href="#_wildfly_glow">WildFly Glow</a></li>
-<li><a href="#_bootable_jar">Bootable JAR</a></li>
-</ul>
-</li>
-<li><a href="#wildfly-on-kubernetes">Build &amp; Deploy WildFly on the Cloud</a>
-<ul class="sectlevel2">
-<li><a href="#_wildfly_container">WildFly Container</a></li>
-<li><a href="#_helm_chart">Helm Chart</a></li>
-<li><a href="#_operator_for_kubernetes_openshift">Operator for Kubernetes &amp; OpenShift</a></li>
-<li><a href="#_source_to_image_s2i_builder_runtime_images">Source-to-Image (S2I) Builder &amp; Runtime Images</a></li>
-</ul>
-</li>
-<li><a href="#_provision_wildfly_build_feature_packs">Provision WildFly &amp; Build Feature Packs</a>
-<ul class="sectlevel2">
-<li><a href="#_galleon">Galleon</a></li>
-<li><a href="#_prospero">Prospero</a></li>
-</ul>
-</li>
-</ul>
-</div>
+<h1>WildFly Archived Documentation</h1>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_wildfly_application_server">WildFly Application Server</h2>
+<h2 id="_previous_wildfly_releases">Previous WildFly Releases</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>WildFly is a powerful, modular, &amp; lightweight application server that helps you build amazing enterprise Java applications.</p>
-</div>
-<div class="paragraph">
-<p>Learn more about <strong><a href="35">WildFly 35</a></strong> (or <a href="./archives">previous releases</a>) and read the <a href="https://www.wildfly.org/guides/">Guides</a>.</p>
-</div>
-<div class="paragraph">
-<p>WildFly provides <a href="https://jakarta.ee/specifications/platform/10/apidocs/">Jakarta EE 10 Plaform API</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_build_applications_with_wildfly">Build Applications With WildFly</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_wildfly_maven_plugin">WildFly Maven Plugin</h3>
-<div class="paragraph">
-<p>The WildFly Maven plugin allows you to manipulate a WildFly server directly from a Java Maven project.
-Its features include:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Deploy, redeploy or undeploy your application</p>
-</li>
-<li>
-<p>Add resources</p>
-</li>
-<li>
-<p>Execute CLI commands</p>
-</li>
-<li>
-<p>Run a standalone server within Maven</p>
-</li>
-<li>
-<p>Provision &amp; package a WildFly server fit for your application</p>
-</li>
-<li>
-<p>Build a container image with WildFly and your application</p>
-</li>
-<li>
-<p>Build a Bootable Jar application</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Learn more about the <a href="wildfly-maven-plugin">WildFly Maven Plugin</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_wildfly_glow">WildFly Glow</h3>
-<div class="paragraph">
-<p>WildFly Glow is a tool to automatically discover an application&#8217;s requirements and provision WildFly with the right set of capabilities.
-WildFly Glow is integrated in the WildFly Maven Plugin to streamline application development and deployment. It can also be used with Arquillian for integration testing.</p>
-</div>
-<div class="paragraph">
-<p>Learn more about <a href="wildfly-glow">WildFly Glow</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_bootable_jar">Bootable JAR</h3>
-<div class="admonitionblock note">
-<table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
 <tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-The WildFly Maven Plugin now incorporates the ability to produce Bootable JAR applications and is the recommended way to do it.
-</td>
+<th class="tableblock halign-left valign-top">WildFly Release</th>
+<th class="tableblock halign-left valign-top">Jakarta EE Version</th>
+<th class="tableblock halign-left valign-top">Java EE Version</th>
 </tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="34">34.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/10/apidocs/">Jakarta EE 10</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="33">33.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/10/apidocs/">Jakarta EE 10</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="32">32.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/10/apidocs/">Jakarta EE 10</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="31">31.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/10/apidocs/">Jakarta EE 10</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="30">30.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/10/apidocs/">Jakarta EE 10</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="29">29.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/10/apidocs/">Jakarta EE 10</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="28">28.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/10/apidocs/">Jakarta EE 10</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="27">27.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/10/apidocs/">Jakarta EE 10</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="26.1">26.1.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a> (and <a href="https://jakarta.ee/specifications/platform/9.1/apidocs/">EE 9.1</a> Preview)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="26">26.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a> (and <a href="https://jakarta.ee/specifications/platform/9.1/apidocs/">EE 9.1</a> Preview)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="25">25.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a> (and <a href="https://jakarta.ee/specifications/platform/9.1/apidocs/">EE 9.1</a> Preview)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="24">24.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a> (and <a href="https://jakarta.ee/specifications/platform/9.1/apidocs/">EE 9.1</a> Preview)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="23">23.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a> (and <a href="https://jakarta.ee/specifications/platform/9/apidocs/">EE 9</a> Preview)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="22">22.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a> (and <a href="https://jakarta.ee/specifications/platform/9/apidocs/">EE 9</a> Preview)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="21">21.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="20">20.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="19.1">19.1.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="19">19.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="18">18.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="17">17.0.1.Final</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jakarta.ee/specifications/platform/8/apidocs/">Jakarta EE 8</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="17">17.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="16">16.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="15">15.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="14">14.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javaee.github.io/javaee-spec/javadocs">Java EE 8</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="13">13.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.oracle.com/javaee/7/api/toc.htm">Java EE 7 (and full EE8 Preview)</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="12">12.0.0.Final</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.oracle.com/javaee/7/api/toc.htm">Java EE 7 (and partial EE8 Preview)</a></p></td>
+</tr>
+</tbody>
 </table>
-</div>
-<div class="paragraph">
-<p>Bootable JAR is a Maven plugin to build bootable JAR applications.</p>
-</div>
-<div class="paragraph">
-<p>Learn more about <a href="bootablejar">Bootable Jar</a>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="wildfly-on-kubernetes">Build &amp; Deploy WildFly on the Cloud</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>There are different tools to build and deploy WildFly on the Cloud,</p>
-</div>
-<div class="sect2">
-<h3 id="_wildfly_container">WildFly Container</h3>
-<div class="paragraph">
-<p>Our original container image that provides a standalone WildFly server.
-Use this image to add your deployments and build your application image.</p>
-</div>
-<div class="paragraph">
-<p>Learn more about <a href="wildfly-container">WildFly Container</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_helm_chart">Helm Chart</h3>
-<div class="paragraph">
-<p>Build &amp; Deploy your Java applications with WildFly on Kubernetes and OpenShift with a Helm Chart.</p>
-</div>
-<div class="paragraph">
-<p>Learn more about the <a href="wildfly-charts">Helm Chart for WildFly</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_operator_for_kubernetes_openshift">Operator for Kubernetes &amp; OpenShift</h3>
-<div class="paragraph">
-<p>The WildFly Operator simplifies deployment and maintenance of stateful containerized applications
-for Kubernetes and OpenShift.</p>
-</div>
-<div class="paragraph">
-<p>Learn more about the <a href="wildfly-operator">WildFly Operator</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_source_to_image_s2i_builder_runtime_images">Source-to-Image (S2I) Builder &amp; Runtime Images</h3>
-<div class="paragraph">
-<p>Use the Source-to-Image (S2I) Builder image to build a container image on OpenShift directly from your Git repository.
-Use the Runtime image to trim the container so it contains the minimal dependencies required to run WildFly.</p>
-</div>
-<div class="paragraph">
-<p>Learn more about the <a href="wildfly-s2i">S2I Builder &amp; Runtime Images</a>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_provision_wildfly_build_feature_packs">Provision WildFly &amp; Build Feature Packs</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_galleon">Galleon</h3>
-<div class="paragraph">
-<p>Galleon is a Provisioning tool to create and maintain software distributions such as WildFly.
-It also provides a Maven plugin to build feature-packs for WildFly &amp; provision WildFly-based distributions</p>
-</div>
-<div class="paragraph">
-<p>Learn more about <a href="galleon">Galleon</a> and its <a href="galleon-plugins">Plug-ins documentation</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_prospero">Prospero</h3>
-<div class="paragraph">
-<p>Prospero is a high-level tool designed to install and manage updates of WildFly servers.
-Its features include:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Provision WildFly servers</p>
-</li>
-<li>
-<p>Update or revert updates to WildFly servers</p>
-</li>
-<li>
-<p>Track updates history</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Learn more about <a href="prospero">Prospero</a>.</p>
-</div>
-</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-03-11 09:05:11 +0100
+Last updated 2025-01-15 16:10:09 +0100
 </div>
 </div>
 </body>
