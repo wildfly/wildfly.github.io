@@ -1,0 +1,118 @@
+= Management API Versioning
+
+== Overview
+
+The WildFly server kernel and each subsystem all provide a versioned management API, with schemas available for the JBoss DMR-based kernel and subsystem APIs supported by a WildFly process, as well as xml schemas for its persistent configuration documents (standalone/domain/host.xml).
+
+A WildFly standalone server or Host Controller process will only support a JBoss DMR-based API set consisting of a single version of the API for its kernel and for each subsystem. A management client wishing to interact with the WildFly process must conform its interaction to that API set.
+
+A WildFly standalone server or Host Controller process MUST support multiple xml schema versions for the server kernel and for each subsystem, with the kernel and subsystems providing parsers that are able to read standalone/domain/host.xml configuration elements for older schema versions and translate the content of those elements into DMR management operations that conform to the set of JBoss DMR API schemas understood by the process.
+
+If the standalone server or Host Controller process needs to persist its configuration, the process will write a document using the latest kernel and subsystem XML schema versions.
+
+A WildFly Host Controller process that is configured to act as a Domain Controller MUST be able to translate management operations using the current JBoss DMR API set into forms understandable by connected secondary Host Controllers that are running older WildFly versions that only understand earlier API versions. This "mixed domain" translation need not always result in the older HC being able to comply with the user request. When this is not possible the translation effort should result in an understandable failure to be sent to the user.
+
+Support for parsing older xml schemas is not indefinite; at some point the kernel and subsystems can remove support for older versions. As of June 2025, support for schemas available in Red Hat JBoss Enterprise Application Platform 6.4 or later is required.
+
+Support for Domain Controller mixed-domain translation to earlier JBoss DMR-based API versions is not indefinite; at some point the kernel and subsystems can remove support for older versions. As of June 2025, support for schemas available in WildFly 23 or later is required.
+
+== Version naming
+
+A JBoss DMR-based API or xml schema version consists of two elements:
+
+* A version number of the form #.#, representing a major/minor pair.
+* A stabilitity indicator.
+
+=== The version number
+
+The version number for schemas produced by projects that are associated with the WildFly project at Commonhaus MUST be of the form ##.0 -- that is, the minor version should always be zero. There are some existing schemas that use a minor version other than 0, but any subsequent updates to those schemas MUST move to the next major version.
+
+WildFly in general does not follow strict semantic versioning in its release numbers. We are not equipped to provide the oversight necessary to provide consistent semantic versioning in our schema numbers, so we will not attempt to do so.
+
+The existence of the unused minor field in the version number makes it theoretically possible to introduce new versions in older branches, if needed. Historically, WildFly has not done this as we only do feature development against main, but including the unused minor does make this kind of thing possible.
+
+=== The stability indicator
+
+The stability indicator defines the API / configuration elements in the schema that have the least amount of stability. The formal values are 'default', 'community', 'preview', 'experimental', with those strings possibly appearing in upper case, e.g. as part or all of Java constants or Enum names.
+
+The absence of a stability indicator indicates 'default'.
+
+== Version name alignment between the JBoss DMR-based API and the XML Schema
+
+There is no requirement to have consistent version names between the latest kernel or subsystem JBoss DMR-based API and its latest XML Schema. A JBoss DMR API can evolve in ways that do not change the persistent configuration format, and vice versa. If this occurs, the version names can differ. New versions with no substantive changes should not be introduced solely to keep the version names the same between the JBoss DMR API and xml schemas.
+
+== Introduction of new API versions
+
+Whenever there is a change in a kernel or subsystem management API relative to the latest .Final release of the project that delivers the kernel or subsystem, a new version MUST be created.
+
+NOTE: The following discussion does not distinguish between JBoss DMR-based APIs and xml schemas. The same logic should be independently applied to both.
+
+=== Determining the new version name
+
+The process for determining a new version name depends heavily on the stability level of the new elements in the API.
+
+Conceptually, when reasoning about stability levels and version naming, it is good to conceive of the stability levels as a stack, one in the opposite order of perceived stability, i.e. the 'highest' stability, 'default', is the lowest on the stack. So the stack looks like this:
+
+experimental
+preview
+community
+default
+
+The stack concept is valid because if a server is running at 'default' stability, the smallest set of possible features are available. If the server is restarted at 'community' an additional set of features are available but no 'default' features are lost. The same applies with 'preview' and 'experimental'. The available features stack up as the minimum stablity level decreases.
+
+So, how to determine the necessary API version for the schema that includes your new feature?
+
+Look at the current stack for the kernel or subsystem API you are updating. If the stability level of your new schema would be *higher on the stack* than the current schemas, then introduce a new schema with the same version number as the current schemas, but with the new stability.  You're just putting a new plate on the stack.
+
+So, if a subsystem has these API versions in its stack:
+
+2.0_COMMUNITY
+2.0_DEFAULT
+1.0_DEFAULT
+
+You want to introduce some 'preview' features. A 2.0_PREVIEW can be placed on top of that stack, so you should use that.
+
+On the other hand, if the stability of your new features is *less than or equal* to the top of the stack, you need to introduce a new version number.
+
+Imagine our example subsystem had schemas like this:
+
+2.0_PREVIEW
+2.0_DEFAULT
+1.0_DEFAULT
+
+Now you want to introduce some 'community' features. You cannot just introduce 2.0_COMMUNITY, because that would effectively redefine the already shipped 2.0_PREVIEW. If the server is running in 'preview' stability, now your features will be present while in an earlier version they will not be present. You'd be trying to insert a plate in the middle of the stack.
+
+Instead you must name your new schema 3.0_COMMUNITY. That can be placed on top of the stack.
+
+==== Requirement for additional updates
+
+But, in this latter scenario, there's more to do.
+
+WARNING: If you introduce a new numerical version at stability X, you must also introduce new versions with that number for each of the existing schemas at a higher stability in the stack.
+
+In our previous example, once your new 'community' features are introduced, if the server is started with 'preview' stability the existing 'preview' features will still be available, in addition to your new features. If the user updates their config and the server writes the config file, it must be able to write a) a valid URN that accurately describes the xml that will be written b) the new 'community' settings and c) the existing 'preview' settings. Logically the only way that is possible is if there is a new 3.0_PREVIEW schema.
+
+NOTE: The previous example focused on XML persistence, but the same rule applies for JBoss DMR-based API schemas.
+
+So, we'd end up with following schema stack, with the top two added as part of the work on the new feature.
+
+3.0_PREVIEW
+3.0_COMMUNITY
+2.0_PREVIEW
+2.0_DEFAULT
+1.0_DEFAULT
+
+== Format of a Pull Request introducing new schemas and features
+
+Pull requests that introduce new features and associated schemas MUST follow this basic pattern:
+
+1) A commit that introduces the new schema (or schemas of both the DMR API schema and the xml scheme are being updated). This should include all the 'boilerplate' stuff related to a new version, e.g.
+* The various bits to add the new version(s) names to the Java code 
+* A new xsd file, identical to the current one except the new URN etc (i.e. no functional change)
+* New xml files for use in the standard subsystem test, identical to existing onces except the new URN (no functional change)
+
+2) A second commit that then adds the functional change (e.g. new resources, attributes, etc).
+
+This approach greatly facilitates code review and future maintenance.
+
+
