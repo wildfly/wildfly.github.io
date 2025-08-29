@@ -530,7 +530,7 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 <div class="details">
 <span id="author" class="author">WildFly developer team</span><br>
 <span id="revnumber">version 37.0.0.Final,</span>
-<span id="revdate">2025-08-04T14:03:23Z</span>
+<span id="revdate">2025-08-29T18:36:17Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">WildFly Admin guide</div>
@@ -1553,7 +1553,7 @@ invoked via the HTTP API, the JSON representation of a <code>ModelNode</code>.)<
 </div>
 <div class="paragraph">
 <p>Every resource except the root resource will have an <code>add</code> operation and
-should have a <code>remove</code> operation ("should" because in WildFly 36 many do
+should have a <code>remove</code> operation ("should" because in WildFly 37 many do
 not). The parameters for the <code>add</code> operation vary depending on the
 resource. The <code>remove</code> operation has no parameters.</p>
 </div>
@@ -7518,7 +7518,7 @@ you installed.</p>
 <div class="sect3">
 <h4 id="jdbc-driver-installation"><a class="anchor" href="#jdbc-driver-installation"></a><a class="link" href="#jdbc-driver-installation">7.3.1. JDBC Driver Installation</a></h4>
 <div class="paragraph">
-<p>The recommended way to install a JDBC driver into WildFly 36 is to deploy
+<p>The recommended way to install a JDBC driver into WildFly 37 is to deploy
 it as a regular JAR deployment. The reason for this is that when you run
 WildFly in domain mode, deployments are automatically propagated to all
 servers to which the deployment applies; thus distribution of the driver
@@ -13219,7 +13219,7 @@ the command line.</p>
 <div class="sect3">
 <h4 id="deployment-of--jms.xml-files"><a class="anchor" href="#deployment-of--jms.xml-files"></a><a class="link" href="#deployment-of--jms.xml-files">7.15.10. Deployment of -jms.xml files</a></h4>
 <div class="paragraph">
-<p>Starting with WildFly 36, you have the ability to deploy a -jms.xml file
+<p>Starting with WildFly 37, you have the ability to deploy a -jms.xml file
 defining Jakarta Messaging destinations, e.g.:</p>
 </div>
 <div class="listingblock">
@@ -13861,7 +13861,7 @@ connect to a legacy app server (running HornetQ)</p>
 </li>
 <li>
 <p>forward compatibility: legacy messaging clients (using HornetQ) can connect
-to a WildFly 36 app server (running Artemis).</p>
+to a WildFly 37 app server (running Artemis).</p>
 </li>
 </ul>
 </div>
@@ -13914,7 +13914,7 @@ providing a <code>legacy-entries</code> attribute to the <code>jms-queue</code> 
 </div>
 <div class="paragraph">
 <p>The <code>legacy-entries</code> must be used by legacy clients (using HornetQ)
-while the regular <code>entries</code> are for WildFly 36 Jakarta Messaging clients (using
+while the regular <code>entries</code> are for WildFly 37 Jakarta Messaging clients (using
 Artemis).</p>
 </div>
 <div class="paragraph">
@@ -13936,7 +13936,7 @@ in the legacy <code>messaging</code> subsystem and the regular entries will be
 created with a <code>-new</code> suffix.<br>
 If <code>add-legacy-entries</code> is set to <code>false</code> during migration, no legacy
 resources will be created in the <code>messaging-activemq</code> subsystem and
-legacy messaging clients will not be able to communicate with WildFly 36
+legacy messaging clients will not be able to communicate with WildFly 37
 servers.</p>
 </div>
 </div>
@@ -13946,7 +13946,7 @@ servers.</p>
 <div class="paragraph">
 <p>Backward compatibility requires no configuration change in the legacy
 server.<br>
-WildFly 36 clients do not look up resources on the legacy server but
+WildFly 37 clients do not look up resources on the legacy server but
 use client-side JNDI to create their Jakarta Messaging resources. WildFly&#8217;s Artemis client
 can then use these resources to communicate with the legacy server
 using the HornetQ CORE protocol.</p>
@@ -13957,7 +13957,7 @@ using the HornetQ CORE protocol.</p>
 JNDI</a> to create Jakarta Messaging resources ( <code>ConnectionFactory</code> and <code>Destination</code>).</p>
 </div>
 <div class="paragraph">
-<p>For example, if a WildFly 36 messaging client wants to communicate with a
+<p>For example, if a WildFly 37 messaging client wants to communicate with a
 legacy server using a queue named <code>myQueue</code>, it must use the
 following properties to configure its JNDI <code>InitialContext</code>:</p>
 </div>
@@ -23877,7 +23877,7 @@ script (e.g. 'bin/jboss-admin.bat --connect command=:shutdown').</p>
 <div class="paragraph">
 <p>To avoid "Press any key to continue &#8230;&#8203;" message you need to specify
 NOPAUSE variable. Call 'set NOPAUSE=true' in command line before running
-any WildFly 36 .bat script or include it in your custom script before
+any WildFly 37 .bat script or include it in your custom script before
 invoking scripts from WildFly.</p>
 </div>
 </div>
@@ -27169,7 +27169,7 @@ to the process it was managing and release other resources:</p>
 <div class="sect3">
 <h4 id="format-of-a-detyped-operation-request"><a class="anchor" href="#format-of-a-detyped-operation-request"></a><a class="link" href="#format-of-a-detyped-operation-request">11.5.3. Format of a Detyped Operation Request</a></h4>
 <div class="paragraph">
-<p>The basic method a user of the WildFly 36 programmatic management API
+<p>The basic method a user of the WildFly 37 programmatic management API
 would use is very simple:</p>
 </div>
 <div class="listingblock">
@@ -27689,7 +27689,7 @@ header just like this :</p>
 <div class="sect3">
 <h4 id="format-of-a-detyped-operation-response"><a class="anchor" href="#format-of-a-detyped-operation-response"></a><a class="link" href="#format-of-a-detyped-operation-response">11.5.4. Format of a Detyped Operation Response</a></h4>
 <div class="paragraph">
-<p>As noted previously, the basic method a user of the WildFly 36
+<p>As noted previously, the basic method a user of the WildFly 37
 programmatic management API would use is very simple:</p>
 </div>
 <div class="listingblock">
@@ -28277,7 +28277,7 @@ example response would look like this:</p>
 <div id="footer">
 <div id="footer-text">
 Version 37.0.0.Final<br>
-Last updated 2025-07-14 17:03:31 -0500
+Last updated 2025-07-14 18:03:31 -0400
 </div>
 </div>
 </body>
