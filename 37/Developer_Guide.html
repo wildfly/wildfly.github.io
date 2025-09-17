@@ -530,7 +530,7 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 <div class="details">
 <span id="author" class="author">WildFly developer team</span><br>
 <span id="revnumber">version 37.0.0.Final,</span>
-<span id="revdate">2025-08-04T14:03:23Z</span>
+<span id="revdate">2025-08-29T18:36:17Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">WildFly Developer guide</div>
@@ -1609,7 +1609,7 @@ deployment.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>As explained in the <a href="#Class_Loading_in_WildFly">Class Loading in WildFly</a> article,
-WildFly 36 is based on module classloading. A class within a module B
+WildFly 37 is based on module classloading. A class within a module B
 isn&#8217;t visible to a class within a module A, unless module B adds a
 dependency on module A. Module dependencies can be explicitly (as
 explained in that classloading article) or can be "implicit". This
@@ -2014,7 +2014,7 @@ webservice endpoints</p></td>
 <h2 id="Application_Client_Reference"><a class="anchor" href="#Application_Client_Reference"></a>4. Jakarta Application Client Reference</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As a Jakarta EE compliant server, WildFly 36 contains an application
+<p>As a Jakarta EE compliant server, WildFly 37 contains an application
 client. An application client is essentially a cut down server instance,
 that allows you to use EE features such as injection in a client side
 program.</p>
@@ -2471,7 +2471,7 @@ Guide</a><br>
 <div class="sect2">
 <h3 id="using-cdi-beans-from-outside-the-deployment"><a class="anchor" href="#using-cdi-beans-from-outside-the-deployment"></a>6.1. Using CDI Beans from outside the deployment</h3>
 <div class="paragraph">
-<p>For WildFly 36 onwards, it is now possible to have classes outside the
+<p>For WildFly 37 onwards, it is now possible to have classes outside the
 deployment be picked up as CDI beans. In order for this to work, you must
 add a dependency on the external deployment that your beans are coming
 from, and make sure the META-INF directory of this deployment is
@@ -2866,7 +2866,7 @@ Some users may have learned to configure Hibernate annotation processing by decl
 <div class="sectionbody">
 <div class="paragraph">
 <p>This chapter details the extensions that are available when developing
-Jakarta Enterprise Beans <sup>tm</sup> on WildFly 36.</p>
+Jakarta Enterprise Beans <sup>tm</sup> on WildFly 37.</p>
 </div>
 <div class="paragraph">
 <p>The chapter is divided into three main sections:</p>
@@ -2903,7 +2903,7 @@ specific extensions to the security configurations.</p>
 <div class="paragraph">
 <p>The Jakarta EE spec doesn&#8217;t mandate a specific way to configure security
 domain for a bean. It leaves it to the vendor implementations to allow
-such configurations, the way they wish. In WildFly 36, the use of
+such configurations, the way they wish. In WildFly 37, the use of
 <code>@org.jboss.ejb3.annotation.SecurityDomain</code> annotation allows the
 developer to configure the security domain for a bean. Here&#8217;s an
 example:</p>
@@ -2995,14 +2995,14 @@ of a .jar deployment or .war/WEB-INF folder of a .war deployment.
 <div class="paragraph">
 <p>As you can see the <code>doSomething</code> method is configured to be accessible
 for users with role "bar". However, the bean isn&#8217;t configured for any
-specific security domain. Prior to WildFly 36, the absence of an
+specific security domain. Prior to WildFly 37, the absence of an
 explicitly configured security domain on the bean would leave the bean
 unsecured, which meant that even if the <code>doSomething</code> method was
 configured with <code>@RolesAllowed("bar")</code> anyone even without the "bar"
 role could invoke on the bean.</p>
 </div>
 <div class="paragraph">
-<p>In WildFly 36, the presence of any security metadata (like @RolesAllowed,
+<p>In WildFly 37, the presence of any security metadata (like @RolesAllowed,
 @PermitAll, @DenyAll, @RunAs, @RunAsPrincipal) on the bean or any
 business method of the bean, makes the bean secure, even in the absence
 of an explicitly configured security domain. In such cases, the security
@@ -3040,7 +3040,7 @@ domain defaulted to "other"). However, notice that the method
 <code>helloWorld</code> doesn&#8217;t have any specific security configurations.</p>
 </div>
 <div class="paragraph">
-<p>In WildFly 36, such methods which have no explicit security
+<p>In WildFly 37, such methods which have no explicit security
 configurations, in a secured bean, will be treated similar to a method
 with <code>@DenyAll</code> configuration. What that means is, no one is allowed
 access to the <code>helloWorld</code> method. This behaviour can be controlled via
@@ -4704,7 +4704,7 @@ defined in the server configuration (i.e. <code>standalone.xml</code> or
 <div class="sect6">
 <h7 id="the-clustering-namespace-urnclustering1.0"><a class="anchor" href="#the-clustering-namespace-urnclustering1.0"></a>The clustering namespace urn:clustering:1.0</h7>
 <div class="paragraph">
-<p>This namespace is deprecated and as of WildFly 36 its use has no effect.
+<p>This namespace is deprecated and as of WildFly 37 its use has no effect.
 The clustering behavior of Jakarta Enterprise Beans are determined by the profile in use on
 the server.</p>
 </div>
@@ -5177,7 +5177,7 @@ applications can be classified into:
 <p>A remote client which runs as a standalone Java application</p>
 </li>
 <li>
-<p>A remote client which runs within another WildFly 36 instance</p>
+<p>A remote client which runs within another WildFly 37 instance</p>
 </li>
 </ul>
 </div>
@@ -5194,7 +5194,7 @@ than one EJBClientContext(s) and an EJB client context selector will be
 responsible for returning the appropriate context.</p>
 </div>
 <div class="paragraph">
-<p>In case of remote clients which run within another WildFly 36 instance,
+<p>In case of remote clients which run within another WildFly 37 instance,
 each deployed application will have a corresponding EJB client context.
 Whenever that application invokes on another EJB, the corresponding EJB
 client context will be used for finding the right EJB receiver and
@@ -5205,7 +5205,7 @@ letting it handle the invocation.</p>
 <div class="paragraph">
 <p>In the Overview section we briefly looked at the different types of
 remote clients. Let&#8217;s focus on the standalone remote clients (the ones
-that don&#8217;t run within another WildFly 36 instance) for some of the next
+that don&#8217;t run within another WildFly 37 instance) for some of the next
 sections. Like mentioned earlier, typically a remote standalone client
 has just one EJB client context backed by any number of EJB receivers.
 Consider this example:</p>
@@ -5240,7 +5240,7 @@ context is used by the above code to invoke the bean.</p>
 </div>
 <div class="paragraph">
 <p>Now let&#8217;s consider a case where the user application wants to invoke on
-the bean more than once, but wants to connect to the WildFly 36 server
+the bean more than once, but wants to connect to the WildFly 37 server
 using different security credentials. Let&#8217;s take a look at the following
 code:</p>
 </div>
@@ -5363,7 +5363,7 @@ context which typically is the one tied to the entire application.</p>
 have more control over which JNDI context "talks to" which server and
 connects to that server in "what way". This gives the user applications
 the flexibility that was associated with the JNP based JNDI invocations
-prior to WildFly 36 versions.</p>
+prior to WildFly 37 versions.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -6597,7 +6597,7 @@ as follows:</p>
 <div class="sect4">
 <h5 id="security"><a class="anchor" href="#security"></a>Security</h5>
 <div class="paragraph">
-<p>WildFly 36 is secure by default. What this means is that no communication
+<p>WildFly 37 is secure by default. What this means is that no communication
 can happen with an WildFly instance from a remote client (irrespective
 of whether it is a standalone client or another server instance) without
 passing the appropriate credentials. Remember that in this example, our
@@ -7090,7 +7090,7 @@ wildfly-naming-client project. The other property is the PROVIDER_URL.
 which is <code>remote+http://</code> for wildfly-naming-client. The rest
 of the PROVIDER_URL part is the server hostname or IP and the port on
 which the remoting connector is exposed on the server side. By default
-the http-remoting connector port in WildFly 36 is 8080. That&#8217;s what we
+the http-remoting connector port in WildFly 37 is 8080. That&#8217;s what we
 have used in our example. The hostname we have used is localhost but
 that should point to the server IP or hostname where the server is
 running.</p>
@@ -8372,7 +8372,7 @@ native API hibernate.cfg.xml file:</p>
 <p><a href="http://infinispan.org/docs/9.4.x/user_guide/user_guide.html#integrations_jpa_hibernate">Infinispan
 Hibernate/JPA second level cache provider documentation</a> contains
 advanced configuration information but you should bear in mind that when
-Hibernate runs within WildFly 36, some of those configuration options,
+Hibernate runs within WildFly 37, some of those configuration options,
 such as region factory, are not needed. Moreover, the application server
 providers you with option of selecting a different cache container for
 Infinispan via <strong>hibernate.cache.infinispan.container</strong> persistence
@@ -9006,7 +9006,7 @@ References in this document to Java Transaction API (JTA) refer to Jakarta Trans
 <h3 id="jakarta-restful-web-services-activation"><a class="anchor" href="#jakarta-restful-web-services-activation"></a>10.1. Jakarta RESTful Web Services Activation</h3>
 <div class="paragraph">
 <p>This section outlines the three options you have for deploying Jakarta RESTful Web Services
-applications in WildFly 36. These three methods are specified in the
+applications in WildFly 37. These three methods are specified in the
 Jakarta RESTful Web Services 3.1 specification in section 2.3.2.</p>
 </div>
 <div class="sect3">
@@ -9947,7 +9947,7 @@ project integration.</p>
 </div>
 <div class="paragraph">
 <p>This section covers the most relevant topics for the JBossWS version
-available on WildFly 36.</p>
+available on WildFly 37.</p>
 </div>
 <div class="sect2">
 <h3 id="Jakarta_XML_Web_Services_User_Guide"><a class="anchor" href="#Jakarta_XML_Web_Services_User_Guide"></a>12.1. Jakarta XML Web Services User Guide</h3>
@@ -23660,7 +23660,7 @@ about this migration, see <a href="#Migrate_Order_Application_from_EAP5">Order A
 <h4 id="migrate-example-application"><a class="anchor" href="#migrate-example-application"></a>17.1.5. Migrate example application</h4>
 <div class="paragraph">
 <p>A step by step work through of issues, and their solutions, that might
-crop up when migrating applications to WildFly 36. See the following
+crop up when migrating applications to WildFly 37. See the following
 <a href="https://github.com/danbev/migrate">github project</a> for details.</p>
 </div>
 </div>
@@ -23999,24 +23999,24 @@ References in this document to Enterprise JavaBeans (EJB) refer to the Jakarta E
 <div class="paragraph">
 <p>This document details the main points that need to be considered by
 Spring developers that wish to develop new applications or to migrate
-existing applications to be run into WildFly 36.</p>
+existing applications to be run into WildFly 37.</p>
 </div>
 <div class="sect2">
 <h3 id="dependencies-and-modularity"><a class="anchor" href="#dependencies-and-modularity"></a>19.1. Dependencies and Modularity</h3>
 <div class="paragraph">
-<p>WildFly 36 has a modular class loading strategy, different from previous
+<p>WildFly 37 has a modular class loading strategy, different from previous
 versions of JBoss AS, which enforces a better class loading isolation
 between deployments and the application server itself. A detailed
 description can be found in the documentation dedicated to
 <a href="https://docs.jboss.org/author/display/AS7/Class+Loading+in+AS7">class
-loading in WildFly 36</a>.</p>
+loading in WildFly 37</a>.</p>
 </div>
 <div class="paragraph">
 <p>This reduces significantly the risk of running into a class loading
 conflict and allows applications to package their own dependencies if
 they choose to do so. This makes it easier for Spring applications that
 package their own dependencies - such as logging frameworks or
-persistence providers to run on WildFly 36.</p>
+persistence providers to run on WildFly 37.</p>
 </div>
 <div class="paragraph">
 <p>At the same time, this does not mean that duplications and conflicts
@@ -24139,7 +24139,7 @@ JNDI binding via persistence.xml properties is not supported in WildFly
 <div class="sect3">
 <h4 id="using-spring-managed-persistence-units"><a class="anchor" href="#using-spring-managed-persistence-units"></a>19.4.2. Using Spring-managed persistence units</h4>
 <div class="paragraph">
-<p>Spring applications running in WildFly 36 may also create persistence
+<p>Spring applications running in WildFly 37 may also create persistence
 units on their own, using the LocalContainerEntityManagerFactoryBean.
 This is what these applications need to consider:</p>
 </div>
@@ -25602,7 +25602,7 @@ References in this document to Enterprise JavaBeans (EJB) refer to the Jakarta E
 <div id="footer">
 <div id="footer-text">
 Version 37.0.0.Final<br>
-Last updated 2025-07-16 17:03:53 -0500
+Last updated 2025-07-16 18:03:53 -0400
 </div>
 </div>
 </body>
