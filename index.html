@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.20">
+<meta name="generator" content="Asciidoctor 2.0.23">
 <title>WildFly Documentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -140,7 +140,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #content::before{content:none}
 #header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
 #header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
-#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
 #header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
 #header .details span:first-child{margin-left:-.125em}
 #header .details span.email a{color:rgba(0,0,0,.85)}
@@ -162,6 +162,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
+body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
 #toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
 #toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
@@ -327,7 +328,7 @@ a.image{text-decoration:none;display:inline-block}
 a.image object{pointer-events:none}
 sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
 sup.footnote a,sup.footnoteref a{text-decoration:none}
-sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
 #footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
@@ -439,8 +440,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_wildfly_application_server">WildFly Application Server</a></li>
-<li><a href="#_build_applications_with_wildfly">Build Applications With WildFly</a>
+<li><a href="#_getting_started_with_wildfly">Getting Started with WildFly</a>
+<ul class="sectlevel2">
+<li><a href="#_official_wildfly_documentation">Official WildFly Documentation</a></li>
+<li><a href="#_guides">Guides</a></li>
+<li><a href="#_quickstarts">Quickstarts</a></li>
+<li><a href="#_jakarta_ee_10_platform_api">Jakarta EE 10 Platform API</a></li>
+<li><a href="#_microprofile_7_0_api">MicroProfile 7.0 API</a></li>
+<li><a href="#_previous_releases">Previous Releases</a></li>
+</ul>
+</li>
+<li><a href="#_build_applications_with_wildfly">Build Applications with WildFly</a>
 <ul class="sectlevel2">
 <li><a href="#_wildfly_maven_plugin">WildFly Maven Plugin</a></li>
 <li><a href="#_wildfly_glow">WildFly Glow</a></li>
@@ -465,22 +475,93 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="_wildfly_application_server">WildFly Application Server</h2>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>WildFly is a powerful, modular, &amp; lightweight application server that helps you build amazing enterprise Java applications.</p>
+<p>This documentation is organized into four main sections:</p>
 </div>
-<div class="paragraph">
-<p>Learn more about <strong><a href="37">WildFly 37</a></strong> (or <a href="./archives">previous releases</a>) and check the <a href="https://www.wildfly.org/guides/">Guides</a> and <a href="https://docs.wildfly.org/37/Quickstarts.html">Quickstarts</a> resources to find practical examples for specific features.</p>
-</div>
-<div class="paragraph">
-<p>WildFly 37 provides the <a href="https://jakarta.ee/specifications/platform/10/apidocs/">Jakarta EE 10 Platform</a> and <a href="https://javadoc.io/doc/org.eclipse.microprofile/microprofile/7.0/index.html">MicroProfile 7.0</a> APIs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Getting Started with WildFly</em> provides core application server information, releases, and APIs.</p>
+</li>
+<li>
+<p><em>Build Applications with WildFly</em> covers using Maven and related development tools.</p>
+</li>
+<li>
+<p><em>Build &amp; Deploy WildFly on the Cloud</em> includes guides for containerization and orchestration.</p>
+</li>
+<li>
+<p><em>Provision WildFly &amp; Build Feature Packs</em> explains advanced provisioning and server customization.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_build_applications_with_wildfly">Build Applications With WildFly</h2>
+<h2 id="_getting_started_with_wildfly">Getting Started with WildFly</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>WildFly is a powerful, modular, and lightweight application server that helps you build amazing enterprise Java applications.</p>
+</div>
+<div class="paragraph">
+<p>To learn more about WildFly 37, visit:</p>
+</div>
+<div class="sect2">
+<h3 id="_official_wildfly_documentation">Official WildFly Documentation</h3>
+<div class="paragraph">
+<p>The official WildFly 37 documentation provides comprehensive guides on installation, administration, development, and more.</p>
+</div>
+<div class="paragraph">
+<p>Learn more about the official <a href="37">WildFly 37</a> Documentation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_guides">Guides</h3>
+<div class="paragraph">
+<p>The WildFly Guides offer practical, hands-on tutorials covering various aspects of WildFly, including automation, containerization, messaging, MicroProfile, and more.</p>
+</div>
+<div class="paragraph">
+<p>Learn more about the WildFly <a href="https://www.wildfly.org/guides/">Guides</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_quickstarts">Quickstarts</h3>
+<div class="paragraph">
+<p>Quickstarts are ready-to-run example projects demonstrating key features of WildFly. They serve as excellent starting points for understanding and implementing specific functionalities of the application server.</p>
+</div>
+<div class="paragraph">
+<p>Learn more about the WildFly <a href="https://docs.wildfly.org/37/Quickstarts.html">Quickstarts</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_ee_10_platform_api">Jakarta EE 10 Platform API</h3>
+<div class="paragraph">
+<p>The Jakarta EE 10 Platform API defines the standard for building enterprise applications in Java. It includes specifications for various components like Jakarta Contexts and Dependency Injection, Jakarta RESTful Web Services, and more.</p>
+</div>
+<div class="paragraph">
+<p>Learn more about the <a href="https://jakarta.ee/specifications/platform/10/apidocs/">Jakarta EE 10 Platform</a> API.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_microprofile_7_0_api">MicroProfile 7.0 API</h3>
+<div class="paragraph">
+<p>MicroProfile 7.0 provides a set of APIs designed to optimize Java EE for microservices architectures. It includes specifications for features like configuration, fault tolerance, metrics, and more.</p>
+</div>
+<div class="paragraph">
+<p>Learn more about the <a href="https://javadoc.io/doc/org.eclipse.microprofile/microprofile/7.0/index.html">MicroProfile 7.0</a> API.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_previous_releases">Previous Releases</h3>
+<div class="paragraph">
+<p>For information on previous WildFly releases, including documentation and guides, visit the <a href="./archives">WildFly Archives</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_applications_with_wildfly">Build Applications with WildFly</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_wildfly_maven_plugin">WildFly Maven Plugin</h3>
@@ -638,7 +719,7 @@ Its features include:</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-08-04 09:12:16 -0500
+Last updated 2025-10-07 15:00:08 -0400
 </div>
 </div>
 </body>
