@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for channel-creation-options</title>
+  <link rel="stylesheet" href="../../../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../../../subsystem/ejb3/index.html">subsystem=ejb3</a>
+      </li>
+      <li>
+        <a href="../../../../../subsystem/ejb3/remoting-profile/index.html">remoting-profile</a>
+      </li>
+      <li>
+        <a href="../../../../../subsystem/ejb3/remoting-profile/remoting-ejb-receiver/index.html">remoting-ejb-receiver</a>
+      </li>
+      <li>channel-creation-options</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for channel-creation-options</h1>
+    <p>The options that will be used during the Jakarta Enterprise Beans remote channel creation</p>
+
+  </header>
+<h2>Attributes (2)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="type" href="#type" class="">
+         type</a> - The type of the channel creation option
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            xnio<br />
+            remoting<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The type of the channel creation option",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "allowed" : [
+        "remoting",
+        "xnio"
+    ],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="value" href="#value" class="">
+         value</a> - The value for the Jakarta Enterprise Beans remote channel creation option
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The value for the Jakarta Enterprise Beans remote channel creation option",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (2)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Adds a Jakarta Enterprise Beans remote channel creation option
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>type</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The type of the channel creation option</td>
+        </tr>
+        <tr>
+          <td>value</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The value for the Jakarta Enterprise Beans remote channel creation option</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Adds a Jakarta Enterprise Beans remote channel creation option",
+    "request-properties" : {
+        "type" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The type of the channel creation option",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "allowed" : [
+                "remoting",
+                "xnio"
+            ],
+            "stability" : "default"
+        },
+        "value" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The value for the Jakarta Enterprise Beans remote channel creation option",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Removes a Jakarta Enterprise Beans remote channel creation option
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Removes a Jakarta Enterprise Beans remote channel creation option",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.ejb3.remoting-profile.remoting-ejb-receiver.channel-creation-options</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.ejb3.remoting-profile.remoting-ejb-receiver.channel-creation-options"&gt;
+  &lt;param name="channel-creation-options" value="{resource name}"/&gt;
+  &lt;param name="remoting-ejb-receiver" value="{resource name}"/&gt;
+  &lt;param name="remoting-profile" value="{resource name}"/&gt;
+  &lt;param name="type" value="{value}"/&gt;
+  &lt;param name="value" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+  <footer>
+    <p>&copy; The WildFly authors 2025</p>
+  </footer>
+</div>
+</body>
+</html>

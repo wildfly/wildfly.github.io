@@ -1,0 +1,3417 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for proxy</title>
+  <link rel="stylesheet" href="../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../subsystem/modcluster/index.html">subsystem=modcluster</a>
+      </li>
+      <li>proxy</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for proxy</h1>
+    <p>Proxy resource coupled with single Undertow listener (and server) specifying load balancer discovery, its configuration and load balance factor provider. Multiple proxy configuration can be specified.</p>
+
+  </header>
+<h2>Children (1)</h2>
+<ul class="children">
+  <li>
+    <b>load-provider</b>
+    <ul>
+      <li><a href="load-provider/dynamic/index.html" class="">dynamic</a></li>
+      <li><a href="load-provider/simple/index.html" class="">simple</a></li>
+    </ul>
+  </li>
+</ul>
+<h2>Provided Capabilities (1)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/mod_cluster/service/capability.adoc">org.wildfly.mod_cluster.service</a></td>
+    <td>true</td>
+    <td>
+      <p>none</p>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (26)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="advertise" href="#advertise" class="">
+         advertise</a> - Whether to enable multicast-based advertise mechanism.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Whether to enable multicast-based advertise mechanism.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : true,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="advertise-security-key" href="#advertise-security-key" class="">
+         advertise-security-key</a> - If specified, reverse proxy advertisements checksums will be verified using this value as a salt.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "If specified, reverse proxy advertisements checksums will be verified using this value as a salt.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-constraints" : {"sensitive" : {
+        "credential" : {"type" : "core"},
+        "mod_cluster-security" : {"type" : "modcluster"}
+    }},
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="advertise-socket" href="#advertise-socket" class="">
+         advertise-socket</a> - Name of socket binding to use for the advertise socket.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Name of socket binding to use for the advertise socket.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.network.socket-binding",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-constraints" : {"sensitive" : {"socket-binding-ref" : {"type" : "core"}}},
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="auto-enable-contexts" href="#auto-enable-contexts" class="">
+         auto-enable-contexts</a> - If false, the contexts are registered with the reverse proxy as disabled, they need to be enabled manually by 'enable-context' operation or via mod_cluster_manager console (if available).
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "If false, the contexts are registered with the reverse proxy as disabled, they need to be enabled manually by 'enable-context' operation or via mod_cluster_manager console (if available).",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : true,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="balancer" href="#balancer" class="">
+         balancer</a> - The name of the balancer on the reverse proxy to register with.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The name of the balancer on the reverse proxy to register with.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="excluded-contexts" href="#excluded-contexts" class="">
+         excluded-contexts</a> - List of contexts to exclude from registration with the reverse proxies.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "List of contexts to exclude from registration with the reverse proxies.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="flush-packets" href="#flush-packets" class="">
+         flush-packets</a> - Whether to enable packet flushing on the reverse proxy.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Whether to enable packet flushing on the reverse proxy.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="flush-wait" href="#flush-wait" class="">
+         flush-wait</a> - Time to wait before flushing packets on the reverse proxy.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>SECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "Time to wait before flushing packets on the reverse proxy.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "unit" : "SECONDS",
+    "min" : 1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="listener" href="#listener" class="">
+         listener</a> - The name of Undertow listener that will be registered with the reverse proxy.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The name of Undertow listener that will be registered with the reverse proxy.",
+    "expressions-allowed" : true,
+    "required" : true,
+    "nillable" : false,
+    "capability-reference" : "org.wildfly.undertow.listener",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="load-balancing-group" href="#load-balancing-group" class="">
+         load-balancing-group</a> - Name of the load balancing group this node belongs to.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Name of the load balancing group this node belongs to.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="max-attempts" href="#max-attempts" class="">
+         max-attempts</a> - Maximum number of failover attempts by reverse proxy when sending the request to the backend server.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "Maximum number of failover attempts by reverse proxy when sending the request to the backend server.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 1,
+    "min" : 0,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="node-timeout" href="#node-timeout" class="">
+         node-timeout</a> - Timeout (in seconds) for proxy connections to a node. That is the time mod_cluster will wait for the back-end response before returning an error.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>SECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "Timeout (in seconds) for proxy connections to a node. That is the time mod_cluster will wait for the back-end response before returning an error.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "unit" : "SECONDS",
+    "min" : 1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="ping" href="#ping" class="">
+         ping</a> - Number of seconds for which to wait for a pong answer to a ping.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>SECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "Number of seconds for which to wait for a pong answer to a ping.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 10,
+    "unit" : "SECONDS",
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="proxies" href="#proxies" class="">
+         proxies</a> - List of reverse proxies for mod_cluster to register with defined by 'outbound-socket-binding' in 'socket-binding-group'.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "List of reverse proxies for mod_cluster to register with defined by 'outbound-socket-binding' in 'socket-binding-group'.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.network.outbound-socket-binding",
+    "min-length" : 0,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-constraints" : {"sensitive" : {"mod_cluster-proxies" : {"type" : "modcluster"}}},
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="proxy-url" href="#proxy-url" class="">
+         proxy-url</a> - Base URL for MCMP requests.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>/</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Base URL for MCMP requests.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "/",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-constraints" : {"sensitive" : {"mod_cluster-proxies" : {"type" : "modcluster"}}},
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="session-draining-strategy" href="#session-draining-strategy" class="">
+         session-draining-strategy</a> - Session draining strategy used during undeployment of a web application.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>DEFAULT</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            NEVER<br />
+            ALWAYS<br />
+            DEFAULT<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Session draining strategy used during undeployment of a web application.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "DEFAULT",
+    "allowed" : [
+        "DEFAULT",
+        "ALWAYS",
+        "NEVER"
+    ],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="smax" href="#smax" class="">
+         smax</a> - Soft maximum idle connection count for reverse proxy.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "Soft maximum idle connection count for reverse proxy.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min" : 1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="socket-timeout" href="#socket-timeout" class="">
+         socket-timeout</a> - Timeout to wait for the reverse proxy to answer a MCMP message.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>20</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>SECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "Timeout to wait for the reverse proxy to answer a MCMP message.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 20,
+    "unit" : "SECONDS",
+    "min" : 1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="ssl-context" href="#ssl-context" class="">
+         ssl-context</a> - Reference to the SSLContext to be used by mod_cluster.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Reference to the SSLContext to be used by mod_cluster.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.security.ssl-context",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-constraints" : {"sensitive" : {"ssl-ref" : {"type" : "core"}}},
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="status-interval" href="#status-interval" class="">
+         status-interval</a> - Number of seconds a STATUS message is sent from the application server to the proxy.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>SECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "Number of seconds a STATUS message is sent from the application server to the proxy.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 10,
+    "unit" : "SECONDS",
+    "min" : 1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="sticky-session" href="#sticky-session" class="">
+         sticky-session</a> - Indicates whether subsequent requests for a given session should be routed to the same node, if possible.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Indicates whether subsequent requests for a given session should be routed to the same node, if possible.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : true,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="sticky-session-force" href="#sticky-session-force" class="">
+         sticky-session-force</a> - Indicates whether the reverse proxy should run an error in the event that the balancer is unable to route a request to the node to which it is stuck. Ignored if sticky sessions are disabled.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Indicates whether the reverse proxy should run an error in the event that the balancer is unable to route a request to the node to which it is stuck. Ignored if sticky sessions are disabled.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="sticky-session-remove" href="#sticky-session-remove" class="">
+         sticky-session-remove</a> - Indicates whether the reverse proxy should remove session stickiness in the event that the balancer is unable to route a request to the node to which it is stuck. Ignored if sticky sessions are disabled.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Indicates whether the reverse proxy should remove session stickiness in the event that the balancer is unable to route a request to the node to which it is stuck. Ignored if sticky sessions are disabled.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="stop-context-timeout" href="#stop-context-timeout" class="">
+         stop-context-timeout</a> - Maximum time to wait for context to process pending requests.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>SECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "Maximum time to wait for context to process pending requests.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 10,
+    "unit" : "SECONDS",
+    "min" : 1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="ttl" href="#ttl" class="">
+         ttl</a> - Time to live (in seconds) for idle connections above smax.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>SECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "Time to live (in seconds) for idle connections above smax.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "unit" : "SECONDS",
+    "min" : 1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="worker-timeout" href="#worker-timeout" class="">
+         worker-timeout</a> - Number of seconds to wait for a worker to become available to handle a request.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>SECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "Number of seconds to wait for a worker to become available to handle a request.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "unit" : "SECONDS",
+    "min" : 1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (15)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Add a proxy resource requiring an Undertow listener reference leaving the server in 'reload-required' state.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>advertise</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>Whether to enable multicast-based advertise mechanism.</td>
+        </tr>
+        <tr>
+          <td>advertise-security-key</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>If specified, reverse proxy advertisements checksums will be verified using this value as a salt.</td>
+        </tr>
+        <tr>
+          <td>advertise-socket</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Name of socket binding to use for the advertise socket.</td>
+        </tr>
+        <tr>
+          <td>auto-enable-contexts</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>If false, the contexts are registered with the reverse proxy as disabled, they need to be enabled manually by 'enable-context' operation or via mod_cluster_manager console (if available).</td>
+        </tr>
+        <tr>
+          <td>balancer</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The name of the balancer on the reverse proxy to register with.</td>
+        </tr>
+        <tr>
+          <td>excluded-contexts</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>List of contexts to exclude from registration with the reverse proxies.</td>
+        </tr>
+        <tr>
+          <td>flush-packets</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>Whether to enable packet flushing on the reverse proxy.</td>
+        </tr>
+        <tr>
+          <td>flush-wait</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Time to wait before flushing packets on the reverse proxy.</td>
+        </tr>
+        <tr>
+          <td>listener</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>true</td>
+          <td></td>
+          <td>The name of Undertow listener that will be registered with the reverse proxy.</td>
+        </tr>
+        <tr>
+          <td>load-balancing-group</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Name of the load balancing group this node belongs to.</td>
+        </tr>
+        <tr>
+          <td>max-attempts</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>1</td>
+          <td>Maximum number of failover attempts by reverse proxy when sending the request to the backend server.</td>
+        </tr>
+        <tr>
+          <td>node-timeout</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Timeout (in seconds) for proxy connections to a node. That is the time mod_cluster will wait for the back-end response before returning an error.</td>
+        </tr>
+        <tr>
+          <td>ping</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>10</td>
+          <td>Number of seconds for which to wait for a pong answer to a ping.</td>
+        </tr>
+        <tr>
+          <td>proxies</td>
+          <td>LIST</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>List of reverse proxies for mod_cluster to register with defined by 'outbound-socket-binding' in 'socket-binding-group'.</td>
+        </tr>
+        <tr>
+          <td>proxy-url</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>/</td>
+          <td>Base URL for MCMP requests.</td>
+        </tr>
+        <tr>
+          <td>session-draining-strategy</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>DEFAULT</td>
+          <td>Session draining strategy used during undeployment of a web application.</td>
+        </tr>
+        <tr>
+          <td>smax</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Soft maximum idle connection count for reverse proxy.</td>
+        </tr>
+        <tr>
+          <td>socket-timeout</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>20</td>
+          <td>Timeout to wait for the reverse proxy to answer a MCMP message.</td>
+        </tr>
+        <tr>
+          <td>ssl-context</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Reference to the SSLContext to be used by mod_cluster.</td>
+        </tr>
+        <tr>
+          <td>status-interval</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>10</td>
+          <td>Number of seconds a STATUS message is sent from the application server to the proxy.</td>
+        </tr>
+        <tr>
+          <td>sticky-session</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>Indicates whether subsequent requests for a given session should be routed to the same node, if possible.</td>
+        </tr>
+        <tr>
+          <td>sticky-session-force</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>Indicates whether the reverse proxy should run an error in the event that the balancer is unable to route a request to the node to which it is stuck. Ignored if sticky sessions are disabled.</td>
+        </tr>
+        <tr>
+          <td>sticky-session-remove</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>Indicates whether the reverse proxy should remove session stickiness in the event that the balancer is unable to route a request to the node to which it is stuck. Ignored if sticky sessions are disabled.</td>
+        </tr>
+        <tr>
+          <td>stop-context-timeout</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>10</td>
+          <td>Maximum time to wait for context to process pending requests.</td>
+        </tr>
+        <tr>
+          <td>ttl</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Time to live (in seconds) for idle connections above smax.</td>
+        </tr>
+        <tr>
+          <td>worker-timeout</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Number of seconds to wait for a worker to become available to handle a request.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Add a proxy resource requiring an Undertow listener reference leaving the server in 'reload-required' state.",
+    "request-properties" : {
+        "advertise" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Whether to enable multicast-based advertise mechanism.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        },
+        "advertise-security-key" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "If specified, reverse proxy advertisements checksums will be verified using this value as a salt.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "advertise-socket" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Name of socket binding to use for the advertise socket.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.network.socket-binding",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "auto-enable-contexts" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If false, the contexts are registered with the reverse proxy as disabled, they need to be enabled manually by 'enable-context' operation or via mod_cluster_manager console (if available).",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        },
+        "balancer" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the balancer on the reverse proxy to register with.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "excluded-contexts" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "List of contexts to exclude from registration with the reverse proxies.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "flush-packets" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Whether to enable packet flushing on the reverse proxy.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "flush-wait" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "Time to wait before flushing packets on the reverse proxy.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "unit" : "SECONDS",
+            "min" : 1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "listener" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of Undertow listener that will be registered with the reverse proxy.",
+            "expressions-allowed" : true,
+            "required" : true,
+            "nillable" : false,
+            "capability-reference" : "org.wildfly.undertow.listener",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "load-balancing-group" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Name of the load balancing group this node belongs to.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "max-attempts" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "Maximum number of failover attempts by reverse proxy when sending the request to the backend server.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 1,
+            "min" : 0,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "node-timeout" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "Timeout (in seconds) for proxy connections to a node. That is the time mod_cluster will wait for the back-end response before returning an error.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "unit" : "SECONDS",
+            "min" : 1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "ping" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "Number of seconds for which to wait for a pong answer to a ping.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 10,
+            "unit" : "SECONDS",
+            "stability" : "default"
+        },
+        "proxies" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "List of reverse proxies for mod_cluster to register with defined by 'outbound-socket-binding' in 'socket-binding-group'.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.network.outbound-socket-binding",
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "proxy-url" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Base URL for MCMP requests.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "/",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "session-draining-strategy" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Session draining strategy used during undeployment of a web application.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "DEFAULT",
+            "allowed" : [
+                "DEFAULT",
+                "ALWAYS",
+                "NEVER"
+            ],
+            "stability" : "default"
+        },
+        "smax" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "Soft maximum idle connection count for reverse proxy.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min" : 1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "socket-timeout" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "Timeout to wait for the reverse proxy to answer a MCMP message.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 20,
+            "unit" : "SECONDS",
+            "min" : 1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "ssl-context" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Reference to the SSLContext to be used by mod_cluster.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.security.ssl-context",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "status-interval" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "Number of seconds a STATUS message is sent from the application server to the proxy.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 10,
+            "unit" : "SECONDS",
+            "min" : 1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "sticky-session" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Indicates whether subsequent requests for a given session should be routed to the same node, if possible.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        },
+        "sticky-session-force" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Indicates whether the reverse proxy should run an error in the event that the balancer is unable to route a request to the node to which it is stuck. Ignored if sticky sessions are disabled.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "sticky-session-remove" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Indicates whether the reverse proxy should remove session stickiness in the event that the balancer is unable to route a request to the node to which it is stuck. Ignored if sticky sessions are disabled.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "stop-context-timeout" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "Maximum time to wait for context to process pending requests.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 10,
+            "unit" : "SECONDS",
+            "min" : 1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "ttl" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "Time to live (in seconds) for idle connections above smax.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "unit" : "SECONDS",
+            "min" : 1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "worker-timeout" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "Number of seconds to wait for a worker to become available to handle a request.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "unit" : "SECONDS",
+            "min" : 1,
+            "max" : 2147483647,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="add-proxy" href="#add-proxy" class="">
+      add-proxy</a> - Add a reverse proxy to the list of proxies to register with.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>host</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>Host of the reverse proxy.</td>
+        </tr>
+        <tr>
+          <td>port</td>
+          <td>INT</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>Port of the reverse proxy accepting MCMP commands.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add-proxy",
+    "description" : "Add a reverse proxy to the list of proxies to register with.",
+    "request-properties" : {
+        "host" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Host of the reverse proxy.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "port" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "Port of the reverse proxy accepting MCMP commands.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min" : 1,
+            "max" : 65535,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "access-constraints" : {"sensitive" : {"mod_cluster-proxies" : {"type" : "modcluster"}}},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="disable" href="#disable" class="">
+      disable</a> - Tell reverse proxies that all contexts of the node can't process new requests.
+    </span>
+    <div class="collapsible">
+
+
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>BOOLEAN</dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "disable",
+    "description" : "Tell reverse proxies that all contexts of the node can't process new requests.",
+    "request-properties" : {},
+    "reply-properties" : {"type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    }},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="disable-context" href="#disable-context" class="">
+      disable-context</a> - Tell reverse proxies that the context can't process new requests.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>virtualhost</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>Name of the virtual host to disable context on.</td>
+        </tr>
+        <tr>
+          <td>context</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>Name of the context to disable.</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>BOOLEAN</dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "disable-context",
+    "description" : "Tell reverse proxies that the context can't process new requests.",
+    "request-properties" : {
+        "virtualhost" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Name of the virtual host to disable context on.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "context" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Name of the context to disable.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {"type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    }},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="enable" href="#enable" class="">
+      enable</a> - Tell reverse proxies that all contexts on the node are ready to receive requests.
+    </span>
+    <div class="collapsible">
+
+
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>BOOLEAN</dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "enable",
+    "description" : "Tell reverse proxies that all contexts on the node are ready to receive requests.",
+    "request-properties" : {},
+    "reply-properties" : {"type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    }},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="enable-context" href="#enable-context" class="">
+      enable-context</a> - Tell reverse proxies that the context is ready to receive requests.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>virtualhost</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>Name of the virtual host to enable context for.</td>
+        </tr>
+        <tr>
+          <td>context</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>Name of the context to enable.</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>BOOLEAN</dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "enable-context",
+    "description" : "Tell reverse proxies that the context is ready to receive requests.",
+    "request-properties" : {
+        "virtualhost" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Name of the virtual host to enable context for.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "context" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Name of the context to enable.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {"type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    }},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="list-proxies" href="#list-proxies" class="">
+      list-proxies</a> - List the reverse proxies this node is currently registered with.
+    </span>
+    <div class="collapsible">
+
+
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>LIST</dd>
+        <dt>Value Type</dt>
+        <dd>
+          <div class="code-block-container">
+            <pre><code class="language-json">
+STRING</code></pre>
+          </div>
+        </dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "list-proxies",
+    "description" : "List the reverse proxies this node is currently registered with.",
+    "request-properties" : {},
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LIST"
+        },
+        "value-type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        }
+    },
+    "access-constraints" : {"sensitive" : {"mod_cluster-proxies" : {"type" : "modcluster"}}},
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="read-proxies-configuration" href="#read-proxies-configuration" class="">
+      read-proxies-configuration</a> - Send a DUMP command to the reverse proxies and display the result.
+    </span>
+    <div class="collapsible">
+
+
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>LIST</dd>
+        <dt>Value Type</dt>
+        <dd>
+          <div class="code-block-container">
+            <pre><code class="language-json">
+STRING</code></pre>
+          </div>
+        </dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "read-proxies-configuration",
+    "description" : "Send a DUMP command to the reverse proxies and display the result.",
+    "request-properties" : {},
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LIST"
+        },
+        "value-type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        }
+    },
+    "access-constraints" : {"sensitive" : {"mod_cluster-proxies" : {"type" : "modcluster"}}},
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="read-proxies-info" href="#read-proxies-info" class="">
+      read-proxies-info</a> - Send an INFO command to the reverse proxies and display the result.
+    </span>
+    <div class="collapsible">
+
+
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>LIST</dd>
+        <dt>Value Type</dt>
+        <dd>
+          <div class="code-block-container">
+            <pre><code class="language-json">
+STRING</code></pre>
+          </div>
+        </dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "read-proxies-info",
+    "description" : "Send an INFO command to the reverse proxies and display the result.",
+    "request-properties" : {},
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LIST"
+        },
+        "value-type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        }
+    },
+    "access-constraints" : {"sensitive" : {"mod_cluster-proxies" : {"type" : "modcluster"}}},
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="refresh" href="#refresh" class="">
+      refresh</a> - Refresh the node sending a new CONFIG message to the reverse proxies.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "refresh",
+    "description" : "Refresh the node sending a new CONFIG message to the reverse proxies.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Remove a proxy resource leaving the server in 'reload-required' state.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Remove a proxy resource leaving the server in 'reload-required' state.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "all-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove-proxy" href="#remove-proxy" class="">
+      remove-proxy</a> - Remove the reverse proxy from the list of proxies to register with.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>host</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>Host of the reverse proxy.</td>
+        </tr>
+        <tr>
+          <td>port</td>
+          <td>INT</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>Port of the reverse proxy.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove-proxy",
+    "description" : "Remove the reverse proxy from the list of proxies to register with.",
+    "request-properties" : {
+        "host" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Host of the reverse proxy.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "port" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "Port of the reverse proxy.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min" : 1,
+            "max" : 65535,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "access-constraints" : {"sensitive" : {"mod_cluster-proxies" : {"type" : "modcluster"}}},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="reset" href="#reset" class="">
+      reset</a> - Reset the node's connection to the reverse proxies.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "reset",
+    "description" : "Reset the node's connection to the reverse proxies.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="stop" href="#stop" class="">
+      stop</a> - Tell reverse proxies that all contexts on the node can't process requests.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>waittime</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>false</td>
+          <td>10</td>
+          <td>Number of seconds for which to wait for sessions to drain before stopping all contexts if session draining is in effect. Negative or zero timeout value will wait indefinitely.</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>BOOLEAN</dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "stop",
+    "description" : "Tell reverse proxies that all contexts on the node can't process requests.",
+    "request-properties" : {"waittime" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "INT"
+        },
+        "description" : "Number of seconds for which to wait for sessions to drain before stopping all contexts if session draining is in effect. Negative or zero timeout value will wait indefinitely.",
+        "expressions-allowed" : false,
+        "required" : false,
+        "nillable" : true,
+        "default" : 10,
+        "unit" : "SECONDS",
+        "stability" : "default"
+    }},
+    "reply-properties" : {"type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    }},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="stop-context" href="#stop-context" class="">
+      stop-context</a> - Tell reverse proxies that the context can't process requests.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>virtualhost</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>Name of the virtual host to stop the context on.</td>
+        </tr>
+        <tr>
+          <td>context</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>Name of the context to stop.</td>
+        </tr>
+        <tr>
+          <td>waittime</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>false</td>
+          <td>10</td>
+          <td>Number of seconds for which to wait for sessions to drain before stopping the context if session draining is in effect. Negative or zero timeout value will wait indefinitely.</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>BOOLEAN</dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "stop-context",
+    "description" : "Tell reverse proxies that the context can't process requests.",
+    "request-properties" : {
+        "virtualhost" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Name of the virtual host to stop the context on.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "context" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Name of the context to stop.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "waittime" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "Number of seconds for which to wait for sessions to drain before stopping the context if session draining is in effect. Negative or zero timeout value will wait indefinitely.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : 10,
+            "unit" : "SECONDS",
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {"type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    }},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.modcluster.proxy</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.modcluster.proxy"&gt;
+  &lt;param name="proxy" value="{resource name}"/&gt;
+  &lt;param name="advertise" value="{value}"/&gt;
+  &lt;param name="advertise-security-key" value="{value}"/&gt;
+  &lt;param name="advertise-socket" value="{value}"/&gt;
+  &lt;param name="auto-enable-contexts" value="{value}"/&gt;
+  &lt;param name="balancer" value="{value}"/&gt;
+  &lt;param name="excluded-contexts" value="{value}"/&gt;
+  &lt;param name="flush-packets" value="{value}"/&gt;
+  &lt;param name="flush-wait" value="{value}"/&gt;
+  &lt;param name="listener" value="{value}"/&gt;
+  &lt;param name="load-balancing-group" value="{value}"/&gt;
+  &lt;param name="max-attempts" value="{value}"/&gt;
+  &lt;param name="node-timeout" value="{value}"/&gt;
+  &lt;param name="ping" value="{value}"/&gt;
+  &lt;param name="proxies" value="{value}"/&gt;
+  &lt;param name="proxy-url" value="{value}"/&gt;
+  &lt;param name="session-draining-strategy" value="{value}"/&gt;
+  &lt;param name="smax" value="{value}"/&gt;
+  &lt;param name="socket-timeout" value="{value}"/&gt;
+  &lt;param name="ssl-context" value="{value}"/&gt;
+  &lt;param name="status-interval" value="{value}"/&gt;
+  &lt;param name="sticky-session" value="{value}"/&gt;
+  &lt;param name="sticky-session-force" value="{value}"/&gt;
+  &lt;param name="sticky-session-remove" value="{value}"/&gt;
+  &lt;param name="stop-context-timeout" value="{value}"/&gt;
+  &lt;param name="ttl" value="{value}"/&gt;
+  &lt;param name="worker-timeout" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+  <footer>
+    <p>&copy; The WildFly authors 2025</p>
+  </footer>
+</div>
+</body>
+</html>

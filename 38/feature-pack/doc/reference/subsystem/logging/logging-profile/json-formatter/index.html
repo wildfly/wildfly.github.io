@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for json-formatter</title>
+  <link rel="stylesheet" href="../../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../../subsystem/logging/index.html">subsystem=logging</a>
+      </li>
+      <li>
+        <a href="../../../../subsystem/logging/logging-profile/index.html">logging-profile</a>
+      </li>
+      <li>json-formatter</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for json-formatter</h1>
+    <p>A formatter that formats log messages in JSON.</p>
+
+  </header>
+<h2>Provided Capabilities (1)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/logging/formatter/capability.adoc">org.wildfly.logging.formatter</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../../subsystem/logging/logging-profile/custom-formatter/index.html">/subsystem=logging/logging-profile=*/custom-formatter=*</a> <br/>
+      <a href="../../../../subsystem/logging/custom-formatter/index.html">/subsystem=logging/custom-formatter=*</a> <br/>
+      <a href="../../../../subsystem/logging/json-formatter/index.html">/subsystem=logging/json-formatter=*</a> <br/>
+      <a href="../../../../subsystem/logging/logging-profile/xml-formatter/index.html">/subsystem=logging/logging-profile=*/xml-formatter=*</a> <br/>
+      <a href="../../../../subsystem/logging/xml-formatter/index.html">/subsystem=logging/xml-formatter=*</a> <br/>
+      <a href="../../../../subsystem/logging/logging-profile/pattern-formatter/index.html">/subsystem=logging/logging-profile=*/pattern-formatter=*</a> <br/>
+      <a href="../../../../subsystem/logging/pattern-formatter/index.html">/subsystem=logging/pattern-formatter=*</a> <br/>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (8)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="date-format" href="#date-format" class="">
+         date-format</a> - The date/time format pattern. The pattern must be a valid java.time.format.DateTimeFormatter.ofPattern() pattern. The default pattern is an ISO-8601 extended offset date-time format.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The date/time format pattern. The pattern must be a valid java.time.format.DateTimeFormatter.ofPattern() pattern. The default pattern is an ISO-8601 extended offset date-time format.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="exception-output-type" href="#exception-output-type" class="">
+         exception-output-type</a> - Indicates how the cause of the logged message, if one is available, will be added to the JSON output.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>detailed</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            detailed-and-formatted<br />
+            detailed<br />
+            formatted<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Indicates how the cause of the logged message, if one is available, will be added to the JSON output.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "detailed",
+    "allowed" : [
+        "detailed",
+        "formatted",
+        "detailed-and-formatted"
+    ],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="key-overrides" href="#key-overrides" class="">
+         key-overrides</a> - Allows the names of the keys for the JSON properties to be overridden.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>OBJECT</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "OBJECT"
+    },
+    "description" : "Allows the names of the keys for the JSON properties to be overridden.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "stability" : "default",
+    "value-type" : {
+        "exception" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of exception to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "exception-caused-by" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of causedBy to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "exception-circular-reference" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of circularReference to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "exception-frame" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of frame to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "exception-frame-class" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of class to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "exception-frame-line" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of line to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "exception-frame-method" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of method to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "exception-frames" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of frames to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "exception-message" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of message to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "exception-reference-id" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of refId to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "exception-suppressed" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of suppressed to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "exception-type" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of exceptionType to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "host-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of hostName to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "level" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of level to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "logger-class-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of loggerClassName to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "logger-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of loggerName to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "mdc" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of mdc to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "message" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of message to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "ndc" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of ndc to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "process-id" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of processId to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "process-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of processName to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "record" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of record to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "sequence" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of sequence to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "source-class-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of sourceClassName to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "source-file-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of sourceFileName to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "source-line-number" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of sourceLineNumber to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "source-method-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of sourceMethodName to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "source-module-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of sourceModuleName to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "source-module-version" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of sourceModuleVersion to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "stack-trace" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of stackTrace to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "thread-id" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of threadId to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "thread-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of threadName to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "timestamp" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Allows the default key of timestamp to be overridden to the value provided.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        }
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="meta-data" href="#meta-data" class="">
+         meta-data</a> - Sets the meta data to use in the JSON format. Properties will be added to each log message.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>OBJECT</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "OBJECT"
+    },
+    "description" : "Sets the meta data to use in the JSON format. Properties will be added to each log message.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "stability" : "default",
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="pretty-print" href="#pretty-print" class="">
+         pretty-print</a> - Indicates whether or not pretty printing should be used when formatting.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Indicates whether or not pretty printing should be used when formatting.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="print-details" href="#print-details" class="">
+         print-details</a> - Sets whether or not details should be printed. Printing the details can be expensive as the values are retrieved from the caller. The details include the source class name, source file name, source method name, source module name, source module version and source line number.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Sets whether or not details should be printed. Printing the details can be expensive as the values are retrieved from the caller. The details include the source class name, source file name, source method name, source module name, source module version and source line number.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="record-delimiter" href="#record-delimiter" class="">
+         record-delimiter</a> - The value to be used to indicate the end of a record. If set to null no delimiter will be used at the end of the record. The default value is a line feed.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>
+</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The value to be used to indicate the end of a record. If set to null no delimiter will be used at the end of the record. The default value is a line feed.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "\n",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="zone-id" href="#zone-id" class="">
+         zone-id</a> - The zone ID for formatting the date and time. The system default is used if left undefined.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The zone ID for formatting the date and time. The system default is used if left undefined.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (2)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Adds a new JSON formatter.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>date-format</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The date/time format pattern. The pattern must be a valid java.time.format.DateTimeFormatter.ofPattern() pattern. The default pattern is an ISO-8601 extended offset date-time format.</td>
+        </tr>
+        <tr>
+          <td>exception-output-type</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>detailed</td>
+          <td>Indicates how the cause of the logged message, if one is available, will be added to the JSON output.</td>
+        </tr>
+        <tr>
+          <td>key-overrides</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Allows the names of the keys for the JSON properties to be overridden.</td>
+        </tr>
+        <tr>
+          <td>meta-data</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Sets the meta data to use in the JSON format. Properties will be added to each log message.</td>
+        </tr>
+        <tr>
+          <td>pretty-print</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>Indicates whether or not pretty printing should be used when formatting.</td>
+        </tr>
+        <tr>
+          <td>print-details</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>Sets whether or not details should be printed. Printing the details can be expensive as the values are retrieved from the caller. The details include the source class name, source file name, source method name, source module name, source module version and source line number.</td>
+        </tr>
+        <tr>
+          <td>record-delimiter</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>
+</td>
+          <td>The value to be used to indicate the end of a record. If set to null no delimiter will be used at the end of the record. The default value is a line feed.</td>
+        </tr>
+        <tr>
+          <td>zone-id</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The zone ID for formatting the date and time. The system default is used if left undefined.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Adds a new JSON formatter.",
+    "request-properties" : {
+        "date-format" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The date/time format pattern. The pattern must be a valid java.time.format.DateTimeFormatter.ofPattern() pattern. The default pattern is an ISO-8601 extended offset date-time format.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "exception-output-type" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Indicates how the cause of the logged message, if one is available, will be added to the JSON output.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "detailed",
+            "allowed" : [
+                "detailed",
+                "formatted",
+                "detailed-and-formatted"
+            ],
+            "stability" : "default"
+        },
+        "key-overrides" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "Allows the names of the keys for the JSON properties to be overridden.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "exception" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of exception to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "exception-caused-by" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of causedBy to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "exception-circular-reference" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of circularReference to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "exception-frame" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of frame to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "exception-frame-class" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of class to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "exception-frame-line" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of line to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "exception-frame-method" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of method to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "exception-frames" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of frames to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "exception-message" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of message to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "exception-reference-id" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of refId to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "exception-suppressed" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of suppressed to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "exception-type" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of exceptionType to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "host-name" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of hostName to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "level" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of level to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "logger-class-name" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of loggerClassName to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "logger-name" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of loggerName to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "mdc" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of mdc to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "message" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of message to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "ndc" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of ndc to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "process-id" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of processId to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "process-name" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of processName to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "record" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of record to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "sequence" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of sequence to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "source-class-name" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of sourceClassName to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "source-file-name" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of sourceFileName to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "source-line-number" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of sourceLineNumber to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "source-method-name" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of sourceMethodName to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "source-module-name" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of sourceModuleName to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "source-module-version" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of sourceModuleVersion to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "stack-trace" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of stackTrace to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "thread-id" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of threadId to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "thread-name" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of threadName to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "timestamp" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Allows the default key of timestamp to be overridden to the value provided.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                }
+            }
+        },
+        "meta-data" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "Sets the meta data to use in the JSON format. Properties will be added to each log message.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "pretty-print" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Indicates whether or not pretty printing should be used when formatting.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "print-details" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Sets whether or not details should be printed. Printing the details can be expensive as the values are retrieved from the caller. The details include the source class name, source file name, source method name, source module name, source module version and source line number.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "record-delimiter" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The value to be used to indicate the end of a record. If set to null no delimiter will be used at the end of the record. The default value is a line feed.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "\n",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "zone-id" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The zone ID for formatting the date and time. The system default is used if left undefined.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Removes the JSON formatter.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Removes the JSON formatter.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "all-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.logging.logging-profile.json-formatter</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.logging.logging-profile.json-formatter"&gt;
+  &lt;param name="json-formatter" value="{resource name}"/&gt;
+  &lt;param name="logging-profile" value="{resource name}"/&gt;
+  &lt;param name="date-format" value="{value}"/&gt;
+  &lt;param name="exception-output-type" value="{value}"/&gt;
+  &lt;param name="key-overrides" value="{value}"/&gt;
+  &lt;param name="meta-data" value="{value}"/&gt;
+  &lt;param name="pretty-print" value="{value}"/&gt;
+  &lt;param name="print-details" value="{value}"/&gt;
+  &lt;param name="record-delimiter" value="{value}"/&gt;
+  &lt;param name="zone-id" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+  <footer>
+    <p>&copy; The WildFly authors 2025</p>
+  </footer>
+</div>
+</body>
+</html>

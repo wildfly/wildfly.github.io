@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for memory=heap</title>
+  <link rel="stylesheet" href="../../../../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../../../../subsystem/infinispan/index.html">subsystem=infinispan</a>
+      </li>
+      <li>
+        <a href="../../../../../../subsystem/infinispan/cache-container/index.html">cache-container</a>
+      </li>
+      <li>
+        <a href="../../../../../../subsystem/infinispan/cache-container/distributed-cache/index.html">distributed-cache</a>
+      </li>
+      <li>memory=heap</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for memory=heap</h1>
+    <p>On-heap object-based memory configuration.</p>
+
+  </header>
+<h2>Provided Capabilities (1)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/clustering/infinispan/cache-configuration/memory/capability.adoc">org.wildfly.clustering.infinispan.cache-configuration.memory</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../../../../subsystem/infinispan/cache-container/distributed-cache/memory/off-heap/index.html">/subsystem=infinispan/cache-container=*/distributed-cache=*/memory=off-heap</a> <br/>
+      <a href="../../../../../../subsystem/infinispan/cache-container/scattered-cache/memory/heap/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*/memory=heap</a> <br/>
+      <a href="../../../../../../subsystem/infinispan/cache-container/local-cache/memory/off-heap/index.html">/subsystem=infinispan/cache-container=*/local-cache=*/memory=off-heap</a> <br/>
+      <a href="../../../../../../subsystem/infinispan/cache-container/invalidation-cache/memory/off-heap/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*/memory=off-heap</a> <br/>
+      <a href="../../../../../../subsystem/infinispan/cache-container/scattered-cache/memory/off-heap/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*/memory=off-heap</a> <br/>
+      <a href="../../../../../../subsystem/infinispan/cache-container/local-cache/memory/heap/index.html">/subsystem=infinispan/cache-container=*/local-cache=*/memory=heap</a> <br/>
+      <a href="../../../../../../subsystem/infinispan/cache-container/replicated-cache/memory/heap/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*/memory=heap</a> <br/>
+      <a href="../../../../../../subsystem/infinispan/cache-container/replicated-cache/memory/off-heap/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*/memory=off-heap</a> <br/>
+      <a href="../../../../../../subsystem/infinispan/cache-container/invalidation-cache/memory/heap/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*/memory=heap</a> <br/>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (2)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="size" href="#size" class="">
+         size</a> - Eviction threshold, as defined by the size unit.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>9223372036854775807</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "Eviction threshold, as defined by the size unit.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min" : 1,
+    "max" : 9223372036854775807,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="size-unit" href="#size-unit" class="">
+         size-unit</a> - The unit of the eviction threshold.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>ENTRIES</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            ENTRIES<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The unit of the eviction threshold.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "ENTRIES",
+    "allowed" : ["ENTRIES"],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (2)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Adds a memory configuration element to the cache.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>size</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Eviction threshold, as defined by the size unit.</td>
+        </tr>
+        <tr>
+          <td>size-unit</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>ENTRIES</td>
+          <td>The unit of the eviction threshold.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Adds a memory configuration element to the cache.",
+    "request-properties" : {
+        "size" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "Eviction threshold, as defined by the size unit.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min" : 1,
+            "max" : 9223372036854775807,
+            "stability" : "default"
+        },
+        "size-unit" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The unit of the eviction threshold.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "ENTRIES",
+            "allowed" : ["ENTRIES"],
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Removes an eviction configuration element from the cache.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Removes an eviction configuration element from the cache.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.infinispan.cache-container.distributed-cache.memory.heap</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.infinispan.cache-container.distributed-cache.memory.heap"&gt;
+  &lt;param name="cache-container" value="{resource name}"/&gt;
+  &lt;param name="distributed-cache" value="{resource name}"/&gt;
+  &lt;param name="size" value="{value}"/&gt;
+  &lt;param name="size-unit" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+  <footer>
+    <p>&copy; The WildFly authors 2025</p>
+  </footer>
+</div>
+</body>
+</html>

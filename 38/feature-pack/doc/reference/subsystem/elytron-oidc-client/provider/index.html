@@ -1,0 +1,3762 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for provider</title>
+  <link rel="stylesheet" href="../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../subsystem/elytron-oidc-client/index.html">subsystem=elytron-oidc-client</a>
+      </li>
+      <li>provider</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for provider</h1>
+    <p>Configuration for an OpenID Connect provider. If you have multiple deployments secured by the same OpenID provider you can share the provider configuration here.</p>
+
+  </header>
+<h2>Attributes (41)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="allow-any-hostname" href="#allow-any-hostname" class="">
+         allow-any-hostname</a> - If set to 'true', hostname verification is skipped when communicating with the OpenID provider over HTTPS. This can be useful in testing environments. This should never be set to 'true' in production environments as it disables verification of SSL certificates.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "If set to 'true', hostname verification is skipped when communicating with the OpenID provider over HTTPS. This can be useful in testing environments. This should never be set to 'true' in production environments as it disables verification of SSL certificates.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="always-refresh-token" href="#always-refresh-token" class="">
+         always-refresh-token</a> - If set to 'true', the subsystem refreshes the token every time your application receives a web request, and a new request is sent to the OpenID provider to obtain a new access token. This can result in a higher load on the OpenID provider and may impact the performance of the application.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "If set to 'true', the subsystem refreshes the token every time your application receives a web request, and a new request is sent to the OpenID provider to obtain a new access token. This can result in a higher load on the OpenID provider and may impact the performance of the application.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="auth-server-url" href="#auth-server-url" class="">
+         auth-server-url</a> - The base URL of the Keycloak authorization server. This is Keycloak-specific. It is recommended to use the 'provider-url' instead.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The base URL of the Keycloak authorization server. This is Keycloak-specific. It is recommended to use the 'provider-url' instead.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["provider-url"],
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="authentication-request-format" href="#authentication-request-format" class="">
+         <abbr title="Preview feature">&#x1F17F;</abbr>&nbsp;
+         authentication-request-format</a> - The format to use for specifying query parameters in authentication request.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>oauth2</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            request<br />
+            oauth2<br />
+            request_uri<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>preview</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The format to use for specifying query parameters in authentication request.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "oauth2",
+    "allowed" : [
+        "oauth2",
+        "request",
+        "request_uri"
+    ],
+    "stability" : "preview",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="autodetect-bearer-only" href="#autodetect-bearer-only" class="">
+         autodetect-bearer-only</a> - Whether to auto-detect SOAP or REST clients based on headers like 'X-Requested-With', 'SOAPAction' or 'Accept'. If set to 'true', the subsystem sends an HTTP 401 status code to unauthenticated SOAP or REST clients instead of redirecting them to the OpenID provider login page. Set the value to 'true' if your application serves both applications and web services.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Whether to auto-detect SOAP or REST clients based on headers like 'X-Requested-With', 'SOAPAction' or 'Accept'. If set to 'true', the subsystem sends an HTTP 401 status code to unauthenticated SOAP or REST clients instead of redirecting them to the OpenID provider login page. Set the value to 'true' if your application serves both applications and web services.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="client-key-password" href="#client-key-password" class="">
+         client-key-password</a> - The password for the client key. This is required if 'client-keystore' has been specified.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The password for the client key. This is required if 'client-keystore' has been specified.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="client-keystore" href="#client-keystore" class="">
+         client-keystore</a> - The path to the client keystore to use when communicating with the OpenID provider over HTTPS. This is optional.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The path to the client keystore to use when communicating with the OpenID provider over HTTPS. This is optional.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="client-keystore-password" href="#client-keystore-password" class="">
+         client-keystore-password</a> - The password for the client keystore. This is required if 'client-keystore' has been specified.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The password for the client keystore. This is required if 'client-keystore' has been specified.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="confidential-port" href="#confidential-port" class="">
+         confidential-port</a> - The confidential port used by the OpenID provider when communicating securely over SSL/TLS.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>8443</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The confidential port used by the OpenID provider when communicating securely over SSL/TLS.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 8443,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="connection-pool-size" href="#connection-pool-size" class="">
+         connection-pool-size</a> - The connection pool size to use when communicating with the OpenID provider.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The connection pool size to use when communicating with the OpenID provider.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min" : 0,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="connection-timeout-millis" href="#connection-timeout-millis" class="">
+         connection-timeout-millis</a> - The timeout for establishing a connection with the remote host in milliseconds. A timeout value of zero is interpreted as an infinite timeout, and a negative value is interpreted as undefined.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>-1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The timeout for establishing a connection with the remote host in milliseconds. A timeout value of zero is interpreted as an infinite timeout, and a negative value is interpreted as undefined.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min" : -1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="connection-ttl-millis" href="#connection-ttl-millis" class="">
+         connection-ttl-millis</a> - The amount of time in milliseconds for the connection to be kept alive. A value less than or equal to zero is interpreted as an infinite value.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>-1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The amount of time in milliseconds for the connection to be kept alive. A value less than or equal to zero is interpreted as an infinite value.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min" : -1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="cors-allowed-headers" href="#cors-allowed-headers" class="">
+         cors-allowed-headers</a> - If Cross-Origin Resource Sharing (CORS) is enabled, this sets the value of the 'Access-Control-Allow-Headers' header. This should be a comma-separated string. This is optional. If not set, this header is not returned in CORS responses.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "If Cross-Origin Resource Sharing (CORS) is enabled, this sets the value of the 'Access-Control-Allow-Headers' header. This should be a comma-separated string. This is optional. If not set, this header is not returned in CORS responses.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="cors-allowed-methods" href="#cors-allowed-methods" class="">
+         cors-allowed-methods</a> - If Cross-Origin Resource Sharing (CORS) is enabled, this sets the value of the 'Access-Control-Allow-Methods' header. This should be a comma-separated string. This is optional. If not set, this header is not returned in CORS responses.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "If Cross-Origin Resource Sharing (CORS) is enabled, this sets the value of the 'Access-Control-Allow-Methods' header. This should be a comma-separated string. This is optional. If not set, this header is not returned in CORS responses.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="cors-exposed-headers" href="#cors-exposed-headers" class="">
+         cors-exposed-headers</a> - If Cross-Origin Resource Sharing (CORS) is enabled, this sets the value of the 'Access-Control-Expose-Headers' header. This should be a comma-separated string. This is optional. If not set, this header is not returned in CORS responses.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "If Cross-Origin Resource Sharing (CORS) is enabled, this sets the value of the 'Access-Control-Expose-Headers' header. This should be a comma-separated string. This is optional. If not set, this header is not returned in CORS responses.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="cors-max-age" href="#cors-max-age" class="">
+         cors-max-age</a> - If Cross-Origin Resource Sharing (CORS) is enabled, this sets the value of the 'Access-Control-Max-Age' header. If not set, this header is not returned in CORS responses.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>-1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "If Cross-Origin Resource Sharing (CORS) is enabled, this sets the value of the 'Access-Control-Max-Age' header. If not set, this header is not returned in CORS responses.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min" : -1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="disable-trust-manager" href="#disable-trust-manager" class="">
+         disable-trust-manager</a> - Whether or not to make use of a trust manager when communicating with the OpenID provider over HTTPS. This is optional. This should be set to 'true' only during development and never in production as it disables verification of SSL certificates.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Whether or not to make use of a trust manager when communicating with the OpenID provider over HTTPS. This is optional. This should be set to 'true' only during development and never in production as it disables verification of SSL certificates.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="enable-cors" href="#enable-cors" class="">
+         enable-cors</a> - Enable the Keycloak Cross-Origin Resource Sharing (CORS) support. This is optional. This is Keycloak-specific.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Enable the Keycloak Cross-Origin Resource Sharing (CORS) support. This is optional. This is Keycloak-specific.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="expose-token" href="#expose-token" class="">
+         expose-token</a> - If set to 'true', an authenticated browser client can obtain the signed access token (through a Javascript HTTP invocation) via the URL 'root/k_query_bearer_token'. This is optional.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "If set to 'true', an authenticated browser client can obtain the signed access token (through a Javascript HTTP invocation) via the URL 'root/k_query_bearer_token'. This is optional.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="ignore-oauth-query-parameter" href="#ignore-oauth-query-parameter" class="">
+         ignore-oauth-query-parameter</a> - Disable query parameter parsing for the 'access_token'. Users will not be able to authenticate if they only pass in an 'access_token'.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Disable query parameter parsing for the 'access_token'. Users will not be able to authenticate if they only pass in an 'access_token'.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="principal-attribute" href="#principal-attribute" class="">
+         principal-attribute</a> - Indicates which value from the ID token to use as the principal for the identity. The principal defaults to the value of the 'sub' if the token attribute is null.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Indicates which value from the ID token to use as the principal for the identity. The principal defaults to the value of the 'sub' if the token attribute is null.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="provider-url" href="#provider-url" class="">
+         provider-url</a> - The OpenID provider URL.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The OpenID provider URL.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["auth-server-url"],
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="proxy-url" href="#proxy-url" class="">
+         proxy-url</a> - The URL for the HTTP proxy if one is used.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The URL for the HTTP proxy if one is used.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="realm-public-key" href="#realm-public-key" class="">
+         realm-public-key</a> - The public key of the OpenID provider in PEM format. This is optional. It is not recommended to set it. If the public key is not set, the subsystem downloads the public key from the OpenID provider when needed. If the public key is set, the subsystem never downloads new keys from the OpenID provider, breaking the subsystem when the OpenID provider rotates its keys.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The public key of the OpenID provider in PEM format. This is optional. It is not recommended to set it. If the public key is not set, the subsystem downloads the public key from the OpenID provider when needed. If the public key is set, the subsystem never downloads new keys from the OpenID provider, breaking the subsystem when the OpenID provider rotates its keys.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="register-node-at-startup" href="#register-node-at-startup" class="">
+         register-node-at-startup</a> - If set to 'true', the subsystem sends a registration request to the OpenID provider. This attribute is useful only when your application is clustered.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "If set to 'true', the subsystem sends a registration request to the OpenID provider. This attribute is useful only when your application is clustered.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="register-node-period" href="#register-node-period" class="">
+         register-node-period</a> - If 'register-node-at-startup' is set to 'true', this specifies the frequency (in seconds) at which the node should be re-registered.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>-1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "If 'register-node-at-startup' is set to 'true', this specifies the frequency (in seconds) at which the node should be re-registered.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min" : -1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="request-object-encryption-alg-value" href="#request-object-encryption-alg-value" class="">
+         <abbr title="Preview feature">&#x1F17F;</abbr>&nbsp;
+         request-object-encryption-alg-value</a> - The encryption algorithm used to encrypt the request object.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>preview</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The encryption algorithm used to encrypt the request object.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "requires" : ["request-object-encryption-enc-value"],
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "preview",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="request-object-encryption-enc-value" href="#request-object-encryption-enc-value" class="">
+         <abbr title="Preview feature">&#x1F17F;</abbr>&nbsp;
+         request-object-encryption-enc-value</a> - The content encryption algorithm used to encrypt the request object.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>preview</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The content encryption algorithm used to encrypt the request object.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "requires" : ["request-object-encryption-alg-value"],
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "preview",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="request-object-signing-algorithm" href="#request-object-signing-algorithm" class="">
+         <abbr title="Preview feature">&#x1F17F;</abbr>&nbsp;
+         request-object-signing-algorithm</a> - The algorithm used to sign the request object. The default value fot this attribute is "none".
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>none</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>preview</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The algorithm used to sign the request object. The default value fot this attribute is \"none\".",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "none",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "preview",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="request-object-signing-key-alias" href="#request-object-signing-key-alias" class="">
+         <abbr title="Preview feature">&#x1F17F;</abbr>&nbsp;
+         request-object-signing-key-alias</a> - The key alias when a key pair is used to sign request objects.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>preview</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The key alias when a key pair is used to sign request objects.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "preview",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="request-object-signing-key-password" href="#request-object-signing-key-password" class="">
+         <abbr title="Preview feature">&#x1F17F;</abbr>&nbsp;
+         request-object-signing-key-password</a> - The key password when a key pair is used to sign request objects.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>preview</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The key password when a key pair is used to sign request objects.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "preview",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="request-object-signing-keystore-file" href="#request-object-signing-keystore-file" class="">
+         <abbr title="Preview feature">&#x1F17F;</abbr>&nbsp;
+         request-object-signing-keystore-file</a> - The path to the keystore to use when signing a request object. This is required if an asymmetric signing algorithm for request object is indicated.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>preview</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The path to the keystore to use when signing a request object. This is required if an asymmetric signing algorithm for request object is indicated.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "preview",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="request-object-signing-keystore-password" href="#request-object-signing-keystore-password" class="">
+         <abbr title="Preview feature">&#x1F17F;</abbr>&nbsp;
+         request-object-signing-keystore-password</a> - The keystore password when a key pair is used to sign request objects.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>preview</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The keystore password when a key pair is used to sign request objects.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "preview",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="request-object-signing-keystore-type" href="#request-object-signing-keystore-type" class="">
+         <abbr title="Preview feature">&#x1F17F;</abbr>&nbsp;
+         request-object-signing-keystore-type</a> - The keystore type used to specify the client key pair used to sign request objects.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>preview</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The keystore type used to specify the client key pair used to sign request objects.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "preview",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="socket-timeout-millis" href="#socket-timeout-millis" class="">
+         socket-timeout-millis</a> - The timeout for the socket waiting for data after establishing the connection in milliseconds. A timeout value of zero is interpreted as an infinite timeout, and a negative value is interpreted as undefined.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>-1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The timeout for the socket waiting for data after establishing the connection in milliseconds. A timeout value of zero is interpreted as an infinite timeout, and a negative value is interpreted as undefined.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min" : -1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="ssl-required" href="#ssl-required" class="">
+         ssl-required</a> - Whether the communication with the OpenID provider should be over HTTPS. Valid values are: 'all' - to always require HTTPS, 'external' - to only require HTTPS for external requests, 'none' - if HTTPS is not required. This should be set to 'all' in production environments.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>external</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            ALL<br />
+            EXTERNAL<br />
+            NONE<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Whether the communication with the OpenID provider should be over HTTPS. Valid values are: 'all' - to always require HTTPS, 'external' - to only require HTTPS for external requests, 'none' - if HTTPS is not required. This should be set to 'all' in production environments.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "external",
+    "allowed" : [
+        "ALL",
+        "EXTERNAL",
+        "NONE"
+    ],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="token-signature-algorithm" href="#token-signature-algorithm" class="">
+         token-signature-algorithm</a> - The token signature algorithm used by the OpenID provider.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>RS256</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The token signature algorithm used by the OpenID provider.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "RS256",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="token-store" href="#token-store" class="">
+         token-store</a> - Defines whether to store account information in an HTTP session or in a cookie.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Defines whether to store account information in an HTTP session or in a cookie.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="truststore" href="#truststore" class="">
+         truststore</a> - The path to the truststore to use when communicating with Keycloak over HTTPS. Prefix the path with 'classpath:' to obtain the truststore from the deployment's classpath.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The path to the truststore to use when communicating with Keycloak over HTTPS. Prefix the path with 'classpath:' to obtain the truststore from the deployment's classpath.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="truststore-password" href="#truststore-password" class="">
+         truststore-password</a> - The password for the truststore.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The password for the truststore.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="verify-token-audience" href="#verify-token-audience" class="">
+         verify-token-audience</a> - If set to 'true', then during bearer-only authentication, the subsystem verifies if the token contains the client name defined as an audience. It is recommended to set the value to 'true' for improved security.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "If set to 'true', then during bearer-only authentication, the subsystem verifies if the token contains the client name defined as an audience. It is recommended to set the value to 'true' for improved security.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (2)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Add an OpenID provider definition to the subsystem.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>allow-any-hostname</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>If set to 'true', hostname verification is skipped when communicating with the OpenID provider over HTTPS. This can be useful in testing environments. This should never be set to 'true' in production environments as it disables verification of SSL certificates.</td>
+        </tr>
+        <tr>
+          <td>always-refresh-token</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>If set to 'true', the subsystem refreshes the token every time your application receives a web request, and a new request is sent to the OpenID provider to obtain a new access token. This can result in a higher load on the OpenID provider and may impact the performance of the application.</td>
+        </tr>
+        <tr>
+          <td>auth-server-url</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The base URL of the Keycloak authorization server. This is Keycloak-specific. It is recommended to use the 'provider-url' instead.</td>
+        </tr>
+        <tr>
+          <td>authentication-request-format</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>oauth2</td>
+          <td>The format to use for specifying query parameters in authentication request.</td>
+        </tr>
+        <tr>
+          <td>autodetect-bearer-only</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>Whether to auto-detect SOAP or REST clients based on headers like 'X-Requested-With', 'SOAPAction' or 'Accept'. If set to 'true', the subsystem sends an HTTP 401 status code to unauthenticated SOAP or REST clients instead of redirecting them to the OpenID provider login page. Set the value to 'true' if your application serves both applications and web services.</td>
+        </tr>
+        <tr>
+          <td>client-key-password</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The password for the client key. This is required if 'client-keystore' has been specified.</td>
+        </tr>
+        <tr>
+          <td>client-keystore</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The path to the client keystore to use when communicating with the OpenID provider over HTTPS. This is optional.</td>
+        </tr>
+        <tr>
+          <td>client-keystore-password</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The password for the client keystore. This is required if 'client-keystore' has been specified.</td>
+        </tr>
+        <tr>
+          <td>confidential-port</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>8443</td>
+          <td>The confidential port used by the OpenID provider when communicating securely over SSL/TLS.</td>
+        </tr>
+        <tr>
+          <td>connection-pool-size</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The connection pool size to use when communicating with the OpenID provider.</td>
+        </tr>
+        <tr>
+          <td>connection-timeout-millis</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The timeout for establishing a connection with the remote host in milliseconds. A timeout value of zero is interpreted as an infinite timeout, and a negative value is interpreted as undefined.</td>
+        </tr>
+        <tr>
+          <td>connection-ttl-millis</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The amount of time in milliseconds for the connection to be kept alive. A value less than or equal to zero is interpreted as an infinite value.</td>
+        </tr>
+        <tr>
+          <td>cors-allowed-headers</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>If Cross-Origin Resource Sharing (CORS) is enabled, this sets the value of the 'Access-Control-Allow-Headers' header. This should be a comma-separated string. This is optional. If not set, this header is not returned in CORS responses.</td>
+        </tr>
+        <tr>
+          <td>cors-allowed-methods</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>If Cross-Origin Resource Sharing (CORS) is enabled, this sets the value of the 'Access-Control-Allow-Methods' header. This should be a comma-separated string. This is optional. If not set, this header is not returned in CORS responses.</td>
+        </tr>
+        <tr>
+          <td>cors-exposed-headers</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>If Cross-Origin Resource Sharing (CORS) is enabled, this sets the value of the 'Access-Control-Expose-Headers' header. This should be a comma-separated string. This is optional. If not set, this header is not returned in CORS responses.</td>
+        </tr>
+        <tr>
+          <td>cors-max-age</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>If Cross-Origin Resource Sharing (CORS) is enabled, this sets the value of the 'Access-Control-Max-Age' header. If not set, this header is not returned in CORS responses.</td>
+        </tr>
+        <tr>
+          <td>disable-trust-manager</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>Whether or not to make use of a trust manager when communicating with the OpenID provider over HTTPS. This is optional. This should be set to 'true' only during development and never in production as it disables verification of SSL certificates.</td>
+        </tr>
+        <tr>
+          <td>enable-cors</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>Enable the Keycloak Cross-Origin Resource Sharing (CORS) support. This is optional. This is Keycloak-specific.</td>
+        </tr>
+        <tr>
+          <td>expose-token</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>If set to 'true', an authenticated browser client can obtain the signed access token (through a Javascript HTTP invocation) via the URL 'root/k_query_bearer_token'. This is optional.</td>
+        </tr>
+        <tr>
+          <td>ignore-oauth-query-parameter</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>Disable query parameter parsing for the 'access_token'. Users will not be able to authenticate if they only pass in an 'access_token'.</td>
+        </tr>
+        <tr>
+          <td>principal-attribute</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Indicates which value from the ID token to use as the principal for the identity. The principal defaults to the value of the 'sub' if the token attribute is null.</td>
+        </tr>
+        <tr>
+          <td>provider-url</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The OpenID provider URL.</td>
+        </tr>
+        <tr>
+          <td>proxy-url</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The URL for the HTTP proxy if one is used.</td>
+        </tr>
+        <tr>
+          <td>realm-public-key</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The public key of the OpenID provider in PEM format. This is optional. It is not recommended to set it. If the public key is not set, the subsystem downloads the public key from the OpenID provider when needed. If the public key is set, the subsystem never downloads new keys from the OpenID provider, breaking the subsystem when the OpenID provider rotates its keys.</td>
+        </tr>
+        <tr>
+          <td>register-node-at-startup</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>If set to 'true', the subsystem sends a registration request to the OpenID provider. This attribute is useful only when your application is clustered.</td>
+        </tr>
+        <tr>
+          <td>register-node-period</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>If 'register-node-at-startup' is set to 'true', this specifies the frequency (in seconds) at which the node should be re-registered.</td>
+        </tr>
+        <tr>
+          <td>request-object-encryption-alg-value</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The encryption algorithm used to encrypt the request object.</td>
+        </tr>
+        <tr>
+          <td>request-object-encryption-enc-value</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The content encryption algorithm used to encrypt the request object.</td>
+        </tr>
+        <tr>
+          <td>request-object-signing-algorithm</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>none</td>
+          <td>The algorithm used to sign the request object. The default value fot this attribute is "none".</td>
+        </tr>
+        <tr>
+          <td>request-object-signing-key-alias</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The key alias when a key pair is used to sign request objects.</td>
+        </tr>
+        <tr>
+          <td>request-object-signing-key-password</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The key password when a key pair is used to sign request objects.</td>
+        </tr>
+        <tr>
+          <td>request-object-signing-keystore-file</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The path to the keystore to use when signing a request object. This is required if an asymmetric signing algorithm for request object is indicated.</td>
+        </tr>
+        <tr>
+          <td>request-object-signing-keystore-password</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The keystore password when a key pair is used to sign request objects.</td>
+        </tr>
+        <tr>
+          <td>request-object-signing-keystore-type</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The keystore type used to specify the client key pair used to sign request objects.</td>
+        </tr>
+        <tr>
+          <td>socket-timeout-millis</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The timeout for the socket waiting for data after establishing the connection in milliseconds. A timeout value of zero is interpreted as an infinite timeout, and a negative value is interpreted as undefined.</td>
+        </tr>
+        <tr>
+          <td>ssl-required</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>external</td>
+          <td>Whether the communication with the OpenID provider should be over HTTPS. Valid values are: 'all' - to always require HTTPS, 'external' - to only require HTTPS for external requests, 'none' - if HTTPS is not required. This should be set to 'all' in production environments.</td>
+        </tr>
+        <tr>
+          <td>token-signature-algorithm</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>RS256</td>
+          <td>The token signature algorithm used by the OpenID provider.</td>
+        </tr>
+        <tr>
+          <td>token-store</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Defines whether to store account information in an HTTP session or in a cookie.</td>
+        </tr>
+        <tr>
+          <td>truststore</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The path to the truststore to use when communicating with Keycloak over HTTPS. Prefix the path with 'classpath:' to obtain the truststore from the deployment's classpath.</td>
+        </tr>
+        <tr>
+          <td>truststore-password</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The password for the truststore.</td>
+        </tr>
+        <tr>
+          <td>verify-token-audience</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>If set to 'true', then during bearer-only authentication, the subsystem verifies if the token contains the client name defined as an audience. It is recommended to set the value to 'true' for improved security.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Add an OpenID provider definition to the subsystem.",
+    "request-properties" : {
+        "allow-any-hostname" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If set to 'true', hostname verification is skipped when communicating with the OpenID provider over HTTPS. This can be useful in testing environments. This should never be set to 'true' in production environments as it disables verification of SSL certificates.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "always-refresh-token" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If set to 'true', the subsystem refreshes the token every time your application receives a web request, and a new request is sent to the OpenID provider to obtain a new access token. This can result in a higher load on the OpenID provider and may impact the performance of the application.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "auth-server-url" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The base URL of the Keycloak authorization server. This is Keycloak-specific. It is recommended to use the 'provider-url' instead.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["provider-url"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "authentication-request-format" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The format to use for specifying query parameters in authentication request.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "oauth2",
+            "allowed" : [
+                "oauth2",
+                "request",
+                "request_uri"
+            ],
+            "stability" : "preview"
+        },
+        "autodetect-bearer-only" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Whether to auto-detect SOAP or REST clients based on headers like 'X-Requested-With', 'SOAPAction' or 'Accept'. If set to 'true', the subsystem sends an HTTP 401 status code to unauthenticated SOAP or REST clients instead of redirecting them to the OpenID provider login page. Set the value to 'true' if your application serves both applications and web services.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "client-key-password" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The password for the client key. This is required if 'client-keystore' has been specified.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "client-keystore" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The path to the client keystore to use when communicating with the OpenID provider over HTTPS. This is optional.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "client-keystore-password" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The password for the client keystore. This is required if 'client-keystore' has been specified.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "confidential-port" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The confidential port used by the OpenID provider when communicating securely over SSL/TLS.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 8443,
+            "stability" : "default"
+        },
+        "connection-pool-size" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The connection pool size to use when communicating with the OpenID provider.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min" : 0,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "connection-timeout-millis" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "The timeout for establishing a connection with the remote host in milliseconds. A timeout value of zero is interpreted as an infinite timeout, and a negative value is interpreted as undefined.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min" : -1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "connection-ttl-millis" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "The amount of time in milliseconds for the connection to be kept alive. A value less than or equal to zero is interpreted as an infinite value.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min" : -1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "cors-allowed-headers" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "If Cross-Origin Resource Sharing (CORS) is enabled, this sets the value of the 'Access-Control-Allow-Headers' header. This should be a comma-separated string. This is optional. If not set, this header is not returned in CORS responses.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "cors-allowed-methods" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "If Cross-Origin Resource Sharing (CORS) is enabled, this sets the value of the 'Access-Control-Allow-Methods' header. This should be a comma-separated string. This is optional. If not set, this header is not returned in CORS responses.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "cors-exposed-headers" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "If Cross-Origin Resource Sharing (CORS) is enabled, this sets the value of the 'Access-Control-Expose-Headers' header. This should be a comma-separated string. This is optional. If not set, this header is not returned in CORS responses.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "cors-max-age" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "If Cross-Origin Resource Sharing (CORS) is enabled, this sets the value of the 'Access-Control-Max-Age' header. If not set, this header is not returned in CORS responses.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min" : -1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "disable-trust-manager" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Whether or not to make use of a trust manager when communicating with the OpenID provider over HTTPS. This is optional. This should be set to 'true' only during development and never in production as it disables verification of SSL certificates.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "enable-cors" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Enable the Keycloak Cross-Origin Resource Sharing (CORS) support. This is optional. This is Keycloak-specific.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "expose-token" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If set to 'true', an authenticated browser client can obtain the signed access token (through a Javascript HTTP invocation) via the URL 'root/k_query_bearer_token'. This is optional.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "ignore-oauth-query-parameter" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Disable query parameter parsing for the 'access_token'. Users will not be able to authenticate if they only pass in an 'access_token'.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "principal-attribute" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Indicates which value from the ID token to use as the principal for the identity. The principal defaults to the value of the 'sub' if the token attribute is null.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "provider-url" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The OpenID provider URL.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["auth-server-url"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "proxy-url" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The URL for the HTTP proxy if one is used.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "realm-public-key" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The public key of the OpenID provider in PEM format. This is optional. It is not recommended to set it. If the public key is not set, the subsystem downloads the public key from the OpenID provider when needed. If the public key is set, the subsystem never downloads new keys from the OpenID provider, breaking the subsystem when the OpenID provider rotates its keys.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "register-node-at-startup" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If set to 'true', the subsystem sends a registration request to the OpenID provider. This attribute is useful only when your application is clustered.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "register-node-period" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "If 'register-node-at-startup' is set to 'true', this specifies the frequency (in seconds) at which the node should be re-registered.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min" : -1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "request-object-encryption-alg-value" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The encryption algorithm used to encrypt the request object.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "requires" : ["request-object-encryption-enc-value"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "preview"
+        },
+        "request-object-encryption-enc-value" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The content encryption algorithm used to encrypt the request object.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "requires" : ["request-object-encryption-alg-value"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "preview"
+        },
+        "request-object-signing-algorithm" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The algorithm used to sign the request object. The default value fot this attribute is \"none\".",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "none",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "preview"
+        },
+        "request-object-signing-key-alias" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The key alias when a key pair is used to sign request objects.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "preview"
+        },
+        "request-object-signing-key-password" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The key password when a key pair is used to sign request objects.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "preview"
+        },
+        "request-object-signing-keystore-file" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The path to the keystore to use when signing a request object. This is required if an asymmetric signing algorithm for request object is indicated.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "preview"
+        },
+        "request-object-signing-keystore-password" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The keystore password when a key pair is used to sign request objects.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "preview"
+        },
+        "request-object-signing-keystore-type" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The keystore type used to specify the client key pair used to sign request objects.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "preview"
+        },
+        "socket-timeout-millis" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "The timeout for the socket waiting for data after establishing the connection in milliseconds. A timeout value of zero is interpreted as an infinite timeout, and a negative value is interpreted as undefined.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min" : -1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "ssl-required" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Whether the communication with the OpenID provider should be over HTTPS. Valid values are: 'all' - to always require HTTPS, 'external' - to only require HTTPS for external requests, 'none' - if HTTPS is not required. This should be set to 'all' in production environments.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "external",
+            "allowed" : [
+                "ALL",
+                "EXTERNAL",
+                "NONE"
+            ],
+            "stability" : "default"
+        },
+        "token-signature-algorithm" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The token signature algorithm used by the OpenID provider.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "RS256",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "token-store" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Defines whether to store account information in an HTTP session or in a cookie.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "truststore" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The path to the truststore to use when communicating with Keycloak over HTTPS. Prefix the path with 'classpath:' to obtain the truststore from the deployment's classpath.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "truststore-password" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The password for the truststore.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "verify-token-audience" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If set to 'true', then during bearer-only authentication, the subsystem verifies if the token contains the client name defined as an audience. It is recommended to set the value to 'true' for improved security.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Remove an OpenID provider from the subsystem.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Remove an OpenID provider from the subsystem.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.elytron-oidc-client.provider</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.elytron-oidc-client.provider"&gt;
+  &lt;param name="provider" value="{resource name}"/&gt;
+  &lt;param name="allow-any-hostname" value="{value}"/&gt;
+  &lt;param name="always-refresh-token" value="{value}"/&gt;
+  &lt;param name="auth-server-url" value="{value}"/&gt;
+  &lt;param name="authentication-request-format" value="{value}"/&gt;
+  &lt;param name="autodetect-bearer-only" value="{value}"/&gt;
+  &lt;param name="client-key-password" value="{value}"/&gt;
+  &lt;param name="client-keystore" value="{value}"/&gt;
+  &lt;param name="client-keystore-password" value="{value}"/&gt;
+  &lt;param name="confidential-port" value="{value}"/&gt;
+  &lt;param name="connection-pool-size" value="{value}"/&gt;
+  &lt;param name="connection-timeout-millis" value="{value}"/&gt;
+  &lt;param name="connection-ttl-millis" value="{value}"/&gt;
+  &lt;param name="cors-allowed-headers" value="{value}"/&gt;
+  &lt;param name="cors-allowed-methods" value="{value}"/&gt;
+  &lt;param name="cors-exposed-headers" value="{value}"/&gt;
+  &lt;param name="cors-max-age" value="{value}"/&gt;
+  &lt;param name="disable-trust-manager" value="{value}"/&gt;
+  &lt;param name="enable-cors" value="{value}"/&gt;
+  &lt;param name="expose-token" value="{value}"/&gt;
+  &lt;param name="ignore-oauth-query-parameter" value="{value}"/&gt;
+  &lt;param name="principal-attribute" value="{value}"/&gt;
+  &lt;param name="provider-url" value="{value}"/&gt;
+  &lt;param name="proxy-url" value="{value}"/&gt;
+  &lt;param name="realm-public-key" value="{value}"/&gt;
+  &lt;param name="register-node-at-startup" value="{value}"/&gt;
+  &lt;param name="register-node-period" value="{value}"/&gt;
+  &lt;param name="request-object-encryption-alg-value" value="{value}"/&gt;
+  &lt;param name="request-object-encryption-enc-value" value="{value}"/&gt;
+  &lt;param name="request-object-signing-algorithm" value="{value}"/&gt;
+  &lt;param name="request-object-signing-key-alias" value="{value}"/&gt;
+  &lt;param name="request-object-signing-key-password" value="{value}"/&gt;
+  &lt;param name="request-object-signing-keystore-file" value="{value}"/&gt;
+  &lt;param name="request-object-signing-keystore-password" value="{value}"/&gt;
+  &lt;param name="request-object-signing-keystore-type" value="{value}"/&gt;
+  &lt;param name="socket-timeout-millis" value="{value}"/&gt;
+  &lt;param name="ssl-required" value="{value}"/&gt;
+  &lt;param name="token-signature-algorithm" value="{value}"/&gt;
+  &lt;param name="token-store" value="{value}"/&gt;
+  &lt;param name="truststore" value="{value}"/&gt;
+  &lt;param name="truststore-password" value="{value}"/&gt;
+  &lt;param name="verify-token-audience" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+  <footer>
+    <p>&copy; The WildFly authors 2025</p>
+  </footer>
+</div>
+</body>
+</html>

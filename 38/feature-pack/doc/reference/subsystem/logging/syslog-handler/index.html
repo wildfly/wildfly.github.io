@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for syslog-handler</title>
+  <link rel="stylesheet" href="../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../subsystem/logging/index.html">subsystem=logging</a>
+      </li>
+      <li>syslog-handler</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for syslog-handler</h1>
+    <p>It defines a syslog handler.</p>
+
+  </header>
+<h2>Provided Capabilities (1)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/logging/handler/capability.adoc">org.wildfly.logging.handler</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../subsystem/logging/logging-profile/periodic-rotating-file-handler/index.html">/subsystem=logging/logging-profile=*/periodic-rotating-file-handler=*</a> <br/>
+      <a href="../../../subsystem/logging/periodic-size-rotating-file-handler/index.html">/subsystem=logging/periodic-size-rotating-file-handler=*</a> <br/>
+      <a href="../../../subsystem/logging/logging-profile/custom-handler/index.html">/subsystem=logging/logging-profile=*/custom-handler=*</a> <br/>
+      <a href="../../../subsystem/logging/file-handler/index.html">/subsystem=logging/file-handler=*</a> <br/>
+      <a href="../../../subsystem/logging/custom-handler/index.html">/subsystem=logging/custom-handler=*</a> <br/>
+      <a href="../../../subsystem/logging/logging-profile/syslog-handler/index.html">/subsystem=logging/logging-profile=*/syslog-handler=*</a> <br/>
+      <a href="../../../subsystem/logging/logging-profile/socket-handler/index.html">/subsystem=logging/logging-profile=*/socket-handler=*</a> <br/>
+      <a href="../../../subsystem/logging/logging-profile/console-handler/index.html">/subsystem=logging/logging-profile=*/console-handler=*</a> <br/>
+      <a href="../../../subsystem/logging/logging-profile/size-rotating-file-handler/index.html">/subsystem=logging/logging-profile=*/size-rotating-file-handler=*</a> <br/>
+      <a href="../../../subsystem/logging/periodic-rotating-file-handler/index.html">/subsystem=logging/periodic-rotating-file-handler=*</a> <br/>
+      <a href="../../../subsystem/logging/socket-handler/index.html">/subsystem=logging/socket-handler=*</a> <br/>
+      <a href="../../../subsystem/logging/logging-profile/file-handler/index.html">/subsystem=logging/logging-profile=*/file-handler=*</a> <br/>
+      <a href="../../../subsystem/logging/console-handler/index.html">/subsystem=logging/console-handler=*</a> <br/>
+      <a href="../../../subsystem/logging/logging-profile/periodic-size-rotating-file-handler/index.html">/subsystem=logging/logging-profile=*/periodic-size-rotating-file-handler=*</a> <br/>
+      <a href="../../../subsystem/logging/async-handler/index.html">/subsystem=logging/async-handler=*</a> <br/>
+      <a href="../../../subsystem/logging/logging-profile/async-handler/index.html">/subsystem=logging/logging-profile=*/async-handler=*</a> <br/>
+      <a href="../../../subsystem/logging/size-rotating-file-handler/index.html">/subsystem=logging/size-rotating-file-handler=*</a> <br/>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (9)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="app-name" href="#app-name" class="">
+         app-name</a> - The app name used when formatting the message in RFC5424 format. By default the app name is "java".
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The app name used when formatting the message in RFC5424 format. By default the app name is \"java\".",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="enabled" href="#enabled" class="">
+         enabled</a> - If set to true the handler is enabled and functioning as normal, if set to false the handler is ignored when processing log messages.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "If set to true the handler is enabled and functioning as normal, if set to false the handler is ignored when processing log messages.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : true,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="facility" href="#facility" class="">
+         facility</a> - Facility as defined by RFC-5424 (http://tools.ietf.org/html/rfc5424)and RFC-3164 (http://tools.ietf.org/html/rfc3164).
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>user-level</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            local-use-5<br />
+            line-printer<br />
+            network-news<br />
+            local-use-4<br />
+            local-use-7<br />
+            syslogd<br />
+            ftp-daemon<br />
+            local-use-6<br />
+            local-use-1<br />
+            log-alert<br />
+            local-use-0<br />
+            kernel<br />
+            local-use-3<br />
+            local-use-2<br />
+            log-audit<br />
+            ntp<br />
+            security2<br />
+            security<br />
+            user-level<br />
+            system-daemons<br />
+            uucp<br />
+            clock-daemon2<br />
+            mail-system<br />
+            clock-daemon<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Facility as defined by RFC-5424 (http://tools.ietf.org/html/rfc5424)and RFC-3164 (http://tools.ietf.org/html/rfc3164).",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "user-level",
+    "allowed" : [
+        "kernel",
+        "user-level",
+        "mail-system",
+        "system-daemons",
+        "security",
+        "syslogd",
+        "line-printer",
+        "network-news",
+        "uucp",
+        "clock-daemon",
+        "security2",
+        "ftp-daemon",
+        "ntp",
+        "log-audit",
+        "log-alert",
+        "clock-daemon2",
+        "local-use-0",
+        "local-use-1",
+        "local-use-2",
+        "local-use-3",
+        "local-use-4",
+        "local-use-5",
+        "local-use-6",
+        "local-use-7"
+    ],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="hostname" href="#hostname" class="">
+         hostname</a> - The name of the host the messages are being sent from. For example the name of the host the application server is running on.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The name of the host the messages are being sent from. For example the name of the host the application server is running on.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="level" href="#level" class="">
+         level</a> - The log level specifying which message levels will be logged by this logger. Message levels lower than this value will be discarded.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>ALL</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            TRACE<br />
+            ALL<br />
+            SEVERE<br />
+            FINER<br />
+            FINEST<br />
+            INFO<br />
+            DEBUG<br />
+            WARNING<br />
+            WARN<br />
+            OFF<br />
+            CONFIG<br />
+            FINE<br />
+            ERROR<br />
+            FATAL<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The log level specifying which message levels will be logged by this logger. Message levels lower than this value will be discarded.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "ALL",
+    "allowed" : [
+        "ALL",
+        "FINEST",
+        "FINER",
+        "TRACE",
+        "DEBUG",
+        "FINE",
+        "CONFIG",
+        "INFO",
+        "WARN",
+        "WARNING",
+        "ERROR",
+        "SEVERE",
+        "FATAL",
+        "OFF"
+    ],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="named-formatter" href="#named-formatter" class="">
+         named-formatter</a> - The name of the defined formatter to be used on the handler.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The name of the defined formatter to be used on the handler.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.logging.formatter",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="port" href="#port" class="">
+         port</a> - The port the syslog server is listening on.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>514</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>65535</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The port the syslog server is listening on.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 514,
+    "min" : 0,
+    "max" : 65535,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="server-address" href="#server-address" class="">
+         server-address</a> - The address of the syslog server.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>localhost</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The address of the syslog server.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "localhost",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="syslog-format" href="#syslog-format" class="">
+         syslog-format</a> - Formats the log message according to the RFC specification.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>RFC5424</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            RFC3164<br />
+            RFC5424<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Formats the log message according to the RFC specification.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "RFC5424",
+    "allowed" : [
+        "RFC5424",
+        "RFC3164"
+    ],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (2)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Adds a new syslog handler.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>app-name</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The app name used when formatting the message in RFC5424 format. By default the app name is "java".</td>
+        </tr>
+        <tr>
+          <td>enabled</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>If set to true the handler is enabled and functioning as normal, if set to false the handler is ignored when processing log messages.</td>
+        </tr>
+        <tr>
+          <td>facility</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>user-level</td>
+          <td>Facility as defined by RFC-5424 (http://tools.ietf.org/html/rfc5424)and RFC-3164 (http://tools.ietf.org/html/rfc3164).</td>
+        </tr>
+        <tr>
+          <td>hostname</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The name of the host the messages are being sent from. For example the name of the host the application server is running on.</td>
+        </tr>
+        <tr>
+          <td>level</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>ALL</td>
+          <td>The log level specifying which message levels will be logged by this logger. Message levels lower than this value will be discarded.</td>
+        </tr>
+        <tr>
+          <td>named-formatter</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The name of the defined formatter to be used on the handler.</td>
+        </tr>
+        <tr>
+          <td>port</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>514</td>
+          <td>The port the syslog server is listening on.</td>
+        </tr>
+        <tr>
+          <td>server-address</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>localhost</td>
+          <td>The address of the syslog server.</td>
+        </tr>
+        <tr>
+          <td>syslog-format</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>RFC5424</td>
+          <td>Formats the log message according to the RFC specification.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Adds a new syslog handler.",
+    "request-properties" : {
+        "app-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The app name used when formatting the message in RFC5424 format. By default the app name is \"java\".",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "enabled" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If set to true the handler is enabled and functioning as normal, if set to false the handler is ignored when processing log messages.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        },
+        "facility" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Facility as defined by RFC-5424 (http://tools.ietf.org/html/rfc5424)and RFC-3164 (http://tools.ietf.org/html/rfc3164).",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "user-level",
+            "allowed" : [
+                "kernel",
+                "user-level",
+                "mail-system",
+                "system-daemons",
+                "security",
+                "syslogd",
+                "line-printer",
+                "network-news",
+                "uucp",
+                "clock-daemon",
+                "security2",
+                "ftp-daemon",
+                "ntp",
+                "log-audit",
+                "log-alert",
+                "clock-daemon2",
+                "local-use-0",
+                "local-use-1",
+                "local-use-2",
+                "local-use-3",
+                "local-use-4",
+                "local-use-5",
+                "local-use-6",
+                "local-use-7"
+            ],
+            "stability" : "default"
+        },
+        "hostname" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the host the messages are being sent from. For example the name of the host the application server is running on.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "level" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The log level specifying which message levels will be logged by this logger. Message levels lower than this value will be discarded.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "ALL",
+            "allowed" : [
+                "ALL",
+                "FINEST",
+                "FINER",
+                "TRACE",
+                "DEBUG",
+                "FINE",
+                "CONFIG",
+                "INFO",
+                "WARN",
+                "WARNING",
+                "ERROR",
+                "SEVERE",
+                "FATAL",
+                "OFF"
+            ],
+            "stability" : "default"
+        },
+        "named-formatter" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the defined formatter to be used on the handler.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.logging.formatter",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "port" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The port the syslog server is listening on.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 514,
+            "min" : 0,
+            "max" : 65535,
+            "stability" : "default"
+        },
+        "server-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The address of the syslog server.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "localhost",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "syslog-format" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Formats the log message according to the RFC specification.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "RFC5424",
+            "allowed" : [
+                "RFC5424",
+                "RFC3164"
+            ],
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Removes the syslog handler.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Removes the syslog handler.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "all-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.logging.syslog-handler</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.logging.syslog-handler"&gt;
+  &lt;param name="syslog-handler" value="{resource name}"/&gt;
+  &lt;param name="app-name" value="{value}"/&gt;
+  &lt;param name="enabled" value="{value}"/&gt;
+  &lt;param name="facility" value="{value}"/&gt;
+  &lt;param name="hostname" value="{value}"/&gt;
+  &lt;param name="level" value="{value}"/&gt;
+  &lt;param name="named-formatter" value="{value}"/&gt;
+  &lt;param name="port" value="{value}"/&gt;
+  &lt;param name="server-address" value="{value}"/&gt;
+  &lt;param name="syslog-format" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+  <footer>
+    <p>&copy; The WildFly authors 2025</p>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for service=remote</title>
+  <link rel="stylesheet" href="../../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../../subsystem/ejb3/index.html">subsystem=ejb3</a>
+      </li>
+      <li>service=remote</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for service=remote</h1>
+    <p>The Enterprise Beans 3 Remote Service</p>
+
+  </header>
+<h2>Children (1)</h2>
+<ul class="children">
+  <li>
+    <a href="channel-creation-options/index.html" class="">channel-creation-options</a>
+  </li>
+</ul>
+<h2>Provided Capabilities (1)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/ejb/remote/capability.adoc">org.wildfly.ejb.remote</a></td>
+    <td>false</td>
+    <td>
+      <p>none</p>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (5)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="cluster" href="#cluster" class="deprecated">
+         cluster</a> - The name of the clustered cache container which will be used to store/access the client-mappings of the Jakarta Enterprise Beans remoting connector's socket-binding on each node, in the cluster
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 10.0.0
+        <div>The cluster attribute has been superseded by the client-mappings-registry element of the distributable-ejb subsystem and will be removed in a future release.</div>
+      </div>
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>ejb</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The name of the clustered cache container which will be used to store/access the client-mappings of the Jakarta Enterprise Beans remoting connector's socket-binding on each node, in the cluster",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "default" : "ejb",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "deprecated" : {
+        "since" : "10.0.0",
+        "reason" : "The cluster attribute has been superseded by the client-mappings-registry element of the distributable-ejb subsystem and will be removed in a future release."
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="connector-ref" href="#connector-ref" class="deprecated">
+         connector-ref</a> - The name of the connector on which the Enterprise Beans 3 remoting channel is registered.
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 8.0.0
+        <div>This attribute is deprecated; use connectors instead.</div>
+      </div>
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The name of the connector on which the Enterprise Beans 3 remoting channel is registered.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["connectors"],
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "deprecated" : {
+        "since" : "8.0.0",
+        "reason" : "This attribute is deprecated; use connectors instead."
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="connectors" href="#connectors" class="">
+         connectors</a> - A list of names of connectors on which the Enterprise Beans 3 invocations are received.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "A list of names of connectors on which the Enterprise Beans 3 invocations are received.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "capability-reference" : "org.wildfly.remoting.connector",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="execute-in-worker" href="#execute-in-worker" class="">
+         execute-in-worker</a> - If this is true the Jakarta Enterprise Beans request will be executed in the IO subsystems worker, otherwise it will dispatch to the Jakarta Enterprise Beans thread pool
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "If this is true the Jakarta Enterprise Beans request will be executed in the IO subsystems worker, otherwise it will dispatch to the Jakarta Enterprise Beans thread pool",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : true,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="thread-pool-name" href="#thread-pool-name" class="">
+         thread-pool-name</a> - The name of the thread pool that handles remote invocations
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The name of the thread pool that handles remote invocations",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.threads.executor.ejb3",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (2)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Adds the Enterprise Beans 3 remote service
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>cluster</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td>ejb</td>
+          <td>The name of the clustered cache container which will be used to store/access the client-mappings of the Jakarta Enterprise Beans remoting connector's socket-binding on each node, in the cluster</td>
+        </tr>
+        <tr>
+          <td>connector-ref</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The name of the connector on which the Enterprise Beans 3 remoting channel is registered.</td>
+        </tr>
+        <tr>
+          <td>connectors</td>
+          <td>LIST</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>A list of names of connectors on which the Enterprise Beans 3 invocations are received.</td>
+        </tr>
+        <tr>
+          <td>execute-in-worker</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>If this is true the Jakarta Enterprise Beans request will be executed in the IO subsystems worker, otherwise it will dispatch to the Jakarta Enterprise Beans thread pool</td>
+        </tr>
+        <tr>
+          <td>thread-pool-name</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The name of the thread pool that handles remote invocations</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Adds the Enterprise Beans 3 remote service",
+    "request-properties" : {
+        "cluster" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the clustered cache container which will be used to store/access the client-mappings of the Jakarta Enterprise Beans remoting connector's socket-binding on each node, in the cluster",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : "ejb",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "deprecated" : {
+                "since" : "10.0.0",
+                "reason" : "The cluster attribute has been superseded by the client-mappings-registry element of the distributable-ejb subsystem and will be removed in a future release."
+            }
+        },
+        "connector-ref" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the connector on which the Enterprise Beans 3 remoting channel is registered.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["connectors"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "deprecated" : {
+                "since" : "8.0.0",
+                "reason" : "This attribute is deprecated; use connectors instead."
+            }
+        },
+        "connectors" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "A list of names of connectors on which the Enterprise Beans 3 invocations are received.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "capability-reference" : "org.wildfly.remoting.connector",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "execute-in-worker" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If this is true the Jakarta Enterprise Beans request will be executed in the IO subsystems worker, otherwise it will dispatch to the Jakarta Enterprise Beans thread pool",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        },
+        "thread-pool-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the thread pool that handles remote invocations",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.threads.executor.ejb3",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "all-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Removes the Enterprise Beans 3 remote service
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Removes the Enterprise Beans 3 remote service",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "all-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.ejb3.service.remote</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.ejb3.service.remote"&gt;
+  &lt;param name="cluster" value="{value}"/&gt;
+  &lt;param name="connector-ref" value="{value}"/&gt;
+  &lt;param name="connectors" value="{value}"/&gt;
+  &lt;param name="execute-in-worker" value="{value}"/&gt;
+  &lt;param name="thread-pool-name" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+  <footer>
+    <p>&copy; The WildFly authors 2025</p>
+  </footer>
+</div>
+</body>
+</html>

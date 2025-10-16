@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for backup</title>
+  <link rel="stylesheet" href="../../../../../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../../../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../../../../../subsystem/infinispan/index.html">subsystem=infinispan</a>
+      </li>
+      <li>
+        <a href="../../../../../../../subsystem/infinispan/cache-container/index.html">cache-container</a>
+      </li>
+      <li>
+        <a href="../../../../../../../subsystem/infinispan/cache-container/distributed-cache/index.html">distributed-cache</a>
+      </li>
+      <li>
+        <a href="../../../../../../../subsystem/infinispan/cache-container/distributed-cache/component/backups/index.html">component=backups</a>
+      </li>
+      <li>backup</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for backup</h1>
+    <p>A backup site to which to replicate this cache.</p>
+
+  </header>
+<h2>Provided Capabilities (1)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/clustering/infinispan/cache-configuration/backup/capability.adoc">org.wildfly.clustering.infinispan.cache-configuration.backup</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../../../../../subsystem/infinispan/cache-container/replicated-cache/component/backups/backup/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*/component=backups/backup=*</a> <br/>
+      <a href="../../../../../../../subsystem/infinispan/cache-container/scattered-cache/component/backups/backup/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*/component=backups/backup=*</a> <br/>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (6)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="after-failures" href="#after-failures" class="">
+         after-failures</a> - Indicates the number of failures after which this backup site should go offline.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "Indicates the number of failures after which this backup site should go offline.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 1,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="enabled" href="#enabled" class="deprecated">
+         enabled</a> - Indicates whether or not this backup site is enabled.
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 16.0.0
+        <div>Deprecated. Ignored if specified.</div>
+      </div>
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Indicates whether or not this backup site is enabled.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : true,
+    "stability" : "default",
+    "deprecated" : {
+        "since" : "16.0.0",
+        "reason" : "Deprecated. Ignored if specified."
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="failure-policy" href="#failure-policy" class="">
+         failure-policy</a> - The policy to follow when connectivity to the backup site fails.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>WARN</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            CUSTOM<br />
+            IGNORE<br />
+            WARN<br />
+            FAIL<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The policy to follow when connectivity to the backup site fails.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "WARN",
+    "allowed" : [
+        "IGNORE",
+        "WARN",
+        "FAIL",
+        "CUSTOM"
+    ],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="min-wait" href="#min-wait" class="">
+         min-wait</a> - Indicates the minimum time (in milliseconds) to wait after the max number of failures is reached, after which this backup site should go offline.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>MILLISECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>9223372036854775807</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "Indicates the minimum time (in milliseconds) to wait after the max number of failures is reached, after which this backup site should go offline.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 0,
+    "unit" : "MILLISECONDS",
+    "min" : 0,
+    "max" : 9223372036854775807,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="strategy" href="#strategy" class="">
+         strategy</a> - The backup strategy for this cache
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>ASYNC</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            ASYNC<br />
+            SYNC<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The backup strategy for this cache",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "ASYNC",
+    "allowed" : [
+        "SYNC",
+        "ASYNC"
+    ],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="timeout" href="#timeout" class="">
+         timeout</a> - The timeout for replicating to the backup site.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>10000</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>MILLISECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>9223372036854775807</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The timeout for replicating to the backup site.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 10000,
+    "unit" : "MILLISECONDS",
+    "min" : 0,
+    "max" : 9223372036854775807,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (5)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Adds a backup site to this cache.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>after-failures</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>1</td>
+          <td>Indicates the number of failures after which this backup site should go offline.</td>
+        </tr>
+        <tr>
+          <td>enabled</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>Indicates whether or not this backup site is enabled.</td>
+        </tr>
+        <tr>
+          <td>failure-policy</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>WARN</td>
+          <td>The policy to follow when connectivity to the backup site fails.</td>
+        </tr>
+        <tr>
+          <td>min-wait</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td>0</td>
+          <td>Indicates the minimum time (in milliseconds) to wait after the max number of failures is reached, after which this backup site should go offline.</td>
+        </tr>
+        <tr>
+          <td>strategy</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>ASYNC</td>
+          <td>The backup strategy for this cache</td>
+        </tr>
+        <tr>
+          <td>timeout</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td>10000</td>
+          <td>The timeout for replicating to the backup site.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Adds a backup site to this cache.",
+    "request-properties" : {
+        "after-failures" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "Indicates the number of failures after which this backup site should go offline.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 1,
+            "stability" : "default"
+        },
+        "enabled" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Indicates whether or not this backup site is enabled.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default",
+            "deprecated" : {
+                "since" : "16.0.0",
+                "reason" : "Deprecated. Ignored if specified."
+            }
+        },
+        "failure-policy" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The policy to follow when connectivity to the backup site fails.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "WARN",
+            "allowed" : [
+                "IGNORE",
+                "WARN",
+                "FAIL",
+                "CUSTOM"
+            ],
+            "stability" : "default"
+        },
+        "min-wait" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "Indicates the minimum time (in milliseconds) to wait after the max number of failures is reached, after which this backup site should go offline.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 0,
+            "unit" : "MILLISECONDS",
+            "min" : 0,
+            "max" : 9223372036854775807,
+            "stability" : "default"
+        },
+        "strategy" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The backup strategy for this cache",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "ASYNC",
+            "allowed" : [
+                "SYNC",
+                "ASYNC"
+            ],
+            "stability" : "default"
+        },
+        "timeout" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "The timeout for replicating to the backup site.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 10000,
+            "unit" : "MILLISECONDS",
+            "min" : 0,
+            "max" : 9223372036854775807,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="bring-site-online" href="#bring-site-online" class="">
+      bring-site-online</a> - Re-enables a previously disabled backup site.
+    </span>
+    <div class="collapsible">
+
+
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>STRING</dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "bring-site-online",
+    "description" : "Re-enables a previously disabled backup site.",
+    "request-properties" : {},
+    "reply-properties" : {"type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    }},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Removes a backup site from this cache.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Removes a backup site from this cache.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="site-status" href="#site-status" class="">
+      site-status</a> - Displays the current status of the backup site.
+    </span>
+    <div class="collapsible">
+
+
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>STRING</dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "site-status",
+    "description" : "Displays the current status of the backup site.",
+    "request-properties" : {},
+    "reply-properties" : {"type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    }},
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="take-site-offline" href="#take-site-offline" class="">
+      take-site-offline</a> - Disables backup to a remote site.
+    </span>
+    <div class="collapsible">
+
+
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>STRING</dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "take-site-offline",
+    "description" : "Disables backup to a remote site.",
+    "request-properties" : {},
+    "reply-properties" : {"type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    }},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.infinispan.cache-container.distributed-cache.component.backups.backup</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.infinispan.cache-container.distributed-cache.component.backups.backup"&gt;
+  &lt;param name="backup" value="{resource name}"/&gt;
+  &lt;param name="cache-container" value="{resource name}"/&gt;
+  &lt;param name="distributed-cache" value="{resource name}"/&gt;
+  &lt;param name="after-failures" value="{value}"/&gt;
+  &lt;param name="enabled" value="{value}"/&gt;
+  &lt;param name="failure-policy" value="{value}"/&gt;
+  &lt;param name="min-wait" value="{value}"/&gt;
+  &lt;param name="strategy" value="{value}"/&gt;
+  &lt;param name="timeout" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+  <footer>
+    <p>&copy; The WildFly authors 2025</p>
+  </footer>
+</div>
+</body>
+</html>

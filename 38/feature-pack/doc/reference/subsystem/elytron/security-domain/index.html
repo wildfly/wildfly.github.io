@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for security-domain</title>
+  <link rel="stylesheet" href="../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../subsystem/elytron/index.html">subsystem=elytron</a>
+      </li>
+      <li>security-domain</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for security-domain</h1>
+    <p>A security domain definition.</p>
+
+  </header>
+<h2>Provided Capabilities (1)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/security/security-domain/capability.adoc">org.wildfly.security.security-domain</a></td>
+    <td>true</td>
+    <td>
+      <p>none</p>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (15)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="default-realm" href="#default-realm" class="">
+         default-realm</a> - The default realm contained by this security domain.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The default realm contained by this security domain.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="evidence-decoder" href="#evidence-decoder" class="">
+         evidence-decoder</a> - A reference to an EvidenceDecoder to be used by this domain.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "A reference to an EvidenceDecoder to be used by this domain.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.security.evidence-decoder",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="outflow-anonymous" href="#outflow-anonymous" class="">
+         outflow-anonymous</a> - When outflowing to a security domain if outflow is not possible should the anonymous identity be used?  Outflowing anonymous has the effect of clearing any identity already established for that domain.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "When outflowing to a security domain if outflow is not possible should the anonymous identity be used?  Outflowing anonymous has the effect of clearing any identity already established for that domain.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "requires" : ["outflow-security-domains"],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="outflow-security-domains" href="#outflow-security-domains" class="">
+         outflow-security-domains</a> - The list of security domains that the security identity from this domain should automatically outflow to.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "The list of security domains that the security identity from this domain should automatically outflow to.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.security.security-domain",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="permission-mapper" href="#permission-mapper" class="">
+         permission-mapper</a> - A reference to a PermissionMapper to be used by this domain.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "A reference to a PermissionMapper to be used by this domain.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.security.permission-mapper",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="post-realm-principal-transformer" href="#post-realm-principal-transformer" class="">
+         post-realm-principal-transformer</a> - A reference to a principal transformer to be applied after the realm has operated on the supplied identity name.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "A reference to a principal transformer to be applied after the realm has operated on the supplied identity name.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.security.principal-transformer",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="pre-realm-principal-transformer" href="#pre-realm-principal-transformer" class="">
+         pre-realm-principal-transformer</a> - A reference to a principal transformer to be applied before the realm is selected.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "A reference to a principal transformer to be applied before the realm is selected.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.security.principal-transformer",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="principal-decoder" href="#principal-decoder" class="">
+         principal-decoder</a> - A reference to a PrincipalDecoder to be used by this domain.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "A reference to a PrincipalDecoder to be used by this domain.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.security.principal-decoder",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="realm-mapper" href="#realm-mapper" class="">
+         realm-mapper</a> - Reference to the RealmMapper to be used by this domain.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Reference to the RealmMapper to be used by this domain.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.security.realm-mapper",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="realms" href="#realms" class="">
+         realms</a> - The list of realms contained by this security domain.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "The list of realms contained by this security domain.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 0,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "value-type" : {
+        "realm" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "A reference to an individual security realm.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "capability-reference" : "org.wildfly.security.security-realm",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "principal-transformer" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "A principal transformer to be associated with the realm.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.security.principal-transformer",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "role-decoder" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "A RoleDecoder reference to be associated with the realm.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.security.role-decoder",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "role-mapper" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "A RoleMapper reference to be associated with the realm.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.security.role-mapper",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        }
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="role-decoder" href="#role-decoder" class="">
+         role-decoder</a> - Reference to the RoleDecoder to be used by this domain.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Reference to the RoleDecoder to be used by this domain.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.security.role-decoder",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="role-mapper" href="#role-mapper" class="">
+         role-mapper</a> - Reference to the RoleMapper to be used by this domain.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Reference to the RoleMapper to be used by this domain.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.security.role-mapper",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="security-event-listener" href="#security-event-listener" class="">
+         security-event-listener</a> - Reference to a listener for security events.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Reference to a listener for security events.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.security.security-event-listener",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="trusted-security-domains" href="#trusted-security-domains" class="">
+         trusted-security-domains</a> - The list of security domains that are trusted by this security domain.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "The list of security domains that are trusted by this security domain.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.security.security-domain",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="trusted-virtual-security-domains" href="#trusted-virtual-security-domains" class="">
+         trusted-virtual-security-domains</a> - The list of virtual security domains that are trusted by this security domain.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "The list of virtual security domains that are trusted by this security domain.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.security.virtual-security-domain",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (3)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - The add operation for a security domain definition.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>default-realm</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The default realm contained by this security domain.</td>
+        </tr>
+        <tr>
+          <td>evidence-decoder</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>A reference to an EvidenceDecoder to be used by this domain.</td>
+        </tr>
+        <tr>
+          <td>outflow-anonymous</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>When outflowing to a security domain if outflow is not possible should the anonymous identity be used?  Outflowing anonymous has the effect of clearing any identity already established for that domain.</td>
+        </tr>
+        <tr>
+          <td>outflow-security-domains</td>
+          <td>LIST</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The list of security domains that the security identity from this domain should automatically outflow to.</td>
+        </tr>
+        <tr>
+          <td>permission-mapper</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>A reference to a PermissionMapper to be used by this domain.</td>
+        </tr>
+        <tr>
+          <td>post-realm-principal-transformer</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>A reference to a principal transformer to be applied after the realm has operated on the supplied identity name.</td>
+        </tr>
+        <tr>
+          <td>pre-realm-principal-transformer</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>A reference to a principal transformer to be applied before the realm is selected.</td>
+        </tr>
+        <tr>
+          <td>principal-decoder</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>A reference to a PrincipalDecoder to be used by this domain.</td>
+        </tr>
+        <tr>
+          <td>realm-mapper</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Reference to the RealmMapper to be used by this domain.</td>
+        </tr>
+        <tr>
+          <td>realms</td>
+          <td>LIST</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The list of realms contained by this security domain.</td>
+        </tr>
+        <tr>
+          <td>role-decoder</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Reference to the RoleDecoder to be used by this domain.</td>
+        </tr>
+        <tr>
+          <td>role-mapper</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Reference to the RoleMapper to be used by this domain.</td>
+        </tr>
+        <tr>
+          <td>security-event-listener</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Reference to a listener for security events.</td>
+        </tr>
+        <tr>
+          <td>trusted-security-domains</td>
+          <td>LIST</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The list of security domains that are trusted by this security domain.</td>
+        </tr>
+        <tr>
+          <td>trusted-virtual-security-domains</td>
+          <td>LIST</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The list of virtual security domains that are trusted by this security domain.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "The add operation for a security domain definition.",
+    "request-properties" : {
+        "default-realm" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The default realm contained by this security domain.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "evidence-decoder" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "A reference to an EvidenceDecoder to be used by this domain.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.security.evidence-decoder",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "outflow-anonymous" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "When outflowing to a security domain if outflow is not possible should the anonymous identity be used?  Outflowing anonymous has the effect of clearing any identity already established for that domain.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "requires" : ["outflow-security-domains"],
+            "stability" : "default"
+        },
+        "outflow-security-domains" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "The list of security domains that the security identity from this domain should automatically outflow to.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.security.security-domain",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "permission-mapper" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "A reference to a PermissionMapper to be used by this domain.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.security.permission-mapper",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "post-realm-principal-transformer" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "A reference to a principal transformer to be applied after the realm has operated on the supplied identity name.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.security.principal-transformer",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "pre-realm-principal-transformer" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "A reference to a principal transformer to be applied before the realm is selected.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.security.principal-transformer",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "principal-decoder" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "A reference to a PrincipalDecoder to be used by this domain.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.security.principal-decoder",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "realm-mapper" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Reference to the RealmMapper to be used by this domain.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.security.realm-mapper",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "realms" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "The list of realms contained by this security domain.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "realm" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "A reference to an individual security realm.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "capability-reference" : "org.wildfly.security.security-realm",
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "principal-transformer" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "A principal transformer to be associated with the realm.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "capability-reference" : "org.wildfly.security.principal-transformer",
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "role-decoder" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "A RoleDecoder reference to be associated with the realm.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "capability-reference" : "org.wildfly.security.role-decoder",
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "role-mapper" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "A RoleMapper reference to be associated with the realm.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "capability-reference" : "org.wildfly.security.role-mapper",
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                }
+            }
+        },
+        "role-decoder" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Reference to the RoleDecoder to be used by this domain.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.security.role-decoder",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "role-mapper" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Reference to the RoleMapper to be used by this domain.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.security.role-mapper",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "security-event-listener" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Reference to a listener for security events.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.security.security-event-listener",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "trusted-security-domains" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "The list of security domains that are trusted by this security domain.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.security.security-domain",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "trusted-virtual-security-domains" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "The list of virtual security domains that are trusted by this security domain.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.security.virtual-security-domain",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="read-identity" href="#read-identity" class="">
+      read-identity</a> - Reads an identity from a security domain if it exists.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>name</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The name of the identity to read.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "read-identity",
+    "description" : "Reads an identity from a security domain if it exists.",
+    "request-properties" : {"name" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        },
+        "description" : "The name of the identity to read.",
+        "expressions-allowed" : false,
+        "required" : true,
+        "nillable" : false,
+        "min-length" : 1,
+        "max-length" : 2147483647,
+        "stability" : "default"
+    }},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - The remove operation for a security domain definition.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "The remove operation for a security domain definition.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.elytron.security-domain</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.elytron.security-domain"&gt;
+  &lt;param name="security-domain" value="{resource name}"/&gt;
+  &lt;param name="default-realm" value="{value}"/&gt;
+  &lt;param name="evidence-decoder" value="{value}"/&gt;
+  &lt;param name="outflow-anonymous" value="{value}"/&gt;
+  &lt;param name="outflow-security-domains" value="{value}"/&gt;
+  &lt;param name="permission-mapper" value="{value}"/&gt;
+  &lt;param name="post-realm-principal-transformer" value="{value}"/&gt;
+  &lt;param name="pre-realm-principal-transformer" value="{value}"/&gt;
+  &lt;param name="principal-decoder" value="{value}"/&gt;
+  &lt;param name="realm-mapper" value="{value}"/&gt;
+  &lt;param name="realms" value="{value}"/&gt;
+  &lt;param name="role-decoder" value="{value}"/&gt;
+  &lt;param name="role-mapper" value="{value}"/&gt;
+  &lt;param name="security-event-listener" value="{value}"/&gt;
+  &lt;param name="trusted-security-domains" value="{value}"/&gt;
+  &lt;param name="trusted-virtual-security-domains" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+  <footer>
+    <p>&copy; The WildFly authors 2025</p>
+  </footer>
+</div>
+</body>
+</html>

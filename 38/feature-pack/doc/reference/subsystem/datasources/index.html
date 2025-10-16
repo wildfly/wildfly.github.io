@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for subsystem=datasources</title>
+  <link rel="stylesheet" href="../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../index.html">root</a>
+      </li>
+      <li>subsystem=datasources</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for subsystem=datasources</h1>
+    <p>The data-sources subsystem, used to declare JDBC data-sources</p>
+
+  </header>
+<h2>Children (3)</h2>
+<ul class="children">
+  <li>
+    <a href="data-source/index.html" class="">data-source</a>
+  </li>
+  <li>
+    <a href="jdbc-driver/index.html" class="">jdbc-driver</a>
+  </li>
+  <li>
+    <a href="xa-data-source/index.html" class="">xa-data-source</a>
+  </li>
+</ul>
+<h2>Attributes (1)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="installed-drivers" href="#installed-drivers" class="">
+         installed-drivers</a> - List of JDBC drivers that have been installed in the runtime
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "List of JDBC drivers that have been installed in the runtime",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "min-length" : 0,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "value-type" : {
+        "deployment-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the deployment unit from which the driver was loaded",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "deprecated" : {
+                "since" : "6.0.0",
+                "reason" : "This attribute is no longer used"
+            }
+        },
+        "driver-module-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the module from which the driver was loaded, if it was loaded from the module path",
+            "expressions-allowed" : true,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "module-slot" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The slot of the module from which the driver was loaded, if it was loaded from the module path",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "driver-class-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The fully qualified class name of the java.sql.Driver implementation",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "driver-datasource-class-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The fully qualified class name of the javax.sql.DataSource implementation",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "driver-xa-datasource-class-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The fully qualified class name of the javax.sql.XADataSource implementation",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "driver-major-version" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The driver's major version number",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "driver-minor-version" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The driver's minor version number",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "jdbc-compliant" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Whether or not the driver is JDBC compliant",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "deprecated" : {
+                "since" : "6.0.0",
+                "reason" : "This attribute is no longer used"
+            }
+        },
+        "profile" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Domain Profile in which driver is defined. Null in case of standalone server",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "deprecated" : {
+                "since" : "4.0.0",
+                "reason" : "The server's profile can be determined by the profile-name attribute on the server's root resource."
+            }
+        },
+        "driver-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Defines the JDBC driver the datasource should use. It is a symbolic name matching the the name of installed driver. In case the driver is deployed as a jar, the name is the name of the deployment unit",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "datasource-class-info" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "The available properties for the datasource-class, and xa-datasource-class for the jdbc-driver",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            }
+        }
+    },
+    "access-type" : "read-only",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (4)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Adds the data-sources subsystem
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Adds the data-sources subsystem",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="get-installed-driver" href="#get-installed-driver" class="">
+      get-installed-driver</a> - Get a description of an installed driver
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>driver-name</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>Defines the JDBC driver the datasource should use. It is a symbolic name matching the the name of installed driver. In case the driver is deployed as a jar, the name is the name of the deployment unit</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>OBJECT</dd>
+        <dt>Value Type</dt>
+        <dd>
+          <div class="code-block-container">
+            <pre><code class="language-json">
+{
+    "deployment-name" => {
+        "type" => STRING,
+        "description" => "The name of the deployment unit from which the driver was loaded",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default",
+        "deprecated" => {
+            "since" => "6.0.0",
+            "reason" => "This attribute is no longer used"
+        }
+    },
+    "driver-module-name" => {
+        "type" => STRING,
+        "description" => "The name of the module from which the driver was loaded, if it was loaded from the module path",
+        "expressions-allowed" => true,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "module-slot" => {
+        "type" => STRING,
+        "description" => "The slot of the module from which the driver was loaded, if it was loaded from the module path",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "driver-class-name" => {
+        "type" => STRING,
+        "description" => "The fully qualified class name of the java.sql.Driver implementation",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "driver-datasource-class-name" => {
+        "type" => STRING,
+        "description" => "The fully qualified class name of the javax.sql.DataSource implementation",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "driver-xa-datasource-class-name" => {
+        "type" => STRING,
+        "description" => "The fully qualified class name of the javax.sql.XADataSource implementation",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "driver-major-version" => {
+        "type" => INT,
+        "description" => "The driver's major version number",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "driver-minor-version" => {
+        "type" => INT,
+        "description" => "The driver's minor version number",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "jdbc-compliant" => {
+        "type" => BOOLEAN,
+        "description" => "Whether or not the driver is JDBC compliant",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default",
+        "deprecated" => {
+            "since" => "6.0.0",
+            "reason" => "This attribute is no longer used"
+        }
+    },
+    "profile" => {
+        "type" => STRING,
+        "description" => "Domain Profile in which driver is defined. Null in case of standalone server",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default",
+        "deprecated" => {
+            "since" => "4.0.0",
+            "reason" => "The server's profile can be determined by the profile-name attribute on the server's root resource."
+        }
+    },
+    "driver-name" => {
+        "type" => STRING,
+        "description" => "Defines the JDBC driver the datasource should use. It is a symbolic name matching the the name of installed driver. In case the driver is deployed as a jar, the name is the name of the deployment unit",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "datasource-class-info" => {
+        "type" => LIST,
+        "description" => "The available properties for the datasource-class, and xa-datasource-class for the jdbc-driver",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 0,
+        "max-length" => 2147483647,
+        "stability" => "default",
+        "value-type" => OBJECT
+    }
+}</code></pre>
+          </div>
+        </dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "get-installed-driver",
+    "description" : "Get a description of an installed driver",
+    "request-properties" : {"driver-name" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        },
+        "description" : "Defines the JDBC driver the datasource should use. It is a symbolic name matching the the name of installed driver. In case the driver is deployed as a jar, the name is the name of the deployment unit",
+        "expressions-allowed" : false,
+        "required" : true,
+        "nillable" : false,
+        "min-length" : 1,
+        "max-length" : 2147483647,
+        "stability" : "default"
+    }},
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "OBJECT"
+        },
+        "value-type" : {
+            "deployment-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The name of the deployment unit from which the driver was loaded",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default",
+                "deprecated" : {
+                    "since" : "6.0.0",
+                    "reason" : "This attribute is no longer used"
+                }
+            },
+            "driver-module-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The name of the module from which the driver was loaded, if it was loaded from the module path",
+                "expressions-allowed" : true,
+                "required" : true,
+                "nillable" : false,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "module-slot" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The slot of the module from which the driver was loaded, if it was loaded from the module path",
+                "expressions-allowed" : true,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "driver-class-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The fully qualified class name of the java.sql.Driver implementation",
+                "expressions-allowed" : true,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "driver-datasource-class-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The fully qualified class name of the javax.sql.DataSource implementation",
+                "expressions-allowed" : true,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "driver-xa-datasource-class-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The fully qualified class name of the javax.sql.XADataSource implementation",
+                "expressions-allowed" : true,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "driver-major-version" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "INT"
+                },
+                "description" : "The driver's major version number",
+                "expressions-allowed" : true,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "driver-minor-version" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "INT"
+                },
+                "description" : "The driver's minor version number",
+                "expressions-allowed" : true,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "jdbc-compliant" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "BOOLEAN"
+                },
+                "description" : "Whether or not the driver is JDBC compliant",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default",
+                "deprecated" : {
+                    "since" : "6.0.0",
+                    "reason" : "This attribute is no longer used"
+                }
+            },
+            "profile" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "Domain Profile in which driver is defined. Null in case of standalone server",
+                "expressions-allowed" : true,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default",
+                "deprecated" : {
+                    "since" : "4.0.0",
+                    "reason" : "The server's profile can be determined by the profile-name attribute on the server's root resource."
+                }
+            },
+            "driver-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "Defines the JDBC driver the datasource should use. It is a symbolic name matching the the name of installed driver. In case the driver is deployed as a jar, the name is the name of the deployment unit",
+                "expressions-allowed" : false,
+                "required" : true,
+                "nillable" : false,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "datasource-class-info" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LIST"
+                },
+                "description" : "The available properties for the datasource-class, and xa-datasource-class for the jdbc-driver",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 0,
+                "max-length" : 2147483647,
+                "stability" : "default",
+                "value-type" : {
+                    "TYPE_MODEL_VALUE" : "OBJECT"
+                }
+            }
+        }
+    },
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="installed-drivers-list" href="#installed-drivers-list" class="">
+      installed-drivers-list</a> - installed-drivers-list
+    </span>
+    <div class="collapsible">
+
+
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>LIST</dd>
+        <dt>Value Type</dt>
+        <dd>
+          <div class="code-block-container">
+            <pre><code class="language-json">
+{
+    "deployment-name" => {
+        "type" => STRING,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default",
+        "deprecated" => {
+            "since" => "6.0.0",
+            "reason" => "installed-drivers-list"
+        }
+    },
+    "driver-module-name" => {
+        "type" => STRING,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => true,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "module-slot" => {
+        "type" => STRING,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "driver-class-name" => {
+        "type" => STRING,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "driver-datasource-class-name" => {
+        "type" => STRING,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "driver-xa-datasource-class-name" => {
+        "type" => STRING,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "driver-major-version" => {
+        "type" => INT,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "driver-minor-version" => {
+        "type" => INT,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "jdbc-compliant" => {
+        "type" => BOOLEAN,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default",
+        "deprecated" => {
+            "since" => "6.0.0",
+            "reason" => "installed-drivers-list"
+        }
+    },
+    "profile" => {
+        "type" => STRING,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => true,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default",
+        "deprecated" => {
+            "since" => "4.0.0",
+            "reason" => "installed-drivers-list"
+        }
+    },
+    "driver-name" => {
+        "type" => STRING,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "datasource-class-info" => {
+        "type" => LIST,
+        "description" => "installed-drivers-list",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 0,
+        "max-length" => 2147483647,
+        "stability" => "default",
+        "value-type" => OBJECT
+    }
+}</code></pre>
+          </div>
+        </dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "installed-drivers-list",
+    "description" : "installed-drivers-list",
+    "request-properties" : {},
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LIST"
+        },
+        "value-type" : {
+            "deployment-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "installed-drivers-list",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default",
+                "deprecated" : {
+                    "since" : "6.0.0",
+                    "reason" : "installed-drivers-list"
+                }
+            },
+            "driver-module-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "installed-drivers-list",
+                "expressions-allowed" : true,
+                "required" : true,
+                "nillable" : false,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "module-slot" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "installed-drivers-list",
+                "expressions-allowed" : true,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "driver-class-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "installed-drivers-list",
+                "expressions-allowed" : true,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "driver-datasource-class-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "installed-drivers-list",
+                "expressions-allowed" : true,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "driver-xa-datasource-class-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "installed-drivers-list",
+                "expressions-allowed" : true,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "driver-major-version" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "INT"
+                },
+                "description" : "installed-drivers-list",
+                "expressions-allowed" : true,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "driver-minor-version" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "INT"
+                },
+                "description" : "installed-drivers-list",
+                "expressions-allowed" : true,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "jdbc-compliant" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "BOOLEAN"
+                },
+                "description" : "installed-drivers-list",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default",
+                "deprecated" : {
+                    "since" : "6.0.0",
+                    "reason" : "installed-drivers-list"
+                }
+            },
+            "profile" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "installed-drivers-list",
+                "expressions-allowed" : true,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default",
+                "deprecated" : {
+                    "since" : "4.0.0",
+                    "reason" : "installed-drivers-list"
+                }
+            },
+            "driver-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "installed-drivers-list",
+                "expressions-allowed" : false,
+                "required" : true,
+                "nillable" : false,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "datasource-class-info" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LIST"
+                },
+                "description" : "installed-drivers-list",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 0,
+                "max-length" : 2147483647,
+                "stability" : "default",
+                "value-type" : {
+                    "TYPE_MODEL_VALUE" : "OBJECT"
+                }
+            }
+        }
+    },
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Removes the data-sources subsystem
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Removes the data-sources subsystem",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "all-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.datasources</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.datasources"&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+  <footer>
+    <p>&copy; The WildFly authors 2025</p>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,5205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for pooled-connection-factory</title>
+  <link rel="stylesheet" href="../../../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../../../deployment/index.html">deployment</a>
+      </li>
+      <li>
+        <a href="../../../../../deployment/subsystem/messaging-activemq/index.html">subsystem=messaging-activemq</a>
+      </li>
+      <li>
+        <a href="../../../../../deployment/subsystem/messaging-activemq/server/index.html">server</a>
+      </li>
+      <li>pooled-connection-factory</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for pooled-connection-factory</h1>
+    <p>Defines a managed connection factory.</p>
+
+  </header>
+<h2>Provided Capabilities (1)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/messaging/activemq/server/pooled-connection-factory/capability.adoc">org.wildfly.messaging.activemq.server.pooled-connection-factory</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../../../deployment/subdeployment/subsystem/messaging-activemq/server/pooled-connection-factory/index.html">/deployment=*/subdeployment=*/subsystem=messaging-activemq/server=*/pooled-connection-factory=*</a> <br/>
+      <a href="../../../../../subsystem/messaging-activemq/server/pooled-connection-factory/index.html">/subsystem=messaging-activemq/server=*/pooled-connection-factory=*</a> <br/>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (59)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="allow-local-transactions" href="#allow-local-transactions" class="">
+         allow-local-transactions</a> - Allow local transactions for outbond Jakarta Messaging Sessions (it does not apply to JMSContext that explicitly disallows it).
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Allow local transactions for outbond Jakarta Messaging Sessions (it does not apply to JMSContext that explicitly disallows it).",
+    "attribute-group" : "outbound-config",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="auto-group" href="#auto-group" class="">
+         auto-group</a> - The autogroup.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "The autogroup.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="block-on-acknowledge" href="#block-on-acknowledge" class="">
+         block-on-acknowledge</a> - True to set block on acknowledge.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "True to set block on acknowledge.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="block-on-durable-send" href="#block-on-durable-send" class="">
+         block-on-durable-send</a> - True to set block on durable send.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "True to set block on durable send.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : true,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="block-on-non-durable-send" href="#block-on-non-durable-send" class="">
+         block-on-non-durable-send</a> - True to set block on non durable send.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "True to set block on non durable send.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="cache-large-message-client" href="#cache-large-message-client" class="">
+         cache-large-message-client</a> - True to cache large messages.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "True to cache large messages.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="call-failover-timeout" href="#call-failover-timeout" class="">
+         call-failover-timeout</a> - The timeout to use when fail over is in process (in ms).
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>60000</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>MILLISECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The timeout to use when fail over is in process (in ms).",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 60000,
+    "unit" : "MILLISECONDS",
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="call-timeout" href="#call-timeout" class="">
+         call-timeout</a> - The call time out.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>30000</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>MILLISECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The call time out.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 30000,
+    "unit" : "MILLISECONDS",
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="client-failure-check-period" href="#client-failure-check-period" class="">
+         client-failure-check-period</a> - The client failure check period.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>30000</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>MILLISECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The client failure check period.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 30000,
+    "unit" : "MILLISECONDS",
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="client-id" href="#client-id" class="">
+         client-id</a> - The client id.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The client id.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="compress-large-messages" href="#compress-large-messages" class="">
+         compress-large-messages</a> - Whether large messages should be compressed.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Whether large messages should be compressed.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="confirmation-window-size" href="#confirmation-window-size" class="">
+         confirmation-window-size</a> - The confirmation window size.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>-1</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>BYTES</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The confirmation window size.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : -1,
+    "unit" : "BYTES",
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="connection-load-balancing-policy-class-name" href="#connection-load-balancing-policy-class-name" class="">
+         connection-load-balancing-policy-class-name</a> - Name of a class implementing a client-side load balancing policy that a client can use to load balance sessions across different nodes in a cluster.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>org.apache.activemq.artemis.api.core.client.loadbalance.RoundRobinConnectionLoadBalancingPolicy</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Name of a class implementing a client-side load balancing policy that a client can use to load balance sessions across different nodes in a cluster.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "default" : "org.apache.activemq.artemis.api.core.client.loadbalance.RoundRobinConnectionLoadBalancingPolicy",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="connection-ttl" href="#connection-ttl" class="">
+         connection-ttl</a> - The connection ttl.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>60000</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>MILLISECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The connection ttl.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 60000,
+    "unit" : "MILLISECONDS",
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="connectors" href="#connectors" class="">
+         connectors</a> - Defines the connectors. These are stored in a map by connector name (with an undefined value). It is possible to pass a list of connector names when writing this attribute.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "Defines the connectors. These are stored in a map by connector name (with an undefined value). It is possible to pass a list of connector names when writing this attribute.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : true,
+    "alternatives" : ["discovery-group"],
+    "capability-reference" : "org.wildfly.messaging.activemq.connector",
+    "capability-reference-pattern-elements" : [
+        "server",
+        "connectors"
+    ],
+    "min-length" : 0,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="consumer-max-rate" href="#consumer-max-rate" class="">
+         consumer-max-rate</a> - The consumer max rate.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>-1</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>PER_SECOND</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The consumer max rate.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : -1,
+    "unit" : "PER_SECOND",
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="consumer-window-size" href="#consumer-window-size" class="">
+         consumer-window-size</a> - The consumer window size.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>1048576</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>BYTES</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The consumer window size.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 1048576,
+    "unit" : "BYTES",
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="credential-reference" href="#credential-reference" class="">
+         credential-reference</a> - Credential (from Credential Store) to authenticate the pooled connection factory
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>OBJECT</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "OBJECT"
+    },
+    "description" : "Credential (from Credential Store) to authenticate the pooled connection factory",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["password"],
+    "stability" : "default",
+    "access-constraints" : {"sensitive" : {
+        "credential" : {"type" : "core"},
+        "messaging-security" : {"type" : "messaging-activemq"}
+    }},
+    "value-type" : {
+        "store" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the credential store holding the alias to credential",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "alias" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The alias which denotes stored secret or credential in the store",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "requires" : ["store"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "type" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The type of credential this reference is denoting",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "clear-text" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Secret specified using clear text (check credential store way of supplying credential/secrets to services)",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        }
+    },
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="deserialization-allow-list" href="#deserialization-allow-list" class="">
+         deserialization-allow-list</a> - A list of class names (separated by whitespaces) that are allowed to be used in serialization of Jakarta Messaging ObjectMessage.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "A list of class names (separated by whitespaces) that are allowed to be used in serialization of Jakarta Messaging ObjectMessage.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="deserialization-black-list" href="#deserialization-black-list" class="deprecated">
+         deserialization-black-list</a> - A list of class names (separated by whitespaces) that are not allowed to be used in serialization of Jakarta Messaging ObjectMessage.
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 13.0.0
+        <div>Deprecated. Use deserialization-block-list instead.</div>
+      </div>
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "A list of class names (separated by whitespaces) that are not allowed to be used in serialization of Jakarta Messaging ObjectMessage.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["deserialization-block-list"],
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "deprecated" : {
+        "since" : "13.0.0",
+        "reason" : "Deprecated. Use deserialization-block-list instead."
+    },
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="deserialization-block-list" href="#deserialization-block-list" class="">
+         deserialization-block-list</a> - A list of class names (separated by whitespaces) that are not allowed to be used in serialization of Jakarta Messaging ObjectMessage.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "A list of class names (separated by whitespaces) that are not allowed to be used in serialization of Jakarta Messaging ObjectMessage.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="deserialization-white-list" href="#deserialization-white-list" class="deprecated">
+         deserialization-white-list</a> - A list of class names (separated by whitespaces) that are allowed to be used in serialization of Jakarta Messaging ObjectMessage.
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 13.0.0
+        <div>Deprecated. Use deserialization-allow-list instead.</div>
+      </div>
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "A list of class names (separated by whitespaces) that are allowed to be used in serialization of Jakarta Messaging ObjectMessage.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["deserialization-allow-list"],
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "deprecated" : {
+        "since" : "13.0.0",
+        "reason" : "Deprecated. Use deserialization-allow-list instead."
+    },
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="discovery-group" href="#discovery-group" class="">
+         discovery-group</a> - The discovery group name.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The discovery group name.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["connectors"],
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="dups-ok-batch-size" href="#dups-ok-batch-size" class="">
+         dups-ok-batch-size</a> - The dups ok batch size.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>1048576</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The dups ok batch size.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 1048576,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="enlistment-trace" href="#enlistment-trace" class="">
+         enlistment-trace</a> - Enables IronJacamar to record enlistment traces for this pooled-connection-factory. This attribute is undefined by default and the behaviour is driven by the presence of the ironjacamar.disable_enlistment_trace system property.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Enables IronJacamar to record enlistment traces for this pooled-connection-factory. This attribute is undefined by default and the behaviour is driven by the presence of the ironjacamar.disable_enlistment_trace system property.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="entries" href="#entries" class="">
+         entries</a> - The jndi names the connection factory should be bound to.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "The jndi names the connection factory should be bound to.",
+    "expressions-allowed" : true,
+    "required" : true,
+    "nillable" : false,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="failover-on-initial-connection" href="#failover-on-initial-connection" class="">
+         failover-on-initial-connection</a> - True to fail over on initial connection.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "True to fail over on initial connection.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="group-id" href="#group-id" class="">
+         group-id</a> - The group id.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The group id.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="ha" href="#ha" class="">
+         ha</a> - Whether the connection factory supports High Availability.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Whether the connection factory supports High Availability.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="initial-connect-attempts" href="#initial-connect-attempts" class="">
+         initial-connect-attempts</a> - The number of attempts to connect initially with this factory.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The number of attempts to connect initially with this factory.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 1,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="initial-message-packet-size" href="#initial-message-packet-size" class="">
+         initial-message-packet-size</a> - The initial size of messages created through this factory.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>1500</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>BYTES</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The initial size of messages created through this factory.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 1500,
+    "unit" : "BYTES",
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="jndi-params" href="#jndi-params" class="">
+         jndi-params</a> - The JNDI params to use for locating the destination for incoming connections.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The JNDI params to use for locating the destination for incoming connections.",
+    "attribute-group" : "inbound-config",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="managed-connection-pool" href="#managed-connection-pool" class="">
+         managed-connection-pool</a> - The class name of the managed connection pool used by this pooled-connection-factory.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The class name of the managed connection pool used by this pooled-connection-factory.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="max-pool-size" href="#max-pool-size" class="">
+         max-pool-size</a> - The maximum size for the pool
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>20</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The maximum size for the pool",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 20,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="max-retry-interval" href="#max-retry-interval" class="">
+         max-retry-interval</a> - The max retry interval.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>2000</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>MILLISECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The max retry interval.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 2000,
+    "unit" : "MILLISECONDS",
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="min-large-message-size" href="#min-large-message-size" class="">
+         min-large-message-size</a> - The min large message size.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>102400</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>BYTES</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The min large message size.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 102400,
+    "unit" : "BYTES",
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="min-pool-size" href="#min-pool-size" class="">
+         min-pool-size</a> - The minimum size for the pool
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The minimum size for the pool",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 0,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="password" href="#password" class="">
+         password</a> - The default password to use with this connection factory. This is only needed when pointing the connection factory to a remote host.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The default password to use with this connection factory. This is only needed when pointing the connection factory to a remote host.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["credential-reference"],
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-constraints" : {"sensitive" : {
+        "credential" : {"type" : "core"},
+        "messaging-security" : {"type" : "messaging-activemq"}
+    }},
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="pre-acknowledge" href="#pre-acknowledge" class="">
+         pre-acknowledge</a> - True to pre-acknowledge.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "True to pre-acknowledge.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="producer-max-rate" href="#producer-max-rate" class="">
+         producer-max-rate</a> - The producer max rate.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>-1</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>PER_SECOND</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The producer max rate.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : -1,
+    "unit" : "PER_SECOND",
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="producer-window-size" href="#producer-window-size" class="">
+         producer-window-size</a> - The producer window size.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>65536</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>BYTES</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The producer window size.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 65536,
+    "unit" : "BYTES",
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="protocol-manager-factory" href="#protocol-manager-factory" class="">
+         protocol-manager-factory</a> - The protocol manager factory used by this pooled connection factory.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The protocol manager factory used by this pooled connection factory.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="rebalance-connections" href="#rebalance-connections" class="">
+         rebalance-connections</a> - Rebalance inbound connections when cluster topology changes.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Rebalance inbound connections when cluster topology changes.",
+    "attribute-group" : "inbound-config",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="reconnect-attempts" href="#reconnect-attempts" class="">
+         reconnect-attempts</a> - The reconnect attempts. By default, a pooled connection factory will try to reconnect infinitely to the messaging server(s).
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>-1</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The reconnect attempts. By default, a pooled connection factory will try to reconnect infinitely to the messaging server(s).",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : -1,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="retry-interval" href="#retry-interval" class="">
+         retry-interval</a> - The retry interval.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>2000</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>MILLISECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The retry interval.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 2000,
+    "unit" : "MILLISECONDS",
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="retry-interval-multiplier" href="#retry-interval-multiplier" class="">
+         retry-interval-multiplier</a> - The retry interval multiplier.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>DOUBLE</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>1.0</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "DOUBLE"
+    },
+    "description" : "The retry interval multiplier.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 1.0,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="scheduled-thread-pool-max-size" href="#scheduled-thread-pool-max-size" class="">
+         scheduled-thread-pool-max-size</a> - The scheduled thread pool max size.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The scheduled thread pool max size.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 5,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="setup-attempts" href="#setup-attempts" class="">
+         setup-attempts</a> - The number of times to set up an MDB endpoint
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The number of times to set up an MDB endpoint",
+    "attribute-group" : "inbound-config",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="setup-interval" href="#setup-interval" class="">
+         setup-interval</a> - The interval between attempts at setting up an MDB endpoint.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>MILLISECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The interval between attempts at setting up an MDB endpoint.",
+    "attribute-group" : "inbound-config",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "unit" : "MILLISECONDS",
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="statistics-enabled" href="#statistics-enabled" class="">
+         statistics-enabled</a> - Define whether runtime statistics are enabled.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Define whether runtime statistics are enabled.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="thread-pool-max-size" href="#thread-pool-max-size" class="">
+         thread-pool-max-size</a> - The thread pool max size.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>30</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The thread pool max size.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 30,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="transaction" href="#transaction" class="">
+         transaction</a> - The type of transaction supported by this pooled connection factory (can be LOCAL, NONE or XA, default is XA).
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>xa</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            xa<br />
+            none<br />
+            local<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The type of transaction supported by this pooled connection factory (can be LOCAL, NONE or XA, default is XA).",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "xa",
+    "allowed" : [
+        "local",
+        "none",
+        "xa"
+    ],
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="transaction-batch-size" href="#transaction-batch-size" class="">
+         transaction-batch-size</a> - The transaction batch size.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>1048576</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The transaction batch size.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 1048576,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="use-auto-recovery" href="#use-auto-recovery" class="">
+         use-auto-recovery</a> - True to use auto recovery.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "True to use auto recovery.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : true,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="use-global-pools" href="#use-global-pools" class="">
+         use-global-pools</a> - True to use global pools.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "True to use global pools.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : true,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="use-jndi" href="#use-jndi" class="">
+         use-jndi</a> - Use JNDI to locate the destination for incoming connections
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Use JNDI to locate the destination for incoming connections",
+    "attribute-group" : "inbound-config",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="use-local-tx" href="#use-local-tx" class="">
+         use-local-tx</a> - Use a local transaction for incoming sessions
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Use a local transaction for incoming sessions",
+    "attribute-group" : "inbound-config",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="use-topology-for-load-balancing" href="#use-topology-for-load-balancing" class="">
+         use-topology-for-load-balancing</a> - Whether to use topology information from the cluster to connect to it. If set to 'false', only the initial connector will be used.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Whether to use topology information from the cluster to connect to it. If set to 'false', only the initial connector will be used.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : true,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="user" href="#user" class="">
+         user</a> - The default username to use with this connection factory. This is only needed when pointing the connection factory to a remote host.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The default username to use with this connection factory. This is only needed when pointing the connection factory to a remote host.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-constraints" : {"sensitive" : {
+        "credential" : {"type" : "core"},
+        "messaging-security" : {"type" : "messaging-activemq"}
+    }},
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (2)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Adds a managed connection factory.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>auto-group</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>The autogroup.</td>
+        </tr>
+        <tr>
+          <td>block-on-acknowledge</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>True to set block on acknowledge.</td>
+        </tr>
+        <tr>
+          <td>block-on-durable-send</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>True to set block on durable send.</td>
+        </tr>
+        <tr>
+          <td>block-on-non-durable-send</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>True to set block on non durable send.</td>
+        </tr>
+        <tr>
+          <td>cache-large-message-client</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>True to cache large messages.</td>
+        </tr>
+        <tr>
+          <td>call-failover-timeout</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td>60000</td>
+          <td>The timeout to use when fail over is in process (in ms).</td>
+        </tr>
+        <tr>
+          <td>call-timeout</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td>30000</td>
+          <td>The call time out.</td>
+        </tr>
+        <tr>
+          <td>client-failure-check-period</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td>30000</td>
+          <td>The client failure check period.</td>
+        </tr>
+        <tr>
+          <td>client-id</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The client id.</td>
+        </tr>
+        <tr>
+          <td>compress-large-messages</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>Whether large messages should be compressed.</td>
+        </tr>
+        <tr>
+          <td>confirmation-window-size</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>-1</td>
+          <td>The confirmation window size.</td>
+        </tr>
+        <tr>
+          <td>connection-load-balancing-policy-class-name</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td>org.apache.activemq.artemis.api.core.client.loadbalance.RoundRobinConnectionLoadBalancingPolicy</td>
+          <td>Name of a class implementing a client-side load balancing policy that a client can use to load balance sessions across different nodes in a cluster.</td>
+        </tr>
+        <tr>
+          <td>connection-ttl</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td>60000</td>
+          <td>The connection ttl.</td>
+        </tr>
+        <tr>
+          <td>connectors</td>
+          <td>LIST</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>Defines the connectors. These are stored in a map by connector name (with an undefined value). It is possible to pass a list of connector names when writing this attribute.</td>
+        </tr>
+        <tr>
+          <td>consumer-max-rate</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>-1</td>
+          <td>The consumer max rate.</td>
+        </tr>
+        <tr>
+          <td>consumer-window-size</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>1048576</td>
+          <td>The consumer window size.</td>
+        </tr>
+        <tr>
+          <td>credential-reference</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Credential (from Credential Store) to authenticate the pooled connection factory</td>
+        </tr>
+        <tr>
+          <td>deserialization-allow-list</td>
+          <td>LIST</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>A list of class names (separated by whitespaces) that are allowed to be used in serialization of Jakarta Messaging ObjectMessage.</td>
+        </tr>
+        <tr>
+          <td>deserialization-black-list</td>
+          <td>LIST</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>A list of class names (separated by whitespaces) that are not allowed to be used in serialization of Jakarta Messaging ObjectMessage.</td>
+        </tr>
+        <tr>
+          <td>deserialization-block-list</td>
+          <td>LIST</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>A list of class names (separated by whitespaces) that are not allowed to be used in serialization of Jakarta Messaging ObjectMessage.</td>
+        </tr>
+        <tr>
+          <td>deserialization-white-list</td>
+          <td>LIST</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>A list of class names (separated by whitespaces) that are allowed to be used in serialization of Jakarta Messaging ObjectMessage.</td>
+        </tr>
+        <tr>
+          <td>discovery-group</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The discovery group name.</td>
+        </tr>
+        <tr>
+          <td>dups-ok-batch-size</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>1048576</td>
+          <td>The dups ok batch size.</td>
+        </tr>
+        <tr>
+          <td>enlistment-trace</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Enables IronJacamar to record enlistment traces for this pooled-connection-factory. This attribute is undefined by default and the behaviour is driven by the presence of the ironjacamar.disable_enlistment_trace system property.</td>
+        </tr>
+        <tr>
+          <td>entries</td>
+          <td>LIST</td>
+          <td>true</td>
+          <td>true</td>
+          <td></td>
+          <td>The jndi names the connection factory should be bound to.</td>
+        </tr>
+        <tr>
+          <td>failover-on-initial-connection</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>True to fail over on initial connection.</td>
+        </tr>
+        <tr>
+          <td>group-id</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The group id.</td>
+        </tr>
+        <tr>
+          <td>ha</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>Whether the connection factory supports High Availability.</td>
+        </tr>
+        <tr>
+          <td>initial-connect-attempts</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>1</td>
+          <td>The number of attempts to connect initially with this factory.</td>
+        </tr>
+        <tr>
+          <td>initial-message-packet-size</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>1500</td>
+          <td>The initial size of messages created through this factory.</td>
+        </tr>
+        <tr>
+          <td>managed-connection-pool</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The class name of the managed connection pool used by this pooled-connection-factory.</td>
+        </tr>
+        <tr>
+          <td>max-pool-size</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>20</td>
+          <td>The maximum size for the pool</td>
+        </tr>
+        <tr>
+          <td>max-retry-interval</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td>2000</td>
+          <td>The max retry interval.</td>
+        </tr>
+        <tr>
+          <td>min-large-message-size</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>102400</td>
+          <td>The min large message size.</td>
+        </tr>
+        <tr>
+          <td>min-pool-size</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>0</td>
+          <td>The minimum size for the pool</td>
+        </tr>
+        <tr>
+          <td>password</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The default password to use with this connection factory. This is only needed when pointing the connection factory to a remote host.</td>
+        </tr>
+        <tr>
+          <td>pre-acknowledge</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>True to pre-acknowledge.</td>
+        </tr>
+        <tr>
+          <td>producer-max-rate</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>-1</td>
+          <td>The producer max rate.</td>
+        </tr>
+        <tr>
+          <td>producer-window-size</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>65536</td>
+          <td>The producer window size.</td>
+        </tr>
+        <tr>
+          <td>protocol-manager-factory</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The protocol manager factory used by this pooled connection factory.</td>
+        </tr>
+        <tr>
+          <td>reconnect-attempts</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>-1</td>
+          <td>The reconnect attempts. By default, a pooled connection factory will try to reconnect infinitely to the messaging server(s).</td>
+        </tr>
+        <tr>
+          <td>retry-interval</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td>2000</td>
+          <td>The retry interval.</td>
+        </tr>
+        <tr>
+          <td>retry-interval-multiplier</td>
+          <td>DOUBLE</td>
+          <td>false</td>
+          <td>true</td>
+          <td>1.0</td>
+          <td>The retry interval multiplier.</td>
+        </tr>
+        <tr>
+          <td>scheduled-thread-pool-max-size</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>5</td>
+          <td>The scheduled thread pool max size.</td>
+        </tr>
+        <tr>
+          <td>statistics-enabled</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>Define whether runtime statistics are enabled.</td>
+        </tr>
+        <tr>
+          <td>thread-pool-max-size</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>30</td>
+          <td>The thread pool max size.</td>
+        </tr>
+        <tr>
+          <td>transaction</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>xa</td>
+          <td>The type of transaction supported by this pooled connection factory (can be LOCAL, NONE or XA, default is XA).</td>
+        </tr>
+        <tr>
+          <td>transaction-batch-size</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>1048576</td>
+          <td>The transaction batch size.</td>
+        </tr>
+        <tr>
+          <td>use-auto-recovery</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>True to use auto recovery.</td>
+        </tr>
+        <tr>
+          <td>use-global-pools</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>True to use global pools.</td>
+        </tr>
+        <tr>
+          <td>use-topology-for-load-balancing</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>Whether to use topology information from the cluster to connect to it. If set to 'false', only the initial connector will be used.</td>
+        </tr>
+        <tr>
+          <td>user</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The default username to use with this connection factory. This is only needed when pointing the connection factory to a remote host.</td>
+        </tr>
+        <tr>
+          <td>jndi-params</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The JNDI params to use for locating the destination for incoming connections.</td>
+        </tr>
+        <tr>
+          <td>rebalance-connections</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>Rebalance inbound connections when cluster topology changes.</td>
+        </tr>
+        <tr>
+          <td>setup-attempts</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The number of times to set up an MDB endpoint</td>
+        </tr>
+        <tr>
+          <td>setup-interval</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The interval between attempts at setting up an MDB endpoint.</td>
+        </tr>
+        <tr>
+          <td>use-jndi</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Use JNDI to locate the destination for incoming connections</td>
+        </tr>
+        <tr>
+          <td>use-local-tx</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Use a local transaction for incoming sessions</td>
+        </tr>
+        <tr>
+          <td>allow-local-transactions</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>Allow local transactions for outbond Jakarta Messaging Sessions (it does not apply to JMSContext that explicitly disallows it).</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Adds a managed connection factory.",
+    "request-properties" : {
+        "auto-group" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "The autogroup.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "block-on-acknowledge" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "True to set block on acknowledge.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "block-on-durable-send" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "True to set block on durable send.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        },
+        "block-on-non-durable-send" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "True to set block on non durable send.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "cache-large-message-client" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "True to cache large messages.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "call-failover-timeout" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "The timeout to use when fail over is in process (in ms).",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 60000,
+            "unit" : "MILLISECONDS",
+            "stability" : "default"
+        },
+        "call-timeout" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "The call time out.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 30000,
+            "unit" : "MILLISECONDS",
+            "stability" : "default"
+        },
+        "client-failure-check-period" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "The client failure check period.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 30000,
+            "unit" : "MILLISECONDS",
+            "stability" : "default"
+        },
+        "client-id" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The client id.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "compress-large-messages" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Whether large messages should be compressed.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "confirmation-window-size" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The confirmation window size.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : -1,
+            "unit" : "BYTES",
+            "stability" : "default"
+        },
+        "connection-load-balancing-policy-class-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Name of a class implementing a client-side load balancing policy that a client can use to load balance sessions across different nodes in a cluster.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : "org.apache.activemq.artemis.api.core.client.loadbalance.RoundRobinConnectionLoadBalancingPolicy",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "connection-ttl" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "The connection ttl.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 60000,
+            "unit" : "MILLISECONDS",
+            "stability" : "default"
+        },
+        "connectors" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "Defines the connectors. These are stored in a map by connector name (with an undefined value). It is possible to pass a list of connector names when writing this attribute.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : true,
+            "alternatives" : ["discovery-group"],
+            "capability-reference" : "org.wildfly.messaging.activemq.connector",
+            "capability-reference-pattern-elements" : [
+                "server",
+                "connectors"
+            ],
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "consumer-max-rate" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The consumer max rate.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : -1,
+            "unit" : "PER_SECOND",
+            "stability" : "default"
+        },
+        "consumer-window-size" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The consumer window size.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 1048576,
+            "unit" : "BYTES",
+            "stability" : "default"
+        },
+        "credential-reference" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "Credential (from Credential Store) to authenticate the pooled connection factory",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["password"],
+            "stability" : "default",
+            "value-type" : {
+                "store" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The name of the credential store holding the alias to credential",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "alias" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The alias which denotes stored secret or credential in the store",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "requires" : ["store"],
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "type" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The type of credential this reference is denoting",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "clear-text" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Secret specified using clear text (check credential store way of supplying credential/secrets to services)",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                }
+            }
+        },
+        "deserialization-allow-list" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "A list of class names (separated by whitespaces) that are allowed to be used in serialization of Jakarta Messaging ObjectMessage.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "deserialization-black-list" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "A list of class names (separated by whitespaces) that are not allowed to be used in serialization of Jakarta Messaging ObjectMessage.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["deserialization-block-list"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "deprecated" : {
+                "since" : "13.0.0",
+                "reason" : "Deprecated. Use deserialization-block-list instead."
+            },
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "deserialization-block-list" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "A list of class names (separated by whitespaces) that are not allowed to be used in serialization of Jakarta Messaging ObjectMessage.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "deserialization-white-list" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "A list of class names (separated by whitespaces) that are allowed to be used in serialization of Jakarta Messaging ObjectMessage.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["deserialization-allow-list"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "deprecated" : {
+                "since" : "13.0.0",
+                "reason" : "Deprecated. Use deserialization-allow-list instead."
+            },
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "discovery-group" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The discovery group name.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["connectors"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "dups-ok-batch-size" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The dups ok batch size.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 1048576,
+            "stability" : "default"
+        },
+        "enlistment-trace" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Enables IronJacamar to record enlistment traces for this pooled-connection-factory. This attribute is undefined by default and the behaviour is driven by the presence of the ironjacamar.disable_enlistment_trace system property.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "entries" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "The jndi names the connection factory should be bound to.",
+            "expressions-allowed" : true,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "failover-on-initial-connection" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "True to fail over on initial connection.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "group-id" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The group id.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "ha" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Whether the connection factory supports High Availability.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "initial-connect-attempts" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The number of attempts to connect initially with this factory.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 1,
+            "stability" : "default"
+        },
+        "initial-message-packet-size" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The initial size of messages created through this factory.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 1500,
+            "unit" : "BYTES",
+            "stability" : "default"
+        },
+        "managed-connection-pool" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The class name of the managed connection pool used by this pooled-connection-factory.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "max-pool-size" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The maximum size for the pool",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 20,
+            "stability" : "default"
+        },
+        "max-retry-interval" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "The max retry interval.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 2000,
+            "unit" : "MILLISECONDS",
+            "stability" : "default"
+        },
+        "min-large-message-size" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The min large message size.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 102400,
+            "unit" : "BYTES",
+            "stability" : "default"
+        },
+        "min-pool-size" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The minimum size for the pool",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 0,
+            "stability" : "default"
+        },
+        "password" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The default password to use with this connection factory. This is only needed when pointing the connection factory to a remote host.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["credential-reference"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "pre-acknowledge" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "True to pre-acknowledge.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "producer-max-rate" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The producer max rate.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : -1,
+            "unit" : "PER_SECOND",
+            "stability" : "default"
+        },
+        "producer-window-size" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The producer window size.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 65536,
+            "unit" : "BYTES",
+            "stability" : "default"
+        },
+        "protocol-manager-factory" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The protocol manager factory used by this pooled connection factory.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "reconnect-attempts" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The reconnect attempts. By default, a pooled connection factory will try to reconnect infinitely to the messaging server(s).",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : -1,
+            "stability" : "default"
+        },
+        "retry-interval" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "The retry interval.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 2000,
+            "unit" : "MILLISECONDS",
+            "stability" : "default"
+        },
+        "retry-interval-multiplier" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "DOUBLE"
+            },
+            "description" : "The retry interval multiplier.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 1.0,
+            "stability" : "default"
+        },
+        "scheduled-thread-pool-max-size" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The scheduled thread pool max size.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 5,
+            "stability" : "default"
+        },
+        "statistics-enabled" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Define whether runtime statistics are enabled.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "thread-pool-max-size" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The thread pool max size.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 30,
+            "stability" : "default"
+        },
+        "transaction" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The type of transaction supported by this pooled connection factory (can be LOCAL, NONE or XA, default is XA).",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "xa",
+            "allowed" : [
+                "local",
+                "none",
+                "xa"
+            ],
+            "stability" : "default"
+        },
+        "transaction-batch-size" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The transaction batch size.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 1048576,
+            "stability" : "default"
+        },
+        "use-auto-recovery" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "True to use auto recovery.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        },
+        "use-global-pools" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "True to use global pools.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        },
+        "use-topology-for-load-balancing" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Whether to use topology information from the cluster to connect to it. If set to 'false', only the initial connector will be used.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        },
+        "user" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The default username to use with this connection factory. This is only needed when pointing the connection factory to a remote host.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "jndi-params" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The JNDI params to use for locating the destination for incoming connections.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "rebalance-connections" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Rebalance inbound connections when cluster topology changes.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "setup-attempts" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The number of times to set up an MDB endpoint",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "setup-interval" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "The interval between attempts at setting up an MDB endpoint.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "unit" : "MILLISECONDS",
+            "stability" : "default"
+        },
+        "use-jndi" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Use JNDI to locate the destination for incoming connections",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "use-local-tx" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Use a local transaction for incoming sessions",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "allow-local-transactions" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Allow local transactions for outbond Jakarta Messaging Sessions (it does not apply to JMSContext that explicitly disallows it).",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Removes managed connection factory.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Removes managed connection factory.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "all-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+  <footer>
+    <p>&copy; The WildFly authors 2025</p>
+  </footer>
+</div>
+</body>
+</html>

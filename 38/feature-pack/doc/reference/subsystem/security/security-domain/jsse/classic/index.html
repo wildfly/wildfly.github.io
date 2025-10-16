@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for jsse=classic</title>
+  <link rel="stylesheet" href="../../../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../../../subsystem/security/index.html">subsystem=security</a>
+      </li>
+      <li>
+        <a href="../../../../../subsystem/security/security-domain/index.html">security-domain</a>
+      </li>
+      <li>jsse=classic</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for jsse=classic</h1>
+    <p>JSSE configuration. Configures attributes for keystores that can be used for setting up SSL.</p>
+
+    <div class="alert">
+      <strong>Deprecated</strong> Since 1.3.0
+      <div>The Security subsystem is deprecated and may be removed, significantly revised, or limited to managed domain legacy server use in future versions.</div>
+    </div>
+  </header>
+<h2>Attributes (11)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="additional-properties" href="#additional-properties" class="">
+         additional-properties</a> - Additional properties that may be necessary to configure JSSE.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>OBJECT</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "OBJECT"
+    },
+    "description" : "Additional properties that may be necessary to configure JSSE.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "stability" : "default",
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="cipher-suites" href="#cipher-suites" class="">
+         cipher-suites</a> - Comma separated list of cipher suites to enable on SSLSockets.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Comma separated list of cipher suites to enable on SSLSockets.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="client-alias" href="#client-alias" class="">
+         client-alias</a> - Preferred alias to use when the KeyManager chooses the client alias.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Preferred alias to use when the KeyManager chooses the client alias.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="client-auth" href="#client-auth" class="">
+         client-auth</a> - Boolean attribute to indicate if client's certificates should also be authenticated on the server side.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Boolean attribute to indicate if client's certificates should also be authenticated on the server side.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="key-manager" href="#key-manager" class="">
+         key-manager</a> - JSEE Key Manager factory
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>OBJECT</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "OBJECT"
+    },
+    "description" : "JSEE Key Manager factory",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "stability" : "default",
+    "value-type" : {
+        "algorithm" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Algorithm to use when creating the KeyManagerFactory.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "provider" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Provider class name to use when creating the KeyManagerFactory.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        }
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="keystore" href="#keystore" class="">
+         keystore</a> - Configures a JSSE key store
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>OBJECT</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "OBJECT"
+    },
+    "description" : "Configures a JSSE key store",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "stability" : "default",
+    "value-type" : {
+        "password" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Sets the password of the keystore. Either this or 'truststore-password' must be present otherwise the security domain will be useless.",
+            "expressions-allowed" : true,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "type" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Type of the keystore. If not set, type defaults to 'JKS'.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "url" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "URL of the keystore.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "provider" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Provider class name to use when creating the KeyStore.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "provider-argument" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "String argument to pass to the keystore Provider constructor when instantiating it.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        }
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="protocols" href="#protocols" class="">
+         protocols</a> - Comma separated list of protocols to enable on SSLSockets.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Comma separated list of protocols to enable on SSLSockets.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="server-alias" href="#server-alias" class="">
+         server-alias</a> - Preferred alias to use when the KeyManager chooses the server alias.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Preferred alias to use when the KeyManager chooses the server alias.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="service-auth-token" href="#service-auth-token" class="">
+         service-auth-token</a> - Token to retrieve PrivateKeys from the KeyStore.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Token to retrieve PrivateKeys from the KeyStore.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="trust-manager" href="#trust-manager" class="">
+         trust-manager</a> - JSEE Trust Manager factory
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>OBJECT</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "OBJECT"
+    },
+    "description" : "JSEE Trust Manager factory",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "stability" : "default",
+    "value-type" : {
+        "algorithm" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Algorithm to use when creating the TrustManagerFactory.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "provider" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Provider class name to use when creating the TrustManagerFactory.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        }
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="truststore" href="#truststore" class="">
+         truststore</a> - Configures a JSSE trust store
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>OBJECT</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "OBJECT"
+    },
+    "description" : "Configures a JSSE trust store",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "stability" : "default",
+    "value-type" : {
+        "password" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Sets the password of the truststore. Either this or 'keystore-password' must be present otherwise the security domain will be useless.",
+            "expressions-allowed" : true,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "type" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Type of the truststore. If not set, type defaults to 'JKS'.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "url" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "URL of the truststore.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "provider" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Provider class name to use when creating the truststore.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "provider-argument" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "String argument to pass to the truststore Provider constructor when instantiating it.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        }
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (2)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Adds a JSSE configuration
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>additional-properties</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Additional properties that may be necessary to configure JSSE.</td>
+        </tr>
+        <tr>
+          <td>cipher-suites</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Comma separated list of cipher suites to enable on SSLSockets.</td>
+        </tr>
+        <tr>
+          <td>client-alias</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Preferred alias to use when the KeyManager chooses the client alias.</td>
+        </tr>
+        <tr>
+          <td>client-auth</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Boolean attribute to indicate if client's certificates should also be authenticated on the server side.</td>
+        </tr>
+        <tr>
+          <td>key-manager</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>JSEE Key Manager factory</td>
+        </tr>
+        <tr>
+          <td>keystore</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Configures a JSSE key store</td>
+        </tr>
+        <tr>
+          <td>protocols</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Comma separated list of protocols to enable on SSLSockets.</td>
+        </tr>
+        <tr>
+          <td>server-alias</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Preferred alias to use when the KeyManager chooses the server alias.</td>
+        </tr>
+        <tr>
+          <td>service-auth-token</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Token to retrieve PrivateKeys from the KeyStore.</td>
+        </tr>
+        <tr>
+          <td>trust-manager</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>JSEE Trust Manager factory</td>
+        </tr>
+        <tr>
+          <td>truststore</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Configures a JSSE trust store</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Adds a JSSE configuration",
+    "request-properties" : {
+        "additional-properties" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "Additional properties that may be necessary to configure JSSE.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "cipher-suites" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Comma separated list of cipher suites to enable on SSLSockets.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "client-alias" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Preferred alias to use when the KeyManager chooses the client alias.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "client-auth" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Boolean attribute to indicate if client's certificates should also be authenticated on the server side.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "key-manager" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "JSEE Key Manager factory",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "algorithm" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Algorithm to use when creating the KeyManagerFactory.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "provider" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Provider class name to use when creating the KeyManagerFactory.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                }
+            }
+        },
+        "keystore" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "Configures a JSSE key store",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "password" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Sets the password of the keystore. Either this or 'truststore-password' must be present otherwise the security domain will be useless.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "type" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Type of the keystore. If not set, type defaults to 'JKS'.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "url" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "URL of the keystore.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "provider" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Provider class name to use when creating the KeyStore.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "provider-argument" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "String argument to pass to the keystore Provider constructor when instantiating it.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                }
+            }
+        },
+        "protocols" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Comma separated list of protocols to enable on SSLSockets.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "server-alias" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Preferred alias to use when the KeyManager chooses the server alias.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "service-auth-token" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Token to retrieve PrivateKeys from the KeyStore.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "trust-manager" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "JSEE Trust Manager factory",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "algorithm" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Algorithm to use when creating the TrustManagerFactory.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "provider" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Provider class name to use when creating the TrustManagerFactory.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                }
+            }
+        },
+        "truststore" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "Configures a JSSE trust store",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "password" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Sets the password of the truststore. Either this or 'keystore-password' must be present otherwise the security domain will be useless.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "type" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Type of the truststore. If not set, type defaults to 'JKS'.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "url" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "URL of the truststore.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "provider" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Provider class name to use when creating the truststore.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "provider-argument" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "String argument to pass to the truststore Provider constructor when instantiating it.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                }
+            }
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Removes a JSSE configuration.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Removes a JSSE configuration.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.security.security-domain.jsse.classic</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.security.security-domain.jsse.classic"&gt;
+  &lt;param name="security-domain" value="{resource name}"/&gt;
+  &lt;param name="additional-properties" value="{value}"/&gt;
+  &lt;param name="cipher-suites" value="{value}"/&gt;
+  &lt;param name="client-alias" value="{value}"/&gt;
+  &lt;param name="client-auth" value="{value}"/&gt;
+  &lt;param name="key-manager" value="{value}"/&gt;
+  &lt;param name="keystore" value="{value}"/&gt;
+  &lt;param name="protocols" value="{value}"/&gt;
+  &lt;param name="server-alias" value="{value}"/&gt;
+  &lt;param name="service-auth-token" value="{value}"/&gt;
+  &lt;param name="trust-manager" value="{value}"/&gt;
+  &lt;param name="truststore" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+  <footer>
+    <p>&copy; The WildFly authors 2025</p>
+  </footer>
+</div>
+</body>
+</html>

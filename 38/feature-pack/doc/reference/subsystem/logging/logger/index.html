@@ -1,0 +1,3857 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for logger</title>
+  <link rel="stylesheet" href="../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../subsystem/logging/index.html">subsystem=logging</a>
+      </li>
+      <li>logger</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for logger</h1>
+    <p>It defines a logger category.</p>
+
+  </header>
+<h2>Provided Capabilities (1)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/logging/logger/capability.adoc">org.wildfly.logging.logger</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../subsystem/logging/root-logger/ROOT/index.html">/subsystem=logging/root-logger=ROOT</a> <br/>
+      <a href="../../../subsystem/logging/logging-profile/root-logger/ROOT/index.html">/subsystem=logging/logging-profile=*/root-logger=ROOT</a> <br/>
+      <a href="../../../subsystem/logging/logging-profile/logger/index.html">/subsystem=logging/logging-profile=*/logger=*</a> <br/>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (6)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="category" href="#category" class="">
+         category</a> - Specifies the category for the logger.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Specifies the category for the logger.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="filter" href="#filter" class="deprecated">
+         filter</a> - Defines a simple filter type.
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 1.2.0
+        <div>Use filter-spec.</div>
+      </div>
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>OBJECT</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "OBJECT"
+    },
+    "description" : "Defines a simple filter type.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["filter-spec"],
+    "stability" : "default",
+    "deprecated" : {
+        "since" : "1.2.0",
+        "reason" : "Use filter-spec."
+    },
+    "value-type" : {
+        "all" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "A filter consisting of several filters in a chain.  If any filter finds the log message to be unloggable,the message will not be logged and subsequent filters will not be checked.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "accept" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Accepts all log messages.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : true,
+                    "stability" : "default"
+                },
+                "change-level" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "A filter which modifies the log record with a new level if the nested filter evaluates true for that record.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "allowed" : [
+                        "ALL",
+                        "FINEST",
+                        "FINER",
+                        "TRACE",
+                        "DEBUG",
+                        "FINE",
+                        "CONFIG",
+                        "INFO",
+                        "WARN",
+                        "WARNING",
+                        "ERROR",
+                        "SEVERE",
+                        "FATAL",
+                        "OFF"
+                    ],
+                    "stability" : "default"
+                },
+                "deny" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Denys all log messages.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : true,
+                    "stability" : "default"
+                },
+                "level" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "A filter which excludes a message with the specified level.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "ALL",
+                    "allowed" : [
+                        "ALL",
+                        "FINEST",
+                        "FINER",
+                        "TRACE",
+                        "DEBUG",
+                        "FINE",
+                        "CONFIG",
+                        "INFO",
+                        "WARN",
+                        "WARNING",
+                        "ERROR",
+                        "SEVERE",
+                        "FATAL",
+                        "OFF"
+                    ],
+                    "stability" : "default"
+                },
+                "level-range" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A filter which logs only messages that fall within a level range.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "min-level" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The minimum (least severe) level, inclusive.",
+                            "expressions-allowed" : false,
+                            "required" : true,
+                            "nillable" : false,
+                            "allowed" : [
+                                "ALL",
+                                "FINEST",
+                                "FINER",
+                                "TRACE",
+                                "DEBUG",
+                                "FINE",
+                                "CONFIG",
+                                "INFO",
+                                "WARN",
+                                "WARNING",
+                                "ERROR",
+                                "SEVERE",
+                                "FATAL",
+                                "OFF"
+                            ],
+                            "stability" : "default"
+                        },
+                        "min-inclusive" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "True if the min-level value is inclusive, false if it is exclusive.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        },
+                        "max-level" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The maximum (most severe) level, inclusive.",
+                            "expressions-allowed" : false,
+                            "required" : true,
+                            "nillable" : false,
+                            "allowed" : [
+                                "ALL",
+                                "FINEST",
+                                "FINER",
+                                "TRACE",
+                                "DEBUG",
+                                "FINE",
+                                "CONFIG",
+                                "INFO",
+                                "WARN",
+                                "WARNING",
+                                "ERROR",
+                                "SEVERE",
+                                "FATAL",
+                                "OFF"
+                            ],
+                            "stability" : "default"
+                        },
+                        "max-inclusive" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "True if the max-level value is inclusive, false if it is exclusive.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        }
+                    }
+                },
+                "match" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "A regular-expression-based filter. Used to exclude log records which match or don't match the expression. The regular expression is checked against the raw (unformatted) message.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "not" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A filter that inverts the filter that is nested.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "accept" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "Accepts all log messages.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        },
+                        "change-level" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "A filter which modifies the log record with a new level if the nested filter evaluates true for that record.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "allowed" : [
+                                "ALL",
+                                "FINEST",
+                                "FINER",
+                                "TRACE",
+                                "DEBUG",
+                                "FINE",
+                                "CONFIG",
+                                "INFO",
+                                "WARN",
+                                "WARNING",
+                                "ERROR",
+                                "SEVERE",
+                                "FATAL",
+                                "OFF"
+                            ],
+                            "stability" : "default"
+                        },
+                        "deny" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "Denys all log messages.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        },
+                        "level" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "A filter which excludes a message with the specified level.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : "ALL",
+                            "allowed" : [
+                                "ALL",
+                                "FINEST",
+                                "FINER",
+                                "TRACE",
+                                "DEBUG",
+                                "FINE",
+                                "CONFIG",
+                                "INFO",
+                                "WARN",
+                                "WARNING",
+                                "ERROR",
+                                "SEVERE",
+                                "FATAL",
+                                "OFF"
+                            ],
+                            "stability" : "default"
+                        },
+                        "level-range" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "OBJECT"
+                            },
+                            "description" : "A filter which logs only messages that fall within a level range.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "stability" : "default",
+                            "value-type" : {
+                                "min-level" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The minimum (least severe) level, inclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "allowed" : [
+                                        "ALL",
+                                        "FINEST",
+                                        "FINER",
+                                        "TRACE",
+                                        "DEBUG",
+                                        "FINE",
+                                        "CONFIG",
+                                        "INFO",
+                                        "WARN",
+                                        "WARNING",
+                                        "ERROR",
+                                        "SEVERE",
+                                        "FATAL",
+                                        "OFF"
+                                    ],
+                                    "stability" : "default"
+                                },
+                                "min-inclusive" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "True if the min-level value is inclusive, false if it is exclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                },
+                                "max-level" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The maximum (most severe) level, inclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "allowed" : [
+                                        "ALL",
+                                        "FINEST",
+                                        "FINER",
+                                        "TRACE",
+                                        "DEBUG",
+                                        "FINE",
+                                        "CONFIG",
+                                        "INFO",
+                                        "WARN",
+                                        "WARNING",
+                                        "ERROR",
+                                        "SEVERE",
+                                        "FATAL",
+                                        "OFF"
+                                    ],
+                                    "stability" : "default"
+                                },
+                                "max-inclusive" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "True if the max-level value is inclusive, false if it is exclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                }
+                            }
+                        },
+                        "match" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "A regular-expression-based filter. Used to exclude log records which match or don't match the expression. The regular expression is checked against the raw (unformatted) message.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "replace" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "OBJECT"
+                            },
+                            "description" : "A filter which applies a text substitution on the message if the nested filter matches.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "stability" : "default",
+                            "value-type" : {
+                                "pattern" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The pattern to match",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "min-length" : 1,
+                                    "max-length" : 2147483647,
+                                    "stability" : "default"
+                                },
+                                "replacement" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The string replacement",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "min-length" : 1,
+                                    "max-length" : 2147483647,
+                                    "stability" : "default"
+                                },
+                                "replace-all" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "True if all occurrences should be replaced; false if only the first occurrence",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                }
+                            }
+                        }
+                    }
+                },
+                "replace" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A filter which applies a text substitution on the message if the nested filter matches.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "pattern" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The pattern to match",
+                            "expressions-allowed" : false,
+                            "required" : true,
+                            "nillable" : false,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "replacement" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The string replacement",
+                            "expressions-allowed" : false,
+                            "required" : true,
+                            "nillable" : false,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "replace-all" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "True if all occurrences should be replaced; false if only the first occurrence",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        }
+                    }
+                }
+            }
+        },
+        "any" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "A filter consisting of several filters in a chain.  If any filter finds the log message to be loggable, the message will be logged and subsequent filters will not be checked.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "accept" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Accepts all log messages.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : true,
+                    "stability" : "default"
+                },
+                "change-level" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "A filter which modifies the log record with a new level if the nested filter evaluates true for that record.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "allowed" : [
+                        "ALL",
+                        "FINEST",
+                        "FINER",
+                        "TRACE",
+                        "DEBUG",
+                        "FINE",
+                        "CONFIG",
+                        "INFO",
+                        "WARN",
+                        "WARNING",
+                        "ERROR",
+                        "SEVERE",
+                        "FATAL",
+                        "OFF"
+                    ],
+                    "stability" : "default"
+                },
+                "deny" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Denys all log messages.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : true,
+                    "stability" : "default"
+                },
+                "level" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "A filter which excludes a message with the specified level.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "ALL",
+                    "allowed" : [
+                        "ALL",
+                        "FINEST",
+                        "FINER",
+                        "TRACE",
+                        "DEBUG",
+                        "FINE",
+                        "CONFIG",
+                        "INFO",
+                        "WARN",
+                        "WARNING",
+                        "ERROR",
+                        "SEVERE",
+                        "FATAL",
+                        "OFF"
+                    ],
+                    "stability" : "default"
+                },
+                "level-range" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A filter which logs only messages that fall within a level range.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "min-level" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The minimum (least severe) level, inclusive.",
+                            "expressions-allowed" : false,
+                            "required" : true,
+                            "nillable" : false,
+                            "allowed" : [
+                                "ALL",
+                                "FINEST",
+                                "FINER",
+                                "TRACE",
+                                "DEBUG",
+                                "FINE",
+                                "CONFIG",
+                                "INFO",
+                                "WARN",
+                                "WARNING",
+                                "ERROR",
+                                "SEVERE",
+                                "FATAL",
+                                "OFF"
+                            ],
+                            "stability" : "default"
+                        },
+                        "min-inclusive" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "True if the min-level value is inclusive, false if it is exclusive.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        },
+                        "max-level" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The maximum (most severe) level, inclusive.",
+                            "expressions-allowed" : false,
+                            "required" : true,
+                            "nillable" : false,
+                            "allowed" : [
+                                "ALL",
+                                "FINEST",
+                                "FINER",
+                                "TRACE",
+                                "DEBUG",
+                                "FINE",
+                                "CONFIG",
+                                "INFO",
+                                "WARN",
+                                "WARNING",
+                                "ERROR",
+                                "SEVERE",
+                                "FATAL",
+                                "OFF"
+                            ],
+                            "stability" : "default"
+                        },
+                        "max-inclusive" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "True if the max-level value is inclusive, false if it is exclusive.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        }
+                    }
+                },
+                "match" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "A regular-expression-based filter. Used to exclude log records which match or don't match the expression. The regular expression is checked against the raw (unformatted) message.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "not" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A filter that inverts the filter that is nested.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "accept" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "Accepts all log messages.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        },
+                        "change-level" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "A filter which modifies the log record with a new level if the nested filter evaluates true for that record.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "allowed" : [
+                                "ALL",
+                                "FINEST",
+                                "FINER",
+                                "TRACE",
+                                "DEBUG",
+                                "FINE",
+                                "CONFIG",
+                                "INFO",
+                                "WARN",
+                                "WARNING",
+                                "ERROR",
+                                "SEVERE",
+                                "FATAL",
+                                "OFF"
+                            ],
+                            "stability" : "default"
+                        },
+                        "deny" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "Denys all log messages.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        },
+                        "level" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "A filter which excludes a message with the specified level.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : "ALL",
+                            "allowed" : [
+                                "ALL",
+                                "FINEST",
+                                "FINER",
+                                "TRACE",
+                                "DEBUG",
+                                "FINE",
+                                "CONFIG",
+                                "INFO",
+                                "WARN",
+                                "WARNING",
+                                "ERROR",
+                                "SEVERE",
+                                "FATAL",
+                                "OFF"
+                            ],
+                            "stability" : "default"
+                        },
+                        "level-range" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "OBJECT"
+                            },
+                            "description" : "A filter which logs only messages that fall within a level range.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "stability" : "default",
+                            "value-type" : {
+                                "min-level" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The minimum (least severe) level, inclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "allowed" : [
+                                        "ALL",
+                                        "FINEST",
+                                        "FINER",
+                                        "TRACE",
+                                        "DEBUG",
+                                        "FINE",
+                                        "CONFIG",
+                                        "INFO",
+                                        "WARN",
+                                        "WARNING",
+                                        "ERROR",
+                                        "SEVERE",
+                                        "FATAL",
+                                        "OFF"
+                                    ],
+                                    "stability" : "default"
+                                },
+                                "min-inclusive" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "True if the min-level value is inclusive, false if it is exclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                },
+                                "max-level" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The maximum (most severe) level, inclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "allowed" : [
+                                        "ALL",
+                                        "FINEST",
+                                        "FINER",
+                                        "TRACE",
+                                        "DEBUG",
+                                        "FINE",
+                                        "CONFIG",
+                                        "INFO",
+                                        "WARN",
+                                        "WARNING",
+                                        "ERROR",
+                                        "SEVERE",
+                                        "FATAL",
+                                        "OFF"
+                                    ],
+                                    "stability" : "default"
+                                },
+                                "max-inclusive" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "True if the max-level value is inclusive, false if it is exclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                }
+                            }
+                        },
+                        "match" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "A regular-expression-based filter. Used to exclude log records which match or don't match the expression. The regular expression is checked against the raw (unformatted) message.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "replace" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "OBJECT"
+                            },
+                            "description" : "A filter which applies a text substitution on the message if the nested filter matches.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "stability" : "default",
+                            "value-type" : {
+                                "pattern" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The pattern to match",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "min-length" : 1,
+                                    "max-length" : 2147483647,
+                                    "stability" : "default"
+                                },
+                                "replacement" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The string replacement",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "min-length" : 1,
+                                    "max-length" : 2147483647,
+                                    "stability" : "default"
+                                },
+                                "replace-all" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "True if all occurrences should be replaced; false if only the first occurrence",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                }
+                            }
+                        }
+                    }
+                },
+                "replace" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A filter which applies a text substitution on the message if the nested filter matches.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "pattern" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The pattern to match",
+                            "expressions-allowed" : false,
+                            "required" : true,
+                            "nillable" : false,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "replacement" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The string replacement",
+                            "expressions-allowed" : false,
+                            "required" : true,
+                            "nillable" : false,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "replace-all" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "True if all occurrences should be replaced; false if only the first occurrence",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        }
+                    }
+                }
+            }
+        },
+        "accept" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Accepts all log messages.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        },
+        "change-level" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "A filter which modifies the log record with a new level if the nested filter evaluates true for that record.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "allowed" : [
+                "ALL",
+                "FINEST",
+                "FINER",
+                "TRACE",
+                "DEBUG",
+                "FINE",
+                "CONFIG",
+                "INFO",
+                "WARN",
+                "WARNING",
+                "ERROR",
+                "SEVERE",
+                "FATAL",
+                "OFF"
+            ],
+            "stability" : "default"
+        },
+        "deny" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Denys all log messages.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        },
+        "level" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "A filter which excludes a message with the specified level.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "ALL",
+            "allowed" : [
+                "ALL",
+                "FINEST",
+                "FINER",
+                "TRACE",
+                "DEBUG",
+                "FINE",
+                "CONFIG",
+                "INFO",
+                "WARN",
+                "WARNING",
+                "ERROR",
+                "SEVERE",
+                "FATAL",
+                "OFF"
+            ],
+            "stability" : "default"
+        },
+        "level-range" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "A filter which logs only messages that fall within a level range.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "min-level" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The minimum (least severe) level, inclusive.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "allowed" : [
+                        "ALL",
+                        "FINEST",
+                        "FINER",
+                        "TRACE",
+                        "DEBUG",
+                        "FINE",
+                        "CONFIG",
+                        "INFO",
+                        "WARN",
+                        "WARNING",
+                        "ERROR",
+                        "SEVERE",
+                        "FATAL",
+                        "OFF"
+                    ],
+                    "stability" : "default"
+                },
+                "min-inclusive" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "True if the min-level value is inclusive, false if it is exclusive.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : true,
+                    "stability" : "default"
+                },
+                "max-level" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The maximum (most severe) level, inclusive.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "allowed" : [
+                        "ALL",
+                        "FINEST",
+                        "FINER",
+                        "TRACE",
+                        "DEBUG",
+                        "FINE",
+                        "CONFIG",
+                        "INFO",
+                        "WARN",
+                        "WARNING",
+                        "ERROR",
+                        "SEVERE",
+                        "FATAL",
+                        "OFF"
+                    ],
+                    "stability" : "default"
+                },
+                "max-inclusive" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "True if the max-level value is inclusive, false if it is exclusive.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : true,
+                    "stability" : "default"
+                }
+            }
+        },
+        "match" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "A regular-expression-based filter. Used to exclude log records which match or don't match the expression. The regular expression is checked against the raw (unformatted) message.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "not" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "A filter that inverts the filter that is nested.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "accept" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Accepts all log messages.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : true,
+                    "stability" : "default"
+                },
+                "change-level" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "A filter which modifies the log record with a new level if the nested filter evaluates true for that record.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "allowed" : [
+                        "ALL",
+                        "FINEST",
+                        "FINER",
+                        "TRACE",
+                        "DEBUG",
+                        "FINE",
+                        "CONFIG",
+                        "INFO",
+                        "WARN",
+                        "WARNING",
+                        "ERROR",
+                        "SEVERE",
+                        "FATAL",
+                        "OFF"
+                    ],
+                    "stability" : "default"
+                },
+                "deny" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Denys all log messages.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : true,
+                    "stability" : "default"
+                },
+                "level" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "A filter which excludes a message with the specified level.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "ALL",
+                    "allowed" : [
+                        "ALL",
+                        "FINEST",
+                        "FINER",
+                        "TRACE",
+                        "DEBUG",
+                        "FINE",
+                        "CONFIG",
+                        "INFO",
+                        "WARN",
+                        "WARNING",
+                        "ERROR",
+                        "SEVERE",
+                        "FATAL",
+                        "OFF"
+                    ],
+                    "stability" : "default"
+                },
+                "level-range" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A filter which logs only messages that fall within a level range.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "min-level" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The minimum (least severe) level, inclusive.",
+                            "expressions-allowed" : false,
+                            "required" : true,
+                            "nillable" : false,
+                            "allowed" : [
+                                "ALL",
+                                "FINEST",
+                                "FINER",
+                                "TRACE",
+                                "DEBUG",
+                                "FINE",
+                                "CONFIG",
+                                "INFO",
+                                "WARN",
+                                "WARNING",
+                                "ERROR",
+                                "SEVERE",
+                                "FATAL",
+                                "OFF"
+                            ],
+                            "stability" : "default"
+                        },
+                        "min-inclusive" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "True if the min-level value is inclusive, false if it is exclusive.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        },
+                        "max-level" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The maximum (most severe) level, inclusive.",
+                            "expressions-allowed" : false,
+                            "required" : true,
+                            "nillable" : false,
+                            "allowed" : [
+                                "ALL",
+                                "FINEST",
+                                "FINER",
+                                "TRACE",
+                                "DEBUG",
+                                "FINE",
+                                "CONFIG",
+                                "INFO",
+                                "WARN",
+                                "WARNING",
+                                "ERROR",
+                                "SEVERE",
+                                "FATAL",
+                                "OFF"
+                            ],
+                            "stability" : "default"
+                        },
+                        "max-inclusive" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "True if the max-level value is inclusive, false if it is exclusive.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        }
+                    }
+                },
+                "match" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "A regular-expression-based filter. Used to exclude log records which match or don't match the expression. The regular expression is checked against the raw (unformatted) message.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "replace" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A filter which applies a text substitution on the message if the nested filter matches.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "pattern" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The pattern to match",
+                            "expressions-allowed" : false,
+                            "required" : true,
+                            "nillable" : false,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "replacement" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The string replacement",
+                            "expressions-allowed" : false,
+                            "required" : true,
+                            "nillable" : false,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "replace-all" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "True if all occurrences should be replaced; false if only the first occurrence",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        }
+                    }
+                }
+            }
+        },
+        "replace" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "A filter which applies a text substitution on the message if the nested filter matches.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "pattern" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The pattern to match",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "replacement" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The string replacement",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "replace-all" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "True if all occurrences should be replaced; false if only the first occurrence",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : true,
+                    "stability" : "default"
+                }
+            }
+        }
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="filter-spec" href="#filter-spec" class="">
+         filter-spec</a> - A filter expression value to define a filter. Example for a filter that does not match a pattern: not(match("JBAS.*"))
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "A filter expression value to define a filter. Example for a filter that does not match a pattern: not(match(\"JBAS.*\"))",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["filter"],
+    "capability-reference" : "org.wildfly.logging.filter",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="handlers" href="#handlers" class="">
+         handlers</a> - The handlers associated with the logger.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "The handlers associated with the logger.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.logging.handler",
+    "min-length" : 0,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="level" href="#level" class="">
+         level</a> - The log level specifying which message levels will be logged by the logger. Message levels lower than this value will be discarded.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>ALL</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            TRACE<br />
+            ALL<br />
+            SEVERE<br />
+            FINER<br />
+            FINEST<br />
+            INFO<br />
+            DEBUG<br />
+            WARNING<br />
+            WARN<br />
+            OFF<br />
+            CONFIG<br />
+            FINE<br />
+            ERROR<br />
+            FATAL<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The log level specifying which message levels will be logged by the logger. Message levels lower than this value will be discarded.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "ALL",
+    "allowed" : [
+        "ALL",
+        "FINEST",
+        "FINER",
+        "TRACE",
+        "DEBUG",
+        "FINE",
+        "CONFIG",
+        "INFO",
+        "WARN",
+        "WARNING",
+        "ERROR",
+        "SEVERE",
+        "FATAL",
+        "OFF"
+    ],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="use-parent-handlers" href="#use-parent-handlers" class="">
+         use-parent-handlers</a> - Specifies whether or not this logger should send its output to its parent Logger.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Specifies whether or not this logger should send its output to its parent Logger.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : true,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (7)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Add a new logger category.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>category</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Specifies the category for the logger.</td>
+        </tr>
+        <tr>
+          <td>filter</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Defines a simple filter type.</td>
+        </tr>
+        <tr>
+          <td>filter-spec</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>A filter expression value to define a filter. Example for a filter that does not match a pattern: not(match("JBAS.*"))</td>
+        </tr>
+        <tr>
+          <td>handlers</td>
+          <td>LIST</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The handlers associated with the logger.</td>
+        </tr>
+        <tr>
+          <td>level</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>ALL</td>
+          <td>The log level specifying which message levels will be logged by the logger. Message levels lower than this value will be discarded.</td>
+        </tr>
+        <tr>
+          <td>use-parent-handlers</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>Specifies whether or not this logger should send its output to its parent Logger.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Add a new logger category.",
+    "request-properties" : {
+        "category" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Specifies the category for the logger.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "filter" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "Defines a simple filter type.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["filter-spec"],
+            "stability" : "default",
+            "deprecated" : {
+                "since" : "1.2.0",
+                "reason" : "Use filter-spec."
+            },
+            "value-type" : {
+                "all" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A filter consisting of several filters in a chain.  If any filter finds the log message to be unloggable,the message will not be logged and subsequent filters will not be checked.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "accept" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "Accepts all log messages.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        },
+                        "change-level" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "A filter which modifies the log record with a new level if the nested filter evaluates true for that record.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "allowed" : [
+                                "ALL",
+                                "FINEST",
+                                "FINER",
+                                "TRACE",
+                                "DEBUG",
+                                "FINE",
+                                "CONFIG",
+                                "INFO",
+                                "WARN",
+                                "WARNING",
+                                "ERROR",
+                                "SEVERE",
+                                "FATAL",
+                                "OFF"
+                            ],
+                            "stability" : "default"
+                        },
+                        "deny" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "Denys all log messages.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        },
+                        "level" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "A filter which excludes a message with the specified level.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : "ALL",
+                            "allowed" : [
+                                "ALL",
+                                "FINEST",
+                                "FINER",
+                                "TRACE",
+                                "DEBUG",
+                                "FINE",
+                                "CONFIG",
+                                "INFO",
+                                "WARN",
+                                "WARNING",
+                                "ERROR",
+                                "SEVERE",
+                                "FATAL",
+                                "OFF"
+                            ],
+                            "stability" : "default"
+                        },
+                        "level-range" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "OBJECT"
+                            },
+                            "description" : "A filter which logs only messages that fall within a level range.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "stability" : "default",
+                            "value-type" : {
+                                "min-level" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The minimum (least severe) level, inclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "allowed" : [
+                                        "ALL",
+                                        "FINEST",
+                                        "FINER",
+                                        "TRACE",
+                                        "DEBUG",
+                                        "FINE",
+                                        "CONFIG",
+                                        "INFO",
+                                        "WARN",
+                                        "WARNING",
+                                        "ERROR",
+                                        "SEVERE",
+                                        "FATAL",
+                                        "OFF"
+                                    ],
+                                    "stability" : "default"
+                                },
+                                "min-inclusive" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "True if the min-level value is inclusive, false if it is exclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                },
+                                "max-level" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The maximum (most severe) level, inclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "allowed" : [
+                                        "ALL",
+                                        "FINEST",
+                                        "FINER",
+                                        "TRACE",
+                                        "DEBUG",
+                                        "FINE",
+                                        "CONFIG",
+                                        "INFO",
+                                        "WARN",
+                                        "WARNING",
+                                        "ERROR",
+                                        "SEVERE",
+                                        "FATAL",
+                                        "OFF"
+                                    ],
+                                    "stability" : "default"
+                                },
+                                "max-inclusive" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "True if the max-level value is inclusive, false if it is exclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                }
+                            }
+                        },
+                        "match" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "A regular-expression-based filter. Used to exclude log records which match or don't match the expression. The regular expression is checked against the raw (unformatted) message.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "not" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "OBJECT"
+                            },
+                            "description" : "A filter that inverts the filter that is nested.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "stability" : "default",
+                            "value-type" : {
+                                "accept" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "Accepts all log messages.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                },
+                                "change-level" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "A filter which modifies the log record with a new level if the nested filter evaluates true for that record.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "allowed" : [
+                                        "ALL",
+                                        "FINEST",
+                                        "FINER",
+                                        "TRACE",
+                                        "DEBUG",
+                                        "FINE",
+                                        "CONFIG",
+                                        "INFO",
+                                        "WARN",
+                                        "WARNING",
+                                        "ERROR",
+                                        "SEVERE",
+                                        "FATAL",
+                                        "OFF"
+                                    ],
+                                    "stability" : "default"
+                                },
+                                "deny" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "Denys all log messages.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                },
+                                "level" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "A filter which excludes a message with the specified level.",
+                                    "expressions-allowed" : true,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : "ALL",
+                                    "allowed" : [
+                                        "ALL",
+                                        "FINEST",
+                                        "FINER",
+                                        "TRACE",
+                                        "DEBUG",
+                                        "FINE",
+                                        "CONFIG",
+                                        "INFO",
+                                        "WARN",
+                                        "WARNING",
+                                        "ERROR",
+                                        "SEVERE",
+                                        "FATAL",
+                                        "OFF"
+                                    ],
+                                    "stability" : "default"
+                                },
+                                "level-range" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "OBJECT"
+                                    },
+                                    "description" : "A filter which logs only messages that fall within a level range.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "stability" : "default",
+                                    "value-type" : {
+                                        "min-level" : {
+                                            "type" : {
+                                                "TYPE_MODEL_VALUE" : "STRING"
+                                            },
+                                            "description" : "The minimum (least severe) level, inclusive.",
+                                            "expressions-allowed" : false,
+                                            "required" : true,
+                                            "nillable" : false,
+                                            "allowed" : [
+                                                "ALL",
+                                                "FINEST",
+                                                "FINER",
+                                                "TRACE",
+                                                "DEBUG",
+                                                "FINE",
+                                                "CONFIG",
+                                                "INFO",
+                                                "WARN",
+                                                "WARNING",
+                                                "ERROR",
+                                                "SEVERE",
+                                                "FATAL",
+                                                "OFF"
+                                            ],
+                                            "stability" : "default"
+                                        },
+                                        "min-inclusive" : {
+                                            "type" : {
+                                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                            },
+                                            "description" : "True if the min-level value is inclusive, false if it is exclusive.",
+                                            "expressions-allowed" : false,
+                                            "required" : false,
+                                            "nillable" : true,
+                                            "default" : true,
+                                            "stability" : "default"
+                                        },
+                                        "max-level" : {
+                                            "type" : {
+                                                "TYPE_MODEL_VALUE" : "STRING"
+                                            },
+                                            "description" : "The maximum (most severe) level, inclusive.",
+                                            "expressions-allowed" : false,
+                                            "required" : true,
+                                            "nillable" : false,
+                                            "allowed" : [
+                                                "ALL",
+                                                "FINEST",
+                                                "FINER",
+                                                "TRACE",
+                                                "DEBUG",
+                                                "FINE",
+                                                "CONFIG",
+                                                "INFO",
+                                                "WARN",
+                                                "WARNING",
+                                                "ERROR",
+                                                "SEVERE",
+                                                "FATAL",
+                                                "OFF"
+                                            ],
+                                            "stability" : "default"
+                                        },
+                                        "max-inclusive" : {
+                                            "type" : {
+                                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                            },
+                                            "description" : "True if the max-level value is inclusive, false if it is exclusive.",
+                                            "expressions-allowed" : false,
+                                            "required" : false,
+                                            "nillable" : true,
+                                            "default" : true,
+                                            "stability" : "default"
+                                        }
+                                    }
+                                },
+                                "match" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "A regular-expression-based filter. Used to exclude log records which match or don't match the expression. The regular expression is checked against the raw (unformatted) message.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "min-length" : 1,
+                                    "max-length" : 2147483647,
+                                    "stability" : "default"
+                                },
+                                "replace" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "OBJECT"
+                                    },
+                                    "description" : "A filter which applies a text substitution on the message if the nested filter matches.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "stability" : "default",
+                                    "value-type" : {
+                                        "pattern" : {
+                                            "type" : {
+                                                "TYPE_MODEL_VALUE" : "STRING"
+                                            },
+                                            "description" : "The pattern to match",
+                                            "expressions-allowed" : false,
+                                            "required" : true,
+                                            "nillable" : false,
+                                            "min-length" : 1,
+                                            "max-length" : 2147483647,
+                                            "stability" : "default"
+                                        },
+                                        "replacement" : {
+                                            "type" : {
+                                                "TYPE_MODEL_VALUE" : "STRING"
+                                            },
+                                            "description" : "The string replacement",
+                                            "expressions-allowed" : false,
+                                            "required" : true,
+                                            "nillable" : false,
+                                            "min-length" : 1,
+                                            "max-length" : 2147483647,
+                                            "stability" : "default"
+                                        },
+                                        "replace-all" : {
+                                            "type" : {
+                                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                            },
+                                            "description" : "True if all occurrences should be replaced; false if only the first occurrence",
+                                            "expressions-allowed" : false,
+                                            "required" : false,
+                                            "nillable" : true,
+                                            "default" : true,
+                                            "stability" : "default"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "replace" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "OBJECT"
+                            },
+                            "description" : "A filter which applies a text substitution on the message if the nested filter matches.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "stability" : "default",
+                            "value-type" : {
+                                "pattern" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The pattern to match",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "min-length" : 1,
+                                    "max-length" : 2147483647,
+                                    "stability" : "default"
+                                },
+                                "replacement" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The string replacement",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "min-length" : 1,
+                                    "max-length" : 2147483647,
+                                    "stability" : "default"
+                                },
+                                "replace-all" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "True if all occurrences should be replaced; false if only the first occurrence",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                }
+                            }
+                        }
+                    }
+                },
+                "any" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A filter consisting of several filters in a chain.  If any filter finds the log message to be loggable, the message will be logged and subsequent filters will not be checked.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "accept" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "Accepts all log messages.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        },
+                        "change-level" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "A filter which modifies the log record with a new level if the nested filter evaluates true for that record.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "allowed" : [
+                                "ALL",
+                                "FINEST",
+                                "FINER",
+                                "TRACE",
+                                "DEBUG",
+                                "FINE",
+                                "CONFIG",
+                                "INFO",
+                                "WARN",
+                                "WARNING",
+                                "ERROR",
+                                "SEVERE",
+                                "FATAL",
+                                "OFF"
+                            ],
+                            "stability" : "default"
+                        },
+                        "deny" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "Denys all log messages.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        },
+                        "level" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "A filter which excludes a message with the specified level.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : "ALL",
+                            "allowed" : [
+                                "ALL",
+                                "FINEST",
+                                "FINER",
+                                "TRACE",
+                                "DEBUG",
+                                "FINE",
+                                "CONFIG",
+                                "INFO",
+                                "WARN",
+                                "WARNING",
+                                "ERROR",
+                                "SEVERE",
+                                "FATAL",
+                                "OFF"
+                            ],
+                            "stability" : "default"
+                        },
+                        "level-range" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "OBJECT"
+                            },
+                            "description" : "A filter which logs only messages that fall within a level range.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "stability" : "default",
+                            "value-type" : {
+                                "min-level" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The minimum (least severe) level, inclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "allowed" : [
+                                        "ALL",
+                                        "FINEST",
+                                        "FINER",
+                                        "TRACE",
+                                        "DEBUG",
+                                        "FINE",
+                                        "CONFIG",
+                                        "INFO",
+                                        "WARN",
+                                        "WARNING",
+                                        "ERROR",
+                                        "SEVERE",
+                                        "FATAL",
+                                        "OFF"
+                                    ],
+                                    "stability" : "default"
+                                },
+                                "min-inclusive" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "True if the min-level value is inclusive, false if it is exclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                },
+                                "max-level" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The maximum (most severe) level, inclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "allowed" : [
+                                        "ALL",
+                                        "FINEST",
+                                        "FINER",
+                                        "TRACE",
+                                        "DEBUG",
+                                        "FINE",
+                                        "CONFIG",
+                                        "INFO",
+                                        "WARN",
+                                        "WARNING",
+                                        "ERROR",
+                                        "SEVERE",
+                                        "FATAL",
+                                        "OFF"
+                                    ],
+                                    "stability" : "default"
+                                },
+                                "max-inclusive" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "True if the max-level value is inclusive, false if it is exclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                }
+                            }
+                        },
+                        "match" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "A regular-expression-based filter. Used to exclude log records which match or don't match the expression. The regular expression is checked against the raw (unformatted) message.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "not" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "OBJECT"
+                            },
+                            "description" : "A filter that inverts the filter that is nested.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "stability" : "default",
+                            "value-type" : {
+                                "accept" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "Accepts all log messages.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                },
+                                "change-level" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "A filter which modifies the log record with a new level if the nested filter evaluates true for that record.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "allowed" : [
+                                        "ALL",
+                                        "FINEST",
+                                        "FINER",
+                                        "TRACE",
+                                        "DEBUG",
+                                        "FINE",
+                                        "CONFIG",
+                                        "INFO",
+                                        "WARN",
+                                        "WARNING",
+                                        "ERROR",
+                                        "SEVERE",
+                                        "FATAL",
+                                        "OFF"
+                                    ],
+                                    "stability" : "default"
+                                },
+                                "deny" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "Denys all log messages.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                },
+                                "level" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "A filter which excludes a message with the specified level.",
+                                    "expressions-allowed" : true,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : "ALL",
+                                    "allowed" : [
+                                        "ALL",
+                                        "FINEST",
+                                        "FINER",
+                                        "TRACE",
+                                        "DEBUG",
+                                        "FINE",
+                                        "CONFIG",
+                                        "INFO",
+                                        "WARN",
+                                        "WARNING",
+                                        "ERROR",
+                                        "SEVERE",
+                                        "FATAL",
+                                        "OFF"
+                                    ],
+                                    "stability" : "default"
+                                },
+                                "level-range" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "OBJECT"
+                                    },
+                                    "description" : "A filter which logs only messages that fall within a level range.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "stability" : "default",
+                                    "value-type" : {
+                                        "min-level" : {
+                                            "type" : {
+                                                "TYPE_MODEL_VALUE" : "STRING"
+                                            },
+                                            "description" : "The minimum (least severe) level, inclusive.",
+                                            "expressions-allowed" : false,
+                                            "required" : true,
+                                            "nillable" : false,
+                                            "allowed" : [
+                                                "ALL",
+                                                "FINEST",
+                                                "FINER",
+                                                "TRACE",
+                                                "DEBUG",
+                                                "FINE",
+                                                "CONFIG",
+                                                "INFO",
+                                                "WARN",
+                                                "WARNING",
+                                                "ERROR",
+                                                "SEVERE",
+                                                "FATAL",
+                                                "OFF"
+                                            ],
+                                            "stability" : "default"
+                                        },
+                                        "min-inclusive" : {
+                                            "type" : {
+                                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                            },
+                                            "description" : "True if the min-level value is inclusive, false if it is exclusive.",
+                                            "expressions-allowed" : false,
+                                            "required" : false,
+                                            "nillable" : true,
+                                            "default" : true,
+                                            "stability" : "default"
+                                        },
+                                        "max-level" : {
+                                            "type" : {
+                                                "TYPE_MODEL_VALUE" : "STRING"
+                                            },
+                                            "description" : "The maximum (most severe) level, inclusive.",
+                                            "expressions-allowed" : false,
+                                            "required" : true,
+                                            "nillable" : false,
+                                            "allowed" : [
+                                                "ALL",
+                                                "FINEST",
+                                                "FINER",
+                                                "TRACE",
+                                                "DEBUG",
+                                                "FINE",
+                                                "CONFIG",
+                                                "INFO",
+                                                "WARN",
+                                                "WARNING",
+                                                "ERROR",
+                                                "SEVERE",
+                                                "FATAL",
+                                                "OFF"
+                                            ],
+                                            "stability" : "default"
+                                        },
+                                        "max-inclusive" : {
+                                            "type" : {
+                                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                            },
+                                            "description" : "True if the max-level value is inclusive, false if it is exclusive.",
+                                            "expressions-allowed" : false,
+                                            "required" : false,
+                                            "nillable" : true,
+                                            "default" : true,
+                                            "stability" : "default"
+                                        }
+                                    }
+                                },
+                                "match" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "A regular-expression-based filter. Used to exclude log records which match or don't match the expression. The regular expression is checked against the raw (unformatted) message.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "min-length" : 1,
+                                    "max-length" : 2147483647,
+                                    "stability" : "default"
+                                },
+                                "replace" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "OBJECT"
+                                    },
+                                    "description" : "A filter which applies a text substitution on the message if the nested filter matches.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "stability" : "default",
+                                    "value-type" : {
+                                        "pattern" : {
+                                            "type" : {
+                                                "TYPE_MODEL_VALUE" : "STRING"
+                                            },
+                                            "description" : "The pattern to match",
+                                            "expressions-allowed" : false,
+                                            "required" : true,
+                                            "nillable" : false,
+                                            "min-length" : 1,
+                                            "max-length" : 2147483647,
+                                            "stability" : "default"
+                                        },
+                                        "replacement" : {
+                                            "type" : {
+                                                "TYPE_MODEL_VALUE" : "STRING"
+                                            },
+                                            "description" : "The string replacement",
+                                            "expressions-allowed" : false,
+                                            "required" : true,
+                                            "nillable" : false,
+                                            "min-length" : 1,
+                                            "max-length" : 2147483647,
+                                            "stability" : "default"
+                                        },
+                                        "replace-all" : {
+                                            "type" : {
+                                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                            },
+                                            "description" : "True if all occurrences should be replaced; false if only the first occurrence",
+                                            "expressions-allowed" : false,
+                                            "required" : false,
+                                            "nillable" : true,
+                                            "default" : true,
+                                            "stability" : "default"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "replace" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "OBJECT"
+                            },
+                            "description" : "A filter which applies a text substitution on the message if the nested filter matches.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "stability" : "default",
+                            "value-type" : {
+                                "pattern" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The pattern to match",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "min-length" : 1,
+                                    "max-length" : 2147483647,
+                                    "stability" : "default"
+                                },
+                                "replacement" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The string replacement",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "min-length" : 1,
+                                    "max-length" : 2147483647,
+                                    "stability" : "default"
+                                },
+                                "replace-all" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "True if all occurrences should be replaced; false if only the first occurrence",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                }
+                            }
+                        }
+                    }
+                },
+                "accept" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Accepts all log messages.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : true,
+                    "stability" : "default"
+                },
+                "change-level" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "A filter which modifies the log record with a new level if the nested filter evaluates true for that record.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "allowed" : [
+                        "ALL",
+                        "FINEST",
+                        "FINER",
+                        "TRACE",
+                        "DEBUG",
+                        "FINE",
+                        "CONFIG",
+                        "INFO",
+                        "WARN",
+                        "WARNING",
+                        "ERROR",
+                        "SEVERE",
+                        "FATAL",
+                        "OFF"
+                    ],
+                    "stability" : "default"
+                },
+                "deny" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Denys all log messages.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : true,
+                    "stability" : "default"
+                },
+                "level" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "A filter which excludes a message with the specified level.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "ALL",
+                    "allowed" : [
+                        "ALL",
+                        "FINEST",
+                        "FINER",
+                        "TRACE",
+                        "DEBUG",
+                        "FINE",
+                        "CONFIG",
+                        "INFO",
+                        "WARN",
+                        "WARNING",
+                        "ERROR",
+                        "SEVERE",
+                        "FATAL",
+                        "OFF"
+                    ],
+                    "stability" : "default"
+                },
+                "level-range" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A filter which logs only messages that fall within a level range.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "min-level" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The minimum (least severe) level, inclusive.",
+                            "expressions-allowed" : false,
+                            "required" : true,
+                            "nillable" : false,
+                            "allowed" : [
+                                "ALL",
+                                "FINEST",
+                                "FINER",
+                                "TRACE",
+                                "DEBUG",
+                                "FINE",
+                                "CONFIG",
+                                "INFO",
+                                "WARN",
+                                "WARNING",
+                                "ERROR",
+                                "SEVERE",
+                                "FATAL",
+                                "OFF"
+                            ],
+                            "stability" : "default"
+                        },
+                        "min-inclusive" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "True if the min-level value is inclusive, false if it is exclusive.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        },
+                        "max-level" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The maximum (most severe) level, inclusive.",
+                            "expressions-allowed" : false,
+                            "required" : true,
+                            "nillable" : false,
+                            "allowed" : [
+                                "ALL",
+                                "FINEST",
+                                "FINER",
+                                "TRACE",
+                                "DEBUG",
+                                "FINE",
+                                "CONFIG",
+                                "INFO",
+                                "WARN",
+                                "WARNING",
+                                "ERROR",
+                                "SEVERE",
+                                "FATAL",
+                                "OFF"
+                            ],
+                            "stability" : "default"
+                        },
+                        "max-inclusive" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "True if the max-level value is inclusive, false if it is exclusive.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        }
+                    }
+                },
+                "match" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "A regular-expression-based filter. Used to exclude log records which match or don't match the expression. The regular expression is checked against the raw (unformatted) message.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "not" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A filter that inverts the filter that is nested.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "accept" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "Accepts all log messages.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        },
+                        "change-level" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "A filter which modifies the log record with a new level if the nested filter evaluates true for that record.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "allowed" : [
+                                "ALL",
+                                "FINEST",
+                                "FINER",
+                                "TRACE",
+                                "DEBUG",
+                                "FINE",
+                                "CONFIG",
+                                "INFO",
+                                "WARN",
+                                "WARNING",
+                                "ERROR",
+                                "SEVERE",
+                                "FATAL",
+                                "OFF"
+                            ],
+                            "stability" : "default"
+                        },
+                        "deny" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "Denys all log messages.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        },
+                        "level" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "A filter which excludes a message with the specified level.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : "ALL",
+                            "allowed" : [
+                                "ALL",
+                                "FINEST",
+                                "FINER",
+                                "TRACE",
+                                "DEBUG",
+                                "FINE",
+                                "CONFIG",
+                                "INFO",
+                                "WARN",
+                                "WARNING",
+                                "ERROR",
+                                "SEVERE",
+                                "FATAL",
+                                "OFF"
+                            ],
+                            "stability" : "default"
+                        },
+                        "level-range" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "OBJECT"
+                            },
+                            "description" : "A filter which logs only messages that fall within a level range.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "stability" : "default",
+                            "value-type" : {
+                                "min-level" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The minimum (least severe) level, inclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "allowed" : [
+                                        "ALL",
+                                        "FINEST",
+                                        "FINER",
+                                        "TRACE",
+                                        "DEBUG",
+                                        "FINE",
+                                        "CONFIG",
+                                        "INFO",
+                                        "WARN",
+                                        "WARNING",
+                                        "ERROR",
+                                        "SEVERE",
+                                        "FATAL",
+                                        "OFF"
+                                    ],
+                                    "stability" : "default"
+                                },
+                                "min-inclusive" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "True if the min-level value is inclusive, false if it is exclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                },
+                                "max-level" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The maximum (most severe) level, inclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "allowed" : [
+                                        "ALL",
+                                        "FINEST",
+                                        "FINER",
+                                        "TRACE",
+                                        "DEBUG",
+                                        "FINE",
+                                        "CONFIG",
+                                        "INFO",
+                                        "WARN",
+                                        "WARNING",
+                                        "ERROR",
+                                        "SEVERE",
+                                        "FATAL",
+                                        "OFF"
+                                    ],
+                                    "stability" : "default"
+                                },
+                                "max-inclusive" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "True if the max-level value is inclusive, false if it is exclusive.",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                }
+                            }
+                        },
+                        "match" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "A regular-expression-based filter. Used to exclude log records which match or don't match the expression. The regular expression is checked against the raw (unformatted) message.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "replace" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "OBJECT"
+                            },
+                            "description" : "A filter which applies a text substitution on the message if the nested filter matches.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "stability" : "default",
+                            "value-type" : {
+                                "pattern" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The pattern to match",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "min-length" : 1,
+                                    "max-length" : 2147483647,
+                                    "stability" : "default"
+                                },
+                                "replacement" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "STRING"
+                                    },
+                                    "description" : "The string replacement",
+                                    "expressions-allowed" : false,
+                                    "required" : true,
+                                    "nillable" : false,
+                                    "min-length" : 1,
+                                    "max-length" : 2147483647,
+                                    "stability" : "default"
+                                },
+                                "replace-all" : {
+                                    "type" : {
+                                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                                    },
+                                    "description" : "True if all occurrences should be replaced; false if only the first occurrence",
+                                    "expressions-allowed" : false,
+                                    "required" : false,
+                                    "nillable" : true,
+                                    "default" : true,
+                                    "stability" : "default"
+                                }
+                            }
+                        }
+                    }
+                },
+                "replace" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A filter which applies a text substitution on the message if the nested filter matches.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "pattern" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The pattern to match",
+                            "expressions-allowed" : false,
+                            "required" : true,
+                            "nillable" : false,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "replacement" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The string replacement",
+                            "expressions-allowed" : false,
+                            "required" : true,
+                            "nillable" : false,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "replace-all" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "True if all occurrences should be replaced; false if only the first occurrence",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        }
+                    }
+                }
+            }
+        },
+        "filter-spec" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "A filter expression value to define a filter. Example for a filter that does not match a pattern: not(match(\"JBAS.*\"))",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["filter"],
+            "capability-reference" : "org.wildfly.logging.filter",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "handlers" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "The handlers associated with the logger.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.logging.handler",
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "level" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The log level specifying which message levels will be logged by the logger. Message levels lower than this value will be discarded.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "ALL",
+            "allowed" : [
+                "ALL",
+                "FINEST",
+                "FINER",
+                "TRACE",
+                "DEBUG",
+                "FINE",
+                "CONFIG",
+                "INFO",
+                "WARN",
+                "WARNING",
+                "ERROR",
+                "SEVERE",
+                "FATAL",
+                "OFF"
+            ],
+            "stability" : "default"
+        },
+        "use-parent-handlers" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Specifies whether or not this logger should send its output to its parent Logger.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="add-handler" href="#add-handler" class="">
+      add-handler</a> - Adds a handler to the logger.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>name</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The name of the handler to add.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add-handler",
+    "description" : "Adds a handler to the logger.",
+    "request-properties" : {"name" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        },
+        "description" : "The name of the handler to add.",
+        "expressions-allowed" : false,
+        "required" : false,
+        "nillable" : true,
+        "capability-reference" : "org.wildfly.logging.handler",
+        "min-length" : 1,
+        "max-length" : 2147483647,
+        "stability" : "default"
+    }},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="assign-handler" href="#assign-handler" class="deprecated">
+      assign-handler</a> - Assign a Handler to a Logger.
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 1.2.0
+        <div>Use the add-handler operation.</div>
+      </div>
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>name</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The name of the handler to add.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "assign-handler",
+    "description" : "Assign a Handler to a Logger.",
+    "request-properties" : {"name" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        },
+        "description" : "The name of the handler to add.",
+        "expressions-allowed" : false,
+        "required" : false,
+        "nillable" : true,
+        "capability-reference" : "org.wildfly.logging.handler",
+        "min-length" : 1,
+        "max-length" : 2147483647,
+        "stability" : "default"
+    }},
+    "reply-properties" : {},
+    "deprecated" : {
+        "since" : "1.2.0",
+        "reason" : "Use the add-handler operation."
+    },
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="change-log-level" href="#change-log-level" class="deprecated">
+      change-log-level</a> - Change the logging level for a logger category.
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 1.2.0
+        <div>Use the write-attribute operation.</div>
+      </div>
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>level</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>ALL</td>
+          <td>The new level to set.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "change-log-level",
+    "description" : "Change the logging level for a logger category.",
+    "request-properties" : {"level" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        },
+        "description" : "The new level to set.",
+        "expressions-allowed" : true,
+        "required" : false,
+        "nillable" : true,
+        "default" : "ALL",
+        "allowed" : [
+            "ALL",
+            "FINEST",
+            "FINER",
+            "TRACE",
+            "DEBUG",
+            "FINE",
+            "CONFIG",
+            "INFO",
+            "WARN",
+            "WARNING",
+            "ERROR",
+            "SEVERE",
+            "FATAL",
+            "OFF"
+        ],
+        "stability" : "default"
+    }},
+    "reply-properties" : {},
+    "deprecated" : {
+        "since" : "1.2.0",
+        "reason" : "Use the write-attribute operation."
+    },
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Remove an existing logger category.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Remove an existing logger category.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "all-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove-handler" href="#remove-handler" class="">
+      remove-handler</a> - Removes a handler from the logger.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>name</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The name of the logger to remove.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove-handler",
+    "description" : "Removes a handler from the logger.",
+    "request-properties" : {"name" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        },
+        "description" : "The name of the logger to remove.",
+        "expressions-allowed" : false,
+        "required" : false,
+        "nillable" : true,
+        "capability-reference" : "org.wildfly.logging.handler",
+        "min-length" : 1,
+        "max-length" : 2147483647,
+        "stability" : "default"
+    }},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="unassign-handler" href="#unassign-handler" class="deprecated">
+      unassign-handler</a> - Unassign a Handler from a Logger.
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 1.2.0
+        <div>Use the remove-handler operation.</div>
+      </div>
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>name</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The name of the handler to remove.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "unassign-handler",
+    "description" : "Unassign a Handler from a Logger.",
+    "request-properties" : {"name" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        },
+        "description" : "The name of the handler to remove.",
+        "expressions-allowed" : false,
+        "required" : false,
+        "nillable" : true,
+        "capability-reference" : "org.wildfly.logging.handler",
+        "min-length" : 1,
+        "max-length" : 2147483647,
+        "stability" : "default"
+    }},
+    "reply-properties" : {},
+    "deprecated" : {
+        "since" : "1.2.0",
+        "reason" : "Use the remove-handler operation."
+    },
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.logging.logger</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.logging.logger"&gt;
+  &lt;param name="logger" value="{resource name}"/&gt;
+  &lt;param name="category" value="{value}"/&gt;
+  &lt;param name="filter" value="{value}"/&gt;
+  &lt;param name="filter-spec" value="{value}"/&gt;
+  &lt;param name="handlers" value="{value}"/&gt;
+  &lt;param name="level" value="{value}"/&gt;
+  &lt;param name="use-parent-handlers" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+  <footer>
+    <p>&copy; The WildFly authors 2025</p>
+  </footer>
+</div>
+</body>
+</html>
