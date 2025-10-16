@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for core-service=module-loading</title>
+  <link rel="stylesheet" href="../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../index.html">root</a>
+      </li>
+      <li>core-service=module-loading</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for core-service=module-loading</h1>
+    <p>The modular classloading system.</p>
+
+  </header>
+<h2>Attributes (1)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="module-roots" href="#module-roots" class="deprecated">
+         module-roots</a> - A list of filesystem locations under which the module loading system looks for modules, arranged in order of precedence.
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 1.4.0
+        <div>Experimental and unsupported.</div>
+      </div>
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "A list of filesystem locations under which the module loading system looks for modules, arranged in order of precedence.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "min-length" : 0,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "deprecated" : {
+        "since" : "1.4.0",
+        "reason" : "Experimental and unsupported."
+    },
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "access-type" : "read-only",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (2)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="list-resource-loader-paths" href="#list-resource-loader-paths" class="deprecated">
+      list-resource-loader-paths</a> - Provides a list of filesystem paths of the module, if there are any and the module loader exposes them.
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 1.4.0
+        <div>Experimental and unsupported.</div>
+      </div>
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>module</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The identifier of the module, in <name>[:<slot>] format. If the slot is not provided, a value of "main" is assumed.</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div>A list, each of whose elements is a filesystem location from which the module can load resources.</div>
+      <dl>
+        <dt>Type</dt>
+        <dd>LIST</dd>
+        <dt>Value Type</dt>
+        <dd>
+          <div class="code-block-container">
+            <pre><code class="language-json">
+STRING</code></pre>
+          </div>
+        </dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "list-resource-loader-paths",
+    "description" : "Provides a list of filesystem paths of the module, if there are any and the module loader exposes them.",
+    "request-properties" : {"module" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        },
+        "description" : "The identifier of the module, in <name>[:<slot>] format. If the slot is not provided, a value of \"main\" is assumed.",
+        "expressions-allowed" : false,
+        "required" : true,
+        "nillable" : false,
+        "min-length" : 1,
+        "max-length" : 2147483647,
+        "stability" : "default"
+    }},
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LIST"
+        },
+        "value-type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        },
+        "description" : "A list, each of whose elements is a filesystem location from which the module can load resources."
+    },
+    "deprecated" : {
+        "since" : "1.4.0",
+        "reason" : "Experimental and unsupported."
+    },
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="module-info" href="#module-info" class="">
+      module-info</a> - Displays information about modules in running system
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>name</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>Module name</td>
+        </tr>
+        <tr>
+          <td>slot</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td>main</td>
+          <td>Module slot</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div>A module information with its dependencies</div>
+      <dl>
+        <dt>Type</dt>
+        <dd>OBJECT</dd>
+        <dt>Value Type</dt>
+        <dd>
+          <div class="code-block-container">
+            <pre><code class="language-json">
+{
+    "name" => {
+        "type" => STRING,
+        "description" => "Module name",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "main-class" => {
+        "type" => STRING,
+        "description" => "Main class of the module",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "fallback-loader" => {
+        "type" => STRING,
+        "description" => "Main class of the module",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "dependencies" => {
+        "type" => LIST,
+        "description" => "List of module dependencies",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 0,
+        "max-length" => 2147483647,
+        "stability" => "default",
+        "value-type" => {
+            "dependency-name" => {
+                "type" => STRING,
+                "description" => "Name of the dependency",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "module-name" => {
+                "type" => STRING,
+                "description" => "Module name of dependency",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "export-filter" => {
+                "type" => STRING,
+                "description" => "Export filter",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "import-filter" => {
+                "type" => STRING,
+                "description" => "Import filter",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "optional" => {
+                "type" => BOOLEAN,
+                "description" => "Is dependency optional",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "stability" => "default"
+            },
+            "local-loader-class" => {
+                "type" => STRING,
+                "description" => "Class name of local loader",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "local-loader-paths" => {
+                "type" => LIST,
+                "description" => "List of local loader paths",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 0,
+                "max-length" => 2147483647,
+                "stability" => "default",
+                "value-type" => STRING
+            }
+        }
+    },
+    "resource-loaders" => {
+        "type" => LIST,
+        "description" => "Resource loaders",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 0,
+        "max-length" => 2147483647,
+        "stability" => "default",
+        "value-type" => {
+            "type" => {
+                "type" => STRING,
+                "description" => "Type of resource loader",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "paths" => {
+                "type" => LIST,
+                "description" => "Resource loader paths",
+                "expressions-allowed" => false,
+                "required" => true,
+                "nillable" => false,
+                "min-length" => 0,
+                "max-length" => 2147483647,
+                "stability" => "default",
+                "value-type" => STRING
+            }
+        }
+    }
+}</code></pre>
+          </div>
+        </dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "module-info",
+    "description" : "Displays information about modules in running system",
+    "request-properties" : {
+        "name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Module name",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "slot" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Module slot",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : "main",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "OBJECT"
+        },
+        "value-type" : {
+            "name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "Module name",
+                "expressions-allowed" : false,
+                "required" : true,
+                "nillable" : false,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "main-class" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "Main class of the module",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "fallback-loader" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "Main class of the module",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "dependencies" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LIST"
+                },
+                "description" : "List of module dependencies",
+                "expressions-allowed" : false,
+                "required" : true,
+                "nillable" : false,
+                "min-length" : 0,
+                "max-length" : 2147483647,
+                "stability" : "default",
+                "value-type" : {
+                    "dependency-name" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "Name of the dependency",
+                        "expressions-allowed" : false,
+                        "required" : true,
+                        "nillable" : false,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "module-name" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "Module name of dependency",
+                        "expressions-allowed" : false,
+                        "required" : true,
+                        "nillable" : false,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "export-filter" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "Export filter",
+                        "expressions-allowed" : false,
+                        "required" : true,
+                        "nillable" : false,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "import-filter" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "Import filter",
+                        "expressions-allowed" : false,
+                        "required" : true,
+                        "nillable" : false,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "optional" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "BOOLEAN"
+                        },
+                        "description" : "Is dependency optional",
+                        "expressions-allowed" : false,
+                        "required" : true,
+                        "nillable" : false,
+                        "stability" : "default"
+                    },
+                    "local-loader-class" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "Class name of local loader",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "local-loader-paths" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "LIST"
+                        },
+                        "description" : "List of local loader paths",
+                        "expressions-allowed" : false,
+                        "required" : true,
+                        "nillable" : false,
+                        "min-length" : 0,
+                        "max-length" : 2147483647,
+                        "stability" : "default",
+                        "value-type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        }
+                    }
+                }
+            },
+            "resource-loaders" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LIST"
+                },
+                "description" : "Resource loaders",
+                "expressions-allowed" : false,
+                "required" : true,
+                "nillable" : false,
+                "min-length" : 0,
+                "max-length" : 2147483647,
+                "stability" : "default",
+                "value-type" : {
+                    "type" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "Type of resource loader",
+                        "expressions-allowed" : false,
+                        "required" : true,
+                        "nillable" : false,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "paths" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "LIST"
+                        },
+                        "description" : "Resource loader paths",
+                        "expressions-allowed" : false,
+                        "required" : true,
+                        "nillable" : false,
+                        "min-length" : 0,
+                        "max-length" : 2147483647,
+                        "stability" : "default",
+                        "value-type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        }
+                    }
+                }
+            }
+        },
+        "description" : "A module information with its dependencies"
+    },
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+  <footer>
+    <p>&copy; The WildFly authors 2025</p>
+  </footer>
+</div>
+</body>
+</html>

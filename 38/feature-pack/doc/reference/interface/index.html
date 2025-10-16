@@ -1,0 +1,2905 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for interface</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../index.html">root</a>
+      </li>
+      <li>interface</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for interface</h1>
+    <p>Interface definition</p>
+
+  </header>
+<h2>Provided Capabilities (1)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/network/interface/capability.adoc">org.wildfly.network.interface</a></td>
+    <td>true</td>
+    <td>
+      <p>none</p>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (18)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="any" href="#any" class="">
+         any</a> - Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be that the IP address meets at least one of a nested set of criteria, but not necessarily all of the nested criteria. The value of the attribute is a set of criteria. An 'undefined' value means this attribute is not relevant to the IP address selection.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>OBJECT</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "OBJECT"
+    },
+    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be that the IP address meets at least one of a nested set of criteria, but not necessarily all of the nested criteria. The value of the attribute is a set of criteria. An 'undefined' value means this attribute is not relevant to the IP address selection.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["any-address"],
+    "stability" : "default",
+    "value-type" : {
+        "inet-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not the address matches the given value. Value is either an IP address in IPv6 or IPv4 dotted decimal notation, or a hostname that can be resolved to an IP address. An 'undefined' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "link-local-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not the address is link-local. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "loopback" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not it is a loopback address.  An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "loopback-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Attribute indicating that the IP address for this interface should be the given value, if a loopback interface exists on the machine. A 'loopback address' may not actually be configured on the machine's loopback interface. Differs from inet-address in that the given value will be used even if no NIC can be found that has the IP specified address associated with it. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "multicast" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not its network interface supports multicast.  An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "nic" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface has the given name. The name of a network interface (e.g. eth0, eth1, lo). An 'undefined' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "nic-match" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface has a name that matches the given regular expression. Value is a regular expression against which the names of the network interfaces available on the machine can be matched to find an acceptable interface. An 'undefined' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "point-to-point" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not its network interface is a point-to-point interface. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "public-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not it is a publicly routable address. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "site-local-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or it is a site-local address. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "subnet-match" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or it the address fits in the given subnet definition. Value is a network IP address and the number of bits in the address' network prefix, written in \"slash notation\"; e.g. \"192.168.0.0/16\". An 'undefined' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "up" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface is currently up. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "virtual" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface is a virtual interface. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        }
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="any-address" href="#any-address" class="">
+         any-address</a> - Attribute indicating that sockets using this interface should be bound to a wildcard address. The IPv6 wildcard address (::) will be used unless the java.net.preferIpV4Stack system property is set to true, in which case the IPv4 wildcard address (0.0.0.0) will be used. If a socket is bound to an IPv6 anylocal address on a dual-stack machine, it can accept both IPv6 and IPv4 traffic; if it is bound to an IPv4 (IPv4-mapped) anylocal address, it can only accept IPv4 traffic.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Attribute indicating that sockets using this interface should be bound to a wildcard address. The IPv6 wildcard address (::) will be used unless the java.net.preferIpV4Stack system property is set to true, in which case the IPv4 wildcard address (0.0.0.0) will be used. If a socket is bound to an IPv6 anylocal address on a dual-stack machine, it can accept both IPv6 and IPv4 traffic; if it is bound to an IPv4 (IPv4-mapped) anylocal address, it can only accept IPv4 traffic.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : [
+        "inet-address",
+        "link-local-address",
+        "loopback",
+        "loopback-address",
+        "multicast",
+        "nic",
+        "nic-match",
+        "point-to-point",
+        "public-address",
+        "site-local-address",
+        "subnet-match",
+        "up",
+        "virtual",
+        "any",
+        "not"
+    ],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="inet-address" href="#inet-address" class="">
+         inet-address</a> - Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not the address matches the given value. Value is either an IP address in IPv6 or IPv4 dotted decimal notation, or a hostname that can be resolved to an IP address. An 'undefined' value means this attribute is not relevant to the IP address selection.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not the address matches the given value. Value is either an IP address in IPv6 or IPv4 dotted decimal notation, or a hostname that can be resolved to an IP address. An 'undefined' value means this attribute is not relevant to the IP address selection.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["any-address"],
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="link-local-address" href="#link-local-address" class="">
+         link-local-address</a> - Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not the address is link-local. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not the address is link-local. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["any-address"],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="loopback" href="#loopback" class="">
+         loopback</a> - Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not it is a loopback address.  An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not it is a loopback address.  An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["any-address"],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="loopback-address" href="#loopback-address" class="">
+         loopback-address</a> - Attribute indicating that the IP address for this interface should be the given value, if a loopback interface exists on the machine. A 'loopback address' may not actually be configured on the machine's loopback interface. Differs from inet-address in that the given value will be used even if no NIC can be found that has the IP specified address associated with it. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Attribute indicating that the IP address for this interface should be the given value, if a loopback interface exists on the machine. A 'loopback address' may not actually be configured on the machine's loopback interface. Differs from inet-address in that the given value will be used even if no NIC can be found that has the IP specified address associated with it. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["any-address"],
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="multicast" href="#multicast" class="">
+         multicast</a> - Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not its network interface supports multicast.  An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not its network interface supports multicast.  An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["any-address"],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="name" href="#name" class="">
+         name</a> - The name of the interface.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The name of the interface.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="nic" href="#nic" class="">
+         nic</a> - Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface has the given name. The name of a network interface (e.g. eth0, eth1, lo). An 'undefined' value means this attribute is not relevant to the IP address selection.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface has the given name. The name of a network interface (e.g. eth0, eth1, lo). An 'undefined' value means this attribute is not relevant to the IP address selection.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["any-address"],
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="nic-match" href="#nic-match" class="">
+         nic-match</a> - Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface has a name that matches the given regular expression. Value is a regular expression against which the names of the network interfaces available on the machine can be matched to find an acceptable interface. An 'undefined' value means this attribute is not relevant to the IP address selection.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface has a name that matches the given regular expression. Value is a regular expression against which the names of the network interfaces available on the machine can be matched to find an acceptable interface. An 'undefined' value means this attribute is not relevant to the IP address selection.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["any-address"],
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="not" href="#not" class="">
+         not</a> - Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be that the IP address *does not* meet any of a nested set of criteria. The value of the attribute is a set of criteria (e.g. 'loopback') whose normal meaning is reversed. An 'undefined' value means this attribute is not relevant to the IP address selection.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>OBJECT</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "OBJECT"
+    },
+    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be that the IP address *does not* meet any of a nested set of criteria. The value of the attribute is a set of criteria (e.g. 'loopback') whose normal meaning is reversed. An 'undefined' value means this attribute is not relevant to the IP address selection.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["any-address"],
+    "stability" : "default",
+    "value-type" : {
+        "inet-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not the address matches the given value. Value is either an IP address in IPv6 or IPv4 dotted decimal notation, or a hostname that can be resolved to an IP address. An 'undefined' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "link-local-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not the address is link-local. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "loopback" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not it is a loopback address.  An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "loopback-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Attribute indicating that the IP address for this interface should be the given value, if a loopback interface exists on the machine. A 'loopback address' may not actually be configured on the machine's loopback interface. Differs from inet-address in that the given value will be used even if no NIC can be found that has the IP specified address associated with it. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "multicast" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not its network interface supports multicast.  An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "nic" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface has the given name. The name of a network interface (e.g. eth0, eth1, lo). An 'undefined' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "nic-match" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface has a name that matches the given regular expression. Value is a regular expression against which the names of the network interfaces available on the machine can be matched to find an acceptable interface. An 'undefined' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "point-to-point" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not its network interface is a point-to-point interface. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "public-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not it is a publicly routable address. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "site-local-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or it is a site-local address. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "subnet-match" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or it the address fits in the given subnet definition. Value is a network IP address and the number of bits in the address' network prefix, written in \"slash notation\"; e.g. \"192.168.0.0/16\". An 'undefined' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "up" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface is currently up. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "virtual" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface is a virtual interface. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        }
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="point-to-point" href="#point-to-point" class="">
+         point-to-point</a> - Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not its network interface is a point-to-point interface. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not its network interface is a point-to-point interface. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["any-address"],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="public-address" href="#public-address" class="">
+         public-address</a> - Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not it is a publicly routable address. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not it is a publicly routable address. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["any-address"],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="resolved-address" href="#resolved-address" class="">
+         resolved-address</a> - Attribute showing the resolved ip address for this interface.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Attribute showing the resolved ip address for this interface.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="site-local-address" href="#site-local-address" class="">
+         site-local-address</a> - Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or it is a site-local address. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or it is a site-local address. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["any-address"],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="subnet-match" href="#subnet-match" class="">
+         subnet-match</a> - Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or it the address fits in the given subnet definition. Value is a network IP address and the number of bits in the address' network prefix, written in "slash notation"; e.g. "192.168.0.0/16". An 'undefined' value means this attribute is not relevant to the IP address selection.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or it the address fits in the given subnet definition. Value is a network IP address and the number of bits in the address' network prefix, written in \"slash notation\"; e.g. \"192.168.0.0/16\". An 'undefined' value means this attribute is not relevant to the IP address selection.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["any-address"],
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="up" href="#up" class="">
+         up</a> - Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface is currently up. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface is currently up. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["any-address"],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="virtual" href="#virtual" class="">
+         virtual</a> - Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface is a virtual interface. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface is a virtual interface. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["any-address"],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (3)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Add a new interface specification.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>any</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be that the IP address meets at least one of a nested set of criteria, but not necessarily all of the nested criteria. The value of the attribute is a set of criteria. An 'undefined' value means this attribute is not relevant to the IP address selection.</td>
+        </tr>
+        <tr>
+          <td>any-address</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Attribute indicating that sockets using this interface should be bound to a wildcard address. The IPv6 wildcard address (::) will be used unless the java.net.preferIpV4Stack system property is set to true, in which case the IPv4 wildcard address (0.0.0.0) will be used. If a socket is bound to an IPv6 anylocal address on a dual-stack machine, it can accept both IPv6 and IPv4 traffic; if it is bound to an IPv4 (IPv4-mapped) anylocal address, it can only accept IPv4 traffic.</td>
+        </tr>
+        <tr>
+          <td>inet-address</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not the address matches the given value. Value is either an IP address in IPv6 or IPv4 dotted decimal notation, or a hostname that can be resolved to an IP address. An 'undefined' value means this attribute is not relevant to the IP address selection.</td>
+        </tr>
+        <tr>
+          <td>link-local-address</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not the address is link-local. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.</td>
+        </tr>
+        <tr>
+          <td>loopback</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not it is a loopback address.  An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.</td>
+        </tr>
+        <tr>
+          <td>loopback-address</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Attribute indicating that the IP address for this interface should be the given value, if a loopback interface exists on the machine. A 'loopback address' may not actually be configured on the machine's loopback interface. Differs from inet-address in that the given value will be used even if no NIC can be found that has the IP specified address associated with it. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.</td>
+        </tr>
+        <tr>
+          <td>multicast</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not its network interface supports multicast.  An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.</td>
+        </tr>
+        <tr>
+          <td>nic</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface has the given name. The name of a network interface (e.g. eth0, eth1, lo). An 'undefined' value means this attribute is not relevant to the IP address selection.</td>
+        </tr>
+        <tr>
+          <td>nic-match</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface has a name that matches the given regular expression. Value is a regular expression against which the names of the network interfaces available on the machine can be matched to find an acceptable interface. An 'undefined' value means this attribute is not relevant to the IP address selection.</td>
+        </tr>
+        <tr>
+          <td>not</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be that the IP address *does not* meet any of a nested set of criteria. The value of the attribute is a set of criteria (e.g. 'loopback') whose normal meaning is reversed. An 'undefined' value means this attribute is not relevant to the IP address selection.</td>
+        </tr>
+        <tr>
+          <td>point-to-point</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not its network interface is a point-to-point interface. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection</td>
+        </tr>
+        <tr>
+          <td>public-address</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not it is a publicly routable address. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection</td>
+        </tr>
+        <tr>
+          <td>site-local-address</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or it is a site-local address. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection</td>
+        </tr>
+        <tr>
+          <td>subnet-match</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or it the address fits in the given subnet definition. Value is a network IP address and the number of bits in the address' network prefix, written in "slash notation"; e.g. "192.168.0.0/16". An 'undefined' value means this attribute is not relevant to the IP address selection.</td>
+        </tr>
+        <tr>
+          <td>up</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface is currently up. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection</td>
+        </tr>
+        <tr>
+          <td>virtual</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface is a virtual interface. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Add a new interface specification.",
+    "request-properties" : {
+        "any" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be that the IP address meets at least one of a nested set of criteria, but not necessarily all of the nested criteria. The value of the attribute is a set of criteria. An 'undefined' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default",
+            "value-type" : {
+                "inet-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not the address matches the given value. Value is either an IP address in IPv6 or IPv4 dotted decimal notation, or a hostname that can be resolved to an IP address. An 'undefined' value means this attribute is not relevant to the IP address selection.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    }
+                },
+                "link-local-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not the address is link-local. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "loopback" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not it is a loopback address.  An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "loopback-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Attribute indicating that the IP address for this interface should be the given value, if a loopback interface exists on the machine. A 'loopback address' may not actually be configured on the machine's loopback interface. Differs from inet-address in that the given value will be used even if no NIC can be found that has the IP specified address associated with it. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "multicast" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not its network interface supports multicast.  An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "nic" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface has the given name. The name of a network interface (e.g. eth0, eth1, lo). An 'undefined' value means this attribute is not relevant to the IP address selection.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    }
+                },
+                "nic-match" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface has a name that matches the given regular expression. Value is a regular expression against which the names of the network interfaces available on the machine can be matched to find an acceptable interface. An 'undefined' value means this attribute is not relevant to the IP address selection.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    }
+                },
+                "point-to-point" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not its network interface is a point-to-point interface. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "public-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not it is a publicly routable address. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "site-local-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or it is a site-local address. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "subnet-match" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or it the address fits in the given subnet definition. Value is a network IP address and the number of bits in the address' network prefix, written in \"slash notation\"; e.g. \"192.168.0.0/16\". An 'undefined' value means this attribute is not relevant to the IP address selection.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    }
+                },
+                "up" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface is currently up. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "virtual" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface is a virtual interface. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                }
+            }
+        },
+        "any-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that sockets using this interface should be bound to a wildcard address. The IPv6 wildcard address (::) will be used unless the java.net.preferIpV4Stack system property is set to true, in which case the IPv4 wildcard address (0.0.0.0) will be used. If a socket is bound to an IPv6 anylocal address on a dual-stack machine, it can accept both IPv6 and IPv4 traffic; if it is bound to an IPv4 (IPv4-mapped) anylocal address, it can only accept IPv4 traffic.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : [
+                "inet-address",
+                "link-local-address",
+                "loopback",
+                "loopback-address",
+                "multicast",
+                "nic",
+                "nic-match",
+                "point-to-point",
+                "public-address",
+                "site-local-address",
+                "subnet-match",
+                "up",
+                "virtual",
+                "any",
+                "not"
+            ],
+            "stability" : "default"
+        },
+        "inet-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not the address matches the given value. Value is either an IP address in IPv6 or IPv4 dotted decimal notation, or a hostname that can be resolved to an IP address. An 'undefined' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "link-local-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not the address is link-local. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default"
+        },
+        "loopback" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not it is a loopback address.  An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default"
+        },
+        "loopback-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Attribute indicating that the IP address for this interface should be the given value, if a loopback interface exists on the machine. A 'loopback address' may not actually be configured on the machine's loopback interface. Differs from inet-address in that the given value will be used even if no NIC can be found that has the IP specified address associated with it. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "multicast" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not its network interface supports multicast.  An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default"
+        },
+        "nic" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface has the given name. The name of a network interface (e.g. eth0, eth1, lo). An 'undefined' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "nic-match" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface has a name that matches the given regular expression. Value is a regular expression against which the names of the network interfaces available on the machine can be matched to find an acceptable interface. An 'undefined' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "not" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be that the IP address *does not* meet any of a nested set of criteria. The value of the attribute is a set of criteria (e.g. 'loopback') whose normal meaning is reversed. An 'undefined' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default",
+            "value-type" : {
+                "inet-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not the address matches the given value. Value is either an IP address in IPv6 or IPv4 dotted decimal notation, or a hostname that can be resolved to an IP address. An 'undefined' value means this attribute is not relevant to the IP address selection.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    }
+                },
+                "link-local-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not the address is link-local. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "loopback" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not it is a loopback address.  An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "loopback-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Attribute indicating that the IP address for this interface should be the given value, if a loopback interface exists on the machine. A 'loopback address' may not actually be configured on the machine's loopback interface. Differs from inet-address in that the given value will be used even if no NIC can be found that has the IP specified address associated with it. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "multicast" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not its network interface supports multicast.  An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "nic" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface has the given name. The name of a network interface (e.g. eth0, eth1, lo). An 'undefined' value means this attribute is not relevant to the IP address selection.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    }
+                },
+                "nic-match" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface has a name that matches the given regular expression. Value is a regular expression against which the names of the network interfaces available on the machine can be matched to find an acceptable interface. An 'undefined' value means this attribute is not relevant to the IP address selection.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    }
+                },
+                "point-to-point" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not its network interface is a point-to-point interface. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "public-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not it is a publicly routable address. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "site-local-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or it is a site-local address. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "subnet-match" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or it the address fits in the given subnet definition. Value is a network IP address and the number of bits in the address' network prefix, written in \"slash notation\"; e.g. \"192.168.0.0/16\". An 'undefined' value means this attribute is not relevant to the IP address selection.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    }
+                },
+                "up" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface is currently up. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "virtual" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface is a virtual interface. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                }
+            }
+        },
+        "point-to-point" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not its network interface is a point-to-point interface. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default"
+        },
+        "public-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or not it is a publicly routable address. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default"
+        },
+        "site-local-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or it is a site-local address. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default"
+        },
+        "subnet-match" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether or it the address fits in the given subnet definition. Value is a network IP address and the number of bits in the address' network prefix, written in \"slash notation\"; e.g. \"192.168.0.0/16\". An 'undefined' value means this attribute is not relevant to the IP address selection.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "up" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface is currently up. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default"
+        },
+        "virtual" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Attribute indicating that part of the selection criteria for choosing an IP address for this interface should be whether its network interface is a virtual interface. An 'undefined' or 'false' value means this attribute is not relevant to the IP address selection",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Remove an interface specification.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Remove an interface specification.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "all-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="resolve-internet-address" href="#resolve-internet-address" class="">
+      resolve-internet-address</a> - Takes a set of interface resolution criteria and finds an IP address on the local machine that matches the criteria, or fails if no matching IP address can be found.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>any-address</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Any address</td>
+        </tr>
+        <tr>
+          <td>inet-address</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Inet address</td>
+        </tr>
+        <tr>
+          <td>link-local-address</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Link local address</td>
+        </tr>
+        <tr>
+          <td>loopback</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Loopback</td>
+        </tr>
+        <tr>
+          <td>loopback-address</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Loopback address</td>
+        </tr>
+        <tr>
+          <td>multicast</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Multicast</td>
+        </tr>
+        <tr>
+          <td>nic</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>NIC</td>
+        </tr>
+        <tr>
+          <td>nic-match</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>NIC match</td>
+        </tr>
+        <tr>
+          <td>point-to-point</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Point to point</td>
+        </tr>
+        <tr>
+          <td>public-address</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Public address</td>
+        </tr>
+        <tr>
+          <td>site-local-address</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Site local address</td>
+        </tr>
+        <tr>
+          <td>subnet-match</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Subnet match</td>
+        </tr>
+        <tr>
+          <td>up</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Up</td>
+        </tr>
+        <tr>
+          <td>virtual</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Virtual</td>
+        </tr>
+        <tr>
+          <td>any</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>any</td>
+        </tr>
+        <tr>
+          <td>not</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Not</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>STRING</dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "resolve-internet-address",
+    "description" : "Takes a set of interface resolution criteria and finds an IP address on the local machine that matches the criteria, or fails if no matching IP address can be found.",
+    "request-properties" : {
+        "any-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Any address",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : [
+                "inet-address",
+                "link-local-address",
+                "loopback",
+                "loopback-address",
+                "multicast",
+                "nic",
+                "nic-match",
+                "point-to-point",
+                "public-address",
+                "site-local-address",
+                "subnet-match",
+                "up",
+                "virtual",
+                "any",
+                "not"
+            ],
+            "stability" : "default"
+        },
+        "inet-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Inet address",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "link-local-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Link local address",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default"
+        },
+        "loopback" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Loopback",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default"
+        },
+        "loopback-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Loopback address",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "multicast" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Multicast",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default"
+        },
+        "nic" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "NIC",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "nic-match" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "NIC match",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "point-to-point" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Point to point",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default"
+        },
+        "public-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Public address",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default"
+        },
+        "site-local-address" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Site local address",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default"
+        },
+        "subnet-match" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Subnet match",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "up" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Up",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default"
+        },
+        "virtual" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Virtual",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default"
+        },
+        "any" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "any",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default",
+            "value-type" : {
+                "inet-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "Inet address",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    }
+                },
+                "link-local-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Link local address",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "loopback" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Loopback",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "loopback-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Loopback address",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "multicast" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Multicast",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "nic" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "NIC",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    }
+                },
+                "nic-match" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "NIC match",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    }
+                },
+                "point-to-point" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Point to point",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "public-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Public address",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "site-local-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Site local address",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "subnet-match" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "Subnet match",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    }
+                },
+                "up" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Up",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "virtual" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Virtual",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                }
+            }
+        },
+        "not" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "Not",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["any-address"],
+            "stability" : "default",
+            "value-type" : {
+                "inet-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "Inet address",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    }
+                },
+                "link-local-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Link local address",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "loopback" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Loopback",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "loopback-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Loopback address",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "multicast" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Multicast",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "nic" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "NIC",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    }
+                },
+                "nic-match" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "NIC match",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    }
+                },
+                "point-to-point" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Point to point",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "public-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Public address",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "site-local-address" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Site local address",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "subnet-match" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "Subnet match",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    }
+                },
+                "up" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Up",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                },
+                "virtual" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Virtual",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default"
+                }
+            }
+        }
+    },
+    "reply-properties" : {"type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    }},
+    "access-constraints" : {"sensitive" : {"socket-config" : {"type" : "core"}}},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">interface</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="interface"&gt;
+  &lt;param name="interface" value="{resource name}"/&gt;
+  &lt;param name="any" value="{value}"/&gt;
+  &lt;param name="any-address" value="{value}"/&gt;
+  &lt;param name="inet-address" value="{value}"/&gt;
+  &lt;param name="link-local-address" value="{value}"/&gt;
+  &lt;param name="loopback" value="{value}"/&gt;
+  &lt;param name="loopback-address" value="{value}"/&gt;
+  &lt;param name="multicast" value="{value}"/&gt;
+  &lt;param name="nic" value="{value}"/&gt;
+  &lt;param name="nic-match" value="{value}"/&gt;
+  &lt;param name="not" value="{value}"/&gt;
+  &lt;param name="point-to-point" value="{value}"/&gt;
+  &lt;param name="public-address" value="{value}"/&gt;
+  &lt;param name="site-local-address" value="{value}"/&gt;
+  &lt;param name="subnet-match" value="{value}"/&gt;
+  &lt;param name="up" value="{value}"/&gt;
+  &lt;param name="virtual" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+  <footer>
+    <p>&copy; The WildFly authors 2025</p>
+  </footer>
+</div>
+</body>
+</html>

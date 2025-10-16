@@ -1,0 +1,2437 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for ldap-realm</title>
+  <link rel="stylesheet" href="../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../subsystem/elytron/index.html">subsystem=elytron</a>
+      </li>
+      <li>ldap-realm</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for ldap-realm</h1>
+    <p>A security realm definition backed by LDAP.</p>
+
+  </header>
+<h2>Provided Capabilities (2)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/security/security-realm/capability.adoc">org.wildfly.security.security-realm</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../subsystem/elytron/jaas-realm/index.html">/subsystem=elytron/jaas-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/jdbc-realm/index.html">/subsystem=elytron/jdbc-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/filesystem-realm/index.html">/subsystem=elytron/filesystem-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/token-realm/index.html">/subsystem=elytron/token-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/distributed-realm/index.html">/subsystem=elytron/distributed-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/key-store-realm/index.html">/subsystem=elytron/key-store-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/failover-realm/index.html">/subsystem=elytron/failover-realm=*</a> <br/>
+      <a href="../../../subsystem/security/elytron-realm/index.html">/subsystem=security/elytron-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/custom-modifiable-realm/index.html">/subsystem=elytron/custom-modifiable-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/identity-realm/index.html">/subsystem=elytron/identity-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/aggregate-realm/index.html">/subsystem=elytron/aggregate-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/properties-realm/index.html">/subsystem=elytron/properties-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/caching-realm/index.html">/subsystem=elytron/caching-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/custom-realm/index.html">/subsystem=elytron/custom-realm=*</a> <br/>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/security/modifiable-security-realm/capability.adoc">org.wildfly.security.modifiable-security-realm</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../subsystem/elytron/filesystem-realm/index.html">/subsystem=elytron/filesystem-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/custom-modifiable-realm/index.html">/subsystem=elytron/custom-modifiable-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/token-realm/index.html">/subsystem=elytron/token-realm=*</a> <br/>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (6)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="allow-blank-password" href="#allow-blank-password" class="">
+         allow-blank-password</a> - Does this realm support blank password direct verification? Blank password attempt will be rejected otherwise.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Does this realm support blank password direct verification? Blank password attempt will be rejected otherwise.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "requires" : ["direct-verification"],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="dir-context" href="#dir-context" class="">
+         dir-context</a> - The configuration to connect to a LDAP server.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The configuration to connect to a LDAP server.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "capability-reference" : "org.wildfly.security.dir-context",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="direct-verification" href="#direct-verification" class="">
+         direct-verification</a> - Does this realm support verification of credentials by directly connecting to LDAP as the account being authenticated?
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Does this realm support verification of credentials by directly connecting to LDAP as the account being authenticated?",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="hash-charset" href="#hash-charset" class="">
+         hash-charset</a> - The character set to use when converting the password string to a byte array.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>UTF-8</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The character set to use when converting the password string to a byte array.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "UTF-8",
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="hash-encoding" href="#hash-encoding" class="">
+         hash-encoding</a> - The string format for the password if it is not stored in plain text.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>base64</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            base64<br />
+            hex<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The string format for the password if it is not stored in plain text.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "base64",
+    "allowed" : [
+        "base64",
+        "hex"
+    ],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="identity-mapping" href="#identity-mapping" class="">
+         identity-mapping</a> - The configuration options that define how principals are mapped to their corresponding entries in the underlying LDAP server.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>OBJECT</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "OBJECT"
+    },
+    "description" : "The configuration options that define how principals are mapped to their corresponding entries in the underlying LDAP server.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "stability" : "default",
+    "value-type" : {
+        "rdn-identifier" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The RDN part of the principal's DN to be used to obtain the principal's name from an LDAP entry. Used also when creating new identities.",
+            "expressions-allowed" : true,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "use-recursive-search" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Indicates if identity search queries are recursive.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "requires" : ["search-base-dn"],
+            "stability" : "default"
+        },
+        "search-base-dn" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The base DN to search for identities.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "requires" : ["rdn-identifier"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "attribute-mapping" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "The attribute mappings defined for this resource.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "from" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The name of the LDAP attribute to map to an identity attribute. If not defined, DN of entry is used.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "to" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The name of the identity attribute mapped from a specific LDAP attribute. If not provided, the name of the attribute is the same as define in 'from'. If the 'from' is not defined too, value 'dn' is used.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "reference" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The name of LDAP attribute containing DN of entry to obtain value from.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "alternatives" : ["filter"],
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "filter" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The filter to use to obtain the values for a specific attribute. String '{0}' will be replaced by username, '{1}' by user identity DN.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "alternatives" : ["reference"],
+                    "requires" : ["to"],
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "filter-base-dn" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The name of the context where the filter should be performed.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "requires" : ["filter"],
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "search-recursive" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Indicates if attribute LDAP search queries are recursive.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : true,
+                    "requires" : ["filter"],
+                    "stability" : "default"
+                },
+                "role-recursion" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "INT"
+                    },
+                    "description" : "Sets recursive roles assignment - value determine maximum depth of recursion. (0 for no recursion)",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : 0,
+                    "stability" : "default"
+                },
+                "role-recursion-name" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Determine LDAP attribute of role entry which will be substitute for '{0}' in filter-name when searching roles of role.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "cn",
+                    "requires" : ["role-recursion"],
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "extract-rdn" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The RDN key to use as the value for an attribute, in case the value in its raw form is in X.500 format.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                }
+            }
+        },
+        "filter-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The LDAP filter for getting identity by name. If this is not specified then the default value will be (rdn_identifier={0}). The string '{0}' will be replaced by searched identity name and the 'rdn_identifier' will be the value of the attribute 'rdn-identifier'.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "iterator-filter" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The LDAP filter for iterating over identities of the realm.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "new-identity-parent-dn" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The DN of parent of newly created identities. Required for modifiability of the realm.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "new-identity-attributes" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "The attributes of newly created identities. Required for modifiability of the realm.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "name" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The attribute name.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "value" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "The attribute value.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    }
+                }
+            }
+        },
+        "user-password-mapper" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "The credential mapping for userPassword-like credential attribute.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "from" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The name of the LDAP attribute to map to an identity attribute. If not defined, DN of entry is used.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "writable" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Indicates if password can be changed.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : false,
+                    "stability" : "default"
+                },
+                "verifiable" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Indicates if password can be used to verify user.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : true,
+                    "stability" : "default"
+                }
+            }
+        },
+        "otp-credential-mapper" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "The credential mapping for OTP credential.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "algorithm-from" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The name of the LDAP attribute to map to an OTP credential algorithm.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "hash-from" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The name of the LDAP attribute to map to a Base64 encoded OTP credential hash.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "seed-from" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The name of the LDAP attribute to map to an OTP credential seed.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "sequence-from" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The name of the LDAP attribute to map to an OTP credential sequence number.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                }
+            }
+        },
+        "x509-credential-mapper" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "The configuration allowing to use LDAP as storage of X509 credentials. X509 credential is user certificate or information allowing to identify it. At least one *-from attribute should be specified. This definition will be ignored otherwise. If more *-from attributes is defined, user certificate must match all defined criteria.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "digest-from" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The name of the LDAP attribute to map to a user certificate digest. If not defined, certificate digest will not be checked.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "digest-algorithm" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The digest algorithm (hash function) used to compute digest of the user certificate. Will be used only if digest-from have been defined.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "SHA-1",
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "certificate-from" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The name of the LDAP attribute to map to an encoded user certificate. If not defined, encoded certificate will not be checked.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "serial-number-from" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The name of the LDAP attribute to map to a serial number of user certificate. If not defined, serial number will not be checked.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "subject-dn-from" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The name of the LDAP attribute to map to a subject DN of user certificate. If not defined, subject DN will not be checked.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                }
+            }
+        }
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (8)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - The add operation for the security realm.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>allow-blank-password</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>Does this realm support blank password direct verification? Blank password attempt will be rejected otherwise.</td>
+        </tr>
+        <tr>
+          <td>dir-context</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The configuration to connect to a LDAP server.</td>
+        </tr>
+        <tr>
+          <td>direct-verification</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>Does this realm support verification of credentials by directly connecting to LDAP as the account being authenticated?</td>
+        </tr>
+        <tr>
+          <td>hash-charset</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>UTF-8</td>
+          <td>The character set to use when converting the password string to a byte array.</td>
+        </tr>
+        <tr>
+          <td>hash-encoding</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>base64</td>
+          <td>The string format for the password if it is not stored in plain text.</td>
+        </tr>
+        <tr>
+          <td>identity-mapping</td>
+          <td>OBJECT</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The configuration options that define how principals are mapped to their corresponding entries in the underlying LDAP server.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "The add operation for the security realm.",
+    "request-properties" : {
+        "allow-blank-password" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Does this realm support blank password direct verification? Blank password attempt will be rejected otherwise.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "requires" : ["direct-verification"],
+            "stability" : "default"
+        },
+        "dir-context" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The configuration to connect to a LDAP server.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "capability-reference" : "org.wildfly.security.dir-context",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "direct-verification" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Does this realm support verification of credentials by directly connecting to LDAP as the account being authenticated?",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "hash-charset" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The character set to use when converting the password string to a byte array.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "UTF-8",
+            "stability" : "default"
+        },
+        "hash-encoding" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The string format for the password if it is not stored in plain text.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "base64",
+            "allowed" : [
+                "base64",
+                "hex"
+            ],
+            "stability" : "default"
+        },
+        "identity-mapping" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "The configuration options that define how principals are mapped to their corresponding entries in the underlying LDAP server.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "stability" : "default",
+            "value-type" : {
+                "rdn-identifier" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The RDN part of the principal's DN to be used to obtain the principal's name from an LDAP entry. Used also when creating new identities.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "use-recursive-search" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Indicates if identity search queries are recursive.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : false,
+                    "requires" : ["search-base-dn"],
+                    "stability" : "default"
+                },
+                "search-base-dn" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The base DN to search for identities.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "requires" : ["rdn-identifier"],
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "attribute-mapping" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "The attribute mappings defined for this resource.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "from" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The name of the LDAP attribute to map to an identity attribute. If not defined, DN of entry is used.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "to" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The name of the identity attribute mapped from a specific LDAP attribute. If not provided, the name of the attribute is the same as define in 'from'. If the 'from' is not defined too, value 'dn' is used.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "reference" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The name of LDAP attribute containing DN of entry to obtain value from.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "alternatives" : ["filter"],
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "filter" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The filter to use to obtain the values for a specific attribute. String '{0}' will be replaced by username, '{1}' by user identity DN.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "alternatives" : ["reference"],
+                            "requires" : ["to"],
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "filter-base-dn" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The name of the context where the filter should be performed.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "requires" : ["filter"],
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "search-recursive" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "Indicates if attribute LDAP search queries are recursive.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "requires" : ["filter"],
+                            "stability" : "default"
+                        },
+                        "role-recursion" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "INT"
+                            },
+                            "description" : "Sets recursive roles assignment - value determine maximum depth of recursion. (0 for no recursion)",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : 0,
+                            "stability" : "default"
+                        },
+                        "role-recursion-name" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "Determine LDAP attribute of role entry which will be substitute for '{0}' in filter-name when searching roles of role.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : "cn",
+                            "requires" : ["role-recursion"],
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "extract-rdn" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The RDN key to use as the value for an attribute, in case the value in its raw form is in X.500 format.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        }
+                    }
+                },
+                "filter-name" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The LDAP filter for getting identity by name. If this is not specified then the default value will be (rdn_identifier={0}). The string '{0}' will be replaced by searched identity name and the 'rdn_identifier' will be the value of the attribute 'rdn-identifier'.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "iterator-filter" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The LDAP filter for iterating over identities of the realm.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "new-identity-parent-dn" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The DN of parent of newly created identities. Required for modifiability of the realm.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "new-identity-attributes" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "The attributes of newly created identities. Required for modifiability of the realm.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "name" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The attribute name.",
+                            "expressions-allowed" : true,
+                            "required" : true,
+                            "nillable" : false,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "value" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "LIST"
+                            },
+                            "description" : "The attribute value.",
+                            "expressions-allowed" : true,
+                            "required" : true,
+                            "nillable" : false,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default",
+                            "value-type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            }
+                        }
+                    }
+                },
+                "user-password-mapper" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "The credential mapping for userPassword-like credential attribute.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "from" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The name of the LDAP attribute to map to an identity attribute. If not defined, DN of entry is used.",
+                            "expressions-allowed" : true,
+                            "required" : true,
+                            "nillable" : false,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "writable" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "Indicates if password can be changed.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : false,
+                            "stability" : "default"
+                        },
+                        "verifiable" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "BOOLEAN"
+                            },
+                            "description" : "Indicates if password can be used to verify user.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : true,
+                            "stability" : "default"
+                        }
+                    }
+                },
+                "otp-credential-mapper" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "The credential mapping for OTP credential.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "algorithm-from" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The name of the LDAP attribute to map to an OTP credential algorithm.",
+                            "expressions-allowed" : true,
+                            "required" : true,
+                            "nillable" : false,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "hash-from" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The name of the LDAP attribute to map to a Base64 encoded OTP credential hash.",
+                            "expressions-allowed" : true,
+                            "required" : true,
+                            "nillable" : false,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "seed-from" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The name of the LDAP attribute to map to an OTP credential seed.",
+                            "expressions-allowed" : true,
+                            "required" : true,
+                            "nillable" : false,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "sequence-from" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The name of the LDAP attribute to map to an OTP credential sequence number.",
+                            "expressions-allowed" : true,
+                            "required" : true,
+                            "nillable" : false,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        }
+                    }
+                },
+                "x509-credential-mapper" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "The configuration allowing to use LDAP as storage of X509 credentials. X509 credential is user certificate or information allowing to identify it. At least one *-from attribute should be specified. This definition will be ignored otherwise. If more *-from attributes is defined, user certificate must match all defined criteria.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "digest-from" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The name of the LDAP attribute to map to a user certificate digest. If not defined, certificate digest will not be checked.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "digest-algorithm" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The digest algorithm (hash function) used to compute digest of the user certificate. Will be used only if digest-from have been defined.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : "SHA-1",
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "certificate-from" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The name of the LDAP attribute to map to an encoded user certificate. If not defined, encoded certificate will not be checked.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "serial-number-from" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The name of the LDAP attribute to map to a serial number of user certificate. If not defined, serial number will not be checked.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "subject-dn-from" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The name of the LDAP attribute to map to a subject DN of user certificate. If not defined, subject DN will not be checked.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="add-identity" href="#add-identity" class="">
+      add-identity</a> - Add an identity to a security realm.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>identity</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The name of the identity.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add-identity",
+    "description" : "Add an identity to a security realm.",
+    "request-properties" : {"identity" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        },
+        "description" : "The name of the identity.",
+        "expressions-allowed" : false,
+        "required" : true,
+        "nillable" : false,
+        "min-length" : 1,
+        "max-length" : 2147483647,
+        "stability" : "default"
+    }},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="add-identity-attribute" href="#add-identity-attribute" class="">
+      add-identity-attribute</a> - Add an attribute to an existing identity.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>identity</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The name of the identity.</td>
+        </tr>
+        <tr>
+          <td>name</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The name of the attribute.</td>
+        </tr>
+        <tr>
+          <td>value</td>
+          <td>LIST</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The value of the attribute.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add-identity-attribute",
+    "description" : "Add an attribute to an existing identity.",
+    "request-properties" : {
+        "identity" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the identity.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the attribute.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "value" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "The value of the attribute.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="read-identity" href="#read-identity" class="">
+      read-identity</a> - Read an identity from a security realm if it exists.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>identity</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The name of the identity.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "read-identity",
+    "description" : "Read an identity from a security realm if it exists.",
+    "request-properties" : {"identity" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        },
+        "description" : "The name of the identity.",
+        "expressions-allowed" : false,
+        "required" : true,
+        "nillable" : false,
+        "min-length" : 1,
+        "max-length" : 2147483647,
+        "stability" : "default"
+    }},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - The remove operation for the security realm.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "The remove operation for the security realm.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove-identity" href="#remove-identity" class="">
+      remove-identity</a> - Remove an identity from a security realm.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>identity</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The name of the identity.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove-identity",
+    "description" : "Remove an identity from a security realm.",
+    "request-properties" : {"identity" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        },
+        "description" : "The name of the identity.",
+        "expressions-allowed" : false,
+        "required" : true,
+        "nillable" : false,
+        "min-length" : 1,
+        "max-length" : 2147483647,
+        "stability" : "default"
+    }},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove-identity-attribute" href="#remove-identity-attribute" class="">
+      remove-identity-attribute</a> - Remove an attribute to an existing identity.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>identity</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The name of the identity.</td>
+        </tr>
+        <tr>
+          <td>name</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The name of the attribute.</td>
+        </tr>
+        <tr>
+          <td>value</td>
+          <td>LIST</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The value of the attribute.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove-identity-attribute",
+    "description" : "Remove an attribute to an existing identity.",
+    "request-properties" : {
+        "identity" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the identity.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the attribute.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "value" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "The value of the attribute.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="set-password" href="#set-password" class="">
+      set-password</a> - Add a password to an existing identity.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>identity</td>
+          <td>STRING</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The name of the identity.</td>
+        </tr>
+        <tr>
+          <td>bcrypt</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>A password using the Bcrypt algorithm.</td>
+        </tr>
+        <tr>
+          <td>clear</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>A password in clear text.</td>
+        </tr>
+        <tr>
+          <td>simple-digest</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>A simple digest password.</td>
+        </tr>
+        <tr>
+          <td>salted-simple-digest</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>A salted simple digest password.</td>
+        </tr>
+        <tr>
+          <td>scram-digest</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>A password using the SCRAM digest algorithm.</td>
+        </tr>
+        <tr>
+          <td>digest</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>A digest password.</td>
+        </tr>
+        <tr>
+          <td>otp</td>
+          <td>OBJECT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>A one-time password, used by the OTP SASL mechanism.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "set-password",
+    "description" : "Add a password to an existing identity.",
+    "request-properties" : {
+        "identity" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the identity.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "bcrypt" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "A password using the Bcrypt algorithm.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "algorithm" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The algorithm used to encrypt the password.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "bcrypt",
+                    "allowed" : ["bcrypt"],
+                    "stability" : "default"
+                },
+                "password" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The actual password to set.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "salt" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BYTES"
+                    },
+                    "description" : "The salt to apply to the password.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "iteration-count" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "INT"
+                    },
+                    "description" : "The iteration count or cost to apply to the password.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "stability" : "default"
+                }
+            }
+        },
+        "clear" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "A password in clear text.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {"password" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The actual password to set.",
+                "expressions-allowed" : false,
+                "required" : true,
+                "nillable" : false,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            }}
+        },
+        "simple-digest" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "A simple digest password.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "algorithm" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The algorithm used to encrypt the password.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "simple-digest-sha-512",
+                    "allowed" : [
+                        "simple-digest-md2",
+                        "simple-digest-md5",
+                        "simple-digest-sha-1",
+                        "simple-digest-sha-256",
+                        "simple-digest-sha-384",
+                        "simple-digest-sha-512"
+                    ],
+                    "stability" : "default"
+                },
+                "password" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The actual password to set.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                }
+            }
+        },
+        "salted-simple-digest" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "A salted simple digest password.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "algorithm" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The algorithm used to encrypt the password.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "password-salt-digest-sha-512",
+                    "allowed" : [
+                        "password-salt-digest-md5",
+                        "password-salt-digest-sha-1",
+                        "password-salt-digest-sha-256",
+                        "password-salt-digest-sha-384",
+                        "password-salt-digest-sha-512",
+                        "salt-password-digest-md5",
+                        "salt-password-digest-sha-1",
+                        "salt-password-digest-sha-256",
+                        "salt-password-digest-sha-384",
+                        "salt-password-digest-sha-512"
+                    ],
+                    "stability" : "default"
+                },
+                "password" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The actual password to set.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "salt" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BYTES"
+                    },
+                    "description" : "The salt to apply to the password.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                }
+            }
+        },
+        "scram-digest" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "A password using the SCRAM digest algorithm.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "algorithm" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The algorithm used to encrypt the password.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "scram-sha-512",
+                    "allowed" : [
+                        "scram-sha-1",
+                        "scram-sha-256",
+                        "scram-sha-384",
+                        "scram-sha-512"
+                    ],
+                    "stability" : "default"
+                },
+                "password" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The actual password to set.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "salt" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BYTES"
+                    },
+                    "description" : "The salt to apply to the password.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "iteration-count" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "INT"
+                    },
+                    "description" : "The iteration count or cost to apply to the password.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "stability" : "default"
+                }
+            }
+        },
+        "digest" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "A digest password.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "algorithm" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The algorithm used to encrypt the password.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "digest-sha-512",
+                    "allowed" : [
+                        "digest-md5",
+                        "digest-sha",
+                        "digest-sha-256",
+                        "digest-sha-384",
+                        "digest-sha-512"
+                    ],
+                    "stability" : "default"
+                },
+                "password" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The actual password to set.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "realm" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The realm.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                }
+            }
+        },
+        "otp" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "A one-time password, used by the OTP SASL mechanism.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "algorithm" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The algorithm used to encrypt the password.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "otp-sha1",
+                    "allowed" : [
+                        "otp-md5",
+                        "otp-sha1",
+                        "otp-sha256",
+                        "otp-sha384",
+                        "otp-sha512"
+                    ],
+                    "stability" : "default"
+                },
+                "password" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The actual password to set.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "seed" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The seed used to generate the hash.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "sequence" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "INT"
+                    },
+                    "description" : "The sequence number used to generate the hash.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "stability" : "default"
+                }
+            }
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.elytron.ldap-realm</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.elytron.ldap-realm"&gt;
+  &lt;param name="ldap-realm" value="{resource name}"/&gt;
+  &lt;param name="allow-blank-password" value="{value}"/&gt;
+  &lt;param name="dir-context" value="{value}"/&gt;
+  &lt;param name="direct-verification" value="{value}"/&gt;
+  &lt;param name="hash-charset" value="{value}"/&gt;
+  &lt;param name="hash-encoding" value="{value}"/&gt;
+  &lt;param name="identity-mapping" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+  <footer>
+    <p>&copy; The WildFly authors 2025</p>
+  </footer>
+</div>
+</body>
+</html>
