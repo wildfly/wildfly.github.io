@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.23">
+<meta name="generator" content="Asciidoctor 2.0.24">
 <title>WildFly Documentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -477,6 +477,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
+<link rel="stylesheet" href="search/search.css">
 <div class="paragraph">
 <p>This documentation is organized into four main sections:</p>
 </div>
@@ -713,13 +714,36 @@ Its features include:</p>
 <div class="paragraph">
 <p>Learn more about <a href="prospero">Prospero</a>.</p>
 </div>
+<!-- Search Dialog -->
+<div id="searchDialog" class="search-dialog">
+    <div class="dialog-content">
+        <div class="dialog-header">
+            <div class="dialog-header-top">
+                <h3 class="dialog-title">Search Documentation</h3>
+                <button class="close-button" id="closeDialog">&times;</button>
+            </div>
+            <div class="dialog-search-container">
+                <input type="text" id="dialogSearchInput" class="dialog-search-input" placeholder="Search docs..." autocomplete="off">
+                <button type="button" id="dialogSearchButton" class="dialog-search-button">Search</button>
+            </div>
+        </div>
+        <div class="dialog-body">
+            <div id="searchResults">
+                <div class="loading">Enter a search term to begin...</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FlexSearch/0.8.2/flexsearch.bundle.min.js"></script>
+<script src="search/search.js"></script>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-01-16 07:17:42 -0600
+Last updated 2025-10-15 19:51:46 -0500
 </div>
 </div>
 </body>

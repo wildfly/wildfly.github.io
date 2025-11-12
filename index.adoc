@@ -2,6 +2,10 @@
 :toc: left
 :wildfly-latest-major: 39
 
+++++
+<link rel="stylesheet" href="search/search.css">
+++++
+
 This documentation is organized into four main sections:
 
 * _Getting Started with WildFly_ provides core application server information, releases, and APIs.
@@ -85,11 +89,11 @@ Learn more about link:bootablejar[Bootable Jar].
 [[wildfly-on-kubernetes]]
 == Build & Deploy WildFly on the Cloud
 
-There are different tools to build and deploy WildFly on the Cloud, 
+There are different tools to build and deploy WildFly on the Cloud,
 
 === WildFly Container
 
-Our original container image that provides a standalone WildFly server. 
+Our original container image that provides a standalone WildFly server.
 Use this image to add your deployments and build your application image.
 
 Learn more about link:wildfly-container[WildFly Container].
@@ -107,13 +111,12 @@ for Kubernetes and OpenShift.
 
 Learn more about the link:wildfly-operator[WildFly Operator].
 
-===  Source-to-Image (S2I) Builder & Runtime Images
+=== Source-to-Image (S2I) Builder & Runtime Images
 
 Use the Source-to-Image (S2I) Builder image to build a container image on OpenShift directly from your Git repository.
 Use the Runtime image to trim the container so it contains the minimal dependencies required to run WildFly.
 
 Learn more about the link:wildfly-s2i[S2I Builder & Runtime Images].
-
 
 == Provision WildFly & Build Feature Packs
 
@@ -134,3 +137,29 @@ Its features include:
 * Track updates history
 
 Learn more about link:prospero[Prospero].
+
+++++
+<!-- Search Dialog -->
+<div id="searchDialog" class="search-dialog">
+    <div class="dialog-content">
+        <div class="dialog-header">
+            <div class="dialog-header-top">
+                <h3 class="dialog-title">Search Documentation</h3>
+                <button class="close-button" id="closeDialog">&times;</button>
+            </div>
+            <div class="dialog-search-container">
+                <input type="text" id="dialogSearchInput" class="dialog-search-input" placeholder="Search docs..." autocomplete="off">
+                <button type="button" id="dialogSearchButton" class="dialog-search-button">Search</button>
+            </div>
+        </div>
+        <div class="dialog-body">
+            <div id="searchResults">
+                <div class="loading">Enter a search term to begin...</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FlexSearch/0.8.2/flexsearch.bundle.min.js"></script>
+<script src="search/search.js"></script>
+++++
