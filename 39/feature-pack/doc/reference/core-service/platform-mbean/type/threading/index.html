@@ -1,0 +1,4169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for type=threading</title>
+  <link rel="stylesheet" href="../../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../../core-service/platform-mbean/index.html">core-service=platform-mbean</a>
+      </li>
+      <li>type=threading</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for type=threading</h1>
+    <p>The management interface for the thread system of the Java virtual machine.</p>
+
+  </header>
+<h2>Attributes (18)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="all-thread-ids" href="#all-thread-ids" class="">
+         all-thread-ids</a> - All live thread IDs. If a security manager is installed and the caller does not have ManagementPermission("monitor"), then a "read-attribute" operation reading this attribute will fail, and the value for this attribute in the result for the "read-resource" operation will be "undefined".
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "All live thread IDs. If a security manager is installed and the caller does not have ManagementPermission(\"monitor\"), then a \"read-attribute\" operation reading this attribute will fail, and the value for this attribute in the result for the \"read-resource\" operation will be \"undefined\".",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "min-length" : 0,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "access-type" : "read-only",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="current-thread-allocated-bytes" href="#current-thread-allocated-bytes" class="">
+         <abbr title="Community feature">&#x1F172;</abbr>&nbsp;
+         current-thread-allocated-bytes</a> - An approximation of the total amount of memory, in bytes, allocated in heap memory for the current thread.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>BYTES</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>metric</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>community</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "An approximation of the total amount of memory, in bytes, allocated in heap memory for the current thread.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "unit" : "BYTES",
+    "stability" : "community",
+    "access-type" : "metric",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="current-thread-cpu-time" href="#current-thread-cpu-time" class="">
+         current-thread-cpu-time</a> - The total CPU time for the current thread in nanoseconds, or -1 if "thread-cpu-time-enabled" is "false". A Java virtual machine implementation may not support CPU time measurement. If "thread-cpu-time-supported", is "false" trying to read this attribute via the "read-attribute" operation will result in failure, and the value of this attribute in the result of a "read-resource" operation will be "undefined".
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>NANOSECONDS</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>metric</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The total CPU time for the current thread in nanoseconds, or -1 if \"thread-cpu-time-enabled\" is \"false\". A Java virtual machine implementation may not support CPU time measurement. If \"thread-cpu-time-supported\", is \"false\" trying to read this attribute via the \"read-attribute\" operation will result in failure, and the value of this attribute in the result of a \"read-resource\" operation will be \"undefined\".",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "unit" : "NANOSECONDS",
+    "stability" : "default",
+    "access-type" : "metric",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="current-thread-cpu-time-supported" href="#current-thread-cpu-time-supported" class="">
+         current-thread-cpu-time-supported</a> - Whether the Java virtual machine supports CPU time measurement for the current thread.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Whether the Java virtual machine supports CPU time measurement for the current thread.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="current-thread-user-time" href="#current-thread-user-time" class="">
+         current-thread-user-time</a> - The CPU time that the current thread has executed in user mode in nanoseconds, or -1 if "thread-cpu-time-enabled" is "false". A Java virtual machine implementation may not support CPU time measurement. If "thread-cpu-time-supported", is "false" trying to read this attribute via the "read-attribute" operation will result in failure, and the value of this attribute in the result of a "read-resource" operation will be "undefined".
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>NANOSECONDS</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>metric</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The CPU time that the current thread has executed in user mode in nanoseconds, or -1 if \"thread-cpu-time-enabled\" is \"false\". A Java virtual machine implementation may not support CPU time measurement. If \"thread-cpu-time-supported\", is \"false\" trying to read this attribute via the \"read-attribute\" operation will result in failure, and the value of this attribute in the result of a \"read-resource\" operation will be \"undefined\".",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "unit" : "NANOSECONDS",
+    "stability" : "default",
+    "access-type" : "metric",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="daemon-thread-count" href="#daemon-thread-count" class="">
+         daemon-thread-count</a> - The current number of live daemon threads.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>metric</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The current number of live daemon threads.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "stability" : "default",
+    "access-type" : "metric",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="object-monitor-usage-supported" href="#object-monitor-usage-supported" class="">
+         object-monitor-usage-supported</a> - Whether the Java virtual machine supports monitoring of object monitor usage.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Whether the Java virtual machine supports monitoring of object monitor usage.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="object-name" href="#object-name" class="">
+         object-name</a> - String representation the object name of this platform managed object.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "String representation the object name of this platform managed object.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="peak-thread-count" href="#peak-thread-count" class="">
+         peak-thread-count</a> - The peak live thread count since the Java virtual machine started or peak was reset.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>metric</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The peak live thread count since the Java virtual machine started or peak was reset.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "stability" : "default",
+    "access-type" : "metric",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="synchronizer-usage-supported" href="#synchronizer-usage-supported" class="">
+         synchronizer-usage-supported</a> - Whether the Java virtual machine supports monitoring of ownable synchronizer usage.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Whether the Java virtual machine supports monitoring of ownable synchronizer usage.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="thread-allocated-memory-enabled" href="#thread-allocated-memory-enabled" class="">
+         <abbr title="Community feature">&#x1F172;</abbr>&nbsp;
+         thread-allocated-memory-enabled</a> - Tests if thread memory allocation measurement is enabled.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>community</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Tests if thread memory allocation measurement is enabled.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "stability" : "community",
+    "access-type" : "read-write",
+    "storage" : "runtime",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="thread-allocated-memory-supported" href="#thread-allocated-memory-supported" class="">
+         <abbr title="Community feature">&#x1F172;</abbr>&nbsp;
+         thread-allocated-memory-supported</a> - Tests if the Java virtual machine implementation supports thread memory allocation measurement.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>community</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Tests if the Java virtual machine implementation supports thread memory allocation measurement.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "stability" : "community",
+    "access-type" : "read-only",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="thread-contention-monitoring-enabled" href="#thread-contention-monitoring-enabled" class="">
+         thread-contention-monitoring-enabled</a> - Whether thread contention monitoring is enabled.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Whether thread contention monitoring is enabled.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "runtime",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="thread-contention-monitoring-supported" href="#thread-contention-monitoring-supported" class="">
+         thread-contention-monitoring-supported</a> - Whether the Java virtual machine supports thread contention monitoring.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Whether the Java virtual machine supports thread contention monitoring.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="thread-count" href="#thread-count" class="">
+         thread-count</a> - The current number of live threads including both daemon and non-daemon threads.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>metric</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The current number of live threads including both daemon and non-daemon threads.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "stability" : "default",
+    "access-type" : "metric",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="thread-cpu-time-enabled" href="#thread-cpu-time-enabled" class="">
+         thread-cpu-time-enabled</a> - Whether thread CPU time measurement is enabled.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Whether thread CPU time measurement is enabled.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "runtime",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="thread-cpu-time-supported" href="#thread-cpu-time-supported" class="">
+         thread-cpu-time-supported</a> - Whether the Java virtual machine implementation supports CPU time measurement for any thread.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Whether the Java virtual machine implementation supports CPU time measurement for any thread.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="total-started-thread-count" href="#total-started-thread-count" class="">
+         total-started-thread-count</a> - The total number of threads created and also started since the Java virtual machine started.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>metric</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The total number of threads created and also started since the Java virtual machine started.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "stability" : "default",
+    "access-type" : "metric",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (13)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="dump-all-threads" href="#dump-all-threads" class="">
+      dump-all-threads</a> - Returns the thread info for all live threads with stack trace and synchronization information.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>locked-monitors</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td>false</td>
+          <td>A list of detyped representations java.lang.management.MonitorInfo objects, each of which represents an object monitor currently locked by the thread.</td>
+        </tr>
+        <tr>
+          <td>locked-synchronizers</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td>false</td>
+          <td>A list of detyped representations java.lang.management.LockInfo objects, each of which represents an ownable synchronizer currently locked by the thread.</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>LIST</dd>
+        <dt>Value Type</dt>
+        <dd>
+          <div class="code-block-container">
+            <pre><code class="language-json">
+{
+    "thread-id" => {
+        "type" => LONG,
+        "description" => "The ID of the thread.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "thread-name" => {
+        "type" => STRING,
+        "description" => "The name of the thread.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "thread-state" => {
+        "type" => STRING,
+        "description" => "The state of the thread.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "blocked-time" => {
+        "type" => LONG,
+        "description" => "The approximate accumulated elapsed time (in milliseconds) that the thread has blocked to enter or reenter a monitor since thread contention monitoring is enabled, or -1 if thread contention monitoring is not enabled.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "unit" => "MILLISECONDS",
+        "stability" => "default"
+    },
+    "blocked-count" => {
+        "type" => LONG,
+        "description" => "The total number of times that the thread blocked to enter or reenter a monitor.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "waited-time" => {
+        "type" => LONG,
+        "description" => "The approximate accumulated elapsed time (in milliseconds) that the thread has waited for notification since thread contention monitoring was enabled.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "unit" => "MILLISECONDS",
+        "stability" => "default"
+    },
+    "waited-count" => {
+        "type" => LONG,
+        "description" => "The total number of times that the thread has waited for notification.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "lock-info" => {
+        "type" => OBJECT,
+        "description" => "A detyped representation of the java.lang.management.LockInfo of an object for which the thread is blocked waiting.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default",
+        "value-type" => {
+            "class-name" => {
+                "type" => STRING,
+                "description" => "The fully qualified name of the class of the lock object.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "identity-hash-code" => {
+                "type" => INT,
+                "description" => "The identity hash code of the lock object returned from the System.identityHashCode(java.lang.Object) method.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "stability" => "default"
+            }
+        }
+    },
+    "lock-name" => {
+        "type" => STRING,
+        "description" => "The string representation of an object for which the thread is blocked waiting.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "lock-owner-id" => {
+        "type" => LONG,
+        "description" => "The ID of the thread which owns the object for which the thread is blocked waiting.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "lock-owner-name" => {
+        "type" => STRING,
+        "description" => "The name of the thread which owns the object for which the thread is blocked waiting.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "stack-trace" => {
+        "type" => LIST,
+        "description" => "The stack trace of the thread.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 0,
+        "max-length" => 2147483647,
+        "stability" => "default",
+        "value-type" => {
+            "file-name" => {
+                "type" => STRING,
+                "description" => "The name of the source file containing the execution point represented by this stack trace element.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "line-number" => {
+                "type" => INT,
+                "description" => "The line number of the source line containing the execution point represented by this stack trace element.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "stability" => "default"
+            },
+            "class-name" => {
+                "type" => STRING,
+                "description" => "The fully qualified name of the class containing the execution point represented by this stack trace element.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "method-name" => {
+                "type" => STRING,
+                "description" => "The name of the method containing the execution point represented by this stack trace element.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "native-method" => {
+                "type" => STRING,
+                "description" => "Whether the method containing the execution point represented by this stack trace element is a native method.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            }
+        }
+    },
+    "suspended" => {
+        "type" => BOOLEAN,
+        "description" => "Whether the thread is suspended.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "in-native" => {
+        "type" => BOOLEAN,
+        "description" => "Whether the thread associated is executing native code via the Java Native Interface (JNI).",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "locked-monitors" => {
+        "type" => LIST,
+        "description" => "A list of detyped representations java.lang.management.MonitorInfo objects, each of which represents an object monitor currently locked by the thread.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 0,
+        "max-length" => 2147483647,
+        "stability" => "default",
+        "value-type" => {
+            "locked-stack-depth" => {
+                "type" => INT,
+                "description" => "The depth in the stack trace where the object monitor was locked.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "stability" => "default"
+            },
+            "locked-stack-frame" => {
+                "type" => OBJECT,
+                "description" => "The stack frame that locked the object monitor.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "stability" => "default",
+                "value-type" => {
+                    "file-name" => {
+                        "type" => STRING,
+                        "description" => "The name of the source file containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" => false,
+                        "required" => false,
+                        "nillable" => true,
+                        "min-length" => 1,
+                        "max-length" => 2147483647,
+                        "stability" => "default"
+                    },
+                    "line-number" => {
+                        "type" => INT,
+                        "description" => "The line number of the source line containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" => false,
+                        "required" => false,
+                        "nillable" => true,
+                        "stability" => "default"
+                    },
+                    "class-name" => {
+                        "type" => STRING,
+                        "description" => "The fully qualified name of the class containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" => false,
+                        "required" => false,
+                        "nillable" => true,
+                        "min-length" => 1,
+                        "max-length" => 2147483647,
+                        "stability" => "default"
+                    },
+                    "method-name" => {
+                        "type" => STRING,
+                        "description" => "The name of the method containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" => false,
+                        "required" => false,
+                        "nillable" => true,
+                        "min-length" => 1,
+                        "max-length" => 2147483647,
+                        "stability" => "default"
+                    },
+                    "native-method" => {
+                        "type" => STRING,
+                        "description" => "Whether the method containing the execution point represented by this stack trace element is a native method.",
+                        "expressions-allowed" => false,
+                        "required" => false,
+                        "nillable" => true,
+                        "min-length" => 1,
+                        "max-length" => 2147483647,
+                        "stability" => "default"
+                    }
+                }
+            }
+        }
+    },
+    "locked-synchronizers" => {
+        "type" => LIST,
+        "description" => "A list of detyped representations java.lang.management.LockInfo objects, each of which represents an ownable synchronizer currently locked by the thread.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 0,
+        "max-length" => 2147483647,
+        "stability" => "default",
+        "value-type" => {
+            "class-name" => {
+                "type" => STRING,
+                "description" => "The fully qualified name of the class of the lock object.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "identity-hash-code" => {
+                "type" => INT,
+                "description" => "The identity hash code of the lock object returned from the System.identityHashCode(java.lang.Object) method.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "stability" => "default"
+            }
+        }
+    }
+}</code></pre>
+          </div>
+        </dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "dump-all-threads",
+    "description" : "Returns the thread info for all live threads with stack trace and synchronization information.",
+    "request-properties" : {
+        "locked-monitors" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "A list of detyped representations java.lang.management.MonitorInfo objects, each of which represents an object monitor currently locked by the thread.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "locked-synchronizers" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "A list of detyped representations java.lang.management.LockInfo objects, each of which represents an ownable synchronizer currently locked by the thread.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LIST"
+        },
+        "value-type" : {
+            "thread-id" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The ID of the thread.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "thread-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The name of the thread.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "thread-state" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The state of the thread.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "blocked-time" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The approximate accumulated elapsed time (in milliseconds) that the thread has blocked to enter or reenter a monitor since thread contention monitoring is enabled, or -1 if thread contention monitoring is not enabled.",
+                "expressions-allowed" : false,
+                "required" : true,
+                "nillable" : false,
+                "unit" : "MILLISECONDS",
+                "stability" : "default"
+            },
+            "blocked-count" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The total number of times that the thread blocked to enter or reenter a monitor.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "waited-time" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The approximate accumulated elapsed time (in milliseconds) that the thread has waited for notification since thread contention monitoring was enabled.",
+                "expressions-allowed" : false,
+                "required" : true,
+                "nillable" : false,
+                "unit" : "MILLISECONDS",
+                "stability" : "default"
+            },
+            "waited-count" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The total number of times that the thread has waited for notification.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "lock-info" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "OBJECT"
+                },
+                "description" : "A detyped representation of the java.lang.management.LockInfo of an object for which the thread is blocked waiting.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default",
+                "value-type" : {
+                    "class-name" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "The fully qualified name of the class of the lock object.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "identity-hash-code" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "INT"
+                        },
+                        "description" : "The identity hash code of the lock object returned from the System.identityHashCode(java.lang.Object) method.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "stability" : "default"
+                    }
+                }
+            },
+            "lock-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The string representation of an object for which the thread is blocked waiting.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "lock-owner-id" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The ID of the thread which owns the object for which the thread is blocked waiting.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "lock-owner-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The name of the thread which owns the object for which the thread is blocked waiting.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "stack-trace" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LIST"
+                },
+                "description" : "The stack trace of the thread.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 0,
+                "max-length" : 2147483647,
+                "stability" : "default",
+                "value-type" : {
+                    "file-name" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "The name of the source file containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "line-number" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "INT"
+                        },
+                        "description" : "The line number of the source line containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "stability" : "default"
+                    },
+                    "class-name" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "The fully qualified name of the class containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "method-name" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "The name of the method containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "native-method" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "Whether the method containing the execution point represented by this stack trace element is a native method.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    }
+                }
+            },
+            "suspended" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "BOOLEAN"
+                },
+                "description" : "Whether the thread is suspended.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "in-native" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "BOOLEAN"
+                },
+                "description" : "Whether the thread associated is executing native code via the Java Native Interface (JNI).",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "locked-monitors" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LIST"
+                },
+                "description" : "A list of detyped representations java.lang.management.MonitorInfo objects, each of which represents an object monitor currently locked by the thread.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 0,
+                "max-length" : 2147483647,
+                "stability" : "default",
+                "value-type" : {
+                    "locked-stack-depth" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "INT"
+                        },
+                        "description" : "The depth in the stack trace where the object monitor was locked.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "stability" : "default"
+                    },
+                    "locked-stack-frame" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "OBJECT"
+                        },
+                        "description" : "The stack frame that locked the object monitor.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "stability" : "default",
+                        "value-type" : {
+                            "file-name" : {
+                                "type" : {
+                                    "TYPE_MODEL_VALUE" : "STRING"
+                                },
+                                "description" : "The name of the source file containing the execution point represented by this stack trace element.",
+                                "expressions-allowed" : false,
+                                "required" : false,
+                                "nillable" : true,
+                                "min-length" : 1,
+                                "max-length" : 2147483647,
+                                "stability" : "default"
+                            },
+                            "line-number" : {
+                                "type" : {
+                                    "TYPE_MODEL_VALUE" : "INT"
+                                },
+                                "description" : "The line number of the source line containing the execution point represented by this stack trace element.",
+                                "expressions-allowed" : false,
+                                "required" : false,
+                                "nillable" : true,
+                                "stability" : "default"
+                            },
+                            "class-name" : {
+                                "type" : {
+                                    "TYPE_MODEL_VALUE" : "STRING"
+                                },
+                                "description" : "The fully qualified name of the class containing the execution point represented by this stack trace element.",
+                                "expressions-allowed" : false,
+                                "required" : false,
+                                "nillable" : true,
+                                "min-length" : 1,
+                                "max-length" : 2147483647,
+                                "stability" : "default"
+                            },
+                            "method-name" : {
+                                "type" : {
+                                    "TYPE_MODEL_VALUE" : "STRING"
+                                },
+                                "description" : "The name of the method containing the execution point represented by this stack trace element.",
+                                "expressions-allowed" : false,
+                                "required" : false,
+                                "nillable" : true,
+                                "min-length" : 1,
+                                "max-length" : 2147483647,
+                                "stability" : "default"
+                            },
+                            "native-method" : {
+                                "type" : {
+                                    "TYPE_MODEL_VALUE" : "STRING"
+                                },
+                                "description" : "Whether the method containing the execution point represented by this stack trace element is a native method.",
+                                "expressions-allowed" : false,
+                                "required" : false,
+                                "nillable" : true,
+                                "min-length" : 1,
+                                "max-length" : 2147483647,
+                                "stability" : "default"
+                            }
+                        }
+                    }
+                }
+            },
+            "locked-synchronizers" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LIST"
+                },
+                "description" : "A list of detyped representations java.lang.management.LockInfo objects, each of which represents an ownable synchronizer currently locked by the thread.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 0,
+                "max-length" : 2147483647,
+                "stability" : "default",
+                "value-type" : {
+                    "class-name" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "The fully qualified name of the class of the lock object.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "identity-hash-code" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "INT"
+                        },
+                        "description" : "The identity hash code of the lock object returned from the System.identityHashCode(java.lang.Object) method.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "stability" : "default"
+                    }
+                }
+            }
+        }
+    },
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="find-deadlocked-threads" href="#find-deadlocked-threads" class="">
+      find-deadlocked-threads</a> - Finds cycles of threads that are in deadlock waiting to acquire object monitors or ownable synchronizers.
+    </span>
+    <div class="collapsible">
+
+
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>LIST</dd>
+        <dt>Value Type</dt>
+        <dd>
+          <div class="code-block-container">
+            <pre><code class="language-json">
+LONG</code></pre>
+          </div>
+        </dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "find-deadlocked-threads",
+    "description" : "Finds cycles of threads that are in deadlock waiting to acquire object monitors or ownable synchronizers.",
+    "request-properties" : {},
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LIST"
+        },
+        "value-type" : {
+            "TYPE_MODEL_VALUE" : "LONG"
+        },
+        "nillable" : true
+    },
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="find-monitor-deadlocked-threads" href="#find-monitor-deadlocked-threads" class="">
+      find-monitor-deadlocked-threads</a> - Finds cycles of threads that are in deadlock waiting to acquire object monitors.
+    </span>
+    <div class="collapsible">
+
+
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>LIST</dd>
+        <dt>Value Type</dt>
+        <dd>
+          <div class="code-block-container">
+            <pre><code class="language-json">
+LONG</code></pre>
+          </div>
+        </dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "find-monitor-deadlocked-threads",
+    "description" : "Finds cycles of threads that are in deadlock waiting to acquire object monitors.",
+    "request-properties" : {},
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LIST"
+        },
+        "value-type" : {
+            "TYPE_MODEL_VALUE" : "LONG"
+        },
+        "nillable" : true
+    },
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="get-thread-allocated-bytes" href="#get-thread-allocated-bytes" class="">
+      <abbr title="Community feature">&#x1F172;</abbr>&nbsp;
+      get-thread-allocated-bytes</a> - An approximation of the total amount of memory, in bytes, allocated in heap memory for the thread with the specified ID.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>id</td>
+          <td>LONG</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>A thread id.</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div>An approximation of the total memory allocated, in bytes, in heap memory for the thread with the specified ID if the thread with the specified ID exists, the thread is alive, and thread memory allocation measurement is enabled; -1 otherwise.</div>
+      <dl>
+        <dt>Type</dt>
+        <dd>LONG</dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "get-thread-allocated-bytes",
+    "description" : "An approximation of the total amount of memory, in bytes, allocated in heap memory for the thread with the specified ID.",
+    "request-properties" : {"id" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LONG"
+        },
+        "description" : "A thread id.",
+        "expressions-allowed" : false,
+        "required" : true,
+        "nillable" : false,
+        "stability" : "default"
+    }},
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LONG"
+        },
+        "description" : "An approximation of the total memory allocated, in bytes, in heap memory for the thread with the specified ID if the thread with the specified ID exists, the thread is alive, and thread memory allocation measurement is enabled; -1 otherwise."
+    },
+    "stability" : "community",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="get-thread-cpu-time" href="#get-thread-cpu-time" class="">
+      get-thread-cpu-time</a> - Returns the total CPU time for a thread of the specified ID in nanoseconds.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>id</td>
+          <td>LONG</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The thread ID of the thread. Must be positive.</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>LONG</dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "get-thread-cpu-time",
+    "description" : "Returns the total CPU time for a thread of the specified ID in nanoseconds.",
+    "request-properties" : {"id" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LONG"
+        },
+        "description" : "The thread ID of the thread. Must be positive.",
+        "expressions-allowed" : false,
+        "required" : true,
+        "nillable" : false,
+        "stability" : "default"
+    }},
+    "reply-properties" : {"type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    }},
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="get-thread-cpu-times" href="#get-thread-cpu-times" class="">
+      <abbr title="Community feature">&#x1F172;</abbr>&nbsp;
+      get-thread-cpu-times</a> - The total CPU time for each thread whose ID is in the input array ids in nanoseconds.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>ids</td>
+          <td>LIST</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>A list of thread ids.</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div>An array of long values, each of which is the amount of CPU time the thread whose ID is in the corresponding element of the input array of IDs has used, if the thread of a specified ID exists, the thread is alive, and CPU time measurement is enabled; -1 otherwise.</div>
+      <dl>
+        <dt>Type</dt>
+        <dd>LIST</dd>
+        <dt>Value Type</dt>
+        <dd>
+          <div class="code-block-container">
+            <pre><code class="language-json">
+LONG</code></pre>
+          </div>
+        </dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "get-thread-cpu-times",
+    "description" : "The total CPU time for each thread whose ID is in the input array ids in nanoseconds.",
+    "request-properties" : {"ids" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LIST"
+        },
+        "description" : "A list of thread ids.",
+        "expressions-allowed" : false,
+        "required" : true,
+        "nillable" : false,
+        "min-length" : 0,
+        "max-length" : 2147483647,
+        "stability" : "default",
+        "value-type" : {
+            "TYPE_MODEL_VALUE" : "LONG"
+        }
+    }},
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LIST"
+        },
+        "value-type" : {
+            "TYPE_MODEL_VALUE" : "LONG"
+        },
+        "description" : "An array of long values, each of which is the amount of CPU time the thread whose ID is in the corresponding element of the input array of IDs has used, if the thread of a specified ID exists, the thread is alive, and CPU time measurement is enabled; -1 otherwise."
+    },
+    "stability" : "community",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="get-thread-info" href="#get-thread-info" class="">
+      get-thread-info</a> - Returns the thread info for a thread of the specified id. The stack trace, locked monitors, and locked synchronizers in the returned reply object will be empty.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>id</td>
+          <td>LONG</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The thread ID of the thread. Must be positive.</td>
+        </tr>
+        <tr>
+          <td>max-depth</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>false</td>
+          <td>0</td>
+          <td>The maximum number of entries in the stack trace to be dumped. Integer.MAX_VALUE could be used to request the entire stack to be dumped.</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div>Detyped representation of a java.lang.management.ThreadInfo object for the thread of the given ID; "undefined" if the thread of the given ID is not alive or it does not exist.</div>
+      <dl>
+        <dt>Type</dt>
+        <dd>OBJECT</dd>
+        <dt>Value Type</dt>
+        <dd>
+          <div class="code-block-container">
+            <pre><code class="language-json">
+{
+    "thread-id" => {
+        "type" => LONG,
+        "description" => "The ID of the thread.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "thread-name" => {
+        "type" => STRING,
+        "description" => "The name of the thread.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "thread-state" => {
+        "type" => STRING,
+        "description" => "The state of the thread.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "blocked-time" => {
+        "type" => LONG,
+        "description" => "The approximate accumulated elapsed time (in milliseconds) that the thread has blocked to enter or reenter a monitor since thread contention monitoring is enabled, or -1 if thread contention monitoring is not enabled.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "unit" => "MILLISECONDS",
+        "stability" => "default"
+    },
+    "blocked-count" => {
+        "type" => LONG,
+        "description" => "The total number of times that the thread blocked to enter or reenter a monitor.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "waited-time" => {
+        "type" => LONG,
+        "description" => "The approximate accumulated elapsed time (in milliseconds) that the thread has waited for notification since thread contention monitoring was enabled.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "unit" => "MILLISECONDS",
+        "stability" => "default"
+    },
+    "waited-count" => {
+        "type" => LONG,
+        "description" => "The total number of times that the thread has waited for notification.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "lock-info" => {
+        "type" => OBJECT,
+        "description" => "A detyped representation of the java.lang.management.LockInfo of an object for which the thread is blocked waiting.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default",
+        "value-type" => {
+            "class-name" => {
+                "type" => STRING,
+                "description" => "The fully qualified name of the class of the lock object.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "identity-hash-code" => {
+                "type" => INT,
+                "description" => "The identity hash code of the lock object returned from the System.identityHashCode(java.lang.Object) method.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "stability" => "default"
+            }
+        }
+    },
+    "lock-name" => {
+        "type" => STRING,
+        "description" => "The string representation of an object for which the thread is blocked waiting.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "lock-owner-id" => {
+        "type" => LONG,
+        "description" => "The ID of the thread which owns the object for which the thread is blocked waiting.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "lock-owner-name" => {
+        "type" => STRING,
+        "description" => "The name of the thread which owns the object for which the thread is blocked waiting.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "stack-trace" => {
+        "type" => LIST,
+        "description" => "The stack trace of the thread.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 0,
+        "max-length" => 2147483647,
+        "stability" => "default",
+        "value-type" => {
+            "file-name" => {
+                "type" => STRING,
+                "description" => "The name of the source file containing the execution point represented by this stack trace element.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "line-number" => {
+                "type" => INT,
+                "description" => "The line number of the source line containing the execution point represented by this stack trace element.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "stability" => "default"
+            },
+            "class-name" => {
+                "type" => STRING,
+                "description" => "The fully qualified name of the class containing the execution point represented by this stack trace element.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "method-name" => {
+                "type" => STRING,
+                "description" => "The name of the method containing the execution point represented by this stack trace element.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "native-method" => {
+                "type" => STRING,
+                "description" => "Whether the method containing the execution point represented by this stack trace element is a native method.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            }
+        }
+    },
+    "suspended" => {
+        "type" => BOOLEAN,
+        "description" => "Whether the thread is suspended.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "in-native" => {
+        "type" => BOOLEAN,
+        "description" => "Whether the thread associated is executing native code via the Java Native Interface (JNI).",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "locked-monitors" => {
+        "type" => LIST,
+        "description" => "A list of detyped representations java.lang.management.MonitorInfo objects, each of which represents an object monitor currently locked by the thread.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 0,
+        "max-length" => 2147483647,
+        "stability" => "default",
+        "value-type" => {
+            "locked-stack-depth" => {
+                "type" => INT,
+                "description" => "The depth in the stack trace where the object monitor was locked.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "stability" => "default"
+            },
+            "locked-stack-frame" => {
+                "type" => OBJECT,
+                "description" => "The stack frame that locked the object monitor.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "stability" => "default",
+                "value-type" => {
+                    "file-name" => {
+                        "type" => STRING,
+                        "description" => "The name of the source file containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" => false,
+                        "required" => false,
+                        "nillable" => true,
+                        "min-length" => 1,
+                        "max-length" => 2147483647,
+                        "stability" => "default"
+                    },
+                    "line-number" => {
+                        "type" => INT,
+                        "description" => "The line number of the source line containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" => false,
+                        "required" => false,
+                        "nillable" => true,
+                        "stability" => "default"
+                    },
+                    "class-name" => {
+                        "type" => STRING,
+                        "description" => "The fully qualified name of the class containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" => false,
+                        "required" => false,
+                        "nillable" => true,
+                        "min-length" => 1,
+                        "max-length" => 2147483647,
+                        "stability" => "default"
+                    },
+                    "method-name" => {
+                        "type" => STRING,
+                        "description" => "The name of the method containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" => false,
+                        "required" => false,
+                        "nillable" => true,
+                        "min-length" => 1,
+                        "max-length" => 2147483647,
+                        "stability" => "default"
+                    },
+                    "native-method" => {
+                        "type" => STRING,
+                        "description" => "Whether the method containing the execution point represented by this stack trace element is a native method.",
+                        "expressions-allowed" => false,
+                        "required" => false,
+                        "nillable" => true,
+                        "min-length" => 1,
+                        "max-length" => 2147483647,
+                        "stability" => "default"
+                    }
+                }
+            }
+        }
+    },
+    "locked-synchronizers" => {
+        "type" => LIST,
+        "description" => "A list of detyped representations java.lang.management.LockInfo objects, each of which represents an ownable synchronizer currently locked by the thread.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 0,
+        "max-length" => 2147483647,
+        "stability" => "default",
+        "value-type" => {
+            "class-name" => {
+                "type" => STRING,
+                "description" => "The fully qualified name of the class of the lock object.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "identity-hash-code" => {
+                "type" => INT,
+                "description" => "The identity hash code of the lock object returned from the System.identityHashCode(java.lang.Object) method.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "stability" => "default"
+            }
+        }
+    }
+}</code></pre>
+          </div>
+        </dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "get-thread-info",
+    "description" : "Returns the thread info for a thread of the specified id. The stack trace, locked monitors, and locked synchronizers in the returned reply object will be empty.",
+    "request-properties" : {
+        "id" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "The thread ID of the thread. Must be positive.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "stability" : "default"
+        },
+        "max-depth" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The maximum number of entries in the stack trace to be dumped. Integer.MAX_VALUE could be used to request the entire stack to be dumped.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : 0,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "OBJECT"
+        },
+        "value-type" : {
+            "thread-id" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The ID of the thread.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "thread-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The name of the thread.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "thread-state" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The state of the thread.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "blocked-time" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The approximate accumulated elapsed time (in milliseconds) that the thread has blocked to enter or reenter a monitor since thread contention monitoring is enabled, or -1 if thread contention monitoring is not enabled.",
+                "expressions-allowed" : false,
+                "required" : true,
+                "nillable" : false,
+                "unit" : "MILLISECONDS",
+                "stability" : "default"
+            },
+            "blocked-count" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The total number of times that the thread blocked to enter or reenter a monitor.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "waited-time" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The approximate accumulated elapsed time (in milliseconds) that the thread has waited for notification since thread contention monitoring was enabled.",
+                "expressions-allowed" : false,
+                "required" : true,
+                "nillable" : false,
+                "unit" : "MILLISECONDS",
+                "stability" : "default"
+            },
+            "waited-count" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The total number of times that the thread has waited for notification.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "lock-info" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "OBJECT"
+                },
+                "description" : "A detyped representation of the java.lang.management.LockInfo of an object for which the thread is blocked waiting.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default",
+                "value-type" : {
+                    "class-name" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "The fully qualified name of the class of the lock object.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "identity-hash-code" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "INT"
+                        },
+                        "description" : "The identity hash code of the lock object returned from the System.identityHashCode(java.lang.Object) method.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "stability" : "default"
+                    }
+                }
+            },
+            "lock-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The string representation of an object for which the thread is blocked waiting.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "lock-owner-id" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The ID of the thread which owns the object for which the thread is blocked waiting.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "lock-owner-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The name of the thread which owns the object for which the thread is blocked waiting.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "stack-trace" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LIST"
+                },
+                "description" : "The stack trace of the thread.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 0,
+                "max-length" : 2147483647,
+                "stability" : "default",
+                "value-type" : {
+                    "file-name" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "The name of the source file containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "line-number" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "INT"
+                        },
+                        "description" : "The line number of the source line containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "stability" : "default"
+                    },
+                    "class-name" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "The fully qualified name of the class containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "method-name" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "The name of the method containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "native-method" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "Whether the method containing the execution point represented by this stack trace element is a native method.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    }
+                }
+            },
+            "suspended" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "BOOLEAN"
+                },
+                "description" : "Whether the thread is suspended.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "in-native" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "BOOLEAN"
+                },
+                "description" : "Whether the thread associated is executing native code via the Java Native Interface (JNI).",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "locked-monitors" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LIST"
+                },
+                "description" : "A list of detyped representations java.lang.management.MonitorInfo objects, each of which represents an object monitor currently locked by the thread.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 0,
+                "max-length" : 2147483647,
+                "stability" : "default",
+                "value-type" : {
+                    "locked-stack-depth" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "INT"
+                        },
+                        "description" : "The depth in the stack trace where the object monitor was locked.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "stability" : "default"
+                    },
+                    "locked-stack-frame" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "OBJECT"
+                        },
+                        "description" : "The stack frame that locked the object monitor.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "stability" : "default",
+                        "value-type" : {
+                            "file-name" : {
+                                "type" : {
+                                    "TYPE_MODEL_VALUE" : "STRING"
+                                },
+                                "description" : "The name of the source file containing the execution point represented by this stack trace element.",
+                                "expressions-allowed" : false,
+                                "required" : false,
+                                "nillable" : true,
+                                "min-length" : 1,
+                                "max-length" : 2147483647,
+                                "stability" : "default"
+                            },
+                            "line-number" : {
+                                "type" : {
+                                    "TYPE_MODEL_VALUE" : "INT"
+                                },
+                                "description" : "The line number of the source line containing the execution point represented by this stack trace element.",
+                                "expressions-allowed" : false,
+                                "required" : false,
+                                "nillable" : true,
+                                "stability" : "default"
+                            },
+                            "class-name" : {
+                                "type" : {
+                                    "TYPE_MODEL_VALUE" : "STRING"
+                                },
+                                "description" : "The fully qualified name of the class containing the execution point represented by this stack trace element.",
+                                "expressions-allowed" : false,
+                                "required" : false,
+                                "nillable" : true,
+                                "min-length" : 1,
+                                "max-length" : 2147483647,
+                                "stability" : "default"
+                            },
+                            "method-name" : {
+                                "type" : {
+                                    "TYPE_MODEL_VALUE" : "STRING"
+                                },
+                                "description" : "The name of the method containing the execution point represented by this stack trace element.",
+                                "expressions-allowed" : false,
+                                "required" : false,
+                                "nillable" : true,
+                                "min-length" : 1,
+                                "max-length" : 2147483647,
+                                "stability" : "default"
+                            },
+                            "native-method" : {
+                                "type" : {
+                                    "TYPE_MODEL_VALUE" : "STRING"
+                                },
+                                "description" : "Whether the method containing the execution point represented by this stack trace element is a native method.",
+                                "expressions-allowed" : false,
+                                "required" : false,
+                                "nillable" : true,
+                                "min-length" : 1,
+                                "max-length" : 2147483647,
+                                "stability" : "default"
+                            }
+                        }
+                    }
+                }
+            },
+            "locked-synchronizers" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LIST"
+                },
+                "description" : "A list of detyped representations java.lang.management.LockInfo objects, each of which represents an ownable synchronizer currently locked by the thread.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 0,
+                "max-length" : 2147483647,
+                "stability" : "default",
+                "value-type" : {
+                    "class-name" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "The fully qualified name of the class of the lock object.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "identity-hash-code" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "INT"
+                        },
+                        "description" : "The identity hash code of the lock object returned from the System.identityHashCode(java.lang.Object) method.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "stability" : "default"
+                    }
+                }
+            }
+        },
+        "description" : "Detyped representation of a java.lang.management.ThreadInfo object for the thread of the given ID; \"undefined\" if the thread of the given ID is not alive or it does not exist.",
+        "nillable" : true
+    },
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="get-thread-infos" href="#get-thread-infos" class="">
+      get-thread-infos</a> - Returns the thread info for each thread whose ID is in the input list.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>ids</td>
+          <td>LIST</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>A list of thread ids.</td>
+        </tr>
+        <tr>
+          <td>max-depth</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>false</td>
+          <td>0</td>
+          <td>The maximum number of entries in the stack trace to be dumped. Integer.MAX_VALUE could be used to request the entire stack to be dumped.</td>
+        </tr>
+        <tr>
+          <td>locked-monitors</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td>false</td>
+          <td>A list of detyped representations java.lang.management.MonitorInfo objects, each of which represents an object monitor currently locked by the thread.</td>
+        </tr>
+        <tr>
+          <td>locked-synchronizers</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td>false</td>
+          <td>A list of detyped representations java.lang.management.LockInfo objects, each of which represents an ownable synchronizer currently locked by the thread.</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div>A list of detyped representations of java.lang.management.ThreadInfo objects, each containing information about a thread whose ID is in the corresponding element of the input list of IDs. An element will be "undefined" if the thread of the given ID is not alive or it does not exist.</div>
+      <dl>
+        <dt>Type</dt>
+        <dd>LIST</dd>
+        <dt>Value Type</dt>
+        <dd>
+          <div class="code-block-container">
+            <pre><code class="language-json">
+{
+    "thread-id" => {
+        "type" => LONG,
+        "description" => "The ID of the thread.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "thread-name" => {
+        "type" => STRING,
+        "description" => "The name of the thread.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "thread-state" => {
+        "type" => STRING,
+        "description" => "The state of the thread.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "blocked-time" => {
+        "type" => LONG,
+        "description" => "The approximate accumulated elapsed time (in milliseconds) that the thread has blocked to enter or reenter a monitor since thread contention monitoring is enabled, or -1 if thread contention monitoring is not enabled.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "unit" => "MILLISECONDS",
+        "stability" => "default"
+    },
+    "blocked-count" => {
+        "type" => LONG,
+        "description" => "The total number of times that the thread blocked to enter or reenter a monitor.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "waited-time" => {
+        "type" => LONG,
+        "description" => "The approximate accumulated elapsed time (in milliseconds) that the thread has waited for notification since thread contention monitoring was enabled.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "unit" => "MILLISECONDS",
+        "stability" => "default"
+    },
+    "waited-count" => {
+        "type" => LONG,
+        "description" => "The total number of times that the thread has waited for notification.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "lock-info" => {
+        "type" => OBJECT,
+        "description" => "A detyped representation of the java.lang.management.LockInfo of an object for which the thread is blocked waiting.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default",
+        "value-type" => {
+            "class-name" => {
+                "type" => STRING,
+                "description" => "The fully qualified name of the class of the lock object.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "identity-hash-code" => {
+                "type" => INT,
+                "description" => "The identity hash code of the lock object returned from the System.identityHashCode(java.lang.Object) method.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "stability" => "default"
+            }
+        }
+    },
+    "lock-name" => {
+        "type" => STRING,
+        "description" => "The string representation of an object for which the thread is blocked waiting.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "lock-owner-id" => {
+        "type" => LONG,
+        "description" => "The ID of the thread which owns the object for which the thread is blocked waiting.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "lock-owner-name" => {
+        "type" => STRING,
+        "description" => "The name of the thread which owns the object for which the thread is blocked waiting.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "stack-trace" => {
+        "type" => LIST,
+        "description" => "The stack trace of the thread.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 0,
+        "max-length" => 2147483647,
+        "stability" => "default",
+        "value-type" => {
+            "file-name" => {
+                "type" => STRING,
+                "description" => "The name of the source file containing the execution point represented by this stack trace element.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "line-number" => {
+                "type" => INT,
+                "description" => "The line number of the source line containing the execution point represented by this stack trace element.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "stability" => "default"
+            },
+            "class-name" => {
+                "type" => STRING,
+                "description" => "The fully qualified name of the class containing the execution point represented by this stack trace element.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "method-name" => {
+                "type" => STRING,
+                "description" => "The name of the method containing the execution point represented by this stack trace element.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "native-method" => {
+                "type" => STRING,
+                "description" => "Whether the method containing the execution point represented by this stack trace element is a native method.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            }
+        }
+    },
+    "suspended" => {
+        "type" => BOOLEAN,
+        "description" => "Whether the thread is suspended.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "in-native" => {
+        "type" => BOOLEAN,
+        "description" => "Whether the thread associated is executing native code via the Java Native Interface (JNI).",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "stability" => "default"
+    },
+    "locked-monitors" => {
+        "type" => LIST,
+        "description" => "A list of detyped representations java.lang.management.MonitorInfo objects, each of which represents an object monitor currently locked by the thread.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 0,
+        "max-length" => 2147483647,
+        "stability" => "default",
+        "value-type" => {
+            "locked-stack-depth" => {
+                "type" => INT,
+                "description" => "The depth in the stack trace where the object monitor was locked.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "stability" => "default"
+            },
+            "locked-stack-frame" => {
+                "type" => OBJECT,
+                "description" => "The stack frame that locked the object monitor.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "stability" => "default",
+                "value-type" => {
+                    "file-name" => {
+                        "type" => STRING,
+                        "description" => "The name of the source file containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" => false,
+                        "required" => false,
+                        "nillable" => true,
+                        "min-length" => 1,
+                        "max-length" => 2147483647,
+                        "stability" => "default"
+                    },
+                    "line-number" => {
+                        "type" => INT,
+                        "description" => "The line number of the source line containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" => false,
+                        "required" => false,
+                        "nillable" => true,
+                        "stability" => "default"
+                    },
+                    "class-name" => {
+                        "type" => STRING,
+                        "description" => "The fully qualified name of the class containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" => false,
+                        "required" => false,
+                        "nillable" => true,
+                        "min-length" => 1,
+                        "max-length" => 2147483647,
+                        "stability" => "default"
+                    },
+                    "method-name" => {
+                        "type" => STRING,
+                        "description" => "The name of the method containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" => false,
+                        "required" => false,
+                        "nillable" => true,
+                        "min-length" => 1,
+                        "max-length" => 2147483647,
+                        "stability" => "default"
+                    },
+                    "native-method" => {
+                        "type" => STRING,
+                        "description" => "Whether the method containing the execution point represented by this stack trace element is a native method.",
+                        "expressions-allowed" => false,
+                        "required" => false,
+                        "nillable" => true,
+                        "min-length" => 1,
+                        "max-length" => 2147483647,
+                        "stability" => "default"
+                    }
+                }
+            }
+        }
+    },
+    "locked-synchronizers" => {
+        "type" => LIST,
+        "description" => "A list of detyped representations java.lang.management.LockInfo objects, each of which represents an ownable synchronizer currently locked by the thread.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "min-length" => 0,
+        "max-length" => 2147483647,
+        "stability" => "default",
+        "value-type" => {
+            "class-name" => {
+                "type" => STRING,
+                "description" => "The fully qualified name of the class of the lock object.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "min-length" => 1,
+                "max-length" => 2147483647,
+                "stability" => "default"
+            },
+            "identity-hash-code" => {
+                "type" => INT,
+                "description" => "The identity hash code of the lock object returned from the System.identityHashCode(java.lang.Object) method.",
+                "expressions-allowed" => false,
+                "required" => false,
+                "nillable" => true,
+                "stability" => "default"
+            }
+        }
+    }
+}</code></pre>
+          </div>
+        </dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "get-thread-infos",
+    "description" : "Returns the thread info for each thread whose ID is in the input list.",
+    "request-properties" : {
+        "ids" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "A list of thread ids.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            }
+        },
+        "max-depth" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The maximum number of entries in the stack trace to be dumped. Integer.MAX_VALUE could be used to request the entire stack to be dumped.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : 0,
+            "stability" : "default"
+        },
+        "locked-monitors" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "A list of detyped representations java.lang.management.MonitorInfo objects, each of which represents an object monitor currently locked by the thread.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "locked-synchronizers" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "A list of detyped representations java.lang.management.LockInfo objects, each of which represents an ownable synchronizer currently locked by the thread.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LIST"
+        },
+        "value-type" : {
+            "thread-id" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The ID of the thread.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "thread-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The name of the thread.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "thread-state" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The state of the thread.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "blocked-time" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The approximate accumulated elapsed time (in milliseconds) that the thread has blocked to enter or reenter a monitor since thread contention monitoring is enabled, or -1 if thread contention monitoring is not enabled.",
+                "expressions-allowed" : false,
+                "required" : true,
+                "nillable" : false,
+                "unit" : "MILLISECONDS",
+                "stability" : "default"
+            },
+            "blocked-count" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The total number of times that the thread blocked to enter or reenter a monitor.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "waited-time" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The approximate accumulated elapsed time (in milliseconds) that the thread has waited for notification since thread contention monitoring was enabled.",
+                "expressions-allowed" : false,
+                "required" : true,
+                "nillable" : false,
+                "unit" : "MILLISECONDS",
+                "stability" : "default"
+            },
+            "waited-count" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The total number of times that the thread has waited for notification.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "lock-info" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "OBJECT"
+                },
+                "description" : "A detyped representation of the java.lang.management.LockInfo of an object for which the thread is blocked waiting.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default",
+                "value-type" : {
+                    "class-name" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "The fully qualified name of the class of the lock object.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "identity-hash-code" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "INT"
+                        },
+                        "description" : "The identity hash code of the lock object returned from the System.identityHashCode(java.lang.Object) method.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "stability" : "default"
+                    }
+                }
+            },
+            "lock-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The string representation of an object for which the thread is blocked waiting.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "lock-owner-id" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The ID of the thread which owns the object for which the thread is blocked waiting.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "lock-owner-name" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "The name of the thread which owns the object for which the thread is blocked waiting.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "stack-trace" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LIST"
+                },
+                "description" : "The stack trace of the thread.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 0,
+                "max-length" : 2147483647,
+                "stability" : "default",
+                "value-type" : {
+                    "file-name" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "The name of the source file containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "line-number" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "INT"
+                        },
+                        "description" : "The line number of the source line containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "stability" : "default"
+                    },
+                    "class-name" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "The fully qualified name of the class containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "method-name" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "The name of the method containing the execution point represented by this stack trace element.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "native-method" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "Whether the method containing the execution point represented by this stack trace element is a native method.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    }
+                }
+            },
+            "suspended" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "BOOLEAN"
+                },
+                "description" : "Whether the thread is suspended.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "in-native" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "BOOLEAN"
+                },
+                "description" : "Whether the thread associated is executing native code via the Java Native Interface (JNI).",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "stability" : "default"
+            },
+            "locked-monitors" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LIST"
+                },
+                "description" : "A list of detyped representations java.lang.management.MonitorInfo objects, each of which represents an object monitor currently locked by the thread.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 0,
+                "max-length" : 2147483647,
+                "stability" : "default",
+                "value-type" : {
+                    "locked-stack-depth" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "INT"
+                        },
+                        "description" : "The depth in the stack trace where the object monitor was locked.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "stability" : "default"
+                    },
+                    "locked-stack-frame" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "OBJECT"
+                        },
+                        "description" : "The stack frame that locked the object monitor.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "stability" : "default",
+                        "value-type" : {
+                            "file-name" : {
+                                "type" : {
+                                    "TYPE_MODEL_VALUE" : "STRING"
+                                },
+                                "description" : "The name of the source file containing the execution point represented by this stack trace element.",
+                                "expressions-allowed" : false,
+                                "required" : false,
+                                "nillable" : true,
+                                "min-length" : 1,
+                                "max-length" : 2147483647,
+                                "stability" : "default"
+                            },
+                            "line-number" : {
+                                "type" : {
+                                    "TYPE_MODEL_VALUE" : "INT"
+                                },
+                                "description" : "The line number of the source line containing the execution point represented by this stack trace element.",
+                                "expressions-allowed" : false,
+                                "required" : false,
+                                "nillable" : true,
+                                "stability" : "default"
+                            },
+                            "class-name" : {
+                                "type" : {
+                                    "TYPE_MODEL_VALUE" : "STRING"
+                                },
+                                "description" : "The fully qualified name of the class containing the execution point represented by this stack trace element.",
+                                "expressions-allowed" : false,
+                                "required" : false,
+                                "nillable" : true,
+                                "min-length" : 1,
+                                "max-length" : 2147483647,
+                                "stability" : "default"
+                            },
+                            "method-name" : {
+                                "type" : {
+                                    "TYPE_MODEL_VALUE" : "STRING"
+                                },
+                                "description" : "The name of the method containing the execution point represented by this stack trace element.",
+                                "expressions-allowed" : false,
+                                "required" : false,
+                                "nillable" : true,
+                                "min-length" : 1,
+                                "max-length" : 2147483647,
+                                "stability" : "default"
+                            },
+                            "native-method" : {
+                                "type" : {
+                                    "TYPE_MODEL_VALUE" : "STRING"
+                                },
+                                "description" : "Whether the method containing the execution point represented by this stack trace element is a native method.",
+                                "expressions-allowed" : false,
+                                "required" : false,
+                                "nillable" : true,
+                                "min-length" : 1,
+                                "max-length" : 2147483647,
+                                "stability" : "default"
+                            }
+                        }
+                    }
+                }
+            },
+            "locked-synchronizers" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LIST"
+                },
+                "description" : "A list of detyped representations java.lang.management.LockInfo objects, each of which represents an ownable synchronizer currently locked by the thread.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "min-length" : 0,
+                "max-length" : 2147483647,
+                "stability" : "default",
+                "value-type" : {
+                    "class-name" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "STRING"
+                        },
+                        "description" : "The fully qualified name of the class of the lock object.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "min-length" : 1,
+                        "max-length" : 2147483647,
+                        "stability" : "default"
+                    },
+                    "identity-hash-code" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "INT"
+                        },
+                        "description" : "The identity hash code of the lock object returned from the System.identityHashCode(java.lang.Object) method.",
+                        "expressions-allowed" : false,
+                        "required" : false,
+                        "nillable" : true,
+                        "stability" : "default"
+                    }
+                }
+            }
+        },
+        "description" : "A list of detyped representations of java.lang.management.ThreadInfo objects, each containing information about a thread whose ID is in the corresponding element of the input list of IDs. An element will be \"undefined\" if the thread of the given ID is not alive or it does not exist."
+    },
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="get-thread-user-time" href="#get-thread-user-time" class="">
+      get-thread-user-time</a> - Returns the CPU time that a thread of the specified ID has executed in user mode in nanoseconds.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>id</td>
+          <td>LONG</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The thread ID of the thread. Must be positive.</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div></div>
+      <dl>
+        <dt>Type</dt>
+        <dd>LONG</dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "get-thread-user-time",
+    "description" : "Returns the CPU time that a thread of the specified ID has executed in user mode in nanoseconds.",
+    "request-properties" : {"id" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LONG"
+        },
+        "description" : "The thread ID of the thread. Must be positive.",
+        "expressions-allowed" : false,
+        "required" : true,
+        "nillable" : false,
+        "stability" : "default"
+    }},
+    "reply-properties" : {"type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    }},
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="get-thread-user-times" href="#get-thread-user-times" class="">
+      <abbr title="Community feature">&#x1F172;</abbr>&nbsp;
+      get-thread-user-times</a> - The CPU time that each thread whose ID is in the input array ids has executed in user mode in nanoseconds.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>ids</td>
+          <td>LIST</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>A list of thread ids.</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div>An array of long values, each of which is the amount of CPU time the thread whose ID is in the corresponding element of the input array of IDs has used, if the thread of a specified ID exists, the thread is alive, and CPU time measurement is enabled; -1 otherwise.</div>
+      <dl>
+        <dt>Type</dt>
+        <dd>LIST</dd>
+        <dt>Value Type</dt>
+        <dd>
+          <div class="code-block-container">
+            <pre><code class="language-json">
+LONG</code></pre>
+          </div>
+        </dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "get-thread-user-times",
+    "description" : "The CPU time that each thread whose ID is in the input array ids has executed in user mode in nanoseconds.",
+    "request-properties" : {"ids" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LIST"
+        },
+        "description" : "A list of thread ids.",
+        "expressions-allowed" : false,
+        "required" : true,
+        "nillable" : false,
+        "min-length" : 0,
+        "max-length" : 2147483647,
+        "stability" : "default",
+        "value-type" : {
+            "TYPE_MODEL_VALUE" : "LONG"
+        }
+    }},
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LIST"
+        },
+        "value-type" : {
+            "TYPE_MODEL_VALUE" : "LONG"
+        },
+        "description" : "An array of long values, each of which is the amount of CPU time the thread whose ID is in the corresponding element of the input array of IDs has used, if the thread of a specified ID exists, the thread is alive, and CPU time measurement is enabled; -1 otherwise."
+    },
+    "stability" : "community",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="get-threads-allocated-bytes" href="#get-threads-allocated-bytes" class="">
+      <abbr title="Community feature">&#x1F172;</abbr>&nbsp;
+      get-threads-allocated-bytes</a> - An approximation of the total amount of memory, in bytes, allocated in heap memory for each thread whose ID is in the input array ids. This maps to the mbean's getThreadAllocatedBytes(long[] ids) operation.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>ids</td>
+          <td>LIST</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>A list of thread ids.</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div>An array of long values, each of which is an approximation of the total memory allocated, in bytes, in heap memory for the thread whose ID is in the corresponding element of the input array of IDs.</div>
+      <dl>
+        <dt>Type</dt>
+        <dd>LIST</dd>
+        <dt>Value Type</dt>
+        <dd>
+          <div class="code-block-container">
+            <pre><code class="language-json">
+LONG</code></pre>
+          </div>
+        </dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "get-threads-allocated-bytes",
+    "description" : "An approximation of the total amount of memory, in bytes, allocated in heap memory for each thread whose ID is in the input array ids. This maps to the mbean's getThreadAllocatedBytes(long[] ids) operation.",
+    "request-properties" : {"ids" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LIST"
+        },
+        "description" : "A list of thread ids.",
+        "expressions-allowed" : false,
+        "required" : true,
+        "nillable" : false,
+        "min-length" : 0,
+        "max-length" : 2147483647,
+        "stability" : "default",
+        "value-type" : {
+            "TYPE_MODEL_VALUE" : "LONG"
+        }
+    }},
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LIST"
+        },
+        "value-type" : {
+            "TYPE_MODEL_VALUE" : "LONG"
+        },
+        "description" : "An array of long values, each of which is an approximation of the total memory allocated, in bytes, in heap memory for the thread whose ID is in the corresponding element of the input array of IDs."
+    },
+    "stability" : "community",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="read-resource" href="#read-resource" class="">
+      read-resource</a> - Reads a model resource's attribute values along with either basic or complete information about any child resources
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>recursive</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Whether to include complete information about child resources, recursively. If absent, false is the default</td>
+        </tr>
+        <tr>
+          <td>recursive-depth</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The depth to which information about child resources should be included.</td>
+        </tr>
+        <tr>
+          <td>proxies</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td>false</td>
+          <td>Whether to include remote resources in a recursive query (i.e. host level resources in a query of the domain root; running server resources in a query of a host). If absent, false is the default.</td>
+        </tr>
+        <tr>
+          <td>include-runtime</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td>false</td>
+          <td>Whether to include runtime attributes (i.e. those whose value does not come from the persistent configuration) in the response. If absent, false is the default.</td>
+        </tr>
+        <tr>
+          <td>include-defaults</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td>true</td>
+          <td>Boolean to enable/disable default reading. In case it is set to false only attribute set by user are returned ignoring undefined.</td>
+        </tr>
+        <tr>
+          <td>attributes-only</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td>false</td>
+          <td>Whether or not to only read the attributes on the specified resource. Cannot be used in conjunction with 'recursive' or 'recursive-depth'.</td>
+        </tr>
+        <tr>
+          <td>include-aliases</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td>false</td>
+          <td>If 'true' and recursive, include children which are aliases.</td>
+        </tr>
+        <tr>
+          <td>include-undefined-metric-values</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td>false</td>
+          <td>Whether to include undefined metric values. If the underlying metric value can not be computed, this flag ensures that the value will remain undefined (without being replaced by a possible 'undefined metric value' from the attribute definition.</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div>The resource's attribute values along with information about any child resources</div>
+      <dl>
+        <dt>Type</dt>
+        <dd>OBJECT</dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "read-resource",
+    "description" : "Reads a model resource's attribute values along with either basic or complete information about any child resources",
+    "request-properties" : {
+        "recursive" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Whether to include complete information about child resources, recursively. If absent, false is the default",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default"
+        },
+        "recursive-depth" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The depth to which information about child resources should be included.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "min" : 0,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "proxies" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Whether to include remote resources in a recursive query (i.e. host level resources in a query of the domain root; running server resources in a query of a host). If absent, false is the default.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "include-runtime" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Whether to include runtime attributes (i.e. those whose value does not come from the persistent configuration) in the response. If absent, false is the default.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "include-defaults" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Boolean to enable/disable default reading. In case it is set to false only attribute set by user are returned ignoring undefined.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        },
+        "attributes-only" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Whether or not to only read the attributes on the specified resource. Cannot be used in conjunction with 'recursive' or 'recursive-depth'.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "include-aliases" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If 'true' and recursive, include children which are aliases.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "include-undefined-metric-values" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Whether to include undefined metric values. If the underlying metric value can not be computed, this flag ensures that the value will remain undefined (without being replaced by a possible 'undefined metric value' from the attribute definition.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "OBJECT"
+        },
+        "description" : "The resource's attribute values along with information about any child resources"
+    },
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="reset-peak-thread-count" href="#reset-peak-thread-count" class="">
+      reset-peak-thread-count</a> - Resets the peak thread count to the current number of live threads.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "reset-peak-thread-count",
+    "description" : "Resets the peak thread count to the current number of live threads.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+
+<footer>
+  <hr />
+  <p>The WildFly authors</p>
+</footer></div>
+</body>
+</html>

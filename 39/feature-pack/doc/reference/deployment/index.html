@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for deployment</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../index.html">root</a>
+      </li>
+      <li>deployment</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for deployment</h1>
+    <p>A deployment represents anything that can be deployed (e.g. an application such as Jakarta Enterprise Beans-JAR, WAR, EAR, any kind of standard archive such as RAR or JBoss-specific deployment) into a server.</p>
+
+  </header>
+<h2>Children (2)</h2>
+<ul class="children">
+  <li>
+    <a href="subdeployment/index.html" class="">subdeployment</a>
+  </li>
+  <li>
+    <b>subsystem</b>
+    <ul>
+      <li><a href="subsystem/batch-jberet/index.html" class="">batch-jberet</a></li>
+      <li><a href="subsystem/datasources/index.html" class="">datasources</a></li>
+      <li><a href="subsystem/ejb3/index.html" class="">ejb3</a></li>
+      <li><a href="subsystem/jaxrs/index.html" class="">jaxrs</a></li>
+      <li><a href="subsystem/jpa/index.html" class="">jpa</a></li>
+      <li><a href="subsystem/logging/index.html" class="">logging</a></li>
+      <li><a href="subsystem/messaging-activemq/index.html" class="">messaging-activemq</a></li>
+      <li><a href="subsystem/microprofile-opentracing-smallrye/index.html" class="">microprofile-opentracing-smallrye</a></li>
+      <li><a href="subsystem/resource-adapters/index.html" class="">resource-adapters</a></li>
+      <li><a href="subsystem/undertow/index.html" class="">undertow</a></li>
+      <li><a href="subsystem/webservices/index.html" class="">webservices</a></li>
+    </ul>
+  </li>
+</ul>
+<h2>Attributes (12)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="content" href="#content" class="">
+         content</a> - List of pieces of content that comprise the deployment.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "List of pieces of content that comprise the deployment.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "min-length" : 1,
+    "max-length" : 1,
+    "stability" : "default",
+    "value-type" : {
+        "hash" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BYTES"
+            },
+            "description" : "The hash of managed deployment content that has been uploaded to the domain's or standalone server's deployment content repository.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : true,
+            "alternatives" : [
+                "path",
+                "relative-to"
+            ],
+            "min-length" : 20,
+            "max-length" : 20,
+            "stability" : "default"
+        },
+        "path" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Path (relative or absolute) to unmanaged content that is part of the deployment.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : true,
+            "alternatives" : ["hash"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "relative-to" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Name of a system path to which the value of the 'path' is relative. If not set, the 'path' is considered to be absolute.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["hash"],
+            "requires" : ["path"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "archive" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Flag indicating whether unmanaged content is a zip archive (true) or exploded (false).",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "requires" : [
+                "path",
+                "hash"
+            ],
+            "stability" : "default"
+        }
+    },
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="disabled-time" href="#disabled-time" class="">
+         disabled-time</a> - Last time the application was disabled
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>MILLISECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "Last time the application was disabled",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "unit" : "MILLISECONDS",
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="disabled-timestamp" href="#disabled-timestamp" class="">
+         disabled-timestamp</a> - Last timestamp the application was disabled. Format is yyyy-MM-dd HH:mm:ss,SSS zzz.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Last timestamp the application was disabled. Format is yyyy-MM-dd HH:mm:ss,SSS zzz.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="enabled" href="#enabled" class="">
+         enabled</a> - Boolean indicating whether the deployment content is currently deployed in the runtime (or should be deployed in the runtime the next time the server starts.)
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Boolean indicating whether the deployment content is currently deployed in the runtime (or should be deployed in the runtime the next time the server starts.)",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="enabled-time" href="#enabled-time" class="">
+         enabled-time</a> - Last time the application was enabled
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>MILLISECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "Last time the application was enabled",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "unit" : "MILLISECONDS",
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="enabled-timestamp" href="#enabled-timestamp" class="">
+         enabled-timestamp</a> - Last timestamp the application was enabled. Format is yyyy-MM-dd HH:mm:ss,SSS zzz.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Last timestamp the application was enabled. Format is yyyy-MM-dd HH:mm:ss,SSS zzz.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="managed" href="#managed" class="">
+         managed</a> - Indicates if the deployment is managed (aka uses the ContentRepository).
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Indicates if the deployment is managed (aka uses the ContentRepository).",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="name" href="#name" class="">
+         name</a> - Unique identifier of the deployment. Must be unique across all deployments.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Unique identifier of the deployment. Must be unique across all deployments.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="owner" href="#owner" class="">
+         owner</a> - Address of a resource that has indicated it controls the lifecycle of this deployment (e.g. a deployment scanner resource.) Will be undefined if no resource claimed ownership when the deployment was added.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>OBJECT</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "OBJECT"
+    },
+    "description" : "Address of a resource that has indicated it controls the lifecycle of this deployment (e.g. a deployment scanner resource.) Will be undefined if no resource claimed ownership when the deployment was added.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "stability" : "default",
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="persistent" href="#persistent" class="">
+         persistent</a> - Boolean indicating whether the existence of the deployment should be recorded in the persistent server configuration. Only relevant to a standalone mode server. Default is 'true'. A deployment managed by a deployment scanner would have this set to 'false' to ensure the deployment is only deployed at server start if the scanner again detects the deployment.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Boolean indicating whether the existence of the deployment should be recorded in the persistent server configuration. Only relevant to a standalone mode server. Default is 'true'. A deployment managed by a deployment scanner would have this set to 'false' to ensure the deployment is only deployed at server start if the scanner again detects the deployment.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="runtime-name" href="#runtime-name" class="">
+         runtime-name</a> - Name by which the deployment should be known within a server's runtime. This would be equivalent to the file name of a deployment file, and would form the basis for such things as default Java Enterprise Edition application and module names. This would typically be the same as 'name', but in some cases users may wish to have two deployments with the same 'runtime-name' (e.g. two versions of "foo.war") both available in the deployment content repository, in which case the deployments would need to have distinct 'name' values but would have the same 'runtime-name'.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Name by which the deployment should be known within a server's runtime. This would be equivalent to the file name of a deployment file, and would form the basis for such things as default Java Enterprise Edition application and module names. This would typically be the same as 'name', but in some cases users may wish to have two deployments with the same 'runtime-name' (e.g. two versions of \"foo.war\") both available in the deployment content repository, in which case the deployments would need to have distinct 'name' values but would have the same 'runtime-name'.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="status" href="#status" class="">
+         status</a> - The current runtime status of a deployment. Possible status modes are OK, FAILED, and STOPPED. FAILED indicates a dependency is missing or a service could not start. STOPPED indicates that the deployment was not enabled or was manually stopped.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>runtime</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>metric</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The current runtime status of a deployment. Possible status modes are OK, FAILED, and STOPPED. FAILED indicates a dependency is missing or a service could not start. STOPPED indicates that the deployment was not enabled or was manually stopped.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "stability" : "default",
+    "access-type" : "metric",
+    "storage" : "runtime",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (11)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Adds previously uploaded content to the list of content available for use. Does not actually deploy the content unless the 'enabled' parameter is 'true'.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>runtime-name</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Name by which the deployment should be known within a server's runtime. This would be equivalent to the file name of a deployment file, and would form the basis for such things as default Java Enterprise Edition application and module names. This would typically be the same as 'name', but in some cases users may wish to have two deployments with the same 'runtime-name' (e.g. two versions of "foo.war") both available in the deployment content repository, in which case the deployments would need to have distinct 'name' values but would have the same 'runtime-name'.</td>
+        </tr>
+        <tr>
+          <td>content</td>
+          <td>LIST</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>List of pieces of content that comprise the deployment.</td>
+        </tr>
+        <tr>
+          <td>enabled</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td>false</td>
+          <td>Boolean indicating whether the deployment content is currently deployed in the runtime (or should be deployed in the runtime the next time the server starts.)</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Adds previously uploaded content to the list of content available for use. Does not actually deploy the content unless the 'enabled' parameter is 'true'.",
+    "request-properties" : {
+        "runtime-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Name by which the deployment should be known within a server's runtime. This would be equivalent to the file name of a deployment file, and would form the basis for such things as default Java Enterprise Edition application and module names. This would typically be the same as 'name', but in some cases users may wish to have two deployments with the same 'runtime-name' (e.g. two versions of \"foo.war\") both available in the deployment content repository, in which case the deployments would need to have distinct 'name' values but would have the same 'runtime-name'.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "content" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "List of pieces of content that comprise the deployment.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 1,
+            "stability" : "default",
+            "value-type" : {
+                "input-stream-index" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "INT"
+                    },
+                    "description" : "The index into the operation's attached input streams of the input stream that contains deployment content that should be uploaded to the domain's or standalone server's deployment content repository.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : true,
+                    "alternatives" : [
+                        "hash",
+                        "bytes",
+                        "url",
+                        "path",
+                        "relative-to",
+                        "empty"
+                    ],
+                    "min" : 1,
+                    "max" : 2147483647,
+                    "filesystem-path" : true,
+                    "attached-streams" : true,
+                    "stability" : "default"
+                },
+                "hash" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BYTES"
+                    },
+                    "description" : "The hash of managed deployment content that has been uploaded to the domain's or standalone server's deployment content repository.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : true,
+                    "alternatives" : [
+                        "input-stream-index",
+                        "bytes",
+                        "url",
+                        "path",
+                        "relative-to",
+                        "empty"
+                    ],
+                    "min-length" : 20,
+                    "max-length" : 20,
+                    "stability" : "default"
+                },
+                "bytes" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BYTES"
+                    },
+                    "description" : "Byte array containing the deployment content that should uploaded to the domain's or standalone server's deployment content repository.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : true,
+                    "alternatives" : [
+                        "input-stream-index",
+                        "hash",
+                        "url",
+                        "path",
+                        "relative-to",
+                        "empty"
+                    ],
+                    "stability" : "default"
+                },
+                "url" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The URL at which the deployment content is available for upload to the domain's or standalone server's deployment content repository.. Note that the URL must be accessible from the target of the operation (i.e. the Domain Controller or standalone server).",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : true,
+                    "alternatives" : [
+                        "input-stream-index",
+                        "hash",
+                        "bytes",
+                        "path",
+                        "relative-to",
+                        "empty"
+                    ],
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "path" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Path (relative or absolute) to unmanaged content that is part of the deployment.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : true,
+                    "alternatives" : [
+                        "input-stream-index",
+                        "hash",
+                        "bytes",
+                        "url",
+                        "empty"
+                    ],
+                    "requires" : ["archive"],
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "relative-to" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Name of a system path to which the value of the 'path' is relative. If not set, the 'path' is considered to be absolute.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "alternatives" : [
+                        "input-stream-index",
+                        "hash",
+                        "bytes",
+                        "url",
+                        "empty"
+                    ],
+                    "requires" : ["path"],
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "archive" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Flag indicating whether unmanaged content is a zip archive (true) or exploded (false).",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "alternatives" : [
+                        "input-stream-index",
+                        "bytes",
+                        "url"
+                    ],
+                    "requires" : [
+                        "path",
+                        "hash",
+                        "empty"
+                    ],
+                    "stability" : "default"
+                },
+                "empty" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BOOLEAN"
+                    },
+                    "description" : "Indicates that the deployment to be added is empty - so without any content.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : true,
+                    "default" : false,
+                    "alternatives" : [
+                        "hash",
+                        "input-stream-index",
+                        "bytes",
+                        "url",
+                        "path",
+                        "relative-to"
+                    ],
+                    "stability" : "default"
+                }
+            }
+        },
+        "enabled" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Boolean indicating whether the deployment content is currently deployed in the runtime (or should be deployed in the runtime the next time the server starts.)",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="add-content" href="#add-content" class="">
+      add-content</a> - Add contents to an existing deployment.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>content</td>
+          <td>LIST</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>List of pieces of content to be added to the deployment.</td>
+        </tr>
+        <tr>
+          <td>overwrite</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td>true</td>
+          <td>Indicates if added content should overwrite existing content.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add-content",
+    "description" : "Add contents to an existing deployment.",
+    "request-properties" : {
+        "content" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "List of pieces of content to be added to the deployment.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "input-stream-index" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "INT"
+                    },
+                    "description" : "The index into the operation's attached input streams of the input stream that contains deployment content that should be uploaded to the domain's or standalone server's deployment content repository.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "alternatives" : [
+                        "hash",
+                        "bytes",
+                        "url"
+                    ],
+                    "min" : 1,
+                    "max" : 2147483647,
+                    "filesystem-path" : true,
+                    "attached-streams" : true,
+                    "stability" : "default"
+                },
+                "hash" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BYTES"
+                    },
+                    "description" : "The hash of managed deployment content that has been uploaded to the domain's or standalone server's deployment content repository.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "alternatives" : [
+                        "input-stream-index",
+                        "bytes",
+                        "url"
+                    ],
+                    "min-length" : 20,
+                    "max-length" : 20,
+                    "stability" : "default"
+                },
+                "bytes" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "BYTES"
+                    },
+                    "description" : "Byte array containing the deployment content that should uploaded to the domain's or standalone server's deployment content repository.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "alternatives" : [
+                        "input-stream-index",
+                        "hash",
+                        "url"
+                    ],
+                    "stability" : "default"
+                },
+                "url" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The URL at which the deployment content is available for upload to the domain's or standalone server's deployment content repository.. Note that the URL must be accessible from the target of the operation (i.e. the Domain Controller or standalone server).",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "alternatives" : [
+                        "input-stream-index",
+                        "hash",
+                        "bytes"
+                    ],
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "target-path" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The relative path of an exploded deployment of this content.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "relative-to" : true,
+                    "stability" : "default"
+                }
+            }
+        },
+        "overwrite" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Indicates if added content should overwrite existing content.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="browse-content" href="#browse-content" class="">
+      browse-content</a> - List the pieces of content of a deployment.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>path</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The relative path from a deployment to list the contents of.</td>
+        </tr>
+        <tr>
+          <td>archive</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td>false</td>
+          <td>If set to true, only the relative paths to archive files will be returned.</td>
+        </tr>
+        <tr>
+          <td>depth</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>false</td>
+          <td>-1</td>
+          <td>The depth to browse.</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div>The pieces of content of a deployment and some information about them.</div>
+      <dl>
+        <dt>Type</dt>
+        <dd>OBJECT</dd>
+        <dt>Value Type</dt>
+        <dd>
+          <div class="code-block-container">
+            <pre><code class="language-json">
+{
+    "directory" => {
+        "type" => BOOLEAN,
+        "description" => "Indicates if the content is a folder or not.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "stability" => "default"
+    },
+    "path" => {
+        "type" => STRING,
+        "description" => "Path (relative or absolute) to unmanaged content that is part of the deployment.",
+        "expressions-allowed" => false,
+        "required" => true,
+        "nillable" => false,
+        "min-length" => 1,
+        "max-length" => 2147483647,
+        "stability" => "default"
+    },
+    "file-size" => {
+        "type" => LONG,
+        "description" => "The size of the content if it is a file.",
+        "expressions-allowed" => false,
+        "required" => false,
+        "nillable" => true,
+        "unit" => "BYTES",
+        "stability" => "default"
+    }
+}</code></pre>
+          </div>
+        </dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "browse-content",
+    "description" : "List the pieces of content of a deployment.",
+    "request-properties" : {
+        "path" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The relative path from a deployment to list the contents of.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "relative-to" : true,
+            "stability" : "default"
+        },
+        "archive" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If set to true, only the relative paths to archive files will be returned.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "depth" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The depth to browse.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : -1,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "OBJECT"
+        },
+        "description" : "The pieces of content of a deployment and some information about them.",
+        "expressions-allowed" : false,
+        "required" : true,
+        "nillable" : false,
+        "stability" : "default",
+        "value-type" : {
+            "directory" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "BOOLEAN"
+                },
+                "description" : "Indicates if the content is a folder or not.",
+                "expressions-allowed" : false,
+                "required" : true,
+                "nillable" : false,
+                "stability" : "default"
+            },
+            "path" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "STRING"
+                },
+                "description" : "Path (relative or absolute) to unmanaged content that is part of the deployment.",
+                "expressions-allowed" : false,
+                "required" : true,
+                "nillable" : false,
+                "min-length" : 1,
+                "max-length" : 2147483647,
+                "stability" : "default"
+            },
+            "file-size" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "LONG"
+                },
+                "description" : "The size of the content if it is a file.",
+                "expressions-allowed" : false,
+                "required" : false,
+                "nillable" : true,
+                "unit" : "BYTES",
+                "stability" : "default"
+            }
+        }
+    },
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="deploy" href="#deploy" class="">
+      deploy</a> - Deploy the specified deployment content into the runtime, optionally replacing existing content.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "deploy",
+    "description" : "Deploy the specified deployment content into the runtime, optionally replacing existing content.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="explode" href="#explode" class="">
+      explode</a> - Convert zip format managed deployment content to exploded format.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>path</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Relative path to an archive in a deployment to be exploded.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "explode",
+    "description" : "Convert zip format managed deployment content to exploded format.",
+    "request-properties" : {"path" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        },
+        "description" : "Relative path to an archive in a deployment to be exploded.",
+        "expressions-allowed" : false,
+        "required" : false,
+        "nillable" : true,
+        "min-length" : 1,
+        "max-length" : 2147483647,
+        "relative-to" : true,
+        "stability" : "default"
+    }},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="list-modules" href="#list-modules" class="">
+      list-modules</a> - List all module dependencies of the current deployment.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>verbose</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td>false</td>
+          <td>Optional, default is false and results in brief info about the module dependencies, true to include detailed information about the module dependencies added to the current deployment.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "list-modules",
+    "description" : "List all module dependencies of the current deployment.",
+    "request-properties" : {"verbose" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "BOOLEAN"
+        },
+        "description" : "Optional, default is false and results in brief info about the module dependencies, true to include detailed information about the module dependencies added to the current deployment.",
+        "expressions-allowed" : false,
+        "required" : false,
+        "nillable" : true,
+        "default" : false,
+        "stability" : "default"
+    }},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="read-content" href="#read-content" class="">
+      read-content</a> - Read the content of an existing deployment.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>path</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The relative path of the content to be read from an existing deployment.</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div>The uuid of the attached stream.</div>
+      <dl>
+        <dt>Type</dt>
+        <dd>STRING</dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "read-content",
+    "description" : "Read the content of an existing deployment.",
+    "request-properties" : {"path" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        },
+        "description" : "The relative path of the content to be read from an existing deployment.",
+        "expressions-allowed" : false,
+        "required" : false,
+        "nillable" : true,
+        "min-length" : 1,
+        "max-length" : 2147483647,
+        "relative-to" : true,
+        "stability" : "default"
+    }},
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        },
+        "description" : "The uuid of the attached stream.",
+        "expressions-allowed" : false,
+        "required" : true,
+        "nillable" : false,
+        "min-length" : 1,
+        "max-length" : 2147483647,
+        "stability" : "default"
+    },
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="redeploy" href="#redeploy" class="">
+      redeploy</a> - Undeploy existing content from the runtime and deploy it again.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "redeploy",
+    "description" : "Undeploy existing content from the runtime and deploy it again.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Remove a deployment from the list of content available for use. If the deployment is currently deployed in the runtime it will first be undeployed.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Remove a deployment from the list of content available for use. If the deployment is currently deployed in the runtime it will first be undeployed.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "all-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove-content" href="#remove-content" class="">
+      remove-content</a> - Remove contents from an existing deployment.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>paths</td>
+          <td>LIST</td>
+          <td>true</td>
+          <td>true</td>
+          <td></td>
+          <td>List of paths of content to be removed from the deployment.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove-content",
+    "description" : "Remove contents from an existing deployment.",
+    "request-properties" : {"paths" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LIST"
+        },
+        "description" : "List of paths of content to be removed from the deployment.",
+        "expressions-allowed" : true,
+        "required" : true,
+        "nillable" : false,
+        "min-length" : 0,
+        "max-length" : 2147483647,
+        "relative-to" : true,
+        "stability" : "default",
+        "value-type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        }
+    }},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="undeploy" href="#undeploy" class="">
+      undeploy</a> - Undeploy content from the runtime. The content remains in the list of content available for use.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "undeploy",
+    "description" : "Undeploy content from the runtime. The content remains in the list of content available for use.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">deployment</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="deployment"&gt;
+  &lt;param name="deployment" value="{resource name}"/&gt;
+  &lt;param name="content" value="{value}"/&gt;
+  &lt;param name="enabled" value="{value}"/&gt;
+  &lt;param name="runtime-name" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+
+<footer>
+  <hr />
+  <p>The WildFly authors</p>
+</footer></div>
+</body>
+</html>

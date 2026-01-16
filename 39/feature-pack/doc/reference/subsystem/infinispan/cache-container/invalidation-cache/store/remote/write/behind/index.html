@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for write=behind</title>
+  <link rel="stylesheet" href="../../../../../../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../../../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../../../../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../../../../../../subsystem/infinispan/index.html">subsystem=infinispan</a>
+      </li>
+      <li>
+        <a href="../../../../../../../../subsystem/infinispan/cache-container/index.html">cache-container</a>
+      </li>
+      <li>
+        <a href="../../../../../../../../subsystem/infinispan/cache-container/invalidation-cache/index.html">invalidation-cache</a>
+      </li>
+      <li>
+        <a href="../../../../../../../../subsystem/infinispan/cache-container/invalidation-cache/store/remote/index.html">store=remote</a>
+      </li>
+      <li>write=behind</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for write=behind</h1>
+    <p>Configures a cache store as write-behind instead of write-through.</p>
+
+  </header>
+<h2>Provided Capabilities (1)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/clustering/infinispan/cache-configuration/store/write/capability.adoc">org.wildfly.clustering.infinispan.cache-configuration.store.write</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/invalidation-cache/store/custom/write/behind/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*/store=custom/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/invalidation-cache/store/file/write/through/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*/store=file/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/replicated-cache/store/remote/write/through/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*/store=remote/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/distributed-cache/store/file/write/behind/index.html">/subsystem=infinispan/cache-container=*/distributed-cache=*/store=file/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/replicated-cache/store/custom/write/behind/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*/store=custom/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/invalidation-cache/store/remote/write/through/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*/store=remote/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/replicated-cache/store/custom/write/through/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*/store=custom/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/local-cache/store/jdbc/write/behind/index.html">/subsystem=infinispan/cache-container=*/local-cache=*/store=jdbc/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/invalidation-cache/store/hotrod/write/behind/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*/store=hotrod/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/replicated-cache/store/file/write/through/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*/store=file/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/replicated-cache/store/remote/write/behind/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*/store=remote/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/replicated-cache/store/hotrod/write/through/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*/store=hotrod/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/scattered-cache/store/hotrod/write/behind/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*/store=hotrod/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/replicated-cache/store/jdbc/write/behind/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*/store=jdbc/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/invalidation-cache/store/hotrod/write/through/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*/store=hotrod/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/distributed-cache/store/hotrod/write/behind/index.html">/subsystem=infinispan/cache-container=*/distributed-cache=*/store=hotrod/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/scattered-cache/store/file/write/through/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*/store=file/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/local-cache/store/jdbc/write/through/index.html">/subsystem=infinispan/cache-container=*/local-cache=*/store=jdbc/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/distributed-cache/store/jdbc/write/behind/index.html">/subsystem=infinispan/cache-container=*/distributed-cache=*/store=jdbc/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/distributed-cache/store/jdbc/write/through/index.html">/subsystem=infinispan/cache-container=*/distributed-cache=*/store=jdbc/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/local-cache/store/hotrod/write/behind/index.html">/subsystem=infinispan/cache-container=*/local-cache=*/store=hotrod/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/distributed-cache/store/hotrod/write/through/index.html">/subsystem=infinispan/cache-container=*/distributed-cache=*/store=hotrod/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/scattered-cache/store/custom/write/through/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*/store=custom/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/local-cache/store/file/write/behind/index.html">/subsystem=infinispan/cache-container=*/local-cache=*/store=file/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/distributed-cache/store/custom/write/behind/index.html">/subsystem=infinispan/cache-container=*/distributed-cache=*/store=custom/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/scattered-cache/store/custom/write/behind/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*/store=custom/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/invalidation-cache/store/custom/write/through/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*/store=custom/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/replicated-cache/store/file/write/behind/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*/store=file/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/local-cache/store/remote/write/behind/index.html">/subsystem=infinispan/cache-container=*/local-cache=*/store=remote/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/scattered-cache/store/jdbc/write/behind/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*/store=jdbc/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/local-cache/store/custom/write/through/index.html">/subsystem=infinispan/cache-container=*/local-cache=*/store=custom/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/scattered-cache/store/hotrod/write/through/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*/store=hotrod/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/scattered-cache/store/jdbc/write/through/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*/store=jdbc/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/local-cache/store/file/write/through/index.html">/subsystem=infinispan/cache-container=*/local-cache=*/store=file/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/invalidation-cache/store/jdbc/write/behind/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*/store=jdbc/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/local-cache/store/hotrod/write/through/index.html">/subsystem=infinispan/cache-container=*/local-cache=*/store=hotrod/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/invalidation-cache/store/jdbc/write/through/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*/store=jdbc/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/distributed-cache/store/custom/write/through/index.html">/subsystem=infinispan/cache-container=*/distributed-cache=*/store=custom/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/scattered-cache/store/remote/write/through/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*/store=remote/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/local-cache/store/remote/write/through/index.html">/subsystem=infinispan/cache-container=*/local-cache=*/store=remote/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/replicated-cache/store/jdbc/write/through/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*/store=jdbc/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/replicated-cache/store/hotrod/write/behind/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*/store=hotrod/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/distributed-cache/store/remote/write/behind/index.html">/subsystem=infinispan/cache-container=*/distributed-cache=*/store=remote/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/scattered-cache/store/file/write/behind/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*/store=file/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/local-cache/store/custom/write/behind/index.html">/subsystem=infinispan/cache-container=*/local-cache=*/store=custom/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/distributed-cache/store/file/write/through/index.html">/subsystem=infinispan/cache-container=*/distributed-cache=*/store=file/write=through</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/scattered-cache/store/remote/write/behind/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*/store=remote/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/invalidation-cache/store/file/write/behind/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*/store=file/write=behind</a> <br/>
+      <a href="../../../../../../../../subsystem/infinispan/cache-container/distributed-cache/store/remote/write/through/index.html">/subsystem=infinispan/cache-container=*/distributed-cache=*/store=remote/write=through</a> <br/>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (1)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="modification-queue-size" href="#modification-queue-size" class="">
+         modification-queue-size</a> - Maximum number of entries in the asynchronous queue. When the queue is full, the store becomes write-through until it can accept new entries.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>1024</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "Maximum number of entries in the asynchronous queue. When the queue is full, the store becomes write-through until it can accept new entries.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 1024,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (2)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Adds a write-behind configuration element to the store.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>modification-queue-size</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>1024</td>
+          <td>Maximum number of entries in the asynchronous queue. When the queue is full, the store becomes write-through until it can accept new entries.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Adds a write-behind configuration element to the store.",
+    "request-properties" : {"modification-queue-size" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "INT"
+        },
+        "description" : "Maximum number of entries in the asynchronous queue. When the queue is full, the store becomes write-through until it can accept new entries.",
+        "expressions-allowed" : true,
+        "required" : false,
+        "nillable" : true,
+        "default" : 1024,
+        "stability" : "default"
+    }},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Removes a write-behind configuration element from the store.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Removes a write-behind configuration element from the store.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.infinispan.cache-container.invalidation-cache.store.remote.write.behind</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.infinispan.cache-container.invalidation-cache.store.remote.write.behind"&gt;
+  &lt;param name="cache-container" value="{resource name}"/&gt;
+  &lt;param name="invalidation-cache" value="{resource name}"/&gt;
+  &lt;param name="modification-queue-size" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+
+<footer>
+  <hr />
+  <p>The WildFly authors</p>
+</footer></div>
+</body>
+</html>

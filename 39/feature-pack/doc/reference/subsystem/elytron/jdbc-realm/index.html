@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for jdbc-realm</title>
+  <link rel="stylesheet" href="../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../subsystem/elytron/index.html">subsystem=elytron</a>
+      </li>
+      <li>jdbc-realm</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for jdbc-realm</h1>
+    <p>A security realm definition backed by database using JDBC.</p>
+
+  </header>
+<h2>Provided Capabilities (1)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/security/security-realm/capability.adoc">org.wildfly.security.security-realm</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../subsystem/elytron/jaas-realm/index.html">/subsystem=elytron/jaas-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/filesystem-realm/index.html">/subsystem=elytron/filesystem-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/token-realm/index.html">/subsystem=elytron/token-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/ldap-realm/index.html">/subsystem=elytron/ldap-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/distributed-realm/index.html">/subsystem=elytron/distributed-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/key-store-realm/index.html">/subsystem=elytron/key-store-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/failover-realm/index.html">/subsystem=elytron/failover-realm=*</a> <br/>
+      <a href="../../../subsystem/security/elytron-realm/index.html">/subsystem=security/elytron-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/custom-modifiable-realm/index.html">/subsystem=elytron/custom-modifiable-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/identity-realm/index.html">/subsystem=elytron/identity-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/aggregate-realm/index.html">/subsystem=elytron/aggregate-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/properties-realm/index.html">/subsystem=elytron/properties-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/caching-realm/index.html">/subsystem=elytron/caching-realm=*</a> <br/>
+      <a href="../../../subsystem/elytron/custom-realm/index.html">/subsystem=elytron/custom-realm=*</a> <br/>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (2)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="hash-charset" href="#hash-charset" class="">
+         hash-charset</a> - The character set to use when converting the password string to a byte array.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>UTF-8</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The character set to use when converting the password string to a byte array.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "UTF-8",
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="principal-query" href="#principal-query" class="">
+         principal-query</a> - The authentication query used to authenticate users based on specific key types.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "The authentication query used to authenticate users based on specific key types.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "value-type" : {
+        "sql" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The SQL statement used to obtain the keys(as table columns) for a specific user and map them accordingly with their type.",
+            "expressions-allowed" : true,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "data-source" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the datasource used to connect to the database.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "capability-reference" : "org.wildfly.data-source",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "attribute-mapping" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "The attribute mappings defined for this resource.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "to" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The name of the identity attribute mapped from a column returned from a SQL query.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "index" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "INT"
+                    },
+                    "description" : "The column index from a query that representing the mapped attribute.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min" : 1,
+                    "max" : 2147483647,
+                    "stability" : "default"
+                }
+            }
+        },
+        "clear-password-mapper" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "A key mapper that maps a column returned from a SQL query to a Clear Password key type.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {"password-index" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "INT"
+                },
+                "description" : "The column index from an authentication query that represents the user's password.",
+                "expressions-allowed" : true,
+                "required" : true,
+                "nillable" : false,
+                "min" : 1,
+                "max" : 2147483647,
+                "stability" : "default"
+            }}
+        },
+        "bcrypt-mapper" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "A key mapper that maps a column returned from a SQL query to a Bcrypt key type.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "password-index" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "INT"
+                    },
+                    "description" : "The column index from an authentication query that represents the user's password.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min" : 1,
+                    "max" : 2147483647,
+                    "stability" : "default"
+                },
+                "salt-index" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "INT"
+                    },
+                    "description" : "The column index from an authentication query that represents the password's salt, if supported.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min" : 1,
+                    "max" : 2147483647,
+                    "stability" : "default"
+                },
+                "iteration-count-index" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "INT"
+                    },
+                    "description" : "The column index from an authentication query that represents the password's iteration count, if supported.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min" : 1,
+                    "max" : 2147483647,
+                    "stability" : "default"
+                },
+                "hash-encoding" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The encoding of the user's password hash.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "base64",
+                    "allowed" : [
+                        "base64",
+                        "hex"
+                    ],
+                    "stability" : "default"
+                },
+                "salt-encoding" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The encoding of the password's salt.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "base64",
+                    "allowed" : [
+                        "base64",
+                        "hex"
+                    ],
+                    "stability" : "default"
+                }
+            }
+        },
+        "salted-simple-digest-mapper" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "A key mapper that maps a column returned from a SQL query to a Salted Simple Digest key type.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "algorithm" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The algorithm for a specific password key mapper.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "password-salt-digest-md5",
+                    "allowed" : [
+                        "password-salt-digest-md5",
+                        "password-salt-digest-sha-1",
+                        "password-salt-digest-sha-256",
+                        "password-salt-digest-sha-384",
+                        "password-salt-digest-sha-512",
+                        "salt-password-digest-md5",
+                        "salt-password-digest-sha-1",
+                        "salt-password-digest-sha-256",
+                        "salt-password-digest-sha-384",
+                        "salt-password-digest-sha-512"
+                    ],
+                    "stability" : "default"
+                },
+                "password-index" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "INT"
+                    },
+                    "description" : "The column index from an authentication query that represents the user's password.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min" : 1,
+                    "max" : 2147483647,
+                    "stability" : "default"
+                },
+                "salt-index" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "INT"
+                    },
+                    "description" : "The column index from an authentication query that represents the password's salt, if supported.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min" : 1,
+                    "max" : 2147483647,
+                    "stability" : "default"
+                },
+                "hash-encoding" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The encoding of the user's password hash.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "base64",
+                    "allowed" : [
+                        "base64",
+                        "hex"
+                    ],
+                    "stability" : "default"
+                },
+                "salt-encoding" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The encoding of the password's salt.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "base64",
+                    "allowed" : [
+                        "base64",
+                        "hex"
+                    ],
+                    "stability" : "default"
+                }
+            }
+        },
+        "simple-digest-mapper" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "A key mapper that maps a column returned from a SQL query to a Simple Digest key type.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "algorithm" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The algorithm for a specific password key mapper.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "simple-digest-md5",
+                    "allowed" : [
+                        "simple-digest-md2",
+                        "simple-digest-md5",
+                        "simple-digest-sha-1",
+                        "simple-digest-sha-256",
+                        "simple-digest-sha-384",
+                        "simple-digest-sha-512"
+                    ],
+                    "stability" : "default"
+                },
+                "password-index" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "INT"
+                    },
+                    "description" : "The column index from an authentication query that represents the user's password.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min" : 1,
+                    "max" : 2147483647,
+                    "stability" : "default"
+                },
+                "hash-encoding" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The encoding of the user's password hash.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "base64",
+                    "allowed" : [
+                        "base64",
+                        "hex"
+                    ],
+                    "stability" : "default"
+                }
+            }
+        },
+        "scram-mapper" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "A key mapper that maps a column returned from a SQL query to a Scram key type.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {
+                "algorithm" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The algorithm for a specific password key mapper.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "scram-sha-256",
+                    "allowed" : [
+                        "scram-sha-1",
+                        "scram-sha-256",
+                        "scram-sha-384",
+                        "scram-sha-512"
+                    ],
+                    "stability" : "default"
+                },
+                "password-index" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "INT"
+                    },
+                    "description" : "The column index from an authentication query that represents the user's password.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min" : 1,
+                    "max" : 2147483647,
+                    "stability" : "default"
+                },
+                "salt-index" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "INT"
+                    },
+                    "description" : "The column index from an authentication query that represents the password's salt, if supported.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min" : 1,
+                    "max" : 2147483647,
+                    "stability" : "default"
+                },
+                "iteration-count-index" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "INT"
+                    },
+                    "description" : "The column index from an authentication query that represents the password's iteration count, if supported.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min" : 1,
+                    "max" : 2147483647,
+                    "stability" : "default"
+                },
+                "hash-encoding" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The encoding of the user's password hash.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "base64",
+                    "allowed" : [
+                        "base64",
+                        "hex"
+                    ],
+                    "stability" : "default"
+                },
+                "salt-encoding" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The encoding of the password's salt.",
+                    "expressions-allowed" : true,
+                    "required" : false,
+                    "nillable" : true,
+                    "default" : "base64",
+                    "allowed" : [
+                        "base64",
+                        "hex"
+                    ],
+                    "stability" : "default"
+                }
+            }
+        },
+        "modular-crypt-mapper" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "OBJECT"
+            },
+            "description" : "A key mapper that maps a column returned from a SQL query to a Modular Crypt key type.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "value-type" : {"password-index" : {
+                "type" : {
+                    "TYPE_MODEL_VALUE" : "INT"
+                },
+                "description" : "The column index from an authentication query that represents the user's password.",
+                "expressions-allowed" : true,
+                "required" : true,
+                "nillable" : false,
+                "min" : 1,
+                "max" : 2147483647,
+                "stability" : "default"
+            }}
+        }
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (2)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - The add operation for the security realm.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>hash-charset</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>UTF-8</td>
+          <td>The character set to use when converting the password string to a byte array.</td>
+        </tr>
+        <tr>
+          <td>principal-query</td>
+          <td>LIST</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The authentication query used to authenticate users based on specific key types.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "The add operation for the security realm.",
+    "request-properties" : {
+        "hash-charset" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The character set to use when converting the password string to a byte array.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "UTF-8",
+            "stability" : "default"
+        },
+        "principal-query" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "The authentication query used to authenticate users based on specific key types.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "sql" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The SQL statement used to obtain the keys(as table columns) for a specific user and map them accordingly with their type.",
+                    "expressions-allowed" : true,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "data-source" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "The name of the datasource used to connect to the database.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "capability-reference" : "org.wildfly.data-source",
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "attribute-mapping" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "LIST"
+                    },
+                    "description" : "The attribute mappings defined for this resource.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "min-length" : 0,
+                    "max-length" : 2147483647,
+                    "stability" : "default",
+                    "value-type" : {
+                        "to" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The name of the identity attribute mapped from a column returned from a SQL query.",
+                            "expressions-allowed" : true,
+                            "required" : true,
+                            "nillable" : false,
+                            "min-length" : 1,
+                            "max-length" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "index" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "INT"
+                            },
+                            "description" : "The column index from a query that representing the mapped attribute.",
+                            "expressions-allowed" : true,
+                            "required" : true,
+                            "nillable" : false,
+                            "min" : 1,
+                            "max" : 2147483647,
+                            "stability" : "default"
+                        }
+                    }
+                },
+                "clear-password-mapper" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A key mapper that maps a column returned from a SQL query to a Clear Password key type.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {"password-index" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "INT"
+                        },
+                        "description" : "The column index from an authentication query that represents the user's password.",
+                        "expressions-allowed" : true,
+                        "required" : true,
+                        "nillable" : false,
+                        "min" : 1,
+                        "max" : 2147483647,
+                        "stability" : "default"
+                    }}
+                },
+                "bcrypt-mapper" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A key mapper that maps a column returned from a SQL query to a Bcrypt key type.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "password-index" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "INT"
+                            },
+                            "description" : "The column index from an authentication query that represents the user's password.",
+                            "expressions-allowed" : true,
+                            "required" : true,
+                            "nillable" : false,
+                            "min" : 1,
+                            "max" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "salt-index" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "INT"
+                            },
+                            "description" : "The column index from an authentication query that represents the password's salt, if supported.",
+                            "expressions-allowed" : true,
+                            "required" : true,
+                            "nillable" : false,
+                            "min" : 1,
+                            "max" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "iteration-count-index" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "INT"
+                            },
+                            "description" : "The column index from an authentication query that represents the password's iteration count, if supported.",
+                            "expressions-allowed" : true,
+                            "required" : true,
+                            "nillable" : false,
+                            "min" : 1,
+                            "max" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "hash-encoding" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The encoding of the user's password hash.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : "base64",
+                            "allowed" : [
+                                "base64",
+                                "hex"
+                            ],
+                            "stability" : "default"
+                        },
+                        "salt-encoding" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The encoding of the password's salt.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : "base64",
+                            "allowed" : [
+                                "base64",
+                                "hex"
+                            ],
+                            "stability" : "default"
+                        }
+                    }
+                },
+                "salted-simple-digest-mapper" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A key mapper that maps a column returned from a SQL query to a Salted Simple Digest key type.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "algorithm" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The algorithm for a specific password key mapper.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : "password-salt-digest-md5",
+                            "allowed" : [
+                                "password-salt-digest-md5",
+                                "password-salt-digest-sha-1",
+                                "password-salt-digest-sha-256",
+                                "password-salt-digest-sha-384",
+                                "password-salt-digest-sha-512",
+                                "salt-password-digest-md5",
+                                "salt-password-digest-sha-1",
+                                "salt-password-digest-sha-256",
+                                "salt-password-digest-sha-384",
+                                "salt-password-digest-sha-512"
+                            ],
+                            "stability" : "default"
+                        },
+                        "password-index" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "INT"
+                            },
+                            "description" : "The column index from an authentication query that represents the user's password.",
+                            "expressions-allowed" : true,
+                            "required" : true,
+                            "nillable" : false,
+                            "min" : 1,
+                            "max" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "salt-index" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "INT"
+                            },
+                            "description" : "The column index from an authentication query that represents the password's salt, if supported.",
+                            "expressions-allowed" : true,
+                            "required" : true,
+                            "nillable" : false,
+                            "min" : 1,
+                            "max" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "hash-encoding" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The encoding of the user's password hash.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : "base64",
+                            "allowed" : [
+                                "base64",
+                                "hex"
+                            ],
+                            "stability" : "default"
+                        },
+                        "salt-encoding" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The encoding of the password's salt.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : "base64",
+                            "allowed" : [
+                                "base64",
+                                "hex"
+                            ],
+                            "stability" : "default"
+                        }
+                    }
+                },
+                "simple-digest-mapper" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A key mapper that maps a column returned from a SQL query to a Simple Digest key type.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "algorithm" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The algorithm for a specific password key mapper.",
+                            "expressions-allowed" : false,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : "simple-digest-md5",
+                            "allowed" : [
+                                "simple-digest-md2",
+                                "simple-digest-md5",
+                                "simple-digest-sha-1",
+                                "simple-digest-sha-256",
+                                "simple-digest-sha-384",
+                                "simple-digest-sha-512"
+                            ],
+                            "stability" : "default"
+                        },
+                        "password-index" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "INT"
+                            },
+                            "description" : "The column index from an authentication query that represents the user's password.",
+                            "expressions-allowed" : true,
+                            "required" : true,
+                            "nillable" : false,
+                            "min" : 1,
+                            "max" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "hash-encoding" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The encoding of the user's password hash.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : "base64",
+                            "allowed" : [
+                                "base64",
+                                "hex"
+                            ],
+                            "stability" : "default"
+                        }
+                    }
+                },
+                "scram-mapper" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A key mapper that maps a column returned from a SQL query to a Scram key type.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {
+                        "algorithm" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The algorithm for a specific password key mapper.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : "scram-sha-256",
+                            "allowed" : [
+                                "scram-sha-1",
+                                "scram-sha-256",
+                                "scram-sha-384",
+                                "scram-sha-512"
+                            ],
+                            "stability" : "default"
+                        },
+                        "password-index" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "INT"
+                            },
+                            "description" : "The column index from an authentication query that represents the user's password.",
+                            "expressions-allowed" : true,
+                            "required" : true,
+                            "nillable" : false,
+                            "min" : 1,
+                            "max" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "salt-index" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "INT"
+                            },
+                            "description" : "The column index from an authentication query that represents the password's salt, if supported.",
+                            "expressions-allowed" : true,
+                            "required" : true,
+                            "nillable" : false,
+                            "min" : 1,
+                            "max" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "iteration-count-index" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "INT"
+                            },
+                            "description" : "The column index from an authentication query that represents the password's iteration count, if supported.",
+                            "expressions-allowed" : true,
+                            "required" : true,
+                            "nillable" : false,
+                            "min" : 1,
+                            "max" : 2147483647,
+                            "stability" : "default"
+                        },
+                        "hash-encoding" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The encoding of the user's password hash.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : "base64",
+                            "allowed" : [
+                                "base64",
+                                "hex"
+                            ],
+                            "stability" : "default"
+                        },
+                        "salt-encoding" : {
+                            "type" : {
+                                "TYPE_MODEL_VALUE" : "STRING"
+                            },
+                            "description" : "The encoding of the password's salt.",
+                            "expressions-allowed" : true,
+                            "required" : false,
+                            "nillable" : true,
+                            "default" : "base64",
+                            "allowed" : [
+                                "base64",
+                                "hex"
+                            ],
+                            "stability" : "default"
+                        }
+                    }
+                },
+                "modular-crypt-mapper" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "OBJECT"
+                    },
+                    "description" : "A key mapper that maps a column returned from a SQL query to a Modular Crypt key type.",
+                    "expressions-allowed" : false,
+                    "required" : false,
+                    "nillable" : true,
+                    "stability" : "default",
+                    "value-type" : {"password-index" : {
+                        "type" : {
+                            "TYPE_MODEL_VALUE" : "INT"
+                        },
+                        "description" : "The column index from an authentication query that represents the user's password.",
+                        "expressions-allowed" : true,
+                        "required" : true,
+                        "nillable" : false,
+                        "min" : 1,
+                        "max" : 2147483647,
+                        "stability" : "default"
+                    }}
+                }
+            }
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - The remove operation for the security realm.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "The remove operation for the security realm.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.elytron.jdbc-realm</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.elytron.jdbc-realm"&gt;
+  &lt;param name="jdbc-realm" value="{resource name}"/&gt;
+  &lt;param name="hash-charset" value="{value}"/&gt;
+  &lt;param name="principal-query" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+
+<footer>
+  <hr />
+  <p>The WildFly authors</p>
+</footer></div>
+</body>
+</html>

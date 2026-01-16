@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for chained-principal-transformer</title>
+  <link rel="stylesheet" href="../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../subsystem/elytron/index.html">subsystem=elytron</a>
+      </li>
+      <li>chained-principal-transformer</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for chained-principal-transformer</h1>
+    <p>A principal transformer definition where the principal transformer is a chaining of other principal transformers.</p>
+
+  </header>
+<h2>Provided Capabilities (1)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/security/principal-transformer/capability.adoc">org.wildfly.security.principal-transformer</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../subsystem/elytron/constant-principal-decoder/index.html">/subsystem=elytron/constant-principal-decoder=*</a> <br/>
+      <a href="../../../subsystem/elytron/x500-attribute-principal-decoder/index.html">/subsystem=elytron/x500-attribute-principal-decoder=*</a> <br/>
+      <a href="../../../subsystem/elytron/custom-principal-transformer/index.html">/subsystem=elytron/custom-principal-transformer=*</a> <br/>
+      <a href="../../../subsystem/elytron/aggregate-principal-transformer/index.html">/subsystem=elytron/aggregate-principal-transformer=*</a> <br/>
+      <a href="../../../subsystem/elytron/regex-principal-transformer/index.html">/subsystem=elytron/regex-principal-transformer=*</a> <br/>
+      <a href="../../../subsystem/elytron/constant-principal-transformer/index.html">/subsystem=elytron/constant-principal-transformer=*</a> <br/>
+      <a href="../../../subsystem/elytron/case-principal-transformer/index.html">/subsystem=elytron/case-principal-transformer=*</a> <br/>
+      <a href="../../../subsystem/elytron/concatenating-principal-decoder/index.html">/subsystem=elytron/concatenating-principal-decoder=*</a> <br/>
+      <a href="../../../subsystem/elytron/regex-validating-principal-transformer/index.html">/subsystem=elytron/regex-validating-principal-transformer=*</a> <br/>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (1)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="principal-transformers" href="#principal-transformers" class="">
+         principal-transformers</a> - The referenced principal transformers to chain.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "The referenced principal transformers to chain.",
+    "expressions-allowed" : false,
+    "required" : true,
+    "nillable" : false,
+    "capability-reference" : "org.wildfly.security.principal-transformer",
+    "min-length" : 2,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (2)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - The add operation for the principal transformer.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>principal-transformers</td>
+          <td>LIST</td>
+          <td>true</td>
+          <td>false</td>
+          <td></td>
+          <td>The referenced principal transformers to chain.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "The add operation for the principal transformer.",
+    "request-properties" : {"principal-transformers" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "LIST"
+        },
+        "description" : "The referenced principal transformers to chain.",
+        "expressions-allowed" : false,
+        "required" : true,
+        "nillable" : false,
+        "capability-reference" : "org.wildfly.security.principal-transformer",
+        "min-length" : 2,
+        "max-length" : 2147483647,
+        "stability" : "default",
+        "value-type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        }
+    }},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - The remove operation for the principal transformer.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "The remove operation for the principal transformer.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.elytron.chained-principal-transformer</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.elytron.chained-principal-transformer"&gt;
+  &lt;param name="chained-principal-transformer" value="{resource name}"/&gt;
+  &lt;param name="principal-transformers" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+
+<footer>
+  <hr />
+  <p>The WildFly authors</p>
+</footer></div>
+</body>
+</html>

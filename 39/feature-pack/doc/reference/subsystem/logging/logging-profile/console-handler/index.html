@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for console-handler</title>
+  <link rel="stylesheet" href="../../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../../subsystem/logging/index.html">subsystem=logging</a>
+      </li>
+      <li>
+        <a href="../../../../subsystem/logging/logging-profile/index.html">logging-profile</a>
+      </li>
+      <li>console-handler</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for console-handler</h1>
+    <p>Defines a handler which writes to the console.</p>
+
+  </header>
+<h2>Provided Capabilities (1)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/logging/handler/capability.adoc">org.wildfly.logging.handler</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../../subsystem/logging/logging-profile/periodic-rotating-file-handler/index.html">/subsystem=logging/logging-profile=*/periodic-rotating-file-handler=*</a> <br/>
+      <a href="../../../../subsystem/logging/periodic-size-rotating-file-handler/index.html">/subsystem=logging/periodic-size-rotating-file-handler=*</a> <br/>
+      <a href="../../../../subsystem/logging/logging-profile/custom-handler/index.html">/subsystem=logging/logging-profile=*/custom-handler=*</a> <br/>
+      <a href="../../../../subsystem/logging/file-handler/index.html">/subsystem=logging/file-handler=*</a> <br/>
+      <a href="../../../../subsystem/logging/custom-handler/index.html">/subsystem=logging/custom-handler=*</a> <br/>
+      <a href="../../../../subsystem/logging/logging-profile/syslog-handler/index.html">/subsystem=logging/logging-profile=*/syslog-handler=*</a> <br/>
+      <a href="../../../../subsystem/logging/logging-profile/socket-handler/index.html">/subsystem=logging/logging-profile=*/socket-handler=*</a> <br/>
+      <a href="../../../../subsystem/logging/logging-profile/size-rotating-file-handler/index.html">/subsystem=logging/logging-profile=*/size-rotating-file-handler=*</a> <br/>
+      <a href="../../../../subsystem/logging/periodic-rotating-file-handler/index.html">/subsystem=logging/periodic-rotating-file-handler=*</a> <br/>
+      <a href="../../../../subsystem/logging/socket-handler/index.html">/subsystem=logging/socket-handler=*</a> <br/>
+      <a href="../../../../subsystem/logging/logging-profile/file-handler/index.html">/subsystem=logging/logging-profile=*/file-handler=*</a> <br/>
+      <a href="../../../../subsystem/logging/syslog-handler/index.html">/subsystem=logging/syslog-handler=*</a> <br/>
+      <a href="../../../../subsystem/logging/console-handler/index.html">/subsystem=logging/console-handler=*</a> <br/>
+      <a href="../../../../subsystem/logging/logging-profile/periodic-size-rotating-file-handler/index.html">/subsystem=logging/logging-profile=*/periodic-size-rotating-file-handler=*</a> <br/>
+      <a href="../../../../subsystem/logging/async-handler/index.html">/subsystem=logging/async-handler=*</a> <br/>
+      <a href="../../../../subsystem/logging/logging-profile/async-handler/index.html">/subsystem=logging/logging-profile=*/async-handler=*</a> <br/>
+      <a href="../../../../subsystem/logging/size-rotating-file-handler/index.html">/subsystem=logging/size-rotating-file-handler=*</a> <br/>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (9)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="autoflush" href="#autoflush" class="">
+         autoflush</a> - Automatically flush after each write.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Automatically flush after each write.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : true,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="enabled" href="#enabled" class="">
+         enabled</a> - If set to true the handler is enabled and functioning as normal, if set to false the handler is ignored when processing log messages.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "If set to true the handler is enabled and functioning as normal, if set to false the handler is ignored when processing log messages.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : true,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="encoding" href="#encoding" class="">
+         encoding</a> - The character encoding used by this Handler.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The character encoding used by this Handler.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="filter-spec" href="#filter-spec" class="">
+         filter-spec</a> - A filter expression value to define a filter. Example for a filter that does not match a pattern: not(match("JBAS.*"))
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "A filter expression value to define a filter. Example for a filter that does not match a pattern: not(match(\"JBAS.*\"))",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["filter"],
+    "capability-reference" : "org.wildfly.logging.filter",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="formatter" href="#formatter" class="">
+         formatter</a> - Defines a pattern for the formatter.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Defines a pattern for the formatter.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n",
+    "alternatives" : ["named-formatter"],
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="level" href="#level" class="">
+         level</a> - The log level specifying which message levels will be logged by this logger. Message levels lower than this value will be discarded.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>ALL</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            TRACE<br />
+            ALL<br />
+            SEVERE<br />
+            FINER<br />
+            FINEST<br />
+            INFO<br />
+            DEBUG<br />
+            WARNING<br />
+            WARN<br />
+            OFF<br />
+            CONFIG<br />
+            FINE<br />
+            ERROR<br />
+            FATAL<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The log level specifying which message levels will be logged by this logger. Message levels lower than this value will be discarded.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "ALL",
+    "allowed" : [
+        "ALL",
+        "FINEST",
+        "FINER",
+        "TRACE",
+        "DEBUG",
+        "FINE",
+        "CONFIG",
+        "INFO",
+        "WARN",
+        "WARNING",
+        "ERROR",
+        "SEVERE",
+        "FATAL",
+        "OFF"
+    ],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="name" href="#name" class="deprecated">
+         name</a> - The name of the handler.
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 1.2.0
+        <div>The name attribute should not be used as the handler's address contains the name.</div>
+      </div>
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The name of the handler.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "deprecated" : {
+        "since" : "1.2.0",
+        "reason" : "The name attribute should not be used as the handler's address contains the name."
+    },
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="named-formatter" href="#named-formatter" class="">
+         named-formatter</a> - The name of the defined formatter to be used on the handler.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The name of the defined formatter to be used on the handler.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "alternatives" : ["formatter"],
+    "capability-reference" : "org.wildfly.logging.formatter",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="target" href="#target" class="">
+         target</a> - Defines the target of the console handler. The value can be System.out, System.err or console.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>System.out</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            console<br />
+            System.err<br />
+            System.out<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Defines the target of the console handler. The value can be System.out, System.err or console.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "System.out",
+    "allowed" : [
+        "console",
+        "System.out",
+        "System.err"
+    ],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (6)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Add a new console handler.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>autoflush</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>Automatically flush after each write.</td>
+        </tr>
+        <tr>
+          <td>enabled</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>If set to true the handler is enabled and functioning as normal, if set to false the handler is ignored when processing log messages.</td>
+        </tr>
+        <tr>
+          <td>encoding</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The character encoding used by this Handler.</td>
+        </tr>
+        <tr>
+          <td>filter-spec</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>A filter expression value to define a filter. Example for a filter that does not match a pattern: not(match("JBAS.*"))</td>
+        </tr>
+        <tr>
+          <td>formatter</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n</td>
+          <td>Defines a pattern for the formatter.</td>
+        </tr>
+        <tr>
+          <td>level</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>ALL</td>
+          <td>The log level specifying which message levels will be logged by this logger. Message levels lower than this value will be discarded.</td>
+        </tr>
+        <tr>
+          <td>named-formatter</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The name of the defined formatter to be used on the handler.</td>
+        </tr>
+        <tr>
+          <td>target</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>System.out</td>
+          <td>Defines the target of the console handler. The value can be System.out, System.err or console.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Add a new console handler.",
+    "request-properties" : {
+        "autoflush" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Automatically flush after each write.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        },
+        "enabled" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If set to true the handler is enabled and functioning as normal, if set to false the handler is ignored when processing log messages.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        },
+        "encoding" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The character encoding used by this Handler.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "filter-spec" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "A filter expression value to define a filter. Example for a filter that does not match a pattern: not(match(\"JBAS.*\"))",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["filter"],
+            "capability-reference" : "org.wildfly.logging.filter",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "formatter" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Defines a pattern for the formatter.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n",
+            "alternatives" : ["named-formatter"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "level" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The log level specifying which message levels will be logged by this logger. Message levels lower than this value will be discarded.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "ALL",
+            "allowed" : [
+                "ALL",
+                "FINEST",
+                "FINER",
+                "TRACE",
+                "DEBUG",
+                "FINE",
+                "CONFIG",
+                "INFO",
+                "WARN",
+                "WARNING",
+                "ERROR",
+                "SEVERE",
+                "FATAL",
+                "OFF"
+            ],
+            "stability" : "default"
+        },
+        "named-formatter" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the defined formatter to be used on the handler.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["formatter"],
+            "capability-reference" : "org.wildfly.logging.formatter",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "target" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Defines the target of the console handler. The value can be System.out, System.err or console.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "System.out",
+            "allowed" : [
+                "console",
+                "System.out",
+                "System.err"
+            ],
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="change-log-level" href="#change-log-level" class="deprecated">
+      change-log-level</a> - Change the logging level for a handler.
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 1.2.0
+        <div>Use the write-attribute operation.</div>
+      </div>
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>level</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>ALL</td>
+          <td>The new level to set.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "change-log-level",
+    "description" : "Change the logging level for a handler.",
+    "request-properties" : {"level" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        },
+        "description" : "The new level to set.",
+        "expressions-allowed" : true,
+        "required" : false,
+        "nillable" : true,
+        "default" : "ALL",
+        "allowed" : [
+            "ALL",
+            "FINEST",
+            "FINER",
+            "TRACE",
+            "DEBUG",
+            "FINE",
+            "CONFIG",
+            "INFO",
+            "WARN",
+            "WARNING",
+            "ERROR",
+            "SEVERE",
+            "FATAL",
+            "OFF"
+        ],
+        "stability" : "default"
+    }},
+    "reply-properties" : {},
+    "deprecated" : {
+        "since" : "1.2.0",
+        "reason" : "Use the write-attribute operation."
+    },
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="disable" href="#disable" class="deprecated">
+      disable</a> - Disable a logging handler.
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 1.2.0
+        <div>Use the write-attribute for the enabled attribute.</div>
+      </div>
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "disable",
+    "description" : "Disable a logging handler.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "deprecated" : {
+        "since" : "1.2.0",
+        "reason" : "Use the write-attribute for the enabled attribute."
+    },
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="enable" href="#enable" class="deprecated">
+      enable</a> - Enable a logging handler.
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 1.2.0
+        <div>Use the write-attribute for the enabled attribute.</div>
+      </div>
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "enable",
+    "description" : "Enable a logging handler.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "deprecated" : {
+        "since" : "1.2.0",
+        "reason" : "Use the write-attribute for the enabled attribute."
+    },
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Removes the console handler.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Removes the console handler.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "all-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="update-properties" href="#update-properties" class="deprecated">
+      update-properties</a> - Update the properties on the existing handler.
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 1.2.0
+        <div>Use the write-attribute operation.</div>
+      </div>
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>level</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>ALL</td>
+          <td>The log level specifying which message levels will be logged by this logger. Message levels lower than this value will be discarded.</td>
+        </tr>
+        <tr>
+          <td>enabled</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>If set to true the handler is enabled and functioning as normal, if set to false the handler is ignored when processing log messages.</td>
+        </tr>
+        <tr>
+          <td>encoding</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The character encoding used by this Handler.</td>
+        </tr>
+        <tr>
+          <td>formatter</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n</td>
+          <td>Defines a pattern for the formatter.</td>
+        </tr>
+        <tr>
+          <td>filter-spec</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>A filter expression value to define a filter. Example for a filter that does not match a pattern: not(match("JBAS.*"))</td>
+        </tr>
+        <tr>
+          <td>autoflush</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>Automatically flush after each write.</td>
+        </tr>
+        <tr>
+          <td>target</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>System.out</td>
+          <td>Defines the target of the console handler. The value can be System.out, System.err or console.</td>
+        </tr>
+        <tr>
+          <td>named-formatter</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The name of the defined formatter to be used on the handler.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "update-properties",
+    "description" : "Update the properties on the existing handler.",
+    "request-properties" : {
+        "level" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The log level specifying which message levels will be logged by this logger. Message levels lower than this value will be discarded.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "ALL",
+            "allowed" : [
+                "ALL",
+                "FINEST",
+                "FINER",
+                "TRACE",
+                "DEBUG",
+                "FINE",
+                "CONFIG",
+                "INFO",
+                "WARN",
+                "WARNING",
+                "ERROR",
+                "SEVERE",
+                "FATAL",
+                "OFF"
+            ],
+            "stability" : "default"
+        },
+        "enabled" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If set to true the handler is enabled and functioning as normal, if set to false the handler is ignored when processing log messages.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        },
+        "encoding" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The character encoding used by this Handler.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "formatter" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Defines a pattern for the formatter.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n",
+            "alternatives" : ["named-formatter"],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "filter-spec" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "A filter expression value to define a filter. Example for a filter that does not match a pattern: not(match(\"JBAS.*\"))",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["filter"],
+            "capability-reference" : "org.wildfly.logging.filter",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "autoflush" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Automatically flush after each write.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        },
+        "target" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Defines the target of the console handler. The value can be System.out, System.err or console.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "System.out",
+            "allowed" : [
+                "console",
+                "System.out",
+                "System.err"
+            ],
+            "stability" : "default"
+        },
+        "named-formatter" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the defined formatter to be used on the handler.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "alternatives" : ["formatter"],
+            "capability-reference" : "org.wildfly.logging.formatter",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "deprecated" : {
+        "since" : "1.2.0",
+        "reason" : "Use the write-attribute operation."
+    },
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.logging.logging-profile.console-handler</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.logging.logging-profile.console-handler"&gt;
+  &lt;param name="console-handler" value="{resource name}"/&gt;
+  &lt;param name="logging-profile" value="{resource name}"/&gt;
+  &lt;param name="autoflush" value="{value}"/&gt;
+  &lt;param name="enabled" value="{value}"/&gt;
+  &lt;param name="encoding" value="{value}"/&gt;
+  &lt;param name="filter-spec" value="{value}"/&gt;
+  &lt;param name="formatter" value="{value}"/&gt;
+  &lt;param name="level" value="{value}"/&gt;
+  &lt;param name="named-formatter" value="{value}"/&gt;
+  &lt;param name="target" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+
+<footer>
+  <hr />
+  <p>The WildFly authors</p>
+</footer></div>
+</body>
+</html>

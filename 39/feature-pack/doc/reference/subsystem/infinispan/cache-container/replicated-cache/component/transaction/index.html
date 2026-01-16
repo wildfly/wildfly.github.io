@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for component=transaction</title>
+  <link rel="stylesheet" href="../../../../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../../../../subsystem/infinispan/index.html">subsystem=infinispan</a>
+      </li>
+      <li>
+        <a href="../../../../../../subsystem/infinispan/cache-container/index.html">cache-container</a>
+      </li>
+      <li>
+        <a href="../../../../../../subsystem/infinispan/cache-container/replicated-cache/index.html">replicated-cache</a>
+      </li>
+      <li>component=transaction</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for component=transaction</h1>
+    <p>The cache transaction configuration.</p>
+
+  </header>
+<h2>Provided Capabilities (2)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/clustering/infinispan/cache-configuration/component/transaction/capability.adoc">org.wildfly.clustering.infinispan.cache-configuration.component.transaction</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../../../../subsystem/infinispan/cache-container/scattered-cache/component/transaction/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*/component=transaction</a> <br/>
+      <a href="../../../../../../subsystem/infinispan/cache-container/distributed-cache/component/transaction/index.html">/subsystem=infinispan/cache-container=*/distributed-cache=*/component=transaction</a> <br/>
+      <a href="../../../../../../subsystem/infinispan/cache-container/invalidation-cache/component/transaction/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*/component=transaction</a> <br/>
+      <a href="../../../../../../subsystem/infinispan/cache-container/local-cache/component/transaction/index.html">/subsystem=infinispan/cache-container=*/local-cache=*/component=transaction</a> <br/>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/clustering/infinispan/cache/capability.adoc">org.wildfly.clustering.infinispan.cache</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../../../../subsystem/infinispan/cache-container/local-cache/index.html">/subsystem=infinispan/cache-container=*/local-cache=*</a> <br/>
+      <a href="../../../../../../subsystem/infinispan/cache-container/distributed-cache/index.html">/subsystem=infinispan/cache-container=*/distributed-cache=*</a> <br/>
+      <a href="../../../../../../subsystem/infinispan/cache-container/replicated-cache/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*</a> <br/>
+      <a href="../../../../../../subsystem/infinispan/cache-container/scattered-cache/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*</a> <br/>
+      <a href="../../../../../../subsystem/infinispan/cache-container/invalidation-cache/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*</a> <br/>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (4)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="complete-timeout" href="#complete-timeout" class="">
+         complete-timeout</a> - The duration (in ms) after which idle transactions are removed.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>60000</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>MILLISECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>9223372036854775807</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The duration (in ms) after which idle transactions are removed.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 60000,
+    "unit" : "MILLISECONDS",
+    "min" : 0,
+    "max" : 9223372036854775807,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="locking" href="#locking" class="">
+         locking</a> - The locking mode for this cache, one of OPTIMISTIC or PESSIMISTIC.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>PESSIMISTIC</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            PESSIMISTIC<br />
+            OPTIMISTIC<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The locking mode for this cache, one of OPTIMISTIC or PESSIMISTIC.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "PESSIMISTIC",
+    "allowed" : [
+        "OPTIMISTIC",
+        "PESSIMISTIC"
+    ],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="mode" href="#mode" class="">
+         mode</a> - Sets the cache transaction mode to one of NONE, NON_XA, NON_DURABLE_XA, FULL_XA.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>NONE</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            NON_XA<br />
+            BATCH<br />
+            FULL_XA<br />
+            NONE<br />
+            NON_DURABLE_XA<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Sets the cache transaction mode to one of NONE, NON_XA, NON_DURABLE_XA, FULL_XA.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "NONE",
+    "allowed" : [
+        "NONE",
+        "BATCH",
+        "NON_XA",
+        "NON_DURABLE_XA",
+        "FULL_XA"
+    ],
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="stop-timeout" href="#stop-timeout" class="">
+         stop-timeout</a> - If there are any ongoing transactions when a cache is stopped, Infinispan waits for ongoing remote and local transactions to finish. The amount of time to wait for is defined by the cache stop timeout.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>10000</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>MILLISECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>9223372036854775807</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "If there are any ongoing transactions when a cache is stopped, Infinispan waits for ongoing remote and local transactions to finish. The amount of time to wait for is defined by the cache stop timeout.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 10000,
+    "unit" : "MILLISECONDS",
+    "min" : 0,
+    "max" : 9223372036854775807,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (2)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Adds a transaction configuration element to the cache.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>complete-timeout</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td>60000</td>
+          <td>The duration (in ms) after which idle transactions are removed.</td>
+        </tr>
+        <tr>
+          <td>locking</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>PESSIMISTIC</td>
+          <td>The locking mode for this cache, one of OPTIMISTIC or PESSIMISTIC.</td>
+        </tr>
+        <tr>
+          <td>mode</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>NONE</td>
+          <td>Sets the cache transaction mode to one of NONE, NON_XA, NON_DURABLE_XA, FULL_XA.</td>
+        </tr>
+        <tr>
+          <td>stop-timeout</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td>10000</td>
+          <td>If there are any ongoing transactions when a cache is stopped, Infinispan waits for ongoing remote and local transactions to finish. The amount of time to wait for is defined by the cache stop timeout.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Adds a transaction configuration element to the cache.",
+    "request-properties" : {
+        "complete-timeout" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "The duration (in ms) after which idle transactions are removed.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 60000,
+            "unit" : "MILLISECONDS",
+            "min" : 0,
+            "max" : 9223372036854775807,
+            "stability" : "default"
+        },
+        "locking" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The locking mode for this cache, one of OPTIMISTIC or PESSIMISTIC.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "PESSIMISTIC",
+            "allowed" : [
+                "OPTIMISTIC",
+                "PESSIMISTIC"
+            ],
+            "stability" : "default"
+        },
+        "mode" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Sets the cache transaction mode to one of NONE, NON_XA, NON_DURABLE_XA, FULL_XA.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "NONE",
+            "allowed" : [
+                "NONE",
+                "BATCH",
+                "NON_XA",
+                "NON_DURABLE_XA",
+                "FULL_XA"
+            ],
+            "stability" : "default"
+        },
+        "stop-timeout" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "If there are any ongoing transactions when a cache is stopped, Infinispan waits for ongoing remote and local transactions to finish. The amount of time to wait for is defined by the cache stop timeout.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 10000,
+            "unit" : "MILLISECONDS",
+            "min" : 0,
+            "max" : 9223372036854775807,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Removes a transaction configuration element from the cache.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Removes a transaction configuration element from the cache.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.infinispan.cache-container.replicated-cache.component.transaction</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.infinispan.cache-container.replicated-cache.component.transaction"&gt;
+  &lt;param name="cache-container" value="{resource name}"/&gt;
+  &lt;param name="replicated-cache" value="{resource name}"/&gt;
+  &lt;param name="complete-timeout" value="{value}"/&gt;
+  &lt;param name="locking" value="{value}"/&gt;
+  &lt;param name="mode" value="{value}"/&gt;
+  &lt;param name="stop-timeout" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+
+<footer>
+  <hr />
+  <p>The WildFly authors</p>
+</footer></div>
+</body>
+</html>

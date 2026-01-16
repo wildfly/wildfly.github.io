@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for cluster-passivation-store</title>
+  <link rel="stylesheet" href="../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../subsystem/ejb3/index.html">subsystem=ejb3</a>
+      </li>
+      <li>cluster-passivation-store</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for cluster-passivation-store</h1>
+    <p>A clustered passivation store</p>
+
+    <div class="alert">
+      <strong>Deprecated</strong> Since 2.0.0
+      <div>cluster-passivation-store has been superseded by passivation-store and will be removed in a future release</div>
+    </div>
+  </header>
+<h2>Provided Capabilities (1)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/ejb/cluster-passivation-store/capability.adoc">org.wildfly.ejb.cluster-passivation-store</a></td>
+    <td>false</td>
+    <td>
+      <p>none</p>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (7)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="bean-cache" href="#bean-cache" class="">
+         bean-cache</a> - The name of the cache used to store bean instances.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The name of the cache used to store bean instances.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "capability-reference" : "org.wildfly.clustering.infinispan.cache-configuration",
+    "capability-reference-pattern-elements" : [
+        "cache-container",
+        "bean-cache"
+    ],
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="cache-container" href="#cache-container" class="">
+         cache-container</a> - The name of the cache container used for the bean and client-mappings caches
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>ejb</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The name of the cache container used for the bean and client-mappings caches",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "default" : "ejb",
+    "capability-reference" : "org.wildfly.clustering.infinispan.default-cache-configuration",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="client-mappings-cache" href="#client-mappings-cache" class="deprecated">
+         client-mappings-cache</a> - The name of the cache used to store client-mappings of the Jakarta Enterprise Beans remoting connector's socket-bindings
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 2.0.0
+        <div>This is no longer configurable and will be ignored</div>
+      </div>
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>remote-connector-client-mappings</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The name of the cache used to store client-mappings of the Jakarta Enterprise Beans remoting connector's socket-bindings",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "default" : "remote-connector-client-mappings",
+    "capability-reference" : "org.wildfly.clustering.infinispan.cache-container",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "deprecated" : {
+        "since" : "2.0.0",
+        "reason" : "This is no longer configurable and will be ignored"
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services"
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="idle-timeout" href="#idle-timeout" class="">
+         idle-timeout</a> - The timeout in units specified by idle-timeout-unit, after which a bean will passivate
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>300</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The timeout in units specified by idle-timeout-unit, after which a bean will passivate",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 300,
+    "min" : 1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="idle-timeout-unit" href="#idle-timeout-unit" class="deprecated">
+         idle-timeout-unit</a> - The unit of idle-timeout
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 2.0.0
+        <div>SFSBs are no longer passivated eagerly, but only lazily as required by max-size</div>
+      </div>
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>SECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Allowed Values</td>
+          <td>
+            MILLISECONDS<br />
+            MICROSECONDS<br />
+            HOURS<br />
+            SECONDS<br />
+            NANOSECONDS<br />
+            DAYS<br />
+            MINUTES<br />
+          </td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The unit of idle-timeout",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "SECONDS",
+    "allowed" : [
+        "NANOSECONDS",
+        "MICROSECONDS",
+        "MILLISECONDS",
+        "SECONDS",
+        "MINUTES",
+        "HOURS",
+        "DAYS"
+    ],
+    "stability" : "default",
+    "deprecated" : {
+        "since" : "2.0.0",
+        "reason" : "SFSBs are no longer passivated eagerly, but only lazily as required by max-size"
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="max-size" href="#max-size" class="">
+         max-size</a> - The maximum number of beans this cache should store before forcing old beans to passivate
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>10000</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "The maximum number of beans this cache should store before forcing old beans to passivate",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 10000,
+    "min" : 1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="passivate-events-on-replicate" href="#passivate-events-on-replicate" class="deprecated">
+         passivate-events-on-replicate</a> - Indicates whether replication should trigger passivation events on the bean
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 2.0.0
+        <div>This is no longer configurable and will be ignored</div>
+      </div>
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Indicates whether replication should trigger passivation events on the bean",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : true,
+    "stability" : "default",
+    "deprecated" : {
+        "since" : "2.0.0",
+        "reason" : "This is no longer configurable and will be ignored"
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (2)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Adds a clustered passivation store
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>bean-cache</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>The name of the cache used to store bean instances.</td>
+        </tr>
+        <tr>
+          <td>cache-container</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td>ejb</td>
+          <td>The name of the cache container used for the bean and client-mappings caches</td>
+        </tr>
+        <tr>
+          <td>client-mappings-cache</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td>remote-connector-client-mappings</td>
+          <td>The name of the cache used to store client-mappings of the Jakarta Enterprise Beans remoting connector's socket-bindings</td>
+        </tr>
+        <tr>
+          <td>idle-timeout</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td>300</td>
+          <td>The timeout in units specified by idle-timeout-unit, after which a bean will passivate</td>
+        </tr>
+        <tr>
+          <td>idle-timeout-unit</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>SECONDS</td>
+          <td>The unit of idle-timeout</td>
+        </tr>
+        <tr>
+          <td>max-size</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>10000</td>
+          <td>The maximum number of beans this cache should store before forcing old beans to passivate</td>
+        </tr>
+        <tr>
+          <td>passivate-events-on-replicate</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>Indicates whether replication should trigger passivation events on the bean</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Adds a clustered passivation store",
+    "request-properties" : {
+        "bean-cache" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the cache used to store bean instances.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "capability-reference" : "org.wildfly.clustering.infinispan.cache-configuration",
+            "capability-reference-pattern-elements" : [
+                "cache-container",
+                "bean-cache"
+            ],
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "cache-container" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the cache container used for the bean and client-mappings caches",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : "ejb",
+            "capability-reference" : "org.wildfly.clustering.infinispan.default-cache-configuration",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "client-mappings-cache" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of the cache used to store client-mappings of the Jakarta Enterprise Beans remoting connector's socket-bindings",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : "remote-connector-client-mappings",
+            "capability-reference" : "org.wildfly.clustering.infinispan.cache-container",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "deprecated" : {
+                "since" : "2.0.0",
+                "reason" : "This is no longer configurable and will be ignored"
+            }
+        },
+        "idle-timeout" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "The timeout in units specified by idle-timeout-unit, after which a bean will passivate",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 300,
+            "min" : 1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "idle-timeout-unit" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The unit of idle-timeout",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "SECONDS",
+            "allowed" : [
+                "NANOSECONDS",
+                "MICROSECONDS",
+                "MILLISECONDS",
+                "SECONDS",
+                "MINUTES",
+                "HOURS",
+                "DAYS"
+            ],
+            "stability" : "default",
+            "deprecated" : {
+                "since" : "2.0.0",
+                "reason" : "SFSBs are no longer passivated eagerly, but only lazily as required by max-size"
+            }
+        },
+        "max-size" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "The maximum number of beans this cache should store before forcing old beans to passivate",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 10000,
+            "min" : 1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "passivate-events-on-replicate" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Indicates whether replication should trigger passivation events on the bean",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default",
+            "deprecated" : {
+                "since" : "2.0.0",
+                "reason" : "This is no longer configurable and will be ignored"
+            }
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Removes a clustered passivation store
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Removes a clustered passivation store",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.ejb3.cluster-passivation-store</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.ejb3.cluster-passivation-store"&gt;
+  &lt;param name="cluster-passivation-store" value="{resource name}"/&gt;
+  &lt;param name="bean-cache" value="{value}"/&gt;
+  &lt;param name="idle-timeout" value="{value}"/&gt;
+  &lt;param name="idle-timeout-unit" value="{value}"/&gt;
+  &lt;param name="max-size" value="{value}"/&gt;
+  &lt;param name="passivate-events-on-replicate" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+
+<footer>
+  <hr />
+  <p>The WildFly authors</p>
+</footer></div>
+</body>
+</html>

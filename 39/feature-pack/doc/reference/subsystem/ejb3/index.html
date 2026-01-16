@@ -1,0 +1,2388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for subsystem=ejb3</title>
+  <link rel="stylesheet" href="../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../index.html">root</a>
+      </li>
+      <li>subsystem=ejb3</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for subsystem=ejb3</h1>
+    <p>The configuration of the ejb3 subsystem.</p>
+
+  </header>
+<h2>Children (12)</h2>
+<ul class="children">
+  <li>
+    <a href="application-security-domain/index.html" class="">application-security-domain</a>
+  </li>
+  <li>
+    <a href="cache/index.html" class="">cache</a>
+  </li>
+  <li>
+    <a href="cluster-passivation-store/index.html" class="">cluster-passivation-store</a>
+  </li>
+  <li>
+    <a href="distributable-cache/index.html" class="">distributable-cache</a>
+  </li>
+  <li>
+    <a href="file-passivation-store/index.html" class="">file-passivation-store</a>
+  </li>
+  <li>
+    <a href="mdb-delivery-group/index.html" class="">mdb-delivery-group</a>
+  </li>
+  <li>
+    <a href="passivation-store/index.html" class="">passivation-store</a>
+  </li>
+  <li>
+    <a href="remoting-profile/index.html" class="">remoting-profile</a>
+  </li>
+  <li>
+    <b>service</b>
+    <ul>
+      <li><a href="service/async/index.html" class="">async</a></li>
+      <li><a href="service/identity/index.html" class="">identity</a></li>
+      <li><a href="service/iiop/index.html" class="">iiop</a></li>
+      <li><a href="service/remote/index.html" class="">remote</a></li>
+      <li><a href="service/timer-service/index.html" class="">timer-service</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="simple-cache/index.html" class="">simple-cache</a>
+  </li>
+  <li>
+    <a href="strict-max-bean-instance-pool/index.html" class="">strict-max-bean-instance-pool</a>
+  </li>
+  <li>
+    <a href="thread-pool/index.html" class="">thread-pool</a>
+  </li>
+</ul>
+<h2>Provided Capabilities (5)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/ejb3/clustered/singleton/capability.adoc">org.wildfly.ejb3.clustered.singleton</a></td>
+    <td>false</td>
+    <td>
+      <p>none</p>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/ejb/stateful/default-cache/capability.adoc">org.wildfly.ejb.stateful.default-cache</a></td>
+    <td>false</td>
+    <td>
+      <p>none</p>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/ejb/stateful/passation-disabled-cache/capability.adoc">org.wildfly.ejb.stateful.passation-disabled-cache</a></td>
+    <td>false</td>
+    <td>
+      <p>none</p>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/ejb3/capability.adoc">org.wildfly.ejb3</a></td>
+    <td>false</td>
+    <td>
+      <p>none</p>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/ejb3/remote/client-configurator/capability.adoc">org.wildfly.ejb3.remote.client-configurator</a></td>
+    <td>false</td>
+    <td>
+      <p>none</p>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (23)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="allow-ejb-name-regex" href="#allow-ejb-name-regex" class="">
+         allow-ejb-name-regex</a> - If this is true then regular expressions can be used in interceptor bindings to allow interceptors to be mapped to all beans that match the regular expression
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "If this is true then regular expressions can be used in interceptor bindings to allow interceptors to be mapped to all beans that match the regular expression",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="client-interceptors" href="#client-interceptors" class="">
+         client-interceptors</a> - Client interceptor definitions.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "Client interceptor definitions.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "value-type" : {
+        "class" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Class implementing the client interceptor.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "module" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Module in which the client interceptor is defined.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        }
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="default-clustered-sfsb-cache" href="#default-clustered-sfsb-cache" class="deprecated">
+         default-clustered-sfsb-cache</a> - Name of the default stateful bean cache, which will be applicable to all clustered stateful Jakarta Enterprise Beans, unless overridden at the deployment or bean level
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 2.0.0
+        <div>Not supported on current version servers; only allowed in managed domain profiles for use on servers running earlier versions.</div>
+      </div>
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-only</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Name of the default stateful bean cache, which will be applicable to all clustered stateful Jakarta Enterprise Beans, unless overridden at the deployment or bean level",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "deprecated" : {
+        "since" : "2.0.0",
+        "reason" : "Not supported on current version servers; only allowed in managed domain profiles for use on servers running earlier versions."
+    },
+    "access-type" : "read-only",
+    "storage" : "configuration",
+    "restart-required" : null,
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="default-distinct-name" href="#default-distinct-name" class="">
+         default-distinct-name</a> - The default distinct name that is applied to every Jakarta Enterprise Beans deployed on this server
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The default distinct name that is applied to every Jakarta Enterprise Beans deployed on this server",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 0,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="default-entity-bean-instance-pool" href="#default-entity-bean-instance-pool" class="deprecated">
+         default-entity-bean-instance-pool</a> - Name of the default entity bean instance pool, which will be applicable to all entity beans, unless overridden at the deployment or bean level
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 10.0.0
+        <div>Not supported on current version servers; only allowed in managed domain profiles for use on servers running earlier versions.</div>
+      </div>
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Name of the default entity bean instance pool, which will be applicable to all entity beans, unless overridden at the deployment or bean level",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "deprecated" : {
+        "since" : "10.0.0",
+        "reason" : "Not supported on current version servers; only allowed in managed domain profiles for use on servers running earlier versions."
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="default-entity-bean-optimistic-locking" href="#default-entity-bean-optimistic-locking" class="deprecated">
+         default-entity-bean-optimistic-locking</a> - If set to true entity beans will use optimistic locking by default
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 10.0.0
+        <div>Not supported on current version servers; only allowed in managed domain profiles for use on servers running earlier versions.</div>
+      </div>
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "If set to true entity beans will use optimistic locking by default",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "stability" : "default",
+    "deprecated" : {
+        "since" : "10.0.0",
+        "reason" : "Not supported on current version servers; only allowed in managed domain profiles for use on servers running earlier versions."
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="default-mdb-instance-pool" href="#default-mdb-instance-pool" class="">
+         default-mdb-instance-pool</a> - Name of the default MDB instance pool, which will be applicable to all MDBs, unless overridden at the deployment or bean level
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Name of the default MDB instance pool, which will be applicable to all MDBs, unless overridden at the deployment or bean level",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="default-missing-method-permissions-deny-access" href="#default-missing-method-permissions-deny-access" class="">
+         default-missing-method-permissions-deny-access</a> - If this is set to true then methods on Jakarta Enterprise Beans with a security domain specified or with other methods with security metadata will have an implicit @DenyAll unless other security metadata is present
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "If this is set to true then methods on Jakarta Enterprise Beans with a security domain specified or with other methods with security metadata will have an implicit @DenyAll unless other security metadata is present",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="default-resource-adapter-name" href="#default-resource-adapter-name" class="">
+         default-resource-adapter-name</a> - Name of the default resource adapter name that will be used by MDBs, unless overridden at the deployment or bean level
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>activemq-ra</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Name of the default resource adapter name that will be used by MDBs, unless overridden at the deployment or bean level",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "activemq-ra",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="default-security-domain" href="#default-security-domain" class="">
+         default-security-domain</a> - The default security domain that will be used for Jakarta Enterprise Beans if the bean doesn't explicitly specify one
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The default security domain that will be used for Jakarta Enterprise Beans if the bean doesn't explicitly specify one",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "nil-significant" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-constraints" : {"sensitive" : {"security-domain-ref" : {"type" : "core"}}},
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="default-sfsb-cache" href="#default-sfsb-cache" class="">
+         default-sfsb-cache</a> - Name of the default stateful bean cache, which will be applicable to all stateful Jakarta Enterprise Beans, unless overridden at the deployment or bean level
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Name of the default stateful bean cache, which will be applicable to all stateful Jakarta Enterprise Beans, unless overridden at the deployment or bean level",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="default-sfsb-passivation-disabled-cache" href="#default-sfsb-passivation-disabled-cache" class="">
+         default-sfsb-passivation-disabled-cache</a> - Name of the default stateful bean cache, which will be applicable to all stateful Jakarta Enterprise Beans that have passivation disabled. Each deployment or Jakarta Enterprise Beans can optionally override this cache name.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Name of the default stateful bean cache, which will be applicable to all stateful Jakarta Enterprise Beans that have passivation disabled. Each deployment or Jakarta Enterprise Beans can optionally override this cache name.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="default-singleton-bean-access-timeout" href="#default-singleton-bean-access-timeout" class="">
+         default-singleton-bean-access-timeout</a> - The default access timeout for singleton beans
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>5000</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The default access timeout for singleton beans",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 5000,
+    "min" : 1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="default-slsb-instance-pool" href="#default-slsb-instance-pool" class="">
+         default-slsb-instance-pool</a> - Name of the default stateless bean instance pool, which will be applicable to all stateless Jakarta Enterprise Beans, unless overridden at the deployment or bean level
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "Name of the default stateless bean instance pool, which will be applicable to all stateless Jakarta Enterprise Beans, unless overridden at the deployment or bean level",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="default-stateful-bean-access-timeout" href="#default-stateful-bean-access-timeout" class="">
+         default-stateful-bean-access-timeout</a> - The default access timeout for stateful beans
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>5000</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The default access timeout for stateful beans",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 5000,
+    "min" : 1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="default-stateful-bean-session-timeout" href="#default-stateful-bean-session-timeout" class="">
+         default-stateful-bean-session-timeout</a> - The default session timeout for stateful beans. Modification to this attribute takes effect immediately for subsequent deployments; for Jakarta Enterprise Beans already deployed, redeploying is needed to use the new value.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>-1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "The default session timeout for stateful beans. Modification to this attribute takes effect immediately for subsequent deployments; for Jakarta Enterprise Beans already deployed, redeploying is needed to use the new value.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min" : -1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="disable-default-ejb-permissions" href="#disable-default-ejb-permissions" class="deprecated">
+         disable-default-ejb-permissions</a> - This deprecated attribute has no effect and will be removed in a future release; it may never be set to a "false" value
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 3.0.0
+        <div>Adding default permissions to Jakarta Enterprise Beans deployments is no longer supported and this configuration attribute will be removed in a future release</div>
+      </div>
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "This deprecated attribute has no effect and will be removed in a future release; it may never be set to a \"false\" value",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : true,
+    "stability" : "default",
+    "deprecated" : {
+        "since" : "3.0.0",
+        "reason" : "Adding default permissions to Jakarta Enterprise Beans deployments is no longer supported and this configuration attribute will be removed in a future release"
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="enable-graceful-txn-shutdown" href="#enable-graceful-txn-shutdown" class="">
+         enable-graceful-txn-shutdown</a> - Enabling txn graceful shutdown will make the server wait for active remote Jakarta Enterprise Beans-related transactions to complete before suspending. For that reason, if the server is running on a cluster, the suspending cluster node may receive Jakarta Enterprise Beans requests until all active remote transactions are complete. To avoid this behavior, omit this tag. This attribute has no effect on local Jakarta Enterprise Beans-related transactions.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "Enabling txn graceful shutdown will make the server wait for active remote Jakarta Enterprise Beans-related transactions to complete before suspending. For that reason, if the server is running on a cluster, the suspending cluster node may receive Jakarta Enterprise Beans requests until all active remote transactions are complete. To avoid this behavior, omit this tag. This attribute has no effect on local Jakarta Enterprise Beans-related transactions.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="enable-statistics" href="#enable-statistics" class="deprecated">
+         enable-statistics</a> - If set to true, enable the collection of invocation statistics. Deprecated in favour of "statistics-enabled"
+    </span>
+    <div class="collapsible">
+
+      <div class="alert">
+        <strong>Deprecated</strong> Since 5.0.0
+        <div>If set to true, enable the collection of invocation statistics. Deprecated in favour of "statistics-enabled"</div>
+      </div>
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "If set to true, enable the collection of invocation statistics. Deprecated in favour of \"statistics-enabled\"",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "stability" : "default",
+    "deprecated" : {
+        "since" : "5.0.0",
+        "reason" : "If set to true, enable the collection of invocation statistics. Deprecated in favour of \"statistics-enabled\""
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="in-vm-remote-interface-invocation-pass-by-value" href="#in-vm-remote-interface-invocation-pass-by-value" class="">
+         in-vm-remote-interface-invocation-pass-by-value</a> - If set to false, the parameters to invocations on the remote interface of a Jakarta Enterprise Beans, will be passed by reference. Else, the parameters will be passed by value.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "If set to false, the parameters to invocations on the remote interface of a Jakarta Enterprise Beans, will be passed by reference. Else, the parameters will be passed by value.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : true,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="log-system-exceptions" href="#log-system-exceptions" class="">
+         log-system-exceptions</a> - If this is true then all Jakarta Enterprise Beans system (not application) exceptions will be logged. The Jakarta Enterprise Beans spec mandates this behaviour, however, it is not recommended as it will often result in exceptions being logged twice (once by the Jakarta Enterprise Beans and once by the calling code)
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "If this is true then all Jakarta Enterprise Beans system (not application) exceptions will be logged. The Jakarta Enterprise Beans spec mandates this behaviour, however, it is not recommended as it will often result in exceptions being logged twice (once by the Jakarta Enterprise Beans and once by the calling code)",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : true,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="server-interceptors" href="#server-interceptors" class="">
+         server-interceptors</a> - Server interceptor definitions.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "Server interceptor definitions.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "value-type" : {
+        "class" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Class implementing the server interceptor.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "module" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Module in which the server interceptor is defined.",
+            "expressions-allowed" : false,
+            "required" : true,
+            "nillable" : false,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        }
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="statistics-enabled" href="#statistics-enabled" class="">
+         statistics-enabled</a> - If set to true, enable the collection of invocation statistics.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>no-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "If set to true, enable the collection of invocation statistics.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "no-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (2)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Adds the ejb3 subsystem.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>default-entity-bean-instance-pool</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Name of the default entity bean instance pool, which will be applicable to all entity beans, unless overridden at the deployment or bean level</td>
+        </tr>
+        <tr>
+          <td>default-entity-bean-optimistic-locking</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>If set to true entity beans will use optimistic locking by default</td>
+        </tr>
+        <tr>
+          <td>default-mdb-instance-pool</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Name of the default MDB instance pool, which will be applicable to all MDBs, unless overridden at the deployment or bean level</td>
+        </tr>
+        <tr>
+          <td>default-resource-adapter-name</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>activemq-ra</td>
+          <td>Name of the default resource adapter name that will be used by MDBs, unless overridden at the deployment or bean level</td>
+        </tr>
+        <tr>
+          <td>default-sfsb-cache</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Name of the default stateful bean cache, which will be applicable to all stateful Jakarta Enterprise Beans, unless overridden at the deployment or bean level</td>
+        </tr>
+        <tr>
+          <td>default-singleton-bean-access-timeout</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td>5000</td>
+          <td>The default access timeout for singleton beans</td>
+        </tr>
+        <tr>
+          <td>default-slsb-instance-pool</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Name of the default stateless bean instance pool, which will be applicable to all stateless Jakarta Enterprise Beans, unless overridden at the deployment or bean level</td>
+        </tr>
+        <tr>
+          <td>default-stateful-bean-access-timeout</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td>5000</td>
+          <td>The default access timeout for stateful beans</td>
+        </tr>
+        <tr>
+          <td>default-stateful-bean-session-timeout</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The default session timeout for stateful beans. Modification to this attribute takes effect immediately for subsequent deployments; for Jakarta Enterprise Beans already deployed, redeploying is needed to use the new value.</td>
+        </tr>
+        <tr>
+          <td>statistics-enabled</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>If set to true, enable the collection of invocation statistics.</td>
+        </tr>
+        <tr>
+          <td>enable-statistics</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>If set to true, enable the collection of invocation statistics. Deprecated in favour of "statistics-enabled"</td>
+        </tr>
+        <tr>
+          <td>in-vm-remote-interface-invocation-pass-by-value</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>If set to false, the parameters to invocations on the remote interface of a Jakarta Enterprise Beans, will be passed by reference. Else, the parameters will be passed by value.</td>
+        </tr>
+        <tr>
+          <td>default-distinct-name</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The default distinct name that is applied to every Jakarta Enterprise Beans deployed on this server</td>
+        </tr>
+        <tr>
+          <td>default-security-domain</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The default security domain that will be used for Jakarta Enterprise Beans if the bean doesn't explicitly specify one</td>
+        </tr>
+        <tr>
+          <td>default-missing-method-permissions-deny-access</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>If this is set to true then methods on Jakarta Enterprise Beans with a security domain specified or with other methods with security metadata will have an implicit @DenyAll unless other security metadata is present</td>
+        </tr>
+        <tr>
+          <td>default-sfsb-passivation-disabled-cache</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Name of the default stateful bean cache, which will be applicable to all stateful Jakarta Enterprise Beans that have passivation disabled. Each deployment or Jakarta Enterprise Beans can optionally override this cache name.</td>
+        </tr>
+        <tr>
+          <td>disable-default-ejb-permissions</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>This deprecated attribute has no effect and will be removed in a future release; it may never be set to a "false" value</td>
+        </tr>
+        <tr>
+          <td>enable-graceful-txn-shutdown</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>Enabling txn graceful shutdown will make the server wait for active remote Jakarta Enterprise Beans-related transactions to complete before suspending. For that reason, if the server is running on a cluster, the suspending cluster node may receive Jakarta Enterprise Beans requests until all active remote transactions are complete. To avoid this behavior, omit this tag. This attribute has no effect on local Jakarta Enterprise Beans-related transactions.</td>
+        </tr>
+        <tr>
+          <td>log-system-exceptions</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>true</td>
+          <td>If this is true then all Jakarta Enterprise Beans system (not application) exceptions will be logged. The Jakarta Enterprise Beans spec mandates this behaviour, however, it is not recommended as it will often result in exceptions being logged twice (once by the Jakarta Enterprise Beans and once by the calling code)</td>
+        </tr>
+        <tr>
+          <td>allow-ejb-name-regex</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>If this is true then regular expressions can be used in interceptor bindings to allow interceptors to be mapped to all beans that match the regular expression</td>
+        </tr>
+        <tr>
+          <td>server-interceptors</td>
+          <td>LIST</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Server interceptor definitions.</td>
+        </tr>
+        <tr>
+          <td>client-interceptors</td>
+          <td>LIST</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Client interceptor definitions.</td>
+        </tr>
+        <tr>
+          <td>default-clustered-sfsb-cache</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>Name of the default stateful bean cache, which will be applicable to all clustered stateful Jakarta Enterprise Beans, unless overridden at the deployment or bean level</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Adds the ejb3 subsystem.",
+    "request-properties" : {
+        "default-entity-bean-instance-pool" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Name of the default entity bean instance pool, which will be applicable to all entity beans, unless overridden at the deployment or bean level",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "deprecated" : {
+                "since" : "10.0.0",
+                "reason" : "Not supported on current version servers; only allowed in managed domain profiles for use on servers running earlier versions."
+            }
+        },
+        "default-entity-bean-optimistic-locking" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If set to true entity beans will use optimistic locking by default",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "deprecated" : {
+                "since" : "10.0.0",
+                "reason" : "Not supported on current version servers; only allowed in managed domain profiles for use on servers running earlier versions."
+            }
+        },
+        "default-mdb-instance-pool" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Name of the default MDB instance pool, which will be applicable to all MDBs, unless overridden at the deployment or bean level",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "default-resource-adapter-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Name of the default resource adapter name that will be used by MDBs, unless overridden at the deployment or bean level",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "activemq-ra",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "default-sfsb-cache" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Name of the default stateful bean cache, which will be applicable to all stateful Jakarta Enterprise Beans, unless overridden at the deployment or bean level",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "default-singleton-bean-access-timeout" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "The default access timeout for singleton beans",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 5000,
+            "min" : 1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "default-slsb-instance-pool" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Name of the default stateless bean instance pool, which will be applicable to all stateless Jakarta Enterprise Beans, unless overridden at the deployment or bean level",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "default-stateful-bean-access-timeout" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "The default access timeout for stateful beans",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 5000,
+            "min" : 1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "default-stateful-bean-session-timeout" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "The default session timeout for stateful beans. Modification to this attribute takes effect immediately for subsequent deployments; for Jakarta Enterprise Beans already deployed, redeploying is needed to use the new value.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min" : -1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "statistics-enabled" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If set to true, enable the collection of invocation statistics.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "enable-statistics" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If set to true, enable the collection of invocation statistics. Deprecated in favour of \"statistics-enabled\"",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "stability" : "default",
+            "deprecated" : {
+                "since" : "5.0.0",
+                "reason" : "If set to true, enable the collection of invocation statistics. Deprecated in favour of \"statistics-enabled\""
+            }
+        },
+        "in-vm-remote-interface-invocation-pass-by-value" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If set to false, the parameters to invocations on the remote interface of a Jakarta Enterprise Beans, will be passed by reference. Else, the parameters will be passed by value.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        },
+        "default-distinct-name" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The default distinct name that is applied to every Jakarta Enterprise Beans deployed on this server",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "default-security-domain" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The default security domain that will be used for Jakarta Enterprise Beans if the bean doesn't explicitly specify one",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "default-missing-method-permissions-deny-access" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If this is set to true then methods on Jakarta Enterprise Beans with a security domain specified or with other methods with security metadata will have an implicit @DenyAll unless other security metadata is present",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "default-sfsb-passivation-disabled-cache" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Name of the default stateful bean cache, which will be applicable to all stateful Jakarta Enterprise Beans that have passivation disabled. Each deployment or Jakarta Enterprise Beans can optionally override this cache name.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        },
+        "disable-default-ejb-permissions" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "This deprecated attribute has no effect and will be removed in a future release; it may never be set to a \"false\" value",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default",
+            "deprecated" : {
+                "since" : "3.0.0",
+                "reason" : "Adding default permissions to Jakarta Enterprise Beans deployments is no longer supported and this configuration attribute will be removed in a future release"
+            }
+        },
+        "enable-graceful-txn-shutdown" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "Enabling txn graceful shutdown will make the server wait for active remote Jakarta Enterprise Beans-related transactions to complete before suspending. For that reason, if the server is running on a cluster, the suspending cluster node may receive Jakarta Enterprise Beans requests until all active remote transactions are complete. To avoid this behavior, omit this tag. This attribute has no effect on local Jakarta Enterprise Beans-related transactions.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "log-system-exceptions" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If this is true then all Jakarta Enterprise Beans system (not application) exceptions will be logged. The Jakarta Enterprise Beans spec mandates this behaviour, however, it is not recommended as it will often result in exceptions being logged twice (once by the Jakarta Enterprise Beans and once by the calling code)",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : true,
+            "stability" : "default"
+        },
+        "allow-ejb-name-regex" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If this is true then regular expressions can be used in interceptor bindings to allow interceptors to be mapped to all beans that match the regular expression",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        },
+        "server-interceptors" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "Server interceptor definitions.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "class" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Class implementing the server interceptor.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "module" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Module in which the server interceptor is defined.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                }
+            }
+        },
+        "client-interceptors" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "Client interceptor definitions.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "class" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Class implementing the client interceptor.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                },
+                "module" : {
+                    "type" : {
+                        "TYPE_MODEL_VALUE" : "STRING"
+                    },
+                    "description" : "Module in which the client interceptor is defined.",
+                    "expressions-allowed" : false,
+                    "required" : true,
+                    "nillable" : false,
+                    "min-length" : 1,
+                    "max-length" : 2147483647,
+                    "stability" : "default"
+                }
+            }
+        },
+        "default-clustered-sfsb-cache" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "Name of the default stateful bean cache, which will be applicable to all clustered stateful Jakarta Enterprise Beans, unless overridden at the deployment or bean level",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "deprecated" : {
+                "since" : "2.0.0",
+                "reason" : "Not supported on current version servers; only allowed in managed domain profiles for use on servers running earlier versions."
+            }
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "all-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Removes the ejb3 subsystem.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Removes the ejb3 subsystem.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "all-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.ejb3</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.ejb3"&gt;
+  &lt;param name="allow-ejb-name-regex" value="{value}"/&gt;
+  &lt;param name="client-interceptors" value="{value}"/&gt;
+  &lt;param name="default-clustered-sfsb-cache" value="{value}"/&gt;
+  &lt;param name="default-distinct-name" value="{value}"/&gt;
+  &lt;param name="default-entity-bean-instance-pool" value="{value}"/&gt;
+  &lt;param name="default-entity-bean-optimistic-locking" value="{value}"/&gt;
+  &lt;param name="default-mdb-instance-pool" value="{value}"/&gt;
+  &lt;param name="default-missing-method-permissions-deny-access" value="{value}"/&gt;
+  &lt;param name="default-resource-adapter-name" value="{value}"/&gt;
+  &lt;param name="default-security-domain" value="{value}"/&gt;
+  &lt;param name="default-sfsb-cache" value="{value}"/&gt;
+  &lt;param name="default-sfsb-passivation-disabled-cache" value="{value}"/&gt;
+  &lt;param name="default-singleton-bean-access-timeout" value="{value}"/&gt;
+  &lt;param name="default-slsb-instance-pool" value="{value}"/&gt;
+  &lt;param name="default-stateful-bean-access-timeout" value="{value}"/&gt;
+  &lt;param name="default-stateful-bean-session-timeout" value="{value}"/&gt;
+  &lt;param name="disable-default-ejb-permissions" value="{value}"/&gt;
+  &lt;param name="enable-graceful-txn-shutdown" value="{value}"/&gt;
+  &lt;param name="enable-statistics" value="{value}"/&gt;
+  &lt;param name="in-vm-remote-interface-invocation-pass-by-value" value="{value}"/&gt;
+  &lt;param name="log-system-exceptions" value="{value}"/&gt;
+  &lt;param name="server-interceptors" value="{value}"/&gt;
+  &lt;param name="statistics-enabled" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+
+<footer>
+  <hr />
+  <p>The WildFly authors</p>
+</footer></div>
+</body>
+</html>
