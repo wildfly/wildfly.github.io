@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for distributed-cache</title>
+  <link rel="stylesheet" href="../../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../../subsystem/infinispan/index.html">subsystem=infinispan</a>
+      </li>
+      <li>
+        <a href="../../../../subsystem/infinispan/cache-container/index.html">cache-container</a>
+      </li>
+      <li>distributed-cache</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for distributed-cache</h1>
+    <p>A distributed cache configuration.</p>
+
+  </header>
+<h2>Children (3)</h2>
+<ul class="children">
+  <li>
+    <b>component</b>
+    <ul>
+      <li><a href="component/backups/index.html" class="">backups</a></li>
+      <li><a href="component/expiration/index.html" class="">expiration</a></li>
+      <li><a href="component/locking/index.html" class="">locking</a></li>
+      <li><a href="component/partition-handling/index.html" class="">partition-handling</a></li>
+      <li><a href="component/state-transfer/index.html" class="">state-transfer</a></li>
+      <li><a href="component/transaction/index.html" class="">transaction</a></li>
+    </ul>
+  </li>
+  <li>
+    <b>memory</b>
+    <ul>
+      <li><a href="memory/heap/index.html" class="">heap</a></li>
+      <li><a href="memory/off-heap/index.html" class="">off-heap</a></li>
+    </ul>
+  </li>
+  <li>
+    <b>store</b>
+    <ul>
+      <li><a href="store/custom/index.html" class="">custom</a></li>
+      <li><a href="store/file/index.html" class="">file</a></li>
+      <li><a href="store/hotrod/index.html" class="">hotrod</a></li>
+      <li><a href="store/jdbc/index.html" class="">jdbc</a></li>
+      <li><a href="store/none/index.html" class="">none</a></li>
+      <li><a href="store/remote/index.html" class="deprecated">remote</a></li>
+    </ul>
+  </li>
+</ul>
+<h2>Provided Capabilities (10)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Dynamic</th>
+    <th>Other provider points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/clustering/server/service-provider-registrar/capability.adoc">org.wildfly.clustering.server.service-provider-registrar</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../../subsystem/infinispan/cache-container/local-cache/index.html">/subsystem=infinispan/cache-container=*/local-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/replicated-cache/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/scattered-cache/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/invalidation-cache/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*</a> <br/>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/clustering/singleton-service-target-factory/capability.adoc">org.wildfly.clustering.singleton-service-target-factory</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../../subsystem/infinispan/cache-container/local-cache/index.html">/subsystem=infinispan/cache-container=*/local-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/replicated-cache/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/scattered-cache/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/invalidation-cache/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*</a> <br/>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/clustering/registry-factory/capability.adoc">org.wildfly.clustering.registry-factory</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../../subsystem/infinispan/cache-container/local-cache/index.html">/subsystem=infinispan/cache-container=*/local-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/replicated-cache/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/scattered-cache/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/invalidation-cache/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*</a> <br/>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/clustering/cache/singleton-service-builder-factory/capability.adoc">org.wildfly.clustering.cache.singleton-service-builder-factory</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../../subsystem/infinispan/cache-container/local-cache/index.html">/subsystem=infinispan/cache-container=*/local-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/replicated-cache/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/scattered-cache/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/invalidation-cache/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*</a> <br/>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/clustering/server/registry-factory/capability.adoc">org.wildfly.clustering.server.registry-factory</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../../subsystem/infinispan/cache-container/local-cache/index.html">/subsystem=infinispan/cache-container=*/local-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/replicated-cache/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/scattered-cache/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/invalidation-cache/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*</a> <br/>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/clustering/infinispan/cache-configuration/capability.adoc">org.wildfly.clustering.infinispan.cache-configuration</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../../subsystem/infinispan/cache-container/local-cache/index.html">/subsystem=infinispan/cache-container=*/local-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/replicated-cache/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/scattered-cache/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/invalidation-cache/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*</a> <br/>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/clustering/cache/singleton-service-configurator-factory/capability.adoc">org.wildfly.clustering.cache.singleton-service-configurator-factory</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../../subsystem/infinispan/cache-container/local-cache/index.html">/subsystem=infinispan/cache-container=*/local-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/replicated-cache/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/scattered-cache/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/invalidation-cache/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*</a> <br/>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/clustering/infinispan/cache/capability.adoc">org.wildfly.clustering.infinispan.cache</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../../subsystem/infinispan/cache-container/local-cache/index.html">/subsystem=infinispan/cache-container=*/local-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/replicated-cache/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/scattered-cache/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/invalidation-cache/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*</a> <br/>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/clustering/service-provider-registry/capability.adoc">org.wildfly.clustering.service-provider-registry</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../../subsystem/infinispan/cache-container/local-cache/index.html">/subsystem=infinispan/cache-container=*/local-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/replicated-cache/index.html">/subsystem=infinispan/cache-container=*/replicated-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/scattered-cache/index.html">/subsystem=infinispan/cache-container=*/scattered-cache=*</a> <br/>
+      <a href="../../../../subsystem/infinispan/cache-container/invalidation-cache/index.html">/subsystem=infinispan/cache-container=*/invalidation-cache=*</a> <br/>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/wildfly/wildfly-capabilities/tree/main/org/wildfly/clustering/infinispan/cache-container-configuration/capability.adoc">org.wildfly.clustering.infinispan.cache-container-configuration</a></td>
+    <td>true</td>
+    <td>
+      <a href="../../../../subsystem/infinispan/cache-container/index.html">/subsystem=infinispan/cache-container=*</a> <br/>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Attributes (7)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="capacity-factor" href="#capacity-factor" class="">
+         capacity-factor</a> - Controls the proportion of entries that will reside on the local node, compared to the other nodes in the cluster.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>DOUBLE</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>1.0</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "DOUBLE"
+    },
+    "description" : "Controls the proportion of entries that will reside on the local node, compared to the other nodes in the cluster.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 1.0,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="l1-lifespan" href="#l1-lifespan" class="">
+         l1-lifespan</a> - Maximum lifespan of an entry placed in the L1 cache. This element configures the L1 cache behavior in 'distributed' caches instances. In any other cache modes, this element is ignored.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>MILLISECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>9223372036854775807</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "Maximum lifespan of an entry placed in the L1 cache. This element configures the L1 cache behavior in 'distributed' caches instances. In any other cache modes, this element is ignored.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 0,
+    "unit" : "MILLISECONDS",
+    "min" : 0,
+    "max" : 9223372036854775807,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="modules" href="#modules" class="">
+         modules</a> - The set of modules associated with this cache's configuration.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LIST</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LIST"
+    },
+    "description" : "The set of modules associated with this cache's configuration.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "min-length" : 0,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "value-type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="owners" href="#owners" class="">
+         owners</a> - Number of cluster-wide replicas for each cache entry.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "Number of cluster-wide replicas for each cache entry.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 2,
+    "min" : 1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remote-timeout" href="#remote-timeout" class="">
+         remote-timeout</a> - In SYNC mode, the timeout (in ms) used to wait for an acknowledgment when making a remote call, after which the call is aborted and an exception is thrown.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>LONG</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>17500</td>
+        </tr>
+        <tr>
+          <td>Unit</td>
+          <td>MILLISECONDS</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>9223372036854775807</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "LONG"
+    },
+    "description" : "In SYNC mode, the timeout (in ms) used to wait for an acknowledgment when making a remote call, after which the call is aborted and an exception is thrown.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 17500,
+    "unit" : "MILLISECONDS",
+    "min" : 0,
+    "max" : 9223372036854775807,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="segments" href="#segments" class="">
+         segments</a> - Controls the number of hash space segments which is the granularity for key distribution in the cluster. Value must be strictly positive.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>INT</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>128</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Min</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Max</td>
+          <td>2147483647</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "INT"
+    },
+    "description" : "Controls the number of hash space segments which is the granularity for key distribution in the cluster. Value must be strictly positive.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : 128,
+    "min" : 1,
+    "max" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="statistics-enabled" href="#statistics-enabled" class="">
+         statistics-enabled</a> - If enabled, statistics will be collected for this cache
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>BOOLEAN</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>resource-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "BOOLEAN"
+    },
+    "description" : "If enabled, statistics will be collected for this cache",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : false,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "resource-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (2)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Add a distributed cache to this cache container
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>capacity-factor</td>
+          <td>DOUBLE</td>
+          <td>false</td>
+          <td>true</td>
+          <td>1.0</td>
+          <td>Controls the proportion of entries that will reside on the local node, compared to the other nodes in the cluster.</td>
+        </tr>
+        <tr>
+          <td>l1-lifespan</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td>0</td>
+          <td>Maximum lifespan of an entry placed in the L1 cache. This element configures the L1 cache behavior in 'distributed' caches instances. In any other cache modes, this element is ignored.</td>
+        </tr>
+        <tr>
+          <td>modules</td>
+          <td>LIST</td>
+          <td>false</td>
+          <td>true</td>
+          <td></td>
+          <td>The set of modules associated with this cache's configuration.</td>
+        </tr>
+        <tr>
+          <td>owners</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>2</td>
+          <td>Number of cluster-wide replicas for each cache entry.</td>
+        </tr>
+        <tr>
+          <td>remote-timeout</td>
+          <td>LONG</td>
+          <td>false</td>
+          <td>true</td>
+          <td>17500</td>
+          <td>In SYNC mode, the timeout (in ms) used to wait for an acknowledgment when making a remote call, after which the call is aborted and an exception is thrown.</td>
+        </tr>
+        <tr>
+          <td>segments</td>
+          <td>INT</td>
+          <td>false</td>
+          <td>true</td>
+          <td>128</td>
+          <td>Controls the number of hash space segments which is the granularity for key distribution in the cluster. Value must be strictly positive.</td>
+        </tr>
+        <tr>
+          <td>statistics-enabled</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>true</td>
+          <td>false</td>
+          <td>If enabled, statistics will be collected for this cache</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Add a distributed cache to this cache container",
+    "request-properties" : {
+        "capacity-factor" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "DOUBLE"
+            },
+            "description" : "Controls the proportion of entries that will reside on the local node, compared to the other nodes in the cluster.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 1.0,
+            "stability" : "default"
+        },
+        "l1-lifespan" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "Maximum lifespan of an entry placed in the L1 cache. This element configures the L1 cache behavior in 'distributed' caches instances. In any other cache modes, this element is ignored.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 0,
+            "unit" : "MILLISECONDS",
+            "min" : 0,
+            "max" : 9223372036854775807,
+            "stability" : "default"
+        },
+        "modules" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LIST"
+            },
+            "description" : "The set of modules associated with this cache's configuration.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "min-length" : 0,
+            "max-length" : 2147483647,
+            "stability" : "default",
+            "value-type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            }
+        },
+        "owners" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "Number of cluster-wide replicas for each cache entry.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 2,
+            "min" : 1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "remote-timeout" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "LONG"
+            },
+            "description" : "In SYNC mode, the timeout (in ms) used to wait for an acknowledgment when making a remote call, after which the call is aborted and an exception is thrown.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 17500,
+            "unit" : "MILLISECONDS",
+            "min" : 0,
+            "max" : 9223372036854775807,
+            "stability" : "default"
+        },
+        "segments" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "INT"
+            },
+            "description" : "Controls the number of hash space segments which is the granularity for key distribution in the cluster. Value must be strictly positive.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : 128,
+            "min" : 1,
+            "max" : 2147483647,
+            "stability" : "default"
+        },
+        "statistics-enabled" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "BOOLEAN"
+            },
+            "description" : "If enabled, statistics will be collected for this cache",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : false,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Remove a distributed cache from this cache container
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Remove a distributed cache from this cache container",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.infinispan.cache-container.distributed-cache</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.infinispan.cache-container.distributed-cache"&gt;
+  &lt;param name="cache-container" value="{resource name}"/&gt;
+  &lt;param name="distributed-cache" value="{resource name}"/&gt;
+  &lt;param name="capacity-factor" value="{value}"/&gt;
+  &lt;param name="l1-lifespan" value="{value}"/&gt;
+  &lt;param name="modules" value="{value}"/&gt;
+  &lt;param name="owners" value="{value}"/&gt;
+  &lt;param name="remote-timeout" value="{value}"/&gt;
+  &lt;param name="segments" value="{value}"/&gt;
+  &lt;param name="statistics-enabled" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+
+<footer>
+  <hr />
+  <p>The WildFly authors</p>
+</footer></div>
+</body>
+</html>

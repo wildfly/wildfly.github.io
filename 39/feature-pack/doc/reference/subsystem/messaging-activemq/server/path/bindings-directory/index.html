@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Management API  Reference for path=bindings-directory</title>
+  <link rel="stylesheet" href="../../../../../../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <script src="../../../../../../scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="card-header">
+<div>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li>
+        <a href="../../../../../index.html">root</a>
+      </li>
+      <li>
+        <a href="../../../../../subsystem/messaging-activemq/index.html">subsystem=messaging-activemq</a>
+      </li>
+      <li>
+        <a href="../../../../../subsystem/messaging-activemq/server/index.html">server</a>
+      </li>
+      <li>path=bindings-directory</li>
+    </ol>
+  </nav>
+</div>    <h1>Management API Reference for path=bindings-directory</h1>
+    <p>A filesystem path pointing to one of the locations where ActiveMQ stores persistent data.</p>
+
+  </header>
+<h2>Attributes (2)</h2>
+<ul class="attributes">
+  <li>
+    <span class="toggle-link">
+      <a id="path" href="#path" class="">
+         path</a> - The actual filesystem path. Treated as an absolute path, unless the 'relative-to' attribute is specified, in which case the value is treated as relative to that path. If treated as an absolute path, the actual runtime pathname specified by the value of this attribute will be determined as follows: If this value is already absolute, then the value is directly used.  Otherwise the runtime pathname is resolved in a system-dependent way.  On UNIX systems, a relative pathname is made absolute by resolving it against the current user directory. On Microsoft Windows systems, a relative pathname is made absolute by resolving it against the current directory of the drive named by the pathname, if any; if not, it is resolved against the current user directory.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>activemq/bindings</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Does the attribute allow expression?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The actual filesystem path. Treated as an absolute path, unless the 'relative-to' attribute is specified, in which case the value is treated as relative to that path. If treated as an absolute path, the actual runtime pathname specified by the value of this attribute will be determined as follows: If this value is already absolute, then the value is directly used.  Otherwise the runtime pathname is resolved in a system-dependent way.  On UNIX systems, a relative pathname is made absolute by resolving it against the current user directory. On Microsoft Windows systems, a relative pathname is made absolute by resolving it against the current directory of the drive named by the pathname, if any; if not, it is resolved against the current user directory.",
+    "expressions-allowed" : true,
+    "required" : false,
+    "nillable" : true,
+    "default" : "activemq/bindings",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "filesystem-path" : true,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="relative-to" href="#relative-to" class="">
+         relative-to</a> - The name of another previously named path, or of one of the standard paths provided by the system. If 'relative-to' is provided, the value of the 'path' attribute is treated as relative to the path specified by this attribute. The standard paths provided by the system include: jboss.home - the root directory of the JBoss AS distribution, user.home - user's home directory, user.dir - user's current working directory, java.home - java installation directory, jboss.server.base.dir - root directory for an individual server instance, jboss.server.data.dir - directory the server will use for persistent data file storage, jboss.server.log.dir - directory the server will use for log file storage, jboss.server.tmp.dir - directory the server will use for temporary file storage, and jboss.domain.servers.dir - directory under which a host controller will create the working area for individual server instances.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>STRING</td>
+        </tr>
+        <tr>
+          <td>Default Value</td>
+          <td>jboss.server.data.dir</td>
+        </tr>
+        <tr>
+          <td>Is the attribute nillable?</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Where is the attribute stored?</td>
+          <td>configuration</td>
+        </tr>
+        <tr>
+          <td>Access Type</td>
+          <td>read-write</td>
+        </tr>
+        <tr>
+          <td>Is restarted required?</td>
+          <td>all-services</td>
+        </tr>
+        <tr>
+          <td>Stability Level</td>
+          <td>default</td>
+        </tr>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+                            <pre><code class="language-json">
+{
+    "type" : {
+        "TYPE_MODEL_VALUE" : "STRING"
+    },
+    "description" : "The name of another previously named path, or of one of the standard paths provided by the system. If 'relative-to' is provided, the value of the 'path' attribute is treated as relative to the path specified by this attribute. The standard paths provided by the system include: jboss.home - the root directory of the JBoss AS distribution, user.home - user's home directory, user.dir - user's current working directory, java.home - java installation directory, jboss.server.base.dir - root directory for an individual server instance, jboss.server.data.dir - directory the server will use for persistent data file storage, jboss.server.log.dir - directory the server will use for log file storage, jboss.server.tmp.dir - directory the server will use for temporary file storage, and jboss.domain.servers.dir - directory under which a host controller will create the working area for individual server instances.",
+    "expressions-allowed" : false,
+    "required" : false,
+    "nillable" : true,
+    "default" : "jboss.server.data.dir",
+    "min-length" : 1,
+    "max-length" : 2147483647,
+    "stability" : "default",
+    "access-type" : "read-write",
+    "storage" : "configuration",
+    "restart-required" : "all-services",
+    "capability-reference" : null
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Operations (3)</h2>
+<ul class="operations">
+  <li>
+    <span class="toggle-link">
+      <a id="add" href="#add" class="">
+      add</a> - Add a file system path.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>path</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>true</td>
+          <td>activemq/bindings</td>
+          <td>The actual filesystem path. Treated as an absolute path, unless the 'relative-to' attribute is specified, in which case the value is treated as relative to that path. If treated as an absolute path, the actual runtime pathname specified by the value of this attribute will be determined as follows: If this value is already absolute, then the value is directly used.  Otherwise the runtime pathname is resolved in a system-dependent way.  On UNIX systems, a relative pathname is made absolute by resolving it against the current user directory. On Microsoft Windows systems, a relative pathname is made absolute by resolving it against the current directory of the drive named by the pathname, if any; if not, it is resolved against the current user directory.</td>
+        </tr>
+        <tr>
+          <td>relative-to</td>
+          <td>STRING</td>
+          <td>false</td>
+          <td>false</td>
+          <td>jboss.server.data.dir</td>
+          <td>The name of another previously named path, or of one of the standard paths provided by the system. If 'relative-to' is provided, the value of the 'path' attribute is treated as relative to the path specified by this attribute. The standard paths provided by the system include: jboss.home - the root directory of the JBoss AS distribution, user.home - user's home directory, user.dir - user's current working directory, java.home - java installation directory, jboss.server.base.dir - root directory for an individual server instance, jboss.server.data.dir - directory the server will use for persistent data file storage, jboss.server.log.dir - directory the server will use for log file storage, jboss.server.tmp.dir - directory the server will use for temporary file storage, and jboss.domain.servers.dir - directory under which a host controller will create the working area for individual server instances.</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "add",
+    "description" : "Add a file system path.",
+    "request-properties" : {
+        "path" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The actual filesystem path. Treated as an absolute path, unless the 'relative-to' attribute is specified, in which case the value is treated as relative to that path. If treated as an absolute path, the actual runtime pathname specified by the value of this attribute will be determined as follows: If this value is already absolute, then the value is directly used.  Otherwise the runtime pathname is resolved in a system-dependent way.  On UNIX systems, a relative pathname is made absolute by resolving it against the current user directory. On Microsoft Windows systems, a relative pathname is made absolute by resolving it against the current directory of the drive named by the pathname, if any; if not, it is resolved against the current user directory.",
+            "expressions-allowed" : true,
+            "required" : false,
+            "nillable" : true,
+            "default" : "activemq/bindings",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "filesystem-path" : true,
+            "stability" : "default"
+        },
+        "relative-to" : {
+            "type" : {
+                "TYPE_MODEL_VALUE" : "STRING"
+            },
+            "description" : "The name of another previously named path, or of one of the standard paths provided by the system. If 'relative-to' is provided, the value of the 'path' attribute is treated as relative to the path specified by this attribute. The standard paths provided by the system include: jboss.home - the root directory of the JBoss AS distribution, user.home - user's home directory, user.dir - user's current working directory, java.home - java installation directory, jboss.server.base.dir - root directory for an individual server instance, jboss.server.data.dir - directory the server will use for persistent data file storage, jboss.server.log.dir - directory the server will use for log file storage, jboss.server.tmp.dir - directory the server will use for temporary file storage, and jboss.domain.servers.dir - directory under which a host controller will create the working area for individual server instances.",
+            "expressions-allowed" : false,
+            "required" : false,
+            "nillable" : true,
+            "default" : "jboss.server.data.dir",
+            "min-length" : 1,
+            "max-length" : 2147483647,
+            "stability" : "default"
+        }
+    },
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="remove" href="#remove" class="">
+      remove</a> - Remove a path.
+    </span>
+    <div class="collapsible">
+
+
+
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "remove",
+    "description" : "Remove a path.",
+    "request-properties" : {},
+    "reply-properties" : {},
+    "stability" : "default",
+    "read-only" : false,
+    "restart-required" : "resource-services",
+    "runtime-only" : false
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+  <li>
+    <span class="toggle-link">
+      <a id="resolve-path" href="#resolve-path" class="">
+      resolve-path</a> - Resolves a relative path of a previously named paths or one of the standard paths provided by the system.
+    </span>
+    <div class="collapsible">
+
+
+      <table>
+        <thead>
+        <tr>
+          <th>Request Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Expressions Allowed</th>
+          <th>Default value</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>relative-to-only</td>
+          <td>BOOLEAN</td>
+          <td>false</td>
+          <td>false</td>
+          <td></td>
+          <td>Indicates whether only the relative-to attribute should be resolved or the full path should be resolved. The default is false meaning the entire path will be resolved.</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Reply properties</h3>
+      <div>The resolved path from the relative path attribute.</div>
+      <dl>
+        <dt>Type</dt>
+        <dd>STRING</dd>
+      </dl>
+
+      <table>
+        <tr>
+          <td class="toggle-link">Raw DMR model</td>
+          <td class="collapsible">
+            <div class="code-block-container">
+              <pre><code class="language-json">
+{
+    "operation-name" : "resolve-path",
+    "description" : "Resolves a relative path of a previously named paths or one of the standard paths provided by the system.",
+    "request-properties" : {"relative-to-only" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "BOOLEAN"
+        },
+        "description" : "Indicates whether only the relative-to attribute should be resolved or the full path should be resolved. The default is false meaning the entire path will be resolved.",
+        "expressions-allowed" : false,
+        "required" : false,
+        "nillable" : true,
+        "stability" : "default"
+    }},
+    "reply-properties" : {
+        "type" : {
+            "TYPE_MODEL_VALUE" : "STRING"
+        },
+        "description" : "The resolved path from the relative path attribute."
+    },
+    "stability" : "default",
+    "read-only" : true,
+    "runtime-only" : true
+}</code></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<h2>Galleon Features</h2>
+<p>Galleon features are to be used when creating Galleon feature-packs.</p>
+<ul class="attributes">
+  <li>
+  <span class="toggle-link">subsystem.messaging-activemq.server.path.bindings-directory</span>
+  <div class="collapsible">
+    <div class="code-block-container">
+      <pre>
+        <code id="feature" class="language-xml">
+&lt;feature spec="subsystem.messaging-activemq.server.path.bindings-directory"&gt;
+  &lt;param name="server" value="{resource name}"/&gt;
+  &lt;param name="path-feature" value="{value}"/&gt;
+  &lt;param name="relative-to" value="{value}"/&gt;
+&lt;feature/&gt;
+        </code>
+      </pre>
+      <button class="copy-btn" onclick="copyToClipboard('feature')" title="Copy to clipboard">📋</button>
+    </div>
+  </div>
+  </li>
+</ul>
+
+<footer>
+  <hr />
+  <p>The WildFly authors</p>
+</footer></div>
+</body>
+</html>
