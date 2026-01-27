@@ -76,18 +76,19 @@
             store: true,
             index: [
               {
+                preset: "memory",
                 field: 'title',
                 tokenize: 'forward',
                 optimize: true,
                 resolution: 9,
               },
               {
+                preset: "memory",
                 field: 'content',
-                tokenize: 'strict',
+                tokenize: 'forward',
                 optimize: true,
                 resolution: 5,
-                minlength: 3,
-                context: true
+                minlength: 3
               }
             ]
           }
@@ -231,9 +232,10 @@
         // Search in both title and content fields
         const results = await this.index.search({
           query: query,
-          field: ['title', 'content'],
+          fields: ['title', 'content'],
           limit: 50,
-          enrich: true
+          enrich: true,
+          bool: "or"
         });
 
         const searchTime = Date.now() - startTime;
