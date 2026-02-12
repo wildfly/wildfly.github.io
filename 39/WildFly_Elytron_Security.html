@@ -529,8 +529,8 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 <h1>WildFly Elytron Security</h1>
 <div class="details">
 <span id="author" class="author">WildFly authors</span><br>
-<span id="revnumber">version 39.0.0.Final,</span>
-<span id="revdate">2026-01-16T13:13:11Z</span>
+<span id="revnumber">version 39.0.1.Final,</span>
+<span id="revdate">2026-02-11T14:53:00Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">WildFly Elytron Security Guide</div>
@@ -8581,6 +8581,198 @@ It is not required that the identity is found from both of the queries, this can
 <div class="paragraph">
 <p>The end result would be that the identity contains the attribute <code>groups</code> with the values <code>Users</code>, and <code>Supervisors</code></p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="brute-force-authentication-detection"><a class="anchor" href="#brute-force-authentication-detection"></a>4.5.8. Brute Force Authentication Detection</h4>
+<div class="paragraph">
+<p>Starting from WildFly 39.0.1 all security realms used for username / password
+authentication are wrapped by default by a utility realm to add protection
+towards brute force authentication type attacks. This has been added as a
+mitigation regarding <a href="http://cve.org/CVERecord?id=CVE-2025-23368">CVE-2025-23368</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It should be noted that the tracking of failed authentication attempts is
+in-memory only and does not survive restarts, additionally the state is not
+replicated to other nodes when operating in a cluster.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Brute force authentication detection is applied on a per realm basis and the
+following parameters can be adjusted to tune the operation of the utility.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>enabled - Should the protection be enabled for the realm. [Default: true]</p>
+</li>
+<li>
+<p>max-failed-attempts - The maximum number of failed authentication attempts
+before an identity should be temporarily unavailable. [Default: 10]</p>
+</li>
+<li>
+<p>lockout-interval - The time in minutes the identity should be unavailable for
+once the maximum number of attempts is exceeded. [Default: 15]</p>
+</li>
+<li>
+<p>session-timeout - How long in minutes to keep tracking failed authentication
+attempts for the identity. If tracking for an identity has ended and a new failed
+authentication attempt occurs it will again be tracked, but the tracking will
+treat the attempt as if that was the first failed attempt. [Default: 30]</p>
+</li>
+<li>
+<p>max-cached-sessions - The maximum number of sessions to cache for tracking failed
+authentication attempts. [Default: 25,000]</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These properties can be set on a realm by realm basis using system properties
+in the form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>wildfly.elytron.realm.{REALM_NAME}.brute-force.{PROPERTY_NAME}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The security realms which are automatically wrapped are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>caching-realm</p>
+</li>
+<li>
+<p>custom-realm</p>
+</li>
+<li>
+<p>custom-modifiable-realm</p>
+</li>
+<li>
+<p>distributed-realm</p>
+</li>
+<li>
+<p>failover-realm</p>
+</li>
+<li>
+<p>filesystem-realm</p>
+</li>
+<li>
+<p>jaas-realm</p>
+</li>
+<li>
+<p>jdbc-realm</p>
+</li>
+<li>
+<p>ldap-realm</p>
+</li>
+<li>
+<p>properties-realm</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>By wrapping the security realms this utility will automatically be applied to the following
+authentication mechanisms:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>SASL Digest</p>
+</li>
+<li>
+<p>SASL Scram</p>
+</li>
+<li>
+<p>SASL Plain</p>
+</li>
+<li>
+<p>HTTP Basic</p>
+</li>
+<li>
+<p>HTTP Digest</p>
+</li>
+<li>
+<p>HTTP Form</p>
+</li>
+<li>
+<p>HTTP Programmatic</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This protection will also apply where code accesses the <code>SecurityDomain</code>
+APIs directly for authentication.</p>
+</div>
+<div class="sect4">
+<h5 id="runtime-operation"><a class="anchor" href="#runtime-operation"></a>Runtime Operation</h5>
+<div class="paragraph">
+<p>Internally within WildFly Elytron, as authentication attempts occur the mechanisms
+emit events to indicate if an authentication has been successful or not for a
+specific identity. The wrapper realm defined here processes the events as follows.</p>
+</div>
+<div class="paragraph">
+<p>Under normal operation, provided there has not previously been a failed
+authentication for an identity, events indicating a successful authentication are
+ignored.</p>
+</div>
+<div class="paragraph">
+<p>Where an event is received indicating a failed authentication attempt, this utility
+will first check if a session has been established for the specific identity to
+track failed authentications and if that session does not exist it will be created.
+Within this session a counter tracking the number of failed authentications will
+be incremented.</p>
+</div>
+<div class="paragraph">
+<p>Once created, a session will remain in the cache for the duration of the <code>session-timeout</code>
+except where a successful authentication event is received for the identity. In that
+case the session will be discarded. The cache is implemented as a simple LRU cache so
+once the <code>max-cached-sessions</code> limit is reached the least recently used session will be
+discarded to make room for a new session. If eviction does occur due to the cache limit
+being reached a WARN message will be logged indicating this has occurred. To avoid spamming
+the logs this message will be logged no more than once every 15 minutes for each realm.</p>
+</div>
+<div class="paragraph">
+<p>After it has been identified that the number of failed authentications for an
+identity has exceeded the configured <code>max-failed-attempts</code>, the session will track
+that the identity is disabled for the period defined in <code>lockout-interval</code>.
+Repeated attempts after this point will restart the period the identity is locked
+for.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For the realms that delegate to other realms such as the <code>caching-realm</code>, the
+<code>distributed-realm</code>, and the <code>failover-realm</code>, brute force protection will only occur
+at the first realm in the chain. This is to avoid unpredictable interactions with
+multiple realms applying the protection at once.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>During authentication attempts as this utility realm wraps the underlying realm
+it will check if a session already exists that is
+tracking failed authentication attempts for that identity and if so are we
+presently in a lockout period. Where the identity is not presently locked out, the
+call will be passed to the wrapped realm for authentication to proceed as normal.
+However, if the identity is locked a dummy <code>RealmIdentity</code> will be returned for
+authentication that is guaranteed to fail all authentication attempts&#8201;&#8212;&#8201;even if at
+this point the caller supplies valid credentials.</p>
 </div>
 </div>
 </div>
