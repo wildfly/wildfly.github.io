@@ -71,24 +71,17 @@
 
         // Initialize FlexSearch Document index
         this.index = new FlexSearch.Document({
+          encoder: FlexSearch.Charset.Exact,
+          tokenize: 'strict',
           document: {
             id: 'url',
             store: true,
             index: [
               {
-                preset: "memory",
                 field: 'title',
-                tokenize: 'forward',
-                optimize: true,
-                resolution: 9,
               },
               {
-                preset: "memory",
                 field: 'content',
-                tokenize: 'forward',
-                optimize: true,
-                resolution: 5,
-                minlength: 3
               }
             ]
           }
@@ -232,10 +225,9 @@
         // Search in both title and content fields
         const results = await this.index.search({
           query: query,
-          fields: ['title', 'content'],
           limit: 50,
           enrich: true,
-          bool: "or"
+          suggest: true
         });
 
         const searchTime = Date.now() - startTime;
@@ -278,7 +270,7 @@
       const resultsHtml = allResults.map(item => {
         const doc = item.doc;
         const titleSnippet = this.createSnippet(doc.title, query, 100);
-        const contentSnippet = this.createSnippet(doc.content, query, 200);
+        const contentSnippet = this.createSnippet(doc.content, query, 300);
 
         return `
                 <div class="result-item">
