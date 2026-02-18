@@ -49,6 +49,7 @@
       this.searchDialog = document.getElementById('searchDialog');
       this.closeDialog = document.getElementById('closeDialog');
       this.searchResults = document.getElementById('searchResults');
+      this.dialogBody = this.searchDialog.querySelector('.dialog-body');
       this.dialogSearchInput = document.getElementById('dialogSearchInput');
       this.dialogSearchButton = document.getElementById('dialogSearchButton');
     };
@@ -191,12 +192,14 @@
     WFLYDocSearch.prototype.performDialogSearch = function () {
       if (this.isLoading) {
         this.searchResults.innerHTML = '<div class="loading">Search index is still loading, please wait...</div>';
+        this.dialogBody.scrollTop = 0;
         return;
       }
 
       const query = this.dialogSearchInput.value.trim();
       if (!query) {
         this.searchResults.innerHTML = '<div class="loading">Enter a search term to begin...</div>';
+        this.dialogBody.scrollTop = 0;
         return;
       }
 
@@ -211,11 +214,13 @@
     WFLYDocSearch.prototype.performSearchWithQuery = async function (query) {
       if (this.isLoading) {
         this.searchResults.innerHTML = '<div class="loading">Search index is still loading, please wait...</div>';
+        this.dialogBody.scrollTop = 0;
         return;
       }
 
       if (!query) {
         this.searchResults.innerHTML = '<div class="loading">Enter a search term to begin...</div>';
+        this.dialogBody.scrollTop = 0;
         return;
       }
 
@@ -307,6 +312,7 @@
                     <p>Try different keywords or check your spelling.</p>
                 </div>
             `;
+        this.dialogBody.scrollTop = 0;
         return;
       }
 
@@ -367,6 +373,7 @@
         `;
 
       this.searchResults.innerHTML = statsHtml + resultsHtml;
+      this.dialogBody.scrollTop = 0;
     };
 
     WFLYDocSearch.prototype.createSnippet = function (text, query, maxLength) {
