@@ -2,7 +2,7 @@
   'use strict';
 
   const WFLYDocSearch = (() => {
-    
+
     function WFLYDocSearch() {
       this.index = null;
       this.isLoading = true;
@@ -13,7 +13,7 @@
       this.bindEvents();
     }
 
-    WFLYDocSearch.prototype.addSearchToIndex = function() {
+    WFLYDocSearch.prototype.addSearchToIndex = function () {
       // Add search elements to header after page loads
       const header = document.getElementById('header');
       if (header) {
@@ -43,7 +43,7 @@
       }
     }
 
-    WFLYDocSearch.prototype.initializeElements = function() {
+    WFLYDocSearch.prototype.initializeElements = function () {
       this.searchInput = document.getElementById('searchInput');
       this.searchButton = document.getElementById('searchButton');
       this.searchDialog = document.getElementById('searchDialog');
@@ -53,7 +53,7 @@
       this.dialogSearchButton = document.getElementById('dialogSearchButton');
     };
 
-    WFLYDocSearch.prototype.loadSearchIndex = async function() {
+    WFLYDocSearch.prototype.loadSearchIndex = async function () {
       this.setLoadingState(true);
 
       try {
@@ -71,7 +71,7 @@
 
         // Initialize FlexSearch Document index
         this.index = new FlexSearch.Document({
-          encoder: FlexSearch.Charset.Exact,
+          encoder: FlexSearch.Charset.Normalize,
           tokenize: 'strict',
           document: {
             id: 'url',
@@ -125,7 +125,7 @@
       }
     };
 
-    WFLYDocSearch.prototype.bindEvents = function() {
+    WFLYDocSearch.prototype.bindEvents = function () {
       // Main page search button
       this.searchButton.addEventListener('click', () => {
         this.openDialog();
@@ -168,10 +168,10 @@
       });
     };
 
-    WFLYDocSearch.prototype.openDialog = function() {
+    WFLYDocSearch.prototype.openDialog = function () {
       this.searchDialog.classList.add('active');
       document.body.style.overflow = 'hidden';
-      
+
       // Sync search terms from main input to dialog input
       if (this.dialogSearchInput) {
         this.dialogSearchInput.value = this.searchInput.value;
@@ -182,13 +182,13 @@
       }
     };
 
-    WFLYDocSearch.prototype.closeSearchDialog = function() {
+    WFLYDocSearch.prototype.closeSearchDialog = function () {
       this.searchDialog.classList.remove('active');
       this.searchInput.value = '';
       document.body.style.overflow = '';
     };
 
-    WFLYDocSearch.prototype.performDialogSearch = function() {
+    WFLYDocSearch.prototype.performDialogSearch = function () {
       if (this.isLoading) {
         this.searchResults.innerHTML = '<div class="loading">Search index is still loading, please wait...</div>';
         return;
@@ -203,12 +203,12 @@
       this.performSearchWithQuery(query);
     };
 
-    WFLYDocSearch.prototype.performSearch = function() {
+    WFLYDocSearch.prototype.performSearch = function () {
       const query = this.searchInput.value.trim();
       this.performSearchWithQuery(query);
     };
 
-    WFLYDocSearch.prototype.performSearchWithQuery = async function(query) {
+    WFLYDocSearch.prototype.performSearchWithQuery = async function (query) {
       if (this.isLoading) {
         this.searchResults.innerHTML = '<div class="loading">Search index is still loading, please wait...</div>';
         return;
@@ -225,7 +225,6 @@
         // Search in both title and content fields
         const results = await this.index.search({
           query: query,
-          limit: 50,
           enrich: true,
           suggest: true
         });
@@ -239,23 +238,67 @@
       }
     };
 
-    WFLYDocSearch.prototype.displayResults = function(results, query, searchTime) {
-      // Flatten and deduplicate results from multiple fields
-      const allResults = [];
-      const seenUrls = new Set();
+    WFLYDocSearch.prototype.countHits = function (text, terms) {
+      if (!text) return 0;
+      const textLower = text.toLowerCase();
+      let count = 0;
+      for (let i = 0; i < terms.length; i++) {
+        let pos = 0;
+        while ((pos = textLower.indexOf(terms[i], pos)) !== -1) {
+          count++;
+          pos += terms[i].length;
+        }
+      }
+      return count;
+    };
 
+    WFLYDocSearch.prototype.countDistinctTerms = function (text, terms) {
+      if (!text) return 0;
+      const textLower = text.toLowerCase();
+      let count = 0;
+      for (let i = 0; i < terms.length; i++) {
+        if (textLower.indexOf(terms[i]) !== -1) {
+          count++;
+        }
+      }
+      return count;
+    };
+
+    WFLYDocSearch.prototype.displayResults = function (results, query, searchTime) {
+      const resultsByUrl = new Map();
+      const queryTerms = query.toLowerCase().split(/\s+/).filter(t => t.length > 0);
+
+      console.log({ results });
+      // FlexSearch returns results grouped by field:
+      // [ { field: "title", result: [...] }, { field: "content", result: [...] } ]
+      // Use the field property to determine which fields actually matched
       if (Array.isArray(results)) {
         results.forEach(fieldResult => {
+          const field = fieldResult.field;
           if (fieldResult.result) {
             fieldResult.result.forEach(item => {
-              if (!seenUrls.has(item.doc.url)) {
-                seenUrls.add(item.doc.url);
-                allResults.push(item);
+              const url = item.doc.url;
+              if (!resultsByUrl.has(url)) {
+                item.titleScore = 0;
+                item.contentScore = 0;
+                item.allTermsInTitle = false;
+                item.allTermsInContent = false;
+                resultsByUrl.set(url, item);
+              }
+              const entry = resultsByUrl.get(url);
+              if (field === 'title') {
+                entry.titleScore = this.countHits(item.doc.title, queryTerms);
+                entry.allTermsInTitle = this.countDistinctTerms(item.doc.title, queryTerms) === queryTerms.length;
+              } else if (field === 'content') {
+                entry.contentScore = this.countHits(item.doc.content, queryTerms);
+                entry.allTermsInContent = this.countDistinctTerms(item.doc.content, queryTerms) === queryTerms.length;
               }
             });
           }
         });
       }
+
+      const allResults = Array.from(resultsByUrl.values());
 
       if (allResults.length === 0) {
         this.searchResults.innerHTML = `
@@ -266,6 +309,38 @@
             `;
         return;
       }
+
+      // Rank results in 8 tiers, prioritizing all terms in title over
+      // all terms in content, then partial matches:
+      //
+      // Tier 0: All terms in title + content hits
+      // Tier 1: All terms in title + no content hits
+      // Tier 2: All terms in content + title hits
+      // Tier 3: All terms in content + no title hits
+      // Tier 4: Partial terms + title hits + content hits
+      // Tier 5: Partial terms + title hits only
+      // Tier 6: Partial terms + content hits only
+      // Tier 7: Partial terms + no direct hits
+      //
+      // Within each tier: sort by titleScore desc, then contentScore desc
+      allResults.sort((a, b) => {
+        const aHasTitle = a.titleScore > 0;
+        const aHasContent = a.contentScore > 0;
+        const bHasTitle = b.titleScore > 0;
+        const bHasContent = b.contentScore > 0;
+
+        const aTier = a.allTermsInTitle ? (aHasContent ? 0 : 1)
+          : a.allTermsInContent ? (aHasTitle ? 2 : 3)
+          : (aHasTitle && aHasContent) ? 4 : aHasTitle ? 5 : aHasContent ? 6 : 7;
+        const bTier = b.allTermsInTitle ? (bHasContent ? 0 : 1)
+          : b.allTermsInContent ? (bHasTitle ? 2 : 3)
+          : (bHasTitle && bHasContent) ? 4 : bHasTitle ? 5 : bHasContent ? 6 : 7;
+
+        if (aTier !== bTier) return aTier - bTier;
+
+        if (a.titleScore !== b.titleScore) return b.titleScore - a.titleScore;
+        return b.contentScore - a.contentScore;
+      });
 
       const resultsHtml = allResults.map(item => {
         const doc = item.doc;
@@ -294,7 +369,7 @@
       this.searchResults.innerHTML = statsHtml + resultsHtml;
     };
 
-    WFLYDocSearch.prototype.createSnippet = function(text, query, maxLength) {
+    WFLYDocSearch.prototype.createSnippet = function (text, query, maxLength) {
       if (!text || !query) return this.escapeHtml(text || '');
 
       const queryTerms = query.toLowerCase().split(/\s+/).filter(term => term.length > 0);
@@ -338,29 +413,29 @@
       return highlightedSnippet;
     };
 
-    WFLYDocSearch.prototype.escapeHtml = function(text) {
+    WFLYDocSearch.prototype.escapeHtml = function (text) {
       const div = document.createElement('div');
       div.textContent = text;
       return div.innerHTML;
     };
 
-    WFLYDocSearch.prototype.escapeRegExp = function(string) {
+    WFLYDocSearch.prototype.escapeRegExp = function (string) {
       return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     };
 
-    WFLYDocSearch.prototype.setButtonState = function(disabled) {
+    WFLYDocSearch.prototype.setButtonState = function (disabled) {
       this.searchButton.disabled = disabled;
       this.searchButton.textContent = disabled ? 'Loading...' : 'Search';
-      
+
       if (this.dialogSearchButton) {
         this.dialogSearchButton.disabled = disabled;
         this.dialogSearchButton.textContent = disabled ? 'Loading...' : 'Search';
       }
     };
 
-    WFLYDocSearch.prototype.setLoadingState = function(loading) {
+    WFLYDocSearch.prototype.setLoadingState = function (loading) {
       const placeholder = loading ? 'Downloading search index...' : 'Search docs...';
-      
+
       this.searchInput.placeholder = placeholder;
       if (this.dialogSearchInput) {
         this.dialogSearchInput.placeholder = placeholder;
