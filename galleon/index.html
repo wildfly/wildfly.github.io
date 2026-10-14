@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.20">
+<meta name="generator" content="Asciidoctor 2.0.23">
 <meta name="author" content="Alexey Loubyansky, Jean-François Denise">
 <title>Galleon Documentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
@@ -141,7 +141,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #content::before{content:none}
 #header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
 #header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
-#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
 #header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
 #header .details span:first-child{margin-left:-.125em}
 #header .details span.email a{color:rgba(0,0,0,.85)}
@@ -163,6 +163,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
+body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
 #toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
 #toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
@@ -328,7 +329,7 @@ a.image{text-decoration:none;display:inline-block}
 a.image object{pointer-events:none}
 sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
 sup.footnote a,sup.footnoteref a{text-decoration:none}
-sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
 #footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
@@ -440,8 +441,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>Galleon Documentation</h1>
 <div class="details">
 <span id="author" class="author">Alexey Loubyansky, Jean-François Denise</span><br>
-<span id="revnumber">version 6.0.0.Final,</span>
-<span id="revdate">2024-04-09</span>
+<span id="revnumber">version 7.0.11.Final,</span>
+<span id="revdate">2026-10-14</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -808,10 +809,14 @@ Feature-pack may declare dependencies on other feature-packs. Before a feature-p
 <div class="content">
 <pre class="highlight"><code class="language-xml" data-lang="xml">&lt;feature-pack xmlns="urn:jboss:galleon:feature-pack:3.0"
     location="wildfly-servlet@maven(org.jboss.universe:community-universe):current#14.0.0.Beta2"&gt; <i class="conum" data-value="1"></i><b>(1)</b>
+    &lt;family name="family1"&gt; <i class="conum" data-value="2"></i><b>(2)</b>
+        &lt;criteria name="crit1" inherited="false"/&gt;
+        &lt;criteria name="crit2" inherited="true"/&gt;
+    &lt;/family&gt;
     &lt;dependencies&gt;
-        &lt;dependency location="wildfly-core@maven(org.jboss.universe:community-universe):current#6.0.0.Beta1"/&gt; <i class="conum" data-value="2"></i><b>(2)</b>
+        &lt;dependency location="wildfly-core@maven(org.jboss.universe:community-universe):current#6.0.0.Beta1" allowedFamily="family1:crit2"/&gt; <i class="conum" data-value="3"></i><b>(3)</b>
     &lt;/dependencies&gt;
-    &lt;config model="standalone" name="standalone.xml"&gt; <i class="conum" data-value="3"></i><b>(3)</b>
+    &lt;config model="standalone" name="standalone.xml"&gt; <i class="conum" data-value="4"></i><b>(4)</b>
         &lt;feature-group name="standalone"/&gt;
         &lt;feature spec="another-feature"&gt;
             &lt;param name="p1" value="v1" /&gt;
@@ -824,14 +829,14 @@ Feature-pack may declare dependencies on other feature-packs. Before a feature-p
     &lt;config model="host" name="host.xml"&gt;
         &lt;feature-group name="host"/&gt;
     &lt;/config&gt;
-    &lt;default-packages&gt; <i class="conum" data-value="4"></i><b>(4)</b>
+    &lt;default-packages&gt; <i class="conum" data-value="5"></i><b>(5)</b>
         &lt;package name="docs"/&gt;
         &lt;package name="modules.all"/&gt;
     &lt;/default-packages&gt;
-    &lt;plugins&gt; <i class="conum" data-value="5"></i><b>(5)</b>
+    &lt;plugins&gt; <i class="conum" data-value="6"></i><b>(6)</b>
         &lt;plugin location="org.jboss.galleon.example:galleon-example-plugin:1.0.0.Final"/&gt;
     &lt;/plugins&gt;
-    &lt;system-paths&gt; <i class="conum" data-value="6"></i><b>(6)</b>
+    &lt;system-paths&gt; <i class="conum" data-value="7"></i><b>(7)</b>
         &lt;system-path path="modules/system/layers/base"/&gt;
     &lt;/system-paths&gt;
 &lt;/feature-pack&gt;</code></pre>
@@ -841,26 +846,31 @@ Feature-pack may declare dependencies on other feature-packs. Before a feature-p
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Feature-pack location and build info</td>
+<td>Feature-pack location, build info.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Dependency on another feature-pack</td>
+<td>Optional family and criteria. A family allows to group compatible feature-packs inside the same family. Family members can then be swapped at provisioning time. Criteria are
+expressing what are the feature-pack capabilities. Some can be inherited from dependencies, other are implemented by this feature-pack.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Description of the default <code>standalone.xml</code> configuration</td>
+<td>Dependency on another feature-pack. In this case, the <code>crit2</code> is inherited.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>List of packages that should be installed by default</td>
+<td>Description of the default <code>standalone.xml</code> configuration</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>List of provisioning plugins</td>
+<td>List of packages that should be installed by default</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>List of provisioning plugins</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
 <td>List of protected system paths</td>
 </tr>
 </table>
@@ -1593,7 +1603,7 @@ A passive dependency on a package is satisified only if all the required depende
                 location="fp1@maven(org.jboss.universe:community-universe):1#1.0.0" &gt;
     &lt;dependencies&gt;
         &lt;dependency location="fp2@maven(org.jboss.universe:community-universe):2#2.0.1"/&gt;
-        &lt;dependency location="fp3@maven(org.jboss.universe:community-universe):1#1.0.2"/&gt;
+        &lt;dependency location="fp3@maven(org.jboss.universe:community-universe):1#1.0.2" allowedFamily="family1:crit1,crit2"/&gt;
     &lt;/dependencies&gt;
     &lt;default-packages&gt;
         &lt;package name="package1"/&gt;
@@ -1603,7 +1613,9 @@ A passive dependency on a package is satisified only if all the required depende
 </div>
 </div>
 <div class="paragraph">
-<p>In this case feature-pack <code>fp1</code> depends on feature-packs <code>fp2</code> and <code>fp3</code>. And if a user requests to install <code>fp1</code>, feature-packs <code>fp2</code> and <code>fp3</code> will be installed by the mechanism implicitly as dependencies of <code>fp1</code>.</p>
+<p>In this case feature-pack <code>fp1</code> depends on feature-packs <code>fp2</code> and <code>fp3</code>. And if a user requests to install <code>fp1</code>, feature-packs <code>fp2</code> and <code>fp3</code> will be installed by the mechanism implicitly as dependencies of <code>fp1</code>.\
+Note that the dependency on <code>fp3</code> allows that, at provisioning time, a member of the family <code>family1</code> that is the family of the <code>fp3</code> feature-pack can be used to replace <code>fp3</code>.
+The member of the family must implements the criteria <code>crit1</code> and <code>crit2</code>.</p>
 </div>
 <div class="paragraph">
 <p>If we further assume that <code>fp3</code> depends on feature-pack <code>fp4</code> and <code>fp2</code> and <code>fp4</code> don’t have any further dependencies. The effective package set of the distribution provisioned from <code>fp1</code> will consist of:</p>
@@ -7469,7 +7481,7 @@ If no such stability levels exist, <code>default</code> level is assumed.</p>
 <pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.jboss.galleon&lt;/groupId&gt;
     &lt;artifactId&gt;galleon-maven-plugin&lt;/artifactId&gt;
-    &lt;version&gt;6.0.0.Final&lt;/version&gt;
+    &lt;version&gt;7.0.11.Final&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -7499,7 +7511,7 @@ If no such stability levels exist, <code>default</code> level is assumed.</p>
 <h4 id="_galleonprovision"><a class="anchor" href="#_galleonprovision"></a><a class="link" href="#_galleonprovision">14.1.1. galleon:provision</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.jboss.galleon:galleon-maven-plugin:6.0.0.Final:provision</p>
+org.jboss.galleon:galleon-maven-plugin:7.0.11.Final:provision</p>
 </div>
 </div>
 <div class="sect3">
@@ -7955,7 +7967,7 @@ Specifies whether the provisioning should be skipped.</p>
 <h4 id="_galleonprovision_file"><a class="anchor" href="#_galleonprovision_file"></a><a class="link" href="#_galleonprovision_file">14.2.1. galleon:provision-file</a></h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.jboss.galleon:galleon-maven-plugin:6.0.0.Final:provision-file</p>
+org.jboss.galleon:galleon-maven-plugin:7.0.11.Final:provision-file</p>
 </div>
 </div>
 <div class="sect3">
@@ -9185,8 +9197,8 @@ applies when fetching explicitly feature-packs.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 6.0.0.Final<br>
-Last updated 2024-04-05 14:49:56 +0200
+Version 7.0.11.Final<br>
+Last updated 2026-10-08 10:02:55 +0200
 </div>
 </div>
 </body>
