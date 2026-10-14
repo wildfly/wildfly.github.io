@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.20">
+<meta name="generator" content="Asciidoctor 2.0.23">
 <meta name="author" content="Alexey Loubyansky, Jean-Francois Denise">
 <title>WildFly Galleon Plugins Documentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
@@ -141,7 +141,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #content::before{content:none}
 #header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
 #header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
-#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
 #header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
 #header .details span:first-child{margin-left:-.125em}
 #header .details span.email a{color:rgba(0,0,0,.85)}
@@ -163,6 +163,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
+body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
 #toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
 #toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
@@ -328,7 +329,7 @@ a.image{text-decoration:none;display:inline-block}
 a.image object{pointer-events:none}
 sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
 sup.footnote a,sup.footnoteref a{text-decoration:none}
-sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
 #footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
@@ -440,8 +441,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>WildFly Galleon Plugins Documentation</h1>
 <div class="details">
 <span id="author" class="author">Alexey Loubyansky, Jean-Francois Denise</span><br>
-<span id="revnumber">version 7.0.0.Final,</span>
-<span id="revdate">2024-04-11T08:43:23Z</span>
+<span id="revnumber">version 8.2.2.Final,</span>
+<span id="revdate">2026-10-14T15:37:51Z</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -470,9 +471,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_goals_overview">3.1. Goals overview</a></li>
 <li><a href="#_generate_all_artifacts_list">3.2. generate-all-artifacts-list</a></li>
-<li><a href="#_build_user_feature_pack">3.3. build-user-feature-pack</a></li>
-<li><a href="#_build_feature_pack">3.4. build-feature-pack</a></li>
-<li><a href="#Feature-pack-build-config-file">3.5. Feature-pack build config file (wildfly-feature-pack-build.xml)</a></li>
+<li><a href="#build_user_feature_pack">3.3. build-user-feature-pack</a></li>
+<li><a href="#build_feature_pack">3.4. build-feature-pack</a></li>
+<li><a href="#maven-extension">3.5. Using the plugin as a Maven Extension</a></li>
+<li><a href="#Feature-pack-build-config-file">3.6. Feature-pack build config file (wildfly-feature-pack-build.xml)</a></li>
 </ul>
 </li>
 </ul>
@@ -500,7 +502,7 @@ These plugins can also be used by projects that integrate into or extend WildFly
 <p>This Maven tooling allows to build feature-packs that can be combined with WildFly feature-packs to produce customized WildFly server installations.</p>
 </div>
 <div class="paragraph">
-<p>The Maven plugin "org.wildfly.galleon:wildfly-galleon-maven-plugin" exposes 2 goals:</p>
+<p>The Maven plugin "org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin" exposes 2 goals:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -636,9 +638,90 @@ A <code>provisioning.xml</code> file example:</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">jboss-bulk-resolve-artifacts</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Maven artifacts that are needed for the WildFly server installation are resolved in a bulk operation instead of
-being resolved individually. That can speed-up the provisioning time.</p></td>
+being resolved individually. That speed-up the provisioning time. By default 5 threads are used to resolve the artifacts. Use <code>-Dmaven.artifact.threads=&lt;number of threads&gt;</code>
+to increase concurrency. Using 500+ threads has shown excellent results.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jboss-cyclonedx</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable generation of a CycloneDX SBOM (Software Bill of Materials) for the provisioned distribution.
+The SBOM lists all resolved artifacts as CycloneDX components with Maven coordinates, Package URLs,
+and evidence recording each artifact&#8217;s location within the distribution. Enabled by default; set to
+<code>false</code> to skip SBOM generation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jboss-cyclonedx-format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String (<code>json</code> or <code>xml</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">json</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The output format for the generated CycloneDX SBOM. Only used when <code>jboss-cyclonedx</code> or <code>jboss-cyclonedx-only</code> is set to <code>true</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jboss-cyclonedx-licenses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String (<code>licenses.xml</code>, <code>pom</code>, or <code>off</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">off</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controls how component license information is collected when SBOM generation is enabled.
+<code>off</code> (the default) disables license collection.
+<code>licenses.xml</code> reads the <code>docs/licenses/*-licenses.xml</code> summaries shipped by the feature
+packs; it requires no remote artifact resolution and works in <code>jboss-cyclonedx-only</code> mode.
+<code>pom</code> instead resolves declared licenses from Maven POMs (walking parent POMs), which performs remote
+resolution. Additionally, <code>true</code> maps to <code>licenses.xml</code> and <code>false</code> maps to <code>off</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jboss-cyclonedx-only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generate a CycloneDX SBOM without provisioning the server. Implies <code>jboss-cyclonedx=true</code>.
+When enabled, the plugin walks all included packages to discover artifact references from module
+templates, CopyArtifact tasks, and shaded model dependencies, and writes the SBOM. No file copying or
+configuration generation is performed, and no artifacts are installed. When channel-based resolution
+is in effect, artifact versions are resolved from the channel so the SBOM records the versions that
+would actually be provisioned; otherwise versions come from the feature-pack version properties. The
+<code>jboss-cyclonedx-format</code> and <code>jboss-cyclonedx-output</code> options still apply. Because the SBOM is the sole
+output in this mode, a generation failure always aborts, regardless of <code>jboss-cyclonedx-fail-on-error</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jboss-cyclonedx-output</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sbom.cdx.json</code> (or <code>sbom.cdx.xml</code>) in the installation root</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A path to the file where the generated CycloneDX SBOM will be written. Only used when <code>jboss-cyclonedx</code> or <code>jboss-cyclonedx-only</code> is set to <code>true</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jboss-cyclonedx-pretty-print</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pretty-print (indent) the generated SBOM for human readability. When <code>false</code>, the SBOM is written in a
+compact form. Only used when <code>jboss-cyclonedx</code> or <code>jboss-cyclonedx-only</code> is set to <code>true</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jboss-cyclonedx-schema-version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String (e.g. <code>1.6</code>, <code>1.7</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The CycloneDX schema version to use when serializing the SBOM. Only used when <code>jboss-cyclonedx</code> or <code>jboss-cyclonedx-only</code> is set to <code>true</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jboss-cyclonedx-compress</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compress the generated CycloneDX SBOM into a <code>.zip</code> archive. The zip file will be named by appending <code>.zip</code> to the chosen output file name (e.g. <code>sbom.cdx.json.zip</code>), and the uncompressed SBOM file will not be kept. Enabled by default; set to <code>false</code> to keep the uncompressed SBOM. Only used when <code>jboss-cyclonedx</code> or <code>jboss-cyclonedx-only</code> is set to <code>true</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jboss-cyclonedx-product-cpe</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String (CPE 2.3)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NONE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Overrides the CPE of the SBOM&#8217;s main component. Normally the CPE is read from the distribution&#8217;s product manifest; set this only in the exceptional case where that CPE is wrong and must be corrected, or where the distribution carries none. Only used when <code>jboss-cyclonedx</code> or <code>jboss-cyclonedx-only</code> is set to <code>true</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jboss-cyclonedx-fail-on-error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controls what happens when SBOM generation fails during a regular provisioning run. By default (<code>false</code>)
+the failure is logged as a warning and provisioning completes without a complete SBOM, so a problem
+generating the SBOM never prevents a server from being provisioned. Set to <code>true</code> to make such a failure
+abort provisioning instead. This option has no effect in <code>jboss-cyclonedx-only</code> mode, where the SBOM is
+the sole output and failures always abort.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">jboss-dump-config-scripts</p></td>
@@ -695,6 +778,310 @@ NOTE: This option is specific to the usage of the <a href="https://github.com/wi
 </tbody>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_cyclonedx_sbom_generation">1.2.2. CycloneDX SBOM Generation</h4>
+<div class="paragraph">
+<p>The WildFly Galleon plugin can generate a <a href="https://cyclonedx.org/">CycloneDX</a> Software Bill of Materials (SBOM)
+for the provisioned distribution. The SBOM lists all resolved artifacts as CycloneDX components with Maven
+coordinates, Package URLs (purl), declared licenses, and — during a full provision — evidence recording where
+each artifact resides in the distribution.</p>
+</div>
+<div class="sect4">
+<h5 id="_options_at_a_glance">Options at a glance</h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Option</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jboss-cyclonedx</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable SBOM generation during provisioning (enabled by default; set to <code>false</code> to disable).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jboss-cyclonedx-only</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generate the SBOM without provisioning the server (implies <code>jboss-cyclonedx=true</code>).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jboss-cyclonedx-fail-on-error</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether an SBOM generation failure aborts provisioning (default <code>false</code>; always fatal in <code>-only</code> mode).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jboss-cyclonedx-format</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Output format: <code>json</code> (default) or <code>xml</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jboss-cyclonedx-output</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Path to write the SBOM to.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jboss-cyclonedx-licenses</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">License source: <code>off</code> (default), <code>licenses.xml</code>, or <code>pom</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jboss-cyclonedx-pretty-print</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indent the SBOM for readability.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jboss-cyclonedx-schema-version</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CycloneDX schema version, defaults to 1.7.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jboss-cyclonedx-compress</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compress the generated SBOM into a <code>.zip</code> archive (appends <code>.zip</code> to the output file name).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jboss-cyclonedx-product-cpe</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Override the main component CPE (exceptional cases only; see below).</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>See the options table above for full descriptions, types, and defaults.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_generation_modes">Generation modes</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>During provisioning:</strong> SBOM generation is enabled by default; it runs alongside the server installation.
+The SBOM includes <code>occurrences</code> evidence recording each artifact&#8217;s file location(s) within the distribution.
+Set <code>jboss-cyclonedx=false</code> to disable it.</p>
+</li>
+<li>
+<p><strong>SBOM-only (no provisioning):</strong> Set <code>jboss-cyclonedx-only=true</code> to generate the SBOM without building
+the server. This mode is significantly faster as it skips file copying and configuration generation and
+installs no artifacts. Because no files are installed, the SBOM does not include file-location evidence.
+When channel-based resolution is in effect, artifact versions are still resolved from the channel so the
+recorded versions match what a full provision would install.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_failure_handling">Failure handling</h5>
+<div class="paragraph">
+<p>By default, a failure while generating the SBOM during a regular provisioning run is logged as a warning
+and provisioning completes without a complete SBOM — an SBOM problem never blocks a server from being
+provisioned. Set <code>jboss-cyclonedx-fail-on-error=true</code> to make such a failure abort provisioning instead.
+In <code>jboss-cyclonedx-only</code> mode the SBOM is the only output, so a generation failure always aborts
+regardless of this option.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_main_component_the_distribution">Main component (the distribution)</h5>
+<div class="paragraph">
+<p>The SBOM&#8217;s main component (<code>metadata.component</code>) represents the provisioned WildFly or JBoss EAP distribution
+itself, derived from the distribution&#8217;s own product branding. WildFly/EAP feature packs contribute a
+product-conf artifact (artifactId ending <code>-product-conf</code>) whose manifest carries the release information;
+the plugin reads it in both provisioning and SBOM-only modes. The main component is populated as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>name / version</strong> from <code>JBoss-Product-Release-Name</code> / <code>JBoss-Product-Release-Version</code>
+(for example <code>JBoss EAP</code> / <code>8.1 Update 7.1</code>, or <code>WildFly</code> / <code>40.0.0.Final</code>).</p>
+</li>
+<li>
+<p><strong>purl / bom-ref</strong> a synthetic <code>pkg:generic</code> identity built from the name and version
+(for example <code>pkg:generic/jboss-eap@8.1-update-7.1</code>) — a distribution is not itself a Maven artifact.</p>
+</li>
+<li>
+<p><strong>publisher</strong> from <code>Implementation-Vendor</code>.</p>
+</li>
+<li>
+<p><strong>cpe</strong> from the manifest&#8217;s <code>JBoss-Product-CPE</code> entry, when present. This can be overridden with
+the <code>jboss-cyclonedx-product-cpe</code> option for the exceptional case where the manifest CPE is wrong, or supplied
+where the distribution carries none.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If no product-conf artifact is present — for example JBoss EAP 7, which ships the product identity as a plain
+module rather than a Maven artifact — the plugin falls back, best effort, to the provisioned product module
+manifest at <code>modules/system/layers/base/org/jboss/as/product/&lt;slot&gt;/dir/META-INF/MANIFEST.MF</code>, reading the
+same <code>JBoss-Product-Release-Name</code> / <code>-Version</code> entries. Because this reads an installed file, it applies only
+to a full provision; in SBOM-only mode (no files installed) EAP 7 yields no product branding. That manifest
+carries only name and version, so use <code>jboss-cyclonedx-product-cpe</code> to add a CPE.</p>
+</div>
+<div class="paragraph">
+<p>If neither source provides branding, the main component falls back to a generic <code>wildfly</code> identity.</p>
+</div>
+<div class="sect5">
+<h6 id="_where_the_product_configuration_comes_from">Where the product configuration comes from</h6>
+<div class="paragraph">
+<p>The branding is not a hand-configured value; it is read from the same product-conf artifact the running
+server uses to report its identity. The chain is:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A WildFly/EAP distribution selects a product <strong>slot</strong> in <code>bin/product.conf</code> (typically <code>slot=main</code>).</p>
+</li>
+<li>
+<p>The corresponding <code>org.jboss.as.product/&lt;slot&gt;</code> JBoss Modules module supplies the product identity. Its
+<code>module.xml</code> does not embed the identity directly; instead it references a Maven artifact, for example:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>&lt;module name=&quot;org.jboss.as.product&quot;&gt;
+    &lt;resources&gt;
+        &lt;resource-root path=&quot;.&quot;/&gt;
+        &lt;artifact name=&quot;${org.jboss.eap:wildfly-ee-feature-pack-product-conf}&quot;/&gt;
+    &lt;/resources&gt;
+&lt;/module&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>That referenced artifact — whose artifactId ends in <code>-product-conf</code> — carries the branding in its
+<code>META-INF/MANIFEST.MF</code> (<code>JBoss-Product-Release-Name</code>, <code>-Version</code>, <code>Implementation-Vendor</code>,
+and optionally <code>JBoss-Product-CPE</code>).</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Because the product-conf artifact is a normal module dependency, it is recorded during provisioning <strong>and</strong>
+in SBOM-only mode (where no files are installed but module templates are still walked). The plugin therefore
+derives the main component by scanning the recorded artifacts rather than the installed filesystem — which is
+why it works identically in both modes.</p>
+</div>
+<div class="paragraph">
+<p><strong>Selection logic.</strong> Among the recorded artifacts, the plugin picks the one whose artifactId ends with
+<code>-product-conf</code> and that is a plain JAR with no classifier, then reads its manifest. This deliberately
+excludes the sibling <strong>version-marker</strong> artifact of the same name that some feature packs publish with a
+<code>version</code> classifier and <code>txt</code> type. In a distribution there is exactly one such JAR:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>EAP: <code>org.jboss.eap:wildfly-ee-feature-pack-product-conf</code> → <code>JBoss EAP</code> / <code>8.1 Update 7.1</code>.</p>
+</li>
+<li>
+<p>Community WildFly: <code>org.wildfly:wildfly-feature-pack-product-conf</code> (or the <code>-ee-</code> variant) → <code>WildFly</code> / the release version.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If the manifest lacks <code>JBoss-Product-Release-Name</code> or <code>-Version</code>, or no matching artifact is present, the
+plugin falls back to the provisioned product module manifest described under <em>Main component</em> above; failing
+that — or in SBOM-only mode, where that file is not installed — the generic <code>wildfly</code> fallback is used.</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_license_information">License information</h5>
+<div class="paragraph">
+<p>Component licenses are collected according to <code>jboss-cyclonedx-licenses</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>licenses.xml</code> (default):</strong> reads the <code>docs/licenses/*-licenses.xml</code> summaries that WildFly/EAP feature
+packs ship. This requires no remote artifact resolution and is available in SBOM-only mode (the summaries are
+read from feature-pack package content). It is the recommended source: coverage and accuracy match or exceed
+the POM path for WildFly/EAP distributions.</p>
+</li>
+<li>
+<p><strong><code>pom</code>:</strong> resolves declared licenses from each artifact&#8217;s Maven POM, walking parent POMs until a
+<code>&lt;licenses&gt;</code> block is found. This performs remote artifact resolution.</p>
+</li>
+<li>
+<p><strong><code>off</code>:</strong> disables license collection.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Declared license names/URLs from either source are mapped to SPDX identifiers by the shared SPDX mapper before
+being written to the SBOM. Additionally, <code>true</code> maps to <code>licenses.xml</code> and <code>false</code> maps to <code>off</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_component_identity_and_evidence">Component identity and evidence</h5>
+<div class="paragraph">
+<p>Each resolved artifact is recorded as a component with its Maven <code>group</code>/<code>name</code>/<code>version</code>, a <code>pkg:maven</code> purl
+(including <code>classifier</code>/<code>type</code> qualifiers where applicable), and a SHA-256 hash. In a full provision, an
+<code>evidence.occurrences</code> list records every path at which the artifact appears in the distribution; the same
+artifact installed in multiple locations yields multiple occurrences.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_embedded_sbom_merging">Embedded SBOM merging</h5>
+<div class="paragraph">
+<p>If a resolved JAR contains its own CycloneDX SBOM (a <code><strong>.cdx.json</code> or <code></strong>.cdx.xml</code> file, as produced by some
+upstream libraries), that SBOM is merged into the output under the JAR&#8217;s component, preserving the upstream
+component graph.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_shaded_uber_jar_detection">Shaded (uber) JAR detection</h5>
+<div class="paragraph">
+<p>Artifacts assembled on the fly from multiple dependencies (shaded models) are recorded as a component with a
+<code>pkg:generic</code> identity and their constituent dependencies nested underneath. A dependency that appears only
+inside a shaded JAR is not emitted as a separate top-level component. Dependencies bundled inside a resolved
+JAR are likewise detected and attributed to that JAR.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_bundled_javascript_library_detection">Bundled JavaScript library detection</h5>
+<div class="paragraph">
+<p>Artifacts with a <code>resources</code> classifier (such as the HAL Management Console <code>hal-console</code>) may contain
+bundled JavaScript libraries that are not visible as Maven dependencies. When SBOM generation is enabled,
+the plugin automatically detects these libraries by parsing JavaScript source map files (<code>.js.map</code>) inside
+the resource JAR.</p>
+</div>
+<div class="paragraph">
+<p>Detected npm packages appear as nested components under the parent Maven artifact in the SBOM, with
+<code>pkg:npm</code> Package URLs. Version information is extracted on a best-effort basis from the embedded source
+content (version assignments, banner comments). If a version cannot be determined, the component is still
+recorded without a version.</p>
+</div>
+<div class="paragraph">
+<p>This detection works in both provisioning and SBOM-only modes. In SBOM-only mode, the resource JAR is
+resolved from the Maven repository to enable source map scanning.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_examples">Examples</h5>
+<div class="paragraph">
+<p><strong>Galleon provisioning.xml:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>&lt;installation xmlns=&quot;urn:jboss:galleon:provisioning:3.0&quot;&gt;
+    &lt;feature-pack location=&quot;wildfly@maven(org.jboss.universe:community-universe):current&quot;/&gt;
+    &lt;options&gt;
+        &lt;option name=&quot;jboss-cyclonedx-only&quot; value=&quot;true&quot;/&gt;
+        &lt;option name=&quot;jboss-cyclonedx-format&quot; value=&quot;json&quot;/&gt;
+    &lt;/options&gt;
+&lt;/installation&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>WildFly Maven plugin:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>&lt;configuration&gt;
+...
+ &lt;galleon-options&gt;
+  &lt;jboss-cyclonedx&gt;true&lt;/jboss-cyclonedx&gt;
+  &lt;jboss-cyclonedx-format&gt;json&lt;/jboss-cyclonedx-format&gt;
+  &lt;jboss-cyclonedx-licenses&gt;licenses.xml&lt;/jboss-cyclonedx-licenses&gt;
+  &lt;jboss-cyclonedx-pretty-print&gt;true&lt;/jboss-cyclonedx-pretty-print&gt;
+ &lt;/galleon-options&gt;
+...
+&lt;/configuration&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -730,7 +1117,7 @@ to create a Galleon feature-pack that contains Galleon layers to install static 
   <span style="color:#070;font-weight:bold">&lt;dependency&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.wildfly.galleon-plugins<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>wildfly-galleon-maven-plugin<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
-    <span style="color:#070;font-weight:bold">&lt;version&gt;</span>7.0.0.Final<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;version&gt;</span>8.2.2.Final<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
   <span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span>
 <span style="color:#070;font-weight:bold">&lt;/dependencies&gt;</span></code></pre>
 </div>
@@ -1303,7 +1690,7 @@ Galleon documentation for more information.
 <pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;dependency&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.wildfly.galleon-plugins<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
     <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>wildfly-galleon-maven-plugin<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
-    <span style="color:#070;font-weight:bold">&lt;version&gt;</span>7.0.0.Final<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;version&gt;</span>8.2.2.Final<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
 <span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span></code></pre>
 </div>
 </div>
@@ -1320,11 +1707,11 @@ Galleon documentation for more information.
 <td class="tableblock halign-left valign-top"><p class="tableblock">Generates a list of all the artifacts required to install the full version of a feature-pack.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_build_user_feature_pack">build-user-feature-pack</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_build_user_feature_pack">[_build_user_feature_pack]</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Creates feature-packs intended to be built on top WildFly feature-packs.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_build_feature_pack">build-feature-pack</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_build_feature_pack">[_build_feature_pack]</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Creates a feature-pack archive from the provided resources in the WildFly fashion (used for official WildFly feature-packs).</p></td>
 </tr>
 </tbody>
@@ -1336,7 +1723,7 @@ Galleon documentation for more information.
 <h4 id="_wildfly_galleongenerate_all_artifacts_list">3.2.1. wildfly-galleon:generate-all-artifacts-list</h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:7.0.0.Final:generate-all-artifacts-list</p>
+org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:8.2.2.Final:generate-all-artifacts-list</p>
 </div>
 </div>
 <div class="sect3">
@@ -1576,12 +1963,12 @@ license file for the contained artifacts is generated.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_build_user_feature_pack">3.3. build-user-feature-pack</h3>
+<h3 id="build_user_feature_pack">3.3. build-user-feature-pack</h3>
 <div class="sect3">
 <h4 id="_wildfly_galleonbuild_user_feature_pack">3.3.1. wildfly-galleon:build-user-feature-pack</h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:7.0.0.Final:build-user-feature-pack</p>
+org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:8.2.2.Final:build-user-feature-pack</p>
 </div>
 </div>
 <div class="sect3">
@@ -1627,6 +2014,14 @@ directory which is then ZIPped to create the feature-pack artifact.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Type</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Since</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#generateCompleteModel">[generateCompleteModel]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(no description)<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>Alias is</strong>: <code>generate-complete-model</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#resourcesDir">[resourcesDir]</a></code></p></td>
@@ -1694,13 +2089,37 @@ manifest YAML definition. This parameter has no effect if
 <strong>Alias is</strong>: <code>config-file</code>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#configStatibilityLevel">[configStatibilityLevel]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#configStabilityLevel">[configStabilityLevel]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The default stability level used at provisioning time to generate
 configuration. Can&#8217;t be used when <code>stability-level</code> is
-set.<br>
+set. It overrides the value set in the
+wildfly-feature-pack-build.xml file.<br>
 <strong>Alias is</strong>: <code>config-stability-level</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#copyright">[copyright]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(no description)<br>
+<strong>User property is</strong>: <code>wildfly.feature.pack.copyright</code>.<br>
+<strong>Alias is</strong>: <code>copyright</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#cpeResolutionMode">[cpeResolutionMode]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CpeResolutionMode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the WildFly product-conf artifact contains a CPE, the
+provisioned maven artifacts of other feature-packs present in the
+provisioning configuration are not added to the generated SBOM. In
+order to advertise that a feature-pack is in the scope of the
+WildFly CPE, set this parameter to <code>SERVER_PRODUCT_CONF</code>. If no CPE
+is defined, then the content of feature-packs are added to the
+generated SBOM whatever the value of this parameter.<br>
+<strong>Default value is</strong>: <code>LOCAL</code>.<br>
+<strong>User property is</strong>: <code>wildfly.sbom.sbom-cpe-resolution-mode</code>.<br>
+<strong>Alias is</strong>: <code>sbom-cpe-resolution-mode</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#deployChannelManifest">[deployChannelManifest]</a></code></p></td>
@@ -1710,6 +2129,15 @@ set.<br>
 <strong>Default value is</strong>: <code>true</code>.<br>
 <strong>User property is</strong>: <code>wildfly.feature.pack.deploy-channel-manifest</code>.<br>
 <strong>Alias is</strong>: <code>deploy-channel-manifest</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#forbidLowerStatibilityLevelPackageReference">[forbidLowerStatibilityLevelPackageReference]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enforce that no package at a lower stability level than the
+minimum-stability-level is referenced from Galleon constructs.<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>Alias is</strong>: <code>forbid-lower-stability-level-package-reference</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#fpLocation">[fpLocation]</a></code></p></td>
@@ -1731,6 +2159,15 @@ stream in the channel manifest.<br>
 <strong>Alias is</strong>: <code>generate-channel-manifest</code>.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#includeIncompleCoordsArtifactsInSbom">[includeIncompleCoordsArtifactsInSbom]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(no description)<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>User property is</strong>: <code>wildfly.sbom.include-incomplete-coords-artifacts-in-sbom</code>.<br>
+<strong>Alias is</strong>: <code>include-incomplete-coords-artifacts-in-sbom</code>.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#minimumStabilityLevel">[minimumStabilityLevel]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
@@ -1738,16 +2175,22 @@ stream in the channel manifest.<br>
 generate feature specs and include packages. Set this if you need
 to generate feature specs for features with a lower stability level
 than the default level of the WildFly process being used for
-feature-spec generation.<br>
+feature-spec generation. It overrides the value set in the
+wildfly-feature-pack-build.xml file.<br>
 <strong>Alias is</strong>: <code>minimum-stability-level</code>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#packageStatibilityLevel">[packageStatibilityLevel]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#packageStabilityLevel">[packageStabilityLevel]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The default stability level used at provisioning time when
 installing packages/JBoss Modules modules. Can&#8217;t be used when
-<code>stability-level</code> is set.<br>
+<code>stability-level</code> is set. If both the
+<code>config-stability-level</code> and the
+<code>package-stability-level</code> options are set, the level of
+the <code>package-stability-level</code> option must imply the
+level of the <code>config-stability-level</code> option. It
+overrides the value set in the wildfly-feature-pack-build.xml file.<br>
 <strong>Alias is</strong>: <code>package-stability-level</code>.</p></td>
 </tr>
 <tr>
@@ -1762,13 +2205,23 @@ stored in the feature-pack&#8217;s
 <strong>Alias is</strong>: <code>release-name</code>.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#skipDoc">[skipDoc]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(no description)<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>User property is</strong>: <code>wildfly.feature.pack.skip-doc</code>.<br>
+<strong>Alias is</strong>: <code>skip-doc</code>.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#stabilityLevel">[stabilityLevel]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The default stability level used at provisioning time to generate
 configuration and provision packages. Can&#8217;t be used when
 <code>config-stability-level</code> or
-<code>package-stability-level</code> is set.<br>
+<code>package-stability-level</code> is set. It overrides the value
+set in the wildfly-feature-pack-build.xml file.<br>
 <strong>Alias is</strong>: <code>stability-level</code>.</p></td>
 </tr>
 <tr>
@@ -1912,10 +2365,11 @@ The feature-pack build configuration file.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p><a id="configStatibilityLevel"></a> <strong>configStatibilityLevel</strong><br>
+<p><a id="configStabilityLevel"></a> <strong>configStabilityLevel</strong><br>
 The default stability level used at provisioning time to generate
 configuration. Can&#8217;t be used when <code>stability-level</code> is
-set.</p>
+set. It overrides the value set in the
+wildfly-feature-pack-build.xml file.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1927,6 +2381,55 @@ set.</p>
 </li>
 <li>
 <p><strong>Alias</strong>: <code>config-stability-level</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="copyright"></a> <strong>copyright</strong><br>
+(no description)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.feature.pack.copyright</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>copyright</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="cpeResolutionMode"></a> <strong>cpeResolutionMode</strong><br>
+If the WildFly product-conf artifact contains a CPE, the
+provisioned maven artifacts of other feature-packs present in the
+provisioning configuration are not added to the generated SBOM. In
+order to advertise that a feature-pack is in the scope of the
+WildFly CPE, set this parameter to <code>SERVER_PRODUCT_CONF</code>. If no CPE
+is defined, then the content of feature-packs are added to the
+generated SBOM whatever the value of this parameter.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>org.wildfly.galleon.plugin.CpeResolutionMode</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.sbom.sbom-cpe-resolution-mode</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>LOCAL</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>sbom-cpe-resolution-mode</code></p>
 </li>
 </ul>
 </div>
@@ -1950,6 +2453,27 @@ set.</p>
 </li>
 <li>
 <p><strong>Alias</strong>: <code>deploy-channel-manifest</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="forbidLowerStatibilityLevelPackageReference"></a> <strong>forbidLowerStatibilityLevelPackageReference</strong><br>
+Enforce that no package at a lower stability level than the
+minimum-stability-level is referenced from Galleon constructs.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>forbid-lower-stability-level-package-reference</code></p>
 </li>
 </ul>
 </div>
@@ -1999,12 +2523,56 @@ stream in the channel manifest.</p>
 </ul>
 </div>
 <div class="paragraph">
+<p><a id="generateCompleteModel"></a> <strong>generateCompleteModel</strong><br>
+(no description)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.Boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>Yes</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>generate-complete-model</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="includeIncompleCoordsArtifactsInSbom"></a> <strong>includeIncompleCoordsArtifactsInSbom</strong><br>
+(no description)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.Boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.sbom.include-incomplete-coords-artifacts-in-sbom</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>include-incomplete-coords-artifacts-in-sbom</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p><a id="minimumStabilityLevel"></a> <strong>minimumStabilityLevel</strong><br>
 The minimum stability level of the WildFly processes used to
 generate feature specs and include packages. Set this if you need
 to generate feature specs for features with a lower stability level
 than the default level of the WildFly process being used for
-feature-spec generation.</p>
+feature-spec generation. It overrides the value set in the
+wildfly-feature-pack-build.xml file.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2020,10 +2588,15 @@ feature-spec generation.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p><a id="packageStatibilityLevel"></a> <strong>packageStatibilityLevel</strong><br>
+<p><a id="packageStabilityLevel"></a> <strong>packageStabilityLevel</strong><br>
 The default stability level used at provisioning time when
 installing packages/JBoss Modules modules. Can&#8217;t be used when
-<code>stability-level</code> is set.</p>
+<code>stability-level</code> is set. If both the
+<code>config-stability-level</code> and the
+<code>package-stability-level</code> options are set, the level of
+the <code>package-stability-level</code> option must imply the
+level of the <code>config-stability-level</code> option. It
+overrides the value set in the wildfly-feature-pack-build.xml file.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2088,11 +2661,35 @@ relative to <code>configDir</code>.</p>
 </ul>
 </div>
 <div class="paragraph">
+<p><a id="skipDoc"></a> <strong>skipDoc</strong><br>
+(no description)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.feature.pack.skip-doc</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>skip-doc</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p><a id="stabilityLevel"></a> <strong>stabilityLevel</strong><br>
 The default stability level used at provisioning time to generate
 configuration and provision packages. Can&#8217;t be used when
 <code>config-stability-level</code> or
-<code>package-stability-level</code> is set.</p>
+<code>package-stability-level</code> is set. It overrides the value
+set in the wildfly-feature-pack-build.xml file.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2480,12 +3077,12 @@ The layers defined for a given configuration model are located inside a director
 </div>
 </div>
 <div class="sect2">
-<h3 id="_build_feature_pack">3.4. build-feature-pack</h3>
+<h3 id="build_feature_pack">3.4. build-feature-pack</h3>
 <div class="sect3">
 <h4 id="_wildfly_galleonbuild_feature_pack">3.4.1. wildfly-galleon:build-feature-pack</h4>
 <div class="paragraph">
 <p><strong>Full name:</strong>
-org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:7.0.0.Final:build-feature-pack</p>
+org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin:8.2.2.Final:build-feature-pack</p>
 </div>
 </div>
 <div class="sect3">
@@ -2537,6 +3134,14 @@ artifact.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The directory where the generated feature specs are written.<br>
 <strong>Default value is</strong>: <code>${project.build.directory}/resources/features</code>.<br>
 <strong>Alias is</strong>: <code>feature-specs-output</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#generateCompleteModel">[generateCompleteModel]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(no description)<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>Alias is</strong>: <code>generate-complete-model</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#moduleTemplatesDir">[moduleTemplatesDir]</a></code></p></td>
@@ -2628,13 +3233,37 @@ manifest YAML definition. This parameter has no effect if
 <strong>Alias is</strong>: <code>config-file</code>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#configStatibilityLevel">[configStatibilityLevel]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#configStabilityLevel">[configStabilityLevel]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The default stability level used at provisioning time to generate
 configuration. Can&#8217;t be used when <code>stability-level</code> is
-set.<br>
+set. It overrides the value set in the
+wildfly-feature-pack-build.xml file.<br>
 <strong>Alias is</strong>: <code>config-stability-level</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#copyright">[copyright]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(no description)<br>
+<strong>User property is</strong>: <code>wildfly.feature.pack.copyright</code>.<br>
+<strong>Alias is</strong>: <code>copyright</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#cpeResolutionMode">[cpeResolutionMode]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CpeResolutionMode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the WildFly product-conf artifact contains a CPE, the
+provisioned maven artifacts of other feature-packs present in the
+provisioning configuration are not added to the generated SBOM. In
+order to advertise that a feature-pack is in the scope of the
+WildFly CPE, set this parameter to <code>SERVER_PRODUCT_CONF</code>. If no CPE
+is defined, then the content of feature-packs are added to the
+generated SBOM whatever the value of this parameter.<br>
+<strong>Default value is</strong>: <code>LOCAL</code>.<br>
+<strong>User property is</strong>: <code>wildfly.sbom.sbom-cpe-resolution-mode</code>.<br>
+<strong>Alias is</strong>: <code>sbom-cpe-resolution-mode</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#deployChannelManifest">[deployChannelManifest]</a></code></p></td>
@@ -2644,6 +3273,15 @@ set.<br>
 <strong>Default value is</strong>: <code>true</code>.<br>
 <strong>User property is</strong>: <code>wildfly.feature.pack.deploy-channel-manifest</code>.<br>
 <strong>Alias is</strong>: <code>deploy-channel-manifest</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#forbidLowerStatibilityLevelPackageReference">[forbidLowerStatibilityLevelPackageReference]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enforce that no package at a lower stability level than the
+minimum-stability-level is referenced from Galleon constructs.<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>Alias is</strong>: <code>forbid-lower-stability-level-package-reference</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#forkEmbedded">[forkEmbedded]</a></code></p></td>
@@ -2674,6 +3312,15 @@ stream in the channel manifest.<br>
 <strong>Alias is</strong>: <code>generate-channel-manifest</code>.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#includeIncompleCoordsArtifactsInSbom">[includeIncompleCoordsArtifactsInSbom]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(no description)<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>User property is</strong>: <code>wildfly.sbom.include-incomplete-coords-artifacts-in-sbom</code>.<br>
+<strong>Alias is</strong>: <code>include-incomplete-coords-artifacts-in-sbom</code>.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#minimumStabilityLevel">[minimumStabilityLevel]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
@@ -2681,16 +3328,22 @@ stream in the channel manifest.<br>
 generate feature specs and include packages. Set this if you need
 to generate feature specs for features with a lower stability level
 than the default level of the WildFly process being used for
-feature-spec generation.<br>
+feature-spec generation. It overrides the value set in the
+wildfly-feature-pack-build.xml file.<br>
 <strong>Alias is</strong>: <code>minimum-stability-level</code>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#packageStatibilityLevel">[packageStatibilityLevel]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#packageStabilityLevel">[packageStabilityLevel]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The default stability level used at provisioning time when
 installing packages/JBoss Modules modules. Can&#8217;t be used when
-<code>stability-level</code> is set.<br>
+<code>stability-level</code> is set. If both the
+<code>config-stability-level</code> and the
+<code>package-stability-level</code> options are set, the level of
+the <code>package-stability-level</code> option must imply the
+level of the <code>config-stability-level</code> option. It
+overrides the value set in the wildfly-feature-pack-build.xml file.<br>
 <strong>Alias is</strong>: <code>package-stability-level</code>.</p></td>
 </tr>
 <tr>
@@ -2705,13 +3358,23 @@ stored in the feature-pack&#8217;s
 <strong>Alias is</strong>: <code>release-name</code>.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#skipDoc">[skipDoc]</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(no description)<br>
+<strong>Default value is</strong>: <code>false</code>.<br>
+<strong>User property is</strong>: <code>wildfly.feature.pack.skip-doc</code>.<br>
+<strong>Alias is</strong>: <code>skip-doc</code>.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="#stabilityLevel">[stabilityLevel]</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The default stability level used at provisioning time to generate
 configuration and provision packages. Can&#8217;t be used when
 <code>config-stability-level</code> or
-<code>package-stability-level</code> is set.<br>
+<code>package-stability-level</code> is set. It overrides the value
+set in the wildfly-feature-pack-build.xml file.<br>
 <strong>Alias is</strong>: <code>stability-level</code>.</p></td>
 </tr>
 <tr>
@@ -2846,10 +3509,11 @@ The feature-pack build configuration file.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p><a id="configStatibilityLevel"></a> <strong>configStatibilityLevel</strong><br>
+<p><a id="configStabilityLevel"></a> <strong>configStabilityLevel</strong><br>
 The default stability level used at provisioning time to generate
 configuration. Can&#8217;t be used when <code>stability-level</code> is
-set.</p>
+set. It overrides the value set in the
+wildfly-feature-pack-build.xml file.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2861,6 +3525,55 @@ set.</p>
 </li>
 <li>
 <p><strong>Alias</strong>: <code>config-stability-level</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="copyright"></a> <strong>copyright</strong><br>
+(no description)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.String</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.feature.pack.copyright</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>copyright</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="cpeResolutionMode"></a> <strong>cpeResolutionMode</strong><br>
+If the WildFly product-conf artifact contains a CPE, the
+provisioned maven artifacts of other feature-packs present in the
+provisioning configuration are not added to the generated SBOM. In
+order to advertise that a feature-pack is in the scope of the
+WildFly CPE, set this parameter to <code>SERVER_PRODUCT_CONF</code>. If no CPE
+is defined, then the content of feature-packs are added to the
+generated SBOM whatever the value of this parameter.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>org.wildfly.galleon.plugin.CpeResolutionMode</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.sbom.sbom-cpe-resolution-mode</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>LOCAL</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>sbom-cpe-resolution-mode</code></p>
 </li>
 </ul>
 </div>
@@ -2904,6 +3617,27 @@ The directory where the generated feature specs are written.</p>
 </li>
 <li>
 <p><strong>Alias</strong>: <code>feature-specs-output</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="forbidLowerStatibilityLevelPackageReference"></a> <strong>forbidLowerStatibilityLevelPackageReference</strong><br>
+Enforce that no package at a lower stability level than the
+minimum-stability-level is referenced from Galleon constructs.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>forbid-lower-stability-level-package-reference</code></p>
 </li>
 </ul>
 </div>
@@ -2972,12 +3706,56 @@ stream in the channel manifest.</p>
 </ul>
 </div>
 <div class="paragraph">
+<p><a id="generateCompleteModel"></a> <strong>generateCompleteModel</strong><br>
+(no description)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.Boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>Yes</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>generate-complete-model</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="includeIncompleCoordsArtifactsInSbom"></a> <strong>includeIncompleCoordsArtifactsInSbom</strong><br>
+(no description)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>java.lang.Boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.sbom.include-incomplete-coords-artifacts-in-sbom</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>include-incomplete-coords-artifacts-in-sbom</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p><a id="minimumStabilityLevel"></a> <strong>minimumStabilityLevel</strong><br>
 The minimum stability level of the WildFly processes used to
 generate feature specs and include packages. Set this if you need
 to generate feature specs for features with a lower stability level
 than the default level of the WildFly process being used for
-feature-spec generation.</p>
+feature-spec generation. It overrides the value set in the
+wildfly-feature-pack-build.xml file.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3020,10 +3798,15 @@ debugging.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p><a id="packageStatibilityLevel"></a> <strong>packageStatibilityLevel</strong><br>
+<p><a id="packageStabilityLevel"></a> <strong>packageStabilityLevel</strong><br>
 The default stability level used at provisioning time when
 installing packages/JBoss Modules modules. Can&#8217;t be used when
-<code>stability-level</code> is set.</p>
+<code>stability-level</code> is set. If both the
+<code>config-stability-level</code> and the
+<code>package-stability-level</code> options are set, the level of
+the <code>package-stability-level</code> option must imply the
+level of the <code>config-stability-level</code> option. It
+overrides the value set in the wildfly-feature-pack-build.xml file.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3088,11 +3871,35 @@ relative to <code>configDir</code>.</p>
 </ul>
 </div>
 <div class="paragraph">
+<p><a id="skipDoc"></a> <strong>skipDoc</strong><br>
+(no description)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: <code>boolean</code></p>
+</li>
+<li>
+<p><strong>Required</strong>: <code>No</code></p>
+</li>
+<li>
+<p><strong>User Property</strong>: <code>wildfly.feature.pack.skip-doc</code></p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>false</code></p>
+</li>
+<li>
+<p><strong>Alias</strong>: <code>skip-doc</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p><a id="stabilityLevel"></a> <strong>stabilityLevel</strong><br>
 The default stability level used at provisioning time to generate
 configuration and provision packages. Can&#8217;t be used when
 <code>config-stability-level</code> or
-<code>package-stability-level</code> is set.</p>
+<code>package-stability-level</code> is set. It overrides the value
+set in the wildfly-feature-pack-build.xml file.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3371,7 +4178,138 @@ Original WildFly feature-packs include <code>modules.all</code> into the default
 </div>
 </div>
 <div class="sect2">
-<h3 id="Feature-pack-build-config-file">3.5. Feature-pack build config file (wildfly-feature-pack-build.xml)</h3>
+<h3 id="maven-extension">3.5. Using the plugin as a Maven Extension</h3>
+<div class="paragraph">
+<p>Your project can be configured to use the plugin as a Maven extension. If you do this, Maven will allow you to use one of two new <code>packaging</code> types for your Maven module: <code>galleon-feature-pack</code> or <code>galleon-user-feature-pack</code>. You would use these instead of the <code>pom</code> packaging that&#8217;s typically used.</p>
+</div>
+<div class="paragraph">
+<p>There are two main benefits of doing this:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It results in a default <code>package</code> phase execution of this plugin&#8217;s <code><a href="#build_feature_pack">build-feature-pack</a></code> or <code><a href="#build_user_feature_pack">build-user-feature-pack</a></code> goal, saving you the XML boilerplate of specifying executions and an execution id, goal and phase.</p>
+</li>
+<li>
+<p>It results in the plugin using the built feature pack as the main artifact of the project build, instead of attaching it as an additional artifact with a <code>null</code> Maven classifier. Doing it this way avoids problems some other plugins have with additional attachments with a <code>null</code> qualifier.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To tell Maven to use the plugin as a Maven extension, in the plugin declaration include the <code>extensions</code> element with a value of <code>true</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;plugin&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.wildfly.galleon-plugins<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>wildfly-galleon-maven-plugin<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;extensions&gt;</span>true<span style="color:#070;font-weight:bold">&lt;/extensions&gt;</span></code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_packaging_type_galleon_feature_pack">3.5.1. Packaging type <code>galleon-feature-pack</code></h4>
+<div class="paragraph">
+<p>Use this packaging type when you wish to use the <code><a href="#build_feature_pack">build-feature-pack</a></code> goal. To use it, configure the pom&#8217;s top-level <code>packaging</code> element:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;packaging&gt;</span>galleon-feature-pack<span style="color:#070;font-weight:bold">&lt;/packaging&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When this packaging type is used, Maven will execute default plugins in the <code>package</code>, <code>install</code> and <code>deploy</code> phases (assuming the command to launch maven enables those phases). It will also execute any other plugins configured in your pom.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If you are migrating a pom that used any <code>packaging</code> value other than <code>pom</code> (for example <code>jar</code>), plugin executions for other phases that previously happened by default will no longer happen and will need to be manually declared in the pom.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The important thing here is the default plugin execution for the <code>package</code> phase is this plugin&#8217;s <code><a href="#build_feature_pack">build-feature-pack</a></code> goal. That goal will be executed, using whatever configuration is specified for the <code>default-build-feature-pack</code> execution id.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+If you are using the <code>galleon-feature-pack</code> packaging type, use <code>default-build-feature-pack</code> as the execution id in the plugin configuration. Better yet, skip the <code>executions</code> element boilerplate and place any <code>configuration</code> element directly under the <code>plugin</code> root.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>An example plugin configuration might look like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;plugin&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.wildfly.galleon-plugins<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>wildfly-galleon-maven-plugin<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;extensions&gt;</span>true<span style="color:#070;font-weight:bold">&lt;/extensions&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;configuration&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;fork-embedded&gt;</span>true<span style="color:#070;font-weight:bold">&lt;/fork-embedded&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;generate-channel-manifest&gt;</span>true<span style="color:#070;font-weight:bold">&lt;/generate-channel-manifest&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;minimum-stability-level&gt;</span>preview<span style="color:#070;font-weight:bold">&lt;/minimum-stability-level&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;config-stability-level&gt;</span>preview<span style="color:#070;font-weight:bold">&lt;/config-stability-level&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;package-stability-level&gt;</span>preview<span style="color:#070;font-weight:bold">&lt;/package-stability-level&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/configuration&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/plugin&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_packaging_type_galleon_user_feature_pack">3.5.2. Packaging type <code>galleon-user-feature-pack</code></h4>
+<div class="paragraph">
+<p>Use this packaging type when you wish to use the <code><a href="#build_user_feature_pack">build-user-feature-pack</a></code> goal. To use it, configure the pom&#8217;s top-level <code>packaging</code> element:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;packaging&gt;</span>galleon-user-feature-pack<span style="color:#070;font-weight:bold">&lt;/packaging&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When this packaging type is used, Maven will execute default plugins in the <code>package</code>, <code>install</code> and <code>deploy</code> phases (assuming the command to launch maven enables those phases). It will also execute any other plugins configured in your pom.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If you are migrating a pom that used any <code>packaging</code> value other than <code>pom</code> (for example <code>jar</code>), plugin executions for other phases that previously happened by default will no longer happen and will need to be manually declared in the pom.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The important thing here is the default plugin execution for the <code>package</code> phase is this plugin&#8217;s <code><a href="#build_user_feature_pack">build-user-feature-pack</a></code> goal. That goal will be executed, using whatever configuration is specified for the <code>default-build-user-feature-pack</code> execution id.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+If you are using the <code>galleon-user-feature-pack</code> packaging type, use <code>default-user-build-feature-pack</code> as the execution id in the plugin configuration. Better yet, skip the <code>executions</code> element boilerplate and place any <code>configuration</code> element directly under the <code>plugin</code> root.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Feature-pack-build-config-file">3.6. Feature-pack build config file (wildfly-feature-pack-build.xml)</h3>
 <div class="paragraph">
 <p>Feature-pack building starts with this file. The file describes the feature-pack in terms of its dependencies on other
 feature-packs, default packages, configs and other options such as from which artifact groups to extract schemas into
@@ -3515,14 +4453,114 @@ Both artifact coordinates above are missing versions. Although the versions coul
 </table>
 </div>
 </div>
+<div class="sect4">
+<h5 id="_configuring_stability_levels">Configuring stability levels</h5>
+<div class="paragraph">
+<p>This feature requires a minimum schema version of <code>3.4</code>.</p>
+</div>
+<div class="paragraph">
+<p>Stability levels can be set using the following elements:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;stability-levels&gt;</span>
+  <span style="color:#777">&lt;!-- The minimum stability level of the WildFly processes used to generate feature specs and include packages. --&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;minimum-stability-level&gt;</span>[default|community|preview|experimental]<span style="color:#070;font-weight:bold">&lt;/minimum-stability-level&gt;</span>
+  <span style="color:#777">&lt;!-- The default stability level used at provisioning time to generate configuration. --&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;config-stability-level&gt;</span>[default|community|preview|experimental]<span style="color:#070;font-weight:bold">&lt;/config-stability-level&gt;</span>
+  <span style="color:#777">&lt;!-- The default stability level used at provisioning time when installing packages/JBoss Modules modules. --&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;package-stability-level&gt;</span>[default|community|preview|experimental]<span style="color:#070;font-weight:bold">&lt;/package-stability-level&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/stability-levels&gt;</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Instead of using <code>&lt;config-stability-level&gt;</code> and <code>&lt;package-stability-level&gt;</code>
+you can set the <code>&lt;stability-level&gt;</code> element that applies to both configurations and packages.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>&lt;config-stability-level&gt;</code> and the <code>&lt;package-stability-level&gt;</code> are set, then the level of
+the <code>&lt;package-stability-level&gt;</code> must imply the level of the <code>&lt;config-stability-level&gt;</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Stability options set in the Maven Plugin override the values set in the file.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_feature_pack_family_and_criteria">Feature-pack family and criteria</h5>
+<div class="paragraph">
+<p>A feature-pack can be part of a family and expose some criteria it is implementing.
+Add the following XML element to make the feature-pack be part of a family:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>...
+ &lt;family name=&quot;myfamily&quot;&gt;
+   &lt;criteria name=&quot;feature1&quot;/&gt;
+   &lt;criteria name=&quot;feature2&quot;/&gt;
+ &lt;/family&gt;
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that at least one criteria element is required.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_dependency_on_any_member_of_a_feature_pack_family">Dependency on any member of a feature-pack family</h5>
+<div class="paragraph">
+<p>A feature-pack can be part of a family and implement some criteria.
+Members of the family that implement the same criteria can be used at provisioning time in place of other members.
+By default, a feature-pack expresses a dependency on a given feature-pack.
+To allow to depend on any member of the feature-pack family that offers the expected criteria, you can use the <code>allowedFamily</code> attribute. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>...
+ &lt;dependency group-id=&quot;org.wildfly.core&quot; artifact-id=&quot;wildfly-core-galleon-pack&quot; allowedFamily=&quot;wildfly+jakarta-ee&quot;&gt;
+ ...
+ &lt;/dependency&gt;
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that all the criteria found in the <code>allowedFamily</code> attribute are added to this feature-pack if the family is the same. The added criteria are tagged 'inherited'.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 7.0.0.Final<br>
-Last updated 2024-02-16 12:17:43 +0100
+Version 8.2.2.Final<br>
+Last updated 2026-07-10 10:41:31 +0200
 </div>
 </div>
 </body>
